@@ -1,0 +1,16 @@
+{
+ "bug": "Math-3",
+ "plausible": false,
+ "correct": false,
+ "tries": 0,
+ "compiled": 0,
+ "patterns": {},
+ "setup_s": 16.3,
+ "test_s": 16.4,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 0,
+ "cpu_s": 96.18,
+ "est_j": 961.8,
+ "wall_s": 42.0
+}

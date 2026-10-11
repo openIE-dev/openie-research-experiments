@@ -1,0 +1,14 @@
+[11:34:44] sh defects4j checkout -p
+[11:34:49] sh defects4j compile
+[11:35:05] sh defects4j export -p
+[11:35:08] sh defects4j export -p
+[11:35:10] sh defects4j export -p
+[11:35:13] sh defects4j export -p
+[11:35:15] sh defects4j export -p
+[11:35:17] sh javac -nowarn -cp
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.commons.lang.builder.ReflectionToStringBuilder (file:/workspace/rce-work/build3/crates/rce/bench/defects4j/results/g1-100-v3/Lang-51/work/target/classes/) to field java.lang.Boolean.value
+WARNING: Please consider reporting this to the maintainers of org.apache.commons.lang.builder.ReflectionToStringBuilder
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+{"bug": "Lang-51", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 4, "compiled": 4, "patterns": {"StatementRemover": 2, "StatementInserter": 2}, "kept": [{"file": "src/java/org/apache/commons/lang/BooleanUtils.java", "line": 670, "pattern": "StatementInserter", "from": "{\n                char ch = str.charAt(0);\n                if (ch == 'y') {\n                    return \n                        (str.charAt(1) == 'e' || str.charAt(1) == 'E') &&\n                        (str.charAt(2) == 's' || str.charAt(2) == 'S');\n                }\n                if (ch == 'Y') {\n                    return \n                        (str.charAt(1) == 'E' || str.charAt(1) == 'e') &&\n                        (str.charAt(2) == 'S' || str.charAt(2) == 's');\n                }", "to": "{\n                char ch = str.charAt(0);\n                if (ch == 'y') {\n                    return \n                        (str.charAt(1) == 'e' || str.charAt(1) == 'E') &&\n                        (str.charAt(2) == 's' || str.charAt(2) == 'S');\n                }\n                if (ch == 'Y') {\n                    return \n                        (str.charAt(1) == 'E' || str.charAt(1) == 'e') &&\n                        (str.charAt(2) == 'S' || str.charAt(2) == 's');\n                }\n\t return false;\n"}], "setup_s": 21.4, "positions": [["src/java/org/apache/commons/lang/BooleanUtils.java", [670]]], "test_s": 1.5, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 4, "plausible_found": [{"try": 3, "pattern": "StatementInserter", "line": 670, "new_idents": ["false"]}], "picked_try": 3, "ast_equal": true, "fixed_derived": ["src/java/org/apache/commons/lang/BooleanUtils.java"], "patch_files": ["src/java/org/apache/commons/lang/BooleanUtils.java"], "pattern": "StatementInserter", "cpu_s": 32.59, "est_j": 325.9, "wall_s": 38.9}

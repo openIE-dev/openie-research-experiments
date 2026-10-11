@@ -1,0 +1,13 @@
+diff --git a/base/packaging/version.py b/work/packaging/version.py
+index 15d501a..c9bbda2 100644
+--- a/base/packaging/version.py
++++ b/work/packaging/version.py
+@@ -448,7 +448,7 @@ class Version(_BaseVersion):
+         >>> Version("1").micro
+         0
+         """
+-        return self.release[2] if len(self.release) >= 3 else 1
++        return self.release[2] if len(self.release) >= 3 else 0
+ 
+ 
+ class _TrimmedRelease(Version):

@@ -1,0 +1,9 @@
+[09:57:50] sh defects4j checkout -p
+[09:57:54] sh defects4j compile
+[09:58:00] sh defects4j export -p
+[09:58:00] sh defects4j export -p
+[09:58:01] sh defects4j export -p
+[09:58:02] sh defects4j export -p
+[09:58:03] sh defects4j export -p
+[09:58:04] sh javac -nowarn -cp
+{"bug": "Lang-63", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 1166, "compiled": 353, "patterns": {"OperatorMutator": 8, "LiteralExpressionMutator": 4, "StatementMover": 167, "StatementRemover": 8, "VariableReplacer": 36, "NullPointerChecker": 168, "MethodInvocationMutator": 775}, "kept": [{"file": "src/java/org/apache/commons/lang/time/DurationFormatUtils.java", "line": 323, "pattern": "MethodInvocationMutator", "from": "months -= reduceAndCorrect(start, end, Calendar.MONTH, months);", "to": "months -= reduceAndCorrect(end, end, Calendar.MONTH, milliseconds);"}], "setup_s": 9.9, "positions": [["src/java/org/apache/commons/lang/time/DurationFormatUtils.java", [306, 312, 318, 319, 320, 321, 322, 323, 324, 432, 433, 434, 435, 436, 437, 438, 439, 440, 441, 442, 443]]], "test_s": 121.7, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 1344, "ast_equal": false, "fixed_derived": ["src/java/org/apache/commons/lang/time/DurationFormatUtils.java"], "patch_files": ["src/java/org/apache/commons/lang/time/DurationFormatUtils.java"], "pattern": "MethodInvocationMutator", "cpu_s": 105.53, "est_j": 1055.3, "wall_s": 182.6}

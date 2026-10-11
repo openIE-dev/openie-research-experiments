@@ -1,0 +1,87 @@
+[09:12:54] sh defects4j checkout -p
+[09:13:00] sh defects4j compile
+[09:13:13] sh defects4j export -p
+[09:13:14] sh defects4j export -p
+[09:13:16] sh defects4j export -p
+[09:13:18] sh defects4j export -p
+[09:13:19] sh defects4j export -p
+[09:13:20] sh javac -nowarn -cp
+[09:13:21] test 21
+[09:13:23] test 2
+[09:13:23] test 2
+[09:13:23] test 2
+[09:13:23] test 2
+[09:13:23] test 2
+[09:13:24] test 2
+[09:13:24] test 2
+[09:13:24] test 2
+[09:13:24] test 2
+[09:13:24] test 2
+[09:13:24] test 2
+[09:13:24] test 2
+[09:13:24] test 2
+[09:13:24] test 2
+[09:13:24] test 2
+[09:13:24] test 2
+[09:13:24] test 2
+[09:13:24] test 2
+[09:13:25] test 2
+[09:13:25] test 2
+[09:13:25] test 2
+[09:13:25] test 2
+[09:13:25] test 2
+[09:13:25] test 2
+[09:13:25] test 2
+[09:13:25] test 2
+[09:13:25] test 2
+[09:13:25] test 2
+[09:13:25] test 2
+[09:13:25] test 2
+[09:13:25] test 2
+[09:13:25] test 2
+[09:13:25] test 2
+[09:13:26] test 2
+[09:13:26] test 2
+[09:13:26] test 2
+[09:13:26] test 2
+[09:13:26] test 2
+[09:13:26] test 2
+[09:13:26] test 2
+[09:13:26] test 2
+[09:13:26] test 2
+[09:13:26] test 2
+[09:13:26] test 2
+[09:13:26] test 2
+[09:13:27] test 2
+[09:13:27] test 2
+[09:13:27] test 2
+[09:13:27] test 2
+[09:13:27] test 2
+[09:13:27] test 2
+[09:13:27] test 2
+[09:13:27] test 2
+[09:13:27] test 2
+[09:13:27] test 2
+[09:13:27] test 2
+[09:13:27] test 2
+[09:13:27] test 2
+[09:13:27] test 2
+[09:13:28] test 2
+[09:13:28] test 2
+[09:13:28] test 2
+[09:13:28] test 2
+[09:13:28] test 2
+[09:13:28] test 2
+[09:13:28] test 2
+[09:13:28] test 2
+[09:13:28] test 2
+[09:13:28] test 2
+[09:13:28] test 2
+[09:13:29] test 2
+[09:13:29] test 2
+[09:13:29] test 2
+[09:13:29] test 2
+[09:13:29] test 2
+[09:13:29] test 2
+[09:13:29] test 2
+{"bug": "Math-1", "plausible": false, "correct": false, "tries": 108, "compiled": 76, "patterns": {"FP13": 102, "FP5": 4, "FP11": 2}, "setup_s": 18.4, "test_s": 2.4, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 2, "candidates": 108, "cpu_s": 79.59, "est_j": 795.9, "wall_s": 35.0}

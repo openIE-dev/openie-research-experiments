@@ -1,0 +1,39 @@
+{
+ "bug": "Lang-46",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 4,
+ "compiled": 2,
+ "patterns": {
+  "StatementMover": 2,
+  "StatementRemover": 2
+ },
+ "kept": [],
+ "setup_s": 24.1,
+ "positions": [
+  [
+   "src/java/org/apache/commons/lang/StringEscapeUtils.java",
+   [
+    244
+   ]
+  ]
+ ],
+ "test_s": 2.4,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 4,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/java/org/apache/commons/lang/StringEscapeUtils.java"
+ ],
+ "patch_files": [
+  "src/java/org/apache/commons/lang/StringEscapeUtils.java"
+ ],
+ "pattern": null,
+ "cpu_s": 38.63,
+ "est_j": 386.3,
+ "wall_s": 46.1
+}

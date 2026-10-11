@@ -1,0 +1,16 @@
+[09:04:47] sh defects4j checkout -p
+[09:04:51] sh defects4j compile
+[09:04:57] sh defects4j export -p
+[09:04:58] sh defects4j export -p
+[09:04:58] sh defects4j export -p
+[09:04:59] sh defects4j export -p
+[09:05:00] sh defects4j export -p
+[09:05:01] sh javac -nowarn -cp
+[09:05:01] test 10
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.commons.lang.builder.ReflectionToStringBuilder (file:/workspace/d4j-runs/g1-100/Lang-51/work/target/classes/) to field java.lang.Boolean.value
+WARNING: Please consider reporting this to the maintainers of org.apache.commons.lang.builder.ReflectionToStringBuilder
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[09:05:02] test 1
+{"bug": "Lang-51", "plausible": false, "correct": false, "tries": 0, "compiled": 0, "patterns": {}, "setup_s": 9.5, "test_s": 0.3, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 0, "cpu_s": 27.71, "est_j": 277.1, "wall_s": 14.7}

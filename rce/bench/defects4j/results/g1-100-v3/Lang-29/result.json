@@ -1,0 +1,38 @@
+{
+ "bug": "Lang-29",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 1,
+ "compiled": 1,
+ "patterns": {
+  "StatementRemover": 1
+ },
+ "kept": [],
+ "setup_s": 18.4,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/lang3/SystemUtils.java",
+   [
+    1672
+   ]
+  ]
+ ],
+ "test_s": 15.9,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 1,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/lang3/SystemUtils.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/lang3/SystemUtils.java"
+ ],
+ "pattern": null,
+ "cpu_s": 53.61,
+ "est_j": 536.1,
+ "wall_s": 49.2
+}

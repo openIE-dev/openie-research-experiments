@@ -1,0 +1,11 @@
+--- a/src/bytes.rs
++++ b/src/bytes.rs
+@@ -73,7 +73,7 @@
+                     self.had_error = true;
+                     return None;
+                 },
+-                ' ' | '\t' => { break; },
++                ' ' | '\t' | '\n' => { break; },
+                 _ => { result.push(ch); },
+             }
+             if let Some(ch2) = self.next_char() { ch = ch2; } else { break; }

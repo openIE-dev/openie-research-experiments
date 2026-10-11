@@ -1,0 +1,14 @@
+[09:56:17] sh defects4j checkout -p
+[09:56:20] sh defects4j compile
+[09:56:26] sh defects4j export -p
+[09:56:27] sh defects4j export -p
+[09:56:27] sh defects4j export -p
+[09:56:28] sh defects4j export -p
+[09:56:29] sh defects4j export -p
+[09:56:30] sh javac -nowarn -cp
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.commons.lang.builder.ReflectionToStringBuilder (file:/workspace/rce-work/build3/crates/rce/bench/defects4j/results/tbar-100/Lang-51/work/target/classes/) to field java.lang.Boolean.value
+WARNING: Please consider reporting this to the maintainers of org.apache.commons.lang.builder.ReflectionToStringBuilder
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+{"bug": "Lang-51", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 5, "compiled": 4, "patterns": {"StatementMover": 3, "StatementRemover": 2}, "kept": [], "setup_s": 9.2, "positions": [["src/java/org/apache/commons/lang/BooleanUtils.java", [670]]], "test_s": 0.6, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 5, "ast_equal": false, "fixed_derived": ["src/java/org/apache/commons/lang/BooleanUtils.java"], "patch_files": ["src/java/org/apache/commons/lang/BooleanUtils.java"], "pattern": null, "cpu_s": 31.0, "est_j": 310.0, "wall_s": 16.7}

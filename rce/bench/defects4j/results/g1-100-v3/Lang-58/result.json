@@ -1,0 +1,201 @@
+{
+ "bug": "Lang-58",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": true,
+ "correct": false,
+ "partial": false,
+ "tries": 125,
+ "compiled": 100,
+ "patterns": {
+  "OperatorMutator": 11,
+  "ConditionalExpressionMutator": 66,
+  "VariableReplacer": 10,
+  "NullPointerChecker": 10,
+  "MethodInvocationMutator": 17,
+  "LiteralExpressionMutator": 6,
+  "StatementMover": 1,
+  "StatementRemover": 3,
+  "StatementInserter": 1
+ },
+ "kept": [
+  {
+   "file": "src/java/org/apache/commons/lang/math/NumberUtils.java",
+   "line": 452,
+   "pattern": "ConditionalExpressionMutator",
+   "from": "if (dec == null\n                        && exp == null\n                        && isDigits(numeric.substring(1))\n                        && (numeric.charAt(0) == '-' || Character.isDigit(numeric.charAt(0)))) {\n                        try {\n                            return createLong(numeric);\n                        } catch (NumberFormatException nfe) {\n                            //Too big for a long\n                        }\n                        return createBigInteger(numeric);\n\n                    }",
+   "to": "if (dec != numeric || (dec == null\n                        && exp == null\n                        && isDigits(numeric.substring(1))\n                        && (numeric.charAt(0) == '-' || Character.isDigit(numeric.charAt(0))))) {\n                        try {\n                            return createLong(numeric);\n                        } catch (NumberFormatException nfe) {\n                            //Too big for a long\n                        }\n                        return createBigInteger(numeric);\n\n                    }"
+  }
+ ],
+ "setup_s": 19.3,
+ "positions": [
+  [
+   "src/java/org/apache/commons/lang/math/NumberUtils.java",
+   [
+    452,
+    453,
+    454,
+    455
+   ]
+  ]
+ ],
+ "test_s": 10.8,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 500,
+ "plausible_found": [
+  {
+   "try": 9,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": []
+  },
+  {
+   "try": 15,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": []
+  },
+  {
+   "try": 17,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": [
+    "mant"
+   ]
+  },
+  {
+   "try": 21,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": [
+    "str"
+   ]
+  },
+  {
+   "try": 25,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": [
+    "EMPTY",
+    "StringUtils"
+   ]
+  },
+  {
+   "try": 29,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": []
+  },
+  {
+   "try": 35,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": []
+  },
+  {
+   "try": 37,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": [
+    "mant"
+   ]
+  },
+  {
+   "try": 41,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": [
+    "str"
+   ]
+  },
+  {
+   "try": 45,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": [
+    "EMPTY",
+    "StringUtils"
+   ]
+  },
+  {
+   "try": 49,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": []
+  },
+  {
+   "try": 53,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": []
+  },
+  {
+   "try": 57,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": [
+    "mant"
+   ]
+  },
+  {
+   "try": 61,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": [
+    "str"
+   ]
+  },
+  {
+   "try": 65,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": [
+    "EMPTY",
+    "StringUtils"
+   ]
+  },
+  {
+   "try": 68,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": []
+  },
+  {
+   "try": 72,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": []
+  },
+  {
+   "try": 74,
+   "pattern": "OperatorMutator",
+   "line": 452,
+   "new_idents": []
+  },
+  {
+   "try": 75,
+   "pattern": "OperatorMutator",
+   "line": 452,
+   "new_idents": []
+  },
+  {
+   "try": 77,
+   "pattern": "OperatorMutator",
+   "line": 452,
+   "new_idents": []
+  }
+ ],
+ "picked_try": 9,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/java/org/apache/commons/lang/math/NumberUtils.java"
+ ],
+ "patch_files": [
+  "src/java/org/apache/commons/lang/math/NumberUtils.java"
+ ],
+ "pattern": "ConditionalExpressionMutator",
+ "cpu_s": 57.6,
+ "est_j": 576.0,
+ "wall_s": 58.2
+}

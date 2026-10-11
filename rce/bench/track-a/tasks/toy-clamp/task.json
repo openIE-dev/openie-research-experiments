@@ -1,0 +1,8 @@
+{
+  "id": "toy-clamp",
+  "problem": "clamp(x, lo, hi) returns x instead of hi when x > hi.",
+  "repo": "repo",
+  "test_cmd": "python3 test_clamp.py",
+  "gold_patch": "gold.patch",
+  "timeout_s": 60
+}

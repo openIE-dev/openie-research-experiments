@@ -1,0 +1,13 @@
+diff --git a/base/src/lib.rs b/work/src/lib.rs
+index 36c0448..6a3b098 100644
+--- a/base/src/lib.rs
++++ b/work/src/lib.rs
+@@ -315,7 +315,7 @@ pub fn osa_distance(a: &str, b: &str) -> usize {
+             let cost = usize::from(a_char != b_char);
+             curr_distances[j + 1] = min(
+                 curr_distances[j] + 1,
+-                min(prev_distances[j + 1] + 1, prev_distances[j] + 1),
++                min(prev_distances[j + 1] + 1, prev_distances[j] + cost),
+             );
+             if i > 0 && j > 0 && a_char != b_char && a_char == prev_b_char && b_char == prev_a_char
+             {

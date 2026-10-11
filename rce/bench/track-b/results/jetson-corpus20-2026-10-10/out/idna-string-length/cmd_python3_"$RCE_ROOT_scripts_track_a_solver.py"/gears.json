@@ -1,0 +1,31 @@
+{
+ "gear": "G2-local-llm",
+ "test_runs": 252,
+ "llm_calls": 1,
+ "rule_tries": 250,
+ "edit": {
+  "file": "idna/core.py",
+  "function": "valid_string_length",
+  "llm": true
+ },
+ "ranked": [
+  "idna/core.py::valid_string_length",
+  "idna/codec.py::_buffer_encode",
+  "idna/codec.py::_buffer_decode",
+  "idna/core.py::check_label",
+  "idna/core.py::uts46_remap",
+  "idna/intranges.py::intranges_from_list"
+ ],
+ "sensitive": [
+  "idna/core.py::valid_string_length",
+  "idna/core.py::_combining_class",
+  "idna/core.py::_is_script",
+  "idna/core.py::_punycode",
+  "idna/core.py::_unot",
+  "idna/core.py::check_initial_combiner",
+  "idna/core.py::check_hyphen_ok",
+  "idna/core.py::check_nfc",
+  "idna/core.py::valid_contextj"
+ ],
+ "seconds": 43.02
+}

@@ -1,0 +1,11 @@
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -184,7 +184,7 @@
+     if let Some((_, c)) = char_indices.next() {
+         write!(f, "{}", c.to_uppercase())?;
+         if let Some((i, _)) = char_indices.next() {
+-            uppercase(&s[i..], f)?;
++            lowercase(&s[i..], f)?;
+         }
+     }
+ 

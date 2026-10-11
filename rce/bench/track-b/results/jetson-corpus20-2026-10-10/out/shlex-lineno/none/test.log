@@ -1,0 +1,32 @@
+
+running 7 tests
+.. 2/7
+bytes::test_lineno --- FAILED
+. 4/7
+test_lineno --- FAILED
+..
+failures:
+
+---- bytes::test_lineno stdout ----
+
+thread 'bytes::test_lineno' (709752) panicked at src/bytes.rs:513:13:
+assertion `left == right` failed
+  left: 5
+ right: 3
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- test_lineno stdout ----
+
+thread 'test_lineno' (709755) panicked at src/lib.rs:256:13:
+assertion `left == right` failed
+  left: 5
+ right: 3
+
+
+failures:
+    bytes::test_lineno
+    test_lineno
+
+test result: FAILED. 5 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `--lib`

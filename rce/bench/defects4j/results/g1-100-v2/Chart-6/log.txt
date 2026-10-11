@@ -1,0 +1,9 @@
+[09:59:26] sh defects4j checkout -p
+[09:59:29] sh defects4j compile
+[09:59:39] sh defects4j export -p
+[09:59:40] sh defects4j export -p
+[09:59:41] sh defects4j export -p
+[09:59:42] sh defects4j export -p
+[09:59:44] sh defects4j export -p
+[09:59:45] sh javac -nowarn -cp
+{"bug": "Chart-6", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 19, "compiled": 10, "patterns": {"MethodInvocationMutator": 5, "VariableReplacer": 4, "NullPointerChecker": 7, "StatementRemover": 1, "StatementInserter": 2}, "kept": [], "setup_s": 12.8, "positions": [["source/org/jfree/chart/util/ShapeList.java", [111]]], "test_s": 3.0, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 2, "candidates": 19, "ast_equal": false, "fixed_derived": ["source/org/jfree/chart/util/ShapeList.java"], "patch_files": ["source/org/jfree/chart/util/ShapeList.java"], "pattern": null, "cpu_s": 54.75, "est_j": 547.5, "wall_s": 24.5}

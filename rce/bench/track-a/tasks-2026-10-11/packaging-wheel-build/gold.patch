@@ -1,0 +1,11 @@
+--- a/packaging/utils.py
++++ b/packaging/utils.py
+@@ -101,7 +101,7 @@
+ 
+     filename = filename[:-4]
+     dashes = filename.count("-")
+-    if dashes != 4:
++    if dashes not in (4, 5):
+         raise InvalidWheelFilename(
+             f"Invalid wheel filename (wrong number of parts): {filename!r}"
+         )

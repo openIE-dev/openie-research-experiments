@@ -1,0 +1,13 @@
+diff --git a/base/src/bytes.rs b/work/src/bytes.rs
+index f7b9ea3..1e31b0b 100644
+--- a/base/src/bytes.rs
++++ b/work/src/bytes.rs
+@@ -123,7 +123,7 @@ impl<'a> Shlex<'a> {
+ 
+     fn next_char(&mut self) -> Option<u8> {
+         let res = self.in_iter.next().copied();
+-        if res == Some(b'\n') { self.line_no += 2; }
++        if res == Some(b'\n') { self.line_no += 1; }
+         res
+     }
+ }

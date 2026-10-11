@@ -1,0 +1,41 @@
+{
+ "bug": "Lang-16",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 57,
+ "compiled": 31,
+ "patterns": {
+  "ConditionalExpressionMutator": 42,
+  "OperatorMutator": 1,
+  "StatementMover": 11,
+  "StatementRemover": 3
+ },
+ "kept": [],
+ "setup_s": 14.1,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/lang3/math/NumberUtils.java",
+   [
+    458
+   ]
+  ]
+ ],
+ "test_s": 2.5,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 57,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/lang3/math/NumberUtils.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/lang3/math/NumberUtils.java"
+ ],
+ "pattern": null,
+ "cpu_s": 43.16,
+ "est_j": 431.6,
+ "wall_s": 30.0
+}

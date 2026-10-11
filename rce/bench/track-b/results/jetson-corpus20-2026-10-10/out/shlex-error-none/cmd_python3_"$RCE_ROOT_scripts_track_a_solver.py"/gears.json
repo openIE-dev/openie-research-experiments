@@ -1,0 +1,29 @@
+{
+ "gear": "unresolved",
+ "test_runs": 254,
+ "llm_calls": 3,
+ "rule_tries": 250,
+ "edit": null,
+ "ranked": [
+  "src/bytes.rs::split",
+  "src/lib.rs::split",
+  "src/bytes.rs::new",
+  "src/bytes.rs::new",
+  "src/lib.rs::new",
+  "src/lib.rs::new"
+ ],
+ "timeouts": 2,
+ "sensitive": [
+  "src/bytes.rs::new",
+  "src/bytes.rs::parse_word",
+  "src/bytes.rs::parse_double",
+  "src/bytes.rs::parse_single",
+  "src/bytes.rs::next_char",
+  "src/bytes.rs::next",
+  "src/bytes.rs::quote",
+  "src/bytes.rs::unquoted_ok_fast",
+  "src/bytes.rs::quoting_strategy",
+  "src/bytes.rs::append_quoted_chunk"
+ ],
+ "seconds": 111.7
+}

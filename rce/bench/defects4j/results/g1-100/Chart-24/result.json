@@ -1,0 +1,27 @@
+{
+ "bug": "Chart-24",
+ "plausible": true,
+ "correct": false,
+ "tries": 7,
+ "compiled": 4,
+ "patterns": {
+  "FP10": 1,
+  "FP13": 4,
+  "FP7": 2
+ },
+ "setup_s": 17.8,
+ "test_s": 1.0,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 14,
+ "pattern": "FP13",
+ "tier": 2,
+ "edit": {
+  "file": "source/org/jfree/chart/renderer/GrayPaintScale.java",
+  "from": "value",
+  "to": "v"
+ },
+ "cpu_s": 37.89,
+ "est_j": 378.9,
+ "wall_s": 29.5
+}

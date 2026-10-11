@@ -1,0 +1,9 @@
+[11:50:22] sh defects4j checkout -p
+[11:50:27] sh defects4j compile
+[11:51:03] sh defects4j export -p
+[11:51:06] sh defects4j export -p
+[11:51:10] sh defects4j export -p
+[11:51:14] sh defects4j export -p
+[11:51:17] sh defects4j export -p
+[11:51:21] sh javac -nowarn -cp
+{"bug": "Math-1", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": true, "tries": 133, "compiled": 78, "patterns": {"VariableReplacer": 130, "StatementRemover": 3}, "kept": [{"file": "src/main/java/org/apache/commons/math3/fraction/BigFraction.java", "line": 306, "pattern": "StatementRemover", "from": "throw new FractionConversionException(value, p2, q2);", "to": ""}], "setup_s": 40.8, "positions": [["src/main/java/org/apache/commons/math3/fraction/BigFraction.java", [306]], ["src/main/java/org/apache/commons/math3/fraction/Fraction.java", [215]]], "test_s": 21.9, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 2, "candidates": 134, "ast_equal": false, "fixed_derived": ["src/main/java/org/apache/commons/math3/fraction/BigFraction.java", "src/main/java/org/apache/commons/math3/fraction/Fraction.java"], "patch_files": ["src/main/java/org/apache/commons/math3/fraction/BigFraction.java", "src/main/java/org/apache/commons/math3/fraction/Fraction.java"], "pattern": null, "cpu_s": 97.22, "est_j": 972.2, "wall_s": 95.7}

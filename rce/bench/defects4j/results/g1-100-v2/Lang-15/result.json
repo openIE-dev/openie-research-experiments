@@ -1,0 +1,54 @@
+{
+ "bug": "Lang-15",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": true,
+ "tries": 44,
+ "compiled": 23,
+ "patterns": {
+  "NullPointerChecker": 25,
+  "StatementMover": 9,
+  "StatementRemover": 4,
+  "VariableReplacer": 2,
+  "RangeChecker": 1,
+  "OperatorMutator": 3
+ },
+ "kept": [
+  {
+   "file": "src/main/java/org/apache/commons/lang3/reflect/TypeUtils.java",
+   "line": 675,
+   "pattern": "OperatorMutator",
+   "from": "if (cls.getTypeParameters().length > 0 || toClass.equals(cls)) {\n            return typeVarAssigns;\n        }",
+   "to": "if (cls.getTypeParameters().length<0 || toClass.equals(cls)) {\n            return typeVarAssigns;\n        }"
+  }
+ ],
+ "setup_s": 13.3,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/lang3/reflect/TypeUtils.java",
+   [
+    219,
+    220,
+    221,
+    675
+   ]
+  ]
+ ],
+ "test_s": 2.8,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 2,
+ "candidates": 125,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/lang3/reflect/TypeUtils.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/lang3/reflect/TypeUtils.java"
+ ],
+ "pattern": null,
+ "cpu_s": 49.63,
+ "est_j": 496.3,
+ "wall_s": 29.3
+}

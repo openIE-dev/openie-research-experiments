@@ -1,0 +1,29 @@
+{
+ "bug": "Lang-10",
+ "plausible": true,
+ "correct": false,
+ "tries": 30,
+ "compiled": 12,
+ "patterns": {
+  "FP9": 4,
+  "FP11": 7,
+  "FP7": 1,
+  "FP13": 15,
+  "FP15": 3
+ },
+ "setup_s": 11.4,
+ "test_s": 39.5,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 2,
+ "candidates": 37,
+ "pattern": "FP11",
+ "tier": 3,
+ "edit": {
+  "file": "src/main/java/org/apache/commons/lang3/time/FastDateParser.java",
+  "from": "",
+  "to": " + 1"
+ },
+ "cpu_s": 129.24,
+ "est_j": 1292.4,
+ "wall_s": 59.2
+}

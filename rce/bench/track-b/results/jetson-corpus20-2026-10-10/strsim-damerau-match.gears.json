@@ -1,0 +1,17 @@
+{
+ "gear": "unresolved",
+ "test_runs": 254,
+ "llm_calls": 3,
+ "rule_tries": 250,
+ "edit": null,
+ "ranked": [
+  "src/lib.rs::generic_damerau_levenshtein",
+  "src/lib.rs::flat_index",
+  "src/lib.rs::get",
+  "src/lib.rs::get",
+  "src/lib.rs::damerau_levenshtein_impl",
+  "src/lib.rs::damerau_levenshtein"
+ ],
+ "sensitive": [],
+ "seconds": 98.91
+}

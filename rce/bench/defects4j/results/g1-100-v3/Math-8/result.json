@@ -1,0 +1,43 @@
+{
+ "bug": "Math-8",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 42,
+ "compiled": 5,
+ "patterns": {
+  "StatementRemover": 2,
+  "VariableReplacer": 4,
+  "NullPointerChecker": 33,
+  "RangeChecker": 1,
+  "LiteralExpressionMutator": 2
+ },
+ "kept": [],
+ "setup_s": 36.1,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/math3/distribution/DiscreteDistribution.java",
+   [
+    181,
+    187
+   ]
+  ]
+ ],
+ "test_s": 2.0,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 43,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/math3/distribution/DiscreteDistribution.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/math3/distribution/DiscreteDistribution.java"
+ ],
+ "pattern": null,
+ "cpu_s": 62.59,
+ "est_j": 625.9,
+ "wall_s": 65.2
+}

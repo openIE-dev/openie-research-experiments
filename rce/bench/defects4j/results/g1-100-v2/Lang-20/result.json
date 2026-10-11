@@ -1,0 +1,56 @@
+{
+ "bug": "Lang-20",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": true,
+ "correct": false,
+ "partial": false,
+ "tries": 68,
+ "compiled": 12,
+ "patterns": {
+  "VariableReplacer": 8,
+  "NullPointerChecker": 6,
+  "MethodInvocationMutator": 54
+ },
+ "kept": [
+  {
+   "file": "src/main/java/org/apache/commons/lang3/StringUtils.java",
+   "line": 3298,
+   "pattern": "MethodInvocationMutator",
+   "from": "StringBuilder buf = new StringBuilder((array[startIndex] == null ? 16 : array[startIndex].toString().length()) + 1);",
+   "to": "StringBuilder buf = new StringBuilder();"
+  },
+  {
+   "file": "src/main/java/org/apache/commons/lang3/StringUtils.java",
+   "line": 3383,
+   "pattern": "MethodInvocationMutator",
+   "from": "StringBuilder buf = new StringBuilder((array[startIndex] == null ? 16 : array[startIndex].toString().length()) + separator.length());",
+   "to": "StringBuilder buf = new StringBuilder();"
+  }
+ ],
+ "setup_s": 13.8,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/lang3/StringUtils.java",
+   [
+    3298,
+    3383
+   ]
+  ]
+ ],
+ "test_s": 17.9,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 2,
+ "candidates": 88,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/lang3/StringUtils.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/lang3/StringUtils.java"
+ ],
+ "pattern": "MethodInvocationMutator",
+ "cpu_s": 55.68,
+ "est_j": 556.8,
+ "wall_s": 45.7
+}

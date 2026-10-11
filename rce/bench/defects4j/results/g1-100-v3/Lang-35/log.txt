@@ -1,0 +1,14 @@
+[11:30:28] sh defects4j checkout -p
+[11:30:33] sh defects4j compile
+[11:30:47] sh defects4j export -p
+[11:30:49] sh defects4j export -p
+[11:30:51] sh defects4j export -p
+[11:30:53] sh defects4j export -p
+[11:30:56] sh defects4j export -p
+[11:30:58] sh javac -nowarn -cp
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.commons.lang3.builder.CompareToBuilder (file:/workspace/rce-work/build3/crates/rce/bench/defects4j/results/g1-100-v3/Lang-35/work/target/classes/) to field java.lang.String.value
+WARNING: Please consider reporting this to the maintainers of org.apache.commons.lang3.builder.CompareToBuilder
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+{"bug": "Lang-35", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 6, "compiled": 3, "patterns": {"StatementRemover": 3, "ReturnStatementMutator": 1, "ClassCastChecker": 2}, "kept": [], "setup_s": 18.7, "positions": [["src/main/java/org/apache/commons/lang3/ArrayUtils.java", [3295, 3574]]], "test_s": 1.9, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 6, "ast_equal": false, "fixed_derived": ["src/main/java/org/apache/commons/lang3/ArrayUtils.java"], "patch_files": ["src/main/java/org/apache/commons/lang3/ArrayUtils.java"], "pattern": null, "cpu_s": 38.0, "est_j": 380.0, "wall_s": 38.2}

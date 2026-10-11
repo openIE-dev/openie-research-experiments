@@ -1,0 +1,9 @@
+[10:00:27] sh defects4j checkout -p
+[10:00:31] sh defects4j compile
+[10:00:49] sh defects4j export -p
+[10:00:50] sh defects4j export -p
+[10:00:52] sh defects4j export -p
+[10:00:55] sh defects4j export -p
+[10:00:57] sh defects4j export -p
+[10:00:58] sh javac -nowarn -cp
+{"bug": "Chart-12", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 34, "compiled": 4, "patterns": {"VariableReplacer": 29, "NullPointerChecker": 2, "StatementRemover": 2, "StatementInserter": 1}, "kept": [{"file": "source/org/jfree/chart/plot/MultiplePiePlot.java", "line": 145, "pattern": "StatementInserter", "from": "this.dataset = dataset;", "to": "setDataset(dataset);"}], "setup_s": 21.9, "positions": [["source/org/jfree/chart/plot/MultiplePiePlot.java", [145]]], "test_s": 4.5, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 40, "ast_equal": true, "fixed_derived": ["source/org/jfree/chart/plot/MultiplePiePlot.java"], "patch_files": ["source/org/jfree/chart/plot/MultiplePiePlot.java"], "pattern": "StatementInserter", "cpu_s": 49.11, "est_j": 491.1, "wall_s": 44.2}

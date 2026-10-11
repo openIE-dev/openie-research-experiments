@@ -1,0 +1,9 @@
+[12:07:40] sh defects4j checkout -p
+[12:07:46] sh defects4j compile
+[12:08:35] sh defects4j export -p
+[12:08:38] sh defects4j export -p
+[12:08:41] sh defects4j export -p
+[12:08:48] sh defects4j export -p
+[12:08:51] sh defects4j export -p
+[12:08:54] sh javac -nowarn -cp
+{"bug": "Closure-10", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 185, "compiled": 91, "patterns": {"ConditionalExpressionMutator": 160, "VariableReplacer": 1, "NullPointerChecker": 17, "StatementRemover": 1, "StatementInserter": 6}, "kept": [], "setup_s": 55.2, "positions": [["src/com/google/javascript/jscomp/NodeUtil.java", [1417]]], "test_s": 645.5, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 185, "ast_equal": false, "fixed_derived": ["src/com/google/javascript/jscomp/NodeUtil.java"], "patch_files": ["src/com/google/javascript/jscomp/NodeUtil.java"], "pattern": null, "cpu_s": 858.07, "est_j": 8580.7, "wall_s": 824.0}

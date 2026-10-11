@@ -1,0 +1,126 @@
+Lang 3 { "bug": "Lang-3", "plausible": false, "correct": false, "tries": 88, "compiled": 32, "patterns": {  "FP11": 16,  "FP13": 68,  "FP15": 4 }, "setup_s": 11.9, "test_s": 1.9, "trigger_timeout_s": 15.0, "
+Lang 4 { "bug": "Lang-4", "plausible": false, "correct": false, "tries": 88, "compiled": 50, "patterns": {  "FP11": 41,  "FP10": 8,  "FP7": 9,  "FP4": 5,  "FP15": 14,  "FP14": 5,  "FP9": 5,  "FP2": 1 }, "set
+Lang 1 { "bug": "Lang-1", "plausible": false, "correct": false, "tries": 112, "compiled": 28, "patterns": {  "FP11": 19,  "FP13": 85,  "FP7": 1,  "FP9": 5,  "FP15": 2 }, "setup_s": 12.2, "test_s": 1.6, "trig
+Lang 5 { "bug": "Lang-5", "plausible": false, "correct": false, "tries": 145, "compiled": 120, "patterns": {  "FP11": 82,  "FP5": 13,  "FP4": 1,  "FP15": 8,  "FP14": 1,  "FP9": 40 }, "setup_s": 12.2, "test_s
+Lang 7 { "bug": "Lang-7", "plausible": false, "correct": false, "tries": 150, "compiled": 130, "patterns": {  "FP11": 148,  "FP9": 2 }, "setup_s": 13.0, "test_s": 1.8, "trigger_timeout_s": 15.0, "baseline_tr
+Lang 9 { "bug": "Lang-9", "plausible": false, "correct": false, "tries": 5, "compiled": 0, "patterns": {  "FP13": 4,  "FP11": 1 }, "setup_s": 10.1, "test_s": 21.2, "trigger_timeout_s": 15.0, "baseline_trigge
+Lang 8 { "bug": "Lang-8", "plausible": false, "correct": false, "tries": 25, "compiled": 9, "patterns": {  "FP9": 2,  "FP10": 1,  "FP7": 2,  "FP4": 4,  "FP15": 6,  "FP14": 4,  "FP11": 6 }, "setup_s": 9.6, "t
+Lang 11 { "bug": "Lang-11", "plausible": false, "correct": false, "tries": 0, "compiled": 0, "patterns": {}, "setup_s": 12.2, "test_s": 0.2, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candida
+Lang 12 { "bug": "Lang-12", "plausible": false, "correct": false, "tries": 43, "compiled": 29, "patterns": {  "FP11": 16,  "FP13": 18,  "FP9": 4,  "FP15": 3,  "FP4": 1,  "FP14": 1 }, "setup_s": 10.2, "test_s"
+Lang 10 { "bug": "Lang-10", "plausible": true, "correct": false, "tries": 30, "compiled": 12, "patterns": {  "FP9": 4,  "FP11": 7,  "FP7": 1,  "FP13": 15,  "FP15": 3 }, "setup_s": 11.4, "test_s": 39.5, "trigg
+Lang 13 { "bug": "Lang-13", "plausible": false, "correct": false, "tries": 11, "compiled": 4, "patterns": {  "FP9": 2,  "FP11": 4,  "FP15": 4,  "FP2": 1 }, "setup_s": 11.8, "test_s": 18.2, "trigger_timeout_s"
+Lang 14 { "bug": "Lang-14", "plausible": false, "correct": false, "tries": 2, "compiled": 0, "patterns": {  "FP15": 1,  "FP11": 1 }, "setup_s": 10.4, "test_s": 5.9, "trigger_timeout_s": 15.0, "baseline_trigge
+Lang 15 { "bug": "Lang-15", "plausible": false, "correct": false, "tries": 150, "compiled": 80, "patterns": {  "FP9": 25,  "FP11": 89,  "FP6": 4,  "FP7": 1,  "FP4": 2,  "FP15": 24,  "FP14": 2,  "FP1": 2,  "FP
+Lang 16 { "bug": "Lang-16", "plausible": false, "correct": false, "tries": 3, "compiled": 3, "patterns": {  "FP11": 3 }, "setup_s": 11.1, "test_s": 0.2, "trigger_timeout_s": 15.0, "baseline_trigger_failures":
+Lang 19 { "bug": "Lang-19", "plausible": false, "correct": false, "tries": 150, "compiled": 62, "patterns": {  "FP10": 4,  "FP11": 38,  "FP9": 2,  "FP13": 103,  "FP7": 3 }, "setup_s": 11.1, "test_s": 30.6, "t
+Lang 20 { "bug": "Lang-20", "plausible": false, "correct": false, "tries": 91, "compiled": 57, "patterns": {  "FP11": 61,  "FP6": 2,  "FP7": 4,  "FP15": 12,  "FP5": 2,  "FP9": 8,  "FP2": 2 }, "setup_s": 9.1, 
+Lang 21 { "bug": "Lang-21", "plausible": false, "correct": false, "tries": 14, "compiled": 14, "patterns": {  "FP11": 14 }, "setup_s": 10.3, "test_s": 0.4, "trigger_timeout_s": 15.0, "baseline_trigger_failure
+Lang 22 { "bug": "Lang-22", "plausible": true, "correct": false, "tries": 4, "compiled": 4, "patterns": {  "FP11": 4 }, "setup_s": 8.3, "test_s": 0.3, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 2
+Lang 17 { "bug": "Lang-17", "plausible": false, "correct": false, "tries": 150, "compiled": 68, "patterns": {  "FP11": 29,  "FP7": 4,  "FP13": 96,  "FP4": 2,  "FP15": 10,  "FP14": 2,  "FP9": 6,  "FP2": 1 }, "
+Lang 23 { "bug": "Lang-23", "plausible": false, "correct": false, "tries": 150, "compiled": 86, "patterns": {  "FP11": 68,  "FP9": 3,  "FP10": 2,  "FP7": 7,  "FP6": 1,  "FP4": 18,  "FP15": 26,  "FP14": 18,  "
+Lang 24 { "bug": "Lang-24", "plausible": false, "correct": false, "tries": 10, "compiled": 5, "patterns": {  "FP11": 1,  "FP13": 8,  "FP15": 1 }, "setup_s": 10.2, "test_s": 0.2, "trigger_timeout_s": 15.0, "ba
+Lang 26 { "bug": "Lang-26", "plausible": false, "correct": false, "tries": 5, "compiled": 1, "patterns": {  "FP4": 1,  "FP15": 1,  "FP14": 1,  "FP5": 1,  "FP11": 1 }, "setup_s": 8.1, "test_s": 0.7, "trigger_t
+Lang 27 { "bug": "Lang-27", "plausible": true, "correct": false, "tries": 14, "compiled": 14, "patterns": {  "FP11": 14 }, "setup_s": 8.6, "test_s": 0.2, "trigger_timeout_s": 15.0, "baseline_trigger_failures"
+Lang 29 { "bug": "Lang-29", "plausible": false, "correct": false, "tries": 1, "compiled": 1, "patterns": {  "FP7": 1 }, "setup_s": 8.4, "test_s": 5.4, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1
+Lang 28 { "bug": "Lang-28", "plausible": false, "correct": false, "tries": 51, "compiled": 37, "patterns": {  "FP13": 24,  "FP6": 1,  "FP4": 1,  "FP15": 2,  "FP2": 1,  "FP14": 1,  "FP11": 14,  "FP9": 7 }, "se
+Lang 30 { "bug": "Lang-30", "plausible": false, "correct": false, "tries": 150, "compiled": 128, "patterns": {  "FP11": 139,  "FP9": 11 }, "setup_s": 8.6, "test_s": 5.6, "trigger_timeout_s": 15.0, "baseline_t
+Lang 31 { "bug": "Lang-31", "plausible": true, "correct": false, "tries": 70, "compiled": 40, "patterns": {  "FP11": 15,  "FP9": 2,  "FP7": 3,  "FP13": 48,  "FP15": 2 }, "setup_s": 8.8, "test_s": 10.6, "trigg
+Lang 6 { "bug": "Lang-6", "plausible": true, "correct": true, "tries": 30, "compiled": 15, "patterns": {  "FP11": 5,  "FP7": 1,  "FP13": 24 }, "setup_s": 13.1, "test_s": 377.7, "trigger_timeout_s": 15.0, "ba
+Lang 32 { "bug": "Lang-32", "plausible": false, "correct": false, "tries": 134, "compiled": 62, "patterns": {  "FP9": 18,  "FP11": 54,  "FP7": 16,  "FP5": 7,  "FP15": 25,  "FP4": 6,  "FP14": 6,  "FP2": 2 }, "
+Lang 33 { "bug": "Lang-33", "plausible": false, "correct": false, "tries": 19, "compiled": 9, "patterns": {  "FP11": 5,  "FP7": 1,  "FP13": 10,  "FP15": 2,  "FP9": 1 }, "setup_s": 8.6, "test_s": 0.3, "trigger
+Lang 34 { "bug": "Lang-34", "plausible": false, "correct": false, "tries": 12, "compiled": 2, "patterns": {  "FP11": 6,  "FP6": 1,  "FP15": 3,  "FP4": 1,  "FP14": 1 }, "setup_s": 8.4, "test_s": 0.4, "trigger_
+Lang 35 { "bug": "Lang-35", "plausible": false, "correct": false, "tries": 150, "compiled": 49, "patterns": {  "FP10": 1,  "FP11": 42,  "FP7": 22,  "FP15": 29,  "FP4": 19,  "FP14": 19,  "FP9": 18 }, "setup_s"
+Lang 36 { "bug": "Lang-36", "plausible": false, "correct": false, "tries": 150, "compiled": 78, "patterns": {  "FP11": 57,  "FP9": 13,  "FP10": 80 }, "setup_s": 8.6, "test_s": 0.2, "trigger_timeout_s": 15.0, 
+Lang 37 { "bug": "Lang-37", "plausible": false, "correct": false, "tries": 27, "compiled": 23, "patterns": {  "FP13": 15,  "FP4": 1,  "FP15": 3,  "FP2": 2,  "FP14": 1,  "FP9": 3,  "FP11": 2 }, "setup_s": 10.1
+Lang 38 { "bug": "Lang-38", "plausible": false, "correct": false, "tries": 4, "compiled": 4, "patterns": {  "FP4": 1,  "FP1": 1,  "FP15": 1,  "FP14": 1 }, "setup_s": 8.9, "test_s": 0.8, "trigger_timeout_s": 1
+Lang 40 { "bug": "Lang-40", "plausible": false, "correct": false, "tries": 2, "compiled": 1, "patterns": {  "FP15": 1,  "FP11": 1 }, "setup_s": 10.6, "test_s": 5.6, "trigger_timeout_s": 15.0, "baseline_trigge
+Lang 39 { "bug": "Lang-39", "plausible": true, "correct": false, "tries": 2, "compiled": 2, "patterns": {  "FP11": 2 }, "setup_s": 9.6, "test_s": 10.7, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 
+Lang 41 { "bug": "Lang-41", "plausible": false, "correct": false, "tries": 65, "compiled": 41, "patterns": {  "FP11": 39,  "FP7": 2,  "FP6": 1,  "FP4": 2,  "FP15": 10,  "FP14": 2,  "FP9": 9 }, "setup_s": 8.0,
+Lang 44 { "bug": "Lang-44", "plausible": false, "correct": false, "tries": 1, "compiled": 1, "patterns": {  "FP11": 1 }, "setup_s": 9.4, "test_s": 0.2, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 
+Lang 42 { "bug": "Lang-42", "plausible": false, "correct": false, "tries": 54, "compiled": 23, "patterns": {  "FP11": 17,  "FP7": 1,  "FP13": 30,  "FP15": 3,  "FP9": 1,  "FP4": 1,  "FP14": 1 }, "setup_s": 8.8
+Lang 45 { "bug": "Lang-45", "plausible": false, "correct": false, "tries": 0, "compiled": 0, "patterns": {}, "setup_s": 9.4, "test_s": 0.3, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidat
+Lang 46 { "bug": "Lang-46", "plausible": false, "correct": false, "tries": 150, "compiled": 109, "patterns": {  "FP9": 9,  "FP11": 73,  "FP7": 2,  "FP15": 30,  "FP4": 9,  "FP14": 9,  "FP5": 2,  "FP2": 16 }, "
+Lang 47 { "bug": "Lang-47", "plausible": false, "correct": false, "tries": 80, "compiled": 51, "patterns": {  "FP11": 47,  "FP6": 2,  "FP7": 7,  "FP4": 3,  "FP15": 13,  "FP14": 3,  "FP2": 2,  "FP9": 3 }, "set
+Lang 49 { "bug": "Lang-49", "plausible": false, "correct": false, "tries": 4, "compiled": 2, "patterns": {  "FP7": 1,  "FP15": 1,  "FP11": 2 }, "setup_s": 8.6, "test_s": 0.2, "trigger_timeout_s": 15.0, "basel
+Lang 51 { "bug": "Lang-51", "plausible": false, "correct": false, "tries": 0, "compiled": 0, "patterns": {}, "setup_s": 9.5, "test_s": 0.3, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidat
+Lang 50 { "bug": "Lang-50", "plausible": false, "correct": false, "tries": 150, "compiled": 41, "patterns": {  "FP11": 78,  "FP5": 16,  "FP7": 12,  "FP15": 26,  "FP1": 4,  "FP4": 6,  "FP14": 6,  "FP2": 2 }, "
+Lang 52 { "bug": "Lang-52", "plausible": false, "correct": false, "tries": 0, "compiled": 0, "patterns": {}, "setup_s": 8.7, "test_s": 0.4, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidat
+Lang 53 { "bug": "Lang-53", "plausible": false, "correct": false, "tries": 142, "compiled": 54, "patterns": {  "FP9": 4,  "FP11": 27,  "FP13": 105,  "FP7": 1,  "FP15": 5 }, "setup_s": 8.4, "test_s": 1.4, "tri
+Lang 54 { "bug": "Lang-54", "plausible": false, "correct": false, "tries": 10, "compiled": 7, "patterns": {  "FP4": 1,  "FP15": 2,  "FP14": 1,  "FP9": 4,  "FP11": 2 }, "setup_s": 23.9, "test_s": 0.3, "trigger
+Lang 55 { "bug": "Lang-55", "plausible": false, "correct": false, "tries": 6, "compiled": 6, "patterns": {  "FP4": 1,  "FP15": 2,  "FP14": 1,  "FP2": 1,  "FP11": 1 }, "setup_s": 9.2, "test_s": 12.5, "trigger_
+Lang 57 { "bug": "Lang-57", "plausible": false, "correct": false, "tries": 2, "compiled": 0, "patterns": {  "FP15": 1,  "FP11": 1 }, "setup_s": 11.9, "test_s": 0.5, "trigger_timeout_s": 15.0, "baseline_trigge
+Lang 58 { "bug": "Lang-58", "plausible": true, "correct": false, "tries": 27, "compiled": 15, "patterns": {  "FP11": 13,  "FP13": 12,  "FP9": 2 }, "setup_s": 10.4, "test_s": 0.5, "trigger_timeout_s": 15.0, "b
+Lang 59 { "bug": "Lang-59", "plausible": true, "correct": true, "tries": 23, "compiled": 11, "patterns": {  "FP11": 5,  "FP13": 18 }, "setup_s": 11.2, "test_s": 0.4, "trigger_timeout_s": 15.0, "baseline_trigg
+Lang 60 { "bug": "Lang-60", "plausible": false, "correct": false, "tries": 67, "compiled": 55, "patterns": {  "FP11": 38,  "FP9": 12,  "FP7": 5,  "FP6": 1,  "FP15": 11 }, "setup_s": 13.3, "test_s": 1.3, "trig
+Lang 61 { "bug": "Lang-61", "plausible": false, "correct": false, "tries": 14, "compiled": 5, "patterns": {  "FP7": 1,  "FP13": 6,  "FP4": 1,  "FP15": 2,  "FP14": 1,  "FP11": 3 }, "setup_s": 12.5, "test_s": 0
+Lang 56 { "bug": "Lang-56", "plausible": false, "correct": false, "tries": 150, "compiled": 91, "patterns": {  "FP11": 145,  "FP9": 5 }, "setup_s": 8.8, "test_s": 138.5, "trigger_timeout_s": 15.0, "baseline_t
+Lang 62 { "bug": "Lang-62", "plausible": false, "correct": false, "tries": 150, "compiled": 124, "patterns": {  "FP11": 71,  "FP7": 8,  "FP15": 26,  "FP9": 22,  "FP4": 7,  "FP2": 9,  "FP14": 7 }, "setup_s": 1
+Lang 43 { "bug": "Lang-43", "plausible": false, "correct": false, "tries": 42, "compiled": 13, "patterns": {  "FP11": 12,  "FP13": 28,  "FP6": 1,  "FP15": 1 }, "setup_s": 9.6, "test_s": 277.0, "trigger_timeou
+Lang 64 { "bug": "Lang-64", "plausible": false, "correct": false, "tries": 5, "compiled": 3, "patterns": {  "FP7": 1,  "FP15": 1,  "FP11": 3 }, "setup_s": 10.0, "test_s": 0.3, "trigger_timeout_s": 15.0, "base
+Lang 63 { "bug": "Lang-63", "plausible": true, "correct": false, "tries": 23, "compiled": 23, "patterns": {  "FP11": 15,  "FP9": 8 }, "setup_s": 9.4, "test_s": 8.9, "trigger_timeout_s": 15.0, "baseline_trigge
+Lang 65 { "bug": "Lang-65", "plausible": false, "correct": false, "tries": 150, "compiled": 83, "patterns": {  "FP9": 4,  "FP11": 61,  "FP10": 5,  "FP7": 2,  "FP13": 78 }, "setup_s": 9.9, "test_s": 1.4, "trig
+Chart 1 { "bug": "Chart-1", "plausible": true, "correct": false, "tries": 2, "compiled": 1, "patterns": {  "FP10": 1,  "FP11": 1 }, "setup_s": 13.9, "test_s": 3.2, "trigger_timeout_s": 15.0, "baseline_trigger
+Chart 2 { "bug": "Chart-2", "plausible": false, "correct": false, "tries": 150, "compiled": 115, "patterns": {  "FP11": 122,  "FP10": 24,  "FP9": 4 }, "setup_s": 16.1, "test_s": 3.3, "trigger_timeout_s": 15.0
+Chart 3 { "bug": "Chart-3", "plausible": false, "correct": false, "tries": 6, "compiled": 2, "patterns": {  "FP4": 1,  "FP1": 1,  "FP15": 2,  "FP14": 1,  "FP2": 1 }, "setup_s": 14.4, "test_s": 1.0, "trigger_t
+Chart 4 { "bug": "Chart-4", "plausible": false, "correct": false, "tries": 24, "compiled": 14, "patterns": {  "FP13": 15,  "FP4": 1,  "FP15": 4,  "FP14": 1,  "FP1": 1,  "FP2": 1,  "FP11": 1 }, "setup_s": 15.1
+Chart 5 { "bug": "Chart-5", "plausible": false, "correct": false, "tries": 25, "compiled": 9, "patterns": {  "FP10": 2,  "FP11": 7,  "FP7": 1,  "FP13": 10,  "FP4": 1,  "FP15": 2,  "FP14": 1,  "FP9": 1 }, "set
+Chart 6 { "bug": "Chart-6", "plausible": false, "correct": false, "tries": 2, "compiled": 0, "patterns": {  "FP15": 1,  "FP11": 1 }, "setup_s": 12.8, "test_s": 1.9, "trigger_timeout_s": 15.0, "baseline_trigge
+Chart 7 { "bug": "Chart-7", "plausible": false, "correct": false, "tries": 0, "compiled": 0, "patterns": {}, "setup_s": 11.6, "test_s": 0.4, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "cpu_s":
+Chart 8 { "bug": "Chart-8", "plausible": false, "correct": false, "tries": 2, "compiled": 0, "patterns": {  "FP13": 1,  "FP11": 1 }, "setup_s": 11.9, "test_s": 0.3, "trigger_timeout_s": 15.0, "baseline_trigge
+Chart 9 { "bug": "Chart-9", "plausible": false, "correct": false, "tries": 11, "compiled": 7, "patterns": {  "FP11": 5,  "FP13": 5,  "FP9": 1 }, "setup_s": 12.7, "test_s": 1.4, "trigger_timeout_s": 15.0, "bas
+Chart 10 { "bug": "Chart-10", "plausible": false, "correct": false, "tries": 3, "compiled": 0, "patterns": {  "FP11": 3 }, "setup_s": 11.8, "test_s": 0.2, "trigger_timeout_s": 15.0, "baseline_trigger_failures"
+Chart 11 { "bug": "Chart-11", "plausible": false, "correct": false, "tries": 8, "compiled": 2, "patterns": {  "FP4": 2,  "FP15": 2,  "FP14": 2,  "FP11": 2 }, "setup_s": 11.7, "test_s": 1.4, "trigger_timeout_s"
+Chart 12 { "bug": "Chart-12", "plausible": false, "correct": false, "tries": 5, "compiled": 3, "patterns": {  "FP4": 1,  "FP15": 1,  "FP2": 1,  "FP14": 1,  "FP11": 1 }, "setup_s": 13.1, "test_s": 1.0, "trigger
+Chart 13 { "bug": "Chart-13", "plausible": true, "correct": false, "tries": 13, "compiled": 3, "patterns": {  "FP5": 2,  "FP13": 10,  "FP9": 1 }, "setup_s": 13.2, "test_s": 1.2, "trigger_timeout_s": 15.0, "bas
+Chart 16 { "bug": "Chart-16", "plausible": false, "correct": false, "tries": 113, "compiled": 69, "patterns": {  "FP11": 68,  "FP7": 8,  "FP4": 2,  "FP15": 17,  "FP2": 3,  "FP14": 2,  "FP9": 9,  "FP5": 4 }, "s
+Chart 14 { "bug": "Chart-14", "plausible": false, "correct": false, "tries": 150, "compiled": 46, "patterns": {  "FP10": 16,  "FP9": 3,  "FP11": 91,  "FP7": 6,  "FP15": 18,  "FP1": 2,  "FP5": 4,  "FP4": 3,  "F
+Chart 15 { "bug": "Chart-15", "plausible": false, "correct": false, "tries": 150, "compiled": 61, "patterns": {  "FP10": 2,  "FP11": 75,  "FP7": 10,  "FP4": 9,  "FP15": 27,  "FP14": 9,  "FP1": 2,  "FP2": 7,  "
+Chart 17 { "bug": "Chart-17", "plausible": false, "correct": false, "tries": 11, "compiled": 8, "patterns": {  "FP4": 1,  "FP15": 1,  "FP14": 1,  "FP9": 3,  "FP11": 5 }, "setup_s": 19.2, "test_s": 2.1, "trigge
+Chart 18 { "bug": "Chart-18", "plausible": false, "correct": false, "tries": 27, "compiled": 16, "patterns": {  "FP10": 3,  "FP11": 12,  "FP7": 1,  "FP15": 6,  "FP9": 1,  "FP4": 1,  "FP1": 1,  "FP14": 1,  "FP2
+Chart 19 { "bug": "Chart-19", "plausible": false, "correct": false, "tries": 150, "compiled": 66, "patterns": {  "FP10": 19,  "FP11": 89,  "FP9": 10,  "FP7": 14,  "FP15": 13,  "FP1": 1,  "FP5": 2,  "FP2": 1,  
+Chart 20 { "bug": "Chart-20", "plausible": false, "correct": false, "tries": 27, "compiled": 5, "patterns": {  "FP7": 1,  "FP13": 25,  "FP11": 1 }, "setup_s": 12.4, "test_s": 2.8, "trigger_timeout_s": 15.0, "b
+Chart 21 { "bug": "Chart-21", "plausible": false, "correct": false, "tries": 150, "compiled": 38, "patterns": {  "FP11": 111,  "FP7": 32,  "FP5": 1,  "FP15": 5,  "FP4": 1 }, "setup_s": 12.6, "test_s": 2.5, "tr
+Chart 22 { "bug": "Chart-22", "plausible": false, "correct": false, "tries": 150, "compiled": 85, "patterns": {  "FP11": 66,  "FP9": 7,  "FP10": 4,  "FP7": 8,  "FP4": 11,  "FP1": 3,  "FP15": 29,  "FP14": 11,  
+Chart 23 { "bug": "Chart-23", "plausible": false, "correct": false, "tries": 0, "compiled": 0, "patterns": {}, "setup_s": 16.5, "test_s": 0.9, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candid
+Chart 24 { "bug": "Chart-24", "plausible": true, "correct": false, "tries": 7, "compiled": 4, "patterns": {  "FP10": 1,  "FP13": 4,  "FP7": 2 }, "setup_s": 17.8, "test_s": 1.0, "trigger_timeout_s": 15.0, "base
+Chart 26 { "bug": "Chart-26", "plausible": false, "correct": false, "tries": 53, "compiled": 20, "patterns": {  "FP11": 7,  "FP13": 38,  "FP5": 2,  "FP4": 1,  "FP15": 3,  "FP14": 1,  "FP2": 1 }, "setup_s": 18.
+Chart 25 { "bug": "Chart-25", "plausible": false, "correct": false, "tries": 150, "compiled": 114, "patterns": {  "FP11": 133,  "FP10": 2,  "FP7": 12,  "FP5": 2,  "FP8": 1 }, "setup_s": 19.0, "test_s": 7.3, "t
+Math 1 { "bug": "Math-1", "plausible": false, "correct": false, "tries": 108, "compiled": 76, "patterns": {  "FP13": 102,  "FP5": 4,  "FP11": 2 }, "setup_s": 18.4, "test_s": 2.4, "trigger_timeout_s": 15.0, "
+Math 2 { "bug": "Math-2", "plausible": false, "correct": false, "tries": 11, "compiled": 9, "patterns": {  "FP7": 3,  "FP8": 1,  "FP15": 1,  "FP11": 6 }, "setup_s": 15.1, "test_s": 1.1, "trigger_timeout_s": 
+Math 4 { "bug": "Math-4", "plausible": false, "correct": false, "tries": 10, "compiled": 1, "patterns": {  "FP15": 2,  "FP11": 2,  "FP13": 6 }, "setup_s": 16.2, "test_s": 0.6, "trigger_timeout_s": 15.0, "bas
+Math 3 { "bug": "Math-3", "plausible": false, "correct": false, "tries": 0, "compiled": 0, "patterns": {}, "setup_s": 16.3, "test_s": 16.4, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candida
+Math 5 { "bug": "Math-5", "plausible": false, "correct": false, "tries": 12, "compiled": 12, "patterns": {  "FP11": 11,  "FP15": 1 }, "setup_s": 14.7, "test_s": 1.2, "trigger_timeout_s": 15.0, "baseline_trig
+Math 7 { "bug": "Math-7", "plausible": false, "correct": false, "tries": 150, "compiled": 40, "patterns": {  "FP9": 1,  "FP13": 149 }, "setup_s": 15.6, "test_s": 5.0, "trigger_timeout_s": 15.0, "baseline_tri
+Math 8 { "bug": "Math-8", "plausible": true, "correct": false, "tries": 13, "compiled": 8, "patterns": {  "FP11": 6,  "FP7": 1,  "FP5": 2,  "FP9": 2,  "FP1": 1,  "FP15": 1 }, "setup_s": 15.8, "test_s": 0.9, 
+Math 9 { "bug": "Math-9", "plausible": false, "correct": false, "tries": 7, "compiled": 1, "patterns": {  "FP5": 2,  "FP4": 1,  "FP15": 1,  "FP14": 1,  "FP11": 2 }, "setup_s": 20.5, "test_s": 0.4, "trigger_t
+Math 10 { "bug": "Math-10", "plausible": false, "correct": false, "tries": 0, "compiled": 0, "patterns": {}, "setup_s": 20.3, "test_s": 4.9, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candida
+Math 11 { "bug": "Math-11", "plausible": true, "correct": false, "tries": 1, "compiled": 1, "patterns": {  "FP8": 1 }, "setup_s": 16.3, "test_s": 0.9, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1
+Math 12 { "bug": "Math-12", "plausible": false, "correct": false, "tries": 0, "compiled": 0, "patterns": {}, "setup_s": 16.5, "test_s": 15.9, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 3, "candid
+Math 13 { "bug": "Math-13", "plausible": false, "correct": false, "tries": 6, "compiled": 0, "patterns": {  "FP4": 1,  "FP15": 2,  "FP14": 1,  "FP5": 1,  "FP11": 1 }, "setup_s": 17.3, "test_s": 10.3, "trigger
+Math 6 { "bug": "Math-6", "plausible": false, "correct": false, "tries": 150, "compiled": 51, "patterns": {  "FP5": 5,  "FP4": 1,  "FP15": 2,  "FP14": 1,  "FP9": 3,  "FP11": 37,  "FP7": 3,  "FP13": 98 }, "se
+{
+ "bugs": 100,
+ "results": 100,
+ "errors": 0,
+ "plausible": 14,
+ "correct": 2,
+ "llm_calls": 0,
+ "est_j_total": 67572.4,
+ "est_j_note": "estimate: child CPU seconds x 10 W per CPU, not measured",
+ "fixed": [
+  "Lang-6 correct",
+  "Lang-10 plausible",
+  "Lang-22 plausible",
+  "Lang-27 plausible",
+  "Lang-31 plausible",
+  "Lang-39 plausible",
+  "Lang-58 plausible",
+  "Lang-59 correct",
+  "Lang-63 plausible",
+  "Chart-1 plausible",
+  "Chart-13 plausible",
+  "Chart-24 plausible",
+  "Math-8 plausible",
+  "Math-11 plausible"
+ ]
+}

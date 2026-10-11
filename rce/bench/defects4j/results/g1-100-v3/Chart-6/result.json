@@ -1,0 +1,43 @@
+{
+ "bug": "Chart-6",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 27,
+ "compiled": 18,
+ "patterns": {
+  "ConditionalExpressionMutator": 8,
+  "MethodInvocationMutator": 5,
+  "VariableReplacer": 4,
+  "NullPointerChecker": 7,
+  "StatementRemover": 1,
+  "StatementInserter": 2
+ },
+ "kept": [],
+ "setup_s": 27.7,
+ "positions": [
+  [
+   "source/org/jfree/chart/util/ShapeList.java",
+   [
+    111
+   ]
+  ]
+ ],
+ "test_s": 10.7,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 2,
+ "candidates": 27,
+ "ast_equal": false,
+ "fixed_derived": [
+  "source/org/jfree/chart/util/ShapeList.java"
+ ],
+ "patch_files": [
+  "source/org/jfree/chart/util/ShapeList.java"
+ ],
+ "pattern": null,
+ "cpu_s": 57.9,
+ "est_j": 579.0,
+ "wall_s": 55.3
+}

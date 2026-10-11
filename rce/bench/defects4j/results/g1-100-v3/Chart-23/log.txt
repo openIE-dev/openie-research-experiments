@@ -1,0 +1,9 @@
+[11:49:08] sh defects4j checkout -p
+[11:49:14] sh defects4j compile
+[11:49:36] sh defects4j export -p
+[11:49:38] sh defects4j export -p
+[11:49:40] sh defects4j export -p
+[11:49:42] sh defects4j export -p
+[11:49:44] sh defects4j export -p
+[11:49:47] sh javac -nowarn -cp
+{"bug": "Chart-23", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 0, "compiled": 0, "patterns": {}, "kept": [], "setup_s": 27.6, "positions": [["source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java", [101]]], "test_s": 1.6, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 0, "ast_equal": false, "fixed_derived": ["source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java"], "patch_files": ["source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java"], "pattern": null, "cpu_s": 41.33, "est_j": 413.3, "wall_s": 43.7}

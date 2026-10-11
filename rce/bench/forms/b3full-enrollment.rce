@@ -1,0 +1,29 @@
+spec "b3full-enrollment" v0.1.0
+reason "joule-sales-outreach enrollment.rs Enrollment transitions, every written field" by "david"
+currency max_age=24h
+
+objective O1 "Re-express"
+  metric agreement target 1
+  reason "frozen benchmark: original code re-expressed as a Form" by "david"
+
+acceptance A1 validates O1
+  property "for all recorded inputs: the Form's output equals the original program's"
+  reason "trace equivalence" by "david"
+
+deliverable D1 fulfills O1
+  schema "Status"
+  reason "results" by "david"
+
+role R1 "transition" execution_node
+  reason "computes transition" by "david"
+
+dependency DEP1 crate "enrollment"
+  reason "inputs" by "david"
+
+flow F1 from DEP1 to R1
+  reason "inputs to transition" by "david"
+
+flow G1 from R1 to D1
+  reason "results recorded" by "david"
+
+change_control approvers ["david"] review_period 24h

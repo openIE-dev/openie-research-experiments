@@ -1,0 +1,9 @@
+[12:24:31] sh defects4j checkout -p
+[12:24:36] sh defects4j compile
+[12:25:07] sh defects4j export -p
+[12:25:08] sh defects4j export -p
+[12:25:10] sh defects4j export -p
+[12:25:14] sh defects4j export -p
+[12:25:16] sh defects4j export -p
+[12:25:19] sh javac -nowarn -cp
+{"bug": "Closure-17", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 262, "compiled": 64, "patterns": {"OperatorMutator": 2, "ConditionalExpressionMutator": 26, "MethodInvocationMutator": 216, "VariableReplacer": 6, "NullPointerChecker": 1, "StatementRemover": 4, "StatementInserter": 7}, "kept": [], "setup_s": 35.5, "positions": [["src/com/google/javascript/jscomp/TypedScopeCreator.java", [1291]]], "test_s": 446.8, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 262, "ast_equal": false, "fixed_derived": ["src/com/google/javascript/jscomp/TypedScopeCreator.java"], "patch_files": ["src/com/google/javascript/jscomp/TypedScopeCreator.java"], "pattern": null, "cpu_s": 671.24, "est_j": 6712.4, "wall_s": 559.3}

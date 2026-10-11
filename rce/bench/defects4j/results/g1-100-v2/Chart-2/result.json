@@ -1,0 +1,51 @@
+{
+ "bug": "Chart-2",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 476,
+ "compiled": 291,
+ "patterns": {
+  "OperatorMutator": 55,
+  "VariableReplacer": 22,
+  "NullPointerChecker": 18,
+  "MethodInvocationMutator": 357,
+  "StatementMover": 3,
+  "StatementRemover": 9,
+  "DataTypeReplacer": 12
+ },
+ "kept": [],
+ "setup_s": 12.9,
+ "positions": [
+  [
+   "source/org/jfree/data/general/DatasetUtilities.java",
+   [
+    755,
+    766,
+    758,
+    761,
+    1242,
+    1243,
+    1245,
+    1248
+   ]
+  ]
+ ],
+ "test_s": 2.4,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 2,
+ "candidates": 481,
+ "ast_equal": false,
+ "fixed_derived": [
+  "source/org/jfree/data/general/DatasetUtilities.java"
+ ],
+ "patch_files": [
+  "source/org/jfree/data/general/DatasetUtilities.java"
+ ],
+ "pattern": null,
+ "cpu_s": 93.7,
+ "est_j": 937.0,
+ "wall_s": 44.4
+}

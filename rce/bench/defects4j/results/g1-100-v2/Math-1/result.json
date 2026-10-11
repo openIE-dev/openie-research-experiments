@@ -1,0 +1,55 @@
+{
+ "bug": "Math-1",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": true,
+ "tries": 133,
+ "compiled": 78,
+ "patterns": {
+  "VariableReplacer": 130,
+  "StatementRemover": 3
+ },
+ "kept": [
+  {
+   "file": "src/main/java/org/apache/commons/math3/fraction/BigFraction.java",
+   "line": 306,
+   "pattern": "StatementRemover",
+   "from": "throw new FractionConversionException(value, p2, q2);",
+   "to": ""
+  }
+ ],
+ "setup_s": 22.0,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/math3/fraction/BigFraction.java",
+   [
+    306
+   ]
+  ],
+  [
+   "src/main/java/org/apache/commons/math3/fraction/Fraction.java",
+   [
+    215
+   ]
+  ]
+ ],
+ "test_s": 11.6,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 2,
+ "candidates": 134,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/math3/fraction/BigFraction.java",
+  "src/main/java/org/apache/commons/math3/fraction/Fraction.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/math3/fraction/BigFraction.java",
+  "src/main/java/org/apache/commons/math3/fraction/Fraction.java"
+ ],
+ "pattern": null,
+ "cpu_s": 94.87,
+ "est_j": 948.7,
+ "wall_s": 55.3
+}

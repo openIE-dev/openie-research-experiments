@@ -1,0 +1,22 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 68,
+ "llm_calls": 0,
+ "rule_tries": 67,
+ "edit": {
+  "file": "src/bytes.rs",
+  "function": "parse_word",
+  "tier": 3,
+  "from": "result.push(ch2);",
+  "to": "if ch2 != b'\\n' { result.push(ch2); }"
+ },
+ "ranked": [
+  "src/bytes.rs::split",
+  "src/lib.rs::split",
+  "src/bytes.rs::new",
+  "src/bytes.rs::new",
+  "src/lib.rs::new",
+  "src/lib.rs::new"
+ ],
+ "seconds": 6.42
+}

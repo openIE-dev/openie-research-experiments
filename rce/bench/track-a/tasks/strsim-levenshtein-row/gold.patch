@@ -1,0 +1,11 @@
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -243,7 +243,7 @@
+     let mut result = b_len;
+ 
+     for (i, a_elem) in a.into_iter().enumerate() {
+-        result = i;
++        result = i + 1;
+         let mut distance_b = i;
+ 
+         for (j, b_elem) in b.into_iter().enumerate() {

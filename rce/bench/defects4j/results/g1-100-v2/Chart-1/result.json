@@ -1,0 +1,46 @@
+{
+ "bug": "Chart-1",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": true,
+ "correct": true,
+ "partial": false,
+ "tries": 1,
+ "compiled": 1,
+ "patterns": {
+  "OperatorMutator": 1
+ },
+ "kept": [
+  {
+   "file": "source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java",
+   "line": 1797,
+   "pattern": "OperatorMutator",
+   "from": "if (dataset != null) {\r\n            return result;\r\n        }",
+   "to": "if (dataset == null) {\r\n            return result;\r\n        }"
+  }
+ ],
+ "setup_s": 12.5,
+ "positions": [
+  [
+   "source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java",
+   [
+    1797
+   ]
+  ]
+ ],
+ "test_s": 3.3,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 63,
+ "ast_equal": true,
+ "fixed_derived": [
+  "source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java"
+ ],
+ "patch_files": [
+  "source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java"
+ ],
+ "pattern": "OperatorMutator",
+ "cpu_s": 50.97,
+ "est_j": 509.7,
+ "wall_s": 22.4
+}

@@ -1,0 +1,21 @@
+diff -ruN -x target -x .git -x __pycache__ -x '*.pyc' -x Cargo.lock base/.test.out work/.test.out
+--- .test.out	1969-12-31 19:00:00.000000000 -0500
++++ .test.out	2026-10-11 08:24:54.626264708 -0400
+@@ -0,0 +1,5 @@
++
++running 8 tests
++........
++test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
++
+diff -ruN -x target -x .git -x __pycache__ -x '*.pyc' -x Cargo.lock base/src/bytes.rs work/src/bytes.rs
+--- src/bytes.rs	2026-10-11 08:24:28.202264708 -0400
++++ src/bytes.rs	2026-10-11 08:24:54.294264708 -0400
+@@ -73,7 +73,7 @@
+                     self.had_error = true;
+                     return None;
+                 },
+-                ' ' | '\t' => { break; },
++                ' ' | '\t' | '\n' => { break; },
+                 _ => { result.push(ch); },
+             }
+             if let Some(ch2) = self.next_char() { ch = ch2; } else { break; }

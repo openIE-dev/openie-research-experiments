@@ -1,0 +1,49 @@
+{
+ "bug": "Lang-7",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": true,
+ "correct": false,
+ "partial": false,
+ "tries": 2,
+ "compiled": 2,
+ "patterns": {
+  "ConditionalExpressionMutator": 2
+ },
+ "kept": [
+  {
+   "file": "src/main/java/org/apache/commons/lang3/math/NumberUtils.java",
+   "line": 452,
+   "pattern": "ConditionalExpressionMutator",
+   "from": "if (str.startsWith(\"--\")) {\n            return null;\n        }",
+   "to": "if ((str.startsWith(\"--\")) && (StringUtils.isBlank(str))) {\n            return null;\n        }"
+  }
+ ],
+ "setup_s": 12.2,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/lang3/math/NumberUtils.java",
+   [
+    452,
+    453,
+    454,
+    725
+   ]
+  ]
+ ],
+ "test_s": 0.7,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 88,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/lang3/math/NumberUtils.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/lang3/math/NumberUtils.java"
+ ],
+ "pattern": "ConditionalExpressionMutator",
+ "cpu_s": 34.89,
+ "est_j": 348.9,
+ "wall_s": 19.7
+}

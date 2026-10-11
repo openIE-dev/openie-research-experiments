@@ -1,0 +1,40 @@
+{
+ "bug": "Closure-3",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 26,
+ "compiled": 12,
+ "patterns": {
+  "ConditionalExpressionMutator": 16,
+  "NullPointerChecker": 7,
+  "StatementRemover": 3
+ },
+ "kept": [],
+ "setup_s": 65.3,
+ "positions": [
+  [
+   "src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java",
+   [
+    155
+   ]
+  ]
+ ],
+ "test_s": 31.2,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 3,
+ "candidates": 26,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java"
+ ],
+ "patch_files": [
+  "src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java"
+ ],
+ "pattern": null,
+ "cpu_s": 111.32,
+ "est_j": 1113.2,
+ "wall_s": 187.9
+}

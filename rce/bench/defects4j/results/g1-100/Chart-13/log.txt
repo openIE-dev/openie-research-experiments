@@ -1,0 +1,15 @@
+[09:10:26] sh defects4j checkout -p
+[09:10:29] sh defects4j compile
+[09:10:39] sh defects4j export -p
+[09:10:40] sh defects4j export -p
+[09:10:41] sh defects4j export -p
+[09:10:42] sh defects4j export -p
+[09:10:42] sh defects4j export -p
+[09:10:43] sh javac -nowarn -cp
+[09:10:44] test 38
+[09:10:45] test 1
+[09:10:45] test 1
+[09:10:46] test 1
+[09:10:46] test 1
+[09:10:46] test 38
+{"bug": "Chart-13", "plausible": true, "correct": false, "tries": 13, "compiled": 3, "patterns": {"FP5": 2, "FP13": 10, "FP9": 1}, "setup_s": 13.2, "test_s": 1.2, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 18, "pattern": "FP9", "tier": 3, "edit": {"file": "source/org/jfree/chart/block/BorderArrangement.java", "from": "2", "to": "1"}, "cpu_s": 47.39, "est_j": 473.9, "wall_s": 20.8}

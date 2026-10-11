@@ -1,0 +1,478 @@
+{
+ "bug": "Lang-63",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": true,
+ "correct": false,
+ "partial": false,
+ "tries": 1766,
+ "compiled": 608,
+ "patterns": {
+  "OperatorMutator": 16,
+  "LiteralExpressionMutator": 6,
+  "StatementMover": 239,
+  "StatementRemover": 18,
+  "VariableReplacer": 67,
+  "NullPointerChecker": 224,
+  "MethodInvocationMutator": 1080,
+  "DataTypeReplacer": 18,
+  "RangeChecker": 2,
+  "ConditionalExpressionMutator": 96
+ },
+ "kept": [
+  {
+   "file": "src/java/org/apache/commons/lang/time/DurationFormatUtils.java",
+   "line": 323,
+   "pattern": "StatementMover",
+   "from": "int years = end.get(Calendar.YEAR) - start.get(Calendar.YEAR);\n\n        // each initial estimate is adjusted in case it is under 0\n        while (milliseconds < 0) {\n            milliseconds += 1000;\n            seconds -= 1;\n        }\n        while (seconds < 0) {\n            seconds += 60;\n            minutes -= 1;\n        }\n        while (minutes < 0) {\n            minutes += 60;\n            hours -= 1;\n        }\n        while (hours < 0) {\n            hours += 24;\n            days -= 1;\n        }\n        while (days < 0) {\n            days += 31;\n//days += 31; // TODO: Need tests to show this is bad and the new code is good.\n// HEN: It's a tricky subject. Jan 15th to March 10th. If I count days-first it is \n// 1 month and 26 days, but if I count month-first then it is 1 month and 23 days.\n// Also it's contextual - if asked for no M in the format then I should probably \n// be doing no calculating here.\n            months -= 1;\n        }\n        while (months < 0) {\n            months += 12;\n            years -= 1;\n        }\n        milliseconds -= reduceAndCorrect(start, end, Calendar.MILLISECOND, milliseconds);\n        seconds -= reduceAndCorrect(start, end, Calendar.SECOND, seconds);\n        minutes -= reduceAndCorrect(start, end, Calendar.MINUTE, minutes);\n        hours -= reduceAndCorrect(start, end, Calendar.HOUR_OF_DAY, hours);\n        days -= reduceAndCorrect(start, end, Calendar.DAY_OF_MONTH, days);\n        months -= reduceAndCorrect(start, end, Calendar.MONTH, months);",
+   "to": "months -= reduceAndCorrect(start, end, Calendar.MONTH, months);\n\tint years = end.get(Calendar.YEAR) - start.get(Calendar.YEAR);\n\n        // each initial estimate is adjusted in case it is under 0\n        while (milliseconds < 0) {\n            milliseconds += 1000;\n            seconds -= 1;\n        }\n        while (seconds < 0) {\n            seconds += 60;\n            minutes -= 1;\n        }\n        while (minutes < 0) {\n            minutes += 60;\n            hours -= 1;\n        }\n        while (hours < 0) {\n            hours += 24;\n            days -= 1;\n        }\n        while (days < 0) {\n            days += 31;\n//days += 31; // TODO: Need tests to show this is bad and the new code is good.\n// HEN: It's a tricky subject. Jan 15th to March 10th. If I count days-first it is \n// 1 month and 26 days, but if I count month-first then it is 1 month and 23 days.\n// Also it's contextual - if asked for no M in the format then I should probably \n// be doing no calculating here.\n            months -= 1;\n        }\n        while (months < 0) {\n            months += 12;\n            years -= 1;\n        }\n        milliseconds -= reduceAndCorrect(start, end, Calendar.MILLISECOND, milliseconds);\n        seconds -= reduceAndCorrect(start, end, Calendar.SECOND, seconds);\n        minutes -= reduceAndCorrect(start, end, Calendar.MINUTE, minutes);\n        hours -= reduceAndCorrect(start, end, Calendar.HOUR_OF_DAY, hours);\n        days -= reduceAndCorrect(start, end, Calendar.DAY_OF_MONTH, days);\n        "
+  }
+ ],
+ "setup_s": 22.4,
+ "positions": [
+  [
+   "src/java/org/apache/commons/lang/time/DurationFormatUtils.java",
+   [
+    306,
+    312,
+    318,
+    319,
+    320,
+    321,
+    322,
+    323,
+    324,
+    432,
+    433,
+    434,
+    435,
+    436,
+    437,
+    438,
+    439,
+    440,
+    441,
+    442,
+    443
+   ]
+  ]
+ ],
+ "test_s": 415.1,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 1787,
+ "plausible_found": [
+  {
+   "try": 1166,
+   "pattern": "MethodInvocationMutator",
+   "line": 323,
+   "new_idents": [
+    "milliseconds"
+   ]
+  },
+  {
+   "try": 1174,
+   "pattern": "MethodInvocationMutator",
+   "line": 323,
+   "new_idents": [
+    "years"
+   ]
+  },
+  {
+   "try": 1175,
+   "pattern": "MethodInvocationMutator",
+   "line": 323,
+   "new_idents": [
+    "days"
+   ]
+  },
+  {
+   "try": 1176,
+   "pattern": "MethodInvocationMutator",
+   "line": 323,
+   "new_idents": [
+    "hours"
+   ]
+  },
+  {
+   "try": 1177,
+   "pattern": "MethodInvocationMutator",
+   "line": 323,
+   "new_idents": [
+    "minutes"
+   ]
+  },
+  {
+   "try": 1178,
+   "pattern": "MethodInvocationMutator",
+   "line": 323,
+   "new_idents": [
+    "seconds"
+   ]
+  },
+  {
+   "try": 1179,
+   "pattern": "MethodInvocationMutator",
+   "line": 323,
+   "new_idents": [
+    "milliseconds"
+   ]
+  },
+  {
+   "try": 1317,
+   "pattern": "StatementMover",
+   "line": 323,
+   "new_idents": []
+  },
+  {
+   "try": 1318,
+   "pattern": "StatementMover",
+   "line": 323,
+   "new_idents": []
+  },
+  {
+   "try": 1319,
+   "pattern": "StatementMover",
+   "line": 323,
+   "new_idents": []
+  },
+  {
+   "try": 1320,
+   "pattern": "StatementMover",
+   "line": 323,
+   "new_idents": []
+  },
+  {
+   "try": 1321,
+   "pattern": "StatementMover",
+   "line": 323,
+   "new_idents": []
+  },
+  {
+   "try": 1322,
+   "pattern": "StatementMover",
+   "line": 323,
+   "new_idents": []
+  },
+  {
+   "try": 1337,
+   "pattern": "StatementRemover",
+   "line": 323,
+   "new_idents": []
+  },
+  {
+   "try": 1580,
+   "pattern": "VariableReplacer",
+   "line": 434,
+   "new_idents": [
+    "start"
+   ]
+  },
+  {
+   "try": 1599,
+   "pattern": "VariableReplacer",
+   "line": 435,
+   "new_idents": [
+    "end"
+   ]
+  },
+  {
+   "try": 1614,
+   "pattern": "OperatorMutator",
+   "line": 436,
+   "new_idents": []
+  },
+  {
+   "try": 1617,
+   "pattern": "OperatorMutator",
+   "line": 436,
+   "new_idents": []
+  },
+  {
+   "try": 1618,
+   "pattern": "OperatorMutator",
+   "line": 436,
+   "new_idents": []
+  },
+  {
+   "try": 1621,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": []
+  },
+  {
+   "try": 1627,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": []
+  },
+  {
+   "try": 1629,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": []
+  },
+  {
+   "try": 1633,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": []
+  },
+  {
+   "try": 1635,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": []
+  },
+  {
+   "try": 1637,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": []
+  },
+  {
+   "try": 1639,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": []
+  },
+  {
+   "try": 1641,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": []
+  },
+  {
+   "try": 1645,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": [
+    "difference"
+   ]
+  },
+  {
+   "try": 1647,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": [
+    "difference"
+   ]
+  },
+  {
+   "try": 1649,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": [
+    "difference"
+   ]
+  },
+  {
+   "try": 1651,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": [
+    "difference"
+   ]
+  },
+  {
+   "try": 1653,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": [
+    "difference"
+   ]
+  },
+  {
+   "try": 1657,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": [
+    "INDEX_NOT_FOUND",
+    "StringUtils"
+   ]
+  },
+  {
+   "try": 1659,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": [
+    "INDEX_NOT_FOUND",
+    "StringUtils"
+   ]
+  },
+  {
+   "try": 1661,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": [
+    "INDEX_NOT_FOUND",
+    "StringUtils"
+   ]
+  },
+  {
+   "try": 1669,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": []
+  },
+  {
+   "try": 1671,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": []
+  },
+  {
+   "try": 1673,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": []
+  },
+  {
+   "try": 1681,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": []
+  },
+  {
+   "try": 1683,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": []
+  },
+  {
+   "try": 1685,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": []
+  },
+  {
+   "try": 1693,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": [
+    "difference"
+   ]
+  },
+  {
+   "try": 1695,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": [
+    "difference"
+   ]
+  },
+  {
+   "try": 1697,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": [
+    "difference"
+   ]
+  },
+  {
+   "try": 1705,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": [
+    "INDEX_NOT_FOUND",
+    "StringUtils"
+   ]
+  },
+  {
+   "try": 1707,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": [
+    "INDEX_NOT_FOUND",
+    "StringUtils"
+   ]
+  },
+  {
+   "try": 1709,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 436,
+   "new_idents": [
+    "INDEX_NOT_FOUND",
+    "StringUtils"
+   ]
+  },
+  {
+   "try": 1717,
+   "pattern": "VariableReplacer",
+   "line": 436,
+   "new_idents": [
+    "difference"
+   ]
+  },
+  {
+   "try": 1718,
+   "pattern": "VariableReplacer",
+   "line": 436,
+   "new_idents": []
+  },
+  {
+   "try": 1722,
+   "pattern": "StatementRemover",
+   "line": 436,
+   "new_idents": []
+  },
+  {
+   "try": 1731,
+   "pattern": "VariableReplacer",
+   "line": 437,
+   "new_idents": [
+    "difference"
+   ]
+  },
+  {
+   "try": 1732,
+   "pattern": "VariableReplacer",
+   "line": 437,
+   "new_idents": [
+    "field"
+   ]
+  },
+  {
+   "try": 1739,
+   "pattern": "MethodInvocationMutator",
+   "line": 438,
+   "new_idents": [
+    "startValue"
+   ]
+  },
+  {
+   "try": 1740,
+   "pattern": "MethodInvocationMutator",
+   "line": 438,
+   "new_idents": [
+    "endValue"
+   ]
+  },
+  {
+   "try": 1741,
+   "pattern": "MethodInvocationMutator",
+   "line": 438,
+   "new_idents": []
+  },
+  {
+   "try": 1742,
+   "pattern": "MethodInvocationMutator",
+   "line": 438,
+   "new_idents": [
+    "difference"
+   ]
+  }
+ ],
+ "picked_try": 1317,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/java/org/apache/commons/lang/time/DurationFormatUtils.java"
+ ],
+ "patch_files": [
+  "src/java/org/apache/commons/lang/time/DurationFormatUtils.java"
+ ],
+ "pattern": "StatementMover",
+ "cpu_s": 124.78,
+ "est_j": 1247.8,
+ "wall_s": 569.0
+}

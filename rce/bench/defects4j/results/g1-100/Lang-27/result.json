@@ -1,0 +1,25 @@
+{
+ "bug": "Lang-27",
+ "plausible": true,
+ "correct": false,
+ "tries": 14,
+ "compiled": 14,
+ "patterns": {
+  "FP11": 14
+ },
+ "setup_s": 8.6,
+ "test_s": 0.2,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 166,
+ "pattern": "FP11",
+ "tier": 1,
+ "edit": {
+  "file": "src/main/java/org/apache/commons/lang3/math/NumberUtils.java",
+  "from": ">",
+  "to": "<"
+ },
+ "cpu_s": 32.69,
+ "est_j": 326.9,
+ "wall_s": 14.3
+}

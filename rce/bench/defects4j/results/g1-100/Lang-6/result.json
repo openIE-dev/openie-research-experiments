@@ -1,0 +1,27 @@
+{
+ "bug": "Lang-6",
+ "plausible": true,
+ "correct": true,
+ "tries": 30,
+ "compiled": 15,
+ "patterns": {
+  "FP11": 5,
+  "FP7": 1,
+  "FP13": 24
+ },
+ "setup_s": 13.1,
+ "test_s": 377.7,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 35,
+ "pattern": "FP13",
+ "tier": 2,
+ "edit": {
+  "file": "src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java",
+  "from": "pos",
+  "to": "pt"
+ },
+ "cpu_s": 412.6,
+ "est_j": 4126.0,
+ "wall_s": 397.5
+}

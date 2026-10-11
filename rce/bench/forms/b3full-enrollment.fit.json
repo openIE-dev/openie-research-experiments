@@ -1,0 +1,875 @@
+{
+ "handlers": {
+  "dep_DEP1": {
+   "kind": "passthrough"
+  },
+  "del_D1": {
+   "kind": "passthrough"
+  },
+  "role_R1": {
+   "kind": "term",
+   "term": {
+    "t": "pipe",
+    "first": {
+     "t": "obj",
+     "fields": [
+      [
+       "id",
+       {
+        "t": "proj",
+        "node": "role_R1",
+        "field": "id"
+       }
+      ],
+      [
+       "op",
+       {
+        "t": "proj",
+        "node": "role_R1",
+        "field": "op"
+       }
+      ],
+      [
+       "nsid",
+       {
+        "t": "proj",
+        "node": "role_R1",
+        "field": "next_step_id"
+       }
+      ],
+      [
+       "nat",
+       {
+        "t": "proj",
+        "node": "role_R1",
+        "field": "next_at"
+       }
+      ],
+      [
+       "status",
+       {
+        "t": "pipe",
+        "first": {
+         "t": "if_eq",
+         "field": "prev",
+         "value": null,
+         "then": {
+          "t": "const",
+          "value": {
+           "status": "Active",
+           "current_step_id": "00000000-0000-0000-0000-000000000000",
+           "next_step_at": null,
+           "history_len": 0
+          }
+         },
+         "otherwise": {
+          "t": "proj",
+          "node": "role_R1",
+          "field": "prev"
+         }
+        },
+        "then": {
+         "t": "proj",
+         "node": "role_R1",
+         "field": "status"
+        }
+       }
+      ],
+      [
+       "cur",
+       {
+        "t": "pipe",
+        "first": {
+         "t": "if_eq",
+         "field": "prev",
+         "value": null,
+         "then": {
+          "t": "const",
+          "value": {
+           "status": "Active",
+           "current_step_id": "00000000-0000-0000-0000-000000000000",
+           "next_step_at": null,
+           "history_len": 0
+          }
+         },
+         "otherwise": {
+          "t": "proj",
+          "node": "role_R1",
+          "field": "prev"
+         }
+        },
+        "then": {
+         "t": "proj",
+         "node": "role_R1",
+         "field": "current_step_id"
+        }
+       }
+      ],
+      [
+       "nxt",
+       {
+        "t": "pipe",
+        "first": {
+         "t": "if_eq",
+         "field": "prev",
+         "value": null,
+         "then": {
+          "t": "const",
+          "value": {
+           "status": "Active",
+           "current_step_id": "00000000-0000-0000-0000-000000000000",
+           "next_step_at": null,
+           "history_len": 0
+          }
+         },
+         "otherwise": {
+          "t": "proj",
+          "node": "role_R1",
+          "field": "prev"
+         }
+        },
+        "then": {
+         "t": "proj",
+         "node": "role_R1",
+         "field": "next_step_at"
+        }
+       }
+      ],
+      [
+       "len",
+       {
+        "t": "pipe",
+        "first": {
+         "t": "if_eq",
+         "field": "prev",
+         "value": null,
+         "then": {
+          "t": "const",
+          "value": {
+           "status": "Active",
+           "current_step_id": "00000000-0000-0000-0000-000000000000",
+           "next_step_at": null,
+           "history_len": 0
+          }
+         },
+         "otherwise": {
+          "t": "proj",
+          "node": "role_R1",
+          "field": "prev"
+         }
+        },
+        "then": {
+         "t": "proj",
+         "node": "role_R1",
+         "field": "history_len"
+        }
+       }
+      ]
+     ]
+    },
+    "then": {
+     "t": "if_eq",
+     "field": "op",
+     "value": "pause",
+     "then": {
+      "t": "if_eq",
+      "field": "status",
+      "value": "Active",
+      "then": {
+       "t": "obj",
+       "fields": [
+        [
+         "id",
+         {
+          "t": "proj",
+          "node": "role_R1",
+          "field": "id"
+         }
+        ],
+        [
+         "status",
+         {
+          "t": "const",
+          "value": "Paused"
+         }
+        ],
+        [
+         "current_step_id",
+         {
+          "t": "proj",
+          "node": "role_R1",
+          "field": "cur"
+         }
+        ],
+        [
+         "next_step_at",
+         {
+          "t": "proj",
+          "node": "role_R1",
+          "field": "nxt"
+         }
+        ],
+        [
+         "history_len",
+         {
+          "t": "proj",
+          "node": "role_R1",
+          "field": "len"
+         }
+        ],
+        [
+         "updated",
+         {
+          "t": "const",
+          "value": true
+         }
+        ]
+       ]
+      },
+      "otherwise": {
+       "t": "obj",
+       "fields": [
+        [
+         "id",
+         {
+          "t": "proj",
+          "node": "role_R1",
+          "field": "id"
+         }
+        ],
+        [
+         "status",
+         {
+          "t": "proj",
+          "node": "role_R1",
+          "field": "status"
+         }
+        ],
+        [
+         "current_step_id",
+         {
+          "t": "proj",
+          "node": "role_R1",
+          "field": "cur"
+         }
+        ],
+        [
+         "next_step_at",
+         {
+          "t": "proj",
+          "node": "role_R1",
+          "field": "nxt"
+         }
+        ],
+        [
+         "history_len",
+         {
+          "t": "proj",
+          "node": "role_R1",
+          "field": "len"
+         }
+        ],
+        [
+         "updated",
+         {
+          "t": "const",
+          "value": false
+         }
+        ]
+       ]
+      }
+     },
+     "otherwise": {
+      "t": "if_eq",
+      "field": "op",
+      "value": "resume",
+      "then": {
+       "t": "if_eq",
+       "field": "status",
+       "value": "Paused",
+       "then": {
+        "t": "obj",
+        "fields": [
+         [
+          "id",
+          {
+           "t": "proj",
+           "node": "role_R1",
+           "field": "id"
+          }
+         ],
+         [
+          "status",
+          {
+           "t": "const",
+           "value": "Active"
+          }
+         ],
+         [
+          "current_step_id",
+          {
+           "t": "proj",
+           "node": "role_R1",
+           "field": "cur"
+          }
+         ],
+         [
+          "next_step_at",
+          {
+           "t": "proj",
+           "node": "role_R1",
+           "field": "nxt"
+          }
+         ],
+         [
+          "history_len",
+          {
+           "t": "proj",
+           "node": "role_R1",
+           "field": "len"
+          }
+         ],
+         [
+          "updated",
+          {
+           "t": "const",
+           "value": true
+          }
+         ]
+        ]
+       },
+       "otherwise": {
+        "t": "obj",
+        "fields": [
+         [
+          "id",
+          {
+           "t": "proj",
+           "node": "role_R1",
+           "field": "id"
+          }
+         ],
+         [
+          "status",
+          {
+           "t": "proj",
+           "node": "role_R1",
+           "field": "status"
+          }
+         ],
+         [
+          "current_step_id",
+          {
+           "t": "proj",
+           "node": "role_R1",
+           "field": "cur"
+          }
+         ],
+         [
+          "next_step_at",
+          {
+           "t": "proj",
+           "node": "role_R1",
+           "field": "nxt"
+          }
+         ],
+         [
+          "history_len",
+          {
+           "t": "proj",
+           "node": "role_R1",
+           "field": "len"
+          }
+         ],
+         [
+          "updated",
+          {
+           "t": "const",
+           "value": false
+          }
+         ]
+        ]
+       }
+      },
+      "otherwise": {
+       "t": "if_eq",
+       "field": "op",
+       "value": "complete",
+       "then": {
+        "t": "obj",
+        "fields": [
+         [
+          "id",
+          {
+           "t": "proj",
+           "node": "role_R1",
+           "field": "id"
+          }
+         ],
+         [
+          "status",
+          {
+           "t": "const",
+           "value": "Completed"
+          }
+         ],
+         [
+          "current_step_id",
+          {
+           "t": "const",
+           "value": null
+          }
+         ],
+         [
+          "next_step_at",
+          {
+           "t": "const",
+           "value": null
+          }
+         ],
+         [
+          "history_len",
+          {
+           "t": "proj",
+           "node": "role_R1",
+           "field": "len"
+          }
+         ],
+         [
+          "updated",
+          {
+           "t": "const",
+           "value": true
+          }
+         ]
+        ]
+       },
+       "otherwise": {
+        "t": "if_eq",
+        "field": "op",
+        "value": "mark_replied",
+        "then": {
+         "t": "obj",
+         "fields": [
+          [
+           "id",
+           {
+            "t": "proj",
+            "node": "role_R1",
+            "field": "id"
+           }
+          ],
+          [
+           "status",
+           {
+            "t": "const",
+            "value": "Replied"
+           }
+          ],
+          [
+           "current_step_id",
+           {
+            "t": "proj",
+            "node": "role_R1",
+            "field": "cur"
+           }
+          ],
+          [
+           "next_step_at",
+           {
+            "t": "const",
+            "value": null
+           }
+          ],
+          [
+           "history_len",
+           {
+            "t": "proj",
+            "node": "role_R1",
+            "field": "len"
+           }
+          ],
+          [
+           "updated",
+           {
+            "t": "const",
+            "value": true
+           }
+          ]
+         ]
+        },
+        "otherwise": {
+         "t": "if_eq",
+         "field": "op",
+         "value": "mark_bounced",
+         "then": {
+          "t": "obj",
+          "fields": [
+           [
+            "id",
+            {
+             "t": "proj",
+             "node": "role_R1",
+             "field": "id"
+            }
+           ],
+           [
+            "status",
+            {
+             "t": "const",
+             "value": "Bounced"
+            }
+           ],
+           [
+            "current_step_id",
+            {
+             "t": "proj",
+             "node": "role_R1",
+             "field": "cur"
+            }
+           ],
+           [
+            "next_step_at",
+            {
+             "t": "const",
+             "value": null
+            }
+           ],
+           [
+            "history_len",
+            {
+             "t": "proj",
+             "node": "role_R1",
+             "field": "len"
+            }
+           ],
+           [
+            "updated",
+            {
+             "t": "const",
+             "value": true
+            }
+           ]
+          ]
+         },
+         "otherwise": {
+          "t": "if_eq",
+          "field": "op",
+          "value": "mark_unsubscribed",
+          "then": {
+           "t": "obj",
+           "fields": [
+            [
+             "id",
+             {
+              "t": "proj",
+              "node": "role_R1",
+              "field": "id"
+             }
+            ],
+            [
+             "status",
+             {
+              "t": "const",
+              "value": "Unsubscribed"
+             }
+            ],
+            [
+             "current_step_id",
+             {
+              "t": "proj",
+              "node": "role_R1",
+              "field": "cur"
+             }
+            ],
+            [
+             "next_step_at",
+             {
+              "t": "const",
+              "value": null
+             }
+            ],
+            [
+             "history_len",
+             {
+              "t": "proj",
+              "node": "role_R1",
+              "field": "len"
+             }
+            ],
+            [
+             "updated",
+             {
+              "t": "const",
+              "value": true
+             }
+            ]
+           ]
+          },
+          "otherwise": {
+           "t": "if_eq",
+           "field": "op",
+           "value": "manual_exit",
+           "then": {
+            "t": "obj",
+            "fields": [
+             [
+              "id",
+              {
+               "t": "proj",
+               "node": "role_R1",
+               "field": "id"
+              }
+             ],
+             [
+              "status",
+              {
+               "t": "const",
+               "value": "ManualExit"
+              }
+             ],
+             [
+              "current_step_id",
+              {
+               "t": "const",
+               "value": null
+              }
+             ],
+             [
+              "next_step_at",
+              {
+               "t": "const",
+               "value": null
+              }
+             ],
+             [
+              "history_len",
+              {
+               "t": "proj",
+               "node": "role_R1",
+               "field": "len"
+              }
+             ],
+             [
+              "updated",
+              {
+               "t": "const",
+               "value": true
+              }
+             ]
+            ]
+           },
+           "otherwise": {
+            "t": "if_eq",
+            "field": "op",
+            "value": "advance_to",
+            "then": {
+             "t": "if_eq",
+             "field": "nsid",
+             "value": null,
+             "then": {
+              "t": "obj",
+              "fields": [
+               [
+                "id",
+                {
+                 "t": "proj",
+                 "node": "role_R1",
+                 "field": "id"
+                }
+               ],
+               [
+                "status",
+                {
+                 "t": "const",
+                 "value": "Completed"
+                }
+               ],
+               [
+                "current_step_id",
+                {
+                 "t": "const",
+                 "value": null
+                }
+               ],
+               [
+                "next_step_at",
+                {
+                 "t": "const",
+                 "value": null
+                }
+               ],
+               [
+                "history_len",
+                {
+                 "t": "proj",
+                 "node": "role_R1",
+                 "field": "len"
+                }
+               ],
+               [
+                "updated",
+                {
+                 "t": "const",
+                 "value": true
+                }
+               ]
+              ]
+             },
+             "otherwise": {
+              "t": "obj",
+              "fields": [
+               [
+                "id",
+                {
+                 "t": "proj",
+                 "node": "role_R1",
+                 "field": "id"
+                }
+               ],
+               [
+                "status",
+                {
+                 "t": "proj",
+                 "node": "role_R1",
+                 "field": "status"
+                }
+               ],
+               [
+                "current_step_id",
+                {
+                 "t": "proj",
+                 "node": "role_R1",
+                 "field": "nsid"
+                }
+               ],
+               [
+                "next_step_at",
+                {
+                 "t": "proj",
+                 "node": "role_R1",
+                 "field": "nat"
+                }
+               ],
+               [
+                "history_len",
+                {
+                 "t": "proj",
+                 "node": "role_R1",
+                 "field": "len"
+                }
+               ],
+               [
+                "updated",
+                {
+                 "t": "const",
+                 "value": true
+                }
+               ]
+              ]
+             }
+            },
+            "otherwise": {
+             "t": "if_eq",
+             "field": "op",
+             "value": "record_step",
+             "then": {
+              "t": "obj",
+              "fields": [
+               [
+                "id",
+                {
+                 "t": "proj",
+                 "node": "role_R1",
+                 "field": "id"
+                }
+               ],
+               [
+                "status",
+                {
+                 "t": "proj",
+                 "node": "role_R1",
+                 "field": "status"
+                }
+               ],
+               [
+                "current_step_id",
+                {
+                 "t": "proj",
+                 "node": "role_R1",
+                 "field": "cur"
+                }
+               ],
+               [
+                "next_step_at",
+                {
+                 "t": "proj",
+                 "node": "role_R1",
+                 "field": "nxt"
+                }
+               ],
+               [
+                "history_len",
+                {
+                 "t": "arith",
+                 "node": "role_R1",
+                 "op": "add",
+                 "a": {
+                  "t": "proj",
+                  "node": "role_R1",
+                  "field": "len"
+                 },
+                 "b": {
+                  "t": "const",
+                  "value": 1
+                 }
+                }
+               ],
+               [
+                "updated",
+                {
+                 "t": "const",
+                 "value": true
+                }
+               ]
+              ]
+             },
+             "otherwise": {
+              "t": "esc",
+              "node": "role_R1",
+              "reason": "unknown op"
+             }
+            }
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "types": {
+  "dep_DEP1": {
+   "id": "text",
+   "op": "text",
+   "next_step_id": "json",
+   "next_at": "json"
+  }
+ },
+ "keys": {
+  "del_D1": [
+   "id"
+  ]
+ },
+ "reads": {
+  "del_D1": {
+   "key": [
+    "id"
+   ],
+   "into": "prev"
+  }
+ }
+}

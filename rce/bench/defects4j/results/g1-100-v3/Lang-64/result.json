@@ -1,0 +1,43 @@
+{
+ "bug": "Lang-64",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 27,
+ "compiled": 13,
+ "patterns": {
+  "ReturnStatementMutator": 1,
+  "OperatorMutator": 1,
+  "VariableReplacer": 18,
+  "NullPointerChecker": 5,
+  "ClassCastChecker": 1,
+  "StatementRemover": 1
+ },
+ "kept": [],
+ "setup_s": 20.6,
+ "positions": [
+  [
+   "src/java/org/apache/commons/lang/enums/ValuedEnum.java",
+   [
+    183
+   ]
+  ]
+ ],
+ "test_s": 2.4,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 27,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/java/org/apache/commons/lang/enums/ValuedEnum.java"
+ ],
+ "patch_files": [
+  "src/java/org/apache/commons/lang/enums/ValuedEnum.java"
+ ],
+ "pattern": null,
+ "cpu_s": 36.86,
+ "est_j": 368.6,
+ "wall_s": 42.0
+}

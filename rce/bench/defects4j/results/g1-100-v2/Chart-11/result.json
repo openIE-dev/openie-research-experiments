@@ -1,0 +1,46 @@
+{
+ "bug": "Chart-11",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": true,
+ "correct": true,
+ "partial": false,
+ "tries": 1,
+ "compiled": 1,
+ "patterns": {
+  "VariableReplacer": 1
+ },
+ "kept": [
+  {
+   "file": "source/org/jfree/chart/util/ShapeUtilities.java",
+   "line": 275,
+   "pattern": "VariableReplacer",
+   "from": "PathIterator iterator2 = p1.getPathIterator(null);",
+   "to": "PathIterator iterator2 = p2.getPathIterator(null);"
+  }
+ ],
+ "setup_s": 21.9,
+ "positions": [
+  [
+   "source/org/jfree/chart/util/ShapeUtilities.java",
+   [
+    275
+   ]
+  ]
+ ],
+ "test_s": 3.4,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 3,
+ "ast_equal": true,
+ "fixed_derived": [
+  "source/org/jfree/chart/util/ShapeUtilities.java"
+ ],
+ "patch_files": [
+  "source/org/jfree/chart/util/ShapeUtilities.java"
+ ],
+ "pattern": "VariableReplacer",
+ "cpu_s": 45.13,
+ "est_j": 451.3,
+ "wall_s": 37.2
+}

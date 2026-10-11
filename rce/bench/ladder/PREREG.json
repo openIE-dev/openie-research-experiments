@@ -1,0 +1,41 @@
+{
+ "id": "rce-ladder-2026-10-11",
+ "registered": "2026-10-11T10:55-04:00 (before full runs; L0/L1 pilots of 1000 tasks each were run to debug the harness and are excluded)",
+ "unit": "one task = one row in results/<rung>.jsonl",
+ "primary_metric": "solve rate under the rung's gate, Wilson 95% CI",
+ "secondary": [
+  "model calls per task (default 0)",
+  "rank of the solving candidate (log2 rank = search bits)",
+  "cpu_s per task",
+  "reported_j per solved task: RAPL on jetson-hub for a stratified subsample; elsewhere est_j = cpu_s x 10 W, labeled as an estimate"
+ ],
+ "hypotheses": {
+  "H0": "On L0, G0-T solves >= 99% of valid mutants with 0 model calls.",
+  "H1": "On L1 (TSSB-3M, ManySStuBs4J), G0-T + G1 solve a share at least equal to the share of single-token bug patterns in the corpus (operator, literal, boolean, and/or swaps), with 0 model calls.",
+  "H2": "On L2-L4 (Defects4J), G1-J reaches TBar PerfectFL correct counts on the same bugs.",
+  "H5": "On L5, the deterministic arm (no model) is reported separately from the local-model arm; the model arm's accepted programs are compiled into the G0 index and re-solved with 0 calls."
+ },
+ "power": "Wilson half-width w at p=0.5 needs n = 1.96^2 * 0.25 / w^2: n = 9604 for w = 0.01, 384 for w = 0.05. Target per rung: n >= 9604 where the corpus allows (L0, L1), full corpus otherwise (Defects4J 835 active bugs, HumanEval 164, MBPP 974 test split / 500 sanitized, SWE-bench Lite 300, Verified 500). Achievable N is recorded per rung.",
+ "sampling": "seeded shuffle (seed 20261011) of the full population; the first N in that order are run; no task is dropped after it is run",
+ "stopping": "a rung run stops at its preregistered N or when the population is exhausted; engine changes after a run open a new run id and the earlier run stays reported",
+ "exclusions": "only generator-invalid tasks (mutant inside a string, comment or docstring; TSSB rows whose diff does not parse into one changed statement), decided by rule before running",
+ "splits": {
+  "rule": "Per corpus, after the seeded shuffle (seed 20261011): positions 0..1999 are DEV (engine tuning allowed; never reported as results), positions >= 2000 are TEST. Per RCE paper section 8.4: the engine is frozen and committed, its binary hash recorded, before a TEST run; results are frozen-engine numbers on TEST only. Any engine change after a TEST run opens a new run id on tasks no earlier engine was tuned on.",
+  "dev_used": {
+   "L0": "G0-T was designed from failures on commons-lang mutants, and pilots ran on requests and flask: those three repositories are DEV in full; L0 TEST = the other 9 repositories",
+   "L1-ManySStuBs4J": "first 2000 of shuffle",
+   "L1-TSSB-3M": "first 2000 of file-14 shuffle"
+  },
+  "frozen_runs": {
+   "L0-r1": {
+    "engine_commit": "65571d0",
+    "binary_sha256_prefix": "0186a288d689ebda"
+   },
+   "L1m-r1": {
+    "engine_commit": "9ce790e",
+    "binary_sha256_prefix": "a8f51153965d3572"
+   }
+  },
+  "note_corpus20": "The Track A corpus20 20/20 is dev-contaminated (rules committed after the first run on it) and is not a ladder result."
+ }
+}

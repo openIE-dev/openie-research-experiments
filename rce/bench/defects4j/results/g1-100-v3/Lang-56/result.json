@@ -1,0 +1,37 @@
+{
+ "bug": "Lang-56",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 0,
+ "compiled": 0,
+ "patterns": {},
+ "kept": [],
+ "setup_s": 19.0,
+ "positions": [
+  [
+   "src/java/org/apache/commons/lang/time/FastDateFormat.java",
+   [
+    140,
+    144
+   ]
+  ]
+ ],
+ "test_s": 2.1,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 0,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/java/org/apache/commons/lang/time/FastDateFormat.java"
+ ],
+ "patch_files": [
+  "src/java/org/apache/commons/lang/time/FastDateFormat.java"
+ ],
+ "pattern": null,
+ "cpu_s": 34.53,
+ "est_j": 345.3,
+ "wall_s": 37.1
+}

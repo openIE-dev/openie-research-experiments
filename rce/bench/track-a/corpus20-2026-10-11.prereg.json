@@ -1,0 +1,43 @@
+{
+ "track": "A",
+ "id": "track-a-corpus20-2026-10-11",
+ "registered": "2026-10-11",
+ "tasks": [
+  "tasks-2026-10-11/strsim-levenshtein-row",
+  "tasks-2026-10-11/strsim-osa-cost",
+  "tasks-2026-10-11/strsim-jaro-lower-bound",
+  "tasks-2026-10-11/strsim-jaro-upper-bound",
+  "tasks-2026-10-11/strsim-damerau-match",
+  "tasks-2026-10-11/heck-final-sigma",
+  "tasks-2026-10-11/heck-capitalize-rest",
+  "tasks-2026-10-11/shlex-backslash-newline",
+  "tasks-2026-10-11/shlex-newline-split",
+  "tasks-2026-10-11/shlex-error-none",
+  "tasks-2026-10-11/shlex-lineno",
+  "tasks-2026-10-11/packaging-minor",
+  "tasks-2026-10-11/packaging-micro",
+  "tasks-2026-10-11/packaging-postrelease",
+  "tasks-2026-10-11/packaging-dev-of-post",
+  "tasks-2026-10-11/packaging-sdist-dash",
+  "tasks-2026-10-11/packaging-wheel-build",
+  "tasks-2026-10-11/packaging-canonical-lower",
+  "tasks-2026-10-11/idna-label-length",
+  "tasks-2026-10-11/idna-string-length"
+ ],
+ "solvers": [
+  "none",
+  "gold",
+  "cmd:python3 \"$RCE_ROOT/scripts/track_a_solver.py\""
+ ],
+ "hypotheses": [
+  "H1: all 20 tasks are valid: gold solves, none does not.",
+  "H2: the RCE solver resolves at least 17 of 20.",
+  "H3: G1 (tiered single-site rules, rule templates, two-site pairs) resolves every resolved task before the local model is called, so LLM calls per resolved task fall below 1."
+ ],
+ "notes": [
+  "11 Rust tasks from the vendored crates.io registry (strsim 0.11.1, heck 0.5.0, shlex 2.0.1), 9 Python tasks from dist-packages (packaging 25.0, idna 3.10). Each base state carries one regression; gold restores the released code.",
+  "Tests run in an unprivileged user namespace without network (unshare -rn). Rust tasks run the crate's own unit tests offline.",
+  "The solver's last gear is Qwen2.5-Coder-1.5B Q4 on llama.cpp, CPU, temperature 0, seed 0.",
+  "Changes from corpus20-2026-10-10: the wheel-build and dev-of-post tests also check the normal cases, so edits that pass only the regression assert fail. Tasks are regenerated under tasks-2026-10-11/."
+ ]
+}

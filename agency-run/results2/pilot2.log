@@ -1,0 +1,38 @@
+{
+ "refusal_quantile": 0.1,
+ "replay": [
+  {
+   "r": 0.1,
+   "precision": 0.975609756097561,
+   "recall": 1.0,
+   "refusals": 123
+  },
+  {
+   "r": 0.25,
+   "precision": 0.96,
+   "recall": 1.0,
+   "refusals": 125
+  },
+  {
+   "r": 0.5,
+   "precision": 0.9448818897637795,
+   "recall": 1.0,
+   "refusals": 127
+  },
+  {
+   "r": 0.75,
+   "precision": 0.8888888888888888,
+   "recall": 1.0,
+   "refusals": 135
+  },
+  {
+   "r": 0.9,
+   "precision": 0.8633093525179856,
+   "recall": 1.0,
+   "refusals": 139
+  }
+ ],
+ "step_floor": 0.000401074,
+ "close_reserve": 0.000835471,
+ "est_j_per_cycle": 1.7826647100706183e-09
+}

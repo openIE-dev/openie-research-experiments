@@ -1,0 +1,30 @@
+{
+ "bug": "Math-8",
+ "plausible": true,
+ "correct": false,
+ "tries": 13,
+ "compiled": 8,
+ "patterns": {
+  "FP11": 6,
+  "FP7": 1,
+  "FP5": 2,
+  "FP9": 2,
+  "FP1": 1,
+  "FP15": 1
+ },
+ "setup_s": 15.8,
+ "test_s": 0.9,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 15,
+ "pattern": "FP9",
+ "tier": 3,
+ "edit": {
+  "file": "src/main/java/org/apache/commons/math3/distribution/DiscreteDistribution.java",
+  "from": "0",
+  "to": "1"
+ },
+ "cpu_s": 60.27,
+ "est_j": 602.7,
+ "wall_s": 27.3
+}

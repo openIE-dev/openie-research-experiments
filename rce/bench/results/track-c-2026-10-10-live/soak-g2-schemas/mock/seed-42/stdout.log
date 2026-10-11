@@ -1,0 +1,128 @@
+autonomous loop: bench/../examples/soak-g2-schemas.rce (foreman=mock, rounds=20, auto-approve as soak)
+
+  coverage bound: error budget 0.05 (engine default), 60 clean samples per shape, live traffic only
+
+  persisting to bench/results/track-c-2026-10-10-live/soak-g2-schemas/mock/seed-42/persist
+
+  recording foreman answers to bench/results/track-c-2026-10-10-live/soak-g2-schemas/mock/seed-42/cassette/cassette.jsonl
+
+  injecting traffic into 1 source(s) (1 have inline input_schema)
+
+  seed: 42
+  energy model: est_j; host=x86_64-linux table=x86_64-intel-spr; rce-interp-v1 (op counts x fgir substrate table; est_j, not measured)
+
+  round 1: 5 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 5 in, 0 closed ok, 5 closed escalated, 0 open | handler 8.105e-9 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 other 1 | foreman 1.141e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 0 tick(s)
+    SHADOW [esc_dep_DEP1_1]: shadowing: coverage: 5 sample(s) (5 live, 0 synthetic), 0 failure(s), 95% upper bound 0.6000 vs budget 0.05 (engine default)
+  round 2: 5 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 5 in, 0 closed ok, 5 closed escalated, 0 open | handler 7.385e-9 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 9.970e-9 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 0 tick(s)
+  round 3: 5 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 5 in, 0 closed ok, 5 closed escalated, 0 open | handler 7.385e-9 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 9.970e-9 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 0 tick(s)
+  round 4: 5 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 5 in, 0 closed ok, 5 closed escalated, 0 open | handler 7.505e-9 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 1.021e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 0 tick(s)
+  round 5: 5 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 5 in, 0 closed ok, 5 closed escalated, 0 open | handler 7.745e-9 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 1.069e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 0 tick(s)
+  round 6: 5 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 5 in, 0 closed ok, 5 closed escalated, 0 open | handler 7.985e-9 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 1.117e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 0 tick(s)
+  round 7: 5 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 5 in, 0 closed ok, 5 closed escalated, 0 open | handler 7.145e-9 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 9.490e-9 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 0 tick(s)
+  round 8: 5 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 5 in, 0 closed ok, 5 closed escalated, 0 open | handler 7.505e-9 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 1.021e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 0 tick(s)
+  round 9: 5 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 5 in, 0 closed ok, 5 closed escalated, 0 open | handler 7.505e-9 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 1.021e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 0 tick(s)
+  round 10: 5 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 5 in, 0 closed ok, 5 closed escalated, 0 open | handler 8.225e-9 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 1.165e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 0 tick(s)
+  round 11: 5 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 5 in, 0 closed ok, 5 closed escalated, 0 open | handler 8.105e-9 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 1.141e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 0 tick(s)
+  round 12: 5 new-escalation(s), 1 promotion(s), 0 deferral(s), 1 approved
+    energy (est_j): tasks 5 in, 0 closed ok, 5 closed escalated, 0 open | handler 7.505e-9 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 1.021e-8 J | all-in per closed task n/a | 59 duplicate escalation(s) closed | settle 0 tick(s)
+    PROMOTED [esc_dep_DEP1_1] by mock-foreman: coverage: 60 sample(s) (60 live, 0 synthetic), 0 failure(s), 95% upper bound 0.0500 vs budget 0.05 (engine default)
+  round 13: 15 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 5 in, 0 closed ok, 5 closed escalated, 0 open | handler 3.002e-8 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 other 3 | foreman 1.684e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 1 tick(s)
+    BLOCKED [esc_role_R4_62]: promotion refused: step 2 (SchemaValidated): output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: expected string, got {"amount":873,"order_id":"lorem ipsum dolor sit amet"}; step 6 (PropertyTested): 1 of 33 cases failed; first: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: expected string, got {"amount":873,"order_id":"lorem ipsum dolor sit amet"} (input {"amount":873,"order_id":"lorem ipsum dolor sit amet"}); coverage: 1 sample(s) (1 live, 0 synthetic), 1 failure(s), 95% upper bound 1.0000 vs budget 0.05 (engine default); first failure: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: expected string, got {"amount":873,"order_id":"lorem ipsum dolor sit amet"}
+    BLOCKED [esc_role_R1_62]: promotion refused: step 2 (SchemaValidated): output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: missing required field 'data'; step 6 (PropertyTested): 1 of 33 cases failed; first: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: missing required field 'data' (input {"amount":873,"order_id":"lorem ipsum dolor sit amet"}); coverage: 1 sample(s) (1 live, 0 synthetic), 1 failure(s), 95% upper bound 1.0000 vs budget 0.05 (engine default); first failure: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: missing required field 'data'
+    SHADOW [esc_role_R3_62]: shadowing: coverage: 5 sample(s) (5 live, 0 synthetic), 0 failure(s), 95% upper bound 0.6000 vs budget 0.05 (engine default)
+  round 14: 15 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 5 in, 0 closed ok, 5 closed escalated, 0 open | handler 2.906e-8 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 other 2 | foreman 1.636e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 1 tick(s)
+    BLOCKED [esc_role_R4_62]: promotion refused: step 2 (SchemaValidated): output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: expected string, got {"amount":873,"order_id":"lorem ipsum dolor sit amet"}; step 6 (PropertyTested): 1 of 33 cases failed; first: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: expected string, got {"amount":873,"order_id":"lorem ipsum dolor sit amet"} (input {"amount":873,"order_id":"lorem ipsum dolor sit amet"}); coverage: 1 sample(s) (1 live, 0 synthetic), 1 failure(s), 95% upper bound 1.0000 vs budget 0.05 (engine default); first failure: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: expected string, got {"amount":873,"order_id":"lorem ipsum dolor sit amet"}
+    BLOCKED [esc_role_R1_62]: promotion refused: step 2 (SchemaValidated): output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: missing required field 'data'; step 6 (PropertyTested): 1 of 33 cases failed; first: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: missing required field 'data' (input {"amount":873,"order_id":"lorem ipsum dolor sit amet"}); coverage: 1 sample(s) (1 live, 0 synthetic), 1 failure(s), 95% upper bound 1.0000 vs budget 0.05 (engine default); first failure: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: missing required field 'data'
+  round 15: 15 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 5 in, 0 closed ok, 5 closed escalated, 0 open | handler 2.762e-8 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 other 2 | foreman 1.564e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 1 tick(s)
+    BLOCKED [esc_role_R4_62]: promotion refused: step 2 (SchemaValidated): output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: expected string, got {"amount":873,"order_id":"lorem ipsum dolor sit amet"}; step 6 (PropertyTested): 1 of 33 cases failed; first: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: expected string, got {"amount":873,"order_id":"lorem ipsum dolor sit amet"} (input {"amount":873,"order_id":"lorem ipsum dolor sit amet"}); coverage: 1 sample(s) (1 live, 0 synthetic), 1 failure(s), 95% upper bound 1.0000 vs budget 0.05 (engine default); first failure: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: expected string, got {"amount":873,"order_id":"lorem ipsum dolor sit amet"}
+    BLOCKED [esc_role_R1_62]: promotion refused: step 2 (SchemaValidated): output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: missing required field 'data'; step 6 (PropertyTested): 1 of 33 cases failed; first: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: missing required field 'data' (input {"amount":873,"order_id":"lorem ipsum dolor sit amet"}); coverage: 1 sample(s) (1 live, 0 synthetic), 1 failure(s), 95% upper bound 1.0000 vs budget 0.05 (engine default); first failure: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: missing required field 'data'
+  round 16: 15 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 5 in, 0 closed ok, 5 closed escalated, 0 open | handler 2.666e-8 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 other 2 | foreman 1.516e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 1 tick(s)
+    BLOCKED [esc_role_R4_62]: promotion refused: step 2 (SchemaValidated): output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: expected string, got {"amount":873,"order_id":"lorem ipsum dolor sit amet"}; step 6 (PropertyTested): 1 of 33 cases failed; first: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: expected string, got {"amount":873,"order_id":"lorem ipsum dolor sit amet"} (input {"amount":873,"order_id":"lorem ipsum dolor sit amet"}); coverage: 1 sample(s) (1 live, 0 synthetic), 1 failure(s), 95% upper bound 1.0000 vs budget 0.05 (engine default); first failure: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: expected string, got {"amount":873,"order_id":"lorem ipsum dolor sit amet"}
+    BLOCKED [esc_role_R1_62]: promotion refused: step 2 (SchemaValidated): output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: missing required field 'data'; step 6 (PropertyTested): 1 of 33 cases failed; first: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: missing required field 'data' (input {"amount":873,"order_id":"lorem ipsum dolor sit amet"}); coverage: 1 sample(s) (1 live, 0 synthetic), 1 failure(s), 95% upper bound 1.0000 vs budget 0.05 (engine default); first failure: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: missing required field 'data'
+  round 17: 15 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 5 in, 0 closed ok, 5 closed escalated, 0 open | handler 2.762e-8 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 other 2 | foreman 1.564e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 1 tick(s)
+    BLOCKED [esc_role_R4_62]: promotion refused: step 2 (SchemaValidated): output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: expected string, got {"amount":873,"order_id":"lorem ipsum dolor sit amet"}; step 6 (PropertyTested): 1 of 33 cases failed; first: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: expected string, got {"amount":873,"order_id":"lorem ipsum dolor sit amet"} (input {"amount":873,"order_id":"lorem ipsum dolor sit amet"}); coverage: 1 sample(s) (1 live, 0 synthetic), 1 failure(s), 95% upper bound 1.0000 vs budget 0.05 (engine default); first failure: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: expected string, got {"amount":873,"order_id":"lorem ipsum dolor sit amet"}
+    BLOCKED [esc_role_R1_62]: promotion refused: step 2 (SchemaValidated): output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: missing required field 'data'; step 6 (PropertyTested): 1 of 33 cases failed; first: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: missing required field 'data' (input {"amount":873,"order_id":"lorem ipsum dolor sit amet"}); coverage: 1 sample(s) (1 live, 0 synthetic), 1 failure(s), 95% upper bound 1.0000 vs budget 0.05 (engine default); first failure: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: missing required field 'data'
+  round 18: 15 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 5 in, 0 closed ok, 5 closed escalated, 0 open | handler 2.810e-8 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 other 2 | foreman 1.588e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 1 tick(s)
+    BLOCKED [esc_role_R4_62]: promotion refused: step 2 (SchemaValidated): output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: expected string, got {"amount":873,"order_id":"lorem ipsum dolor sit amet"}; step 6 (PropertyTested): 1 of 33 cases failed; first: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: expected string, got {"amount":873,"order_id":"lorem ipsum dolor sit amet"} (input {"amount":873,"order_id":"lorem ipsum dolor sit amet"}); coverage: 1 sample(s) (1 live, 0 synthetic), 1 failure(s), 95% upper bound 1.0000 vs budget 0.05 (engine default); first failure: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: expected string, got {"amount":873,"order_id":"lorem ipsum dolor sit amet"}
+    BLOCKED [esc_role_R1_62]: promotion refused: step 2 (SchemaValidated): output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: missing required field 'data'; step 6 (PropertyTested): 1 of 33 cases failed; first: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: missing required field 'data' (input {"amount":873,"order_id":"lorem ipsum dolor sit amet"}); coverage: 1 sample(s) (1 live, 0 synthetic), 1 failure(s), 95% upper bound 1.0000 vs budget 0.05 (engine default); first failure: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: missing required field 'data'
+  round 19: 15 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 5 in, 0 closed ok, 5 closed escalated, 0 open | handler 2.810e-8 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 other 2 | foreman 1.588e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 1 tick(s)
+    BLOCKED [esc_role_R4_62]: promotion refused: step 2 (SchemaValidated): output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: expected string, got {"amount":873,"order_id":"lorem ipsum dolor sit amet"}; step 6 (PropertyTested): 1 of 33 cases failed; first: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: expected string, got {"amount":873,"order_id":"lorem ipsum dolor sit amet"} (input {"amount":873,"order_id":"lorem ipsum dolor sit amet"}); coverage: 1 sample(s) (1 live, 0 synthetic), 1 failure(s), 95% upper bound 1.0000 vs budget 0.05 (engine default); first failure: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: expected string, got {"amount":873,"order_id":"lorem ipsum dolor sit amet"}
+    BLOCKED [esc_role_R1_62]: promotion refused: step 2 (SchemaValidated): output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: missing required field 'data'; step 6 (PropertyTested): 1 of 33 cases failed; first: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: missing required field 'data' (input {"amount":873,"order_id":"lorem ipsum dolor sit amet"}); coverage: 1 sample(s) (1 live, 0 synthetic), 1 failure(s), 95% upper bound 1.0000 vs budget 0.05 (engine default); first failure: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: missing required field 'data'
+  round 20: 15 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 5 in, 0 closed ok, 5 closed escalated, 0 open | handler 2.714e-8 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 other 2 | foreman 1.540e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 1 tick(s)
+    BLOCKED [esc_role_R4_62]: promotion refused: step 2 (SchemaValidated): output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: expected string, got {"amount":873,"order_id":"lorem ipsum dolor sit amet"}; step 6 (PropertyTested): 1 of 33 cases failed; first: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: expected string, got {"amount":873,"order_id":"lorem ipsum dolor sit amet"} (input {"amount":873,"order_id":"lorem ipsum dolor sit amet"}); coverage: 1 sample(s) (1 live, 0 synthetic), 1 failure(s), 95% upper bound 1.0000 vs budget 0.05 (engine default); first failure: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: expected string, got {"amount":873,"order_id":"lorem ipsum dolor sit amet"}
+    BLOCKED [esc_role_R1_62]: promotion refused: step 2 (SchemaValidated): output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: missing required field 'data'; step 6 (PropertyTested): 1 of 33 cases failed; first: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: missing required field 'data' (input {"amount":873,"order_id":"lorem ipsum dolor sit amet"}); coverage: 1 sample(s) (1 live, 0 synthetic), 1 failure(s), 95% upper bound 1.0000 vs budget 0.05 (engine default); first failure: output {"amount":873,"order_id":"lorem ipsum dolor sit amet"} violates output schema: missing required field 'data'
+
+=== RCE Engine Stats ===
+Ticks:                     108
+Nodes:                       8
+Edges:                       7
+Handlers:                    8
+Messages processed:        220
+Escalations:               180
+Promotions:                  1
+Pending escalations:       120
+Log entries:               218
+AI fraction:             10.0%
+Handler invocations:       160
+Handler escalations:       120
+Hindsight obs:             221
+Hindsight insights:          4
+Hindsight pending:           4
+Paradigm pressure:           0
+Pending approvals:           0
+AI entries approved:         1
+Promotions blocked:         16
+--- Energy (est_j; measured_j: none) ---
+Model:                est_j; host=x86_64-linux table=x86_64-intel-spr; rce-interp-v1 (op counts x fgir substrate table; est_j, not measured)
+Handler est_j:            3.164e-7 J  (220 priced, 0 unpriced invocations)
+Tasks:                     100 opened, 0 closed ok, 100 closed escalated, 0 open
+est_j / closed task:           n/a (no task closed ok)
+LLM calls:                   0 (0 priced), est_j 0.000e0 J, tokens 0+0
+Foreman est_j:            2.534e-7 J  (59 duplicate escalations closed)
+  gear coverage        116 ran,    0 resolved,    0 promoted, est_j 2.534e-7 J
+  gear mock-foreman     18 ran,   18 resolved,    0 promoted, est_j 0.000e0 J, 18 unpriced
+
+  Properties:      8 handler(s), 512 case(s), 0 failing handler(s)
+
+  Total promotions: 1
+  AI fraction:     10.0%
+  Log integrity:   OK

@@ -1,0 +1,9 @@
+[10:03:45] sh defects4j checkout -p
+[10:03:50] sh defects4j compile
+[10:04:06] sh defects4j export -p
+[10:04:08] sh defects4j export -p
+[10:04:10] sh defects4j export -p
+[10:04:13] sh defects4j export -p
+[10:04:16] sh defects4j export -p
+[10:04:18] sh javac -nowarn -cp
+{"bug": "Math-4", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 38, "compiled": 12, "patterns": {"VariableReplacer": 16, "NullPointerChecker": 22}, "kept": [{"file": "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SubLine.java", "line": 116, "pattern": "NullPointerChecker", "from": "", "to": "if (v1D == null) {\n\t    return null;\n\t}\n"}, {"file": "src/main/java/org/apache/commons/math3/geometry/euclidean/twod/SubLine.java", "line": 120, "pattern": "NullPointerChecker", "from": "", "to": "if (v2D == null) {\n\t    return null;\n\t}\n"}], "setup_s": 20.5, "positions": [["src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SubLine.java", [116]], ["src/main/java/org/apache/commons/math3/geometry/euclidean/twod/SubLine.java", [120]]], "test_s": 2.2, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 2, "candidates": 62, "ast_equal": true, "fixed_derived": ["src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SubLine.java", "src/main/java/org/apache/commons/math3/geometry/euclidean/twod/SubLine.java"], "patch_files": ["src/main/java/org/apache/commons/math3/geometry/euclidean/threed/SubLine.java", "src/main/java/org/apache/commons/math3/geometry/euclidean/twod/SubLine.java"], "pattern": "NullPointerChecker", "cpu_s": 70.72, "est_j": 707.2, "wall_s": 38.9}

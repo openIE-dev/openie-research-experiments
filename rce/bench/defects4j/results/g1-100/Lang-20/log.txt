@@ -1,0 +1,68 @@
+[08:59:55] sh defects4j checkout -p
+[08:59:59] sh defects4j compile
+[09:00:04] sh defects4j export -p
+[09:00:05] sh defects4j export -p
+[09:00:06] sh defects4j export -p
+[09:00:07] sh defects4j export -p
+[09:00:08] sh defects4j export -p
+[09:00:09] sh javac -nowarn -cp
+[09:00:09] test 18
+[09:00:15] test 2
+[09:00:16] test 2
+[09:00:16] test 2
+[09:00:16] test 2
+[09:00:16] test 2
+[09:00:17] test 2
+[09:00:17] test 2
+[09:00:17] test 2
+[09:00:17] test 2
+[09:00:17] test 2
+[09:00:17] test 2
+[09:00:17] test 2
+[09:00:17] test 2
+[09:00:18] test 2
+[09:00:18] test 2
+[09:00:18] test 2
+[09:00:18] test 2
+[09:00:18] test 2
+[09:00:18] test 2
+[09:00:19] test 2
+[09:00:19] test 2
+[09:00:19] test 2
+[09:00:19] test 2
+[09:00:20] test 2
+[09:00:20] test 2
+[09:00:20] test 2
+[09:00:20] test 2
+[09:00:20] test 2
+[09:00:20] test 2
+[09:00:20] test 2
+[09:00:20] test 2
+[09:00:20] test 2
+[09:00:20] test 2
+[09:00:21] test 2
+[09:00:21] test 2
+[09:00:21] test 2
+[09:00:21] test 2
+[09:00:21] test 2
+[09:00:21] test 2
+[09:00:21] test 2
+[09:00:21] test 2
+[09:00:22] test 2
+[09:00:22] test 2
+[09:00:22] test 2
+[09:00:22] test 2
+[09:00:22] test 2
+[09:00:22] test 2
+[09:00:22] test 2
+[09:00:22] test 2
+[09:00:22] test 2
+[09:00:22] test 2
+[09:00:22] test 2
+[09:00:22] test 2
+[09:00:23] test 2
+[09:00:23] test 2
+[09:00:23] test 2
+[09:00:23] test 2
+[09:00:23] test 2
+{"bug": "Lang-20", "plausible": false, "correct": false, "tries": 91, "compiled": 57, "patterns": {"FP11": 61, "FP6": 2, "FP7": 4, "FP15": 12, "FP5": 2, "FP9": 8, "FP2": 2}, "setup_s": 9.1, "test_s": 5.7, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 2, "candidates": 91, "cpu_s": 59.08, "est_j": 590.8, "wall_s": 27.7}

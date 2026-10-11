@@ -1,0 +1,52 @@
+[09:04:46] sh defects4j checkout -p
+[09:04:50] sh defects4j compile
+[09:04:56] sh defects4j export -p
+[09:04:57] sh defects4j export -p
+[09:04:57] sh defects4j export -p
+[09:04:58] sh defects4j export -p
+[09:04:59] sh defects4j export -p
+[09:05:00] sh javac -nowarn -cp
+[09:05:00] test 3
+[09:05:01] test 2
+[09:05:02] test 2
+[09:05:02] test 2
+[09:05:02] test 2
+[09:05:02] test 2
+[09:05:02] test 2
+[09:05:02] test 2
+[09:05:02] test 2
+[09:05:02] test 2
+[09:05:03] test 2
+[09:05:03] test 2
+[09:05:03] test 2
+[09:05:04] test 2
+[09:05:04] test 2
+[09:05:04] test 2
+[09:05:05] test 2
+[09:05:05] test 2
+[09:05:05] test 2
+[09:05:05] test 2
+[09:05:05] test 2
+[09:05:06] test 2
+[09:05:06] test 2
+[09:05:06] test 2
+[09:05:06] test 2
+[09:05:06] test 2
+[09:05:06] test 2
+[09:05:06] test 2
+[09:05:06] test 2
+[09:05:06] test 2
+[09:05:06] test 2
+[09:05:06] test 2
+[09:05:07] test 2
+[09:05:07] test 2
+[09:05:07] test 2
+[09:05:07] test 2
+[09:05:07] test 2
+[09:05:07] test 2
+[09:05:07] test 2
+[09:05:08] test 2
+[09:05:08] test 2
+[09:05:08] test 2
+[09:05:08] test 2
+{"bug": "Lang-50", "plausible": false, "correct": false, "tries": 150, "compiled": 41, "patterns": {"FP11": 78, "FP5": 16, "FP7": 12, "FP15": 26, "FP1": 4, "FP4": 6, "FP14": 6, "FP2": 2}, "setup_s": 9.3, "test_s": 0.8, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 2, "candidates": 164, "cpu_s": 44.94, "est_j": 449.4, "wall_s": 21.8}

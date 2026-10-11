@@ -1,0 +1,27 @@
+{
+ "bug": "Chart-22",
+ "plausible": false,
+ "correct": false,
+ "tries": 150,
+ "compiled": 85,
+ "patterns": {
+  "FP11": 66,
+  "FP9": 7,
+  "FP10": 4,
+  "FP7": 8,
+  "FP4": 11,
+  "FP1": 3,
+  "FP15": 29,
+  "FP14": 11,
+  "FP5": 3,
+  "FP2": 8
+ },
+ "setup_s": 19.4,
+ "test_s": 2.3,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 6,
+ "candidates": 163,
+ "cpu_s": 54.72,
+ "est_j": 547.2,
+ "wall_s": 39.8
+}

@@ -1,0 +1,76 @@
+{
+ "bug": "Lang-5",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 571,
+ "compiled": 310,
+ "patterns": {
+  "DataTypeReplacer": 24,
+  "VariableReplacer": 64,
+  "LiteralExpressionMutator": 36,
+  "StatementRemover": 29,
+  "ConditionalExpressionMutator": 128,
+  "OperatorMutator": 43,
+  "StatementMover": 144,
+  "MethodInvocationMutator": 103
+ },
+ "kept": [],
+ "setup_s": 15.5,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/lang3/LocaleUtils.java",
+   [
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110,
+    111,
+    112,
+    113,
+    114,
+    115,
+    116,
+    117,
+    118,
+    119,
+    120,
+    121,
+    122,
+    123,
+    124,
+    125,
+    126,
+    127
+   ]
+  ]
+ ],
+ "test_s": 2.9,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 961,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/lang3/LocaleUtils.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/lang3/LocaleUtils.java"
+ ],
+ "pattern": null,
+ "cpu_s": 74.77,
+ "est_j": 747.7,
+ "wall_s": 48.1
+}

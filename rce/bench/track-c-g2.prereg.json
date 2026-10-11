@@ -1,0 +1,33 @@
+{
+  "track": "C",
+  "id": "track-c-2026-10-10-g2",
+  "registered": "2026-10-10",
+  "specs": [
+    "../examples/web-api.rce",
+    "../examples/joule-db-core.rce",
+    "../examples/follow-bible-ingest.rce",
+    "../examples/follow-bible-ingest-schemas.rce",
+    "../examples/ask-server.rce",
+    "../examples/soak-g2-schemas.rce"
+  ],
+  "seeds": [
+    42
+  ],
+  "rounds": 20,
+  "foremen": [
+    "mock",
+    "geared"
+  ],
+  "auto_approve": "soak",
+  "hypotheses": [
+    "H1: under geared, soak-g2-schemas resolves at least one escalation at G2 (its roles declare JSON output schemas); on the five earlier specs G2 stays at zero, because their outputs are named types, not JSON Schema.",
+    "H2: G3, G4 and G5 count zero in every run (no endpoint, no key, no --remote).",
+    "H3: every run reaches a round with zero new escalations before round 20.",
+    "H4: measured_j is empty in every row."
+  ],
+  "notes": [
+    "Adds examples/soak-g2-schemas.rce (written for this registration) to the five specs of track-c-2026-10-09.",
+    "No exclusions; every run is reported.",
+    "Stop rule: fixed 20 rounds, no reruns before reporting."
+  ]
+}

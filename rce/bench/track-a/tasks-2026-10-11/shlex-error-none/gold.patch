@@ -1,0 +1,11 @@
+--- a/src/bytes.rs
++++ b/src/bytes.rs
+@@ -158,7 +158,7 @@
+ pub fn split(in_bytes: &[u8]) -> Option<Vec<Vec<u8>>> {
+     let mut shl = Shlex::new(in_bytes);
+     let res = shl.by_ref().collect();
+-    Some(res)
++    if shl.had_error { None } else { Some(res) }
+ }
+ 
+ /// A more configurable interface to quote strings.  If you only want the default settings you can

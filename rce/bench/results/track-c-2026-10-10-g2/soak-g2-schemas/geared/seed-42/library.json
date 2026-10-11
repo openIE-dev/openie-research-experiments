@@ -1,0 +1,90 @@
+{
+  "1417592cc748a4ab586070798d5bfddb2f4098f0117f7bcc692105d09716a1fc": [
+    {
+      "key": "1417592cc748a4ab586070798d5bfddb2f4098f0117f7bcc692105d09716a1fc",
+      "shape_signature": "{\"amount\":number,\"order_id\":string}",
+      "spec": {
+        "kind": "wrap",
+        "envelope_field": "data"
+      },
+      "source_node": "role_R1",
+      "source_spec": "soak-g2-schemas",
+      "gear": "G2",
+      "hits": 1
+    }
+  ],
+  "2a66cb1a1e820d400a897f1dd9b9e8ab0bd410bacb73227f919d8e4749369127": [
+    {
+      "key": "2a66cb1a1e820d400a897f1dd9b9e8ab0bd410bacb73227f919d8e4749369127",
+      "shape_signature": "{\"data\":{\"amount\":number,\"order_id\":string}}",
+      "spec": {
+        "kind": "project",
+        "field": "data"
+      },
+      "source_node": "role_R2",
+      "source_spec": "soak-g2-schemas",
+      "gear": "G2",
+      "hits": 0
+    }
+  ],
+  "30d963c753b047710384d6d042d005cacf34f7c7e296686e25da5f706732fda8": [
+    {
+      "key": "30d963c753b047710384d6d042d005cacf34f7c7e296686e25da5f706732fda8",
+      "shape_signature": "{\"escalation_reason\":string,\"source_node\":string}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "role_R5",
+      "source_spec": "soak-g2-schemas",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "8700ea089ad8c6745740ba03e4f249eeeb931c0ec034b04b64c60e5ad7ee9f43": [
+    {
+      "key": "8700ea089ad8c6745740ba03e4f249eeeb931c0ec034b04b64c60e5ad7ee9f43",
+      "shape_signature": "{\"amount\":number,\"order_id\":string}",
+      "spec": {
+        "kind": "validate",
+        "required_fields": [
+          "order_id",
+          "amount"
+        ],
+        "on_success": {
+          "kind": "passthrough"
+        }
+      },
+      "source_node": "dep_DEP1",
+      "source_spec": "soak-g2-schemas",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "9e1ec1fd2bdc440cb65a7dd759d121d04a61b132e626ee92e86bc4026637530b": [
+    {
+      "key": "9e1ec1fd2bdc440cb65a7dd759d121d04a61b132e626ee92e86bc4026637530b",
+      "shape_signature": "{\"amount\":number,\"order_id\":string}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "role_R3",
+      "source_spec": "soak-g2-schemas",
+      "gear": "G2",
+      "hits": 1
+    }
+  ],
+  "f92e571c38c6d518d1412db47faf67a810178a917bb859e184badbaea81783d5": [
+    {
+      "key": "f92e571c38c6d518d1412db47faf67a810178a917bb859e184badbaea81783d5",
+      "shape_signature": "{\"amount\":number,\"order_id\":string}",
+      "spec": {
+        "kind": "project",
+        "field": "order_id"
+      },
+      "source_node": "role_R4",
+      "source_spec": "soak-g2-schemas",
+      "gear": "G2",
+      "hits": 0
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+[11:23:14] sh defects4j checkout -p
+[11:23:19] sh defects4j compile
+[11:23:35] sh defects4j export -p
+[11:23:37] sh defects4j export -p
+[11:23:39] sh defects4j export -p
+[11:23:42] sh defects4j export -p
+[11:23:44] sh defects4j export -p
+[11:23:46] sh javac -nowarn -cp
+{"bug": "Lang-8", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 38, "compiled": 21, "patterns": {"OperatorMutator": 6, "ConditionalExpressionMutator": 10, "RangeChecker": 1, "VariableReplacer": 3, "NullPointerChecker": 14, "StatementRemover": 4}, "kept": [], "setup_s": 20.9, "positions": [["src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java", [1134]]], "test_s": 46.1, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 2, "candidates": 38, "ast_equal": false, "fixed_derived": ["src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java"], "patch_files": ["src/main/java/org/apache/commons/lang3/time/FastDatePrinter.java"], "pattern": null, "cpu_s": 80.29, "est_j": 802.9, "wall_s": 86.4}

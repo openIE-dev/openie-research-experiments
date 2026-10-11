@@ -1,0 +1,167 @@
+{
+ "handlers": {
+  "dep_DEP1": {
+   "kind": "passthrough"
+  },
+  "role_R1": {
+   "kind": "term",
+   "term": {
+    "t": "if_eq",
+    "field": "op",
+    "value": "pause",
+    "then": {
+     "t": "if_eq",
+     "field": "status",
+     "value": "Active",
+     "then": {
+      "t": "const",
+      "value": {
+       "status": "Paused"
+      }
+     },
+     "otherwise": {
+      "t": "obj",
+      "fields": [
+       [
+        "status",
+        {
+         "t": "proj",
+         "node": "role_R1",
+         "field": "status"
+        }
+       ]
+      ]
+     }
+    },
+    "otherwise": {
+     "t": "if_eq",
+     "field": "op",
+     "value": "resume",
+     "then": {
+      "t": "if_eq",
+      "field": "status",
+      "value": "Paused",
+      "then": {
+       "t": "const",
+       "value": {
+        "status": "Active"
+       }
+      },
+      "otherwise": {
+       "t": "obj",
+       "fields": [
+        [
+         "status",
+         {
+          "t": "proj",
+          "node": "role_R1",
+          "field": "status"
+         }
+        ]
+       ]
+      }
+     },
+     "otherwise": {
+      "t": "if_eq",
+      "field": "op",
+      "value": "complete",
+      "then": {
+       "t": "const",
+       "value": {
+        "status": "Completed"
+       }
+      },
+      "otherwise": {
+       "t": "if_eq",
+       "field": "op",
+       "value": "mark_replied",
+       "then": {
+        "t": "const",
+        "value": {
+         "status": "Replied"
+        }
+       },
+       "otherwise": {
+        "t": "if_eq",
+        "field": "op",
+        "value": "mark_bounced",
+        "then": {
+         "t": "const",
+         "value": {
+          "status": "Bounced"
+         }
+        },
+        "otherwise": {
+         "t": "if_eq",
+         "field": "op",
+         "value": "mark_unsubscribed",
+         "then": {
+          "t": "const",
+          "value": {
+           "status": "Unsubscribed"
+          }
+         },
+         "otherwise": {
+          "t": "if_eq",
+          "field": "op",
+          "value": "manual_exit",
+          "then": {
+           "t": "const",
+           "value": {
+            "status": "ManualExit"
+           }
+          },
+          "otherwise": {
+           "t": "if_eq",
+           "field": "op",
+           "value": "advance_to",
+           "then": {
+            "t": "if_eq",
+            "field": "next_step_id",
+            "value": null,
+            "then": {
+             "t": "const",
+             "value": {
+              "status": "Completed"
+             }
+            },
+            "otherwise": {
+             "t": "obj",
+             "fields": [
+              [
+               "status",
+               {
+                "t": "proj",
+                "node": "role_R1",
+                "field": "status"
+               }
+              ]
+             ]
+            }
+           },
+           "otherwise": {
+            "t": "esc",
+            "node": "role_R1",
+            "reason": "unknown method"
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "del_D1": {
+   "kind": "passthrough"
+  }
+ },
+ "types": {
+  "dep_DEP1": {
+   "status": "text",
+   "op": "text",
+   "next_step_id": "json"
+  }
+ }
+}

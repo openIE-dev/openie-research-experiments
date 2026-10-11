@@ -1,0 +1,18 @@
+{
+ "bug": "Chart-10",
+ "plausible": false,
+ "correct": false,
+ "tries": 3,
+ "compiled": 0,
+ "patterns": {
+  "FP11": 3
+ },
+ "setup_s": 11.8,
+ "test_s": 0.2,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 3,
+ "cpu_s": 37.59,
+ "est_j": 375.9,
+ "wall_s": 16.9
+}

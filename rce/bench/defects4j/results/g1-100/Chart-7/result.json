@@ -1,0 +1,15 @@
+{
+ "bug": "Chart-7",
+ "plausible": false,
+ "correct": false,
+ "tries": 0,
+ "compiled": 0,
+ "patterns": {},
+ "setup_s": 11.6,
+ "test_s": 0.4,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "cpu_s": 36.85,
+ "est_j": 368.5,
+ "wall_s": 17.1
+}

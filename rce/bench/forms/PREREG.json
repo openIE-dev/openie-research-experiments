@@ -1,0 +1,153 @@
+{
+ "format": "rce-form-bench/1",
+ "frozen_at": "2026-10-09 (America/New_York), before any result was produced",
+ "source": {
+  "crate": "crates/joule-sales-outreach",
+  "files": {
+   "src/analytics.rs": "f450d6e574d934aa2d4c0dc9bd1477ec1e01e4b3f13401f7de15c709e86b8752",
+   "src/enrollment.rs": "63afc46f627c6367a756bc265e319cb8ca841fa6114a4df5e57281e2f35dea89"
+  },
+  "note": "the original code runs verbatim (a copy of the crate, Cargo.toml de-workspaced only); see harness.rs.txt"
+ },
+ "programs": [
+  {
+   "id": "b1",
+   "name": "SequenceMetrics rates",
+   "original": [
+    {
+     "file": "src/analytics.rs",
+     "lines": [
+      55,
+      92
+     ],
+     "fns": [
+      "open_rate",
+      "click_rate",
+      "reply_rate",
+      "bounce_rate",
+      "unsubscribe_rate"
+     ]
+    }
+   ],
+   "form": "b1-sequence-rates.rce",
+   "fit": "b1-sequence-rates.fit.json",
+   "inputs": {
+    "n": 1000,
+    "seed": 101
+   }
+  },
+  {
+   "id": "b2",
+   "name": "SenderHealth reputation",
+   "original": [
+    {
+     "file": "src/analytics.rs",
+     "lines": [
+      328,
+      357
+     ],
+     "fns": [
+      "bounce_rate",
+      "complaint_rate",
+      "recalculate_reputation"
+     ]
+    }
+   ],
+   "form": "b2-sender-reputation.rce",
+   "fit": "b2-sender-reputation.fit.json",
+   "inputs": {
+    "n": 1000,
+    "seed": 202
+   }
+  },
+  {
+   "id": "b3",
+   "name": "Enrollment status transitions",
+   "original": [
+    {
+     "file": "src/enrollment.rs",
+     "lines": [
+      110,
+      160
+     ],
+     "fns": [
+      "pause",
+      "resume",
+      "complete",
+      "mark_replied",
+      "mark_bounced",
+      "mark_unsubscribed",
+      "manual_exit"
+     ]
+    },
+    {
+     "file": "src/enrollment.rs",
+     "lines": [
+      169,
+      176
+     ],
+     "fns": [
+      "advance_to"
+     ]
+    }
+   ],
+   "form": "b3-enrollment-status.rce",
+   "fit": "b3-enrollment-status.fit.json",
+   "inputs": {
+    "sequences": 100,
+    "length": 25,
+    "seed": 303
+   },
+   "closed_loop": "the Form's own previous status is fed back as input; the original's status is never read by the Form"
+  },
+  {
+   "id": "b3full",
+   "name": "Enrollment transitions, every written field",
+   "amendment": "added 2026-10-10, after b1-b3 results were known: b3 compared status only because Form rules could not read stored state; with rule reads (fit \"reads\") the Form keeps each enrollment's row and the comparison covers status, current_step_id, next_step_at, step_history length and whether updated_at was written (wall-clock, so recorded as a flag). New seed, new recording; b3 is unchanged.",
+   "original": [
+    {
+     "file": "src/enrollment.rs",
+     "lines": [
+      110,
+      176
+     ],
+     "fns": [
+      "pause",
+      "resume",
+      "complete",
+      "mark_replied",
+      "mark_bounced",
+      "mark_unsubscribed",
+      "manual_exit",
+      "record_step",
+      "advance_to"
+     ]
+    }
+   ],
+   "form": "b3full-enrollment.rce",
+   "fit": "b3full-enrollment.fit.json",
+   "inputs": {
+    "runs": 100,
+    "length": 40,
+    "enrollments_per_run": 4,
+    "seed": 313
+   },
+   "state": "the Form reads its own stored row (del_D1 by id); the original's state is never read by the Form"
+  }
+ ],
+ "input_distribution": "each u64 field independently: zero | [0,100] | [0,1e6] | [0,2^53] | [0,i64::MAX], uniformly by class (xorshift64, seed per program)",
+ "out_of_domain_probe": {
+  "n": 50,
+  "seed": 909,
+  "what": "b1/b2 with one field in (i64::MAX, u64::MAX]: the Form's int is i64; expected outcome is a contract reject where the original computes a float. Reported, not counted as agreement"
+ },
+ "metrics": {
+  "original_loc": "non-blank, non-comment lines in the listed line ranges",
+  "fit_json_lines": "lines of the fit JSON as committed (indent 1); a generated artifact",
+  "term_nodes": "nodes in the fit term",
+  "est_j": "the compiler's CostReport (est_j_input, est_j_extracted): estimates from the FGIR instruction table, not measurements; no est_j exists for the original",
+  "agreement": "canonical JSON of normalize(original output) equals the Form reference output, per input",
+  "targets": "the same events through the generated Rust crate, Python and XState projections (first 200 events) must print the reference trace byte for byte"
+ },
+ "pass": "agreement on 100% of in-domain inputs for every program"
+}

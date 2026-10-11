@@ -1,0 +1,57 @@
+[09:10:42] sh defects4j checkout -p
+[09:10:45] sh defects4j compile
+[09:10:54] sh defects4j export -p
+[09:10:56] sh defects4j export -p
+[09:10:58] sh defects4j export -p
+[09:10:59] sh defects4j export -p
+[09:11:01] sh defects4j export -p
+[09:11:02] sh javac -nowarn -cp
+[09:11:03] test 93
+[09:11:04] test 4
+[09:11:05] test 4
+[09:11:07] test 4
+[09:11:07] test 4
+[09:11:07] test 4
+[09:11:08] test 4
+[09:11:08] test 4
+[09:11:08] test 4
+[09:11:08] test 4
+[09:11:08] test 4
+[09:11:08] test 4
+[09:11:09] test 4
+[09:11:09] test 4
+[09:11:09] test 4
+[09:11:09] test 4
+[09:11:10] test 4
+[09:11:10] test 4
+[09:11:10] test 4
+[09:11:10] test 4
+[09:11:17] test 4
+[09:11:17] test 4
+[09:11:18] test 4
+[09:11:18] test 4
+[09:11:18] test 4
+[09:11:19] test 4
+[09:11:19] test 4
+[09:11:19] test 4
+[09:11:20] test 4
+[09:11:20] test 4
+[09:11:20] test 4
+[09:11:20] test 4
+[09:11:20] test 4
+[09:11:21] test 4
+[09:11:21] test 4
+[09:11:21] test 4
+[09:11:21] test 4
+[09:11:22] test 4
+[09:11:22] test 4
+[09:11:22] test 4
+[09:11:22] test 4
+[09:11:22] test 4
+[09:11:23] test 4
+[09:11:23] test 4
+[09:11:23] test 4
+[09:11:23] test 4
+[09:11:23] test 4
+[09:11:24] test 4
+{"bug": "Chart-14", "plausible": false, "correct": false, "tries": 150, "compiled": 46, "patterns": {"FP10": 16, "FP9": 3, "FP11": 91, "FP7": 6, "FP15": 18, "FP1": 2, "FP5": 4, "FP4": 3, "FP14": 2, "FP2": 5}, "setup_s": 12.4, "test_s": 5.3, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 4, "candidates": 450, "cpu_s": 71.02, "est_j": 710.2, "wall_s": 42.3}

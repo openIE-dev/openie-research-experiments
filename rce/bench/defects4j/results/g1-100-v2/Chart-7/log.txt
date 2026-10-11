@@ -1,0 +1,9 @@
+[09:59:31] sh defects4j checkout -p
+[09:59:35] sh defects4j compile
+[09:59:44] sh defects4j export -p
+[09:59:45] sh defects4j export -p
+[09:59:46] sh defects4j export -p
+[09:59:47] sh defects4j export -p
+[09:59:49] sh defects4j export -p
+[09:59:50] sh javac -nowarn -cp
+{"bug": "Chart-7", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 13, "compiled": 3, "patterns": {"DataTypeReplacer": 12, "VariableReplacer": 1}, "kept": [{"file": "source/org/jfree/data/time/TimePeriodValues.java", "line": 300, "pattern": "VariableReplacer", "from": "long s = getDataItem(this.minMiddleIndex).getPeriod().getStart()\r\n                .getTime();", "to": "long s = getDataItem(this.maxMiddleIndex).getPeriod().getStart()\r\n                .getTime();"}], "setup_s": 13.6, "positions": [["source/org/jfree/data/time/TimePeriodValues.java", [300, 301, 302, 303]]], "test_s": 0.2, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 30, "ast_equal": false, "fixed_derived": [], "patch_files": [], "pattern": "VariableReplacer", "cpu_s": 43.97, "est_j": 439.7, "wall_s": 21.1}

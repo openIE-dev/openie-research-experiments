@@ -1,0 +1,80 @@
+[09:10:47] sh defects4j checkout -p
+[09:10:50] sh defects4j compile
+[09:11:02] sh defects4j export -p
+[09:11:03] sh defects4j export -p
+[09:11:04] sh defects4j export -p
+[09:11:05] sh defects4j export -p
+[09:11:07] sh defects4j export -p
+[09:11:08] sh javac -nowarn -cp
+[09:11:10] test 2
+[09:11:11] test 8
+[09:11:12] test 8
+[09:11:13] test 8
+[09:11:13] test 8
+[09:11:13] test 8
+[09:11:14] test 8
+[09:11:14] test 8
+[09:11:14] test 8
+[09:11:14] test 8
+[09:11:14] test 8
+[09:11:15] test 8
+[09:11:15] test 8
+[09:11:15] test 8
+[09:11:15] test 8
+[09:11:15] test 8
+[09:11:15] test 8
+[09:11:16] test 8
+[09:11:16] test 8
+[09:11:16] test 8
+[09:11:16] test 8
+[09:11:16] test 8
+[09:11:17] test 8
+[09:11:17] test 8
+[09:11:17] test 8
+[09:11:17] test 8
+[09:11:17] test 8
+[09:11:17] test 8
+[09:11:17] test 8
+[09:11:18] test 8
+[09:11:18] test 8
+[09:11:18] test 8
+[09:11:18] test 8
+[09:11:18] test 8
+[09:11:19] test 8
+[09:11:19] test 8
+[09:11:19] test 8
+[09:11:19] test 8
+[09:11:19] test 8
+[09:11:19] test 8
+[09:11:20] test 8
+[09:11:20] test 8
+[09:11:20] test 8
+[09:11:20] test 8
+[09:11:20] test 8
+[09:11:20] test 8
+[09:11:20] test 8
+[09:11:20] test 8
+[09:11:21] test 8
+[09:11:21] test 8
+[09:11:21] test 8
+[09:11:21] test 8
+[09:11:21] test 8
+[09:11:21] test 8
+[09:11:21] test 8
+[09:11:21] test 8
+[09:11:21] test 8
+[09:11:21] test 8
+[09:11:21] test 8
+[09:11:22] test 8
+[09:11:22] test 8
+[09:11:22] test 8
+[09:11:22] test 8
+[09:11:22] test 8
+[09:11:22] test 8
+[09:11:22] test 8
+[09:11:22] test 8
+[09:11:22] test 8
+[09:11:23] test 8
+[09:11:23] test 8
+[09:11:23] test 8
+{"bug": "Chart-16", "plausible": false, "correct": false, "tries": 113, "compiled": 69, "patterns": {"FP11": 68, "FP7": 8, "FP4": 2, "FP15": 17, "FP2": 3, "FP14": 2, "FP9": 9, "FP5": 4}, "setup_s": 15.7, "test_s": 3.4, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 8, "candidates": 113, "cpu_s": 59.8, "est_j": 598.0, "wall_s": 36.5}

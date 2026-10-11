@@ -1,0 +1,44 @@
+{
+ "bug": "Lang-34",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 176,
+ "compiled": 82,
+ "patterns": {
+  "ConditionalExpressionMutator": 62,
+  "OperatorMutator": 1,
+  "VariableReplacer": 84,
+  "NullPointerChecker": 21,
+  "StatementRemover": 2,
+  "StatementInserter": 6
+ },
+ "kept": [],
+ "setup_s": 17.5,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java",
+   [
+    148,
+    164
+   ]
+  ]
+ ],
+ "test_s": 10.7,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 27,
+ "candidates": 176,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java"
+ ],
+ "pattern": null,
+ "cpu_s": 64.01,
+ "est_j": 640.1,
+ "wall_s": 61.8
+}

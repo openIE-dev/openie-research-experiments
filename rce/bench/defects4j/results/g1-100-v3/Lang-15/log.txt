@@ -1,0 +1,9 @@
+[11:25:26] sh defects4j checkout -p
+[11:25:30] sh defects4j compile
+[11:25:48] sh defects4j export -p
+[11:25:50] sh defects4j export -p
+[11:25:53] sh defects4j export -p
+[11:25:55] sh defects4j export -p
+[11:25:57] sh defects4j export -p
+[11:25:59] sh javac -nowarn -cp
+{"bug": "Lang-15", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": true, "tries": 44, "compiled": 23, "patterns": {"NullPointerChecker": 25, "StatementMover": 9, "StatementRemover": 4, "VariableReplacer": 2, "RangeChecker": 1, "OperatorMutator": 3}, "kept": [{"file": "src/main/java/org/apache/commons/lang3/reflect/TypeUtils.java", "line": 675, "pattern": "OperatorMutator", "from": "if (cls.getTypeParameters().length > 0 || toClass.equals(cls)) {\n            return typeVarAssigns;\n        }", "to": "if (cls.getTypeParameters().length<0 || toClass.equals(cls)) {\n            return typeVarAssigns;\n        }"}], "setup_s": 22.6, "positions": [["src/main/java/org/apache/commons/lang3/reflect/TypeUtils.java", [219, 220, 221, 675]]], "test_s": 3.7, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 2, "candidates": 125, "ast_equal": false, "fixed_derived": ["src/main/java/org/apache/commons/lang3/reflect/TypeUtils.java"], "patch_files": ["src/main/java/org/apache/commons/lang3/reflect/TypeUtils.java"], "pattern": null, "cpu_s": 52.27, "est_j": 522.7, "wall_s": 48.4}

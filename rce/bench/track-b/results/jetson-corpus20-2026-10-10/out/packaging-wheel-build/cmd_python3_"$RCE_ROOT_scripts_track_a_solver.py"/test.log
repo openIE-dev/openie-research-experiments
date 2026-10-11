@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "$BENCH_ROOT/out/packaging-wheel-build/cmd_python3_"$RCE_ROOT_scripts_track_a_solver.py"/work/test_task.py", line 2, in <module>
+    n, v, b, t = parse_wheel_filename('foo-1.0-1-py3-none-any.whl')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$BENCH_ROOT/out/packaging-wheel-build/cmd_python3_"$RCE_ROOT_scripts_track_a_solver.py"/work/packaging/utils.py", line 105, in parse_wheel_filename
+    raise InvalidWheelFilename(
+packaging.utils.InvalidWheelFilename: Invalid wheel filename (wrong number of parts): 'foo-1.0-1-py3-none-any'

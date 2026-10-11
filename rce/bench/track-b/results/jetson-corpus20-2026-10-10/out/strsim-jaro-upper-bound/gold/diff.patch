@@ -1,0 +1,13 @@
+diff --git a/base/src/lib.rs b/work/src/lib.rs
+index cc9c427..6a3b098 100644
+--- a/base/src/lib.rs
++++ b/work/src/lib.rs
+@@ -119,7 +119,7 @@ where
+             0
+         };
+ 
+-        let max_bound = min(b_len, i + search_range);
++        let max_bound = min(b_len, i + search_range + 1);
+ 
+         for (j, b_elem) in b.into_iter().enumerate().take(max_bound) {
+             if min_bound <= j && a_elem == b_elem && !b_flags[j] {

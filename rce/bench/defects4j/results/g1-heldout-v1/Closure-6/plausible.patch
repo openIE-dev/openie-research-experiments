@@ -1,0 +1,20 @@
+--- a/src/com/google/javascript/jscomp/TypeValidator.java
++++ b/src/com/google/javascript/jscomp/TypeValidator.java
+@@ -363,7 +363,7 @@
+       JSType leftType, Node owner, String propName) {
+     // The NoType check is a hack to make typedefs work OK.
+     if (!leftType.isNoType() && !rightType.canAssignTo(leftType)) {
+-      if ((leftType.isConstructor() || leftType.isEnumType()) && (rightType.isConstructor() || rightType.isEnumType())) {
++      if (((leftType.isConstructor() || leftType.isEnumType()) && (rightType.isConstructor() || rightType.isEnumType())) && !(!leftType.isNoType() && !rightType.canAssignTo(leftType))) {
+         registerMismatch(rightType, leftType, null);
+       } else {
+       // Do not type-check interface methods, because we expect that
+@@ -402,7 +402,7 @@
+   boolean expectCanAssignTo(NodeTraversal t, Node n, JSType rightType,
+       JSType leftType, String msg) {
+     if (!rightType.canAssignTo(leftType)) {
+-      if ((leftType.isConstructor() || leftType.isEnumType()) && (rightType.isConstructor() || rightType.isEnumType())) {
++      if (((leftType.isConstructor() || leftType.isEnumType()) && (rightType.isConstructor() || rightType.isEnumType())) && !(((leftType.isConstructor() || leftType.isEnumType()) && (rightType.isConstructor() || rightType.isEnumType())))) {
+         registerMismatch(rightType, leftType, null);
+       } else {
+       mismatch(t, n, msg, rightType, leftType);

@@ -1,0 +1,25 @@
+{
+ "bug": "Lang-22",
+ "plausible": true,
+ "correct": false,
+ "tries": 4,
+ "compiled": 4,
+ "patterns": {
+  "FP11": 4
+ },
+ "setup_s": 8.3,
+ "test_s": 0.3,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 2,
+ "candidates": 23,
+ "pattern": "FP11",
+ "tier": 1,
+ "edit": {
+  "file": "src/main/java/org/apache/commons/lang3/math/Fraction.java",
+  "from": "||",
+  "to": "&&"
+ },
+ "cpu_s": 26.02,
+ "est_j": 260.2,
+ "wall_s": 13.3
+}

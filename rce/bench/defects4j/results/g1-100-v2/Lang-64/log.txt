@@ -1,0 +1,9 @@
+[09:57:55] sh defects4j checkout -p
+[09:57:59] sh defects4j compile
+[09:58:04] sh defects4j export -p
+[09:58:05] sh defects4j export -p
+[09:58:06] sh defects4j export -p
+[09:58:07] sh defects4j export -p
+[09:58:08] sh defects4j export -p
+[09:58:09] sh javac -nowarn -cp
+{"bug": "Lang-64", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 27, "compiled": 13, "patterns": {"ReturnStatementMutator": 1, "OperatorMutator": 1, "VariableReplacer": 18, "NullPointerChecker": 5, "ClassCastChecker": 1, "StatementRemover": 1}, "kept": [], "setup_s": 9.0, "positions": [["src/java/org/apache/commons/lang/enums/ValuedEnum.java", [183]]], "test_s": 0.2, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 27, "ast_equal": false, "fixed_derived": ["src/java/org/apache/commons/lang/enums/ValuedEnum.java"], "patch_files": ["src/java/org/apache/commons/lang/enums/ValuedEnum.java"], "pattern": null, "cpu_s": 33.13, "est_j": 331.3, "wall_s": 15.9}

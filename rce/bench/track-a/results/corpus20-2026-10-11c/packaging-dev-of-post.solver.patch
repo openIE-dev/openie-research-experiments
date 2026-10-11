@@ -1,0 +1,12 @@
+diff -ruN -x target -x .git -x __pycache__ -x '*.pyc' -x Cargo.lock base/packaging/version.py work/packaging/version.py
+--- packaging/version.py	2026-10-11 08:26:02.082264708 -0400
++++ packaging/version.py	2026-10-11 08:26:03.578264708 -0400
+@@ -541,7 +541,7 @@
+     # We'll do this by abusing the pre segment, but we _only_ want to do this
+     # if there is not a pre or a post segment. If we have one of those then
+     # the normal sorting rules will handle this case correctly.
+-    if pre is None and dev is not None:
++    if post is None and pre is None and dev is not None:
+         _pre: CmpPrePostDevType = NegativeInfinity
+     # Versions without a pre-release (except as noted above) should sort after
+     # those with one.

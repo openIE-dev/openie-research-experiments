@@ -1,0 +1,42 @@
+{
+ "bug": "Closure-14",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 167,
+ "compiled": 33,
+ "patterns": {
+  "MethodInvocationMutator": 19,
+  "VariableReplacer": 6,
+  "NullPointerChecker": 32,
+  "StatementRemover": 2,
+  "StatementInserter": 108
+ },
+ "kept": [],
+ "setup_s": 45.0,
+ "positions": [
+  [
+   "src/com/google/javascript/jscomp/ControlFlowAnalysis.java",
+   [
+    767
+   ]
+  ]
+ ],
+ "test_s": 301.2,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 3,
+ "candidates": 167,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/com/google/javascript/jscomp/ControlFlowAnalysis.java"
+ ],
+ "patch_files": [
+  "src/com/google/javascript/jscomp/ControlFlowAnalysis.java"
+ ],
+ "pattern": null,
+ "cpu_s": 447.37,
+ "est_j": 4473.7,
+ "wall_s": 388.8
+}

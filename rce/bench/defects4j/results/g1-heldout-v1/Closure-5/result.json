@@ -1,0 +1,45 @@
+{
+ "bug": "Closure-5",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 274,
+ "compiled": 131,
+ "patterns": {
+  "OperatorMutator": 6,
+  "ConditionalExpressionMutator": 26,
+  "MethodInvocationMutator": 218,
+  "VariableReplacer": 3,
+  "NullPointerChecker": 14,
+  "StatementMover": 4,
+  "StatementRemover": 3
+ },
+ "kept": [],
+ "setup_s": 58.6,
+ "positions": [
+  [
+   "src/com/google/javascript/jscomp/InlineObjectLiterals.java",
+   [
+    169,
+    170
+   ]
+  ]
+ ],
+ "test_s": 131.6,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 548,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/com/google/javascript/jscomp/InlineObjectLiterals.java"
+ ],
+ "patch_files": [
+  "src/com/google/javascript/jscomp/InlineObjectLiterals.java"
+ ],
+ "pattern": null,
+ "cpu_s": 203.08,
+ "est_j": 2030.8,
+ "wall_s": 279.0
+}

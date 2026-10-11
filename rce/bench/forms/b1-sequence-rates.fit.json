@@ -1,0 +1,208 @@
+{
+ "handlers": {
+  "dep_DEP1": {
+   "kind": "passthrough"
+  },
+  "role_R1": {
+   "kind": "term",
+   "term": {
+    "t": "obj",
+    "fields": [
+     [
+      "open_rate",
+      {
+       "t": "if_eq",
+       "field": "total_sent",
+       "value": 0,
+       "then": {
+        "t": "const",
+        "value": 0
+       },
+       "otherwise": {
+        "t": "arith",
+        "node": "role_R1",
+        "op": "fmul",
+        "a": {
+         "t": "arith",
+         "node": "role_R1",
+         "op": "fdiv",
+         "a": {
+          "t": "proj",
+          "node": "role_R1",
+          "field": "total_opens"
+         },
+         "b": {
+          "t": "proj",
+          "node": "role_R1",
+          "field": "total_sent"
+         }
+        },
+        "b": {
+         "t": "const",
+         "value": 100
+        }
+       }
+      }
+     ],
+     [
+      "click_rate",
+      {
+       "t": "if_eq",
+       "field": "total_sent",
+       "value": 0,
+       "then": {
+        "t": "const",
+        "value": 0
+       },
+       "otherwise": {
+        "t": "arith",
+        "node": "role_R1",
+        "op": "fmul",
+        "a": {
+         "t": "arith",
+         "node": "role_R1",
+         "op": "fdiv",
+         "a": {
+          "t": "proj",
+          "node": "role_R1",
+          "field": "total_clicks"
+         },
+         "b": {
+          "t": "proj",
+          "node": "role_R1",
+          "field": "total_sent"
+         }
+        },
+        "b": {
+         "t": "const",
+         "value": 100
+        }
+       }
+      }
+     ],
+     [
+      "reply_rate",
+      {
+       "t": "if_eq",
+       "field": "total_sent",
+       "value": 0,
+       "then": {
+        "t": "const",
+        "value": 0
+       },
+       "otherwise": {
+        "t": "arith",
+        "node": "role_R1",
+        "op": "fmul",
+        "a": {
+         "t": "arith",
+         "node": "role_R1",
+         "op": "fdiv",
+         "a": {
+          "t": "proj",
+          "node": "role_R1",
+          "field": "total_replies"
+         },
+         "b": {
+          "t": "proj",
+          "node": "role_R1",
+          "field": "total_sent"
+         }
+        },
+        "b": {
+         "t": "const",
+         "value": 100
+        }
+       }
+      }
+     ],
+     [
+      "bounce_rate",
+      {
+       "t": "if_eq",
+       "field": "total_sent",
+       "value": 0,
+       "then": {
+        "t": "const",
+        "value": 0
+       },
+       "otherwise": {
+        "t": "arith",
+        "node": "role_R1",
+        "op": "fmul",
+        "a": {
+         "t": "arith",
+         "node": "role_R1",
+         "op": "fdiv",
+         "a": {
+          "t": "proj",
+          "node": "role_R1",
+          "field": "total_bounces"
+         },
+         "b": {
+          "t": "proj",
+          "node": "role_R1",
+          "field": "total_sent"
+         }
+        },
+        "b": {
+         "t": "const",
+         "value": 100
+        }
+       }
+      }
+     ],
+     [
+      "unsubscribe_rate",
+      {
+       "t": "if_eq",
+       "field": "total_sent",
+       "value": 0,
+       "then": {
+        "t": "const",
+        "value": 0
+       },
+       "otherwise": {
+        "t": "arith",
+        "node": "role_R1",
+        "op": "fmul",
+        "a": {
+         "t": "arith",
+         "node": "role_R1",
+         "op": "fdiv",
+         "a": {
+          "t": "proj",
+          "node": "role_R1",
+          "field": "total_unsubscribes"
+         },
+         "b": {
+          "t": "proj",
+          "node": "role_R1",
+          "field": "total_sent"
+         }
+        },
+        "b": {
+         "t": "const",
+         "value": 100
+        }
+       }
+      }
+     ]
+    ]
+   }
+  },
+  "del_D1": {
+   "kind": "passthrough"
+  }
+ },
+ "types": {
+  "dep_DEP1": {
+   "total_sent": "int",
+   "total_opens": "int",
+   "total_clicks": "int",
+   "total_replies": "int",
+   "total_bounces": "int",
+   "total_unsubscribes": "int"
+  }
+ }
+}

@@ -1,0 +1,41 @@
+{
+ "bug": "Math-9",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 43,
+ "compiled": 16,
+ "patterns": {
+  "VariableReplacer": 15,
+  "NullPointerChecker": 15,
+  "MethodInvocationMutator": 11,
+  "StatementRemover": 2
+ },
+ "kept": [],
+ "setup_s": 21.7,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java",
+   [
+    87
+   ]
+  ]
+ ],
+ "test_s": 1.5,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 43,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/math3/geometry/euclidean/threed/Line.java"
+ ],
+ "pattern": null,
+ "cpu_s": 63.71,
+ "est_j": 637.1,
+ "wall_s": 38.0
+}

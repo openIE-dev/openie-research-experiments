@@ -1,0 +1,9 @@
+[09:59:11] sh defects4j checkout -p
+[09:59:15] sh defects4j compile
+[09:59:24] sh defects4j export -p
+[09:59:25] sh defects4j export -p
+[09:59:26] sh defects4j export -p
+[09:59:27] sh defects4j export -p
+[09:59:27] sh defects4j export -p
+[09:59:28] sh javac -nowarn -cp
+{"bug": "Chart-5", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 83, "compiled": 52, "patterns": {"OperatorMutator": 6, "ConditionalExpressionMutator": 42, "VariableReplacer": 16, "StatementMover": 5, "StatementRemover": 4, "StatementInserter": 10}, "kept": [], "setup_s": 12.7, "positions": [["source/org/jfree/data/xy/XYSeries.java", [548]]], "test_s": 1.6, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 83, "ast_equal": false, "fixed_derived": ["source/org/jfree/data/xy/XYSeries.java"], "patch_files": ["source/org/jfree/data/xy/XYSeries.java"], "pattern": null, "cpu_s": 60.46, "est_j": 604.6, "wall_s": 23.8}

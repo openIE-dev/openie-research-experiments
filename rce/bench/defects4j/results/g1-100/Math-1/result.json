@@ -1,0 +1,20 @@
+{
+ "bug": "Math-1",
+ "plausible": false,
+ "correct": false,
+ "tries": 108,
+ "compiled": 76,
+ "patterns": {
+  "FP13": 102,
+  "FP5": 4,
+  "FP11": 2
+ },
+ "setup_s": 18.4,
+ "test_s": 2.4,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 2,
+ "candidates": 108,
+ "cpu_s": 79.59,
+ "est_j": 795.9,
+ "wall_s": 35.0
+}

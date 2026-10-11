@@ -1,0 +1,17 @@
+[12:07:33] sh defects4j checkout -p
+[12:07:38] sh defects4j compile
+[12:08:27] sh defects4j export -p
+[12:08:30] sh defects4j export -p
+[12:08:33] sh defects4j export -p
+[12:08:39] sh defects4j export -p
+[12:08:42] sh defects4j export -p
+Traceback (most recent call last):
+  File "/workspace/rce-work/build3/crates/rce/bench/defects4j/d4j_tbar.py", line 188, in <module>
+    main(sys.argv[1], sys.argv[2], sys.argv[3])
+    ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/rce-work/build3/crates/rce/bench/defects4j/d4j_tbar.py", line 93, in main
+    pos = positions(proj, bug, patch); rec["positions"] = [[f, ls] for f, ls in pos]
+  File "/workspace/rce-work/build3/crates/rce/bench/defects4j/d4j_tbar.py", line 61, in positions
+    a, _, b = r.partition("-"); ls += list(range(int(a), int(b or a) + 1))
+                                                 ~~~^^^
+ValueError: invalid literal for int() with base 10: ''

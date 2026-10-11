@@ -1,0 +1,54 @@
+{
+  "1576ab433832a398f603c66ba3b515c101c09c37c97e1d543fbdc3c14a9e7b6d": [
+    {
+      "key": "1576ab433832a398f603c66ba3b515c101c09c37c97e1d543fbdc3c14a9e7b6d",
+      "shape_signature": "{\"round\":number}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "del_D5",
+      "source_spec": "joule-db-core",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "1a1aad190efb7cf59a239be02b68550049f5e310996e73622641efc63c0a85fd": [
+    {
+      "key": "1a1aad190efb7cf59a239be02b68550049f5e310996e73622641efc63c0a85fd",
+      "shape_signature": "{\"round\":number}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "dep_DEP1",
+      "source_spec": "joule-db-core",
+      "gear": "G1",
+      "hits": 5
+    }
+  ],
+  "896fc94bbb97a1cb45add7ba264d4c3bfea50c7ab9c512b7b117aebcdf2f02d6": [
+    {
+      "key": "896fc94bbb97a1cb45add7ba264d4c3bfea50c7ab9c512b7b117aebcdf2f02d6",
+      "shape_signature": "{\"round\":number}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "del_D1",
+      "source_spec": "joule-db-core",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "dff7e373a8547be1e2e06a8866045fc06c8a5165a42a230f9220f6bc982eeb3a": [
+    {
+      "key": "dff7e373a8547be1e2e06a8866045fc06c8a5165a42a230f9220f6bc982eeb3a",
+      "shape_signature": "{\"round\":number}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "del_D2",
+      "source_spec": "joule-db-core",
+      "gear": "G1",
+      "hits": 0
+    }
+  ]
+}

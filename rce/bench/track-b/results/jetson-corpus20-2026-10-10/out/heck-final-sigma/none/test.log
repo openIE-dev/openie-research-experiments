@@ -1,0 +1,40 @@
+
+---- lower_camel::tests::test9 stdout ----
+
+thread 'lower_camel::tests::test9' (636668) panicked at src/lower_camel.rs:86:5:
+assertion `left == right` failed
+  left: "xςxσBaﬄe"
+ right: "xσxςBaﬄe"
+
+---- snake::tests::test9 stdout ----
+
+thread 'snake::tests::test9' (636713) panicked at src/snake.rs:84:5:
+assertion `left == right` failed
+  left: "xςxσ_baﬄe"
+ right: "xσxς_baﬄe"
+
+---- title::tests::test9 stdout ----
+
+thread 'title::tests::test9' (636723) panicked at src/title.rs:73:5:
+assertion `left == right` failed
+  left: "Xςxσ Baﬄe"
+ right: "Xσxς Baﬄe"
+
+---- upper_camel::tests::test9 stdout ----
+
+thread 'upper_camel::tests::test9' (636756) panicked at src/upper_camel.rs:86:5:
+assertion `left == right` failed
+  left: "XςxσBaﬄe"
+ right: "XσxςBaﬄe"
+
+
+failures:
+    kebab::tests::test9
+    lower_camel::tests::test9
+    snake::tests::test9
+    title::tests::test9
+    upper_camel::tests::test9
+
+test result: FAILED. 106 passed; 5 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `--lib`

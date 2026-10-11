@@ -1,0 +1,9 @@
+[09:56:34] sh defects4j checkout -p
+[09:56:37] sh defects4j compile
+[09:56:44] sh defects4j export -p
+[09:56:45] sh defects4j export -p
+[09:56:45] sh defects4j export -p
+[09:56:46] sh defects4j export -p
+[09:56:47] sh defects4j export -p
+[09:56:48] sh javac -nowarn -cp
+{"bug": "Lang-53", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 628, "compiled": 611, "patterns": {"OperatorMutator": 10, "ConditionalExpressionMutator": 596, "VariableReplacer": 3, "NullPointerChecker": 8, "StatementMover": 2, "StatementRemover": 7, "LiteralExpressionMutator": 2}, "kept": [], "setup_s": 10.1, "positions": [["src/java/org/apache/commons/lang/time/DateUtils.java", [643, 644, 645, 652, 653, 654]]], "test_s": 0.9, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 1256, "ast_equal": false, "fixed_derived": ["src/java/org/apache/commons/lang/time/DateUtils.java"], "patch_files": ["src/java/org/apache/commons/lang/time/DateUtils.java"], "pattern": null, "cpu_s": 92.31, "est_j": 923.1, "wall_s": 41.8}

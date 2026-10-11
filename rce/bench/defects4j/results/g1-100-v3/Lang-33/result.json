@@ -1,0 +1,82 @@
+{
+ "bug": "Lang-33",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": true,
+ "correct": false,
+ "partial": false,
+ "tries": 11,
+ "compiled": 8,
+ "patterns": {
+  "RangeChecker": 1,
+  "NullPointerChecker": 8,
+  "StatementRemover": 2
+ },
+ "kept": [
+  {
+   "file": "src/main/java/org/apache/commons/lang3/ClassUtils.java",
+   "line": 910,
+   "pattern": "NullPointerChecker",
+   "from": "",
+   "to": "if (classes == null) continue;\n\tif (array[i] == null) continue;\n\t"
+  }
+ ],
+ "setup_s": 18.8,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/lang3/ClassUtils.java",
+   [
+    910
+   ]
+  ]
+ ],
+ "test_s": 1.6,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 11,
+ "plausible_found": [
+  {
+   "try": 7,
+   "pattern": "NullPointerChecker",
+   "line": 910,
+   "new_idents": [
+    "array",
+    "classes",
+    "continue",
+    "i",
+    "if",
+    "null"
+   ]
+  },
+  {
+   "try": 8,
+   "pattern": "NullPointerChecker",
+   "line": 910,
+   "new_idents": [
+    "if",
+    "null"
+   ]
+  },
+  {
+   "try": 9,
+   "pattern": "NullPointerChecker",
+   "line": 910,
+   "new_idents": [
+    "if",
+    "null"
+   ]
+  }
+ ],
+ "picked_try": 7,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/lang3/ClassUtils.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/lang3/ClassUtils.java"
+ ],
+ "pattern": "NullPointerChecker",
+ "cpu_s": 36.95,
+ "est_j": 369.5,
+ "wall_s": 36.7
+}

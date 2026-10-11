@@ -1,0 +1,21 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 3,
+ "llm_calls": 0,
+ "rule_tries": 2,
+ "edit": {
+  "file": "packaging/version.py",
+  "function": "is_postrelease",
+  "from": " None",
+  "to": " not None"
+ },
+ "ranked": [
+  "packaging/version.py::is_postrelease",
+  "packaging/specifiers.py::version",
+  "packaging/version.py::release",
+  "packaging/version.py::post",
+  "packaging/version.py::release",
+  "packaging/specifiers.py::_compare_greater_than"
+ ],
+ "seconds": 0.18
+}

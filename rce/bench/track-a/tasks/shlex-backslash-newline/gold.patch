@@ -1,0 +1,11 @@
+--- a/src/bytes.rs
++++ b/src/bytes.rs
+@@ -68,7 +68,7 @@
+                     return None;
+                 },
+                 '\\' => if let Some(ch2) = self.next_char() {
+-                    result.push(ch2);
++                    if ch2 != b'\n' { result.push(ch2); }
+                 } else {
+                     self.had_error = true;
+                     return None;

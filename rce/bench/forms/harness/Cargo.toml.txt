@@ -1,0 +1,11 @@
+[package]
+name = "enrollment-harness"
+version = "0.1.0"
+edition = "2021"
+[workspace]
+members = [".", "jso"]
+[dependencies]
+joule-sales-outreach = { path = "jso" }
+uuid = "1"
+serde_json = "1"
+chrono = "0.4"

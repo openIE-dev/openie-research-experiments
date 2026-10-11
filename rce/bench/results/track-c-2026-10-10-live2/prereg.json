@@ -1,0 +1,33 @@
+{
+  "track": "C",
+  "id": "track-c-2026-10-10-live2",
+  "registered": "2026-10-10",
+  "specs": [
+    "../examples/web-api.rce",
+    "../examples/joule-db-core.rce",
+    "../examples/follow-bible-ingest.rce",
+    "../examples/follow-bible-ingest-schemas.rce",
+    "../examples/ask-server.rce",
+    "../examples/soak-g2-schemas.rce"
+  ],
+  "seeds": [
+    42
+  ],
+  "rounds": 20,
+  "foremen": [
+    "mock",
+    "geared"
+  ],
+  "auto_approve": "soak",
+  "hypotheses": [
+    "H1: with --live-coverage every one of the 12 runs reaches a quiet round before round 20.",
+    "H2: every run closes tasks ok (tasks_closed_ok > 0 in the final round), helped by shadow-serving.",
+    "H3: no run fails.",
+    "H4: measured_j is empty."
+  ],
+  "notes": [
+    "Rerun of track-c-2026-10-10-live after per-shape shadow candidates, distinct-sample counting, exhaustive finite shapes and shadow-serving. The earlier run and its verdicts stay as the record.",
+    "No exclusions; stop rule fixed 20 rounds."
+  ],
+  "live_coverage": true
+}

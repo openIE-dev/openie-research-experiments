@@ -1,0 +1,47 @@
+{
+ "bug": "Chart-9",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": true,
+ "correct": false,
+ "partial": false,
+ "tries": 11,
+ "compiled": 11,
+ "patterns": {
+  "OperatorMutator": 5,
+  "ConditionalExpressionMutator": 6
+ },
+ "kept": [
+  {
+   "file": "source/org/jfree/data/time/TimeSeries.java",
+   "line": 944,
+   "pattern": "ConditionalExpressionMutator",
+   "from": "if (endIndex < 0) {\r\n            emptyRange = true;\r\n        }",
+   "to": "if (endIndex < startIndex || (endIndex < 0)) {\r\n            emptyRange = true;\r\n        }"
+  }
+ ],
+ "setup_s": 17.4,
+ "positions": [
+  [
+   "source/org/jfree/data/time/TimeSeries.java",
+   [
+    944
+   ]
+  ]
+ ],
+ "test_s": 4.5,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 67,
+ "ast_equal": false,
+ "fixed_derived": [
+  "source/org/jfree/data/time/TimeSeries.java"
+ ],
+ "patch_files": [
+  "source/org/jfree/data/time/TimeSeries.java"
+ ],
+ "pattern": "ConditionalExpressionMutator",
+ "cpu_s": 49.96,
+ "est_j": 499.6,
+ "wall_s": 36.8
+}

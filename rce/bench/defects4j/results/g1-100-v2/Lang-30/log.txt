@@ -1,0 +1,9 @@
+[09:53:00] sh defects4j checkout -p
+[09:53:04] sh defects4j compile
+[09:53:12] sh defects4j export -p
+[09:53:13] sh defects4j export -p
+[09:53:14] sh defects4j export -p
+[09:53:16] sh defects4j export -p
+[09:53:17] sh defects4j export -p
+[09:53:19] sh javac -nowarn -cp
+{"bug": "Lang-30", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 1127, "compiled": 901, "patterns": {"VariableReplacer": 14, "StatementRemover": 12, "OperatorMutator": 40, "ConditionalExpressionMutator": 1006, "NullPointerChecker": 48, "RangeChecker": 1, "LiteralExpressionMutator": 5, "StatementMover": 1}, "kept": [], "setup_s": 11.0, "positions": [["src/main/java/org/apache/commons/lang3/StringUtils.java", [1382, 1455, 1457, 1539, 1576, 1685]]], "test_s": 7.6, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 10, "candidates": 1128, "ast_equal": false, "fixed_derived": ["src/main/java/org/apache/commons/lang3/StringUtils.java"], "patch_files": ["src/main/java/org/apache/commons/lang3/StringUtils.java"], "pattern": null, "cpu_s": 132.72, "est_j": 1327.2, "wall_s": 102.2}

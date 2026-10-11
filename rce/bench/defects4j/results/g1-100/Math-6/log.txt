@@ -1,0 +1,62 @@
+[09:13:55] sh defects4j checkout -p
+[09:13:59] sh defects4j compile
+[09:14:10] sh defects4j export -p
+[09:14:12] sh defects4j export -p
+[09:14:13] sh defects4j export -p
+[09:14:15] sh defects4j export -p
+[09:14:16] sh defects4j export -p
+[09:14:18] sh javac -nowarn -cp
+[09:14:18] test 21
+[09:14:32] test 28
+[09:14:35] test 28
+[09:14:37] test 28
+[09:14:40] test 28
+[09:14:42] test 28
+[09:14:44] test 28
+[09:14:46] test 28
+[09:14:49] test 28
+[09:14:52] test 28
+[09:14:55] test 28
+[09:14:57] test 28
+[09:15:00] test 28
+[09:15:02] test 28
+[09:15:04] test 28
+[09:15:07] test 28
+[09:15:09] test 28
+[09:15:11] test 28
+[09:15:13] test 28
+[09:15:15] test 28
+[09:15:17] test 28
+[09:15:20] test 28
+[09:15:22] test 28
+[09:15:25] test 28
+[09:15:27] test 28
+[09:15:29] test 28
+[09:15:31] test 28
+[09:15:33] test 28
+[09:15:35] test 28
+[09:15:37] test 28
+[09:15:39] test 28
+[09:15:41] test 28
+[09:15:43] test 28
+[09:15:46] test 28
+[09:15:48] test 28
+[09:15:51] test 28
+[09:15:53] test 28
+[09:15:56] test 28
+[09:15:58] test 28
+[09:16:00] test 28
+[09:16:02] test 28
+[09:16:04] test 28
+[09:16:06] test 28
+[09:16:09] test 28
+[09:16:11] test 28
+[09:16:13] test 28
+[09:16:15] test 28
+[09:16:16] test 28
+[09:16:18] test 28
+[09:16:20] test 28
+[09:16:22] test 28
+[09:16:24] test 28
+[09:16:26] test 28
+{"bug": "Math-6", "plausible": false, "correct": false, "tries": 150, "compiled": 51, "patterns": {"FP5": 5, "FP4": 1, "FP15": 2, "FP14": 1, "FP9": 3, "FP11": 37, "FP7": 3, "FP13": 98}, "setup_s": 14.9, "test_s": 124.2, "trigger_timeout_s": 23.8, "baseline_trigger_failures": 28, "candidates": 10916, "cpu_s": 381.93, "est_j": 3819.3, "wall_s": 152.5}

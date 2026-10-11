@@ -1,0 +1,217 @@
+{
+  "0b38756a6e76a0d5d7c00d0de3129cdda483760672d5df84d2de7ead6eeff203": [
+    {
+      "key": "0b38756a6e76a0d5d7c00d0de3129cdda483760672d5df84d2de7ead6eeff203",
+      "shape_signature": "{\"manifest_path\":string}",
+      "spec": {
+        "kind": "validate",
+        "required_fields": [
+          "manifest_path"
+        ],
+        "on_success": {
+          "kind": "passthrough"
+        }
+      },
+      "source_node": "dep_DEP4",
+      "source_spec": "follow-bible-ingest-schemas",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "3159d775ffb0dace1d7518e659d86a0eb15c8e7430bcdc6fc8a7cdb727ab01fd": [
+    {
+      "key": "3159d775ffb0dace1d7518e659d86a0eb15c8e7430bcdc6fc8a7cdb727ab01fd",
+      "shape_signature": "{\"manifest_path\":string}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "del_D1",
+      "source_spec": "follow-bible-ingest-schemas",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "34a748d498ed8fd09df9aa086a74f9403da80530a44397acb20e7e82e51d7078": [
+    {
+      "key": "34a748d498ed8fd09df9aa086a74f9403da80530a44397acb20e7e82e51d7078",
+      "shape_signature": "{\"translation_id\":string}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "role_R3",
+      "source_spec": "follow-bible-ingest-schemas",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "4b2bd28bd47a297e43dfd2e20af44f470b15c91ddb414e14b4494da0cd5755cf": [
+    {
+      "key": "4b2bd28bd47a297e43dfd2e20af44f470b15c91ddb414e14b4494da0cd5755cf",
+      "shape_signature": "{\"manifest_path\":string}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "role_R1",
+      "source_spec": "follow-bible-ingest-schemas",
+      "gear": "G1",
+      "hits": 2
+    }
+  ],
+  "75c1cda082f0bc783667bb91f693a0010f7eac08f550ad308fbf4bfdf15b748c": [
+    {
+      "key": "75c1cda082f0bc783667bb91f693a0010f7eac08f550ad308fbf4bfdf15b748c",
+      "shape_signature": "{\"books\":[string],\"translation_id\":string}",
+      "spec": {
+        "kind": "validate",
+        "required_fields": [
+          "translation_id"
+        ],
+        "on_success": {
+          "kind": "passthrough"
+        }
+      },
+      "source_node": "dep_DEP3",
+      "source_spec": "follow-bible-ingest-schemas",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "79197686fa0827b8166078278e392c15dfd8a781f0750ec21638ec3b5bec73b5": [
+    {
+      "key": "79197686fa0827b8166078278e392c15dfd8a781f0750ec21638ec3b5bec73b5",
+      "shape_signature": "{\"manifest_path\":string}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "del_D4",
+      "source_spec": "follow-bible-ingest-schemas",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "89f46064bf10e23889110e4e6c4950131bb97c0d389fcfd3aaf4396ed3268801": [
+    {
+      "key": "89f46064bf10e23889110e4e6c4950131bb97c0d389fcfd3aaf4396ed3268801",
+      "shape_signature": "{\"book\":string,\"chapter\":number,\"text\":string,\"verse\":number}",
+      "spec": {
+        "kind": "validate",
+        "required_fields": [
+          "book",
+          "chapter",
+          "verse"
+        ],
+        "on_success": {
+          "kind": "passthrough"
+        }
+      },
+      "source_node": "dep_DEP1",
+      "source_spec": "follow-bible-ingest-schemas",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "97b32f0f2ec9a895d824810d591569e86593e83c8e2922b89ef9785ca0ee29a2": [
+    {
+      "key": "97b32f0f2ec9a895d824810d591569e86593e83c8e2922b89ef9785ca0ee29a2",
+      "shape_signature": "{\"text\":string,\"translation\":string}",
+      "spec": {
+        "kind": "validate",
+        "required_fields": [
+          "text",
+          "translation"
+        ],
+        "on_success": {
+          "kind": "passthrough"
+        }
+      },
+      "source_node": "dep_DEP2",
+      "source_spec": "follow-bible-ingest-schemas",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "d309ab78a89e9c50a9d868c714ac044e09c3571f536678584abf39459297ad0f": [
+    {
+      "key": "d309ab78a89e9c50a9d868c714ac044e09c3571f536678584abf39459297ad0f",
+      "shape_signature": "{\"text\":string,\"translation\":string}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "del_D1",
+      "source_spec": "follow-bible-ingest-schemas",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "dbae8f99b2f17532497864e559645f1d96eb292e9622bc17af18fa38be058d7c": [
+    {
+      "key": "dbae8f99b2f17532497864e559645f1d96eb292e9622bc17af18fa38be058d7c",
+      "shape_signature": "{\"text\":string,\"translation\":string}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "role_R4",
+      "source_spec": "follow-bible-ingest-schemas",
+      "gear": "G1",
+      "hits": 2
+    }
+  ],
+  "e34c20f67ae3df39b3b60292c765814ec845d931dde301d19ac80316f19c1b4b": [
+    {
+      "key": "e34c20f67ae3df39b3b60292c765814ec845d931dde301d19ac80316f19c1b4b",
+      "shape_signature": "{\"books\":[string],\"translation_id\":string}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "role_R3",
+      "source_spec": "follow-bible-ingest-schemas",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "e4c0edad363ff64f4abd1a0a1c6dfe74c2e2c8fc6a7209d9eb15ffa915be305f": [
+    {
+      "key": "e4c0edad363ff64f4abd1a0a1c6dfe74c2e2c8fc6a7209d9eb15ffa915be305f",
+      "shape_signature": "{\"books\":[string],\"translation_id\":string}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "del_D3",
+      "source_spec": "follow-bible-ingest-schemas",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "f4b0d58326383f2f5328546fa59ae12a5d3d0bf0c77eaf71e93104c469958092": [
+    {
+      "key": "f4b0d58326383f2f5328546fa59ae12a5d3d0bf0c77eaf71e93104c469958092",
+      "shape_signature": "{\"text\":string,\"translation\":string}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "del_D4",
+      "source_spec": "follow-bible-ingest-schemas",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "fe4d628e3d87f5f7804138625b15d209ada3bb9d1b5b97127100eb3ef0da94c0": [
+    {
+      "key": "fe4d628e3d87f5f7804138625b15d209ada3bb9d1b5b97127100eb3ef0da94c0",
+      "shape_signature": "{\"translation_id\":string}",
+      "spec": {
+        "kind": "validate",
+        "required_fields": [
+          "translation_id"
+        ],
+        "on_success": {
+          "kind": "passthrough"
+        }
+      },
+      "source_node": "dep_DEP3",
+      "source_spec": "follow-bible-ingest-schemas",
+      "gear": "G1",
+      "hits": 0
+    }
+  ]
+}

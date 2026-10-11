@@ -1,0 +1,9 @@
+[11:32:58] sh defects4j checkout -p
+[11:33:03] sh defects4j compile
+[11:33:19] sh defects4j export -p
+[11:33:21] sh defects4j export -p
+[11:33:24] sh defects4j export -p
+[11:33:27] sh defects4j export -p
+[11:33:30] sh defects4j export -p
+[11:33:33] sh javac -nowarn -cp
+{"bug": "Lang-44", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 40, "compiled": 30, "patterns": {"ConditionalExpressionMutator": 24, "NullPointerChecker": 2, "StatementMover": 11, "StatementRemover": 3}, "kept": [], "setup_s": 21.1, "positions": [["src/java/org/apache/commons/lang/NumberUtils.java", [145]]], "test_s": 3.0, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 40, "ast_equal": false, "fixed_derived": ["src/java/org/apache/commons/lang/NumberUtils.java"], "patch_files": ["src/java/org/apache/commons/lang/NumberUtils.java"], "pattern": null, "cpu_s": 42.84, "est_j": 428.4, "wall_s": 47.1}

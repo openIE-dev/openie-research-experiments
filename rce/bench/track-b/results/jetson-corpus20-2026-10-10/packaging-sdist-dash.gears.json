@@ -1,0 +1,24 @@
+{
+ "gear": "G2-local-llm",
+ "test_runs": 252,
+ "llm_calls": 1,
+ "rule_tries": 250,
+ "edit": {
+  "file": "packaging/utils.py",
+  "function": "parse_sdist_filename",
+  "llm": true
+ },
+ "ranked": [
+  "packaging/utils.py::parse_sdist_filename",
+  "packaging/specifiers.py::version",
+  "packaging/utils.py::canonicalize_name",
+  "packaging/utils.py::parse_wheel_filename",
+  "packaging/metadata.py::parse_email",
+  "packaging/_manylinux.py::_parse_glibc_version"
+ ],
+ "sensitive": [
+  "packaging/utils.py::parse_sdist_filename",
+  "packaging/utils.py::canonicalize_name"
+ ],
+ "seconds": 36.71
+}

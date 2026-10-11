@@ -1,0 +1,41 @@
+{
+ "bug": "Lang-43",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 6,
+ "compiled": 4,
+ "patterns": {
+  "ConditionalExpressionMutator": 2,
+  "OperatorMutator": 1,
+  "VariableReplacer": 2,
+  "StatementRemover": 1
+ },
+ "kept": [],
+ "setup_s": 9.7,
+ "positions": [
+  [
+   "src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java",
+   [
+    422
+   ]
+  ]
+ ],
+ "test_s": 241.7,
+ "trigger_timeout_s": 85.2,
+ "baseline_trigger_failures": 1,
+ "candidates": 6,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java"
+ ],
+ "patch_files": [
+  "src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java"
+ ],
+ "pattern": null,
+ "cpu_s": 295.5,
+ "est_j": 2955.0,
+ "wall_s": 259.6
+}

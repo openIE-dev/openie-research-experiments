@@ -1,0 +1,60 @@
+{
+ "bug": "Chart-8",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": true,
+ "correct": true,
+ "partial": false,
+ "tries": 26,
+ "compiled": 3,
+ "patterns": {
+  "MethodInvocationMutator": 3,
+  "VariableReplacer": 14,
+  "NullPointerChecker": 7,
+  "StatementRemover": 2
+ },
+ "kept": [
+  {
+   "file": "source/org/jfree/data/time/Week.java",
+   "line": 175,
+   "pattern": "VariableReplacer",
+   "from": "this(time, RegularTimePeriod.DEFAULT_TIME_ZONE, Locale.getDefault());",
+   "to": "this(time, zone, Locale.getDefault());"
+  }
+ ],
+ "setup_s": 27.4,
+ "positions": [
+  [
+   "source/org/jfree/data/time/Week.java",
+   [
+    175
+   ]
+  ]
+ ],
+ "test_s": 1.2,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 26,
+ "plausible_found": [
+  {
+   "try": 4,
+   "pattern": "VariableReplacer",
+   "line": 175,
+   "new_idents": [
+    "zone"
+   ]
+  }
+ ],
+ "picked_try": 4,
+ "ast_equal": true,
+ "fixed_derived": [
+  "source/org/jfree/data/time/Week.java"
+ ],
+ "patch_files": [
+  "source/org/jfree/data/time/Week.java"
+ ],
+ "pattern": "VariableReplacer",
+ "cpu_s": 45.56,
+ "est_j": 455.6,
+ "wall_s": 45.6
+}

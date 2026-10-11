@@ -1,0 +1,94 @@
+[09:08:51] sh defects4j checkout -p
+[09:08:54] sh defects4j compile
+[09:09:00] sh defects4j export -p
+[09:09:01] sh defects4j export -p
+[09:09:02] sh defects4j export -p
+[09:09:03] sh defects4j export -p
+[09:09:04] sh defects4j export -p
+[09:09:05] sh javac -nowarn -cp
+[09:09:06] test 2
+[09:09:06] test 1
+[09:09:07] test 1
+[09:09:07] test 1
+[09:09:08] test 1
+[09:09:08] test 1
+[09:09:08] test 1
+[09:09:08] test 1
+[09:09:08] test 1
+[09:09:08] test 1
+[09:09:09] test 1
+[09:09:09] test 1
+[09:09:09] test 1
+[09:09:09] test 1
+[09:09:09] test 1
+[09:09:09] test 1
+[09:09:10] test 1
+[09:09:10] test 1
+[09:09:10] test 1
+[09:09:10] test 1
+[09:09:10] test 1
+[09:09:10] test 1
+[09:09:10] test 1
+[09:09:10] test 1
+[09:09:10] test 1
+[09:09:10] test 1
+[09:09:10] test 1
+[09:09:11] test 1
+[09:09:11] test 1
+[09:09:11] test 1
+[09:09:11] test 1
+[09:09:11] test 1
+[09:09:11] test 1
+[09:09:11] test 1
+[09:09:11] test 1
+[09:09:11] test 1
+[09:09:11] test 1
+[09:09:11] test 1
+[09:09:11] test 1
+[09:09:12] test 1
+[09:09:12] test 1
+[09:09:12] test 1
+[09:09:12] test 1
+[09:09:12] test 1
+[09:09:12] test 1
+[09:09:12] test 1
+[09:09:12] test 1
+[09:09:12] test 1
+[09:09:12] test 1
+[09:09:12] test 1
+[09:09:12] test 1
+[09:09:12] test 1
+[09:09:12] test 1
+[09:09:12] test 1
+[09:09:13] test 1
+[09:09:13] test 1
+[09:09:13] test 1
+[09:09:13] test 1
+[09:09:13] test 1
+[09:09:13] test 1
+[09:09:13] test 1
+[09:09:13] test 1
+[09:09:13] test 1
+[09:09:13] test 1
+[09:09:13] test 1
+[09:09:13] test 1
+[09:09:13] test 1
+[09:09:13] test 1
+[09:09:13] test 1
+[09:09:14] test 1
+[09:09:14] test 1
+[09:09:14] test 1
+[09:09:14] test 1
+[09:09:15] test 1
+[09:09:15] test 1
+[09:09:15] test 1
+[09:09:15] test 1
+[09:09:16] test 1
+[09:09:16] test 1
+[09:09:16] test 1
+[09:09:16] test 1
+[09:09:17] test 1
+[09:09:17] test 1
+[09:09:17] test 1
+[09:09:17] test 1
+{"bug": "Lang-65", "plausible": false, "correct": false, "tries": 150, "compiled": 83, "patterns": {"FP9": 4, "FP11": 61, "FP10": 5, "FP7": 2, "FP13": 78}, "setup_s": 9.9, "test_s": 1.4, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 413, "cpu_s": 51.65, "est_j": 516.5, "wall_s": 26.6}

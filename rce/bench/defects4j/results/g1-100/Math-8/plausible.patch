@@ -1,0 +1,11 @@
+--- -	2026-10-11 09:14:40.578810126 -0400
++++ /workspace/d4j-runs/g1-100/Math-8/work/src/main/java/org/apache/commons/math3/distribution/DiscreteDistribution.java	2026-10-11 09:14:40.394264708 -0400
+@@ -184,7 +184,7 @@
+                     sampleSize);
+         }
+ 
+-        final T[]out = (T[]) java.lang.reflect.Array.newInstance(singletons.get(0).getClass(), sampleSize);
++        final T[]out = (T[]) java.lang.reflect.Array.newInstance(singletons.get(1).getClass(), sampleSize);
+ 
+         for (int i = 0; i < sampleSize; i++) {
+             out[i] = sample();

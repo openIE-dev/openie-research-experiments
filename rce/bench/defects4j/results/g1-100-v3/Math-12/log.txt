@@ -1,0 +1,9 @@
+[11:55:04] sh defects4j checkout -p
+[11:55:09] sh defects4j compile
+[11:55:38] sh defects4j export -p
+[11:55:42] sh defects4j export -p
+[11:55:45] sh defects4j export -p
+[11:55:49] sh defects4j export -p
+[11:55:52] sh defects4j export -p
+[11:55:56] sh javac -nowarn -cp
+{"bug": "Math-12", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 0, "compiled": 0, "patterns": {}, "kept": [], "setup_s": 33.7, "positions": [["src/main/java/org/apache/commons/math3/random/BitsStreamGenerator.java", [28, 29]]], "test_s": 37.6, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 3, "candidates": 0, "ast_equal": false, "fixed_derived": ["src/main/java/org/apache/commons/math3/random/BitsStreamGenerator.java"], "patch_files": ["src/main/java/org/apache/commons/math3/random/BitsStreamGenerator.java"], "pattern": null, "cpu_s": 88.56, "est_j": 885.6, "wall_s": 92.8}

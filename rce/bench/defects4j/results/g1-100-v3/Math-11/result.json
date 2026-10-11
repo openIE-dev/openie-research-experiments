@@ -1,0 +1,80 @@
+{
+ "bug": "Math-11",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": true,
+ "correct": false,
+ "partial": false,
+ "tries": 71,
+ "compiled": 43,
+ "patterns": {
+  "ReturnStatementMutator": 3,
+  "ICASTIdivCastToDouble": 3,
+  "OperatorMutator": 5,
+  "MethodInvocationMutator": 32,
+  "VariableReplacer": 18,
+  "NullPointerChecker": 7,
+  "LiteralExpressionMutator": 2,
+  "StatementRemover": 1
+ },
+ "kept": [
+  {
+   "file": "src/main/java/org/apache/commons/math3/distribution/MultivariateNormalDistribution.java",
+   "line": 183,
+   "pattern": "ICASTIdivCastToDouble",
+   "from": "return FastMath.pow(2 * FastMath.PI, -dim / 2) *\n            FastMath.pow(covarianceMatrixDeterminant, -0.5) *\n            getExponentTerm(vals);",
+   "to": "return FastMath.pow(2 * FastMath.PI, (1.0 / 2) * -dim) *\n            FastMath.pow(covarianceMatrixDeterminant, -0.5) *\n            getExponentTerm(vals);"
+  }
+ ],
+ "setup_s": 35.1,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/math3/distribution/MultivariateNormalDistribution.java",
+   [
+    183,
+    184,
+    185
+   ]
+  ]
+ ],
+ "test_s": 8.3,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 213,
+ "plausible_found": [
+  {
+   "try": 4,
+   "pattern": "ICASTIdivCastToDouble",
+   "line": 183,
+   "new_idents": [
+    "d"
+   ]
+  },
+  {
+   "try": 5,
+   "pattern": "ICASTIdivCastToDouble",
+   "line": 183,
+   "new_idents": [
+    "f"
+   ]
+  },
+  {
+   "try": 6,
+   "pattern": "ICASTIdivCastToDouble",
+   "line": 183,
+   "new_idents": []
+  }
+ ],
+ "picked_try": 6,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/math3/distribution/MultivariateNormalDistribution.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/math3/distribution/MultivariateNormalDistribution.java"
+ ],
+ "pattern": "ICASTIdivCastToDouble",
+ "cpu_s": 71.52,
+ "est_j": 715.2,
+ "wall_s": 71.5
+}

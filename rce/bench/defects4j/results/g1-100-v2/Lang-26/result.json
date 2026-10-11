@@ -1,0 +1,48 @@
+{
+ "bug": "Lang-26",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": true,
+ "correct": false,
+ "partial": false,
+ "tries": 45,
+ "compiled": 8,
+ "patterns": {
+  "VariableReplacer": 11,
+  "NullPointerChecker": 7,
+  "MethodInvocationMutator": 27
+ },
+ "kept": [
+  {
+   "file": "src/main/java/org/apache/commons/lang3/time/FastDateFormat.java",
+   "line": 820,
+   "pattern": "MethodInvocationMutator",
+   "from": "Calendar c = new GregorianCalendar(mTimeZone);",
+   "to": "Calendar c = new GregorianCalendar(mTimeZone, this.mLocale);"
+  }
+ ],
+ "setup_s": 13.6,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/lang3/time/FastDateFormat.java",
+   [
+    820
+   ]
+  ]
+ ],
+ "test_s": 1.9,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 53,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/lang3/time/FastDateFormat.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/lang3/time/FastDateFormat.java"
+ ],
+ "pattern": "MethodInvocationMutator",
+ "cpu_s": 47.12,
+ "est_j": 471.2,
+ "wall_s": 25.0
+}

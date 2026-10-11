@@ -1,0 +1,9 @@
+[10:00:28] sh defects4j checkout -p
+[10:00:32] sh defects4j compile
+[10:00:50] sh defects4j export -p
+[10:00:51] sh defects4j export -p
+[10:00:53] sh defects4j export -p
+[10:00:55] sh defects4j export -p
+[10:00:57] sh defects4j export -p
+[10:00:59] sh javac -nowarn -cp
+{"bug": "Chart-13", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 155, "compiled": 22, "patterns": {"VariableReplacer": 5, "NullPointerChecker": 29, "MethodInvocationMutator": 121}, "kept": [{"file": "source/org/jfree/chart/block/BorderArrangement.java", "line": 454, "pattern": "MethodInvocationMutator", "from": "RectangleConstraint c4 = new RectangleConstraint(0.0,\r\n                    new Range(0.0, constraint.getWidth() - w[2]),\r\n                    LengthConstraintType.RANGE, h[2], null,\r\n                    LengthConstraintType.FIXED);", "to": "RectangleConstraint c4 = new RectangleConstraint(0.0,\r\n                    new Range(0.0, constraint.getHeight() - w[2]),\r\n                    LengthConstraintType.RANGE, h[2], null,\r\n                    LengthConstraintType.FIXED);"}], "setup_s": 22.1, "positions": [["source/org/jfree/chart/block/BorderArrangement.java", [454, 455, 456, 457]]], "test_s": 5.9, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 166, "ast_equal": false, "fixed_derived": ["source/org/jfree/chart/block/BorderArrangement.java"], "patch_files": ["source/org/jfree/chart/block/BorderArrangement.java"], "pattern": "MethodInvocationMutator", "cpu_s": 56.23, "est_j": 562.3, "wall_s": 48.6}

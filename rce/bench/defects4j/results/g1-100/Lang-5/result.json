@@ -1,0 +1,23 @@
+{
+ "bug": "Lang-5",
+ "plausible": false,
+ "correct": false,
+ "tries": 145,
+ "compiled": 120,
+ "patterns": {
+  "FP11": 82,
+  "FP5": 13,
+  "FP4": 1,
+  "FP15": 8,
+  "FP14": 1,
+  "FP9": 40
+ },
+ "setup_s": 12.2,
+ "test_s": 0.3,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 145,
+ "cpu_s": 51.17,
+ "est_j": 511.7,
+ "wall_s": 26.1
+}

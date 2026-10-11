@@ -1,0 +1,37 @@
+[
+ {
+  "window": "idle",
+  "process_reported_j": 0.001441155,
+  "wall_s": 30.379119208,
+  "episodes": 0,
+  "plist": "results/pm_idle.plist"
+ },
+ {
+  "window": "sigma",
+  "process_reported_j": 17.930985421,
+  "wall_s": 30.008237666,
+  "episodes": 12201,
+  "plist": "results/pm_sigma.plist"
+ },
+ {
+  "window": "mol",
+  "process_reported_j": 17.800949659,
+  "wall_s": 30.000638416,
+  "episodes": 11875,
+  "plist": "results/pm_mol.plist"
+ },
+ {
+  "window": "blind",
+  "process_reported_j": 17.508799947,
+  "wall_s": 30.002791167,
+  "episodes": 20430,
+  "plist": "results/pm_blind.plist"
+ },
+ {
+  "window": "idle_end",
+  "process_reported_j": 0.001461837,
+  "wall_s": 30.365661833,
+  "episodes": 0,
+  "plist": "results/pm_idle_end.plist"
+ }
+]

@@ -1,0 +1,11 @@
+--- -	2026-10-11 09:01:37.406847352 -0400
++++ /workspace/d4j-runs/g1-100/Lang-27/work/src/main/java/org/apache/commons/lang3/math/NumberUtils.java	2026-10-11 09:01:37.338264708 -0400
+@@ -485,7 +485,7 @@
+             }
+             mant = str.substring(0, decPos);
+         } else {
+-            if (expPos > -1) {
++            if (expPos < -1) {
+                 mant = str.substring(0, expPos);
+             } else {
+                 mant = str;

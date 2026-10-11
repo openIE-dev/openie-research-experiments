@@ -1,0 +1,22 @@
+diff -ruN -x target -x .git -x __pycache__ -x '*.pyc' -x Cargo.lock base/.test.out work/.test.out
+--- .test.out	1969-12-31 19:00:00.000000000 -0500
++++ .test.out	2026-10-11 08:21:38.570264708 -0400
+@@ -0,0 +1,6 @@
++
++running 88 tests
++....................................................................................... 87/88
++.
++test result: ok. 88 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
++
+diff -ruN -x target -x .git -x __pycache__ -x '*.pyc' -x Cargo.lock base/src/lib.rs work/src/lib.rs
+--- src/lib.rs	2026-10-11 08:21:12.038264708 -0400
++++ src/lib.rs	2026-10-11 08:21:37.614264708 -0400
+@@ -243,7 +243,7 @@
+     let mut result = b_len;
+ 
+     for (i, a_elem) in a.into_iter().enumerate() {
+-        result = i;
++        result = i + 1;
+         let mut distance_b = i;
+ 
+         for (j, b_elem) in b.into_iter().enumerate() {

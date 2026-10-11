@@ -1,0 +1,22 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 427,
+ "llm_calls": 0,
+ "rule_tries": 426,
+ "edit": {
+  "file": "src/bytes.rs",
+  "function": "next_char",
+  "tier": 2,
+  "from": "2",
+  "to": "1"
+ },
+ "ranked": [
+  "src/bytes.rs::new",
+  "src/lib.rs::new",
+  "src/bytes.rs::new",
+  "src/lib.rs::new",
+  "src/lib.rs::next",
+  "src/bytes.rs::next"
+ ],
+ "seconds": 52.4
+}

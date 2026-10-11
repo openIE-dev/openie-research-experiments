@@ -1,0 +1,38 @@
+{
+ "bug": "Math-5",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 1,
+ "compiled": 0,
+ "patterns": {
+  "StatementRemover": 1
+ },
+ "kept": [],
+ "setup_s": 21.7,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/math3/complex/Complex.java",
+   [
+    305
+   ]
+  ]
+ ],
+ "test_s": 0.5,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 1,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/math3/complex/Complex.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/math3/complex/Complex.java"
+ ],
+ "pattern": null,
+ "cpu_s": 63.87,
+ "est_j": 638.7,
+ "wall_s": 34.2
+}

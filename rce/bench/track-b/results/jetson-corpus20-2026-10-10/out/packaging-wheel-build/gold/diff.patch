@@ -1,0 +1,13 @@
+diff --git a/base/packaging/utils.py b/work/packaging/utils.py
+index 6defcc2..2345095 100644
+--- a/base/packaging/utils.py
++++ b/work/packaging/utils.py
+@@ -101,7 +101,7 @@ def parse_wheel_filename(
+ 
+     filename = filename[:-4]
+     dashes = filename.count("-")
+-    if dashes != 4:
++    if dashes not in (4, 5):
+         raise InvalidWheelFilename(
+             f"Invalid wheel filename (wrong number of parts): {filename!r}"
+         )

@@ -1,0 +1,9 @@
+[12:11:24] sh defects4j checkout -p
+[12:11:30] sh defects4j compile
+[12:12:26] sh defects4j export -p
+[12:12:29] sh defects4j export -p
+[12:12:31] sh defects4j export -p
+[12:12:36] sh defects4j export -p
+[12:12:38] sh defects4j export -p
+[12:12:40] sh javac -nowarn -cp
+{"bug": "Closure-13", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 22, "compiled": 17, "patterns": {"MethodInvocationMutator": 5, "VariableReplacer": 4, "StatementMover": 2, "StatementRemover": 2, "StatementInserter": 9}, "kept": [{"file": "src/com/google/javascript/jscomp/PeepholeOptimizationsPass.java", "line": 126, "pattern": "StatementMover", "from": "traverse(c);\n        Node next = c.getNext();", "to": "\n        Node next = c.getNext();\n\ttraverse(c);\n"}], "setup_s": 62.1, "positions": [["src/com/google/javascript/jscomp/PeepholeOptimizationsPass.java", [126]]], "test_s": 28.1, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 22, "plausible_found": [{"try": 10, "pattern": "StatementMover", "line": 126, "new_idents": []}], "picked_try": 10, "ast_equal": true, "fixed_derived": ["src/com/google/javascript/jscomp/PeepholeOptimizationsPass.java"], "patch_files": ["src/com/google/javascript/jscomp/PeepholeOptimizationsPass.java"], "pattern": "StatementMover", "cpu_s": 111.19, "est_j": 1111.9, "wall_s": 173.0}

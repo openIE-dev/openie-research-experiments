@@ -1,0 +1,50 @@
+{
+ "bug": "Lang-58",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": true,
+ "correct": false,
+ "partial": false,
+ "tries": 9,
+ "compiled": 9,
+ "patterns": {
+  "OperatorMutator": 7,
+  "ConditionalExpressionMutator": 2
+ },
+ "kept": [
+  {
+   "file": "src/java/org/apache/commons/lang/math/NumberUtils.java",
+   "line": 452,
+   "pattern": "ConditionalExpressionMutator",
+   "from": "if (dec == null\n                        && exp == null\n                        && isDigits(numeric.substring(1))\n                        && (numeric.charAt(0) == '-' || Character.isDigit(numeric.charAt(0)))) {\n                        try {\n                            return createLong(numeric);\n                        } catch (NumberFormatException nfe) {\n                            //Too big for a long\n                        }\n                        return createBigInteger(numeric);\n\n                    }",
+   "to": "if (dec != numeric || (dec == null\n                        && exp == null\n                        && isDigits(numeric.substring(1))\n                        && (numeric.charAt(0) == '-' || Character.isDigit(numeric.charAt(0))))) {\n                        try {\n                            return createLong(numeric);\n                        } catch (NumberFormatException nfe) {\n                            //Too big for a long\n                        }\n                        return createBigInteger(numeric);\n\n                    }"
+  }
+ ],
+ "setup_s": 9.5,
+ "positions": [
+  [
+   "src/java/org/apache/commons/lang/math/NumberUtils.java",
+   [
+    452,
+    453,
+    454,
+    455
+   ]
+  ]
+ ],
+ "test_s": 0.3,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 125,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/java/org/apache/commons/lang/math/NumberUtils.java"
+ ],
+ "patch_files": [
+  "src/java/org/apache/commons/lang/math/NumberUtils.java"
+ ],
+ "pattern": "ConditionalExpressionMutator",
+ "cpu_s": 34.65,
+ "est_j": 346.5,
+ "wall_s": 16.9
+}

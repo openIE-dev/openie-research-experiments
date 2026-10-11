@@ -1,0 +1,39 @@
+{
+ "bug": "Lang-51",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 5,
+ "compiled": 4,
+ "patterns": {
+  "StatementMover": 3,
+  "StatementRemover": 2
+ },
+ "kept": [],
+ "setup_s": 9.2,
+ "positions": [
+  [
+   "src/java/org/apache/commons/lang/BooleanUtils.java",
+   [
+    670
+   ]
+  ]
+ ],
+ "test_s": 0.6,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 5,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/java/org/apache/commons/lang/BooleanUtils.java"
+ ],
+ "patch_files": [
+  "src/java/org/apache/commons/lang/BooleanUtils.java"
+ ],
+ "pattern": null,
+ "cpu_s": 31.0,
+ "est_j": 310.0,
+ "wall_s": 16.7
+}

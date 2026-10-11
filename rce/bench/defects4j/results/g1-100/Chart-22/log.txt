@@ -1,0 +1,96 @@
+[09:12:04] sh defects4j checkout -p
+[09:12:07] sh defects4j compile
+[09:12:23] sh defects4j export -p
+[09:12:25] sh defects4j export -p
+[09:12:26] sh defects4j export -p
+[09:12:28] sh defects4j export -p
+[09:12:29] sh defects4j export -p
+[09:12:30] sh javac -nowarn -cp
+[09:12:31] test 6
+[09:12:32] test 6
+[09:12:33] test 6
+[09:12:33] test 6
+[09:12:33] test 6
+[09:12:33] test 6
+[09:12:34] test 6
+[09:12:34] test 6
+[09:12:34] test 6
+[09:12:34] test 6
+[09:12:35] test 6
+[09:12:35] test 6
+[09:12:35] test 6
+[09:12:35] test 6
+[09:12:35] test 6
+[09:12:35] test 6
+[09:12:35] test 6
+[09:12:36] test 6
+[09:12:36] test 6
+[09:12:36] test 6
+[09:12:36] test 6
+[09:12:36] test 6
+[09:12:36] test 6
+[09:12:36] test 6
+[09:12:36] test 6
+[09:12:37] test 6
+[09:12:37] test 6
+[09:12:37] test 6
+[09:12:37] test 6
+[09:12:37] test 6
+[09:12:37] test 6
+[09:12:37] test 6
+[09:12:37] test 6
+[09:12:37] test 6
+[09:12:37] test 6
+[09:12:37] test 6
+[09:12:37] test 6
+[09:12:37] test 6
+[09:12:38] test 6
+[09:12:38] test 6
+[09:12:38] test 6
+[09:12:38] test 6
+[09:12:38] test 6
+[09:12:38] test 6
+[09:12:38] test 6
+[09:12:39] test 6
+[09:12:39] test 6
+[09:12:39] test 6
+[09:12:39] test 6
+[09:12:39] test 6
+[09:12:39] test 6
+[09:12:40] test 6
+[09:12:40] test 6
+[09:12:40] test 6
+[09:12:40] test 6
+[09:12:40] test 6
+[09:12:40] test 6
+[09:12:40] test 6
+[09:12:40] test 6
+[09:12:40] test 6
+[09:12:41] test 6
+[09:12:41] test 6
+[09:12:41] test 6
+[09:12:41] test 6
+[09:12:41] test 6
+[09:12:41] test 6
+[09:12:41] test 6
+[09:12:41] test 6
+[09:12:42] test 6
+[09:12:42] test 6
+[09:12:42] test 6
+[09:12:42] test 6
+[09:12:42] test 6
+[09:12:42] test 6
+[09:12:42] test 6
+[09:12:42] test 6
+[09:12:42] test 6
+[09:12:42] test 6
+[09:12:42] test 6
+[09:12:43] test 6
+[09:12:43] test 6
+[09:12:43] test 6
+[09:12:43] test 6
+[09:12:43] test 6
+[09:12:43] test 6
+[09:12:43] test 6
+[09:12:43] test 6
+{"bug": "Chart-22", "plausible": false, "correct": false, "tries": 150, "compiled": 85, "patterns": {"FP11": 66, "FP9": 7, "FP10": 4, "FP7": 8, "FP4": 11, "FP1": 3, "FP15": 29, "FP14": 11, "FP5": 3, "FP2": 8}, "setup_s": 19.4, "test_s": 2.3, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 6, "candidates": 163, "cpu_s": 54.72, "est_j": 547.2, "wall_s": 39.8}

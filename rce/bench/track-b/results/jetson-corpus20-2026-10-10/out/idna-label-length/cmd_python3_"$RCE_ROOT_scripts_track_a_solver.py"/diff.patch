@@ -1,0 +1,13 @@
+diff --git a/base/idna/core.py b/work/idna/core.py
+index 93d485b..d0e827b 100644
+--- a/base/idna/core.py
++++ b/work/idna/core.py
+@@ -56,7 +56,7 @@ def _unot(s: int) -> str:
+ 
+ 
+ def valid_label_length(label: Union[bytes, str]) -> bool:
+-    if len(label) > 64:
++    if len(label) >= 64:
+         return False
+     return True
+ 

@@ -1,0 +1,57 @@
+[09:03:40] sh defects4j checkout -p
+[09:03:44] sh defects4j compile
+[09:03:48] sh defects4j export -p
+[09:03:49] sh defects4j export -p
+[09:03:50] sh defects4j export -p
+[09:03:50] sh defects4j export -p
+[09:03:51] sh defects4j export -p
+[09:03:52] sh javac -nowarn -cp
+[09:03:53] test 12
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.commons.lang.builder.ReflectionToStringBuilder (file:/workspace/d4j-runs/g1-100/Lang-41/work/target/classes/) to field java.lang.Integer.digits
+WARNING: Please consider reporting this to the maintainers of org.apache.commons.lang.builder.ReflectionToStringBuilder
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[09:03:53] test 2
+[09:03:53] test 2
+[09:03:53] test 2
+[09:03:54] test 2
+[09:03:54] test 2
+[09:03:54] test 2
+[09:03:54] test 2
+[09:03:54] test 2
+[09:03:54] test 2
+[09:03:54] test 2
+[09:03:54] test 2
+[09:03:54] test 2
+[09:03:54] test 2
+[09:03:54] test 2
+[09:03:55] test 2
+[09:03:55] test 2
+[09:03:55] test 2
+[09:03:55] test 2
+[09:03:55] test 2
+[09:03:55] test 2
+[09:03:55] test 2
+[09:03:55] test 2
+[09:03:55] test 2
+[09:03:55] test 2
+[09:03:55] test 2
+[09:03:55] test 2
+[09:03:55] test 2
+[09:03:55] test 2
+[09:03:56] test 2
+[09:03:56] test 2
+[09:03:56] test 2
+[09:03:56] test 2
+[09:03:56] test 2
+[09:03:56] test 2
+[09:03:56] test 2
+[09:03:56] test 2
+[09:03:56] test 2
+[09:03:56] test 2
+[09:03:56] test 2
+[09:03:56] test 2
+[09:03:56] test 2
+[09:03:56] test 2
+{"bug": "Lang-41", "plausible": false, "correct": false, "tries": 65, "compiled": 41, "patterns": {"FP11": 39, "FP7": 2, "FP6": 1, "FP4": 2, "FP15": 10, "FP14": 2, "FP9": 9}, "setup_s": 8.0, "test_s": 0.2, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 2, "candidates": 65, "cpu_s": 39.4, "est_j": 394.0, "wall_s": 16.1}

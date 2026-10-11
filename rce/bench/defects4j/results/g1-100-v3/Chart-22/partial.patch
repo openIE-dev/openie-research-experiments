@@ -1,0 +1,20 @@
+--- a/source/org/jfree/data/KeyedObjects2D.java
++++ b/source/org/jfree/data/KeyedObjects2D.java
+@@ -228,7 +228,7 @@
+             throw new UnknownKeyException("Column key (" + columnKey 
+                     + ") not recognised.");
+         }
+-        if (row >= 0) {
++        if (row == column && (row >= 0)) {
+         KeyedObjects rowData = (KeyedObjects) this.rows.get(row);
+             return rowData.getObject(columnKey);
+         }
+@@ -375,7 +375,7 @@
+         Iterator iterator = this.rows.iterator();
+         while (iterator.hasNext()) {
+             KeyedObjects rowData = (KeyedObjects) iterator.next();
+-                rowData.removeValue(columnKey);
++                rowData.getIndex(columnKey);
+         }
+         this.columnKeys.remove(columnKey);
+     }

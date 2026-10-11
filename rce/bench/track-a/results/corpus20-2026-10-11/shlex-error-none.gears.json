@@ -1,0 +1,22 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 37,
+ "llm_calls": 0,
+ "rule_tries": 36,
+ "edit": {
+  "file": "src/bytes.rs",
+  "function": "split",
+  "tier": 3,
+  "from": "    Some(res)",
+  "to": "    if shl.had_error { None } else { Some(res) }"
+ },
+ "ranked": [
+  "src/bytes.rs::split",
+  "src/lib.rs::split",
+  "src/bytes.rs::new",
+  "src/bytes.rs::new",
+  "src/lib.rs::new",
+  "src/lib.rs::new"
+ ],
+ "seconds": 4.0
+}

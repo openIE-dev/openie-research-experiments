@@ -1,0 +1,1639 @@
+{
+  "name": "orders-form",
+  "version": "0.1.0",
+  "regions": [
+    {
+      "node": "del_D1",
+      "states": [
+        "Ready",
+        "Escalated"
+      ],
+      "initial": "Ready"
+    },
+    {
+      "node": "del_D2",
+      "states": [
+        "Ready",
+        "Escalated"
+      ],
+      "initial": "Ready"
+    },
+    {
+      "node": "dep_DEP1",
+      "states": [
+        "Ready",
+        "Escalated"
+      ],
+      "initial": "Ready"
+    },
+    {
+      "node": "dep_DEP2",
+      "states": [
+        "Ready",
+        "Escalated"
+      ],
+      "initial": "Ready"
+    },
+    {
+      "node": "role_R1",
+      "states": [
+        "Ready",
+        "Escalated"
+      ],
+      "initial": "Ready"
+    },
+    {
+      "node": "role_R2",
+      "states": [
+        "Ready",
+        "Escalated"
+      ],
+      "initial": "Ready"
+    },
+    {
+      "node": "role_R3",
+      "states": [
+        "Ready",
+        "Escalated"
+      ],
+      "initial": "Ready"
+    },
+    {
+      "node": "role_R4",
+      "states": [
+        "Ready",
+        "Escalated"
+      ],
+      "initial": "Ready"
+    }
+  ],
+  "schema": [
+    {
+      "name": "del_D1",
+      "kind": "sink",
+      "columns": [
+        {
+          "name": "order.amount",
+          "ty": "float",
+          "nullable": true,
+          "path": [
+            "order",
+            "amount"
+          ]
+        },
+        {
+          "name": "order.id",
+          "ty": "int",
+          "nullable": false,
+          "path": [
+            "order",
+            "id"
+          ]
+        }
+      ],
+      "key": [
+        "order.id"
+      ]
+    },
+    {
+      "name": "del_D2",
+      "kind": "sink",
+      "columns": [
+        {
+          "name": "audit_id",
+          "ty": "int",
+          "nullable": false,
+          "path": [
+            "audit_id"
+          ]
+        }
+      ],
+      "key": [
+        "audit_id"
+      ]
+    },
+    {
+      "name": "role_R3",
+      "kind": "sink",
+      "columns": [
+        {
+          "name": "seq",
+          "ty": "int",
+          "nullable": false,
+          "path": null
+        },
+        {
+          "name": "n",
+          "ty": "int",
+          "nullable": false,
+          "path": null
+        }
+      ],
+      "key": [
+        "seq",
+        "n"
+      ]
+    },
+    {
+      "name": "escalation",
+      "kind": "escalation",
+      "columns": [
+        {
+          "name": "node",
+          "ty": "text",
+          "nullable": false,
+          "path": null
+        },
+        {
+          "name": "input",
+          "ty": "text",
+          "nullable": false,
+          "path": null
+        },
+        {
+          "name": "reason",
+          "ty": "text",
+          "nullable": false,
+          "path": null
+        },
+        {
+          "name": "opened",
+          "ty": "int",
+          "nullable": false,
+          "path": null
+        },
+        {
+          "name": "expired",
+          "ty": "bool",
+          "nullable": false,
+          "path": null
+        }
+      ],
+      "key": [
+        "node",
+        "input",
+        "reason"
+      ]
+    },
+    {
+      "name": "error",
+      "kind": "error",
+      "columns": [
+        {
+          "name": "node",
+          "ty": "text",
+          "nullable": false,
+          "path": null
+        },
+        {
+          "name": "input",
+          "ty": "text",
+          "nullable": false,
+          "path": null
+        },
+        {
+          "name": "message",
+          "ty": "text",
+          "nullable": false,
+          "path": null
+        },
+        {
+          "name": "at",
+          "ty": "int",
+          "nullable": false,
+          "path": null
+        }
+      ],
+      "key": [
+        "node",
+        "input",
+        "message"
+      ]
+    }
+  ],
+  "contracts": {
+    "dep_DEP1": {
+      "amount": "float",
+      "id": "int"
+    },
+    "dep_DEP2": {
+      "amount": "float",
+      "id": "int"
+    },
+    "role_R3": "json"
+  },
+  "timeouts": {
+    "role_R1": 50
+  },
+  "events": [
+    {
+      "name": "IN_dep_DEP1",
+      "kind": "input",
+      "node": "dep_DEP1"
+    },
+    {
+      "name": "IN_dep_DEP2",
+      "kind": "input",
+      "node": "dep_DEP2"
+    },
+    {
+      "name": "IN_role_R3",
+      "kind": "input",
+      "node": "role_R3"
+    },
+    {
+      "name": "RESOLVE_role_R1",
+      "kind": "resolve",
+      "node": "role_R1"
+    },
+    {
+      "name": "RESOLVE_role_R3",
+      "kind": "resolve",
+      "node": "role_R3"
+    },
+    {
+      "name": "RESOLVE_role_R4",
+      "kind": "resolve",
+      "node": "role_R4"
+    },
+    {
+      "name": "TICK",
+      "kind": "tick",
+      "node": ""
+    }
+  ],
+  "rules": [
+    {
+      "id": "0cdacaa5f8e524d99e7499d501ba9e969b3fec09fad90bb09e041e31a768f891",
+      "on": "IN_dep_DEP1",
+      "guard": [
+        {
+          "field": "amount",
+          "present": true
+        },
+        {
+          "field": "id",
+          "present": true
+        }
+      ],
+      "body": {
+        "t": "wrap",
+        "field": "order"
+      },
+      "sink": "del_D1",
+      "path": [
+        "dep_DEP1",
+        "role_R1",
+        "role_R2",
+        "del_D1"
+      ],
+      "fit": 0,
+      "resolves": null,
+      "updates": [
+        "ok(v) → upsert row(v) into del_D1; emit"
+      ],
+      "monotone": true
+    },
+    {
+      "id": "2b9bc636d8ad03caddb3c26aac30749a7e7c8f73fcd34bbbf6841fd8f2c45400",
+      "on": "IN_dep_DEP2",
+      "guard": [
+        {
+          "field": "id",
+          "present": false
+        }
+      ],
+      "body": {
+        "t": "esc",
+        "node": "role_R1",
+        "reason": "required field 'id' missing"
+      },
+      "sink": "del_D1",
+      "path": [
+        "dep_DEP2",
+        "role_R1",
+        "role_R2",
+        "del_D1"
+      ],
+      "fit": 2,
+      "resolves": null,
+      "updates": [
+        "ok(v) → upsert row(v) into del_D1; emit",
+        "escalate(role_R1) → upsert escalation(role_R1, sha256(input), reason, clock); control[role_R1] := Escalated"
+      ],
+      "monotone": true
+    },
+    {
+      "id": "2cc24a64c4d50f3c4150b517c4da50b7f18e928d09923008d2a2629980fb80d1",
+      "on": "IN_dep_DEP2",
+      "guard": [
+        {
+          "field": "amount",
+          "present": false
+        },
+        {
+          "field": "id",
+          "present": true
+        }
+      ],
+      "body": {
+        "t": "esc",
+        "node": "role_R1",
+        "reason": "required field 'amount' missing"
+      },
+      "sink": "del_D1",
+      "path": [
+        "dep_DEP2",
+        "role_R1",
+        "role_R2",
+        "del_D1"
+      ],
+      "fit": 2,
+      "resolves": null,
+      "updates": [
+        "ok(v) → upsert row(v) into del_D1; emit",
+        "escalate(role_R1) → upsert escalation(role_R1, sha256(input), reason, clock); control[role_R1] := Escalated"
+      ],
+      "monotone": true
+    },
+    {
+      "id": "33491ccd49a180c02510b019eb234ce2ffbc0dcb76df395315818cda975afb35",
+      "on": "IN_dep_DEP1",
+      "guard": [
+        {
+          "field": "amount",
+          "present": false
+        },
+        {
+          "field": "id",
+          "present": true
+        }
+      ],
+      "body": {
+        "t": "esc",
+        "node": "role_R1",
+        "reason": "required field 'amount' missing"
+      },
+      "sink": "del_D2",
+      "path": [
+        "dep_DEP1",
+        "role_R1",
+        "role_R4",
+        "del_D2"
+      ],
+      "fit": 1,
+      "resolves": null,
+      "updates": [
+        "ok(v) → upsert row(v) into del_D2; emit",
+        "escalate(role_R1) → upsert escalation(role_R1, sha256(input), reason, clock); control[role_R1] := Escalated"
+      ],
+      "monotone": true
+    },
+    {
+      "id": "4538706c3c1f4c4868e8bf48e1eb0a4e54216fc93170598738404837ffaeed63",
+      "on": "IN_dep_DEP1",
+      "guard": [
+        {
+          "field": "amount",
+          "present": true
+        },
+        {
+          "field": "id",
+          "present": true
+        }
+      ],
+      "body": {
+        "t": "pipe",
+        "first": {
+          "t": "proj",
+          "node": "role_R4",
+          "field": "id"
+        },
+        "then": {
+          "t": "wrap",
+          "field": "audit_id"
+        }
+      },
+      "sink": "del_D2",
+      "path": [
+        "dep_DEP1",
+        "role_R1",
+        "role_R4",
+        "del_D2"
+      ],
+      "fit": 1,
+      "resolves": null,
+      "updates": [
+        "ok(v) → upsert row(v) into del_D2; emit",
+        "escalate(role_R4) → upsert escalation(role_R4, sha256(input), reason, clock); control[role_R4] := Escalated"
+      ],
+      "monotone": true
+    },
+    {
+      "id": "567471181fc18420b0c0148dd4e433970bfe87ef287906403d8de393634c0f45",
+      "on": "IN_dep_DEP1",
+      "guard": [
+        {
+          "field": "id",
+          "present": false
+        }
+      ],
+      "body": {
+        "t": "esc",
+        "node": "role_R1",
+        "reason": "required field 'id' missing"
+      },
+      "sink": "del_D2",
+      "path": [
+        "dep_DEP1",
+        "role_R1",
+        "role_R4",
+        "del_D2"
+      ],
+      "fit": 1,
+      "resolves": null,
+      "updates": [
+        "ok(v) → upsert row(v) into del_D2; emit",
+        "escalate(role_R1) → upsert escalation(role_R1, sha256(input), reason, clock); control[role_R1] := Escalated"
+      ],
+      "monotone": true
+    },
+    {
+      "id": "5d3d3b8e002ec7feb1ac8efb57ec790ca5a9e84264ca3e4ca2670fc2dce29b34",
+      "on": "IN_dep_DEP1",
+      "guard": [
+        {
+          "field": "id",
+          "present": false
+        }
+      ],
+      "body": {
+        "t": "esc",
+        "node": "role_R1",
+        "reason": "required field 'id' missing"
+      },
+      "sink": "del_D1",
+      "path": [
+        "dep_DEP1",
+        "role_R1",
+        "role_R2",
+        "del_D1"
+      ],
+      "fit": 0,
+      "resolves": null,
+      "updates": [
+        "ok(v) → upsert row(v) into del_D1; emit",
+        "escalate(role_R1) → upsert escalation(role_R1, sha256(input), reason, clock); control[role_R1] := Escalated"
+      ],
+      "monotone": true
+    },
+    {
+      "id": "661dbbbd1101bd1ec0f34e2cb4329c6f7d613e7f177d654997db9512c988f4b9",
+      "on": "IN_dep_DEP2",
+      "guard": [
+        {
+          "field": "amount",
+          "present": true
+        },
+        {
+          "field": "id",
+          "present": true
+        }
+      ],
+      "body": {
+        "t": "pipe",
+        "first": {
+          "t": "proj",
+          "node": "role_R4",
+          "field": "id"
+        },
+        "then": {
+          "t": "wrap",
+          "field": "audit_id"
+        }
+      },
+      "sink": "del_D2",
+      "path": [
+        "dep_DEP2",
+        "role_R1",
+        "role_R4",
+        "del_D2"
+      ],
+      "fit": 3,
+      "resolves": null,
+      "updates": [
+        "ok(v) → upsert row(v) into del_D2; emit",
+        "escalate(role_R4) → upsert escalation(role_R4, sha256(input), reason, clock); control[role_R4] := Escalated"
+      ],
+      "monotone": true
+    },
+    {
+      "id": "7e576a764f85185facf6e22e1d73060d9463a3b1bf9e37dddcf2336b04d10b19",
+      "on": "IN_dep_DEP2",
+      "guard": [
+        {
+          "field": "id",
+          "present": false
+        }
+      ],
+      "body": {
+        "t": "esc",
+        "node": "role_R1",
+        "reason": "required field 'id' missing"
+      },
+      "sink": "del_D2",
+      "path": [
+        "dep_DEP2",
+        "role_R1",
+        "role_R4",
+        "del_D2"
+      ],
+      "fit": 3,
+      "resolves": null,
+      "updates": [
+        "ok(v) → upsert row(v) into del_D2; emit",
+        "escalate(role_R1) → upsert escalation(role_R1, sha256(input), reason, clock); control[role_R1] := Escalated"
+      ],
+      "monotone": true
+    },
+    {
+      "id": "8bf8bd25271ba00b4ee77706cf53316d3c0748f377bb748ecd12185c19ad7ec5",
+      "on": "IN_dep_DEP2",
+      "guard": [
+        {
+          "field": "amount",
+          "present": false
+        },
+        {
+          "field": "id",
+          "present": true
+        }
+      ],
+      "body": {
+        "t": "esc",
+        "node": "role_R1",
+        "reason": "required field 'amount' missing"
+      },
+      "sink": "del_D2",
+      "path": [
+        "dep_DEP2",
+        "role_R1",
+        "role_R4",
+        "del_D2"
+      ],
+      "fit": 3,
+      "resolves": null,
+      "updates": [
+        "ok(v) → upsert row(v) into del_D2; emit",
+        "escalate(role_R1) → upsert escalation(role_R1, sha256(input), reason, clock); control[role_R1] := Escalated"
+      ],
+      "monotone": true
+    },
+    {
+      "id": "940aabca17c59083c3599cde118c16a151668b223f0b4b5730f309229d662157",
+      "on": "IN_dep_DEP1",
+      "guard": [
+        {
+          "field": "amount",
+          "present": false
+        },
+        {
+          "field": "id",
+          "present": true
+        }
+      ],
+      "body": {
+        "t": "esc",
+        "node": "role_R1",
+        "reason": "required field 'amount' missing"
+      },
+      "sink": "del_D1",
+      "path": [
+        "dep_DEP1",
+        "role_R1",
+        "role_R2",
+        "del_D1"
+      ],
+      "fit": 0,
+      "resolves": null,
+      "updates": [
+        "ok(v) → upsert row(v) into del_D1; emit",
+        "escalate(role_R1) → upsert escalation(role_R1, sha256(input), reason, clock); control[role_R1] := Escalated"
+      ],
+      "monotone": true
+    },
+    {
+      "id": "987eac7217bf0734eed4438072be63c56c286177324235a7c9d449c938a7293e",
+      "on": "IN_role_R3",
+      "guard": [],
+      "body": {
+        "t": "esc",
+        "node": "role_R3",
+        "reason": "handler 'role_R3' is a stub — not yet implemented"
+      },
+      "sink": "role_R3",
+      "path": [
+        "role_R3"
+      ],
+      "fit": 4,
+      "resolves": null,
+      "updates": [
+        "ok(v) → upsert row(v) into role_R3; emit",
+        "escalate(role_R3) → upsert escalation(role_R3, sha256(input), reason, clock); control[role_R3] := Escalated"
+      ],
+      "monotone": true
+    },
+    {
+      "id": "9b5f3d826b119da1ca4a98ed83f3f1eff474854659c1044d75954d813592e189",
+      "on": "IN_dep_DEP1",
+      "guard": [],
+      "body": null,
+      "sink": null,
+      "path": [
+        "dep_DEP1"
+      ],
+      "fit": null,
+      "resolves": null,
+      "updates": [
+        "inputs += 1"
+      ],
+      "monotone": true
+    },
+    {
+      "id": "9b5f3d826b119da1ca4a98ed83f3f1eff474854659c1044d75954d813592e189",
+      "on": "IN_dep_DEP2",
+      "guard": [],
+      "body": null,
+      "sink": null,
+      "path": [
+        "dep_DEP2"
+      ],
+      "fit": null,
+      "resolves": null,
+      "updates": [
+        "inputs += 1"
+      ],
+      "monotone": true
+    },
+    {
+      "id": "9b5f3d826b119da1ca4a98ed83f3f1eff474854659c1044d75954d813592e189",
+      "on": "IN_role_R3",
+      "guard": [],
+      "body": null,
+      "sink": null,
+      "path": [
+        "role_R3"
+      ],
+      "fit": null,
+      "resolves": null,
+      "updates": [
+        "inputs += 1"
+      ],
+      "monotone": true
+    },
+    {
+      "id": "a0b250e8aca52956cf782ba0aa068126a65cd1e4f29108c25565b4c14a35bf13",
+      "on": "IN_dep_DEP2",
+      "guard": [
+        {
+          "field": "amount",
+          "present": true
+        },
+        {
+          "field": "id",
+          "present": true
+        }
+      ],
+      "body": {
+        "t": "wrap",
+        "field": "order"
+      },
+      "sink": "del_D1",
+      "path": [
+        "dep_DEP2",
+        "role_R1",
+        "role_R2",
+        "del_D1"
+      ],
+      "fit": 2,
+      "resolves": null,
+      "updates": [
+        "ok(v) → upsert row(v) into del_D1; emit"
+      ],
+      "monotone": true
+    },
+    {
+      "id": "efac4577689adb6bed724f8fac1530b36ca9a0c97918031ffa83286512eaf248",
+      "on": "TICK",
+      "guard": [],
+      "body": null,
+      "sink": null,
+      "path": [],
+      "fit": null,
+      "resolves": null,
+      "updates": [
+        "clock += 1",
+        "escalation rows open ≥ timeout ticks: expired := true; timeout output"
+      ],
+      "monotone": true
+    },
+    {
+      "id": "ea4042d2a4a7089de586c88037927508a01dfd4d24df48be3ff5c9e3e8211878",
+      "on": "RESOLVE_role_R1",
+      "guard": [],
+      "body": null,
+      "sink": null,
+      "path": [
+        "role_R1"
+      ],
+      "fit": null,
+      "resolves": "role_R1",
+      "updates": [
+        "control[role_R1] := Ready; delete escalation rows of role_R1"
+      ],
+      "monotone": false
+    },
+    {
+      "id": "ea4042d2a4a7089de586c88037927508a01dfd4d24df48be3ff5c9e3e8211878",
+      "on": "RESOLVE_role_R3",
+      "guard": [],
+      "body": null,
+      "sink": null,
+      "path": [
+        "role_R3"
+      ],
+      "fit": null,
+      "resolves": "role_R3",
+      "updates": [
+        "control[role_R3] := Ready; delete escalation rows of role_R3"
+      ],
+      "monotone": false
+    },
+    {
+      "id": "ea4042d2a4a7089de586c88037927508a01dfd4d24df48be3ff5c9e3e8211878",
+      "on": "RESOLVE_role_R4",
+      "guard": [],
+      "body": null,
+      "sink": null,
+      "path": [
+        "role_R4"
+      ],
+      "fit": null,
+      "resolves": "role_R4",
+      "updates": [
+        "control[role_R4] := Ready; delete escalation rows of role_R4"
+      ],
+      "monotone": false
+    }
+  ],
+  "fits": [
+    {
+      "source": "dep_DEP1",
+      "sink": "del_D1",
+      "path": [
+        "dep_DEP1",
+        "role_R1",
+        "role_R2",
+        "del_D1"
+      ],
+      "input_term": {
+        "t": "pipe",
+        "first": {
+          "t": "pipe",
+          "first": {
+            "t": "pipe",
+            "first": {
+              "t": "pass"
+            },
+            "then": {
+              "t": "if_has",
+              "field": "id",
+              "then": {
+                "t": "if_has",
+                "field": "amount",
+                "then": {
+                  "t": "pass"
+                },
+                "otherwise": {
+                  "t": "esc",
+                  "node": "role_R1",
+                  "reason": "required field 'amount' missing"
+                }
+              },
+              "otherwise": {
+                "t": "esc",
+                "node": "role_R1",
+                "reason": "required field 'id' missing"
+              }
+            }
+          },
+          "then": {
+            "t": "pipe",
+            "first": {
+              "t": "pass"
+            },
+            "then": {
+              "t": "wrap",
+              "field": "order"
+            }
+          }
+        },
+        "then": {
+          "t": "pass"
+        }
+      },
+      "extracted_term": {
+        "t": "if_has",
+        "field": "id",
+        "then": {
+          "t": "if_has",
+          "field": "amount",
+          "then": {
+            "t": "wrap",
+            "field": "order"
+          },
+          "otherwise": {
+            "t": "esc",
+            "node": "role_R1",
+            "reason": "required field 'amount' missing"
+          }
+        },
+        "otherwise": {
+          "t": "esc",
+          "node": "role_R1",
+          "reason": "required field 'id' missing"
+        }
+      },
+      "est_pj_input": 6465,
+      "est_pj_extracted": 2329
+    },
+    {
+      "source": "dep_DEP1",
+      "sink": "del_D2",
+      "path": [
+        "dep_DEP1",
+        "role_R1",
+        "role_R4",
+        "del_D2"
+      ],
+      "input_term": {
+        "t": "pipe",
+        "first": {
+          "t": "pipe",
+          "first": {
+            "t": "pipe",
+            "first": {
+              "t": "pass"
+            },
+            "then": {
+              "t": "if_has",
+              "field": "id",
+              "then": {
+                "t": "if_has",
+                "field": "amount",
+                "then": {
+                  "t": "pass"
+                },
+                "otherwise": {
+                  "t": "esc",
+                  "node": "role_R1",
+                  "reason": "required field 'amount' missing"
+                }
+              },
+              "otherwise": {
+                "t": "esc",
+                "node": "role_R1",
+                "reason": "required field 'id' missing"
+              }
+            }
+          },
+          "then": {
+            "t": "pipe",
+            "first": {
+              "t": "pipe",
+              "first": {
+                "t": "pipe",
+                "first": {
+                  "t": "wrap",
+                  "field": "record"
+                },
+                "then": {
+                  "t": "proj",
+                  "node": "role_R4",
+                  "field": "record"
+                }
+              },
+              "then": {
+                "t": "proj",
+                "node": "role_R4",
+                "field": "id"
+              }
+            },
+            "then": {
+              "t": "wrap",
+              "field": "audit_id"
+            }
+          }
+        },
+        "then": {
+          "t": "pass"
+        }
+      },
+      "extracted_term": {
+        "t": "if_has",
+        "field": "id",
+        "then": {
+          "t": "if_has",
+          "field": "amount",
+          "then": {
+            "t": "pipe",
+            "first": {
+              "t": "proj",
+              "node": "role_R4",
+              "field": "id"
+            },
+            "then": {
+              "t": "wrap",
+              "field": "audit_id"
+            }
+          },
+          "otherwise": {
+            "t": "esc",
+            "node": "role_R1",
+            "reason": "required field 'amount' missing"
+          }
+        },
+        "otherwise": {
+          "t": "esc",
+          "node": "role_R1",
+          "reason": "required field 'id' missing"
+        }
+      },
+      "est_pj_input": 8277,
+      "est_pj_extracted": 3145
+    },
+    {
+      "source": "dep_DEP2",
+      "sink": "del_D1",
+      "path": [
+        "dep_DEP2",
+        "role_R1",
+        "role_R2",
+        "del_D1"
+      ],
+      "input_term": {
+        "t": "pipe",
+        "first": {
+          "t": "pipe",
+          "first": {
+            "t": "pipe",
+            "first": {
+              "t": "pipe",
+              "first": {
+                "t": "pass"
+              },
+              "then": {
+                "t": "pass"
+              }
+            },
+            "then": {
+              "t": "if_has",
+              "field": "id",
+              "then": {
+                "t": "if_has",
+                "field": "amount",
+                "then": {
+                  "t": "pass"
+                },
+                "otherwise": {
+                  "t": "esc",
+                  "node": "role_R1",
+                  "reason": "required field 'amount' missing"
+                }
+              },
+              "otherwise": {
+                "t": "esc",
+                "node": "role_R1",
+                "reason": "required field 'id' missing"
+              }
+            }
+          },
+          "then": {
+            "t": "pipe",
+            "first": {
+              "t": "pass"
+            },
+            "then": {
+              "t": "wrap",
+              "field": "order"
+            }
+          }
+        },
+        "then": {
+          "t": "pass"
+        }
+      },
+      "extracted_term": {
+        "t": "if_has",
+        "field": "id",
+        "then": {
+          "t": "if_has",
+          "field": "amount",
+          "then": {
+            "t": "wrap",
+            "field": "order"
+          },
+          "otherwise": {
+            "t": "esc",
+            "node": "role_R1",
+            "reason": "required field 'amount' missing"
+          }
+        },
+        "otherwise": {
+          "t": "esc",
+          "node": "role_R1",
+          "reason": "required field 'id' missing"
+        }
+      },
+      "est_pj_input": 7499,
+      "est_pj_extracted": 2329
+    },
+    {
+      "source": "dep_DEP2",
+      "sink": "del_D2",
+      "path": [
+        "dep_DEP2",
+        "role_R1",
+        "role_R4",
+        "del_D2"
+      ],
+      "input_term": {
+        "t": "pipe",
+        "first": {
+          "t": "pipe",
+          "first": {
+            "t": "pipe",
+            "first": {
+              "t": "pipe",
+              "first": {
+                "t": "pass"
+              },
+              "then": {
+                "t": "pass"
+              }
+            },
+            "then": {
+              "t": "if_has",
+              "field": "id",
+              "then": {
+                "t": "if_has",
+                "field": "amount",
+                "then": {
+                  "t": "pass"
+                },
+                "otherwise": {
+                  "t": "esc",
+                  "node": "role_R1",
+                  "reason": "required field 'amount' missing"
+                }
+              },
+              "otherwise": {
+                "t": "esc",
+                "node": "role_R1",
+                "reason": "required field 'id' missing"
+              }
+            }
+          },
+          "then": {
+            "t": "pipe",
+            "first": {
+              "t": "pipe",
+              "first": {
+                "t": "pipe",
+                "first": {
+                  "t": "wrap",
+                  "field": "record"
+                },
+                "then": {
+                  "t": "proj",
+                  "node": "role_R4",
+                  "field": "record"
+                }
+              },
+              "then": {
+                "t": "proj",
+                "node": "role_R4",
+                "field": "id"
+              }
+            },
+            "then": {
+              "t": "wrap",
+              "field": "audit_id"
+            }
+          }
+        },
+        "then": {
+          "t": "pass"
+        }
+      },
+      "extracted_term": {
+        "t": "if_has",
+        "field": "id",
+        "then": {
+          "t": "if_has",
+          "field": "amount",
+          "then": {
+            "t": "pipe",
+            "first": {
+              "t": "proj",
+              "node": "role_R4",
+              "field": "id"
+            },
+            "then": {
+              "t": "wrap",
+              "field": "audit_id"
+            }
+          },
+          "otherwise": {
+            "t": "esc",
+            "node": "role_R1",
+            "reason": "required field 'amount' missing"
+          }
+        },
+        "otherwise": {
+          "t": "esc",
+          "node": "role_R1",
+          "reason": "required field 'id' missing"
+        }
+      },
+      "est_pj_input": 9311,
+      "est_pj_extracted": 3145
+    },
+    {
+      "source": "role_R3",
+      "sink": "role_R3",
+      "path": [
+        "role_R3"
+      ],
+      "input_term": {
+        "t": "esc",
+        "node": "role_R3",
+        "reason": "handler 'role_R3' is a stub — not yet implemented"
+      },
+      "extracted_term": {
+        "t": "esc",
+        "node": "role_R3",
+        "reason": "handler 'role_R3' is a stub — not yet implemented"
+      },
+      "est_pj_input": 637,
+      "est_pj_extracted": 637
+    }
+  ],
+  "notify": {
+    "role_R1": [
+      "role_R3"
+    ]
+  },
+  "sinks": [
+    "del_D1",
+    "del_D2",
+    "role_R3"
+  ],
+  "oracles": [
+    {
+      "id": "A1",
+      "property": "for all orders missing id or amount, nothing reaches the ledger and the validator escalates",
+      "validates": "O1"
+    }
+  ],
+  "saturation": {
+    "engine": "egg 0.10 (vendored, offline); normalized first (pipes right-associated, pass dropped)",
+    "proposals": [
+      {
+        "admitted": true,
+        "label": "proven: z3 unsat over 1 operator case(s); no counterexample in 3600 randomized trials",
+        "lhs": "(pipe pass ?a)",
+        "name": "pipe-pass-left",
+        "rhs": "?a",
+        "source": "llm"
+      },
+      {
+        "admitted": true,
+        "label": "proven: z3 unsat over 1 operator case(s); no counterexample in 3600 randomized trials",
+        "lhs": "(pipe pass ?a)",
+        "name": "pipe-pass-right",
+        "rhs": "?a",
+        "source": "llm"
+      },
+      {
+        "admitted": true,
+        "label": "proven: z3 unsat over 1 operator case(s); no counterexample in 3600 randomized trials",
+        "lhs": "(pipe pass ?a)",
+        "name": "pipe-pass-middle",
+        "rhs": "?a",
+        "source": "llm"
+      },
+      {
+        "admitted": false,
+        "lhs": "(ifhas ?field THEN ?a)",
+        "name": "ifhas-true",
+        "rhs": "?a",
+        "source": "llm",
+        "why": {
+          "reason": "lhs: symbol THEN where a term is expected"
+        }
+      },
+      {
+        "admitted": false,
+        "lhs": "(ifhas ?field THEN ?a)",
+        "name": "ifhas-false",
+        "rhs": "?a",
+        "source": "llm",
+        "why": {
+          "reason": "lhs: symbol THEN where a term is expected"
+        }
+      },
+      {
+        "admitted": false,
+        "lhs": "(ifeq ?field ?v THEN ?a)",
+        "name": "ifeq-equal",
+        "rhs": "?a",
+        "source": "llm",
+        "why": {
+          "reason": "lhs: symbol THEN where a term is expected"
+        }
+      },
+      {
+        "admitted": false,
+        "lhs": "(ifeq ?field ?v THEN ?a)",
+        "name": "ifeq-unequal",
+        "rhs": "?a",
+        "source": "llm",
+        "why": {
+          "reason": "lhs: symbol THEN where a term is expected"
+        }
+      },
+      {
+        "admitted": false,
+        "lhs": "(const ?v)",
+        "name": "const-integer",
+        "rhs": "?v",
+        "source": "llm",
+        "why": {
+          "reason": "?v is Json on the left, Term on the right"
+        }
+      },
+      {
+        "admitted": false,
+        "lhs": "(const ?v)",
+        "name": "const-float",
+        "rhs": "?v",
+        "source": "llm",
+        "why": {
+          "reason": "?v is Json on the left, Term on the right"
+        }
+      },
+      {
+        "admitted": false,
+        "lhs": "(arith ?n add ?a ?b)",
+        "name": "arith-add",
+        "rhs": "(arith ?n add ?b ?a)",
+        "source": "llm",
+        "why": {
+          "after_trials": 25,
+          "input": {
+            "a": {
+              "a": 0,
+              "b": true
+            }
+          },
+          "lhs": "(add n2 (esc n1 \"r1\") (esc n2 \"r1\"))",
+          "lhs_outcome": {
+            "input": {
+              "a": {
+                "a": 0,
+                "b": true
+              }
+            },
+            "kind": "esc",
+            "node": "n1",
+            "reason": "r1"
+          },
+          "reason": "counterexample",
+          "rhs": "(add n2 (esc n2 \"r1\") (esc n1 \"r1\"))",
+          "rhs_outcome": {
+            "input": {
+              "a": {
+                "a": 0,
+                "b": true
+              }
+            },
+            "kind": "esc",
+            "node": "n2",
+            "reason": "r1"
+          }
+        }
+      },
+      {
+        "admitted": false,
+        "lhs": "(arith ?n sub ?a ?b)",
+        "name": "arith-sub",
+        "rhs": "(arith ?n sub ?b ?a)",
+        "source": "llm",
+        "why": {
+          "after_trials": 13,
+          "input": {
+            "a": -3,
+            "b": 0,
+            "c": 2.5
+          },
+          "lhs": "(sub n1 (err n1 \"r2\") (esc n1 \"r2\"))",
+          "lhs_outcome": {
+            "input": {
+              "a": -3,
+              "b": 0,
+              "c": 2.5
+            },
+            "kind": "err",
+            "message": "r2",
+            "node": "n1"
+          },
+          "reason": "counterexample",
+          "rhs": "(sub n1 (esc n1 \"r2\") (err n1 \"r2\"))",
+          "rhs_outcome": {
+            "input": {
+              "a": -3,
+              "b": 0,
+              "c": 2.5
+            },
+            "kind": "esc",
+            "node": "n1",
+            "reason": "r2"
+          }
+        }
+      },
+      {
+        "admitted": false,
+        "lhs": "(arith ?n mul ?a ?b)",
+        "name": "arith-mul",
+        "rhs": "(arith ?n mul ?b ?a)",
+        "source": "llm",
+        "why": {
+          "after_trials": 25,
+          "input": {
+            "a": 9223372036854775807,
+            "c": null
+          },
+          "lhs": "(mul n2 (min n1 (pipe (err n1 \"r1\") (sub n1 (proj n2 \"a\") (esc n2 \"r1\"))) (const 9223372036854775807)) (max n1 (obj \"b\" (pipe (const 9223372036854775807) (err n1 \"r2\"))) (proj n1 \"b\")))",
+          "lhs_outcome": {
+            "input": {
+              "a": 9223372036854775807,
+              "c": null
+            },
+            "kind": "err",
+            "message": "r1",
+            "node": "n1"
+          },
+          "reason": "counterexample",
+          "rhs": "(mul n2 (max n1 (obj \"b\" (pipe (const 9223372036854775807) (err n1 \"r2\"))) (proj n1 \"b\")) (min n1 (pipe (err n1 \"r1\") (sub n1 (proj n2 \"a\") (esc n2 \"r1\"))) (const 9223372036854775807)))",
+          "rhs_outcome": {
+            "input": 9223372036854775807,
+            "kind": "err",
+            "message": "r2",
+            "node": "n1"
+          }
+        }
+      },
+      {
+        "admitted": false,
+        "lhs": "(arith ?n div ?a ?b)",
+        "name": "arith-div",
+        "rhs": "(arith ?n div ?b ?a)",
+        "source": "llm",
+        "why": {
+          "after_trials": 37,
+          "input": {
+            "b": 2.5
+          },
+          "lhs": "(div n2 (rem n1 (err n1 \"r1\") (max n2 (err n2 \"r2\") (proj n1 \"b\"))) (obj \"c\" (err n2 \"r2\") \"b\" (err n2 \"r1\")))",
+          "lhs_outcome": {
+            "input": {
+              "b": 2.5
+            },
+            "kind": "err",
+            "message": "r1",
+            "node": "n1"
+          },
+          "reason": "counterexample",
+          "rhs": "(div n2 (obj \"c\" (err n2 \"r2\") \"b\" (err n2 \"r1\")) (rem n1 (err n1 \"r1\") (max n2 (err n2 \"r2\") (proj n1 \"b\"))))",
+          "rhs_outcome": {
+            "input": {
+              "b": 2.5
+            },
+            "kind": "err",
+            "message": "r2",
+            "node": "n2"
+          }
+        }
+      },
+      {
+        "admitted": false,
+        "lhs": "(arith ?n rem ?a ?b)",
+        "name": "arith-rem",
+        "rhs": "(arith ?n rem ?b ?a)",
+        "source": "llm",
+        "why": {
+          "after_trials": 37,
+          "input": -3,
+          "lhs": "(rem n2 (esc n2 \"r2\") (esc n2 \"r1\"))",
+          "lhs_outcome": {
+            "input": -3,
+            "kind": "esc",
+            "node": "n2",
+            "reason": "r2"
+          },
+          "reason": "counterexample",
+          "rhs": "(rem n2 (esc n2 \"r1\") (esc n2 \"r2\"))",
+          "rhs_outcome": {
+            "input": -3,
+            "kind": "esc",
+            "node": "n2",
+            "reason": "r1"
+          }
+        }
+      },
+      {
+        "admitted": false,
+        "lhs": "(arith ?n fdiv ?a ?b)",
+        "name": "arith-fdiv",
+        "rhs": "(arith ?n fdiv ?b ?a)",
+        "source": "llm",
+        "why": {
+          "after_trials": 49,
+          "input": {
+            "a": [
+              1
+            ]
+          },
+          "lhs": "(fdiv n1 (pipe (err n1 \"r1\") (proj n2 \"b\")) (ifeq \"b\" 9223372036854775807 (wrap \"a\") (err n1 \"r2\")))",
+          "lhs_outcome": {
+            "input": {
+              "a": [
+                1
+              ]
+            },
+            "kind": "err",
+            "message": "r1",
+            "node": "n1"
+          },
+          "reason": "counterexample",
+          "rhs": "(fdiv n1 (ifeq \"b\" 9223372036854775807 (wrap \"a\") (err n1 \"r2\")) (pipe (err n1 \"r1\") (proj n2 \"b\")))",
+          "rhs_outcome": {
+            "input": {
+              "a": [
+                1
+              ]
+            },
+            "kind": "err",
+            "message": "r2",
+            "node": "n1"
+          }
+        }
+      },
+      {
+        "admitted": false,
+        "lhs": "(arith ?n fadd ?a ?b)",
+        "name": "arith-fadd",
+        "rhs": "(arith ?n fadd ?b ?a)",
+        "source": "llm",
+        "why": {
+          "after_trials": 1,
+          "input": {
+            "a": {
+              "b": "x"
+            }
+          },
+          "lhs": "(fadd n2 (pipe (const 1) (proj n1 \"a\")) (sub n1 (const [1]) (pipe (obj \"a\" (esc n1 \"r2\")) (proj n1 \"c\"))))",
+          "lhs_outcome": {
+            "input": 1,
+            "kind": "esc",
+            "node": "n1",
+            "reason": "field 'a' not found in input"
+          },
+          "reason": "counterexample",
+          "rhs": "(fadd n2 (sub n1 (const [1]) (pipe (obj \"a\" (esc n1 \"r2\")) (proj n1 \"c\"))) (pipe (const 1) (proj n1 \"a\")))",
+          "rhs_outcome": {
+            "input": {
+              "a": {
+                "b": "x"
+              }
+            },
+            "kind": "esc",
+            "node": "n1",
+            "reason": "r2"
+          }
+        }
+      },
+      {
+        "admitted": false,
+        "lhs": "(arith ?n fsub ?a ?b)",
+        "name": "arith-fsub",
+        "rhs": "(arith ?n fsub ?b ?a)",
+        "source": "llm",
+        "why": {
+          "after_trials": 14,
+          "input": {
+            "a": "x",
+            "b": 0,
+            "c": 0
+          },
+          "lhs": "(fsub n1 (pipe (ifeq \"a\" \"x\" (proj n1 \"c\") (obj \"a\" (esc n1 \"r2\") \"b\" (proj n1 \"b\"))) (obj \"c\" (pipe pass (const 2.5)) \"a\" (pipe pass (proj n2 \"c\")))) (esc n1 \"r2\"))",
+          "lhs_outcome": {
+            "input": 0,
+            "kind": "esc",
+            "node": "n2",
+            "reason": "field 'c' not found in input"
+          },
+          "reason": "counterexample",
+          "rhs": "(fsub n1 (esc n1 \"r2\") (pipe (ifeq \"a\" \"x\" (proj n1 \"c\") (obj \"a\" (esc n1 \"r2\") \"b\" (proj n1 \"b\"))) (obj \"c\" (pipe pass (const 2.5)) \"a\" (pipe pass (proj n2 \"c\")))))",
+          "rhs_outcome": {
+            "input": {
+              "a": "x",
+              "b": 0,
+              "c": 0
+            },
+            "kind": "esc",
+            "node": "n1",
+            "reason": "r2"
+          }
+        }
+      },
+      {
+        "admitted": false,
+        "lhs": "(arith ?n fmul ?a ?b)",
+        "name": "arith-fmul",
+        "rhs": "(arith ?n fmul ?b ?a)",
+        "source": "llm",
+        "why": {
+          "after_trials": 13,
+          "input": {
+            "b": -3
+          },
+          "lhs": "(fmul n2 (fsub n1 (proj n2 \"b\") (const null)) (ifhas \"c\" (pipe (obj \"b\" pass \"c\" (const {\"a\":1})) (pipe (proj n2 \"b\") pass)) (obj \"b\" (esc n2 \"r2\"))))",
+          "lhs_outcome": {
+            "input": {
+              "b": -3
+            },
+            "kind": "esc",
+            "node": "n1",
+            "reason": "fsub: operand is not a number"
+          },
+          "reason": "counterexample",
+          "rhs": "(fmul n2 (ifhas \"c\" (pipe (obj \"b\" pass \"c\" (const {\"a\":1})) (pipe (proj n2 \"b\") pass)) (obj \"b\" (esc n2 \"r2\"))) (fsub n1 (proj n2 \"b\") (const null)))",
+          "rhs_outcome": {
+            "input": {
+              "b": -3
+            },
+            "kind": "esc",
+            "node": "n2",
+            "reason": "r2"
+          }
+        }
+      }
+    ],
+    "iterations": 4,
+    "egraph_nodes": 39,
+    "egraph_classes": 28,
+    "stop_reason": "Saturated",
+    "rewrites": [
+      "pipe-pass-l",
+      "pipe-pass-r",
+      "ifhas-same",
+      "ifhas-nested-then",
+      "ifhas-nested-else",
+      "esc-absorbs",
+      "err-absorbs",
+      "wrap-proj",
+      "wrap-proj-r",
+      "wrap-ifhas",
+      "wrap-ifhas-r",
+      "ifhas-dist",
+      "ifeq-same",
+      "ifeq-nested-then",
+      "ifeq-dist",
+      "const-absorbs",
+      "proposed:pipe-pass-left",
+      "proposed:pipe-pass-right",
+      "proposed:pipe-pass-middle"
+    ]
+  },
+  "cost": {
+    "table": "est_j; host=x86_64-linux table=x86_64-intel-spr; rce-interp-v1 (op counts x fgir substrate table; est_j, not measured)",
+    "est_pj_input": 32189,
+    "est_pj_extracted": 11585,
+    "est_j_input": 3.2189e-8,
+    "est_j_extracted": 1.1585e-8,
+    "measured_j": null
+  },
+  "log": "D: append-only; entry = canonical JSON {seq, event, prev_hash, state_hash}; hash = SHA-256(canonical JSON of the entry without its hash)"
+}

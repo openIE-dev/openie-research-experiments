@@ -1,0 +1,13 @@
+diff --git a/base/src/lib.rs b/work/src/lib.rs
+index 0e23f4f..ab8a015 100644
+--- a/base/src/lib.rs
++++ b/work/src/lib.rs
+@@ -161,7 +161,7 @@ where
+ fn lowercase(s: &str, f: &mut fmt::Formatter) -> fmt::Result {
+     let mut chars = s.chars().peekable();
+     while let Some(c) = chars.next() {
+-        if c == 'Σ' && chars.peek().is_some() {
++        if c == 'Σ' && chars.peek().is_none() {
+             write!(f, "ς")?;
+         } else {
+             write!(f, "{}", c.to_lowercase())?;

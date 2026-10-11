@@ -1,0 +1,11 @@
+--- a/packaging/utils.py
++++ b/packaging/utils.py
+@@ -147,7 +147,7 @@
+ 
+     # We are requiring a PEP 440 version, which cannot contain dashes,
+     # so we split on the last dash.
+-    name_part, sep, version_part = file_stem.partition("-")
++    name_part, sep, version_part = file_stem.rpartition("-")
+     if not sep:
+         raise InvalidSdistFilename(f"Invalid sdist filename: {filename!r}")
+ 

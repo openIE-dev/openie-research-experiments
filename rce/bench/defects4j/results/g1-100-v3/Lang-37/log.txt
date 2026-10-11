@@ -1,0 +1,9 @@
+[11:31:24] sh defects4j checkout -p
+[11:31:29] sh defects4j compile
+[11:31:42] sh defects4j export -p
+[11:31:44] sh defects4j export -p
+[11:31:45] sh defects4j export -p
+[11:31:47] sh defects4j export -p
+[11:31:49] sh defects4j export -p
+[11:31:51] sh javac -nowarn -cp
+{"bug": "Lang-37", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 26, "compiled": 15, "patterns": {"VariableReplacer": 2, "NullPointerChecker": 15, "LiteralExpressionMutator": 2, "StatementMover": 5, "StatementRemover": 2}, "kept": [], "setup_s": 17.5, "positions": [["src/java/org/apache/commons/lang3/ArrayUtils.java", [2962]]], "test_s": 1.8, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 26, "ast_equal": false, "fixed_derived": ["src/java/org/apache/commons/lang3/ArrayUtils.java"], "patch_files": ["src/java/org/apache/commons/lang3/ArrayUtils.java"], "pattern": null, "cpu_s": 40.58, "est_j": 405.8, "wall_s": 36.8}

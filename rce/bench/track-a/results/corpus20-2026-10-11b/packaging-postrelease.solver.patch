@@ -1,0 +1,13 @@
+diff --git a/base/packaging/version.py b/work/packaging/version.py
+index 4d26424..c9bbda2 100644
+--- a/base/packaging/version.py
++++ b/work/packaging/version.py
+@@ -406,7 +406,7 @@ class Version(_BaseVersion):
+         >>> Version("1.2.3.post1").is_postrelease
+         True
+         """
+-        return self.post is None
++        return self.post is not None
+ 
+     @property
+     def is_devrelease(self) -> bool:

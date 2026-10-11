@@ -1,0 +1,9 @@
+[09:55:49] sh defects4j checkout -p
+[09:55:53] sh defects4j compile
+[09:55:59] sh defects4j export -p
+[09:56:00] sh defects4j export -p
+[09:56:01] sh defects4j export -p
+[09:56:02] sh defects4j export -p
+[09:56:03] sh defects4j export -p
+[09:56:04] sh javac -nowarn -cp
+{"bug": "Lang-47", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 152, "compiled": 122, "patterns": {"DataTypeReplacer": 12, "VariableReplacer": 42, "NullPointerChecker": 98}, "kept": [{"file": "src/java/org/apache/commons/lang/text/StrBuilder.java", "line": 1186, "pattern": "NullPointerChecker", "from": "", "to": "if (str == null) str = new String();\n "}, {"file": "src/java/org/apache/commons/lang/text/StrBuilder.java", "line": 1230, "pattern": "NullPointerChecker", "from": "", "to": "if (str == null) str = new String();\n "}], "setup_s": 9.9, "positions": [["src/java/org/apache/commons/lang/text/StrBuilder.java", [1186, 1230]]], "test_s": 1.4, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 2, "candidates": 158, "ast_equal": false, "fixed_derived": ["src/java/org/apache/commons/lang/text/StrBuilder.java"], "patch_files": ["src/java/org/apache/commons/lang/text/StrBuilder.java"], "pattern": "NullPointerChecker", "cpu_s": 51.3, "est_j": 513.0, "wall_s": 27.7}

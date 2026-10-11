@@ -1,0 +1,25 @@
+{
+ "bug": "Lang-39",
+ "plausible": true,
+ "correct": false,
+ "tries": 2,
+ "compiled": 2,
+ "patterns": {
+  "FP11": 2
+ },
+ "setup_s": 9.6,
+ "test_s": 10.7,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 98,
+ "pattern": "FP11",
+ "tier": 1,
+ "edit": {
+  "file": "src/java/org/apache/commons/lang3/StringUtils.java",
+  "from": "<",
+  "to": ">="
+ },
+ "cpu_s": 35.81,
+ "est_j": 358.1,
+ "wall_s": 26.6
+}

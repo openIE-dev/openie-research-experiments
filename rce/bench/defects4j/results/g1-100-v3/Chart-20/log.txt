@@ -1,0 +1,9 @@
+[11:48:08] sh defects4j checkout -p
+[11:48:13] sh defects4j compile
+[11:48:38] sh defects4j export -p
+[11:48:40] sh defects4j export -p
+[11:48:42] sh defects4j export -p
+[11:48:45] sh defects4j export -p
+[11:48:47] sh defects4j export -p
+[11:48:50] sh javac -nowarn -cp
+{"bug": "Chart-20", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 128, "compiled": 23, "patterns": {"MethodInvocationMutator": 27, "VariableReplacer": 74, "NullPointerChecker": 7, "StatementRemover": 2, "StatementInserter": 18}, "kept": [{"file": "source/org/jfree/chart/plot/ValueMarker.java", "line": 95, "pattern": "MethodInvocationMutator", "from": "super(paint, stroke, paint, stroke, alpha);", "to": "super(paint, stroke, outlinePaint, outlineStroke, alpha);"}], "setup_s": 30.0, "positions": [["source/org/jfree/chart/plot/ValueMarker.java", [95]]], "test_s": 7.3, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 128, "plausible_found": [{"try": 15, "pattern": "MethodInvocationMutator", "line": 95, "new_idents": ["outlinePaint", "outlineStroke"]}], "picked_try": 15, "ast_equal": true, "fixed_derived": ["source/org/jfree/chart/plot/ValueMarker.java"], "patch_files": ["source/org/jfree/chart/plot/ValueMarker.java"], "pattern": "MethodInvocationMutator", "cpu_s": 56.3, "est_j": 563.0, "wall_s": 59.4}

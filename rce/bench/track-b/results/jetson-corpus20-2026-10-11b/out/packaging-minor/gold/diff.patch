@@ -1,0 +1,13 @@
+diff --git a/base/packaging/version.py b/work/packaging/version.py
+index 5a779d7..c9bbda2 100644
+--- a/base/packaging/version.py
++++ b/work/packaging/version.py
+@@ -437,7 +437,7 @@ class Version(_BaseVersion):
+         >>> Version("1").minor
+         0
+         """
+-        return self.release[1] if len(self.release) > 2 else 0
++        return self.release[1] if len(self.release) >= 2 else 0
+ 
+     @property
+     def micro(self) -> int:

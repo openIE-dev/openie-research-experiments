@@ -1,0 +1,16 @@
+[09:00:41] sh defects4j checkout -p
+[09:00:44] sh defects4j compile
+[09:00:49] sh defects4j export -p
+[09:00:50] sh defects4j export -p
+[09:00:50] sh defects4j export -p
+[09:00:51] sh defects4j export -p
+[09:00:52] sh defects4j export -p
+[09:00:52] sh javac -nowarn -cp
+[09:00:53] test 1
+[09:00:53] test 2
+[09:00:54] test 2
+[09:00:54] test 2
+[09:00:54] test 2
+[09:00:54] test 2
+[09:00:54] test 1
+{"bug": "Lang-22", "plausible": true, "correct": false, "tries": 4, "compiled": 4, "patterns": {"FP11": 4}, "setup_s": 8.3, "test_s": 0.3, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 2, "candidates": 23, "pattern": "FP11", "tier": 1, "edit": {"file": "src/main/java/org/apache/commons/lang3/math/Fraction.java", "from": "||", "to": "&&"}, "cpu_s": 26.02, "est_j": 260.2, "wall_s": 13.3}

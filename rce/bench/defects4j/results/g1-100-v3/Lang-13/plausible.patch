@@ -1,0 +1,19 @@
+--- a/src/main/java/org/apache/commons/lang3/SerializationUtils.java
++++ b/src/main/java/org/apache/commons/lang3/SerializationUtils.java
+@@ -259,15 +259,7 @@
+          * @throws IOException Any of the usual Input/Output exceptions.
+          * @throws ClassNotFoundException If class of a serialized object cannot be found.
+          */
+-        @Override
+-        protected Class<?> resolveClass(ObjectStreamClass desc) throws IOException, ClassNotFoundException {
+-            String name = desc.getName();
+-            try {
+-                return Class.forName(name, false, classLoader);
+-            } catch (ClassNotFoundException ex) {
+-                    return Class.forName(name, false, Thread.currentThread().getContextClassLoader());
+-            }
+-        }
++        
+ 
+     }
+ 

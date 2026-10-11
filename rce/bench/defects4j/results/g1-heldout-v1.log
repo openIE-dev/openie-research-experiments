@@ -1,0 +1,18 @@
+Closure 3 { "bug": "Closure-3", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 26, "compiled": 12, "patterns": {  "ConditionalExpressionMutator": 
+Closure 1 { "bug": "Closure-1", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 32, "compiled": 11, "patterns": {  "VariableReplacer": 2,  "NullPoi
+Closure 2 { "bug": "Closure-2", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 40, "compiled": 6, "patterns": {  "VariableReplacer": 2,  "NullPoint
+Closure 4 { "bug": "Closure-4", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 73, "compiled": 31, "patterns": {  "MethodInvocationMutator": 54,  "
+Closure 8 { "bug": "Closure-8", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 23, "compiled": 12, "patterns": {  "OperatorMutator": 8,  "Variable
+Closure 7 { "bug": "Closure-7", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 39, "compiled": 27, "patterns": {  "ConditionalExpressionMutator": 
+Closure 5 { "bug": "Closure-5", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 274, "compiled": 131, "patterns": {  "OperatorMutator": 6,  "Condit
+Closure 9 no result
+Closure 12 { "bug": "Closure-12", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 2, "compiled": 1, "patterns": {  "StatementRemover": 1,  "LiteralE
+Closure 13 { "bug": "Closure-13", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 22, "compiled": 17, "patterns": {  "MethodInvocationMutator": 5,  "V
+Closure 14 { "bug": "Closure-14", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 167, "compiled": 33, "patterns": {  "MethodInvocationMutator": 19,
+Closure 10 { "bug": "Closure-10", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 185, "compiled": 91, "patterns": {  "ConditionalExpressionMutator"
+Closure 16 { "bug": "Closure-16", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 234, "compiled": 142, "patterns": {  "MethodInvocationMutator": 16
+Closure 15 { "bug": "Closure-15", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 560, "compiled": 316, "patterns": {  "ConditionalExpressionMutator
+Closure 17 { "bug": "Closure-17", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 262, "compiled": 64, "patterns": {  "OperatorMutator": 2,  "Condit
+Closure 6 { "bug": "Closure-6", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 126, "compiled": 104, "patterns": {  "OperatorMutator": 5,  "Conditi
+Closure 19 { "bug": "Closure-19", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 0, "compiled": 0, "patterns": {}, "kept": [], "setup_s": 31.1, "po
+Closure 20 { "bug": "Closure-20", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 27, "compiled": 22, "patterns": {  "OperatorMutator": 1,  "Conditi

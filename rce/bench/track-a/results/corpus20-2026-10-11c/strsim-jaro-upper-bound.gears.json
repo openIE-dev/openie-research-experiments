@@ -1,0 +1,35 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 185,
+ "llm_calls": 0,
+ "rule_tries": 184,
+ "edit": {
+  "file": "src/lib.rs",
+  "function": "generic_jaro",
+  "tier": 3,
+  "pattern": "FP11",
+  "from": "",
+  "to": " + 1"
+ },
+ "ranked": [
+  "src/lib.rs::generic_jaro",
+  "src/lib.rs::jaro",
+  "src/lib.rs::generic_jaro_winkler",
+  "src/lib.rs::jaro_winkler",
+  "src/lib.rs::into_iter",
+  "src/lib.rs::osa_distance"
+ ],
+ "patterns": {
+  "FP10": 5,
+  "FP9": 12,
+  "FP11": 107,
+  "FP7": 15,
+  "FP6": 3,
+  "FP4": 10,
+  "FP15": 13,
+  "FP14": 10,
+  "FP13": 9
+ },
+ "timeouts": 3,
+ "seconds": 71.18
+}

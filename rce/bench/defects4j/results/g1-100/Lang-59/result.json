@@ -1,0 +1,26 @@
+{
+ "bug": "Lang-59",
+ "plausible": true,
+ "correct": true,
+ "tries": 23,
+ "compiled": 11,
+ "patterns": {
+  "FP11": 5,
+  "FP13": 18
+ },
+ "setup_s": 11.2,
+ "test_s": 0.4,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 27,
+ "pattern": "FP13",
+ "tier": 2,
+ "edit": {
+  "file": "src/java/org/apache/commons/lang/text/StrBuilder.java",
+  "from": "strLen",
+  "to": "width"
+ },
+ "cpu_s": 33.35,
+ "est_j": 333.5,
+ "wall_s": 21.8
+}

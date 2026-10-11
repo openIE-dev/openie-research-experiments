@@ -1,0 +1,9 @@
+[09:49:24] sh defects4j checkout -p
+[09:49:28] sh defects4j compile
+[09:49:40] sh defects4j export -p
+[09:49:41] sh defects4j export -p
+[09:49:41] sh defects4j export -p
+[09:49:43] sh defects4j export -p
+[09:49:44] sh defects4j export -p
+[09:49:45] sh javac -nowarn -cp
+{"bug": "Lang-4", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 39, "compiled": 27, "patterns": {"NullPointerChecker": 28, "RangeChecker": 2, "StatementMover": 3, "StatementRemover": 4, "VariableReplacer": 2}, "kept": [], "setup_s": 15.5, "positions": [["src/main/java/org/apache/commons/lang3/text/translate/LookupTranslator.java", [51, 77]]], "test_s": 2.7, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 39, "ast_equal": false, "fixed_derived": ["src/main/java/org/apache/commons/lang3/text/translate/LookupTranslator.java"], "patch_files": ["src/main/java/org/apache/commons/lang3/text/translate/LookupTranslator.java"], "pattern": null, "cpu_s": 39.95, "est_j": 399.5, "wall_s": 27.8}

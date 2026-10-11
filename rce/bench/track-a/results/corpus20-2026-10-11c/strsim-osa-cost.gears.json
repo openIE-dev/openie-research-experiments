@@ -1,0 +1,34 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 223,
+ "llm_calls": 0,
+ "rule_tries": 222,
+ "edit": {
+  "file": "src/lib.rs",
+  "function": "osa_distance",
+  "tier": 3,
+  "pattern": "FP13",
+  "from": "1",
+  "to": "cost"
+ },
+ "ranked": [
+  "src/lib.rs::osa_distance",
+  "src/lib.rs::assert_hamming_dist",
+  "src/lib.rs::hamming",
+  "src/lib.rs::generic_levenshtein",
+  "src/lib.rs::generic_damerau_levenshtein",
+  "src/lib.rs::damerau_levenshtein_impl"
+ ],
+ "patterns": {
+  "FP10": 13,
+  "FP11": 88,
+  "FP7": 13,
+  "FP6": 1,
+  "FP15": 11,
+  "FP4": 9,
+  "FP14": 9,
+  "FP9": 20,
+  "FP13": 58
+ },
+ "seconds": 49.72
+}

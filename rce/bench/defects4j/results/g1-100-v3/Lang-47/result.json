@@ -1,0 +1,72 @@
+{
+ "bug": "Lang-47",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": true,
+ "correct": false,
+ "partial": false,
+ "tries": 155,
+ "compiled": 123,
+ "patterns": {
+  "DataTypeReplacer": 12,
+  "VariableReplacer": 42,
+  "NullPointerChecker": 99,
+  "StatementRemover": 2
+ },
+ "kept": [
+  {
+   "file": "src/java/org/apache/commons/lang/text/StrBuilder.java",
+   "line": 1186,
+   "pattern": "NullPointerChecker",
+   "from": "",
+   "to": "if (str == null) str = new String();\n "
+  },
+  {
+   "file": "src/java/org/apache/commons/lang/text/StrBuilder.java",
+   "line": 1230,
+   "pattern": "NullPointerChecker",
+   "from": "",
+   "to": "if (str == null) str = new String();\n "
+  }
+ ],
+ "setup_s": 21.1,
+ "positions": [
+  [
+   "src/java/org/apache/commons/lang/text/StrBuilder.java",
+   [
+    1186,
+    1230
+   ]
+  ]
+ ],
+ "test_s": 9.2,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 2,
+ "candidates": 158,
+ "plausible_found": [
+  {
+   "try": 152,
+   "pattern": "NullPointerChecker",
+   "line": 1230,
+   "new_idents": [
+    "String",
+    "if",
+    "new",
+    "null",
+    "str"
+   ]
+  }
+ ],
+ "picked_try": 152,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/java/org/apache/commons/lang/text/StrBuilder.java"
+ ],
+ "patch_files": [
+  "src/java/org/apache/commons/lang/text/StrBuilder.java"
+ ],
+ "pattern": "NullPointerChecker",
+ "cpu_s": 59.63,
+ "est_j": 596.3,
+ "wall_s": 62.7
+}

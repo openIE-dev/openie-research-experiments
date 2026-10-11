@@ -1,0 +1,9 @@
+--- a/clamp.py
++++ b/clamp.py
+@@ -3,5 +3,5 @@ def clamp(x, lo, hi):
+     if x < lo:
+         return lo
+     if x > hi:
+-        return x
++        return hi
+     return x

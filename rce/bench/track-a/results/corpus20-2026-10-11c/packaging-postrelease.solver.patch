@@ -1,0 +1,12 @@
+diff -ruN -x target -x .git -x __pycache__ -x '*.pyc' -x Cargo.lock base/packaging/version.py work/packaging/version.py
+--- packaging/version.py	2026-10-11 08:26:01.766264708 -0400
++++ packaging/version.py	2026-10-11 08:26:01.886264708 -0400
+@@ -406,7 +406,7 @@
+         >>> Version("1.2.3.post1").is_postrelease
+         True
+         """
+-        return self.post is None
++        return self.post is not None
+ 
+     @property
+     def is_devrelease(self) -> bool:

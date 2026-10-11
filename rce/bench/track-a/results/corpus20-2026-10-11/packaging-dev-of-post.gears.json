@@ -1,0 +1,22 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 130,
+ "llm_calls": 0,
+ "rule_tries": 129,
+ "edit": {
+  "file": "packaging/version.py",
+  "function": "_cmpkey",
+  "tier": 3,
+  "from": "",
+  "to": "post is None and "
+ },
+ "ranked": [
+  "packaging/specifiers.py::version",
+  "packaging/version.py::post",
+  "packaging/version.py::dev",
+  "packaging/version.py::release",
+  "packaging/version.py::release",
+  "packaging/version.py::_cmpkey"
+ ],
+ "seconds": 4.29
+}

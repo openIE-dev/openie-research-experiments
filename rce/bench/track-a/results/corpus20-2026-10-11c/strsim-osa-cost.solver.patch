@@ -1,0 +1,22 @@
+diff -ruN -x target -x .git -x __pycache__ -x '*.pyc' -x Cargo.lock base/.test.out work/.test.out
+--- .test.out	1969-12-31 19:00:00.000000000 -0500
++++ .test.out	2026-10-11 08:22:30.358264708 -0400
+@@ -0,0 +1,6 @@
++
++running 88 tests
++....................................................................................... 87/88
++.
++test result: ok. 88 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
++
+diff -ruN -x target -x .git -x __pycache__ -x '*.pyc' -x Cargo.lock base/src/lib.rs work/src/lib.rs
+--- src/lib.rs	2026-10-11 08:21:39.786264708 -0400
++++ src/lib.rs	2026-10-11 08:22:29.310264708 -0400
+@@ -315,7 +315,7 @@
+             let cost = usize::from(a_char != b_char);
+             curr_distances[j + 1] = min(
+                 curr_distances[j] + 1,
+-                min(prev_distances[j + 1] + 1, prev_distances[j] + 1),
++                min(prev_distances[j + 1] + 1, prev_distances[j] + cost),
+             );
+             if i > 0 && j > 0 && a_char != b_char && a_char == prev_b_char && b_char == prev_a_char
+             {

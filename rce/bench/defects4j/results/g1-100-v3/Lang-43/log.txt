@@ -1,0 +1,9 @@
+[11:32:49] sh defects4j checkout -p
+[11:32:54] sh defects4j compile
+[11:33:11] sh defects4j export -p
+[11:33:13] sh defects4j export -p
+[11:33:15] sh defects4j export -p
+[11:33:18] sh defects4j export -p
+[11:33:20] sh defects4j export -p
+[11:33:23] sh javac -nowarn -cp
+{"bug": "Lang-43", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 10, "compiled": 8, "patterns": {"ConditionalExpressionMutator": 2, "OperatorMutator": 1, "VariableReplacer": 6, "StatementRemover": 1}, "kept": [], "setup_s": 21.6, "positions": [["src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java", [422]]], "test_s": 872.6, "trigger_timeout_s": 205.7, "baseline_trigger_failures": 1, "candidates": 10, "ast_equal": false, "fixed_derived": ["src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java"], "patch_files": ["src/java/org/apache/commons/lang/text/ExtendedMessageFormat.java"], "pattern": null, "cpu_s": 423.52, "est_j": 4235.2, "wall_s": 918.5}

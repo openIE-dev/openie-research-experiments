@@ -1,0 +1,40 @@
+    title::tests::test7
+    title::tests::test8
+    title::tests::test9
+    train::tests::test1
+    train::tests::test10
+    train::tests::test11
+    train::tests::test12
+    train::tests::test13
+    train::tests::test14
+    train::tests::test16
+    train::tests::test17
+    train::tests::test18
+    train::tests::test19
+    train::tests::test2
+    train::tests::test20
+    train::tests::test21
+    train::tests::test22
+    train::tests::test23
+    train::tests::test24
+    train::tests::test25
+    train::tests::test3
+    train::tests::test4
+    train::tests::test5
+    train::tests::test6
+    train::tests::test7
+    train::tests::test8
+    upper_camel::tests::test1
+    upper_camel::tests::test10
+    upper_camel::tests::test2
+    upper_camel::tests::test3
+    upper_camel::tests::test4
+    upper_camel::tests::test5
+    upper_camel::tests::test6
+    upper_camel::tests::test7
+    upper_camel::tests::test8
+    upper_camel::tests::test9
+
+test result: FAILED. 58 passed; 53 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+error: test failed, to rerun pass `--lib`

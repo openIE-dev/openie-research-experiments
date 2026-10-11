@@ -1,0 +1,65 @@
+[09:02:59] sh defects4j checkout -p
+[09:03:03] sh defects4j compile
+[09:03:08] sh defects4j export -p
+[09:03:09] sh defects4j export -p
+[09:03:10] sh defects4j export -p
+[09:03:11] sh defects4j export -p
+[09:03:11] sh defects4j export -p
+[09:03:12] sh javac -nowarn -cp
+[09:03:13] test 24
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.commons.lang3.builder.CompareToBuilder (file:/workspace/d4j-runs/g1-100/Lang-35/work/target/classes/) to field java.lang.String.value
+WARNING: Please consider reporting this to the maintainers of org.apache.commons.lang3.builder.CompareToBuilder
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[09:03:13] test 1
+[09:03:14] test 1
+[09:03:14] test 1
+[09:03:15] test 1
+[09:03:16] test 1
+[09:03:16] test 1
+[09:03:16] test 1
+[09:03:16] test 1
+[09:03:16] test 1
+[09:03:17] test 1
+[09:03:17] test 1
+[09:03:17] test 1
+[09:03:18] test 1
+[09:03:18] test 1
+[09:03:18] test 1
+[09:03:18] test 1
+[09:03:18] test 1
+[09:03:18] test 1
+[09:03:18] test 1
+[09:03:19] test 1
+[09:03:19] test 1
+[09:03:19] test 1
+[09:03:19] test 1
+[09:03:19] test 1
+[09:03:20] test 1
+[09:03:20] test 1
+[09:03:20] test 1
+[09:03:20] test 1
+[09:03:20] test 1
+[09:03:20] test 1
+[09:03:20] test 1
+[09:03:20] test 1
+[09:03:20] test 1
+[09:03:21] test 1
+[09:03:21] test 1
+[09:03:21] test 1
+[09:03:21] test 1
+[09:03:21] test 1
+[09:03:21] test 1
+[09:03:21] test 1
+[09:03:21] test 1
+[09:03:22] test 1
+[09:03:22] test 1
+[09:03:22] test 1
+[09:03:22] test 1
+[09:03:22] test 1
+[09:03:22] test 1
+[09:03:22] test 1
+[09:03:22] test 1
+[09:03:22] test 1
+{"bug": "Lang-35", "plausible": false, "correct": false, "tries": 150, "compiled": 49, "patterns": {"FP10": 1, "FP11": 42, "FP7": 22, "FP15": 29, "FP4": 19, "FP14": 19, "FP9": 18}, "setup_s": 8.9, "test_s": 0.6, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 204, "cpu_s": 52.53, "est_j": 525.3, "wall_s": 22.9}

@@ -1,0 +1,40 @@
+{
+ "bug": "Lang-55",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 15,
+ "compiled": 15,
+ "patterns": {
+  "OperatorMutator": 11,
+  "StatementMover": 2,
+  "StatementRemover": 2
+ },
+ "kept": [],
+ "setup_s": 21.5,
+ "positions": [
+  [
+   "src/java/org/apache/commons/lang/time/StopWatch.java",
+   [
+    118
+   ]
+  ]
+ ],
+ "test_s": 22.8,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 15,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/java/org/apache/commons/lang/time/StopWatch.java"
+ ],
+ "patch_files": [
+  "src/java/org/apache/commons/lang/time/StopWatch.java"
+ ],
+ "pattern": null,
+ "cpu_s": 34.17,
+ "est_j": 341.7,
+ "wall_s": 60.9
+}

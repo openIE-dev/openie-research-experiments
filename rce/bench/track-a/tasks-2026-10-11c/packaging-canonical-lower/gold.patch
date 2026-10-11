@@ -1,0 +1,11 @@
+--- a/packaging/utils.py
++++ b/packaging/utils.py
+@@ -47,7 +47,7 @@
+     if validate and not _validate_regex.match(name):
+         raise InvalidName(f"name is invalid: {name!r}")
+     # This is taken from PEP 503.
+-    value = _canonicalize_regex.sub("-", name)
++    value = _canonicalize_regex.sub("-", name).lower()
+     return cast(NormalizedName, value)
+ 
+ 

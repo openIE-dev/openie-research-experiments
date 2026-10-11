@@ -1,0 +1,26 @@
+{
+ "bugs": 100,
+ "results": 100,
+ "errors": 0,
+ "plausible": 14,
+ "correct": 2,
+ "llm_calls": 0,
+ "est_j_total": 67572.4,
+ "est_j_note": "estimate: child CPU seconds x 10 W per CPU, not measured",
+ "fixed": [
+  "Lang-6 correct",
+  "Lang-10 plausible",
+  "Lang-22 plausible",
+  "Lang-27 plausible",
+  "Lang-31 plausible",
+  "Lang-39 plausible",
+  "Lang-58 plausible",
+  "Lang-59 correct",
+  "Lang-63 plausible",
+  "Chart-1 plausible",
+  "Chart-13 plausible",
+  "Chart-24 plausible",
+  "Math-8 plausible",
+  "Math-11 plausible"
+ ]
+}

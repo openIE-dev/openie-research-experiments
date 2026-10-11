@@ -1,0 +1,34 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 121,
+ "llm_calls": 0,
+ "rule_tries": 120,
+ "edit": {
+  "file": "src/lib.rs",
+  "function": "generic_levenshtein",
+  "tier": 3,
+  "pattern": "FP11",
+  "from": "",
+  "to": " + 1"
+ },
+ "ranked": [
+  "src/lib.rs::normalized_levenshtein",
+  "src/lib.rs::levenshtein",
+  "src/lib.rs::generic_levenshtein",
+  "src/lib.rs::normalized_damerau_levenshtein",
+  "src/lib.rs::damerau_levenshtein_impl",
+  "src/lib.rs::generic_damerau_levenshtein"
+ ],
+ "patterns": {
+  "FP10": 12,
+  "FP11": 61,
+  "FP7": 15,
+  "FP6": 1,
+  "FP15": 7,
+  "FP4": 4,
+  "FP14": 4,
+  "FP13": 12,
+  "FP9": 4
+ },
+ "seconds": 25.73
+}

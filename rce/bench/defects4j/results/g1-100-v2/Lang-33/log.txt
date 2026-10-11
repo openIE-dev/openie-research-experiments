@@ -1,0 +1,14 @@
+[09:53:34] sh defects4j checkout -p
+[09:53:38] sh defects4j compile
+[09:53:45] sh defects4j export -p
+[09:53:46] sh defects4j export -p
+[09:53:47] sh defects4j export -p
+[09:53:48] sh defects4j export -p
+[09:53:49] sh defects4j export -p
+[09:53:49] sh javac -nowarn -cp
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.commons.lang3.builder.ReflectionToStringBuilder (file:/workspace/rce-work/build3/crates/rce/bench/defects4j/results/tbar-100/Lang-33/work/target/classes/) to field java.lang.Integer.digits
+WARNING: Please consider reporting this to the maintainers of org.apache.commons.lang3.builder.ReflectionToStringBuilder
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+{"bug": "Lang-33", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 7, "compiled": 4, "patterns": {"RangeChecker": 1, "NullPointerChecker": 6}, "kept": [{"file": "src/main/java/org/apache/commons/lang3/ClassUtils.java", "line": 910, "pattern": "NullPointerChecker", "from": "", "to": "if (classes == null) continue;\n\tif (array[i] == null) continue;\n\t"}], "setup_s": 11.0, "positions": [["src/main/java/org/apache/commons/lang3/ClassUtils.java", [910]]], "test_s": 0.6, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 11, "ast_equal": false, "fixed_derived": ["src/main/java/org/apache/commons/lang3/ClassUtils.java"], "patch_files": ["src/main/java/org/apache/commons/lang3/ClassUtils.java"], "pattern": "NullPointerChecker", "cpu_s": 30.13, "est_j": 301.3, "wall_s": 18.4}

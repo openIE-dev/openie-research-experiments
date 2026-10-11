@@ -1,0 +1,9 @@
+[10:01:59] sh defects4j checkout -p
+[10:02:04] sh defects4j compile
+[10:02:16] sh defects4j export -p
+[10:02:18] sh defects4j export -p
+[10:02:20] sh defects4j export -p
+[10:02:21] sh defects4j export -p
+[10:02:22] sh defects4j export -p
+[10:02:23] sh javac -nowarn -cp
+{"bug": "Chart-19", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 191, "compiled": 164, "patterns": {"VariableReplacer": 146, "NullPointerChecker": 39, "DataTypeReplacer": 6}, "kept": [{"file": "source/org/jfree/chart/plot/CategoryPlot.java", "line": 698, "pattern": "NullPointerChecker", "from": "", "to": "if (axis == null) {\n\t    throw new IllegalArgumentException(\"Null 'axis' argument.\");\n\t}\n"}, {"file": "source/org/jfree/chart/plot/CategoryPlot.java", "line": 973, "pattern": "NullPointerChecker", "from": "", "to": "if (axis == null) {\n\t    throw new IllegalArgumentException(\"Null 'axis' argument.\");\n\t}\n"}], "setup_s": 17.0, "positions": [["source/org/jfree/chart/plot/CategoryPlot.java", [698, 973]]], "test_s": 7.0, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 2, "candidates": 247, "ast_equal": true, "fixed_derived": ["source/org/jfree/chart/plot/CategoryPlot.java"], "patch_files": ["source/org/jfree/chart/plot/CategoryPlot.java"], "pattern": "NullPointerChecker", "cpu_s": 80.8, "est_j": 808.0, "wall_s": 48.5}

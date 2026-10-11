@@ -1,0 +1,40 @@
+{
+ "bug": "Lang-14",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 25,
+ "compiled": 9,
+ "patterns": {
+  "ConditionalExpressionMutator": 20,
+  "NullPointerChecker": 4,
+  "StatementRemover": 1
+ },
+ "kept": [],
+ "setup_s": 20.6,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/lang3/StringUtils.java",
+   [
+    788
+   ]
+  ]
+ ],
+ "test_s": 9.0,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 25,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/lang3/StringUtils.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/lang3/StringUtils.java"
+ ],
+ "pattern": null,
+ "cpu_s": 49.31,
+ "est_j": 493.1,
+ "wall_s": 52.9
+}

@@ -1,0 +1,9 @@
+[11:26:10] sh defects4j checkout -p
+[11:26:15] sh defects4j compile
+[11:26:34] sh defects4j export -p
+[11:26:36] sh defects4j export -p
+[11:26:38] sh defects4j export -p
+[11:26:41] sh defects4j export -p
+[11:26:43] sh defects4j export -p
+[11:26:45] sh javac -nowarn -cp
+{"bug": "Lang-19", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 137, "compiled": 103, "patterns": {"OperatorMutator": 28, "ConditionalExpressionMutator": 50, "NullPointerChecker": 11, "LiteralExpressionMutator": 12, "StatementMover": 11, "StatementRemover": 5, "DataTypeReplacer": 6, "VariableReplacer": 9, "ReturnStatementMutator": 5}, "kept": [], "setup_s": 23.8, "positions": [["src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java", [40, 52, 54, 80]]], "test_s": 5.7, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 2, "candidates": 140, "ast_equal": false, "fixed_derived": ["src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java"], "patch_files": ["src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java"], "pattern": null, "cpu_s": 52.5, "est_j": 525.0, "wall_s": 54.2}

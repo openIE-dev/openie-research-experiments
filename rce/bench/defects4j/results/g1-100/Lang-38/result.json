@@ -1,0 +1,21 @@
+{
+ "bug": "Lang-38",
+ "plausible": false,
+ "correct": false,
+ "tries": 4,
+ "compiled": 4,
+ "patterns": {
+  "FP4": 1,
+  "FP1": 1,
+  "FP15": 1,
+  "FP14": 1
+ },
+ "setup_s": 8.9,
+ "test_s": 0.8,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 4,
+ "cpu_s": 32.66,
+ "est_j": 326.6,
+ "wall_s": 17.7
+}

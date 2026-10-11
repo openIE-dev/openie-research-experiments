@@ -1,0 +1,15 @@
+{
+  "1a1aad190efb7cf59a239be02b68550049f5e310996e73622641efc63c0a85fd": [
+    {
+      "key": "1a1aad190efb7cf59a239be02b68550049f5e310996e73622641efc63c0a85fd",
+      "shape_signature": "{\"round\":number}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "dep_DEP1",
+      "source_spec": "joule-db-core",
+      "gear": "G1",
+      "hits": 2
+    }
+  ]
+}

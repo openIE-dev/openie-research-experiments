@@ -1,0 +1,32 @@
+[09:06:30] sh defects4j checkout -p
+[09:06:34] sh defects4j compile
+[09:06:40] sh defects4j export -p
+[09:06:42] sh defects4j export -p
+[09:06:43] sh defects4j export -p
+[09:06:44] sh defects4j export -p
+[09:06:45] sh defects4j export -p
+[09:06:47] sh javac -nowarn -cp
+[09:06:48] test 10
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.commons.lang.builder.CompareToBuilder (file:/workspace/d4j-runs/g1-100/Lang-58/work/target/classes/) to field java.lang.String.value
+WARNING: Please consider reporting this to the maintainers of org.apache.commons.lang.builder.CompareToBuilder
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[09:06:48] test 1
+[09:06:49] test 1
+[09:06:49] test 1
+[09:06:49] test 1
+[09:06:50] test 1
+[09:06:50] test 1
+[09:06:50] test 1
+[09:06:50] test 1
+[09:06:50] test 1
+[09:06:51] test 1
+[09:06:51] test 1
+[09:06:51] test 1
+[09:06:51] test 1
+[09:06:51] test 1
+[09:06:51] test 1
+[09:06:51] test 1
+[09:06:51] test 10
+{"bug": "Lang-58", "plausible": true, "correct": false, "tries": 27, "compiled": 15, "patterns": {"FP11": 13, "FP13": 12, "FP9": 2}, "setup_s": 10.4, "test_s": 0.5, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 32, "pattern": "FP11", "tier": 3, "edit": {"file": "src/java/org/apache/commons/lang/math/NumberUtils.java", "from": "", "to": " + 1"}, "cpu_s": 32.83, "est_j": 328.3, "wall_s": 21.5}

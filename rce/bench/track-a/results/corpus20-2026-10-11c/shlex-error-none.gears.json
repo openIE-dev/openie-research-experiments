@@ -1,0 +1,28 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 12,
+ "llm_calls": 0,
+ "rule_tries": 11,
+ "edit": {
+  "file": "src/bytes.rs",
+  "function": "split",
+  "tier": 2,
+  "pattern": "FP12",
+  "from": "Some(res)",
+  "to": "if shl.had_error { None } else { Some(res) }"
+ },
+ "ranked": [
+  "src/bytes.rs::split",
+  "src/lib.rs::split",
+  "src/bytes.rs::new",
+  "src/bytes.rs::new",
+  "src/lib.rs::new",
+  "src/lib.rs::new"
+ ],
+ "patterns": {
+  "FP9": 4,
+  "FP11": 5,
+  "FP12": 2
+ },
+ "seconds": 2.12
+}

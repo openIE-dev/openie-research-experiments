@@ -1,0 +1,68 @@
+{
+ "bug": "Math-5",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": true,
+ "correct": true,
+ "partial": false,
+ "tries": 59,
+ "compiled": 37,
+ "patterns": {
+  "VariableReplacer": 35,
+  "NullPointerChecker": 23,
+  "StatementRemover": 1
+ },
+ "kept": [
+  {
+   "file": "src/main/java/org/apache/commons/math3/complex/Complex.java",
+   "line": 305,
+   "pattern": "VariableReplacer",
+   "from": "return NaN;",
+   "to": "return INF;"
+  }
+ ],
+ "setup_s": 42.0,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/math3/complex/Complex.java",
+   [
+    305
+   ]
+  ]
+ ],
+ "test_s": 7.5,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 59,
+ "plausible_found": [
+  {
+   "try": 2,
+   "pattern": "VariableReplacer",
+   "line": 305,
+   "new_idents": [
+    "INF"
+   ]
+  },
+  {
+   "try": 3,
+   "pattern": "VariableReplacer",
+   "line": 305,
+   "new_idents": [
+    "Complex",
+    "INF"
+   ]
+  }
+ ],
+ "picked_try": 2,
+ "ast_equal": true,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/math3/complex/Complex.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/math3/complex/Complex.java"
+ ],
+ "pattern": "VariableReplacer",
+ "cpu_s": 79.05,
+ "est_j": 790.5,
+ "wall_s": 78.3
+}

@@ -1,0 +1,145 @@
+{
+ "bug": "Chart-1",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": true,
+ "correct": true,
+ "partial": false,
+ "tries": 63,
+ "compiled": 36,
+ "patterns": {
+  "OperatorMutator": 1,
+  "ConditionalExpressionMutator": 4,
+  "VariableReplacer": 44,
+  "StatementMover": 7,
+  "StatementRemover": 3,
+  "StatementInserter": 4
+ },
+ "kept": [
+  {
+   "file": "source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java",
+   "line": 1797,
+   "pattern": "OperatorMutator",
+   "from": "if (dataset != null) {\r\n            return result;\r\n        }",
+   "to": "if (dataset == null) {\r\n            return result;\r\n        }"
+  }
+ ],
+ "setup_s": 31.1,
+ "positions": [
+  [
+   "source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java",
+   [
+    1797
+   ]
+  ]
+ ],
+ "test_s": 24.3,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 63,
+ "plausible_found": [
+  {
+   "try": 1,
+   "pattern": "OperatorMutator",
+   "line": 1797,
+   "new_idents": []
+  },
+  {
+   "try": 5,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 1797,
+   "new_idents": [
+    "SelectableCategoryDataset",
+    "instanceof"
+   ]
+  },
+  {
+   "try": 8,
+   "pattern": "VariableReplacer",
+   "line": 1797,
+   "new_idents": [
+    "getBaseItemLabelGenerator"
+   ]
+  },
+  {
+   "try": 9,
+   "pattern": "VariableReplacer",
+   "line": 1797,
+   "new_idents": [
+    "getBaseToolTipGenerator"
+   ]
+  },
+  {
+   "try": 10,
+   "pattern": "VariableReplacer",
+   "line": 1797,
+   "new_idents": [
+    "getBaseURLGenerator"
+   ]
+  },
+  {
+   "try": 13,
+   "pattern": "VariableReplacer",
+   "line": 1797,
+   "new_idents": [
+    "getLegendItemToolTipGenerator"
+   ]
+  },
+  {
+   "try": 14,
+   "pattern": "VariableReplacer",
+   "line": 1797,
+   "new_idents": [
+    "getLegendItemURLGenerator"
+   ]
+  },
+  {
+   "try": 44,
+   "pattern": "VariableReplacer",
+   "line": 1797,
+   "new_idents": [
+    "getBaseLegendShape"
+   ]
+  },
+  {
+   "try": 46,
+   "pattern": "VariableReplacer",
+   "line": 1797,
+   "new_idents": [
+    "getBaseLegendTextFont"
+   ]
+  },
+  {
+   "try": 47,
+   "pattern": "VariableReplacer",
+   "line": 1797,
+   "new_idents": [
+    "getBaseLegendTextPaint"
+   ]
+  },
+  {
+   "try": 55,
+   "pattern": "StatementMover",
+   "line": 1797,
+   "new_idents": []
+  },
+  {
+   "try": 58,
+   "pattern": "StatementRemover",
+   "line": 1797,
+   "new_idents": []
+  }
+ ],
+ "picked_try": 1,
+ "ast_equal": true,
+ "fixed_derived": [
+  "source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java"
+ ],
+ "patch_files": [
+  "source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java"
+ ],
+ "pattern": "OperatorMutator",
+ "cpu_s": 82.09,
+ "est_j": 820.9,
+ "wall_s": 80.9
+}

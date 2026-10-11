@@ -1,0 +1,67 @@
+{
+  "07c221f49f2ebf501b1619ded33c267a7532af41cdbf316679fb97072bcc6a2a": [
+    {
+      "key": "07c221f49f2ebf501b1619ded33c267a7532af41cdbf316679fb97072bcc6a2a",
+      "shape_signature": "{\"n\":number,\"round\":number}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "dep_DEP1",
+      "source_spec": "follow-bible-ingest",
+      "gear": "G1",
+      "hits": 9
+    }
+  ],
+  "30d963c753b047710384d6d042d005cacf34f7c7e296686e25da5f706732fda8": [
+    {
+      "key": "30d963c753b047710384d6d042d005cacf34f7c7e296686e25da5f706732fda8",
+      "shape_signature": "{\"escalation_reason\":string,\"source_node\":string}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "role_R7",
+      "source_spec": "follow-bible-ingest",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "5b9b0d5d59a786c6b4657f001e3ff84cefdf1d56f714bab2ec998d94e1a56434": [
+    {
+      "key": "5b9b0d5d59a786c6b4657f001e3ff84cefdf1d56f714bab2ec998d94e1a56434",
+      "shape_signature": "{\"n\":number,\"round\":number}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "del_D3",
+      "source_spec": "follow-bible-ingest",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "9a4d3a60b1bf47f017ce541204ad6070985ca6c6ab338c6c641358f526beb692": [
+    {
+      "key": "9a4d3a60b1bf47f017ce541204ad6070985ca6c6ab338c6c641358f526beb692",
+      "shape_signature": "{\"n\":number,\"round\":number}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "del_D1",
+      "source_spec": "follow-bible-ingest",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "b315c8531e9f9b2f62d2610f9cd6d4f73f352417fc03abd8e6d9a82a397c6098": [
+    {
+      "key": "b315c8531e9f9b2f62d2610f9cd6d4f73f352417fc03abd8e6d9a82a397c6098",
+      "shape_signature": "{\"n\":number,\"round\":number}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "del_D4",
+      "source_spec": "follow-bible-ingest",
+      "gear": "G1",
+      "hits": 0
+    }
+  ]
+}

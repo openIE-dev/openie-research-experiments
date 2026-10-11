@@ -1,0 +1,141 @@
+{
+  "0b38756a6e76a0d5d7c00d0de3129cdda483760672d5df84d2de7ead6eeff203": [
+    {
+      "key": "0b38756a6e76a0d5d7c00d0de3129cdda483760672d5df84d2de7ead6eeff203",
+      "shape_signature": "{\"manifest_path\":string}",
+      "spec": {
+        "kind": "validate",
+        "required_fields": [
+          "manifest_path"
+        ],
+        "on_success": {
+          "kind": "passthrough"
+        }
+      },
+      "source_node": "dep_DEP4",
+      "source_spec": "follow-bible-ingest-schemas",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "30d963c753b047710384d6d042d005cacf34f7c7e296686e25da5f706732fda8": [
+    {
+      "key": "30d963c753b047710384d6d042d005cacf34f7c7e296686e25da5f706732fda8",
+      "shape_signature": "{\"escalation_reason\":string,\"source_node\":string}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "role_R7",
+      "source_spec": "follow-bible-ingest-schemas",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "4b2bd28bd47a297e43dfd2e20af44f470b15c91ddb414e14b4494da0cd5755cf": [
+    {
+      "key": "4b2bd28bd47a297e43dfd2e20af44f470b15c91ddb414e14b4494da0cd5755cf",
+      "shape_signature": "{\"manifest_path\":string}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "role_R1",
+      "source_spec": "follow-bible-ingest-schemas",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "89f46064bf10e23889110e4e6c4950131bb97c0d389fcfd3aaf4396ed3268801": [
+    {
+      "key": "89f46064bf10e23889110e4e6c4950131bb97c0d389fcfd3aaf4396ed3268801",
+      "shape_signature": "{\"book\":string,\"chapter\":number,\"text\":string,\"verse\":number}",
+      "spec": {
+        "kind": "validate",
+        "required_fields": [
+          "book",
+          "chapter",
+          "verse"
+        ],
+        "on_success": {
+          "kind": "passthrough"
+        }
+      },
+      "source_node": "dep_DEP1",
+      "source_spec": "follow-bible-ingest-schemas",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "97b32f0f2ec9a895d824810d591569e86593e83c8e2922b89ef9785ca0ee29a2": [
+    {
+      "key": "97b32f0f2ec9a895d824810d591569e86593e83c8e2922b89ef9785ca0ee29a2",
+      "shape_signature": "{\"text\":string,\"translation\":string}",
+      "spec": {
+        "kind": "validate",
+        "required_fields": [
+          "text",
+          "translation"
+        ],
+        "on_success": {
+          "kind": "passthrough"
+        }
+      },
+      "source_node": "dep_DEP2",
+      "source_spec": "follow-bible-ingest-schemas",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "cb292cea53db68ca471785f37294abae15ecab14218991fbe3d5ffe8ce8541e5": [
+    {
+      "key": "cb292cea53db68ca471785f37294abae15ecab14218991fbe3d5ffe8ce8541e5",
+      "shape_signature": "{\"book\":string,\"chapter\":number,\"verse\":number}",
+      "spec": {
+        "kind": "validate",
+        "required_fields": [
+          "book",
+          "chapter",
+          "verse"
+        ],
+        "on_success": {
+          "kind": "passthrough"
+        }
+      },
+      "source_node": "dep_DEP1",
+      "source_spec": "follow-bible-ingest-schemas",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "dbae8f99b2f17532497864e559645f1d96eb292e9622bc17af18fa38be058d7c": [
+    {
+      "key": "dbae8f99b2f17532497864e559645f1d96eb292e9622bc17af18fa38be058d7c",
+      "shape_signature": "{\"text\":string,\"translation\":string}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "role_R4",
+      "source_spec": "follow-bible-ingest-schemas",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "fe4d628e3d87f5f7804138625b15d209ada3bb9d1b5b97127100eb3ef0da94c0": [
+    {
+      "key": "fe4d628e3d87f5f7804138625b15d209ada3bb9d1b5b97127100eb3ef0da94c0",
+      "shape_signature": "{\"translation_id\":string}",
+      "spec": {
+        "kind": "validate",
+        "required_fields": [
+          "translation_id"
+        ],
+        "on_success": {
+          "kind": "passthrough"
+        }
+      },
+      "source_node": "dep_DEP3",
+      "source_spec": "follow-bible-ingest-schemas",
+      "gear": "G1",
+      "hits": 0
+    }
+  ]
+}

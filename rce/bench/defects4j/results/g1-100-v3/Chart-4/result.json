@@ -1,0 +1,108 @@
+{
+ "bug": "Chart-4",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": true,
+ "correct": true,
+ "partial": false,
+ "tries": 144,
+ "compiled": 27,
+ "patterns": {
+  "VariableReplacer": 90,
+  "NullPointerChecker": 8,
+  "MethodInvocationMutator": 23,
+  "StatementRemover": 2,
+  "StatementInserter": 21
+ },
+ "kept": [
+  {
+   "file": "source/org/jfree/chart/plot/XYPlot.java",
+   "line": 4493,
+   "pattern": "NullPointerChecker",
+   "from": "Collection c = r.getAnnotations();\r\n                    Iterator i = c.iterator();\r\n                    while (i.hasNext()) {\r\n                        XYAnnotation a = (XYAnnotation) i.next();\r\n                        if (a instanceof XYAnnotationBoundsInfo) {\r\n                            includedAnnotations.add(a);\r\n                        }\r\n                    }",
+   "to": "if (r != null) {\n\tCollection c = r.getAnnotations();\r\n                    Iterator i = c.iterator();\r\n                    while (i.hasNext()) {\r\n                        XYAnnotation a = (XYAnnotation) i.next();\r\n                        if (a instanceof XYAnnotationBoundsInfo) {\r\n                            includedAnnotations.add(a);\r\n                        }\r\n                    }\n\t}\n"
+  }
+ ],
+ "setup_s": 30.5,
+ "positions": [
+  [
+   "source/org/jfree/chart/plot/XYPlot.java",
+   [
+    4493
+   ]
+  ]
+ ],
+ "test_s": 19.4,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 22,
+ "candidates": 144,
+ "plausible_found": [
+  {
+   "try": 91,
+   "pattern": "NullPointerChecker",
+   "line": 4493,
+   "new_idents": [
+    "null"
+   ]
+  },
+  {
+   "try": 93,
+   "pattern": "NullPointerChecker",
+   "line": 4493,
+   "new_idents": [
+    "if",
+    "null",
+    "r",
+    "return"
+   ]
+  },
+  {
+   "try": 96,
+   "pattern": "NullPointerChecker",
+   "line": 4493,
+   "new_idents": [
+    "if",
+    "null",
+    "r",
+    "result",
+    "return"
+   ]
+  },
+  {
+   "try": 97,
+   "pattern": "NullPointerChecker",
+   "line": 4493,
+   "new_idents": [
+    "DEFAULT_RANGE",
+    "ValueAxis",
+    "if",
+    "null",
+    "r",
+    "return"
+   ]
+  },
+  {
+   "try": 98,
+   "pattern": "NullPointerChecker",
+   "line": 4493,
+   "new_idents": [
+    "continue",
+    "if",
+    "null",
+    "r"
+   ]
+  }
+ ],
+ "picked_try": 91,
+ "ast_equal": true,
+ "fixed_derived": [
+  "source/org/jfree/chart/plot/XYPlot.java"
+ ],
+ "patch_files": [
+  "source/org/jfree/chart/plot/XYPlot.java"
+ ],
+ "pattern": "NullPointerChecker",
+ "cpu_s": 89.59,
+ "est_j": 895.9,
+ "wall_s": 91.0
+}

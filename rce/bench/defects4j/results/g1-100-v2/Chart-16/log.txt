@@ -1,0 +1,9 @@
+[10:01:11] sh defects4j checkout -p
+[10:01:17] sh defects4j compile
+[10:01:37] sh defects4j export -p
+[10:01:39] sh defects4j export -p
+[10:01:42] sh defects4j export -p
+[10:01:44] sh defects4j export -p
+[10:01:46] sh defects4j export -p
+[10:01:48] sh javac -nowarn -cp
+{"bug": "Chart-16", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": true, "tries": 49, "compiled": 16, "patterns": {"StatementMover": 2, "StatementRemover": 3, "OperatorMutator": 5, "ConditionalExpressionMutator": 39}, "kept": [{"file": "source/org/jfree/data/category/DefaultIntervalCategoryDataset.java", "line": 338, "pattern": "ConditionalExpressionMutator", "from": "if (categoryKeys.length != this.startData[0].length) {\r\n            throw new IllegalArgumentException(\r\n                    \"The number of categories does not match the data.\");\r\n        }", "to": "if (this.startData == this.endData && (categoryKeys.length != this.startData[0].length)) {\r\n            throw new IllegalArgumentException(\r\n                    \"The number of categories does not match the data.\");\r\n        }"}], "setup_s": 25.4, "positions": [["source/org/jfree/data/category/DefaultIntervalCategoryDataset.java", [207, 208, 338]]], "test_s": 3.0, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 8, "candidates": 74, "ast_equal": false, "fixed_derived": ["source/org/jfree/data/category/DefaultIntervalCategoryDataset.java"], "patch_files": ["source/org/jfree/data/category/DefaultIntervalCategoryDataset.java"], "pattern": null, "cpu_s": 50.48, "est_j": 504.8, "wall_s": 47.5}

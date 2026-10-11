@@ -1,0 +1,89 @@
+[09:03:07] sh defects4j checkout -p
+[09:03:11] sh defects4j compile
+[09:03:15] sh defects4j export -p
+[09:03:17] sh defects4j export -p
+[09:03:18] sh defects4j export -p
+[09:03:19] sh defects4j export -p
+[09:03:20] sh defects4j export -p
+[09:03:21] sh javac -nowarn -cp
+[09:03:22] test 4
+[09:03:22] test 2
+[09:03:23] test 2
+[09:03:23] test 2
+[09:03:23] test 2
+[09:03:23] test 2
+[09:03:23] test 2
+[09:03:23] test 2
+[09:03:23] test 2
+[09:03:23] test 2
+[09:03:23] test 2
+[09:03:23] test 2
+[09:03:23] test 2
+[09:03:24] test 2
+[09:03:24] test 2
+[09:03:24] test 2
+[09:03:24] test 2
+[09:03:24] test 2
+[09:03:24] test 2
+[09:03:24] test 2
+[09:03:24] test 2
+[09:03:24] test 2
+[09:03:24] test 2
+[09:03:24] test 2
+[09:03:25] test 2
+[09:03:25] test 2
+[09:03:25] test 2
+[09:03:25] test 2
+[09:03:25] test 2
+[09:03:25] test 2
+[09:03:25] test 2
+[09:03:25] test 2
+[09:03:25] test 2
+[09:03:25] test 2
+[09:03:25] test 2
+[09:03:25] test 2
+[09:03:25] test 2
+[09:03:25] test 2
+[09:03:25] test 2
+[09:03:25] test 2
+[09:03:26] test 2
+[09:03:26] test 2
+[09:03:26] test 2
+[09:03:26] test 2
+[09:03:26] test 2
+[09:03:26] test 2
+[09:03:26] test 2
+[09:03:26] test 2
+[09:03:26] test 2
+[09:03:26] test 2
+[09:03:26] test 2
+[09:03:26] test 2
+[09:03:26] test 2
+[09:03:26] test 2
+[09:03:26] test 2
+[09:03:26] test 2
+[09:03:26] test 2
+[09:03:26] test 2
+[09:03:26] test 2
+[09:03:26] test 2
+[09:03:27] test 2
+[09:03:27] test 2
+[09:03:27] test 2
+[09:03:27] test 2
+[09:03:27] test 2
+[09:03:27] test 2
+[09:03:27] test 2
+[09:03:27] test 2
+[09:03:27] test 2
+[09:03:27] test 2
+[09:03:27] test 2
+[09:03:27] test 2
+[09:03:27] test 2
+[09:03:27] test 2
+[09:03:27] test 2
+[09:03:27] test 2
+[09:03:27] test 2
+[09:03:27] test 2
+[09:03:27] test 2
+[09:03:27] test 2
+{"bug": "Lang-36", "plausible": false, "correct": false, "tries": 150, "compiled": 78, "patterns": {"FP11": 57, "FP9": 13, "FP10": 80}, "setup_s": 8.6, "test_s": 0.2, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 2, "candidates": 1206, "cpu_s": 44.76, "est_j": 447.6, "wall_s": 20.4}

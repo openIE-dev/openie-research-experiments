@@ -1,0 +1,9 @@
+[12:20:47] sh defects4j checkout -p
+[12:20:51] sh defects4j compile
+[12:21:27] sh defects4j export -p
+[12:21:30] sh defects4j export -p
+[12:21:33] sh defects4j export -p
+[12:21:40] sh defects4j export -p
+[12:21:44] sh defects4j export -p
+[12:21:48] sh javac -nowarn -cp
+{"bug": "Closure-15", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 560, "compiled": 316, "patterns": {"ConditionalExpressionMutator": 132, "OperatorMutator": 2, "MethodInvocationMutator": 408, "StatementMover": 12, "StatementRemover": 6}, "kept": [], "setup_s": 40.2, "positions": [["src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java", [94, 98, 103]]], "test_s": 202.2, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 562, "ast_equal": false, "fixed_derived": ["src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java"], "patch_files": ["src/com/google/javascript/jscomp/FlowSensitiveInlineVariables.java"], "pattern": null, "cpu_s": 290.11, "est_j": 2901.1, "wall_s": 360.1}

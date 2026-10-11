@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "$BENCH_ROOT/out/packaging-canonical-lower/cmd_python3_"$RCE_ROOT_scripts_track_a_solver.py"/work/test_task.py", line 2, in <module>
+    assert canonicalize_name('Foo_Bar.baz') == 'foo-bar-baz'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

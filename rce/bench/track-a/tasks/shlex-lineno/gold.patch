@@ -1,0 +1,11 @@
+--- a/src/bytes.rs
++++ b/src/bytes.rs
+@@ -123,7 +123,7 @@
+ 
+     fn next_char(&mut self) -> Option<u8> {
+         let res = self.in_iter.next().copied();
+-        if res == Some(b'\n') { self.line_no += 2; }
++        if res == Some(b'\n') { self.line_no += 1; }
+         res
+     }
+ }

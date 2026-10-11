@@ -1,0 +1,46 @@
+{
+ "bug": "Chart-20",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": true,
+ "correct": true,
+ "partial": false,
+ "tries": 15,
+ "compiled": 6,
+ "patterns": {
+  "MethodInvocationMutator": 15
+ },
+ "kept": [
+  {
+   "file": "source/org/jfree/chart/plot/ValueMarker.java",
+   "line": 95,
+   "pattern": "MethodInvocationMutator",
+   "from": "super(paint, stroke, paint, stroke, alpha);",
+   "to": "super(paint, stroke, outlinePaint, outlineStroke, alpha);"
+  }
+ ],
+ "setup_s": 17.4,
+ "positions": [
+  [
+   "source/org/jfree/chart/plot/ValueMarker.java",
+   [
+    95
+   ]
+  ]
+ ],
+ "test_s": 3.4,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 128,
+ "ast_equal": true,
+ "fixed_derived": [
+  "source/org/jfree/chart/plot/ValueMarker.java"
+ ],
+ "patch_files": [
+  "source/org/jfree/chart/plot/ValueMarker.java"
+ ],
+ "pattern": "MethodInvocationMutator",
+ "cpu_s": 44.88,
+ "est_j": 448.8,
+ "wall_s": 28.6
+}

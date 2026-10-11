@@ -1,0 +1,10 @@
+{
+ "id": "heck-final-sigma",
+ "problem": "Final sigma is lowercased to the medial form in snake case.",
+ "repo": "repo",
+ "test_cmd": "unshare -rn sh -c 'CARGO_TARGET_DIR=$PWD/target cargo test --offline -q --lib > .test.out 2>&1; e=$?; tail -40 .test.out; exit $e'",
+ "gold_patch": "gold.patch",
+ "timeout_s": 600,
+ "source": "heck-0.5.0 (crates.io registry)",
+ "file": "src/lib.rs"
+}

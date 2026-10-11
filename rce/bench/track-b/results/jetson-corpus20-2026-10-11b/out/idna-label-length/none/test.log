@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "$BENCH_ROOT/out2/idna-label-length/none/work/test_task.py", line 2, in <module>
+    assert not valid_label_length('a' * 64)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

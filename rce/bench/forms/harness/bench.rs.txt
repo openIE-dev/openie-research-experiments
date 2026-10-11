@@ -1,0 +1,129 @@
+//! Frozen-benchmark harness: runs the ORIGINAL joule-sales-outreach code
+//! (verbatim source) on the preregistered seeded inputs and prints one
+//! JSON line per input: {"input": {...}, "output": {...}}.
+//! Usage: bench b1|b2|b3|probe OUT_DIR
+use joule_sales_outreach::analytics::{SenderHealth, SequenceMetrics};
+use joule_sales_outreach::enrollment::Enrollment;
+use serde_json::{json, Value};
+use uuid::Uuid;
+
+struct Rng(u64);
+impl Rng {
+    fn next(&mut self) -> u64 { let mut x = self.0; x ^= x << 13; x ^= x >> 7; x ^= x << 17; self.0 = x; x }
+    fn below(&mut self, n: u64) -> u64 { if n == 0 { 0 } else { self.next() % n } }
+    /// zero | [0,100] | [0,1e6] | [0,2^53] | [0,i64::MAX]
+    fn count(&mut self) -> u64 {
+        match self.below(5) { 0 => 0, 1 => self.below(101), 2 => self.below(1_000_001), 3 => self.below((1u64 << 53) + 1), _ => self.below(i64::MAX as u64) + self.below(2) }
+    }
+}
+
+fn b1(seed: u64, n: usize, probe: bool) -> Vec<Value> {
+    let mut r = Rng(seed);
+    (0..n).map(|_| {
+        let mut m = SequenceMetrics::empty(Uuid::nil());
+        let mut f = [0u64; 6];
+        for x in f.iter_mut() { *x = r.count(); }
+        if probe { let i = r.below(6) as usize; f[i] = i64::MAX as u64 + 1 + r.below(u64::MAX - i64::MAX as u64); }
+        m.total_sent = f[0]; m.total_opens = f[1]; m.total_clicks = f[2]; m.total_replies = f[3]; m.total_bounces = f[4]; m.total_unsubscribes = f[5];
+        json!({"input": {"total_sent": f[0], "total_opens": f[1], "total_clicks": f[2], "total_replies": f[3], "total_bounces": f[4], "total_unsubscribes": f[5]},
+               "output": {"open_rate": m.open_rate(), "click_rate": m.click_rate(), "reply_rate": m.reply_rate(), "bounce_rate": m.bounce_rate(), "unsubscribe_rate": m.unsubscribe_rate()}})
+    }).collect()
+}
+
+fn b2(seed: u64, n: usize, probe: bool) -> Vec<Value> {
+    let mut r = Rng(seed);
+    (0..n).map(|_| {
+        let mut h = SenderHealth::new("example.com");
+        let mut f = [0u64; 4];
+        for x in f.iter_mut() { *x = r.count(); }
+        if probe { let i = r.below(4) as usize; f[i] = i64::MAX as u64 + 1 + r.below(u64::MAX - i64::MAX as u64); }
+        h.total_sent = f[0]; h.total_bounces = f[1]; h.total_complaints = f[2]; h.total_unsubscribes = f[3];
+        h.recalculate_reputation();
+        json!({"input": {"total_sent": f[0], "total_bounces": f[1], "total_complaints": f[2], "total_unsubscribes": f[3]},
+               "output": {"reputation_score": h.reputation_score}})
+    }).collect()
+}
+
+const OPS: [&str; 8] = ["pause", "resume", "complete", "mark_replied", "mark_bounced", "mark_unsubscribed", "manual_exit", "advance_to"];
+
+fn b3(seed: u64, seqs: usize, len: usize) -> Vec<Value> {
+    let mut r = Rng(seed);
+    let mut out = vec![];
+    for s in 0..seqs {
+        let mut e = Enrollment::new(Uuid::nil(), Uuid::nil(), Some(Uuid::nil()), Uuid::nil());
+        // Weighted so pause/resume (the guarded transitions) are common.
+        for k in 0..len {
+            let op = match r.below(12) { 0..=2 => 0, 3..=5 => 1, 6 => 2, 7 => 3, 8 => 4, 9 => 5, 10 => 6, _ => 7 };
+            let before = format!("{:?}", e.status);
+            let mut next = Value::Null;
+            match op {
+                0 => e.pause(), 1 => e.resume(), 2 => e.complete(), 3 => e.mark_replied(), 4 => e.mark_bounced(),
+                5 => e.mark_unsubscribed(), 6 => e.manual_exit(),
+                _ => { let id = if r.below(2) == 0 { Some(Uuid::from_u128(r.next() as u128)) } else { None };
+                       next = id.map(|u| json!(u.to_string())).unwrap_or(Value::Null); e.advance_to(id, None); }
+            }
+            out.push(json!({"seq": s, "step": k, "input": {"status": before, "op": OPS[op], "next_step_id": next},
+                            "output": {"status": format!("{:?}", e.status)}}));
+        }
+    }
+    out
+}
+
+/// b3full: every field of Enrollment the transition methods write.
+/// Four enrollments per run, one chosen per step (the Form reads the
+/// stored row by id). `updated_at` is wall-clock: it is reset to the
+/// epoch before each call and recorded as changed / unchanged.
+const OPS_FULL: [&str; 9] = ["pause", "resume", "complete", "mark_replied", "mark_bounced", "mark_unsubscribed", "manual_exit", "advance_to", "record_step"];
+
+fn b3full(seed: u64, runs: usize, len: usize) -> Vec<Value> {
+    use joule_sales_outreach::enrollment::StepExecution;
+    let mut r = Rng(seed);
+    let mut out = vec![];
+    let epoch = chrono::DateTime::<chrono::Utc>::UNIX_EPOCH;
+    for run in 0..runs {
+        let mut es: Vec<Enrollment> = (0..4).map(|_| Enrollment::new(Uuid::nil(), Uuid::nil(), Some(Uuid::nil()), Uuid::nil())).collect();
+        for k in 0..len {
+            let which = r.below(4) as usize;
+            let e = &mut es[which];
+            let op = match r.below(14) { 0..=2 => 0, 3..=5 => 1, 6 => 2, 7 => 3, 8 => 4, 9 => 5, 10 => 6, 11 | 12 => 7, _ => 8 };
+            e.updated_at = epoch;
+            let (mut nsid, mut nat) = (Value::Null, Value::Null);
+            match op {
+                0 => e.pause(), 1 => e.resume(), 2 => e.complete(), 3 => e.mark_replied(), 4 => e.mark_bounced(),
+                5 => e.mark_unsubscribed(), 6 => e.manual_exit(),
+                7 => {
+                    let id = if r.below(3) != 0 { Some(Uuid::from_u128(r.next() as u128)) } else { None };
+                    let at = if r.below(2) == 0 { Some(chrono::DateTime::<chrono::Utc>::from_timestamp(1_700_000_000 + r.below(10_000_000) as i64, 0).unwrap()) } else { None };
+                    nsid = id.map(|u| json!(u.to_string())).unwrap_or(Value::Null);
+                    nat = at.map(|t| json!(t.to_rfc3339())).unwrap_or(Value::Null);
+                    e.advance_to(id, at);
+                }
+                _ => e.record_step(StepExecution { step_id: Uuid::nil(), executed_at: epoch, opened: false, clicked: false, replied: false, bounced: false, energy_uj: 0 }),
+            }
+            out.push(json!({"run": run, "step": k,
+                "input": {"id": format!("r{}e{}", run, which), "op": OPS_FULL[op], "next_step_id": nsid, "next_at": nat},
+                "output": {"id": format!("r{}e{}", run, which), "status": format!("{:?}", e.status),
+                    "current_step_id": e.current_step_id.map(|u| u.to_string()),
+                    "next_step_at": e.next_step_at.map(|t| t.to_rfc3339()),
+                    "history_len": e.step_history.len(), "updated": e.updated_at != epoch}}));
+        }
+    }
+    out
+}
+
+fn main() {
+    let a: Vec<String> = std::env::args().collect();
+    let dir = std::path::Path::new(&a[2]);
+    let w = |name: &str, v: Vec<Value>| {
+        let s: String = v.iter().map(|x| serde_json::to_string(x).unwrap() + "\n").collect();
+        std::fs::write(dir.join(name), s).unwrap();
+    };
+    match a[1].as_str() {
+        "b1" => w("b1.jsonl", b1(101, 1000, false)),
+        "b2" => w("b2.jsonl", b2(202, 1000, false)),
+        "b3" => w("b3.jsonl", b3(303, 100, 25)),
+        "b3full" => w("b3full.jsonl", b3full(313, 100, 40)),
+        "probe" => { let mut v = b1(909, 25, true); v.extend(b2(909 ^ 1, 25, true)); w("probe.jsonl", v) }
+        other => panic!("unknown {}", other),
+    }
+}

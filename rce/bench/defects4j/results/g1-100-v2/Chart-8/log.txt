@@ -1,0 +1,9 @@
+[09:59:35] sh defects4j checkout -p
+[09:59:39] sh defects4j compile
+[09:59:49] sh defects4j export -p
+[09:59:50] sh defects4j export -p
+[09:59:51] sh defects4j export -p
+[09:59:52] sh defects4j export -p
+[09:59:52] sh defects4j export -p
+[09:59:53] sh javac -nowarn -cp
+{"bug": "Chart-8", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 4, "compiled": 1, "patterns": {"MethodInvocationMutator": 3, "VariableReplacer": 1}, "kept": [{"file": "source/org/jfree/data/time/Week.java", "line": 175, "pattern": "VariableReplacer", "from": "this(time, RegularTimePeriod.DEFAULT_TIME_ZONE, Locale.getDefault());", "to": "this(time, zone, Locale.getDefault());"}], "setup_s": 13.5, "positions": [["source/org/jfree/data/time/Week.java", [175]]], "test_s": 0.2, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 26, "ast_equal": true, "fixed_derived": ["source/org/jfree/data/time/Week.java"], "patch_files": ["source/org/jfree/data/time/Week.java"], "pattern": "VariableReplacer", "cpu_s": 42.4, "est_j": 424.0, "wall_s": 19.1}

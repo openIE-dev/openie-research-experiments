@@ -1,0 +1,33 @@
+diff -ruN -x target -x .git -x __pycache__ -x '*.pyc' -x Cargo.lock base/.test.out work/.test.out
+--- .test.out	1969-12-31 19:00:00.000000000 -0500
++++ .test.out	2026-10-11 08:23:55.490264708 -0400
+@@ -0,0 +1,17 @@
++warning: unexpected `cfg` condition value: `unicode`
++  --> src/train.rs:70:11
++   |
++70 |     #[cfg(feature = "unicode")]
++   |           ^^^^^^^^^^^^^^^^^^^ help: remove the condition
++   |
++   = note: no expected values for `feature`
++   = help: consider adding `unicode` as a feature in `Cargo.toml`
++   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
++   = note: `#[warn(unexpected_cfgs)]` on by default
++
++
++running 111 tests
++....................................................................................... 87/111
++........................
++test result: ok. 111 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
++
+diff -ruN -x target -x .git -x __pycache__ -x '*.pyc' -x Cargo.lock base/src/lib.rs work/src/lib.rs
+--- src/lib.rs	2026-10-11 08:23:50.686264708 -0400
++++ src/lib.rs	2026-10-11 08:23:54.686264708 -0400
+@@ -161,7 +161,7 @@
+ fn lowercase(s: &str, f: &mut fmt::Formatter) -> fmt::Result {
+     let mut chars = s.chars().peekable();
+     while let Some(c) = chars.next() {
+-        if c == 'Σ' && chars.peek().is_some() {
++        if c == 'Σ' && chars.peek().is_none() {
+             write!(f, "ς")?;
+         } else {
+             write!(f, "{}", c.to_lowercase())?;

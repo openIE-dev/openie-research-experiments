@@ -1,0 +1,42 @@
+{
+ "bug": "Chart-10",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 9,
+ "compiled": 5,
+ "patterns": {
+  "ReturnStatementMutator": 1,
+  "OperatorMutator": 2,
+  "NullPointerChecker": 5,
+  "StatementRemover": 1
+ },
+ "kept": [],
+ "setup_s": 25.0,
+ "positions": [
+  [
+   "source/org/jfree/chart/imagemap/StandardToolTipTagFragmentGenerator.java",
+   [
+    65,
+    66
+   ]
+  ]
+ ],
+ "test_s": 0.8,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 18,
+ "ast_equal": false,
+ "fixed_derived": [
+  "source/org/jfree/chart/imagemap/StandardToolTipTagFragmentGenerator.java"
+ ],
+ "patch_files": [
+  "source/org/jfree/chart/imagemap/StandardToolTipTagFragmentGenerator.java"
+ ],
+ "pattern": null,
+ "cpu_s": 40.55,
+ "est_j": 405.5,
+ "wall_s": 40.6
+}

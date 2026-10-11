@@ -1,0 +1,86 @@
+{
+ "bug": "Chart-25",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": true,
+ "correct": false,
+ "partial": false,
+ "tries": 676,
+ "compiled": 285,
+ "patterns": {
+  "DataTypeReplacer": 48,
+  "VariableReplacer": 408,
+  "NullPointerChecker": 14,
+  "MethodInvocationMutator": 200,
+  "StatementRemover": 2,
+  "StatementInserter": 4
+ },
+ "kept": [
+  {
+   "file": "source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java",
+   "line": 260,
+   "pattern": "NullPointerChecker",
+   "from": "",
+   "to": "if (meanValue == null) {\n\t    return;\n\t}\n"
+  },
+  {
+   "file": "source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java",
+   "line": 315,
+   "pattern": "MethodInvocationMutator",
+   "from": "double valueDelta = dataset.getStdDevValue(row, column).doubleValue();",
+   "to": "double valueDelta = dataset.getMeanValue(row, column).doubleValue();"
+  },
+  {
+   "file": "source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java",
+   "line": 404,
+   "pattern": "NullPointerChecker",
+   "from": "",
+   "to": "if (meanValue == null) {\n\t    return;\n\t}\n"
+  },
+  {
+   "file": "source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java",
+   "line": 459,
+   "pattern": "MethodInvocationMutator",
+   "from": "double valueDelta = dataset.getStdDevValue(row, column).doubleValue();",
+   "to": "double valueDelta = dataset.getMeanValue(row, column).doubleValue();"
+  }
+ ],
+ "setup_s": 27.4,
+ "positions": [
+  [
+   "source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java",
+   [
+    260,
+    315,
+    404,
+    459
+   ]
+  ]
+ ],
+ "test_s": 38.6,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 4,
+ "candidates": 894,
+ "plausible_found": [
+  {
+   "try": 472,
+   "pattern": "MethodInvocationMutator",
+   "line": 459,
+   "new_idents": [
+    "getMeanValue"
+   ]
+  }
+ ],
+ "picked_try": 472,
+ "ast_equal": false,
+ "fixed_derived": [
+  "source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java"
+ ],
+ "patch_files": [
+  "source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java"
+ ],
+ "pattern": "MethodInvocationMutator",
+ "cpu_s": 97.84,
+ "est_j": 978.4,
+ "wall_s": 131.9
+}

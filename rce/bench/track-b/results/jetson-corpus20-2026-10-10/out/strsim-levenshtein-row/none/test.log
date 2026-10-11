@@ -1,0 +1,30 @@
+
+running 88 tests
+............................................................. 61/88
+tests::levenshtein_second_empty --- FAILED
+......... 71/88
+tests::normalized_levenshtein_second_empty --- FAILED
+................
+failures:
+
+---- tests::levenshtein_second_empty stdout ----
+
+thread 'tests::levenshtein_second_empty' (4091689) panicked at src/lib.rs:1029:9:
+assertion `left == right` failed
+  left: 6
+ right: 5
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- tests::normalized_levenshtein_second_empty stdout ----
+
+thread 'tests::normalized_levenshtein_second_empty' (4091699) panicked at src/lib.rs:1049:9:
+assertion failed: actual: `0`, expected: `0.19999999999999996`: actual not within < 0.00001 of expected
+
+
+failures:
+    tests::levenshtein_second_empty
+    tests::normalized_levenshtein_second_empty
+
+test result: FAILED. 86 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `--lib`

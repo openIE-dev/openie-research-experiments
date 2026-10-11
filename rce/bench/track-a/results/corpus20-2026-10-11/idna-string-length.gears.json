@@ -1,0 +1,22 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 28,
+ "llm_calls": 0,
+ "rule_tries": 27,
+ "edit": {
+  "file": "idna/core.py",
+  "function": "valid_string_length",
+  "tier": 3,
+  "from": "(253 if trailing_dot else 254)",
+  "to": "(254 if trailing_dot else 253)"
+ },
+ "ranked": [
+  "idna/core.py::valid_string_length",
+  "idna/codec.py::_buffer_encode",
+  "idna/codec.py::_buffer_decode",
+  "idna/core.py::check_label",
+  "idna/core.py::encode",
+  "idna/core.py::decode"
+ ],
+ "seconds": 1.26
+}

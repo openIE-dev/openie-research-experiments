@@ -1,0 +1,9 @@
+[11:52:42] sh defects4j checkout -p
+[11:52:48] sh defects4j compile
+[11:53:18] sh defects4j export -p
+[11:53:22] sh defects4j export -p
+[11:53:25] sh defects4j export -p
+[11:53:28] sh defects4j export -p
+[11:53:32] sh defects4j export -p
+[11:53:35] sh javac -nowarn -cp
+{"bug": "Math-7", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 93, "compiled": 54, "patterns": {"MethodInvocationMutator": 15, "VariableReplacer": 35, "NullPointerChecker": 30, "StatementMover": 13}, "kept": [], "setup_s": 36.5, "positions": [["src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java", [346, 347, 357, 358, 359, 363, 370, 371, 372]]], "test_s": 1818.9, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 103, "capped": "wall", "ast_equal": false, "fixed_derived": ["src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java"], "patch_files": ["src/main/java/org/apache/commons/math3/ode/AbstractIntegrator.java"], "pattern": null, "cpu_s": 802.36, "est_j": 8023.6, "wall_s": 1891.3}

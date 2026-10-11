@@ -1,0 +1,11 @@
+--- a/packaging/version.py
++++ b/packaging/version.py
+@@ -406,7 +406,7 @@
+         >>> Version("1.2.3.post1").is_postrelease
+         True
+         """
+-        return self.post is None
++        return self.post is not None
+ 
+     @property
+     def is_devrelease(self) -> bool:

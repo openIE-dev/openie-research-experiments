@@ -1,0 +1,21 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 77,
+ "llm_calls": 0,
+ "rule_tries": 76,
+ "edit": {
+  "file": "src/lib.rs",
+  "function": "osa_distance",
+  "from": "1",
+  "to": "cost"
+ },
+ "ranked": [
+  "src/lib.rs::osa_distance",
+  "src/lib.rs::assert_hamming_dist",
+  "src/lib.rs::hamming",
+  "src/lib.rs::generic_levenshtein",
+  "src/lib.rs::generic_damerau_levenshtein",
+  "src/lib.rs::damerau_levenshtein_impl"
+ ],
+ "seconds": 8.21
+}

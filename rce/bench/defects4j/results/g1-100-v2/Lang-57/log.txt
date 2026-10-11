@@ -1,0 +1,9 @@
+[09:57:14] sh defects4j checkout -p
+[09:57:18] sh defects4j compile
+[09:57:23] sh defects4j export -p
+[09:57:24] sh defects4j export -p
+[09:57:25] sh defects4j export -p
+[09:57:26] sh defects4j export -p
+[09:57:27] sh defects4j export -p
+[09:57:27] sh javac -nowarn -cp
+{"bug": "Lang-57", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 1, "compiled": 1, "patterns": {"VariableReplacer": 1}, "kept": [{"file": "src/java/org/apache/commons/lang/LocaleUtils.java", "line": 223, "pattern": "VariableReplacer", "from": "return cAvailableLocaleSet.contains(locale);", "to": "return availableLocaleList().contains(locale);"}], "setup_s": 9.3, "positions": [["src/java/org/apache/commons/lang/LocaleUtils.java", [223]]], "test_s": 0.4, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 11, "candidates": 21, "ast_equal": true, "fixed_derived": ["src/java/org/apache/commons/lang/LocaleUtils.java"], "patch_files": ["src/java/org/apache/commons/lang/LocaleUtils.java"], "pattern": "VariableReplacer", "cpu_s": 30.18, "est_j": 301.8, "wall_s": 15.4}

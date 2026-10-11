@@ -1,0 +1,9 @@
+[09:57:32] sh defects4j checkout -p
+[09:57:36] sh defects4j compile
+[09:57:45] sh defects4j export -p
+[09:57:46] sh defects4j export -p
+[09:57:46] sh defects4j export -p
+[09:57:47] sh defects4j export -p
+[09:57:49] sh defects4j export -p
+[09:57:50] sh javac -nowarn -cp
+{"bug": "Lang-61", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 34, "compiled": 12, "patterns": {"DataTypeReplacer": 6, "VariableReplacer": 22, "OperatorMutator": 1, "StatementRemover": 2, "StatementInserter": 3}, "kept": [], "setup_s": 12.4, "positions": [["src/java/org/apache/commons/lang/text/StrBuilder.java", [1776]]], "test_s": 0.5, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 2, "candidates": 34, "ast_equal": false, "fixed_derived": ["src/java/org/apache/commons/lang/text/StrBuilder.java"], "patch_files": ["src/java/org/apache/commons/lang/text/StrBuilder.java"], "pattern": null, "cpu_s": 41.35, "est_j": 413.5, "wall_s": 22.9}

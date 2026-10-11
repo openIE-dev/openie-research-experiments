@@ -1,0 +1,11 @@
+--- -	2026-10-11 09:10:46.877698914 -0400
++++ /workspace/d4j-runs/g1-100/Chart-13/work/source/org/jfree/chart/block/BorderArrangement.java	2026-10-11 09:10:46.450264708 -0400
+@@ -452,7 +452,7 @@
+         h[3] = h[2];
+         if (this.rightBlock != null) {
+             RectangleConstraint c4 = new RectangleConstraint(0.0,
+-                    new Range(0.0, constraint.getWidth() - w[2]),
++                    new Range(0.0, constraint.getWidth() - w[1]),
+                     LengthConstraintType.RANGE, h[2], null,
+                     LengthConstraintType.FIXED);
+             Size2D size = this.rightBlock.arrange(g2, c4);

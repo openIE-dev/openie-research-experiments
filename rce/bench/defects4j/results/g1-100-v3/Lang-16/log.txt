@@ -1,0 +1,9 @@
+[11:26:04] sh defects4j checkout -p
+[11:26:09] sh defects4j compile
+[11:26:28] sh defects4j export -p
+[11:26:31] sh defects4j export -p
+[11:26:34] sh defects4j export -p
+[11:26:36] sh defects4j export -p
+[11:26:39] sh defects4j export -p
+[11:26:41] sh javac -nowarn -cp
+{"bug": "Lang-16", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 57, "compiled": 31, "patterns": {"ConditionalExpressionMutator": 42, "OperatorMutator": 1, "StatementMover": 11, "StatementRemover": 3}, "kept": [], "setup_s": 24.2, "positions": [["src/main/java/org/apache/commons/lang3/math/NumberUtils.java", [458]]], "test_s": 4.0, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 57, "ast_equal": false, "fixed_derived": ["src/main/java/org/apache/commons/lang3/math/NumberUtils.java"], "patch_files": ["src/main/java/org/apache/commons/lang3/math/NumberUtils.java"], "pattern": null, "cpu_s": 50.15, "est_j": 501.5, "wall_s": 51.3}

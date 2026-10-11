@@ -1,0 +1,16 @@
+[09:12:25] sh defects4j checkout -p
+[09:12:29] sh defects4j compile
+[09:12:42] sh defects4j export -p
+[09:12:44] sh defects4j export -p
+[09:12:46] sh defects4j export -p
+[09:12:47] sh defects4j export -p
+[09:12:49] sh defects4j export -p
+[09:12:50] sh javac -nowarn -cp
+[09:12:52] test 3
+[09:12:52] test 1
+[09:12:53] test 1
+[09:12:53] test 1
+[09:12:54] test 1
+[09:12:54] test 1
+[09:12:54] test 3
+{"bug": "Chart-24", "plausible": true, "correct": false, "tries": 7, "compiled": 4, "patterns": {"FP10": 1, "FP13": 4, "FP7": 2}, "setup_s": 17.8, "test_s": 1.0, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 14, "pattern": "FP13", "tier": 2, "edit": {"file": "source/org/jfree/chart/renderer/GrayPaintScale.java", "from": "value", "to": "v"}, "cpu_s": 37.89, "est_j": 378.9, "wall_s": 29.5}

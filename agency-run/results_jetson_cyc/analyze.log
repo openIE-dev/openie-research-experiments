@@ -1,0 +1,141 @@
+# Summary
+
+Energy label: reported_j (macOS per-process kernel energy model). measured_j: empty, no wall meter.
+
+| arm | B/J_g2 | closed of 30 | X bits | J reported | iota bits/J | CV iota | refused | cut | overspends |
+|---|---|---|---|---|---|---|---|---|---|
+| sigma | 0.5 | 1.10 ± 0.98 | 200 ± 178 | 0.0345 ± 0.0017 | 6027 ± 5458 | 0.906 | 28.90 | 0.00 | 0 |
+| sigma | 1.0 | 8.75 ± 3.14 | 1574 ± 565 | 0.0805 ± 0.0098 | 20519 ± 8516 | 0.415 | 21.25 | 0.00 | 0 |
+| sigma | 2.0 | 28.60 ± 0.98 | 4882 ± 154 | 0.1008 ± 0.0234 | 50667 ± 10088 | 0.199 | 1.40 | 0.00 | 0 |
+| mol | 0.5 | 1.15 ± 0.92 | 208 ± 167 | 0.0366 ± 0.0013 | 5833 ± 4757 | 0.816 | 28.85 | 0.00 | 0 |
+| mol | 1.0 | 9.22 ± 3.07 | 1660 ± 551 | 0.0813 ± 0.0106 | 21412 ± 8130 | 0.380 | 20.77 | 0.00 | 0 |
+| mol | 2.0 | 27.77 ± 2.30 | 4745 ± 377 | 0.1099 ± 0.0339 | 47108 ± 13216 | 0.281 | 2.23 | 0.00 | 0 |
+| blind | 0.5 | 0.20 ± 0.46 | 36 ± 84 | 0.0210 ± 0.0055 | 1722 ± 3927 | 2.280 | 0.00 | 21.50 | 0 |
+| blind | 1.0 | 3.73 ± 2.12 | 667 ± 381 | 0.0436 ± 0.0140 | 16393 ± 9246 | 0.564 | 0.00 | 16.68 | 0 |
+| blind | 2.0 | 15.65 ± 2.50 | 2662 ± 433 | 0.0499 ± 0.0160 | 57266 ± 14596 | 0.255 | 0.00 | 4.17 | 0 |
+
+## Binding
+
+{"0.5": {"pilot_frac_exceeding": 0.98, "binding": true}, "1.0": {"pilot_frac_exceeding": 0.4, "binding": true}, "2.0": {"pilot_frac_exceeding": 0.0, "binding": false}}
+
+## Ranking
+
+{"0.5": {"by_jstar": ["sigma", "mol", "blind"], "by_iota": ["sigma", "mol", "blind"], "agree": true, "tasks_closed": {"sigma": 1, "mol": 1, "blind": 0}, "common_tasks": 0, "sum_median_jstar_common": {"sigma": 0, "mol": 0, "blind": 0}}, "1.0": {"by_jstar": ["mol", "sigma", "blind"], "by_iota": ["mol", "sigma", "blind"], "agree": true, "tasks_closed": {"sigma": 9, "mol": 11, "blind": 0}, "common_tasks": 0, "sum_median_jstar_common": {"sigma": 0, "mol": 0, "blind": 0}}, "2.0": {"by_jstar": ["sigma", "mol", "blind"], "by_iota": ["blind", "sigma", "mol"], "agree": false, "tasks_closed": {"sigma": 29, "mol": 29, "blind": 15}, "common_tasks": 15, "sum_median_jstar_common": {"sigma": 0.023699821978991745, "mol": 0.024747977609277487, "blind": 0.02430265790599823}}}
+
+## F1 paired
+
+{"0.5": {"n_tasks": 1, "mean_diff_j": -6.677283513068996e-06, "median_diff_j": -6.677283513068996e-06, "ci95": [-6.677283513068996e-06, -6.677283513068996e-06], "wilcoxon_z": -1.0, "wilcoxon_p": 0.31731050786291415, "closed_sigma": 1, "closed_mol": 1}, "1.0": {"n_tasks": 9, "mean_diff_j": 0.00010192301241452134, "median_diff_j": 2.6865643157482615e-05, "ci95": [-0.0005229400735753248, 0.000603408076657268], "wilcoxon_z": 1.2439326432940938, "wilcoxon_p": 0.21352435403618233, "closed_sigma": 9, "closed_mol": 11}, "2.0": {"n_tasks": 29, "mean_diff_j": -0.0002645583170079559, "median_diff_j": -4.7413052892695054e-07, "ci95": [-0.0006628371355016408, 5.668463040175829e-05], "wilcoxon_z": -0.9189860496432602, "wilcoxon_p": 0.3581028690285257, "closed_sigma": 29, "closed_mol": 29}}
+
+## Acts
+
+{"n_acts": 7800, "kendall_tau_b_est_vs_reported": 0.9999998749687343, "n_tau": 4000, "confirmed_acts": 3847, "min_distance_to_floor": 360477060794897.25, "median_distance_to_floor": 4983557031392288.0, "iota_act_median": 69892.49899869514, "iota_act_q25_q75": [35758.594479856656, 146697.04382005223], "zero_reported_acts": 0}
+
+## Refusal
+
+{"infeasible_pairs": 45, "recall_on_infeasible": 1.0, "refusals": 4136, "share_on_tasks_closed_by_some_arm": 0.07108317214700194}
+
+## Falsifiers
+
+- R-F1: v2 fired=False; v1 fired=True (sigma-law selector closes tasks in fewer joules than Mixture of Limits)
+- R-F2: v2 fired=False; v1 fired=True (refusal implementation (zero overspends))
+- R-F3: v2 fired=False; v1 fired=True (refusal correctness)
+- R-F4: v2 fired=False; v1 fired=False (cycle-count est_j model usable for ranking)
+- R-F5: v2 fired=True; v1 fired=True (iota is stable across seeds at run granularity)
+- R-F6: v2 fired=True; v1 fired=True (ranking by J* equals ranking by integrated iota)
+- R-F7: v2 fired=False; v1 fired=False (the accounting (no act below k_B T ln 2 per bit))
+- R-F8: v2 fired=False; v1 fired=False (prediction first, comparison and refusal raise iota over a goal-blind agent)
+
+## Paired by seed (declared in advance)
+
+{"0.5": {"closed_diff_mean": -0.05, "closed_diff_ci95": [-0.45, 0.35], "iota_diff_mean": 193.2894062409374, "iota_diff_ci95": [-1965.5862156444853, 2325.41396723066], "n_seeds": 40, "seeds_sigma_more": 12, "seeds_tied": 15}, "1.0": {"closed_diff_mean": -0.475, "closed_diff_ci95": [-1.8, 0.775], "iota_diff_mean": -893.3031260807227, "iota_diff_ci95": [-4368.831715719086, 2452.8333517418428], "n_seeds": 40, "seeds_sigma_more": 17, "seeds_tied": 6}, "2.0": {"closed_diff_mean": 0.825, "closed_diff_ci95": [0.125, 1.575], "iota_diff_mean": 3558.9491996718175, "iota_diff_ci95": [-1068.1878816151088, 8320.013649979755], "n_seeds": 40, "seeds_sigma_more": 9, "seeds_tied": 27}}
+
+overspend max fraction: -0.03977
+close_j: {'max': 0.0002155005463824272, 'median': 8.392307681083679e-06}
+{
+ "crosscheck": {
+  "block_package_net_j_total": 17.141651987008686,
+  "sum_episode_reported_j_total": 23.230019077973818,
+  "ratio_episodes_to_block_net": 1.355179716376192,
+  "block_core_net_j_total": 18.186794967116892,
+  "core_net_over_package_net": 1.0609709601443489,
+  "core_share_of_package_gross": {
+   "n": 360,
+   "min": 0.0486062123108431,
+   "q25": 0.11405673226869854,
+   "median": 0.16209056186422152,
+   "q75": 0.4203108543509015,
+   "max": 0.8404568982804432
+  },
+  "psys_over_package_gross": {
+   "n": 360,
+   "min": 0.0064609662766495326,
+   "q25": 0.033313929515632196,
+   "median": 0.0532916970549866,
+   "q75": 0.06087369249532873,
+   "max": 0.0729578000856368
+  },
+  "idle_pre_w": 9.373687179336967,
+  "idle_post_w": 3.1701633351712775,
+  "drift_x_main_run_s_j": -89.3259841737843,
+  "achievable": false,
+  "note": "package net = block gross package joules minus that block's idle baseline power x block seconds; episode reported_j is the same quantity per episode; the gap is harness work between episodes."
+ },
+ "per_act": {
+  "acts": 7800,
+  "confirmed": 3847,
+  "reported_j_all_acts": {
+   "n": 7800,
+   "min": 5.605722208023071e-05,
+   "q25": 0.00025849714921569823,
+   "median": 0.0018822377089881897,
+   "q75": 0.003574591729894638,
+   "max": 0.0328510544862442
+  },
+  "reported_j_confirmed": {
+   "n": 3847,
+   "min": 0.00016075063566970825,
+   "q25": 0.0011035259878149032,
+   "median": 0.002498045150259018,
+   "q75": 0.005135924611911774,
+   "max": 0.03263045818745518
+  },
+  "nonpositive_confirmed": 0,
+  "j_per_bit_confirmed": {
+   "n": 3847,
+   "min": 1.0349220300973894e-06,
+   "q25": 6.825954701487804e-06,
+   "median": 1.4307687009712867e-05,
+   "q75": 2.7965304972020494e-05,
+   "max": 0.00018059234160644597
+  },
+  "multiples_of_kTln2_confirmed": {
+   "n": 3847,
+   "min": 360477060794897.25,
+   "q25": 2377570499373642.0,
+   "median": 4983557031392288.0,
+   "q75": 9740686397020878.0,
+   "max": 6.2902706301684984e+16
+  },
+  "multiples_of_kTln2_positive_only": {
+   "n": 3847,
+   "min": 360477060794897.25,
+   "q25": 2377570499373642.0,
+   "median": 4983557031392288.0,
+   "q75": 9740686397020878.0,
+   "max": 6.2902706301684984e+16
+  }
+ },
+ "rapl_quantisation": {
+  "episodes": 10800,
+  "zero_gross_package_episodes": 5258,
+  "nonpositive_reported_episodes": 0,
+  "episode_seconds": {
+   "n": 10800,
+   "min": 2.5809e-05,
+   "q25": 4.7885e-05,
+   "median": 0.000344819,
+   "q75": 0.001781266,
+   "max": 0.019672747
+  }
+ }
+}

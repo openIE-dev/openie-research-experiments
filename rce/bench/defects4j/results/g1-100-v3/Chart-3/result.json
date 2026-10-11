@@ -1,0 +1,41 @@
+{
+ "bug": "Chart-3",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 15,
+ "compiled": 3,
+ "patterns": {
+  "MethodInvocationMutator": 7,
+  "StatementRemover": 3,
+  "StatementMover": 5
+ },
+ "kept": [],
+ "setup_s": 29.9,
+ "positions": [
+  [
+   "source/org/jfree/data/time/TimeSeries.java",
+   [
+    1056,
+    1057
+   ]
+  ]
+ ],
+ "test_s": 3.9,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 16,
+ "ast_equal": false,
+ "fixed_derived": [
+  "source/org/jfree/data/time/TimeSeries.java"
+ ],
+ "patch_files": [
+  "source/org/jfree/data/time/TimeSeries.java"
+ ],
+ "pattern": null,
+ "cpu_s": 55.98,
+ "est_j": 559.8,
+ "wall_s": 53.4
+}

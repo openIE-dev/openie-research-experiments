@@ -1,0 +1,364 @@
+{
+ "affinity": [
+  4
+ ],
+ "cycles_source": "perf cpu_core raw 0x3c user cycles, this thread",
+ "meter": "Linux powercap intel-rapl:0 (package-0) energy_uj, idle-subtracted (P_idle x dt), agent pinned",
+ "freq": {
+  "no_turbo": "1",
+  "status": "active",
+  "cpus": {
+   "cpu0": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "2600000",
+    "scaling_max_freq": "2600000",
+    "base_frequency": "2600000",
+    "cpuinfo_max_freq": "2600000"
+   },
+   "cpu1": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "2600000",
+    "scaling_max_freq": "2600000",
+    "base_frequency": "2600000",
+    "cpuinfo_max_freq": "2600000"
+   },
+   "cpu2": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "2600000",
+    "scaling_max_freq": "2600000",
+    "base_frequency": "2600000",
+    "cpuinfo_max_freq": "2600000"
+   },
+   "cpu3": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "2600000",
+    "scaling_max_freq": "2600000",
+    "base_frequency": "2600000",
+    "cpuinfo_max_freq": "2600000"
+   },
+   "cpu4": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "2600000",
+    "scaling_max_freq": "2600000",
+    "base_frequency": "2600000",
+    "cpuinfo_max_freq": "2600000"
+   },
+   "cpu5": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "2600000",
+    "scaling_max_freq": "2600000",
+    "base_frequency": "2600000",
+    "cpuinfo_max_freq": "2600000"
+   },
+   "cpu6": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "2600000",
+    "scaling_max_freq": "2600000",
+    "base_frequency": "2600000",
+    "cpuinfo_max_freq": "2600000"
+   },
+   "cpu7": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "2600000",
+    "scaling_max_freq": "2600000",
+    "base_frequency": "2600000",
+    "cpuinfo_max_freq": "2600000"
+   },
+   "cpu8": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "2600000",
+    "scaling_max_freq": "2600000",
+    "base_frequency": "2600000",
+    "cpuinfo_max_freq": "2600000"
+   },
+   "cpu9": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "2600000",
+    "scaling_max_freq": "2600000",
+    "base_frequency": "2600000",
+    "cpuinfo_max_freq": "2600000"
+   },
+   "cpu10": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "2600000",
+    "scaling_max_freq": "2600000",
+    "base_frequency": "2600000",
+    "cpuinfo_max_freq": "2600000"
+   },
+   "cpu11": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "2600000",
+    "scaling_max_freq": "2600000",
+    "base_frequency": "2600000",
+    "cpuinfo_max_freq": "2600000"
+   },
+   "cpu12": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "1900000",
+    "scaling_max_freq": "1900000",
+    "base_frequency": "1900000",
+    "cpuinfo_max_freq": "1900000"
+   },
+   "cpu13": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "1900000",
+    "scaling_max_freq": "1900000",
+    "base_frequency": "1900000",
+    "cpuinfo_max_freq": "1900000"
+   },
+   "cpu14": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "1900000",
+    "scaling_max_freq": "1900000",
+    "base_frequency": "1900000",
+    "cpuinfo_max_freq": "1900000"
+   },
+   "cpu15": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "1900000",
+    "scaling_max_freq": "1900000",
+    "base_frequency": "1900000",
+    "cpuinfo_max_freq": "1900000"
+   },
+   "cpu16": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "1900000",
+    "scaling_max_freq": "1900000",
+    "base_frequency": "1900000",
+    "cpuinfo_max_freq": "1900000"
+   },
+   "cpu17": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "1900000",
+    "scaling_max_freq": "1900000",
+    "base_frequency": "1900000",
+    "cpuinfo_max_freq": "1900000"
+   },
+   "cpu18": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "1900000",
+    "scaling_max_freq": "1900000",
+    "base_frequency": "1900000",
+    "cpuinfo_max_freq": "1900000"
+   },
+   "cpu19": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "1900000",
+    "scaling_max_freq": "1900000",
+    "base_frequency": "1900000",
+    "cpuinfo_max_freq": "1900000"
+   }
+  }
+ },
+ "quiet_window": "no",
+ "part": "B",
+ "meter_mode": "cyc",
+ "c_j_per_cycle": 6.576012913442408e-10,
+ "idle_pre": {
+  "seconds": 60.003190339,
+  "package-0_j": 562.451136,
+  "core_j": 323.686976,
+  "psys_j": 12.282745,
+  "others_cores": 3.973941577785997,
+  "package_w": 9.373687179336967
+ },
+ "main_run_s": 1621.4012863636017,
+ "idle_post": {
+  "seconds": 60.000724849,
+  "package-0_j": 190.212098,
+  "core_j": 0.881834,
+  "psys_j": 12.435638,
+  "others_cores": 0.013666470859092257,
+  "package_w": 3.1701633351712775
+ },
+ "guard_final": {
+  "step_floor": 0.0005037081219482421,
+  "close_reserve": 0.0005287403727111817
+ },
+ "freq_after": {
+  "no_turbo": "1",
+  "status": "active",
+  "cpus": {
+   "cpu0": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "2600000",
+    "scaling_max_freq": "2600000",
+    "base_frequency": "2600000",
+    "cpuinfo_max_freq": "2600000"
+   },
+   "cpu1": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "2600000",
+    "scaling_max_freq": "2600000",
+    "base_frequency": "2600000",
+    "cpuinfo_max_freq": "2600000"
+   },
+   "cpu2": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "2600000",
+    "scaling_max_freq": "2600000",
+    "base_frequency": "2600000",
+    "cpuinfo_max_freq": "2600000"
+   },
+   "cpu3": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "2600000",
+    "scaling_max_freq": "2600000",
+    "base_frequency": "2600000",
+    "cpuinfo_max_freq": "2600000"
+   },
+   "cpu4": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "2600000",
+    "scaling_max_freq": "2600000",
+    "base_frequency": "2600000",
+    "cpuinfo_max_freq": "2600000"
+   },
+   "cpu5": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "2600000",
+    "scaling_max_freq": "2600000",
+    "base_frequency": "2600000",
+    "cpuinfo_max_freq": "2600000"
+   },
+   "cpu6": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "2600000",
+    "scaling_max_freq": "2600000",
+    "base_frequency": "2600000",
+    "cpuinfo_max_freq": "2600000"
+   },
+   "cpu7": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "2600000",
+    "scaling_max_freq": "2600000",
+    "base_frequency": "2600000",
+    "cpuinfo_max_freq": "2600000"
+   },
+   "cpu8": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "2600000",
+    "scaling_max_freq": "2600000",
+    "base_frequency": "2600000",
+    "cpuinfo_max_freq": "2600000"
+   },
+   "cpu9": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "2600000",
+    "scaling_max_freq": "2600000",
+    "base_frequency": "2600000",
+    "cpuinfo_max_freq": "2600000"
+   },
+   "cpu10": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "2600000",
+    "scaling_max_freq": "2600000",
+    "base_frequency": "2600000",
+    "cpuinfo_max_freq": "2600000"
+   },
+   "cpu11": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "2600000",
+    "scaling_max_freq": "2600000",
+    "base_frequency": "2600000",
+    "cpuinfo_max_freq": "2600000"
+   },
+   "cpu12": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "1900000",
+    "scaling_max_freq": "1900000",
+    "base_frequency": "1900000",
+    "cpuinfo_max_freq": "1900000"
+   },
+   "cpu13": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "1900000",
+    "scaling_max_freq": "1900000",
+    "base_frequency": "1900000",
+    "cpuinfo_max_freq": "1900000"
+   },
+   "cpu14": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "1900000",
+    "scaling_max_freq": "1900000",
+    "base_frequency": "1900000",
+    "cpuinfo_max_freq": "1900000"
+   },
+   "cpu15": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "1900000",
+    "scaling_max_freq": "1900000",
+    "base_frequency": "1900000",
+    "cpuinfo_max_freq": "1900000"
+   },
+   "cpu16": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "1900000",
+    "scaling_max_freq": "1900000",
+    "base_frequency": "1900000",
+    "cpuinfo_max_freq": "1900000"
+   },
+   "cpu17": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "1900000",
+    "scaling_max_freq": "1900000",
+    "base_frequency": "1900000",
+    "cpuinfo_max_freq": "1900000"
+   },
+   "cpu18": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "1900000",
+    "scaling_max_freq": "1900000",
+    "base_frequency": "1900000",
+    "cpuinfo_max_freq": "1900000"
+   },
+   "cpu19": {
+    "scaling_governor": "powersave",
+    "energy_performance_preference": "performance",
+    "scaling_min_freq": "1900000",
+    "scaling_max_freq": "1900000",
+    "base_frequency": "1900000",
+    "cpuinfo_max_freq": "1900000"
+   }
+  }
+ }
+}

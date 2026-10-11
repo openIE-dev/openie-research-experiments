@@ -1,0 +1,62 @@
+{
+ "bug": "Chart-18",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": true,
+ "tries": 71,
+ "compiled": 52,
+ "patterns": {
+  "OperatorMutator": 1,
+  "StatementRemover": 4,
+  "MethodInvocationMutator": 3,
+  "VariableReplacer": 23,
+  "NullPointerChecker": 21,
+  "StatementMover": 3,
+  "StatementInserter": 16
+ },
+ "kept": [
+  {
+   "file": "source/org/jfree/data/DefaultKeyedValues.java",
+   "line": 318,
+   "pattern": "OperatorMutator",
+   "from": "if (index < this.keys.size()) {\n        rebuildIndex();\n        }",
+   "to": "if (index==this.keys.size()) {\n        rebuildIndex();\n        }"
+  }
+ ],
+ "setup_s": 23.8,
+ "positions": [
+  [
+   "source/org/jfree/data/DefaultKeyedValues.java",
+   [
+    318,
+    335
+   ]
+  ],
+  [
+   "source/org/jfree/data/DefaultKeyedValues2D.java",
+   [
+    458,
+    460
+   ]
+  ]
+ ],
+ "test_s": 4.6,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 4,
+ "candidates": 108,
+ "ast_equal": false,
+ "fixed_derived": [
+  "source/org/jfree/data/DefaultKeyedValues.java",
+  "source/org/jfree/data/DefaultKeyedValues2D.java"
+ ],
+ "patch_files": [
+  "source/org/jfree/data/DefaultKeyedValues.java",
+  "source/org/jfree/data/DefaultKeyedValues2D.java"
+ ],
+ "pattern": null,
+ "cpu_s": 57.73,
+ "est_j": 577.3,
+ "wall_s": 40.6
+}

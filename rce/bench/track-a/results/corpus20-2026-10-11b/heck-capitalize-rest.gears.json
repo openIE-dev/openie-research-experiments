@@ -1,0 +1,22 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 51,
+ "llm_calls": 0,
+ "rule_tries": 50,
+ "edit": {
+  "file": "src/lib.rs",
+  "function": "capitalize",
+  "tier": 1,
+  "from": "uppercase",
+  "to": "lowercase"
+ },
+ "ranked": [
+  "src/upper_camel.rs::to_upper_camel_case",
+  "src/lower_camel.rs::to_lower_camel_case",
+  "src/upper_camel.rs::to_pascal_case",
+  "src/kebab.rs::to_kebab_case",
+  "src/shouty_kebab.rs::to_shouty_kebab_case",
+  "src/shouty_snake.rs::TO_SHOUTY_SNEK_CASE"
+ ],
+ "seconds": 7.52
+}

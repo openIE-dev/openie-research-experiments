@@ -1,0 +1,22 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 30,
+ "llm_calls": 0,
+ "rule_tries": 29,
+ "edit": {
+  "file": "src/lib.rs",
+  "function": "lowercase",
+  "tier": 1,
+  "from": "is_some()",
+  "to": "is_none()"
+ },
+ "ranked": [
+  "src/shouty_snake.rs::to_shouty_snake_case",
+  "src/snake.rs::to_snake_case",
+  "src/lower_camel.rs::to_lower_camel_case",
+  "src/shouty_snake.rs::TO_SHOUTY_SNEK_CASE",
+  "src/snake.rs::to_snek_case",
+  "src/kebab.rs::to_kebab_case"
+ ],
+ "seconds": 3.81
+}

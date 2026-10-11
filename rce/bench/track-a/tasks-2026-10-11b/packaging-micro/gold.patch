@@ -1,0 +1,11 @@
+--- a/packaging/version.py
++++ b/packaging/version.py
+@@ -448,7 +448,7 @@
+         >>> Version("1").micro
+         0
+         """
+-        return self.release[2] if len(self.release) >= 3 else 1
++        return self.release[2] if len(self.release) >= 3 else 0
+ 
+ 
+ class _TrimmedRelease(Version):

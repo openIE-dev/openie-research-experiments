@@ -1,0 +1,32 @@
+[08:57:23] sh defects4j checkout -p
+[08:57:27] sh defects4j compile
+[08:57:35] sh defects4j export -p
+[08:57:36] sh defects4j export -p
+[08:57:37] sh defects4j export -p
+[08:57:38] sh defects4j export -p
+[08:57:38] sh defects4j export -p
+[08:57:39] sh javac -nowarn -cp
+[08:57:40] test 8
+[08:57:59] test 2
+[08:58:00] test 2
+[08:58:00] test 8
+[08:58:05] test 2
+[08:58:05] test 8
+[08:58:06] test 2
+[08:58:06] test 2
+[08:58:06] test 2
+[08:58:06] test 8
+[08:58:09] test 2
+[08:58:09] test 2
+[08:58:09] test 8
+[08:58:12] test 2
+[08:58:12] test 8
+[08:58:15] test 2
+[08:58:15] test 8
+[08:58:16] test 2
+[08:58:16] test 8
+[08:58:19] test 2
+[08:58:19] test 8
+[08:58:20] test 2
+[08:58:20] test 8
+{"bug": "Lang-10", "plausible": true, "correct": false, "tries": 30, "compiled": 12, "patterns": {"FP9": 4, "FP11": 7, "FP7": 1, "FP13": 15, "FP15": 3}, "setup_s": 11.4, "test_s": 39.5, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 2, "candidates": 37, "pattern": "FP11", "tier": 3, "edit": {"file": "src/main/java/org/apache/commons/lang3/time/FastDateParser.java", "from": "", "to": " + 1"}, "cpu_s": 129.24, "est_j": 1292.4, "wall_s": 59.2}

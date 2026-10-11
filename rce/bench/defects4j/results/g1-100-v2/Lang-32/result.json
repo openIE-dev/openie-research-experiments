@@ -1,0 +1,50 @@
+{
+ "bug": "Lang-32",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 73,
+ "compiled": 38,
+ "patterns": {
+  "StatementRemover": 6,
+  "MethodInvocationMutator": 21,
+  "VariableReplacer": 9,
+  "NullPointerChecker": 19,
+  "StatementInserter": 18
+ },
+ "kept": [],
+ "setup_s": 14.8,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java",
+   [
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    152,
+    522,
+    538
+   ]
+  ]
+ ],
+ "test_s": 0.3,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 76,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/lang3/builder/HashCodeBuilder.java"
+ ],
+ "pattern": null,
+ "cpu_s": 45.52,
+ "est_j": 455.2,
+ "wall_s": 27.0
+}

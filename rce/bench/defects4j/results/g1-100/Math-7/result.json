@@ -1,0 +1,19 @@
+{
+ "bug": "Math-7",
+ "plausible": false,
+ "correct": false,
+ "tries": 150,
+ "compiled": 40,
+ "patterns": {
+  "FP9": 1,
+  "FP13": 149
+ },
+ "setup_s": 15.6,
+ "test_s": 5.0,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 342,
+ "cpu_s": 86.26,
+ "est_j": 862.6,
+ "wall_s": 35.1
+}

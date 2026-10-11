@@ -1,0 +1,62 @@
+{
+ "bug": "Lang-17",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 164,
+ "compiled": 152,
+ "patterns": {
+  "DataTypeReplacer": 6,
+  "LiteralExpressionMutator": 4,
+  "StatementRemover": 15,
+  "OperatorMutator": 12,
+  "ConditionalExpressionMutator": 96,
+  "VariableReplacer": 19,
+  "StatementMover": 7,
+  "NullPointerChecker": 5
+ },
+ "kept": [],
+ "setup_s": 14.1,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java",
+   [
+    83,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102
+   ]
+  ]
+ ],
+ "test_s": 251.4,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 301,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java"
+ ],
+ "pattern": null,
+ "cpu_s": 301.93,
+ "est_j": 3019.3,
+ "wall_s": 296.6
+}

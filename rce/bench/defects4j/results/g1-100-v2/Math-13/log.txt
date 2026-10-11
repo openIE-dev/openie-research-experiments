@@ -1,0 +1,9 @@
+[10:05:50] sh defects4j checkout -p
+[10:05:55] sh defects4j compile
+[10:06:17] sh defects4j export -p
+[10:06:20] sh defects4j export -p
+[10:06:23] sh defects4j export -p
+[10:06:25] sh defects4j export -p
+[10:06:28] sh defects4j export -p
+[10:06:31] sh javac -nowarn -cp
+{"bug": "Math-13", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 40, "compiled": 14, "patterns": {"VariableReplacer": 21, "NullPointerChecker": 7, "MethodInvocationMutator": 2, "StatementRemover": 2, "StatementInserter": 8}, "kept": [], "setup_s": 27.6, "positions": [["src/main/java/org/apache/commons/math3/optimization/general/AbstractLeastSquaresOptimizer.java", [562]]], "test_s": 54.1, "trigger_timeout_s": 41.6, "baseline_trigger_failures": 1, "candidates": 40, "ast_equal": false, "fixed_derived": ["src/main/java/org/apache/commons/math3/optimization/general/AbstractLeastSquaresOptimizer.java"], "patch_files": ["src/main/java/org/apache/commons/math3/optimization/general/AbstractLeastSquaresOptimizer.java"], "pattern": null, "cpu_s": 130.93, "est_j": 1309.3, "wall_s": 99.0}

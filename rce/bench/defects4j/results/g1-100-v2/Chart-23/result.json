@@ -1,0 +1,36 @@
+{
+ "bug": "Chart-23",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 0,
+ "compiled": 0,
+ "patterns": {},
+ "kept": [],
+ "setup_s": 14.5,
+ "positions": [
+  [
+   "source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java",
+   [
+    101
+   ]
+  ]
+ ],
+ "test_s": 0.4,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 0,
+ "ast_equal": false,
+ "fixed_derived": [
+  "source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java"
+ ],
+ "patch_files": [
+  "source/org/jfree/chart/renderer/category/MinMaxCategoryRenderer.java"
+ ],
+ "pattern": null,
+ "cpu_s": 39.71,
+ "est_j": 397.1,
+ "wall_s": 21.3
+}

@@ -1,0 +1,13 @@
+diff --git a/base/idna/core.py b/work/idna/core.py
+index ca905a8..c4b80db 100644
+--- a/base/idna/core.py
++++ b/work/idna/core.py
+@@ -62,7 +62,7 @@ def valid_label_length(label: Union[bytes, str]) -> bool:
+ 
+ 
+ def valid_string_length(label: Union[bytes, str], trailing_dot: bool) -> bool:
+-    if len(label) > (253 if trailing_dot else 254):
++    if len(label) > (254 if trailing_dot else 253):
+         return False
+     return True
+ 

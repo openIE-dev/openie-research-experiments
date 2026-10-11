@@ -1,0 +1,9 @@
+[12:00:05] sh defects4j checkout -p
+[12:00:10] sh defects4j compile
+[12:01:08] sh defects4j export -p
+[12:01:10] sh defects4j export -p
+[12:01:13] sh defects4j export -p
+[12:01:19] sh defects4j export -p
+[12:01:22] sh defects4j export -p
+[12:01:24] sh javac -nowarn -cp
+{"bug": "Closure-4", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 73, "compiled": 31, "patterns": {"MethodInvocationMutator": 54, "StatementMover": 14, "StatementRemover": 5}, "kept": [{"file": "src/com/google/javascript/rhino/jstype/NamedType.java", "line": 190, "pattern": "MethodInvocationMutator", "from": "if (detectImplicitPrototypeCycle()) {\n      handleTypeCycle(t);\n    }", "to": "if (detectInheritanceCycle()) {\n      handleTypeCycle(t);\n    }"}], "setup_s": 62.5, "positions": [["src/com/google/javascript/rhino/jstype/NamedType.java", [190, 202]]], "test_s": 156.7, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 3, "candidates": 74, "plausible_found": [{"try": 8, "pattern": "MethodInvocationMutator", "line": 190, "new_idents": ["detectInheritanceCycle"]}], "picked_try": 8, "ast_equal": false, "fixed_derived": ["src/com/google/javascript/rhino/jstype/NamedType.java"], "patch_files": ["src/com/google/javascript/rhino/jstype/NamedType.java"], "pattern": "MethodInvocationMutator", "cpu_s": 257.75, "est_j": 2577.5, "wall_s": 288.9}

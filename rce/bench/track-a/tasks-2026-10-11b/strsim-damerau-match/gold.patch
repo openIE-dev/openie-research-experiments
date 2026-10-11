@@ -1,0 +1,11 @@
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -396,7 +396,7 @@
+                 distances[flat_index(k, db, width)] + (i - k - 1) + 1 + (j - db - 1);
+ 
+             let mut substitution_cost = distances[flat_index(i, j, width)] + 1;
+-            if a_elems[i - 1] != b_elems[j - 1] {
++            if a_elems[i - 1] == b_elems[j - 1] {
+                 db = j;
+                 substitution_cost -= 1;
+             }

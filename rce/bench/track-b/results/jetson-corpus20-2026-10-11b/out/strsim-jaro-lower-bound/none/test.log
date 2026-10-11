@@ -1,0 +1,40 @@
+thread 'tests::jaro_winkler_multibyte' (3120962) panicked at src/lib.rs:926:9:
+assertion failed: actual: `0.89`, expected: `0.6147186147186147`: actual not within < 0.001 of expected
+
+---- tests::jaro_winkler_same_one_character stdout ----
+
+thread 'tests::jaro_winkler_same_one_character' (3120965) panicked at src/lib.rs:943:9:
+assertion `left == right` failed
+  left: 1.0
+ right: 0.0
+
+---- tests::jaro_winkler_very_long_prefix stdout ----
+
+thread 'tests::jaro_winkler_very_long_prefix' (3120967) panicked at src/lib.rs:983:9:
+assertion failed: actual: `0.98519`, expected: `0.9703703703703704`: actual not within < 0.00001 of expected
+
+
+failures:
+    tests::jaro_diff_no_transposition
+    tests::jaro_diff_one_and_two
+    tests::jaro_diff_short
+    tests::jaro_diff_two_and_one
+    tests::jaro_diff_with_transposition
+    tests::jaro_multibyte
+    tests::jaro_same
+    tests::jaro_same_one_character
+    tests::jaro_winkler_diff_no_transposition
+    tests::jaro_winkler_diff_short
+    tests::jaro_winkler_diff_with_transposition
+    tests::jaro_winkler_length_of_one
+    tests::jaro_winkler_long_prefix
+    tests::jaro_winkler_more_names
+    tests::jaro_winkler_multibyte
+    tests::jaro_winkler_names
+    tests::jaro_winkler_same
+    tests::jaro_winkler_same_one_character
+    tests::jaro_winkler_very_long_prefix
+
+test result: FAILED. 69 passed; 19 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `--lib`

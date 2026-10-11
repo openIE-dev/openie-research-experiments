@@ -1,0 +1,13 @@
+diff --git a/base/src/lib.rs b/work/src/lib.rs
+index 6cf5c32..e97336e 100644
+--- a/base/src/lib.rs
++++ b/work/src/lib.rs
+@@ -396,7 +396,7 @@ where
+                 distances[flat_index(k, db, width)] + (i - k - 1) + 1 + (j - db - 1);
+ 
+             let mut substitution_cost = distances[flat_index(i, j, width)] + 1;
+-            if a_elems[i - 1] != b_elems[j - 1] {
++            if a_elems[i - 1] == b_elems[j - 1] {
+                 db = j;
+                 substitution_cost -= 1;
+             }

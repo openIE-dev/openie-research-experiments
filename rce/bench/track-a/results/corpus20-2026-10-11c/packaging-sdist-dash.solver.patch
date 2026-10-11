@@ -1,0 +1,12 @@
+diff -ruN -x target -x .git -x __pycache__ -x '*.pyc' -x Cargo.lock base/packaging/utils.py work/packaging/utils.py
+--- packaging/utils.py	2026-10-11 08:26:03.826264708 -0400
++++ packaging/utils.py	2026-10-11 08:26:04.070264708 -0400
+@@ -147,7 +147,7 @@
+ 
+     # We are requiring a PEP 440 version, which cannot contain dashes,
+     # so we split on the last dash.
+-    name_part, sep, version_part = file_stem.partition("-")
++    name_part, sep, version_part = file_stem.rpartition("-")
+     if not sep:
+         raise InvalidSdistFilename(f"Invalid sdist filename: {filename!r}")
+ 

@@ -1,0 +1,40 @@
+running 8 tests
+. 1/8
+bytes::task_regression::line_no_counts_each_newline_once --- FAILED
+bytes::test_lineno --- FAILED
+.. 5/8
+test_lineno --- FAILED
+..
+failures:
+
+---- bytes::task_regression::line_no_counts_each_newline_once stdout ----
+
+thread 'bytes::task_regression::line_no_counts_each_newline_once' (3835952) panicked at src/bytes.rs:525:9:
+assertion `left == right` failed
+  left: 7
+ right: 4
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- bytes::test_lineno stdout ----
+
+thread 'bytes::test_lineno' (3835954) panicked at src/bytes.rs:513:13:
+assertion `left == right` failed
+  left: 5
+ right: 3
+
+---- test_lineno stdout ----
+
+thread 'test_lineno' (3835957) panicked at src/lib.rs:256:13:
+assertion `left == right` failed
+  left: 5
+ right: 3
+
+
+failures:
+    bytes::task_regression::line_no_counts_each_newline_once
+    bytes::test_lineno
+    test_lineno
+
+test result: FAILED. 5 passed; 3 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `--lib`

@@ -1,0 +1,9 @@
+[11:35:23] sh defects4j checkout -p
+[11:35:27] sh defects4j compile
+[11:35:44] sh defects4j export -p
+[11:35:46] sh defects4j export -p
+[11:35:49] sh defects4j export -p
+[11:35:51] sh defects4j export -p
+[11:35:54] sh defects4j export -p
+[11:35:56] sh javac -nowarn -cp
+{"bug": "Lang-54", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 23, "compiled": 9, "patterns": {"DataTypeReplacer": 12, "VariableReplacer": 4, "LiteralExpressionMutator": 4, "StatementRemover": 3}, "kept": [], "setup_s": 21.0, "positions": [["src/java/org/apache/commons/lang/LocaleUtils.java", [113, 114]]], "test_s": 1.7, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 24, "ast_equal": false, "fixed_derived": ["src/java/org/apache/commons/lang/LocaleUtils.java"], "patch_files": ["src/java/org/apache/commons/lang/LocaleUtils.java"], "pattern": null, "cpu_s": 36.33, "est_j": 363.3, "wall_s": 41.8}

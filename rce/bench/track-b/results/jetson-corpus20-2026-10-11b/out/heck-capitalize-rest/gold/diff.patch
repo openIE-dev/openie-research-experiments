@@ -1,0 +1,13 @@
+diff --git a/base/src/lib.rs b/work/src/lib.rs
+index ba18201..ab8a015 100644
+--- a/base/src/lib.rs
++++ b/work/src/lib.rs
+@@ -184,7 +184,7 @@ fn capitalize(s: &str, f: &mut fmt::Formatter) -> fmt::Result {
+     if let Some((_, c)) = char_indices.next() {
+         write!(f, "{}", c.to_uppercase())?;
+         if let Some((i, _)) = char_indices.next() {
+-            uppercase(&s[i..], f)?;
++            lowercase(&s[i..], f)?;
+         }
+     }
+ 

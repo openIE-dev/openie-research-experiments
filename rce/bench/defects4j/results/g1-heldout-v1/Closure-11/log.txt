@@ -1,0 +1,8 @@
+[12:07:53] sh defects4j checkout -p
+[12:08:00] sh defects4j compile
+[12:08:46] sh defects4j export -p
+[12:08:48] sh defects4j export -p
+[12:08:51] sh defects4j export -p
+[12:08:57] sh defects4j export -p
+[12:09:00] sh defects4j export -p
+[12:09:04] sh javac -nowarn -cp

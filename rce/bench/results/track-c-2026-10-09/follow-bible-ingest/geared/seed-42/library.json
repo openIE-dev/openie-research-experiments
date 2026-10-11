@@ -1,0 +1,54 @@
+{
+  "1a1aad190efb7cf59a239be02b68550049f5e310996e73622641efc63c0a85fd": [
+    {
+      "key": "1a1aad190efb7cf59a239be02b68550049f5e310996e73622641efc63c0a85fd",
+      "shape_signature": "{\"round\":number}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "dep_DEP1",
+      "source_spec": "follow-bible-ingest",
+      "gear": "G1",
+      "hits": 9
+    }
+  ],
+  "3b45fd76fdd699854e60259bd7dda3afba7ed39f9a52ce2250d505b897b77573": [
+    {
+      "key": "3b45fd76fdd699854e60259bd7dda3afba7ed39f9a52ce2250d505b897b77573",
+      "shape_signature": "{\"round\":number}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "del_D3",
+      "source_spec": "follow-bible-ingest",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "705d3583ddfb20d8390e4b0571fda755e9e9babf1c95dca52f05207382fff158": [
+    {
+      "key": "705d3583ddfb20d8390e4b0571fda755e9e9babf1c95dca52f05207382fff158",
+      "shape_signature": "{\"round\":number}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "del_D1",
+      "source_spec": "follow-bible-ingest",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "b04abee6ad3aa5f713900561b4b340b1ed6ec7be2ccf6b8e9982acc96e43b847": [
+    {
+      "key": "b04abee6ad3aa5f713900561b4b340b1ed6ec7be2ccf6b8e9982acc96e43b847",
+      "shape_signature": "{\"round\":number}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "del_D4",
+      "source_spec": "follow-bible-ingest",
+      "gear": "G1",
+      "hits": 0
+    }
+  ]
+}

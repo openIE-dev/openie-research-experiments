@@ -1,0 +1,37 @@
+{
+ "bug": "Math-12",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 0,
+ "compiled": 0,
+ "patterns": {},
+ "kept": [],
+ "setup_s": 27.4,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/math3/random/BitsStreamGenerator.java",
+   [
+    28,
+    29
+   ]
+  ]
+ ],
+ "test_s": 22.4,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 3,
+ "candidates": 0,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/math3/random/BitsStreamGenerator.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/math3/random/BitsStreamGenerator.java"
+ ],
+ "pattern": null,
+ "cpu_s": 81.5,
+ "est_j": 815.0,
+ "wall_s": 65.5
+}

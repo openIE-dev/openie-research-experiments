@@ -1,0 +1,38 @@
+{
+ "bug": "Math-3",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 2,
+ "compiled": 1,
+ "patterns": {
+  "StatementRemover": 2
+ },
+ "kept": [],
+ "setup_s": 22.5,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/math3/util/MathArrays.java",
+   [
+    823
+   ]
+  ]
+ ],
+ "test_s": 23.7,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 2,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/math3/util/MathArrays.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/math3/util/MathArrays.java"
+ ],
+ "pattern": null,
+ "cpu_s": 101.02,
+ "est_j": 1010.2,
+ "wall_s": 60.2
+}

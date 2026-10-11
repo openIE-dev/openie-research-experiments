@@ -1,0 +1,125 @@
+autonomous loop: bench/../examples/follow-bible-ingest-schemas.rce (foreman=geared, rounds=20, auto-approve as soak)
+
+  coverage bound: error budget 0.05 (engine default), 60 clean samples per shape, live traffic only
+
+  persisting to bench/results/track-c-2026-10-10-live/follow-bible-ingest-schemas/geared/seed-42/persist
+
+  gear stack: G0 library (0 entries), G1 rules, G2 synthesis (size <= 2), G3 System One: off, G4 local model: off, G5 remote: off (needs --remote)
+
+  recording foreman answers to bench/results/track-c-2026-10-10-live/follow-bible-ingest-schemas/geared/seed-42/cassette/cassette.jsonl
+
+  injecting traffic into 4 source(s) (4 have inline input_schema)
+
+  seed: 42
+  energy model: est_j; host=x86_64-linux table=x86_64-intel-spr; rce-interp-v1 (op counts x fgir substrate table; est_j, not measured)
+
+  round 1: 20 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 20 in, 0 closed ok, 20 closed escalated, 0 open | handler 3.458e-8 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 4 G2 0 G3 0 G4 0 G5 0 | foreman 4.115e-7 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 0 tick(s)
+    SHADOW [esc_dep_DEP1_1]: shadowing: coverage: 5 sample(s) (5 live, 0 synthetic), 0 failure(s), 95% upper bound 0.6000 vs budget 0.05 (engine default)
+    SHADOW [esc_dep_DEP3_1]: shadowing: coverage: 3 sample(s) (3 live, 0 synthetic), 0 failure(s), 95% upper bound 1.0000 vs budget 0.05 (engine default)
+    SHADOW [esc_dep_DEP2_1]: shadowing: coverage: 5 sample(s) (5 live, 0 synthetic), 0 failure(s), 95% upper bound 0.6000 vs budget 0.05 (engine default)
+    SHADOW [esc_dep_DEP4_1]: shadowing: coverage: 4 sample(s) (4 live, 0 synthetic), 0 failure(s), 95% upper bound 0.7500 vs budget 0.05 (engine default)
+  round 2: 20 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 20 in, 0 closed ok, 20 closed escalated, 0 open | handler 3.698e-8 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 4.845e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 0 tick(s)
+  round 3: 20 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 20 in, 0 closed ok, 20 closed escalated, 0 open | handler 3.830e-8 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 4.838e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 0 tick(s)
+  round 4: 20 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 20 in, 0 closed ok, 20 closed escalated, 0 open | handler 3.506e-8 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 4.444e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 0 tick(s)
+  round 5: 20 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 20 in, 0 closed ok, 20 closed escalated, 0 open | handler 3.782e-8 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 4.718e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 0 tick(s)
+  round 6: 20 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 20 in, 0 closed ok, 20 closed escalated, 0 open | handler 3.650e-8 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 4.632e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 0 tick(s)
+  round 7: 20 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 20 in, 0 closed ok, 20 closed escalated, 0 open | handler 3.494e-8 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 4.876e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 0 tick(s)
+  round 8: 20 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 20 in, 0 closed ok, 20 closed escalated, 0 open | handler 3.674e-8 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 5.092e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 0 tick(s)
+  round 9: 20 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 20 in, 0 closed ok, 20 closed escalated, 0 open | handler 3.758e-8 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 4.625e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 0 tick(s)
+  round 10: 20 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 20 in, 0 closed ok, 20 closed escalated, 0 open | handler 3.662e-8 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 5.020e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 0 tick(s)
+  round 11: 20 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 20 in, 0 closed ok, 20 closed escalated, 0 open | handler 4.082e-8 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 5.538e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 0 tick(s)
+  round 12: 20 new-escalation(s), 1 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 20 in, 0 closed ok, 20 closed escalated, 0 open | handler 3.782e-8 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 5.672e-8 J | all-in per closed task n/a | 59 duplicate escalation(s) closed | settle 0 tick(s)
+    PROMOTED [esc_dep_DEP2_1] by gear-stack/G1-rules: coverage: 60 sample(s) (60 live, 0 synthetic), 0 failure(s), 95% upper bound 0.0500 vs budget 0.05 (engine default)
+  round 13: 25 new-escalation(s), 1 promotion(s), 0 deferral(s), 1 approved
+    energy (est_j): tasks 20 in, 0 closed ok, 20 closed escalated, 0 open | handler 5.953e-8 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 2 G2 0 G3 0 G4 0 G5 0 | foreman 1.647e-7 J | all-in per closed task n/a | 64 duplicate escalation(s) closed | settle 2 tick(s)
+    PROMOTED [esc_dep_DEP4_1] by gear-stack/G1-rules: coverage: 64 sample(s) (64 live, 0 synthetic), 0 failure(s), 95% upper bound 0.0469 vs budget 0.05 (engine default)
+    SHADOW [esc_role_R4_62]: shadowing: coverage: 5 sample(s) (5 live, 0 synthetic), 0 failure(s), 95% upper bound 0.6000 vs budget 0.05 (engine default)
+    SHADOW [esc_role_R7_63]: shadowing: coverage: 1 sample(s) (1 live, 0 synthetic), 0 failure(s), 95% upper bound 1.0000 vs budget 0.05 (engine default)
+  round 14: 25 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 20 in, 0 closed ok, 20 closed escalated, 0 open | handler 6.547e-8 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 1 G2 0 G3 0 G4 0 G5 0 | foreman 1.075e-7 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 2 tick(s)
+    SHADOW [esc_role_R1_69]: shadowing: coverage: 5 sample(s) (5 live, 0 synthetic), 0 failure(s), 95% upper bound 0.6000 vs budget 0.05 (engine default)
+  round 15: 25 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 20 in, 0 closed ok, 20 closed escalated, 0 open | handler 6.379e-8 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 5.454e-8 J | all-in per closed task n/a | 0 duplicate escalation(s) closed | settle 2 tick(s)
+  round 16: 25 new-escalation(s), 1 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 20 in, 0 closed ok, 20 closed escalated, 0 open | handler 6.331e-8 J | per closed task n/a | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 1 G2 0 G3 0 G4 0 G5 0 | foreman 2.770e-7 J | all-in per closed task n/a | 61 duplicate escalation(s) closed | settle 2 tick(s)
+    PROMOTED [esc_dep_DEP1_1] by gear-stack/G1-rules: coverage: 62 sample(s) (62 live, 0 synthetic), 0 failure(s), 95% upper bound 0.0484 vs budget 0.05 (engine default)
+    SHADOW [esc_dep_DEP1_7]: shadowing: coverage: 16 sample(s) (16 live, 0 synthetic), 0 failure(s), 95% upper bound 0.1875 vs budget 0.05 (engine default)
+  round 17: 20 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 20 in, 5 closed ok, 15 closed escalated, 0 open | handler 6.551e-8 J | per closed task 2.204e-9 J | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 5.039e-8 J | all-in per closed task 1.228e-8 J | 0 duplicate escalation(s) closed | settle 2 tick(s)
+  round 18: 20 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 20 in, 5 closed ok, 15 closed escalated, 0 open | handler 6.695e-8 J | per closed task 2.348e-9 J | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 4.747e-8 J | all-in per closed task 1.184e-8 J | 0 duplicate escalation(s) closed | settle 2 tick(s)
+  round 19: 20 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 20 in, 5 closed ok, 15 closed escalated, 0 open | handler 6.395e-8 J | per closed task 2.372e-9 J | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 4.946e-8 J | all-in per closed task 1.226e-8 J | 0 duplicate escalation(s) closed | settle 2 tick(s)
+  round 20: 20 new-escalation(s), 0 promotion(s), 0 deferral(s), 0 approved
+    energy (est_j): tasks 20 in, 5 closed ok, 15 closed escalated, 0 open | handler 6.491e-8 J | per closed task 2.396e-9 J | llm 0 call(s), 0.000e0 J | measured_j: -
+    gears: G0 0 G1 0 G2 0 G3 0 G4 0 G5 0 | foreman 4.946e-8 J | all-in per closed task 1.229e-8 J | 0 duplicate escalation(s) closed | settle 2 tick(s)
+
+=== RCE Engine Stats ===
+Ticks:                     116
+Nodes:                      15
+Edges:                      13
+Handlers:                   15
+Messages processed:        515
+Escalations:               420
+Promotions:                  3
+Pending escalations:       233
+Log entries:               535
+AI fraction:              0.0%
+Handler invocations:       310
+Handler escalations:       215
+Hindsight obs:             518
+Hindsight insights:          7
+Hindsight pending:           7
+Paradigm pressure:           0
+Pending approvals:           0
+AI entries approved:         0
+Promotions blocked:          0
+--- Energy (est_j; measured_j: none) ---
+Model:                est_j; host=x86_64-linux table=x86_64-intel-spr; rce-interp-v1 (op counts x fgir substrate table; est_j, not measured)
+Handler est_j:            9.572e-7 J  (515 priced, 0 unpriced invocations)
+Tasks:                     400 opened, 20 closed ok, 380 closed escalated, 0 open
+est_j / closed task:      2.330e-9 J
+LLM calls:                   0 (0 priced), est_j 0.000e0 J, tokens 0+0
+Foreman est_j:            1.755e-6 J  (184 duplicate escalations closed)
+all-in / closed task:     1.356e-7 J  (handlers + foreman)
+  gear G0                8 ran,    0 resolved,    0 promoted, est_j 2.740e-9 J
+  gear G1                8 ran,    8 resolved,    3 promoted, est_j 6.545e-7 J
+  gear coverage        344 ran,    0 resolved,    0 promoted, est_j 1.098e-6 J
+
+  Properties:      15 handler(s), 960 case(s), 0 failing handler(s)
+  Handler library: 8 entr(ies), saved to bench/results/track-c-2026-10-10-live/follow-bible-ingest-schemas/geared/seed-42/library.json
+
+  Total promotions: 3
+  AI fraction:     0.0%
+  Log integrity:   OK

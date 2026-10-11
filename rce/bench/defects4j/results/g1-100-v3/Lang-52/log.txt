@@ -1,0 +1,9 @@
+[11:34:48] sh defects4j checkout -p
+[11:34:53] sh defects4j compile
+[11:35:10] sh defects4j export -p
+[11:35:12] sh defects4j export -p
+[11:35:14] sh defects4j export -p
+[11:35:16] sh defects4j export -p
+[11:35:19] sh defects4j export -p
+[11:35:21] sh javac -nowarn -cp
+{"bug": "Lang-52", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 0, "compiled": 0, "patterns": {}, "kept": [], "setup_s": 21.8, "positions": [["src/java/org/apache/commons/lang/StringEscapeUtils.java", [236]]], "test_s": 1.1, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 0, "ast_equal": false, "fixed_derived": ["src/java/org/apache/commons/lang/StringEscapeUtils.java"], "patch_files": ["src/java/org/apache/commons/lang/StringEscapeUtils.java"], "pattern": null, "cpu_s": 29.92, "est_j": 299.2, "wall_s": 37.9}

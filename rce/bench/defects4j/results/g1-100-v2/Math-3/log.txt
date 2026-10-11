@@ -1,0 +1,9 @@
+[10:03:24] sh defects4j checkout -p
+[10:03:29] sh defects4j compile
+[10:03:47] sh defects4j export -p
+[10:03:49] sh defects4j export -p
+[10:03:51] sh defects4j export -p
+[10:03:54] sh defects4j export -p
+[10:03:57] sh defects4j export -p
+[10:03:58] sh javac -nowarn -cp
+{"bug": "Math-3", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 2, "compiled": 1, "patterns": {"StatementRemover": 2}, "kept": [], "setup_s": 22.5, "positions": [["src/main/java/org/apache/commons/math3/util/MathArrays.java", [823]]], "test_s": 23.7, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 2, "ast_equal": false, "fixed_derived": ["src/main/java/org/apache/commons/math3/util/MathArrays.java"], "patch_files": ["src/main/java/org/apache/commons/math3/util/MathArrays.java"], "pattern": null, "cpu_s": 101.02, "est_j": 1010.2, "wall_s": 60.2}

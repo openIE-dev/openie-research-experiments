@@ -1,0 +1,30 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 163,
+ "llm_calls": 0,
+ "rule_tries": 162,
+ "edit": {
+  "file": "src/bytes.rs",
+  "function": "parse_word",
+  "tier": 2,
+  "pattern": "FP6",
+  "from": "",
+  "to": " | '\\n'"
+ },
+ "ranked": [
+  "src/bytes.rs::split",
+  "src/lib.rs::split",
+  "src/bytes.rs::new",
+  "src/bytes.rs::new",
+  "src/lib.rs::new",
+  "src/lib.rs::new"
+ ],
+ "patterns": {
+  "FP9": 4,
+  "FP11": 5,
+  "FP6": 112,
+  "FP12": 2,
+  "FP3": 39
+ },
+ "seconds": 26.21
+}

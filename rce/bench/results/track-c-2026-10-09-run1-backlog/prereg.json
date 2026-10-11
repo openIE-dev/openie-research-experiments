@@ -1,0 +1,28 @@
+{
+  "track": "C",
+  "id": "track-c-2026-10-09",
+  "registered": "2026-10-09",
+  "specs": [
+    "../examples/web-api.rce",
+    "../examples/joule-db-core.rce",
+    "../examples/follow-bible-ingest.rce",
+    "../examples/follow-bible-ingest-schemas.rce",
+    "../examples/ask-server.rce"
+  ],
+  "seeds": [42],
+  "rounds": 20,
+  "foremen": ["mock", "geared"],
+  "auto_approve": "soak",
+  "hypotheses": [
+    "H1: with the gear stack, every resolution comes from G0-G2; G3, G4 and G5 count zero because no endpoint or key is set.",
+    "H2: the gear stack resolves with fewer AI-attributed promotions than mock: deterministic gears are logged as System.",
+    "H3: each spec reaches a round with zero new escalations before round 20 under both foremen.",
+    "H4: once quiet, est_j per closed task is flat round to round (no growth), and all-in est_j per closed task falls toward handler est_j as foreman spending stops.",
+    "H5: measured_j is empty in every row."
+  ],
+  "notes": [
+    "Five example specs with flow edges (multi-step tasks). No new frozen spec yet.",
+    "No exclusions. Every run is reported, including failures.",
+    "Stop rule: fixed 20 rounds; no early stop, no reruns with other seeds before reporting."
+  ]
+}

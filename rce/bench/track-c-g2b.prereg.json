@@ -1,0 +1,32 @@
+{
+  "track": "C",
+  "id": "track-c-2026-10-10-g2b",
+  "registered": "2026-10-10",
+  "specs": [
+    "../examples/web-api.rce",
+    "../examples/joule-db-core.rce",
+    "../examples/follow-bible-ingest.rce",
+    "../examples/follow-bible-ingest-schemas.rce",
+    "../examples/ask-server.rce",
+    "../examples/soak-g2-schemas.rce"
+  ],
+  "seeds": [
+    42
+  ],
+  "rounds": 20,
+  "foremen": [
+    "mock",
+    "geared"
+  ],
+  "auto_approve": "soak",
+  "hypotheses": [
+    "H1: every one of the 12 runs reaches a quiet round (zero new escalations) before round 20, including soak-g2-schemas under mock (the mock now synthesizes to the output schema).",
+    "H2: soak-g2-schemas closes tasks ok under both foremen.",
+    "H3: G3, G4 and G5 count zero.",
+    "H4: measured_j is empty."
+  ],
+  "notes": [
+    "Rerun of track-c-2026-10-10-g2 after the mock foreman change (and distinct {round, n} traffic for schemaless sources). The earlier run and its verdicts stay as the record.",
+    "No exclusions; stop rule fixed 20 rounds."
+  ]
+}

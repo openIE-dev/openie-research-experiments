@@ -1,0 +1,9 @@
+[11:34:00] sh defects4j checkout -p
+[11:34:06] sh defects4j compile
+[11:34:20] sh defects4j export -p
+[11:34:22] sh defects4j export -p
+[11:34:24] sh defects4j export -p
+[11:34:27] sh defects4j export -p
+[11:34:29] sh defects4j export -p
+[11:34:31] sh javac -nowarn -cp
+{"bug": "Lang-49", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 52, "compiled": 21, "patterns": {"DataTypeReplacer": 6, "VariableReplacer": 36, "MethodInvocationMutator": 8, "StatementRemover": 2}, "kept": [], "setup_s": 19.6, "positions": [["src/java/org/apache/commons/lang/math/Fraction.java", [466]]], "test_s": 2.3, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 52, "ast_equal": false, "fixed_derived": ["src/java/org/apache/commons/lang/math/Fraction.java"], "patch_files": ["src/java/org/apache/commons/lang/math/Fraction.java"], "pattern": null, "cpu_s": 41.13, "est_j": 411.3, "wall_s": 43.2}

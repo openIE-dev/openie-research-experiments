@@ -1,0 +1,9 @@
+[12:34:23] sh defects4j checkout -p
+[12:34:27] sh defects4j compile
+[12:34:58] sh defects4j export -p
+[12:35:00] sh defects4j export -p
+[12:35:01] sh defects4j export -p
+[12:35:05] sh defects4j export -p
+[12:35:07] sh defects4j export -p
+[12:35:09] sh javac -nowarn -cp
+{"bug": "Closure-20", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 27, "compiled": 22, "patterns": {"OperatorMutator": 1, "ConditionalExpressionMutator": 8, "VariableReplacer": 6, "StatementMover": 1, "StatementRemover": 3, "StatementInserter": 8}, "kept": [], "setup_s": 35.6, "positions": [["src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java", [220]]], "test_s": 14.8, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 27, "ast_equal": false, "fixed_derived": ["src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java"], "patch_files": ["src/com/google/javascript/jscomp/PeepholeSubstituteAlternateSyntax.java"], "pattern": null, "cpu_s": 92.79, "est_j": 927.9, "wall_s": 72.4}

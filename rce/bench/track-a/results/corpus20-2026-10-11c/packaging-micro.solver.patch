@@ -1,0 +1,12 @@
+diff -ruN -x target -x .git -x __pycache__ -x '*.pyc' -x Cargo.lock base/packaging/version.py work/packaging/version.py
+--- packaging/version.py	2026-10-11 08:26:00.522264708 -0400
++++ packaging/version.py	2026-10-11 08:26:01.546264708 -0400
+@@ -448,7 +448,7 @@
+         >>> Version("1").micro
+         0
+         """
+-        return self.release[2] if len(self.release) >= 3 else 1
++        return self.release[2] if len(self.release) >= 3 else 0
+ 
+ 
+ class _TrimmedRelease(Version):

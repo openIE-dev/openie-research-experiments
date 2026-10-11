@@ -1,0 +1,17 @@
+{
+ "gear": "unresolved",
+ "test_runs": 254,
+ "llm_calls": 3,
+ "rule_tries": 250,
+ "edit": null,
+ "ranked": [
+  "packaging/utils.py::parse_wheel_filename",
+  "packaging/tags.py::parse_tag",
+  "packaging/utils.py::parse_sdist_filename",
+  "packaging/_elffile.py::interpreter",
+  "packaging/specifiers.py::version",
+  "packaging/tags.py::interpreter"
+ ],
+ "sensitive": [],
+ "seconds": 27.27
+}

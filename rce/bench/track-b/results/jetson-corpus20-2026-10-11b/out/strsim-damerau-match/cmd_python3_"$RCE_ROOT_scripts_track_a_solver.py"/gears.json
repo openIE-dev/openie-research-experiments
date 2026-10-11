@@ -1,0 +1,22 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 10,
+ "llm_calls": 0,
+ "rule_tries": 9,
+ "edit": {
+  "file": "src/lib.rs",
+  "function": "generic_damerau_levenshtein",
+  "tier": 1,
+  "from": "!=",
+  "to": "=="
+ },
+ "ranked": [
+  "src/lib.rs::generic_damerau_levenshtein",
+  "src/lib.rs::flat_index",
+  "src/lib.rs::get",
+  "src/lib.rs::get",
+  "src/lib.rs::damerau_levenshtein_impl",
+  "src/lib.rs::damerau_levenshtein"
+ ],
+ "seconds": 1.25
+}

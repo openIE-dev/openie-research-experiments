@@ -1,0 +1,21 @@
+diff -ruN -x target -x .git -x __pycache__ -x '*.pyc' -x Cargo.lock base/.test.out work/.test.out
+--- .test.out	1969-12-31 19:00:00.000000000 -0500
++++ .test.out	2026-10-11 08:26:00.074264708 -0400
+@@ -0,0 +1,5 @@
++
++running 8 tests
++........
++test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
++
+diff -ruN -x target -x .git -x __pycache__ -x '*.pyc' -x Cargo.lock base/src/bytes.rs work/src/bytes.rs
+--- src/bytes.rs	2026-10-11 08:24:58.546264708 -0400
++++ src/bytes.rs	2026-10-11 08:25:59.634264708 -0400
+@@ -123,7 +123,7 @@
+ 
+     fn next_char(&mut self) -> Option<u8> {
+         let res = self.in_iter.next().copied();
+-        if res == Some(b'\n') { self.line_no += 2; }
++        if res == Some(b'\n') { self.line_no += 1; }
+         res
+     }
+ }

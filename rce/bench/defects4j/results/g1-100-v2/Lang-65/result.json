@@ -1,0 +1,44 @@
+{
+ "bug": "Lang-65",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 28,
+ "compiled": 14,
+ "patterns": {
+  "StatementMover": 8,
+  "StatementRemover": 3,
+  "RangeChecker": 2,
+  "VariableReplacer": 2,
+  "NullPointerChecker": 12,
+  "OperatorMutator": 1
+ },
+ "kept": [],
+ "setup_s": 9.2,
+ "positions": [
+  [
+   "src/java/org/apache/commons/lang/time/DateUtils.java",
+   [
+    642,
+    709
+   ]
+  ]
+ ],
+ "test_s": 0.4,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 29,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/java/org/apache/commons/lang/time/DateUtils.java"
+ ],
+ "patch_files": [
+  "src/java/org/apache/commons/lang/time/DateUtils.java"
+ ],
+ "pattern": null,
+ "cpu_s": 35.66,
+ "est_j": 356.6,
+ "wall_s": 17.5
+}

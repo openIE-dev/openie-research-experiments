@@ -1,0 +1,9 @@
+[10:02:53] sh defects4j checkout -p
+[10:02:57] sh defects4j compile
+[10:03:09] sh defects4j export -p
+[10:03:10] sh defects4j export -p
+[10:03:11] sh defects4j export -p
+[10:03:12] sh defects4j export -p
+[10:03:14] sh defects4j export -p
+[10:03:15] sh javac -nowarn -cp
+{"bug": "Chart-26", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 25, "compiled": 1, "patterns": {"VariableReplacer": 24, "NullPointerChecker": 1}, "kept": [{"file": "source/org/jfree/chart/axis/Axis.java", "line": 1192, "pattern": "NullPointerChecker", "from": "EntityCollection entities = owner.getEntityCollection();\r\n                if (entities != null) {\r\n                    entities.add(new AxisLabelEntity(this, hotspot, \r\n                            this.labelToolTip, this.labelURL));\r\n                }", "to": "if (owner != null) {\n\tEntityCollection entities = owner.getEntityCollection();\r\n                if (entities != null) {\r\n                    entities.add(new AxisLabelEntity(this, hotspot, \r\n                            this.labelToolTip, this.labelURL));\r\n                }\n\t}\n"}], "setup_s": 15.7, "positions": [["source/org/jfree/chart/axis/Axis.java", [1192]]], "test_s": 4.3, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 22, "candidates": 38, "ast_equal": true, "fixed_derived": ["source/org/jfree/chart/axis/Axis.java"], "patch_files": ["source/org/jfree/chart/axis/Axis.java"], "pattern": "NullPointerChecker", "cpu_s": 55.59, "est_j": 555.9, "wall_s": 30.9}

@@ -1,0 +1,475 @@
+{
+  "nodes": {
+    "del_D1": {
+      "id": "del_D1",
+      "name": "deliverable: ",
+      "kind": "Executor",
+      "output_schema": "JwpConnection",
+      "input_schema": "{}",
+      "reason": {
+        "why": "Authenticated connection with session state",
+        "author": "david",
+        "validated": "2026-10-09T09:33:08.681510332+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "fulfills": "O1",
+        "type": "deliverable"
+      },
+      "blast_radius": "local"
+    },
+    "del_D2": {
+      "id": "del_D2",
+      "name": "deliverable: ",
+      "kind": "Executor",
+      "output_schema": "ServiceResponse",
+      "input_schema": "{}",
+      "reason": {
+        "why": "Unified response envelope from any service",
+        "author": "david",
+        "validated": "2026-10-09T09:33:08.681521036+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "fulfills": "O2",
+        "type": "deliverable"
+      },
+      "blast_radius": "local"
+    },
+    "del_D3": {
+      "id": "del_D3",
+      "name": "deliverable: ",
+      "kind": "Executor",
+      "output_schema": "WsBridgeFrame",
+      "input_schema": "{}",
+      "reason": {
+        "why": "WebSocket ↔ JWP bridge frame",
+        "author": "david",
+        "validated": "2026-10-09T09:33:08.681530562+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "fulfills": "O3",
+        "type": "deliverable"
+      },
+      "blast_radius": "local"
+    },
+    "del_D4": {
+      "id": "del_D4",
+      "name": "deliverable: ",
+      "kind": "Executor",
+      "output_schema": "CascadeResult",
+      "input_schema": "{}",
+      "reason": {
+        "why": "AI query result with energy receipt",
+        "author": "david",
+        "validated": "2026-10-09T09:33:08.681540243+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "fulfills": "O4",
+        "type": "deliverable"
+      },
+      "blast_radius": "local"
+    },
+    "dep_DEP1": {
+      "id": "dep_DEP1",
+      "name": "dependency: jwp",
+      "kind": "Source",
+      "output_schema": "{}",
+      "input_schema": "{}",
+      "reason": {
+        "why": "Joule Wire Protocol implementation",
+        "author": "david",
+        "validated": "2026-10-09T09:33:08.681631564+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "dep_kind": "Crate",
+        "type": "dependency"
+      },
+      "blast_radius": "local"
+    },
+    "dep_DEP2": {
+      "id": "dep_DEP2",
+      "name": "dependency: jwp-auth",
+      "kind": "Source",
+      "output_schema": "{}",
+      "input_schema": "{}",
+      "reason": {
+        "why": "HMAC-SHA256, device-code, WebAuthn authentication",
+        "author": "david",
+        "validated": "2026-10-09T09:33:08.681643365+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "dep_kind": "Crate",
+        "type": "dependency"
+      },
+      "blast_radius": "local"
+    },
+    "dep_DEP3": {
+      "id": "dep_DEP3",
+      "name": "dependency: ask-core",
+      "kind": "Source",
+      "output_schema": "{}",
+      "input_schema": "{}",
+      "reason": {
+        "why": "CascadePipeline, JouleDB, tantivy integration",
+        "author": "david",
+        "validated": "2026-10-09T09:33:08.681652889+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "dep_kind": "Crate",
+        "type": "dependency"
+      },
+      "blast_radius": "local"
+    },
+    "dep_DEP4": {
+      "id": "dep_DEP4",
+      "name": "dependency: tokio",
+      "kind": "Source",
+      "output_schema": "{}",
+      "input_schema": "{}",
+      "reason": {
+        "why": "Async runtime for concurrent connections",
+        "author": "david",
+        "validated": "2026-10-09T09:33:08.681662172+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "dep_kind": "Crate",
+        "type": "dependency"
+      },
+      "blast_radius": "local"
+    },
+    "dep_DEP5": {
+      "id": "dep_DEP5",
+      "name": "dependency: jouledb",
+      "kind": "Source",
+      "output_schema": "{}",
+      "input_schema": "{}",
+      "reason": {
+        "why": "Persistent storage for sessions, usage, billing",
+        "author": "david",
+        "validated": "2026-10-09T09:33:08.681671905+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "dep_kind": "Service",
+        "type": "dependency"
+      },
+      "blast_radius": "service"
+    },
+    "role_R1": {
+      "id": "role_R1",
+      "name": "jwp-listener",
+      "kind": "Executor",
+      "output_schema": "{}",
+      "input_schema": "{}",
+      "reason": {
+        "why": "TCP listener on 9090 — accepts and authenticates JWP connections (handles auth state)",
+        "author": "david",
+        "validated": "2026-10-09T09:33:08.681557334+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "role_kind": "ExecutionNode",
+        "type": "role"
+      },
+      "blast_radius": "auth"
+    },
+    "role_R2": {
+      "id": "role_R2",
+      "name": "ws-bridge",
+      "kind": "Executor",
+      "output_schema": "{}",
+      "input_schema": "{}",
+      "reason": {
+        "why": "WebSocket bridge on 9091 — visible to external browser clients",
+        "author": "david",
+        "validated": "2026-10-09T09:33:08.681569362+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "role_kind": "ExecutionNode",
+        "type": "role"
+      },
+      "blast_radius": "public"
+    },
+    "role_R3": {
+      "id": "role_R3",
+      "name": "service-router",
+      "kind": "Executor",
+      "output_schema": "{}",
+      "input_schema": "{}",
+      "reason": {
+        "why": "Dispatches commands to the 14 everything-app services",
+        "author": "david",
+        "validated": "2026-10-09T09:33:08.681580584+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "role_kind": "ExecutionNode",
+        "type": "role"
+      },
+      "blast_radius": "subgraph"
+    },
+    "role_R4": {
+      "id": "role_R4",
+      "name": "cascade-executor",
+      "kind": "Executor",
+      "output_schema": "{}",
+      "input_schema": "{}",
+      "reason": {
+        "why": "Runs AI queries through the L0-L10 cascade pipeline (calls external LLMs)",
+        "author": "david",
+        "validated": "2026-10-09T09:33:08.681592262+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "role_kind": "ExecutionNode",
+        "type": "role"
+      },
+      "blast_radius": "service"
+    },
+    "role_R5": {
+      "id": "role_R5",
+      "name": "connection-coordinator",
+      "kind": "Decision",
+      "output_schema": "{}",
+      "input_schema": "{}",
+      "reason": {
+        "why": "Manages connection lifecycle, auth state, session cleanup",
+        "author": "david",
+        "validated": "2026-10-09T09:33:08.681603749+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "role_kind": "Coordinator",
+        "type": "role"
+      },
+      "blast_radius": "subgraph"
+    },
+    "role_R6": {
+      "id": "role_R6",
+      "name": "foreman",
+      "kind": "Escalation",
+      "output_schema": "{}",
+      "input_schema": "{}",
+      "reason": {
+        "why": "Resolves novel query patterns that escape the cascade",
+        "author": "david",
+        "validated": "2026-10-09T09:33:08.681614968+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "role_kind": "AiForeman",
+        "type": "role"
+      },
+      "blast_radius": "local"
+    }
+  },
+  "edges": {
+    "flow_F1": {
+      "id": "flow_F1",
+      "from": "dep_DEP1",
+      "to": "role_R1",
+      "kind": "DataFlow",
+      "reason": {
+        "why": "JWP frames arrive at the listener",
+        "author": "david",
+        "validated": "2026-10-09T09:33:08.681728622+00:00",
+        "references": []
+      }
+    },
+    "flow_F10": {
+      "id": "flow_F10",
+      "from": "role_R1",
+      "to": "del_D1",
+      "kind": "DataFlow",
+      "reason": {
+        "why": "accepted connections are reported",
+        "author": "david",
+        "validated": "2026-10-09T09:33:08.681810407+00:00",
+        "references": []
+      }
+    },
+    "flow_F2": {
+      "id": "flow_F2",
+      "from": "dep_DEP2",
+      "to": "role_R1",
+      "kind": "DataFlow",
+      "reason": {
+        "why": "the listener authenticates each connection",
+        "author": "david",
+        "validated": "2026-10-09T09:33:08.681740262+00:00",
+        "references": []
+      }
+    },
+    "flow_F3": {
+      "id": "flow_F3",
+      "from": "role_R1",
+      "to": "role_R3",
+      "kind": "DataFlow",
+      "reason": {
+        "why": "authenticated requests are routed to a service",
+        "author": "david",
+        "validated": "2026-10-09T09:33:08.681749139+00:00",
+        "references": []
+      }
+    },
+    "flow_F4": {
+      "id": "flow_F4",
+      "from": "role_R3",
+      "to": "role_R4",
+      "kind": "DataFlow",
+      "reason": {
+        "why": "queries go to the cascade executor",
+        "author": "david",
+        "validated": "2026-10-09T09:33:08.681757700+00:00",
+        "references": []
+      }
+    },
+    "flow_F5": {
+      "id": "flow_F5",
+      "from": "dep_DEP3",
+      "to": "role_R4",
+      "kind": "DataFlow",
+      "reason": {
+        "why": "ask-core supplies the cascade pipeline",
+        "author": "david",
+        "validated": "2026-10-09T09:33:08.681766078+00:00",
+        "references": []
+      }
+    },
+    "flow_F6": {
+      "id": "flow_F6",
+      "from": "role_R4",
+      "to": "del_D4",
+      "kind": "DataFlow",
+      "reason": {
+        "why": "the cascade returns a result",
+        "author": "david",
+        "validated": "2026-10-09T09:33:08.681774764+00:00",
+        "references": []
+      }
+    },
+    "flow_F7": {
+      "id": "flow_F7",
+      "from": "role_R3",
+      "to": "del_D2",
+      "kind": "DataFlow",
+      "reason": {
+        "why": "routed calls produce a service response",
+        "author": "david",
+        "validated": "2026-10-09T09:33:08.681783247+00:00",
+        "references": []
+      }
+    },
+    "flow_F8": {
+      "id": "flow_F8",
+      "from": "role_R1",
+      "to": "role_R2",
+      "kind": "DataFlow",
+      "reason": {
+        "why": "browser clients are bridged over WebSocket",
+        "author": "david",
+        "validated": "2026-10-09T09:33:08.681791694+00:00",
+        "references": []
+      }
+    },
+    "flow_F9": {
+      "id": "flow_F9",
+      "from": "role_R2",
+      "to": "del_D3",
+      "kind": "DataFlow",
+      "reason": {
+        "why": "the bridge emits WebSocket frames",
+        "author": "david",
+        "validated": "2026-10-09T09:33:08.681799689+00:00",
+        "references": []
+      }
+    }
+  },
+  "metadata": {
+    "spec_name": "ask-server",
+    "spec_version": "1.0.0"
+  }
+}

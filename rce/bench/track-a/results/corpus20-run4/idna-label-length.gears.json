@@ -1,0 +1,21 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 3,
+ "llm_calls": 0,
+ "rule_tries": 2,
+ "edit": {
+  "file": "idna/core.py",
+  "function": "valid_label_length",
+  "from": ">",
+  "to": ">="
+ },
+ "ranked": [
+  "idna/core.py::valid_label_length",
+  "idna/core.py::check_label",
+  "idna/codec.py::encode",
+  "idna/codec.py::decode",
+  "idna/core.py::_unot",
+  "idna/core.py::valid_string_length"
+ ],
+ "seconds": 0.14
+}

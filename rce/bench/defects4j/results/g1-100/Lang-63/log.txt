@@ -1,0 +1,35 @@
+[09:08:38] sh defects4j checkout -p
+[09:08:41] sh defects4j compile
+[09:08:47] sh defects4j export -p
+[09:08:48] sh defects4j export -p
+[09:08:49] sh defects4j export -p
+[09:08:50] sh defects4j export -p
+[09:08:51] sh defects4j export -p
+[09:08:52] sh javac -nowarn -cp
+[09:08:52] test 2
+[09:08:57] test 1
+[09:08:58] test 1
+[09:08:58] test 1
+[09:08:58] test 1
+[09:08:58] test 1
+[09:08:58] test 1
+[09:08:58] test 1
+[09:08:58] test 1
+[09:08:58] test 1
+[09:08:59] test 1
+[09:08:59] test 1
+[09:08:59] test 1
+[09:08:59] test 1
+[09:08:59] test 1
+[09:08:59] test 1
+[09:08:59] test 1
+[09:08:59] test 1
+[09:08:59] test 1
+[09:08:59] test 1
+[09:08:59] test 1
+[09:08:59] test 1
+[09:09:00] test 1
+[09:09:00] test 1
+[09:09:00] test 1
+[09:09:00] test 2
+{"bug": "Lang-63", "plausible": true, "correct": false, "tries": 23, "compiled": 23, "patterns": {"FP11": 15, "FP9": 8}, "setup_s": 9.4, "test_s": 8.9, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 336, "pattern": "FP11", "tier": 1, "edit": {"file": "src/java/org/apache/commons/lang/time/DurationFormatUtils.java", "from": "<", "to": ">="}, "cpu_s": 36.37, "est_j": 363.7, "wall_s": 26.6}

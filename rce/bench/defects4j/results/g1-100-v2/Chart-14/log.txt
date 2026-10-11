@@ -1,0 +1,9 @@
+[10:00:32] sh defects4j checkout -p
+[10:00:37] sh defects4j compile
+[10:00:55] sh defects4j export -p
+[10:00:56] sh defects4j export -p
+[10:00:58] sh defects4j export -p
+[10:01:00] sh defects4j export -p
+[10:01:03] sh defects4j export -p
+[10:01:04] sh javac -nowarn -cp
+{"bug": "Chart-14", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 154, "compiled": 4, "patterns": {"VariableReplacer": 154}, "kept": [{"file": "source/org/jfree/chart/plot/CategoryPlot.java", "line": 2166, "pattern": "VariableReplacer", "from": "boolean removed = markers.remove(marker);", "to": "boolean removed = getAnnotations().remove(marker);"}, {"file": "source/org/jfree/chart/plot/CategoryPlot.java", "line": 2448, "pattern": "VariableReplacer", "from": "boolean removed = markers.remove(marker);", "to": "boolean removed = getAnnotations().remove(marker);"}, {"file": "source/org/jfree/chart/plot/XYPlot.java", "line": 2293, "pattern": "VariableReplacer", "from": "boolean removed = markers.remove(marker);", "to": "boolean removed = getAnnotations().remove(marker);"}, {"file": "source/org/jfree/chart/plot/XYPlot.java", "line": 2529, "pattern": "VariableReplacer", "from": "boolean removed = markers.remove(marker);", "to": "boolean removed = getAnnotations().remove(marker);"}], "setup_s": 22.7, "positions": [["source/org/jfree/chart/plot/CategoryPlot.java", [2166, 2448]], ["source/org/jfree/chart/plot/XYPlot.java", [2293, 2529]]], "test_s": 9.6, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 4, "candidates": 698, "ast_equal": false, "fixed_derived": ["source/org/jfree/chart/plot/CategoryPlot.java", "source/org/jfree/chart/plot/XYPlot.java"], "patch_files": ["source/org/jfree/chart/plot/CategoryPlot.java", "source/org/jfree/chart/plot/XYPlot.java"], "pattern": "VariableReplacer", "cpu_s": 72.91, "est_j": 729.1, "wall_s": 66.6}

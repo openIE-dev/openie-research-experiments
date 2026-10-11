@@ -1,0 +1,65 @@
+{
+ "idle": {
+  "samples": 120,
+  "seconds": 34.38289154500002,
+  "cpu_j": 414.7768643438762,
+  "gpu_j": 466.7470047182999,
+  "ane_j": 0.0,
+  "cpu_w": 12.063466616849835,
+  "package_w": 25.638444861696566,
+  "process_reported_j": 0.001441155,
+  "episodes": 0
+ },
+ "sigma": {
+  "samples": 120,
+  "seconds": 34.234941539999994,
+  "cpu_j": 395.2872289803678,
+  "gpu_j": 456.15100387046493,
+  "ane_j": 0.0,
+  "cpu_w": 11.546309448740127,
+  "package_w": 24.87044506432164,
+  "process_reported_j": 17.930985421,
+  "episodes": 12201,
+  "cpu_idle_subtracted_j": -17.497581754486134,
+  "ratio_process_to_cpu_idle_subtracted": null
+ },
+ "mol": {
+  "samples": 120,
+  "seconds": 34.32452741600001,
+  "cpu_j": 406.14506716472806,
+  "gpu_j": 469.4278163220765,
+  "ane_j": 0.0,
+  "cpu_w": 11.832502811835012,
+  "package_w": 25.50866535976445,
+  "process_reported_j": 17.800949659,
+  "episodes": 11875,
+  "cpu_idle_subtracted_j": -7.7199174277612315,
+  "ratio_process_to_cpu_idle_subtracted": null
+ },
+ "blind": {
+  "samples": 120,
+  "seconds": 34.258410377999994,
+  "cpu_j": 407.0721650710703,
+  "gpu_j": 457.3791144047725,
+  "ane_j": 0.0,
+  "cpu_w": 11.88240086389073,
+  "package_w": 25.23325717503152,
+  "process_reported_j": 17.508799947,
+  "episodes": 20430,
+  "cpu_idle_subtracted_j": -5.995619123536073,
+  "ratio_process_to_cpu_idle_subtracted": null
+ },
+ "idle_end": {
+  "samples": 120,
+  "seconds": 34.256549376,
+  "cpu_j": 412.83795084595846,
+  "gpu_j": 468.97591761049216,
+  "ane_j": 0.0,
+  "cpu_w": 12.051358305667266,
+  "package_w": 25.741467967998137,
+  "process_reported_j": 0.001461837,
+  "episodes": 0
+ },
+ "idle_cpu_w_mean": 12.05741246125855,
+ "label": "reported_j (powermetrics, Apple-estimated) and reported_j (per-process kernel energy model); measured_j empty"
+}

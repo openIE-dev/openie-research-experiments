@@ -1,0 +1,61 @@
+{
+ "bug": "Lang-59",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": true,
+ "correct": true,
+ "partial": false,
+ "tries": 148,
+ "compiled": 87,
+ "patterns": {
+  "VariableReplacer": 81,
+  "NullPointerChecker": 57,
+  "LiteralExpressionMutator": 2,
+  "StatementRemover": 2,
+  "StatementInserter": 6
+ },
+ "kept": [
+  {
+   "file": "src/java/org/apache/commons/lang/text/StrBuilder.java",
+   "line": 884,
+   "pattern": "VariableReplacer",
+   "from": "str.getChars(0, strLen, buffer, size);",
+   "to": "str.getChars(0, width, buffer, size);"
+  }
+ ],
+ "setup_s": 21.4,
+ "positions": [
+  [
+   "src/java/org/apache/commons/lang/text/StrBuilder.java",
+   [
+    884
+   ]
+  ]
+ ],
+ "test_s": 7.3,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 148,
+ "plausible_found": [
+  {
+   "try": 4,
+   "pattern": "VariableReplacer",
+   "line": 884,
+   "new_idents": [
+    "width"
+   ]
+  }
+ ],
+ "picked_try": 4,
+ "ast_equal": true,
+ "fixed_derived": [
+  "src/java/org/apache/commons/lang/text/StrBuilder.java"
+ ],
+ "patch_files": [
+  "src/java/org/apache/commons/lang/text/StrBuilder.java"
+ ],
+ "pattern": "VariableReplacer",
+ "cpu_s": 56.23,
+ "est_j": 562.3,
+ "wall_s": 61.1
+}

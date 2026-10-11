@@ -1,0 +1,13 @@
+diff --git a/base/src/lib.rs b/work/src/lib.rs
+index ed79fdc..6a3b098 100644
+--- a/base/src/lib.rs
++++ b/work/src/lib.rs
+@@ -243,7 +243,7 @@ where
+     let mut result = b_len;
+ 
+     for (i, a_elem) in a.into_iter().enumerate() {
+-        result = i;
++        result = i + 1;
+         let mut distance_b = i;
+ 
+         for (j, b_elem) in b.into_iter().enumerate() {

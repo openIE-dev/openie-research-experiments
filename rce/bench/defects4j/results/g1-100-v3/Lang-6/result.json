@@ -1,0 +1,59 @@
+{
+ "bug": "Lang-6",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": true,
+ "correct": true,
+ "partial": false,
+ "tries": 6,
+ "compiled": 5,
+ "patterns": {
+  "OperatorMutator": 1,
+  "VariableReplacer": 3,
+  "StatementRemover": 2
+ },
+ "kept": [
+  {
+   "file": "src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java",
+   "line": 95,
+   "pattern": "VariableReplacer",
+   "from": "pos += Character.charCount(Character.codePointAt(input, pos));",
+   "to": "pos += Character.charCount(Character.codePointAt(input, pt));"
+  }
+ ],
+ "setup_s": 23.6,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java",
+   [
+    95
+   ]
+  ]
+ ],
+ "test_s": 15.5,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 6,
+ "plausible_found": [
+  {
+   "try": 2,
+   "pattern": "VariableReplacer",
+   "line": 95,
+   "new_idents": [
+    "pt"
+   ]
+  }
+ ],
+ "picked_try": 2,
+ "ast_equal": true,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java"
+ ],
+ "pattern": "VariableReplacer",
+ "cpu_s": 41.89,
+ "est_j": 418.9,
+ "wall_s": 55.0
+}

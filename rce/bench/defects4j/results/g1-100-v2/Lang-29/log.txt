@@ -1,0 +1,14 @@
+[09:52:50] sh defects4j checkout -p
+[09:52:54] sh defects4j compile
+[09:53:02] sh defects4j export -p
+[09:53:03] sh defects4j export -p
+[09:53:04] sh defects4j export -p
+[09:53:05] sh defects4j export -p
+[09:53:06] sh defects4j export -p
+[09:53:07] sh javac -nowarn -cp
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.commons.lang3.builder.ReflectionToStringBuilder (file:/workspace/rce-work/build3/crates/rce/bench/defects4j/results/tbar-100/Lang-29/work/target/classes/) to field java.lang.Integer.digits
+WARNING: Please consider reporting this to the maintainers of org.apache.commons.lang3.builder.ReflectionToStringBuilder
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+{"bug": "Lang-29", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 1, "compiled": 1, "patterns": {"StatementRemover": 1}, "kept": [], "setup_s": 12.0, "positions": [["src/main/java/org/apache/commons/lang3/SystemUtils.java", [1672]]], "test_s": 9.5, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 1, "ast_equal": false, "fixed_derived": ["src/main/java/org/apache/commons/lang3/SystemUtils.java"], "patch_files": ["src/main/java/org/apache/commons/lang3/SystemUtils.java"], "pattern": null, "cpu_s": 50.42, "est_j": 504.2, "wall_s": 28.7}

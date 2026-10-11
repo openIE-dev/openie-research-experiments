@@ -1,0 +1,25 @@
+[09:09:23] sh defects4j checkout -p
+[09:09:27] sh defects4j compile
+[09:09:38] sh defects4j export -p
+[09:09:39] sh defects4j export -p
+[09:09:40] sh defects4j export -p
+[09:09:41] sh defects4j export -p
+[09:09:42] sh defects4j export -p
+[09:09:42] sh javac -nowarn -cp
+[09:09:43] test 70
+[09:09:45] test 22
+[09:09:46] test 22
+[09:09:46] test 22
+[09:09:47] test 22
+[09:09:47] test 22
+[09:09:47] test 22
+[09:09:48] test 22
+[09:09:48] test 22
+[09:09:48] test 22
+[09:09:49] test 22
+[09:09:49] test 22
+[09:09:49] test 22
+[09:09:49] test 22
+[09:09:50] test 22
+[09:09:50] test 22
+{"bug": "Chart-4", "plausible": false, "correct": false, "tries": 24, "compiled": 14, "patterns": {"FP13": 15, "FP4": 1, "FP15": 4, "FP14": 1, "FP1": 1, "FP2": 1, "FP11": 1}, "setup_s": 15.1, "test_s": 3.2, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 22, "candidates": 24, "cpu_s": 61.94, "est_j": 619.4, "wall_s": 27.9}

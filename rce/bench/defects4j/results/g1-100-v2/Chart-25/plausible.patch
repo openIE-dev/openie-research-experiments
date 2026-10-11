@@ -1,0 +1,44 @@
+--- a/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java
++++ b/source/org/jfree/chart/renderer/category/StatisticalBarRenderer.java
+@@ -257,7 +257,10 @@
+         // BAR X
+         Number meanValue = dataset.getMeanValue(row, column);
+ 
+-        double value = meanValue.doubleValue();
++        if (meanValue == null) {
++	    return;
++	}
++double value = meanValue.doubleValue();
+         double base = 0.0;
+         double lclip = getLowerClip();
+         double uclip = getUpperClip();
+@@ -312,7 +315,7 @@
+         }
+ 
+         // standard deviation lines
+-            double valueDelta = dataset.getStdDevValue(row, column).doubleValue();
++            double valueDelta = dataset.getMeanValue(row, column).doubleValue();
+             double highVal = rangeAxis.valueToJava2D(meanValue.doubleValue() 
+                     + valueDelta, dataArea, yAxisLocation);
+             double lowVal = rangeAxis.valueToJava2D(meanValue.doubleValue() 
+@@ -401,7 +404,10 @@
+         // BAR Y
+         Number meanValue = dataset.getMeanValue(row, column);
+ 
+-        double value = meanValue.doubleValue();
++        if (meanValue == null) {
++	    return;
++	}
++double value = meanValue.doubleValue();
+         double base = 0.0;
+         double lclip = getLowerClip();
+         double uclip = getUpperClip();
+@@ -456,7 +462,7 @@
+         }
+ 
+         // standard deviation lines
+-            double valueDelta = dataset.getStdDevValue(row, column).doubleValue();
++            double valueDelta = dataset.getMeanValue(row, column).doubleValue();
+             double highVal = rangeAxis.valueToJava2D(meanValue.doubleValue() 
+                     + valueDelta, dataArea, yAxisLocation);
+             double lowVal = rangeAxis.valueToJava2D(meanValue.doubleValue() 

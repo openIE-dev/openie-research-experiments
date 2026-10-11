@@ -1,0 +1,34 @@
+{
+  "track": "C",
+  "id": "track-c-2026-10-10-live",
+  "registered": "2026-10-10",
+  "specs": [
+    "../examples/web-api.rce",
+    "../examples/joule-db-core.rce",
+    "../examples/follow-bible-ingest.rce",
+    "../examples/follow-bible-ingest-schemas.rce",
+    "../examples/ask-server.rce",
+    "../examples/soak-g2-schemas.rce"
+  ],
+  "seeds": [
+    42
+  ],
+  "rounds": 20,
+  "foremen": [
+    "mock",
+    "geared"
+  ],
+  "auto_approve": "soak",
+  "hypotheses": [
+    "H1: with --live-coverage (live traffic only toward the coverage bound) no run fails, and every run still reaches a quiet round before round 20.",
+    "H2: for each (spec, foreman), the first quiet round is the same as or later than in track-c-2026-10-10-g2: synthetic same-shape samples no longer count, so closing a shape takes at least as much traffic.",
+    "H3: the gear mix (G0/G1/G2 counts) is the same as in track-c-2026-10-10-g2: coverage policy changes when a node is trusted, not how an escalation is resolved.",
+    "H4: measured_j is empty in every row."
+  ],
+  "notes": [
+    "Same specs, seeds, rounds and foremen as track-c-2026-10-10-g2; only --live-coverage differs.",
+    "No exclusions; every run is reported.",
+    "Stop rule: fixed 20 rounds, no reruns before reporting."
+  ],
+  "live_coverage": true
+}

@@ -1,0 +1,13 @@
+diff --git a/base/src/bytes.rs b/work/src/bytes.rs
+index 9114a54..52401fc 100644
+--- a/base/src/bytes.rs
++++ b/work/src/bytes.rs
+@@ -68,7 +68,7 @@ impl<'a> Shlex<'a> {
+                     return None;
+                 },
+                 '\\' => if let Some(ch2) = self.next_char() {
+-                    result.push(ch2);
++                    if ch2 != b'\n' { result.push(ch2); }
+                 } else {
+                     self.had_error = true;
+                     return None;

@@ -1,0 +1,9 @@
+[09:54:25] sh defects4j checkout -p
+[09:54:29] sh defects4j compile
+[09:54:40] sh defects4j export -p
+[09:54:41] sh defects4j export -p
+[09:54:42] sh defects4j export -p
+[09:54:43] sh defects4j export -p
+[09:54:44] sh defects4j export -p
+[09:54:45] sh javac -nowarn -cp
+{"bug": "Lang-38", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 63, "compiled": 28, "patterns": {"VariableReplacer": 33, "NullPointerChecker": 19, "ClassCastChecker": 2, "StatementMover": 2, "StatementRemover": 3, "StatementInserter": 4}, "kept": [], "setup_s": 15.1, "positions": [["src/java/org/apache/commons/lang3/time/FastDateFormat.java", [872, 873]]], "test_s": 0.6, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 64, "ast_equal": false, "fixed_derived": ["src/java/org/apache/commons/lang3/time/FastDateFormat.java"], "patch_files": ["src/java/org/apache/commons/lang3/time/FastDateFormat.java"], "pattern": null, "cpu_s": 50.55, "est_j": 505.5, "wall_s": 28.0}

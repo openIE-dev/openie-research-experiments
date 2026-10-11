@@ -1,0 +1,29 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 23,
+ "llm_calls": 0,
+ "rule_tries": 22,
+ "edit": {
+  "file": "packaging/version.py",
+  "function": "micro",
+  "tier": 2,
+  "pattern": "FP9",
+  "from": "1",
+  "to": "0"
+ },
+ "ranked": [
+  "packaging/version.py::micro",
+  "packaging/specifiers.py::version",
+  "packaging/version.py::release",
+  "packaging/version.py::release",
+  "packaging/markers.py::format_full_version",
+  "packaging/_manylinux.py::_glibc_version_string_confstr"
+ ],
+ "patterns": {
+  "FP11": 11,
+  "FP10": 3,
+  "FP6": 1,
+  "FP9": 7
+ },
+ "seconds": 1.01
+}

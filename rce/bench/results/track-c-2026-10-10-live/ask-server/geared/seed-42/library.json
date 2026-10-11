@@ -1,0 +1,28 @@
+{
+  "1a1aad190efb7cf59a239be02b68550049f5e310996e73622641efc63c0a85fd": [
+    {
+      "key": "1a1aad190efb7cf59a239be02b68550049f5e310996e73622641efc63c0a85fd",
+      "shape_signature": "{\"round\":number}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "dep_DEP1",
+      "source_spec": "ask-server",
+      "gear": "G1",
+      "hits": 6
+    }
+  ],
+  "30d963c753b047710384d6d042d005cacf34f7c7e296686e25da5f706732fda8": [
+    {
+      "key": "30d963c753b047710384d6d042d005cacf34f7c7e296686e25da5f706732fda8",
+      "shape_signature": "{\"escalation_reason\":string,\"source_node\":string}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "role_R6",
+      "source_spec": "ask-server",
+      "gear": "G1",
+      "hits": 1
+    }
+  ]
+}

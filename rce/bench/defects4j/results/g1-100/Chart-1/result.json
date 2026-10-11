@@ -1,0 +1,26 @@
+{
+ "bug": "Chart-1",
+ "plausible": true,
+ "correct": false,
+ "tries": 2,
+ "compiled": 1,
+ "patterns": {
+  "FP10": 1,
+  "FP11": 1
+ },
+ "setup_s": 13.9,
+ "test_s": 3.2,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 18,
+ "pattern": "FP11",
+ "tier": 1,
+ "edit": {
+  "file": "source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java",
+  "from": "!=",
+  "to": "=="
+ },
+ "cpu_s": 53.04,
+ "est_j": 530.4,
+ "wall_s": 27.3
+}

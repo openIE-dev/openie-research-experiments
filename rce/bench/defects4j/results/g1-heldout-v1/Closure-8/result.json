@@ -1,0 +1,43 @@
+{
+ "bug": "Closure-8",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 23,
+ "compiled": 12,
+ "patterns": {
+  "OperatorMutator": 8,
+  "VariableReplacer": 1,
+  "NullPointerChecker": 13,
+  "StatementRemover": 1
+ },
+ "kept": [],
+ "setup_s": 57.8,
+ "positions": [
+  [
+   "src/com/google/javascript/jscomp/CollapseVariableDeclarations.java",
+   [
+    202,
+    203,
+    204
+   ]
+  ]
+ ],
+ "test_s": 22.6,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 69,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/com/google/javascript/jscomp/CollapseVariableDeclarations.java"
+ ],
+ "patch_files": [
+  "src/com/google/javascript/jscomp/CollapseVariableDeclarations.java"
+ ],
+ "pattern": null,
+ "cpu_s": 96.15,
+ "est_j": 961.5,
+ "wall_s": 158.2
+}

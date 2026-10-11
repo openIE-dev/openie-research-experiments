@@ -1,0 +1,9 @@
+[09:59:52] sh defects4j checkout -p
+[09:59:56] sh defects4j compile
+[10:00:13] sh defects4j export -p
+[10:00:15] sh defects4j export -p
+[10:00:17] sh defects4j export -p
+[10:00:19] sh defects4j export -p
+[10:00:21] sh defects4j export -p
+[10:00:23] sh javac -nowarn -cp
+{"bug": "Chart-10", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 9, "compiled": 5, "patterns": {"ReturnStatementMutator": 1, "OperatorMutator": 2, "NullPointerChecker": 5, "StatementRemover": 1}, "kept": [], "setup_s": 21.5, "positions": [["source/org/jfree/chart/imagemap/StandardToolTipTagFragmentGenerator.java", [65, 66]]], "test_s": 0.6, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 18, "ast_equal": false, "fixed_derived": ["source/org/jfree/chart/imagemap/StandardToolTipTagFragmentGenerator.java"], "patch_files": ["source/org/jfree/chart/imagemap/StandardToolTipTagFragmentGenerator.java"], "pattern": null, "cpu_s": 41.32, "est_j": 413.2, "wall_s": 34.4}

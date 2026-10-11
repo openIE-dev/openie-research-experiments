@@ -1,0 +1,9 @@
+[09:52:10] sh defects4j checkout -p
+[09:52:15] sh defects4j compile
+[09:52:21] sh defects4j export -p
+[09:52:22] sh defects4j export -p
+[09:52:23] sh defects4j export -p
+[09:52:24] sh defects4j export -p
+[09:52:25] sh defects4j export -p
+[09:52:25] sh javac -nowarn -cp
+{"bug": "Lang-23", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 0, "compiled": 0, "patterns": {}, "kept": [], "setup_s": 10.9, "positions": [["src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java", [71]]], "test_s": 9.3, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 0, "ast_equal": false, "fixed_derived": ["src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java"], "patch_files": ["src/main/java/org/apache/commons/lang3/text/ExtendedMessageFormat.java"], "pattern": null, "cpu_s": 51.75, "est_j": 517.5, "wall_s": 26.1}

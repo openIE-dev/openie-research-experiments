@@ -1,0 +1,13 @@
+[09:08:56] sh defects4j checkout -p
+[09:09:00] sh defects4j compile
+[09:09:09] sh defects4j export -p
+[09:09:11] sh defects4j export -p
+[09:09:12] sh defects4j export -p
+[09:09:14] sh defects4j export -p
+[09:09:16] sh defects4j export -p
+[09:09:17] sh javac -nowarn -cp
+[09:09:19] test 64
+[09:09:21] test 1
+[09:09:22] test 1
+[09:09:22] test 64
+{"bug": "Chart-1", "plausible": true, "correct": false, "tries": 2, "compiled": 1, "patterns": {"FP10": 1, "FP11": 1}, "setup_s": 13.9, "test_s": 3.2, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 18, "pattern": "FP11", "tier": 1, "edit": {"file": "source/org/jfree/chart/renderer/category/AbstractCategoryItemRenderer.java", "from": "!=", "to": "=="}, "cpu_s": 53.04, "est_j": 530.4, "wall_s": 27.3}

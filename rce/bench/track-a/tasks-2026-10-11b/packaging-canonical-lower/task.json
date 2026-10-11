@@ -1,0 +1,10 @@
+{
+ "id": "packaging-canonical-lower",
+ "problem": "canonicalize_name keeps upper case.",
+ "repo": "repo",
+ "test_cmd": "unshare -rn sh -c 'python3 -B test_task.py'",
+ "gold_patch": "gold.patch",
+ "timeout_s": 600,
+ "source": "packaging (dist-packages)",
+ "file": "packaging/utils.py"
+}

@@ -1,0 +1,50 @@
+{
+ "bug": "Lang-12",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 155,
+ "compiled": 129,
+ "patterns": {
+  "OperatorMutator": 51,
+  "ConditionalExpressionMutator": 76,
+  "VariableReplacer": 4,
+  "StatementMover": 7,
+  "StatementRemover": 9,
+  "NullPointerChecker": 6,
+  "LiteralExpressionMutator": 2
+ },
+ "kept": [],
+ "setup_s": 11.9,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/lang3/RandomStringUtils.java",
+   [
+    231,
+    232,
+    233,
+    234,
+    235,
+    236,
+    237
+   ]
+  ]
+ ],
+ "test_s": 0.8,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 2,
+ "candidates": 193,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/lang3/RandomStringUtils.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/lang3/RandomStringUtils.java"
+ ],
+ "pattern": null,
+ "cpu_s": 46.79,
+ "est_j": 467.9,
+ "wall_s": 30.4
+}

@@ -1,0 +1,41 @@
+{
+  "1a1aad190efb7cf59a239be02b68550049f5e310996e73622641efc63c0a85fd": [
+    {
+      "key": "1a1aad190efb7cf59a239be02b68550049f5e310996e73622641efc63c0a85fd",
+      "shape_signature": "{\"round\":number}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "dep_DEP1",
+      "source_spec": "web-api",
+      "gear": "G1",
+      "hits": 3
+    }
+  ],
+  "4f533d76397ddfb863eaee3ec1fa8c0bc36a2055812d208ce1f54ce5f7f7e8e1": [
+    {
+      "key": "4f533d76397ddfb863eaee3ec1fa8c0bc36a2055812d208ce1f54ce5f7f7e8e1",
+      "shape_signature": "{\"round\":number}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "del_D2",
+      "source_spec": "web-api",
+      "gear": "G1",
+      "hits": 0
+    }
+  ],
+  "defc7afcc7c92aa3ee06dc0aecded3c295a1c83238fb570616f0e6c4548752ef": [
+    {
+      "key": "defc7afcc7c92aa3ee06dc0aecded3c295a1c83238fb570616f0e6c4548752ef",
+      "shape_signature": "{\"round\":number}",
+      "spec": {
+        "kind": "passthrough"
+      },
+      "source_node": "del_D1",
+      "source_spec": "web-api",
+      "gear": "G1",
+      "hits": 0
+    }
+  ]
+}

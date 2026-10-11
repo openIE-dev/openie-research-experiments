@@ -1,0 +1,39 @@
+{
+ "bug": "Math-10",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 1,
+ "compiled": 1,
+ "patterns": {
+  "StatementRemover": 1
+ },
+ "kept": [],
+ "setup_s": 33.6,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java",
+   [
+    1382,
+    1420
+   ]
+  ]
+ ],
+ "test_s": 15.1,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 2,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/math3/analysis/differentiation/DSCompiler.java"
+ ],
+ "pattern": null,
+ "cpu_s": 74.36,
+ "est_j": 743.6,
+ "wall_s": 71.7
+}

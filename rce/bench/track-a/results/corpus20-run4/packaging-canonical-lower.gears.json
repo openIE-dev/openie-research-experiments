@@ -1,0 +1,19 @@
+{
+ "gear": "unresolved",
+ "test_runs": 137,
+ "llm_calls": 3,
+ "rule_tries": 133,
+ "edit": null,
+ "ranked": [
+  "packaging/utils.py::canonicalize_name",
+  "packaging/metadata.py::_process_name",
+  "packaging/licenses/__init__.py::canonicalize_license_expression",
+  "packaging/metadata.py::__set_name__",
+  "packaging/tags.py::interpreter_name",
+  "packaging/utils.py::is_normalized_name"
+ ],
+ "sensitive": [
+  "packaging/utils.py::canonicalize_name"
+ ],
+ "seconds": 16.49
+}

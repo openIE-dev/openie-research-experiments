@@ -1,0 +1,29 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 125,
+ "llm_calls": 0,
+ "rule_tries": 124,
+ "edit": {
+  "file": "src/bytes.rs",
+  "function": "parse_word",
+  "tier": 2,
+  "pattern": "FP3",
+  "from": "result.push(ch2);",
+  "to": "if ch2 != b'\\n' { result.push(ch2); }"
+ },
+ "ranked": [
+  "src/bytes.rs::split",
+  "src/lib.rs::split",
+  "src/bytes.rs::new",
+  "src/bytes.rs::new",
+  "src/lib.rs::new",
+  "src/lib.rs::new"
+ ],
+ "patterns": {
+  "FP9": 4,
+  "FP6": 90,
+  "FP12": 2,
+  "FP3": 28
+ },
+ "seconds": 19.47
+}

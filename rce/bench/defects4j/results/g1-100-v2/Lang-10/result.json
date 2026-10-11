@@ -1,0 +1,52 @@
+{
+ "bug": "Lang-10",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": true,
+ "correct": false,
+ "partial": false,
+ "tries": 2,
+ "compiled": 2,
+ "patterns": {
+  "ConditionalExpressionMutator": 2
+ },
+ "kept": [
+  {
+   "file": "src/main/java/org/apache/commons/lang3/time/FastDateParser.java",
+   "line": 307,
+   "pattern": "ConditionalExpressionMutator",
+   "from": "if(Character.isWhitespace(c)) {\n                if(!wasWhite) {\n                    wasWhite= true;\n                    regex.append(\"\\\\s*+\");\n                }\n                continue;\n            }",
+   "to": "if((Character.isWhitespace(c)) && (c=='\\'')) {\n                if(!wasWhite) {\n                    wasWhite= true;\n                    regex.append(\"\\\\s*+\");\n                }\n                continue;\n            }"
+  }
+ ],
+ "setup_s": 12.7,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/lang3/time/FastDateParser.java",
+   [
+    307,
+    308,
+    309,
+    310,
+    311,
+    312,
+    313
+   ]
+  ]
+ ],
+ "test_s": 25.9,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 2,
+ "candidates": 26,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/lang3/time/FastDateParser.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/lang3/time/FastDateParser.java"
+ ],
+ "pattern": "ConditionalExpressionMutator",
+ "cpu_s": 77.53,
+ "est_j": 775.3,
+ "wall_s": 46.9
+}

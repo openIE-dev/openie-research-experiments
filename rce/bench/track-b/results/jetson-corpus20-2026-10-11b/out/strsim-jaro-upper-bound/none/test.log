@@ -1,0 +1,40 @@
+
+thread 'tests::jaro_diff_two_and_one' (3126633) panicked at src/lib.rs:881:9:
+assertion failed: actual: `0.83`, expected: `0`: actual not within < 0.01 of expected
+
+---- tests::jaro_diff_with_transposition stdout ----
+
+thread 'tests::jaro_diff_with_transposition' (3126634) panicked at src/lib.rs:892:9:
+assertion failed: actual: `0.6`, expected: `0.5472222222222222`: actual not within < 0.001 of expected
+
+---- tests::jaro_same_one_character stdout ----
+
+thread 'tests::jaro_same_one_character' (3126639) panicked at src/lib.rs:866:9:
+assertion `left == right` failed
+  left: 1.0
+ right: 0.0
+
+---- tests::jaro_winkler_diff_with_transposition stdout ----
+
+thread 'tests::jaro_winkler_diff_with_transposition' (3126645) panicked at src/lib.rs:954:9:
+assertion failed: actual: `0.6`, expected: `0.5472222222222222`: actual not within < 0.001 of expected
+
+---- tests::jaro_winkler_same_one_character stdout ----
+
+thread 'tests::jaro_winkler_same_one_character' (3126653) panicked at src/lib.rs:943:9:
+assertion `left == right` failed
+  left: 1.0
+ right: 0.0
+
+
+failures:
+    tests::jaro_diff_one_and_two
+    tests::jaro_diff_two_and_one
+    tests::jaro_diff_with_transposition
+    tests::jaro_same_one_character
+    tests::jaro_winkler_diff_with_transposition
+    tests::jaro_winkler_same_one_character
+
+test result: FAILED. 82 passed; 6 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `--lib`

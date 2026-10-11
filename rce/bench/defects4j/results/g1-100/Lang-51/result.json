@@ -1,0 +1,16 @@
+{
+ "bug": "Lang-51",
+ "plausible": false,
+ "correct": false,
+ "tries": 0,
+ "compiled": 0,
+ "patterns": {},
+ "setup_s": 9.5,
+ "test_s": 0.3,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 0,
+ "cpu_s": 27.71,
+ "est_j": 277.1,
+ "wall_s": 14.7
+}

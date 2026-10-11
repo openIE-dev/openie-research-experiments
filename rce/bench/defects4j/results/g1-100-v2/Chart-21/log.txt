@@ -1,0 +1,9 @@
+[10:02:04] sh defects4j checkout -p
+[10:02:07] sh defects4j compile
+[10:02:21] sh defects4j export -p
+[10:02:22] sh defects4j export -p
+[10:02:23] sh defects4j export -p
+[10:02:24] sh defects4j export -p
+[10:02:25] sh defects4j export -p
+[10:02:26] sh javac -nowarn -cp
+{"bug": "Chart-21", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 960, "compiled": 666, "patterns": {"MethodInvocationMutator": 41, "StatementRemover": 35, "DataTypeReplacer": 12, "NullPointerChecker": 40, "OperatorMutator": 188, "VariableReplacer": 228, "StatementMover": 70, "StatementInserter": 114, "ConditionalExpressionMutator": 232}, "kept": [], "setup_s": 17.5, "positions": [["source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java", [155, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 740, 741]]], "test_s": 2.2, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 1211, "ast_equal": false, "fixed_derived": ["source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java"], "patch_files": ["source/org/jfree/data/statistics/DefaultBoxAndWhiskerCategoryDataset.java"], "pattern": null, "cpu_s": 87.26, "est_j": 872.6, "wall_s": 61.8}

@@ -1,0 +1,475 @@
+{
+  "nodes": {
+    "del_D1": {
+      "id": "del_D1",
+      "name": "deliverable: ",
+      "kind": "Executor",
+      "output_schema": "IngestReport",
+      "input_schema": "{}",
+      "reason": {
+        "why": "Per-translation success/failure/warning summary",
+        "author": "david",
+        "validated": "2026-10-09T09:31:31.741642602+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "fulfills": "O1",
+        "type": "deliverable"
+      },
+      "blast_radius": "local"
+    },
+    "del_D2": {
+      "id": "del_D2",
+      "name": "deliverable: ",
+      "kind": "Executor",
+      "output_schema": "Source",
+      "input_schema": "{}",
+      "reason": {
+        "why": "Parsed Bible text with book/chapter/verse structure",
+        "author": "david",
+        "validated": "2026-10-09T09:31:31.741654283+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "fulfills": "O2",
+        "type": "deliverable"
+      },
+      "blast_radius": "local"
+    },
+    "del_D3": {
+      "id": "del_D3",
+      "name": "deliverable: ",
+      "kind": "Executor",
+      "output_schema": "CacheEntry",
+      "input_schema": "{}",
+      "reason": {
+        "why": "SHA-256 keyed cached translation data",
+        "author": "david",
+        "validated": "2026-10-09T09:31:31.741665524+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "fulfills": "O3",
+        "type": "deliverable"
+      },
+      "blast_radius": "local"
+    },
+    "del_D4": {
+      "id": "del_D4",
+      "name": "deliverable: ",
+      "kind": "Executor",
+      "output_schema": "JsonExportTree",
+      "input_schema": "{}",
+      "reason": {
+        "why": "Static JSON directory tree for browser serving",
+        "author": "david",
+        "validated": "2026-10-09T09:31:31.741676802+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "fulfills": "O4",
+        "type": "deliverable"
+      },
+      "blast_radius": "local"
+    },
+    "dep_DEP1": {
+      "id": "dep_DEP1",
+      "name": "dependency: follow-bible",
+      "kind": "Source",
+      "output_schema": "{}",
+      "input_schema": "{}",
+      "reason": {
+        "why": "Core Bible data model (Book, Chapter, Verse)",
+        "author": "david",
+        "validated": "2026-10-09T09:31:31.741772202+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "dep_kind": "Crate",
+        "type": "dependency"
+      },
+      "blast_radius": "local"
+    },
+    "dep_DEP2": {
+      "id": "dep_DEP2",
+      "name": "dependency: follow-bible-usfm",
+      "kind": "Source",
+      "output_schema": "{}",
+      "input_schema": "{}",
+      "reason": {
+        "why": "USFM parser",
+        "author": "david",
+        "validated": "2026-10-09T09:31:31.741784310+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "dep_kind": "Crate",
+        "type": "dependency"
+      },
+      "blast_radius": "local"
+    },
+    "dep_DEP3": {
+      "id": "dep_DEP3",
+      "name": "dependency: follow-bible-store",
+      "kind": "Source",
+      "output_schema": "{}",
+      "input_schema": "{}",
+      "reason": {
+        "why": "Persistent store for ingested translations",
+        "author": "david",
+        "validated": "2026-10-09T09:31:31.741795968+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "dep_kind": "Crate",
+        "type": "dependency"
+      },
+      "blast_radius": "local"
+    },
+    "dep_DEP4": {
+      "id": "dep_DEP4",
+      "name": "dependency: core-50.toml",
+      "kind": "Source",
+      "output_schema": "{}",
+      "input_schema": "{}",
+      "reason": {
+        "why": "Manifest defining the 50 core translations to ingest",
+        "author": "david",
+        "validated": "2026-10-09T09:31:31.741808090+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "dep_kind": "Data",
+        "type": "dependency"
+      },
+      "blast_radius": "persistent"
+    },
+    "role_R1": {
+      "id": "role_R1",
+      "name": "manifest-loader",
+      "kind": "Executor",
+      "output_schema": "{}",
+      "input_schema": "{}",
+      "reason": {
+        "why": "Reads TOML manifests and builds the translation work queue",
+        "author": "david",
+        "validated": "2026-10-09T09:31:31.741689322+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "role_kind": "ExecutionNode",
+        "type": "role"
+      },
+      "blast_radius": "local"
+    },
+    "role_R2": {
+      "id": "role_R2",
+      "name": "adapter-registry",
+      "kind": "Executor",
+      "output_schema": "{}",
+      "input_schema": "{}",
+      "reason": {
+        "why": "Maps source format kind to the correct parser adapter",
+        "author": "david",
+        "validated": "2026-10-09T09:31:31.741702863+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "role_kind": "ExecutionNode",
+        "type": "role"
+      },
+      "blast_radius": "local"
+    },
+    "role_R3": {
+      "id": "role_R3",
+      "name": "cache-manager",
+      "kind": "Executor",
+      "output_schema": "{}",
+      "input_schema": "{}",
+      "reason": {
+        "why": "SHA-256 content-addressed cache for idempotent re-runs",
+        "author": "david",
+        "validated": "2026-10-09T09:31:31.741712395+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "role_kind": "ExecutionNode",
+        "type": "role"
+      },
+      "blast_radius": "local"
+    },
+    "role_R4": {
+      "id": "role_R4",
+      "name": "ingest-runner",
+      "kind": "Executor",
+      "output_schema": "{}",
+      "input_schema": "{}",
+      "reason": {
+        "why": "Orchestrates per-translation ingestion end-to-end",
+        "author": "david",
+        "validated": "2026-10-09T09:31:31.741721257+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "role_kind": "ExecutionNode",
+        "type": "role"
+      },
+      "blast_radius": "local"
+    },
+    "role_R5": {
+      "id": "role_R5",
+      "name": "store-writer",
+      "kind": "Executor",
+      "output_schema": "{}",
+      "input_schema": "{}",
+      "reason": {
+        "why": "Persists parsed translations to follow-bible-store",
+        "author": "david",
+        "validated": "2026-10-09T09:31:31.741732402+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "role_kind": "ExecutionNode",
+        "type": "role"
+      },
+      "blast_radius": "local"
+    },
+    "role_R6": {
+      "id": "role_R6",
+      "name": "json-exporter",
+      "kind": "Executor",
+      "output_schema": "{}",
+      "input_schema": "{}",
+      "reason": {
+        "why": "Generates static JSON tree from ingested data",
+        "author": "david",
+        "validated": "2026-10-09T09:31:31.741745242+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "role_kind": "ExecutionNode",
+        "type": "role"
+      },
+      "blast_radius": "local"
+    },
+    "role_R7": {
+      "id": "role_R7",
+      "name": "pipeline-coordinator",
+      "kind": "Decision",
+      "output_schema": "{}",
+      "input_schema": "{}",
+      "reason": {
+        "why": "Manages pipeline ordering and error aggregation",
+        "author": "david",
+        "validated": "2026-10-09T09:31:31.741756567+00:00",
+        "references": []
+      },
+      "handler_state": "Specified",
+      "heartbeat": {
+        "interval_ms": 5000,
+        "max_missed": 3
+      },
+      "metadata": {
+        "role_kind": "Coordinator",
+        "type": "role"
+      },
+      "blast_radius": "local"
+    }
+  },
+  "edges": {
+    "flow_F1": {
+      "id": "flow_F1",
+      "from": "dep_DEP4",
+      "to": "role_R1",
+      "kind": "DataFlow",
+      "reason": {
+        "why": "the manifest lists what to ingest",
+        "author": "david",
+        "validated": "2026-10-09T09:31:31.741865927+00:00",
+        "references": []
+      }
+    },
+    "flow_F10": {
+      "id": "flow_F10",
+      "from": "role_R3",
+      "to": "del_D3",
+      "kind": "DataFlow",
+      "reason": {
+        "why": "cache manager emits cache entries",
+        "author": "david",
+        "validated": "2026-10-09T09:31:31.741952544+00:00",
+        "references": []
+      }
+    },
+    "flow_F2": {
+      "id": "flow_F2",
+      "from": "role_R1",
+      "to": "role_R2",
+      "kind": "DataFlow",
+      "reason": {
+        "why": "each manifest entry picks an adapter",
+        "author": "david",
+        "validated": "2026-10-09T09:31:31.741876892+00:00",
+        "references": []
+      }
+    },
+    "flow_F3": {
+      "id": "flow_F3",
+      "from": "role_R2",
+      "to": "role_R4",
+      "kind": "DataFlow",
+      "reason": {
+        "why": "adapters hand sources to the ingest runner",
+        "author": "david",
+        "validated": "2026-10-09T09:31:31.741884948+00:00",
+        "references": []
+      }
+    },
+    "flow_F4": {
+      "id": "flow_F4",
+      "from": "dep_DEP2",
+      "to": "role_R4",
+      "kind": "DataFlow",
+      "reason": {
+        "why": "USFM parsing happens during ingest",
+        "author": "david",
+        "validated": "2026-10-09T09:31:31.741892552+00:00",
+        "references": []
+      }
+    },
+    "flow_F5": {
+      "id": "flow_F5",
+      "from": "role_R4",
+      "to": "role_R5",
+      "kind": "DataFlow",
+      "reason": {
+        "why": "parsed translations are written to the store",
+        "author": "david",
+        "validated": "2026-10-09T09:31:31.741901402+00:00",
+        "references": []
+      }
+    },
+    "flow_F6": {
+      "id": "flow_F6",
+      "from": "role_R5",
+      "to": "del_D1",
+      "kind": "DataFlow",
+      "reason": {
+        "why": "store writes roll up into the ingest report",
+        "author": "david",
+        "validated": "2026-10-09T09:31:31.741915176+00:00",
+        "references": []
+      }
+    },
+    "flow_F7": {
+      "id": "flow_F7",
+      "from": "role_R5",
+      "to": "role_R6",
+      "kind": "DataFlow",
+      "reason": {
+        "why": "stored translations are exported as JSON",
+        "author": "david",
+        "validated": "2026-10-09T09:31:31.741925247+00:00",
+        "references": []
+      }
+    },
+    "flow_F8": {
+      "id": "flow_F8",
+      "from": "role_R6",
+      "to": "del_D4",
+      "kind": "DataFlow",
+      "reason": {
+        "why": "exports form the JSON tree",
+        "author": "david",
+        "validated": "2026-10-09T09:31:31.741933717+00:00",
+        "references": []
+      }
+    },
+    "flow_F9": {
+      "id": "flow_F9",
+      "from": "dep_DEP3",
+      "to": "role_R3",
+      "kind": "DataFlow",
+      "reason": {
+        "why": "the store backs the cache manager",
+        "author": "david",
+        "validated": "2026-10-09T09:31:31.741942567+00:00",
+        "references": []
+      }
+    }
+  },
+  "metadata": {
+    "spec_name": "follow-bible-ingest",
+    "spec_version": "1.0.0"
+  }
+}

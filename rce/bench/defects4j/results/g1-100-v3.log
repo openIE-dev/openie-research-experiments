@@ -1,0 +1,146 @@
+Lang 4 { "bug": "Lang-4", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 39, "compiled": 27, "patterns": {  "NullPointerChecker": 28,  "RangeCh
+Lang 1 { "bug": "Lang-1", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 89, "compiled": 77, "patterns": {  "DataTypeReplacer": 6,  "VariableRe
+Lang 3 { "bug": "Lang-3", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 271, "compiled": 189, "patterns": {  "VariableReplacer": 8,  "MethodIn
+Lang 5 { "bug": "Lang-5", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 571, "compiled": 310, "patterns": {  "DataTypeReplacer": 24,  "Variabl
+Lang 6 { "bug": "Lang-6", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 6, "compiled": 5, "patterns": {  "OperatorMutator": 1,  "VariableReplace
+Lang 7 { "bug": "Lang-7", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 90, "compiled": 62, "patterns": {  "ConditionalExpressionMutator": 72, 
+Lang 11 { "bug": "Lang-11", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 77, "compiled": 75, "patterns": {  "OperatorMutator": 16,  "Condition
+Lang 8 { "bug": "Lang-8", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 38, "compiled": 21, "patterns": {  "OperatorMutator": 6,  "Conditional
+Lang 9 { "bug": "Lang-9", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 149, "compiled": 121, "patterns": {  "ConditionalExpressionMutator": 8
+Lang 12 { "bug": "Lang-12", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 155, "compiled": 129, "patterns": {  "OperatorMutator": 51,  "Conditi
+Lang 10 { "bug": "Lang-10", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 67, "compiled": 26, "patterns": {  "ConditionalExpressionMutator": 8, 
+Lang 14 { "bug": "Lang-14", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 25, "compiled": 9, "patterns": {  "ConditionalExpressionMutator": 20,
+Lang 13 { "bug": "Lang-13", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 10, "compiled": 7, "patterns": {  "NullPointerChecker": 8,  "LiteralEx
+Lang 15 { "bug": "Lang-15", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": true, "tries": 44, "compiled": 23, "patterns": {  "NullPointerChecker": 25,  "Stateme
+Lang 16 { "bug": "Lang-16", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 57, "compiled": 31, "patterns": {  "ConditionalExpressionMutator": 42
+Lang 19 { "bug": "Lang-19", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 137, "compiled": 103, "patterns": {  "OperatorMutator": 28,  "Conditi
+Lang 20 { "bug": "Lang-20", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 77, "compiled": 17, "patterns": {  "VariableReplacer": 8,  "NullPointe
+Lang 21 { "bug": "Lang-21", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 104, "compiled": 49, "patterns": {  "OperatorMutator": 52,  "RangeChe
+Lang 22 { "bug": "Lang-22", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 189, "compiled": 74, "patterns": {  "OperatorMutator": 16,  "Condition
+Lang 24 { "bug": "Lang-24", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 26, "compiled": 24, "patterns": {  "ConditionalExpressionMutator": 16,
+Lang 23 { "bug": "Lang-23", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 0, "compiled": 0, "patterns": {}, "kept": [], "setup_s": 20.7, "posit
+Lang 26 { "bug": "Lang-26", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 53, "compiled": 12, "patterns": {  "VariableReplacer": 11,  "NullPoint
+Lang 28 { "bug": "Lang-28", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 21, "compiled": 10, "patterns": {  "VariableReplacer": 3,  "NullPoint
+Lang 27 { "bug": "Lang-27", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 80, "compiled": 73, "patterns": {  "OperatorMutator": 5,  "Conditiona
+Lang 29 { "bug": "Lang-29", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 1, "compiled": 1, "patterns": {  "StatementRemover": 1 }, "kept": [],
+Lang 31 { "bug": "Lang-31", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 2, "compiled": 1, "patterns": {  "LiteralExpressionMutator": 1,  "Sta
+Lang 32 { "bug": "Lang-32", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 73, "compiled": 38, "patterns": {  "StatementRemover": 6,  "MethodInv
+Lang 33 { "bug": "Lang-33", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 11, "compiled": 8, "patterns": {  "RangeChecker": 1,  "NullPointerChec
+Lang 35 { "bug": "Lang-35", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 6, "compiled": 3, "patterns": {  "StatementRemover": 3,  "ReturnState
+Lang 34 { "bug": "Lang-34", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 176, "compiled": 82, "patterns": {  "ConditionalExpressionMutator": 6
+Lang 36 { "bug": "Lang-36", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 17, "compiled": 5, "patterns": {  "StatementMover": 11,  "StatementRe
+Lang 17 { "bug": "Lang-17", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 164, "compiled": 152, "patterns": {  "DataTypeReplacer": 6,  "Literal
+Lang 37 { "bug": "Lang-37", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 26, "compiled": 15, "patterns": {  "VariableReplacer": 2,  "NullPoint
+Lang 30 { "bug": "Lang-30", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 1127, "compiled": 901, "patterns": {  "VariableReplacer": 14,  "State
+Lang 38 { "bug": "Lang-38", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 63, "compiled": 28, "patterns": {  "VariableReplacer": 33,  "NullPoin
+Lang 41 { "bug": "Lang-41", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 78, "compiled": 66, "patterns": {  "VariableReplacer": 4,  "NullPoint
+Lang 39 { "bug": "Lang-39", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 13, "compiled": 7, "patterns": {  "DataTypeReplacer": 6,  "NullPointer
+Lang 42 { "bug": "Lang-42", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 25, "compiled": 18, "patterns": {  "DataTypeReplacer": 6,  "NullPoint
+Lang 40 { "bug": "Lang-40", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 322, "compiled": 35, "patterns": {  "ConditionalExpressionMutator": 2
+Lang 44 { "bug": "Lang-44", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 40, "compiled": 30, "patterns": {  "ConditionalExpressionMutator": 24
+Lang 46 { "bug": "Lang-46", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 4, "compiled": 2, "patterns": {  "StatementMover": 2,  "StatementRemo
+Lang 45 { "bug": "Lang-45", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 68, "compiled": 55, "patterns": {  "OperatorMutator": 11,  "Condition
+Lang 49 { "bug": "Lang-49", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 52, "compiled": 21, "patterns": {  "DataTypeReplacer": 6,  "VariableR
+Lang 47 { "bug": "Lang-47", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 155, "compiled": 123, "patterns": {  "DataTypeReplacer": 12,  "Variabl
+Lang 50 { "bug": "Lang-50", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 259, "compiled": 48, "patterns": {  "OperatorMutator": 4,  "Condition
+Lang 51 { "bug": "Lang-51", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 4, "compiled": 4, "patterns": {  "StatementRemover": 2,  "StatementInse
+Lang 52 { "bug": "Lang-52", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 0, "compiled": 0, "patterns": {}, "kept": [], "setup_s": 21.8, "posit
+Lang 54 { "bug": "Lang-54", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 23, "compiled": 9, "patterns": {  "DataTypeReplacer": 12,  "VariableR
+Lang 55 { "bug": "Lang-55", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 15, "compiled": 15, "patterns": {  "OperatorMutator": 11,  "Statement
+Lang 56 { "bug": "Lang-56", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 0, "compiled": 0, "patterns": {}, "kept": [], "setup_s": 19.0, "posit
+Lang 53 { "bug": "Lang-53", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 628, "compiled": 611, "patterns": {  "OperatorMutator": 10,  "Conditi
+Lang 57 { "bug": "Lang-57", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 57, "compiled": 33, "patterns": {  "ConditionalExpressionMutator": 36, 
+Lang 58 { "bug": "Lang-58", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 125, "compiled": 100, "patterns": {  "OperatorMutator": 11,  "Conditio
+Lang 59 { "bug": "Lang-59", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 148, "compiled": 87, "patterns": {  "VariableReplacer": 81,  "NullPoint
+Lang 60 { "bug": "Lang-60", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 10, "compiled": 3, "patterns": {  "StatementMover": 6,  "StatementRem
+Lang 61 { "bug": "Lang-61", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 34, "compiled": 12, "patterns": {  "DataTypeReplacer": 6,  "VariableR
+Lang 62 { "bug": "Lang-62", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 101, "compiled": 59, "patterns": {  "OperatorMutator": 44,  "Variable
+Lang 64 { "bug": "Lang-64", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 27, "compiled": 13, "patterns": {  "ReturnStatementMutator": 1,  "Ope
+Lang 65 { "bug": "Lang-65", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 28, "compiled": 14, "patterns": {  "StatementMover": 8,  "StatementRe
+Chart 1 { "bug": "Chart-1", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 63, "compiled": 36, "patterns": {  "OperatorMutator": 1,  "ConditionalE
+Chart 3 { "bug": "Chart-3", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 15, "compiled": 3, "patterns": {  "MethodInvocationMutator": 7,  "Sta
+Chart 2 { "bug": "Chart-2", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 476, "compiled": 291, "patterns": {  "OperatorMutator": 55,  "Variabl
+Chart 5 { "bug": "Chart-5", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 83, "compiled": 52, "patterns": {  "OperatorMutator": 6,  "Conditiona
+Chart 4 { "bug": "Chart-4", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 144, "compiled": 27, "patterns": {  "VariableReplacer": 90,  "NullPoint
+Chart 6 { "bug": "Chart-6", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 27, "compiled": 18, "patterns": {  "ConditionalExpressionMutator": 8,
+Chart 7 { "bug": "Chart-7", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 59, "compiled": 28, "patterns": {  "DataTypeReplacer": 24,  "VariableR
+Chart 8 { "bug": "Chart-8", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 26, "compiled": 3, "patterns": {  "MethodInvocationMutator": 3,  "Varia
+Chart 9 { "bug": "Chart-9", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 67, "compiled": 46, "patterns": {  "OperatorMutator": 5,  "Conditional
+Chart 10 { "bug": "Chart-10", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 9, "compiled": 5, "patterns": {  "ReturnStatementMutator": 1,  "Oper
+Chart 11 { "bug": "Chart-11", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 3, "compiled": 2, "patterns": {  "VariableReplacer": 1,  "StatementRem
+Chart 12 { "bug": "Chart-12", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 40, "compiled": 10, "patterns": {  "VariableReplacer": 29,  "NullPoint
+Chart 13 { "bug": "Chart-13", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 166, "compiled": 25, "patterns": {  "VariableReplacer": 5,  "NullPoin
+Chart 14 { "bug": "Chart-14", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 298, "compiled": 90, "patterns": {  "VariableReplacer": 269,  "NullPo
+Lang 63 { "bug": "Lang-63", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 1766, "compiled": 608, "patterns": {  "OperatorMutator": 16,  "Literal
+Chart 15 { "bug": "Chart-15", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 231, "compiled": 36, "patterns": {  "NullPointerChecker": 32,  "Stat
+Chart 16 { "bug": "Chart-16", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": true, "tries": 49, "compiled": 16, "patterns": {  "StatementMover": 2,  "StatementRe
+Lang 43 { "bug": "Lang-43", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 10, "compiled": 8, "patterns": {  "ConditionalExpressionMutator": 2, 
+Chart 17 { "bug": "Chart-17", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 21, "compiled": 4, "patterns": {  "MethodInvocationMutator": 14,  "L
+Chart 18 { "bug": "Chart-18", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": true, "tries": 71, "compiled": 52, "patterns": {  "OperatorMutator": 1,  "StatementR
+Chart 20 { "bug": "Chart-20", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 128, "compiled": 23, "patterns": {  "MethodInvocationMutator": 27,  "V
+Chart 22 { "bug": "Chart-22", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": true, "tries": 57, "compiled": 36, "patterns": {  "OperatorMutator": 5,  "Conditiona
+Chart 19 { "bug": "Chart-19", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 220, "compiled": 188, "patterns": {  "VariableReplacer": 146,  "NullPo
+Chart 23 { "bug": "Chart-23", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 0, "compiled": 0, "patterns": {}, "kept": [], "setup_s": 27.6, "posi
+Chart 24 { "bug": "Chart-24", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 26, "compiled": 19, "patterns": {  "DataTypeReplacer": 6,  "VariableRe
+Chart 21 { "bug": "Chart-21", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 960, "compiled": 666, "patterns": {  "MethodInvocationMutator": 41, 
+Chart 26 { "bug": "Chart-26", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 38, "compiled": 9, "patterns": {  "VariableReplacer": 24,  "NullPointe
+Math 2 { "bug": "Math-2", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 31, "compiled": 27, "patterns": {  "ReturnStatementMutator": 3,  "Opera
+Math 1 { "bug": "Math-1", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": true, "tries": 133, "compiled": 78, "patterns": {  "VariableReplacer": 130,  "Statemen
+Chart 25 { "bug": "Chart-25", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 676, "compiled": 285, "patterns": {  "DataTypeReplacer": 48,  "Variab
+Math 4 { "bug": "Math-4", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 47, "compiled": 13, "patterns": {  "VariableReplacer": 16,  "NullPointer
+Math 3 { "bug": "Math-3", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 2, "compiled": 1, "patterns": {  "StatementRemover": 2 }, "kept": [], 
+Math 5 { "bug": "Math-5", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 59, "compiled": 37, "patterns": {  "VariableReplacer": 35,  "NullPointer
+Math 8 { "bug": "Math-8", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 42, "compiled": 5, "patterns": {  "StatementRemover": 2,  "VariableRep
+Math 9 { "bug": "Math-9", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 43, "compiled": 16, "patterns": {  "VariableReplacer": 15,  "NullPoint
+Math 10 { "bug": "Math-10", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 1, "compiled": 1, "patterns": {  "StatementRemover": 1 }, "kept": [],
+Math 11 { "bug": "Math-11", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 71, "compiled": 43, "patterns": {  "ReturnStatementMutator": 3,  "ICAS
+Math 12 { "bug": "Math-12", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 0, "compiled": 0, "patterns": {}, "kept": [], "setup_s": 33.7, "posit
+Math 13 { "bug": "Math-13", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 40, "compiled": 14, "patterns": {  "VariableReplacer": 21,  "NullPoin
+Math 6 { "bug": "Math-6", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 475, "compiled": 291, "patterns": {  "MethodInvocationMutator": 33,  "
+Math 7 { "bug": "Math-7", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 93, "compiled": 54, "patterns": {  "MethodInvocationMutator": 15,  "Va
+{
+ "bugs": 100,
+ "results": 100,
+ "errors": 0,
+ "plausible": 34,
+ "correct": 15,
+ "llm_calls": 0,
+ "est_j_total": 90616.1,
+ "est_j_note": "estimate: child CPU seconds x 10 W per CPU, not measured",
+ "fixed": [
+  "Lang-6 correct",
+  "Lang-7 plausible",
+  "Lang-10 plausible",
+  "Lang-13 plausible",
+  "Lang-20 plausible",
+  "Lang-22 plausible",
+  "Lang-24 plausible",
+  "Lang-26 plausible",
+  "Lang-33 plausible",
+  "Lang-39 plausible",
+  "Lang-47 plausible",
+  "Lang-51 correct",
+  "Lang-57 correct",
+  "Lang-58 plausible",
+  "Lang-59 correct",
+  "Lang-63 plausible",
+  "Chart-1 correct",
+  "Chart-4 correct",
+  "Chart-7 plausible",
+  "Chart-8 correct",
+  "Chart-9 plausible",
+  "Chart-11 correct",
+  "Chart-12 correct",
+  "Chart-13 plausible",
+  "Chart-14 plausible",
+  "Chart-19 correct",
+  "Chart-20 correct",
+  "Chart-24 correct",
+  "Chart-25 plausible",
+  "Chart-26 correct",
+  "Math-2 plausible",
+  "Math-4 correct",
+  "Math-5 correct",
+  "Math-11 plausible"
+ ]
+}

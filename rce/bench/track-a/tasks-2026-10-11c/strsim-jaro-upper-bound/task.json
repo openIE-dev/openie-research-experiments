@@ -1,0 +1,10 @@
+{
+ "id": "strsim-jaro-upper-bound",
+ "problem": "jaro misses matches at the upper edge of the search window.",
+ "repo": "repo",
+ "test_cmd": "unshare -rn sh -c 'CARGO_TARGET_DIR=$PWD/target cargo test --offline -q --lib > .test.out 2>&1; e=$?; tail -40 .test.out; exit $e'",
+ "gold_patch": "gold.patch",
+ "timeout_s": 600,
+ "source": "strsim-0.11.1 (crates.io registry)",
+ "file": "src/lib.rs"
+}

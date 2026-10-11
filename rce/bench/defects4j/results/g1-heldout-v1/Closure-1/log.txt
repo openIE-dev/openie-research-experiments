@@ -1,0 +1,9 @@
+[12:00:05] sh defects4j checkout -p
+[12:00:11] sh defects4j compile
+[12:01:08] sh defects4j export -p
+[12:01:10] sh defects4j export -p
+[12:01:13] sh defects4j export -p
+[12:01:19] sh defects4j export -p
+[12:01:22] sh defects4j export -p
+[12:01:25] sh javac -nowarn -cp
+{"bug": "Closure-1", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 32, "compiled": 11, "patterns": {"VariableReplacer": 2, "NullPointerChecker": 4, "MethodInvocationMutator": 14, "StatementRemover": 2, "StatementInserter": 10}, "kept": [], "setup_s": 62.8, "positions": [["src/com/google/javascript/jscomp/RemoveUnusedVars.java", [380]]], "test_s": 36.9, "trigger_timeout_s": 18.7, "baseline_trigger_failures": 8, "candidates": 32, "ast_equal": false, "fixed_derived": ["src/com/google/javascript/jscomp/RemoveUnusedVars.java"], "patch_files": ["src/com/google/javascript/jscomp/RemoveUnusedVars.java"], "pattern": null, "cpu_s": 114.35, "est_j": 1143.5, "wall_s": 193.1}

@@ -1,0 +1,12 @@
+diff -ruN -x target -x .git -x __pycache__ -x '*.pyc' -x Cargo.lock base/idna/core.py work/idna/core.py
+--- idna/core.py	2026-10-11 08:26:09.730264708 -0400
++++ idna/core.py	2026-10-11 08:26:13.398264708 -0400
+@@ -62,7 +62,7 @@
+ 
+ 
+ def valid_string_length(label: Union[bytes, str], trailing_dot: bool) -> bool:
+-    if len(label) > (253 if trailing_dot else 254):
++    if len(label) > (254 if trailing_dot else 253):
+         return False
+     return True
+ 

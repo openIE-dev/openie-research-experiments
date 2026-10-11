@@ -1,0 +1,25 @@
+{
+ "bug": "Math-11",
+ "plausible": true,
+ "correct": false,
+ "tries": 1,
+ "compiled": 1,
+ "patterns": {
+  "FP8": 1
+ },
+ "setup_s": 16.3,
+ "test_s": 0.9,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 12,
+ "pattern": "FP8",
+ "tier": 2,
+ "edit": {
+  "file": "src/main/java/org/apache/commons/math3/distribution/MultivariateNormalDistribution.java",
+  "from": "",
+  "to": "(double) "
+ },
+ "cpu_s": 57.61,
+ "est_j": 576.1,
+ "wall_s": 26.1
+}

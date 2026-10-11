@@ -1,0 +1,141 @@
+# Summary
+
+Energy label: reported_j (macOS per-process kernel energy model). measured_j: empty, no wall meter.
+
+| arm | B/J_g2 | closed of 30 | X bits | J reported | iota bits/J | CV iota | refused | cut | overspends |
+|---|---|---|---|---|---|---|---|---|---|
+| sigma | 0.5 | 0.00 | 0 | 0.0018 | 0 | n/a | 30.00 | 0.00 | 323 |
+| sigma | 1.0 | 0.00 | 0 | 0.0002 | 0 | n/a | 30.00 | 0.00 | 322 |
+| sigma | 2.0 | 1.00 ± 0.39 | 181 ± 71 | 0.0018 ± 0.0336 | 14427 ± 18680 | 1.295 | 29.00 | 0.00 | 322 |
+| mol | 0.5 | 0.00 | 0 | -0.0008 | 0 | n/a | 30.00 | 0.00 | 326 |
+| mol | 1.0 | 0.00 | 0 | -0.0005 | 0 | n/a | 30.00 | 0.00 | 324 |
+| mol | 2.0 | 1.00 ± 0.51 | 181 ± 91 | 0.0107 ± 0.0286 | 15451 ± 23767 | 1.538 | 29.00 | 0.00 | 320 |
+| blind | 0.5 | 0.00 | 0 | 0.0026 | 0 | n/a | 0.00 | 30.00 | 327 |
+| blind | 1.0 | 0.00 | 0 | 0.0009 | 0 | n/a | 0.00 | 30.00 | 323 |
+| blind | 2.0 | 0.28 ± 0.45 | 50 ± 82 | 0.0019 ± 0.0180 | 3801 ± 13749 | 3.618 | 0.00 | 28.90 | 321 |
+
+## Binding
+
+{"0.5": {"pilot_frac_exceeding": 0.6466666666666666, "binding": true}, "1.0": {"pilot_frac_exceeding": 0.4, "binding": true}, "2.0": {"pilot_frac_exceeding": 0.35333333333333333, "binding": true}}
+
+## Ranking
+
+{"0.5": {"by_jstar": ["sigma", "mol", "blind"], "by_iota": ["sigma", "mol", "blind"], "agree": true, "tasks_closed": {"sigma": 0, "mol": 0, "blind": 0}, "common_tasks": 0, "sum_median_jstar_common": {"sigma": 0, "mol": 0, "blind": 0}}, "1.0": {"by_jstar": ["sigma", "mol", "blind"], "by_iota": ["sigma", "mol", "blind"], "agree": true, "tasks_closed": {"sigma": 0, "mol": 0, "blind": 0}, "common_tasks": 0, "sum_median_jstar_common": {"sigma": 0, "mol": 0, "blind": 0}}, "2.0": {"by_jstar": ["sigma", "mol", "blind"], "by_iota": ["mol", "sigma", "blind"], "agree": false, "tasks_closed": {"sigma": 1, "mol": 1, "blind": 0}, "common_tasks": 0, "sum_median_jstar_common": {"sigma": 0, "mol": 0, "blind": 0}}}
+
+## F1 paired
+
+{"0.5": {"n_tasks": 0}, "1.0": {"n_tasks": 0}, "2.0": {"n_tasks": 1, "mean_diff_j": -0.00523892747361652, "median_diff_j": -0.00523892747361652, "ci95": [-0.00523892747361652, -0.00523892747361652], "wilcoxon_z": -1.0, "wilcoxon_p": 0.31731050786291415, "closed_sigma": 1, "closed_mol": 1}}
+
+## Acts
+
+{"n_acts": 137, "kendall_tau_b_est_vs_reported": 0.3683964469378214, "n_tau": 93, "confirmed_acts": 91, "min_distance_to_floor": -1.3190010889140466e+17, "median_distance_to_floor": 9590908723703414.0, "iota_act_median": 18135.931565863437, "iota_act_q25_q75": [10949.152723193714, 42751.50623148866], "zero_reported_acts": 44}
+
+## Refusal
+
+{"infeasible_pairs": 88, "recall_on_infeasible": 1.0, "refusals": 7120, "share_on_tasks_closed_by_some_arm": 0.0011235955056179776}
+
+## Falsifiers
+
+- R-F1: v2 fired=False; v1 fired=True (sigma-law selector closes tasks in fewer joules than Mixture of Limits)
+- R-F2: v2 fired=True; v1 fired=True (refusal implementation (zero overspends))
+- R-F3: v2 fired=False; v1 fired=True (refusal correctness)
+- R-F4: v2 fired=True; v1 fired=False (cycle-count est_j model usable for ranking)
+- R-F5: v2 fired=True; v1 fired=True (iota is stable across seeds at run granularity)
+- R-F6: v2 fired=True; v1 fired=True (ranking by J* equals ranking by integrated iota)
+- R-F7: v2 fired=True; v1 fired=False (the accounting (no act below k_B T ln 2 per bit))
+- R-F8: v2 fired=True; v1 fired=False (prediction first, comparison and refusal raise iota over a goal-blind agent)
+
+## Paired by seed (declared in advance)
+
+{"0.5": {"closed_diff_mean": 0, "closed_diff_ci95": [0, 0], "iota_diff_mean": 0.0, "iota_diff_ci95": [0.0, 0.0], "n_seeds": 40, "seeds_sigma_more": 0, "seeds_tied": 40}, "1.0": {"closed_diff_mean": 0, "closed_diff_ci95": [0, 0], "iota_diff_mean": 0.0, "iota_diff_ci95": [0.0, 0.0], "n_seeds": 40, "seeds_sigma_more": 0, "seeds_tied": 40}, "2.0": {"closed_diff_mean": 0, "closed_diff_ci95": [-0.15, 0.15], "iota_diff_mean": 1327.69193382958, "iota_diff_ci95": [-8971.149377306747, 12580.596798691186], "n_seeds": 40, "seeds_sigma_more": 5, "seeds_tied": 30}}
+
+overspend max fraction: 10.85534
+close_j: {'max': 0.04243124208915557, 'median': -4.451010075085231e-05}
+{
+ "crosscheck": {
+  "block_package_net_j_total": 3.445367401907013,
+  "sum_episode_reported_j_total": 2.7370383127038904,
+  "ratio_episodes_to_block_net": 0.7944111595149295,
+  "block_core_net_j_total": 1.7278374927010807,
+  "core_net_over_package_net": 0.501495861296163,
+  "core_share_of_package_gross": {
+   "n": 360,
+   "min": 0.012493173129437466,
+   "q25": 0.11629324798049077,
+   "median": 0.22544748555734442,
+   "q75": 0.4295853788371681,
+   "max": 0.851534837384031
+  },
+  "psys_over_package_gross": {
+   "n": 360,
+   "min": 0.004417355621266068,
+   "q25": 0.02539376406300225,
+   "median": 0.03422543903944342,
+   "q75": 0.042402186551500236,
+   "max": 0.06762749445676275
+  },
+  "idle_pre_w": 4.010578300832185,
+  "idle_post_w": 5.553992365754504,
+  "drift_x_main_run_s_j": 3.418105678948658,
+  "achievable": false,
+  "note": "package net = block gross package joules minus that block's idle baseline power x block seconds; episode reported_j is the same quantity per episode; the gap is harness work between episodes."
+ },
+ "per_act": {
+  "acts": 137,
+  "confirmed": 91,
+  "reported_j_all_acts": {
+   "n": 137,
+   "min": -0.06842250900080071,
+   "q25": -0.0004936446731233484,
+   "median": 0.003899432350191795,
+   "q75": 0.01425256156493062,
+   "max": 0.057517600897987714
+  },
+  "reported_j_confirmed": {
+   "n": 91,
+   "min": -0.06842250900080071,
+   "q25": -0.0014932886056806122,
+   "median": 0.0049752350016158235,
+   "q75": 0.01425256156493062,
+   "max": 0.057517600897987714
+  },
+  "nonpositive_confirmed": 26,
+  "j_per_bit_confirmed": {
+   "n": 91,
+   "min": -0.00037868242756680724,
+   "q25": -8.264563263097665e-06,
+   "median": 2.7535296434469836e-05,
+   "q75": 7.888039610459387e-05,
+   "max": 0.0003183295242156915
+  },
+  "multiples_of_kTln2_confirmed": {
+   "n": 91,
+   "min": -1.3190010889140466e+17,
+   "q25": -2878656929889279.5,
+   "median": 9590908723703414.0,
+   "q75": 2.7475087509196684e+16,
+   "max": 1.108783926869468e+17
+  },
+  "multiples_of_kTln2_positive_only": {
+   "n": 65,
+   "min": 1790377783815225.5,
+   "q25": 8375806175710039.0,
+   "median": 1.9205699666519596e+16,
+   "q75": 3.151775627014159e+16,
+   "max": 1.108783926869468e+17
+  }
+ },
+ "rapl_quantisation": {
+  "episodes": 10800,
+  "zero_gross_package_episodes": 10075,
+  "nonpositive_reported_episodes": 10549,
+  "episode_seconds": {
+   "n": 10800,
+   "min": 3.5998e-05,
+   "q25": 3.7943e-05,
+   "median": 4.0068e-05,
+   "q75": 5.7483e-05,
+   "max": 0.027193316
+  }
+ }
+}

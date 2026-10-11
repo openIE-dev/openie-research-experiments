@@ -1,0 +1,45 @@
+{
+ "track": "A",
+ "id": "track-a-corpus20-2026-10-11c",
+ "registered": "2026-10-11",
+ "tasks": [
+  "tasks-2026-10-11c/strsim-levenshtein-row",
+  "tasks-2026-10-11c/strsim-osa-cost",
+  "tasks-2026-10-11c/strsim-jaro-lower-bound",
+  "tasks-2026-10-11c/strsim-jaro-upper-bound",
+  "tasks-2026-10-11c/strsim-damerau-match",
+  "tasks-2026-10-11c/heck-final-sigma",
+  "tasks-2026-10-11c/heck-capitalize-rest",
+  "tasks-2026-10-11c/shlex-backslash-newline",
+  "tasks-2026-10-11c/shlex-newline-split",
+  "tasks-2026-10-11c/shlex-error-none",
+  "tasks-2026-10-11c/shlex-lineno",
+  "tasks-2026-10-11c/packaging-minor",
+  "tasks-2026-10-11c/packaging-micro",
+  "tasks-2026-10-11c/packaging-postrelease",
+  "tasks-2026-10-11c/packaging-dev-of-post",
+  "tasks-2026-10-11c/packaging-sdist-dash",
+  "tasks-2026-10-11c/packaging-wheel-build",
+  "tasks-2026-10-11c/packaging-canonical-lower",
+  "tasks-2026-10-11c/idna-label-length",
+  "tasks-2026-10-11c/idna-string-length"
+ ],
+ "solvers": [
+  "none",
+  "gold",
+  "cmd:python3 \"$RCE_ROOT/scripts/track_a_solver.py\""
+ ],
+ "hypotheses": [
+  "H1: all 20 tasks are valid: gold solves, none does not.",
+  "H2: the RCE solver resolves 20 of 20, each with a patch equal to gold.",
+  "H3: no task reaches the local model, so LLM calls per resolved task is 0."
+ ],
+ "notes": [
+  "11 Rust tasks from the vendored crates.io registry (strsim 0.11.1, heck 0.5.0, shlex 2.0.1), 9 Python tasks from dist-packages (packaging 25.0, idna 3.10). Each base state carries one regression; gold restores the released code.",
+  "Tests run in an unprivileged user namespace without network (unshare -rn). Rust tasks run the crate's own unit tests offline.",
+  "The solver's last gear is Qwen2.5-Coder-1.5B Q4 on llama.cpp, CPU, temperature 0, seed 0.",
+  "Changes from corpus20-2026-10-11: shlex-lineno carries a regression test on Shlex::line_no, so the whitespace-arm edit that passed before now fails. Tasks are regenerated under tasks-2026-10-11c/.",
+  "2026-10-11c: idna-string-length checks 253 without the dot, 255 with it, and a short label; packaging-wheel-build rejects a wheel with six parts. Both tests were passed by wrong patches under 2026-10-11b.",
+  "Solver G1 is the tree-sitter pattern engine (rce repair candidates), TBar's 15 categories."
+ ]
+}

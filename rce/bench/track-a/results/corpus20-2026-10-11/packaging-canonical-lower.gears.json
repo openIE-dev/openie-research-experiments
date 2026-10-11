@@ -1,0 +1,22 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 18,
+ "llm_calls": 0,
+ "rule_tries": 17,
+ "edit": {
+  "file": "packaging/utils.py",
+  "function": "canonicalize_name",
+  "tier": 3,
+  "from": "",
+  "to": ".lower()"
+ },
+ "ranked": [
+  "packaging/utils.py::canonicalize_name",
+  "packaging/licenses/__init__.py::canonicalize_license_expression",
+  "packaging/metadata.py::_process_name",
+  "packaging/metadata.py::__set_name__",
+  "packaging/tags.py::interpreter_name",
+  "packaging/utils.py::is_normalized_name"
+ ],
+ "seconds": 0.92
+}

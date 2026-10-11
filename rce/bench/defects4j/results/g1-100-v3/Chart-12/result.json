@@ -1,0 +1,76 @@
+{
+ "bug": "Chart-12",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": true,
+ "correct": true,
+ "partial": false,
+ "tries": 40,
+ "compiled": 10,
+ "patterns": {
+  "VariableReplacer": 29,
+  "NullPointerChecker": 2,
+  "StatementRemover": 2,
+  "StatementInserter": 7
+ },
+ "kept": [
+  {
+   "file": "source/org/jfree/chart/plot/MultiplePiePlot.java",
+   "line": 145,
+   "pattern": "StatementInserter",
+   "from": "this.dataset = dataset;",
+   "to": "setDataset(dataset);"
+  }
+ ],
+ "setup_s": 26.6,
+ "positions": [
+  [
+   "source/org/jfree/chart/plot/MultiplePiePlot.java",
+   [
+    145
+   ]
+  ]
+ ],
+ "test_s": 7.9,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 40,
+ "plausible_found": [
+  {
+   "try": 34,
+   "pattern": "StatementInserter",
+   "line": 145,
+   "new_idents": [
+    "setDataset"
+   ]
+  },
+  {
+   "try": 35,
+   "pattern": "StatementInserter",
+   "line": 145,
+   "new_idents": [
+    "setDataset"
+   ]
+  },
+  {
+   "try": 36,
+   "pattern": "StatementInserter",
+   "line": 145,
+   "new_idents": [
+    "setDataset"
+   ]
+  }
+ ],
+ "picked_try": 34,
+ "ast_equal": true,
+ "fixed_derived": [
+  "source/org/jfree/chart/plot/MultiplePiePlot.java"
+ ],
+ "patch_files": [
+  "source/org/jfree/chart/plot/MultiplePiePlot.java"
+ ],
+ "pattern": "StatementInserter",
+ "cpu_s": 57.96,
+ "est_j": 579.6,
+ "wall_s": 53.8
+}

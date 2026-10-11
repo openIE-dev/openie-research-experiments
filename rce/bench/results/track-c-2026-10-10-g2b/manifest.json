@@ -1,0 +1,148 @@
+{
+  "track": "C",
+  "prereg_id": "track-c-2026-10-10-g2b",
+  "prereg_path": "bench/track-c-g2b.prereg.json",
+  "prereg_sha256": "c75f567356045927073ee48b1cd38ae8ea5fd7143fbe20190672607a69f21072",
+  "prereg_locked": true,
+  "rce_version": "0.1.0",
+  "git_commit": "766731a20f9eead85d50941c6236e2e87fbf0677",
+  "git_dirty": true,
+  "energy_model": "est_j; host=x86_64-linux table=x86_64-intel-spr; rce-interp-v1 (op counts x fgir substrate table; est_j, not measured)",
+  "started": "2026-10-10T17:12:56.857386281-04:00",
+  "finished": "2026-10-10T17:12:57.316236940-04:00",
+  "measured_j": null,
+  "runs": [
+    {
+      "spec": "web-api",
+      "foreman": "mock",
+      "seed": 42,
+      "dir": "web-api/mock/seed-42",
+      "exit_code": 0,
+      "elapsed_ms": 19,
+      "csv_sha256": "b4cd38f9f18bd151740ddc7ee93c115a8d4f4ef7331e80558f27e334bfd9e8c1",
+      "spec_sha256": "f831da2488958b68e1a35981f4ab79db091e4ff8eb0c9033f1ca5e335e831f36",
+      "rounds_recorded": 20
+    },
+    {
+      "spec": "web-api",
+      "foreman": "geared",
+      "seed": 42,
+      "dir": "web-api/geared/seed-42",
+      "exit_code": 0,
+      "elapsed_ms": 32,
+      "csv_sha256": "2311284426748ece18907d8ac8a4170763aab8bc76d7e989320454b31739edbf",
+      "spec_sha256": "f831da2488958b68e1a35981f4ab79db091e4ff8eb0c9033f1ca5e335e831f36",
+      "rounds_recorded": 20
+    },
+    {
+      "spec": "joule-db-core",
+      "foreman": "mock",
+      "seed": 42,
+      "dir": "joule-db-core/mock/seed-42",
+      "exit_code": 0,
+      "elapsed_ms": 23,
+      "csv_sha256": "ea8b91f5d1161874dc00de59d7e3316f1aaeac9e8270b7f91b7ab888d3ce7cd1",
+      "spec_sha256": "7b2412298597cfdd586a87a21b98f5ab6601ebe271c843f33e9771b831ee085e",
+      "rounds_recorded": 20
+    },
+    {
+      "spec": "joule-db-core",
+      "foreman": "geared",
+      "seed": 42,
+      "dir": "joule-db-core/geared/seed-42",
+      "exit_code": 0,
+      "elapsed_ms": 21,
+      "csv_sha256": "2b7eb3c7401e14cc05e0aef88eed71efaf92fe13cc927c457e959ec666d84ad4",
+      "spec_sha256": "7b2412298597cfdd586a87a21b98f5ab6601ebe271c843f33e9771b831ee085e",
+      "rounds_recorded": 20
+    },
+    {
+      "spec": "follow-bible-ingest",
+      "foreman": "mock",
+      "seed": 42,
+      "dir": "follow-bible-ingest/mock/seed-42",
+      "exit_code": 0,
+      "elapsed_ms": 32,
+      "csv_sha256": "dba528e15486abafa0b88930eccb55066d959b8e49b1116d2f452de9ef11612d",
+      "spec_sha256": "5434e8b84916a7194f6b48b85e5f3f7476665052a556cfc5c1a1c4e3e09fb2a3",
+      "rounds_recorded": 20
+    },
+    {
+      "spec": "follow-bible-ingest",
+      "foreman": "geared",
+      "seed": 42,
+      "dir": "follow-bible-ingest/geared/seed-42",
+      "exit_code": 0,
+      "elapsed_ms": 59,
+      "csv_sha256": "9262d875645ca1ecaf12ac6149a7c60075e6b44f0b87f3d5339ab66edcd52c61",
+      "spec_sha256": "5434e8b84916a7194f6b48b85e5f3f7476665052a556cfc5c1a1c4e3e09fb2a3",
+      "rounds_recorded": 20
+    },
+    {
+      "spec": "follow-bible-ingest-schemas",
+      "foreman": "mock",
+      "seed": 42,
+      "dir": "follow-bible-ingest-schemas/mock/seed-42",
+      "exit_code": 0,
+      "elapsed_ms": 64,
+      "csv_sha256": "3e256409d4c31d1aa97486ad9edbc6e28a88c271603a6c00327ec476d8fa9a37",
+      "spec_sha256": "b3e2fcdf11f3b840a0df1017822a38a9fd504ea3385ad8a95e27c979467524e8",
+      "rounds_recorded": 20
+    },
+    {
+      "spec": "follow-bible-ingest-schemas",
+      "foreman": "geared",
+      "seed": 42,
+      "dir": "follow-bible-ingest-schemas/geared/seed-42",
+      "exit_code": 0,
+      "elapsed_ms": 45,
+      "csv_sha256": "626199c4f4b80435ba1d3cc6fa429f7a94d4c847fa89da60974e4dcb2894f9d4",
+      "spec_sha256": "b3e2fcdf11f3b840a0df1017822a38a9fd504ea3385ad8a95e27c979467524e8",
+      "rounds_recorded": 20
+    },
+    {
+      "spec": "ask-server",
+      "foreman": "mock",
+      "seed": 42,
+      "dir": "ask-server/mock/seed-42",
+      "exit_code": 0,
+      "elapsed_ms": 39,
+      "csv_sha256": "77f526fcab6a3d45609abae4e82dd26327f14ff0da1c454124093f8680a884df",
+      "spec_sha256": "230c34b08b9ae02436e45a3f56d68402ffa07b18dbbac8e7ceb79c148743d62e",
+      "rounds_recorded": 20
+    },
+    {
+      "spec": "ask-server",
+      "foreman": "geared",
+      "seed": 42,
+      "dir": "ask-server/geared/seed-42",
+      "exit_code": 0,
+      "elapsed_ms": 71,
+      "csv_sha256": "6622fbc01b5956fea25c79ccd3db2f0cdbdf1f27c691f4d3c15434a84fdbf06e",
+      "spec_sha256": "230c34b08b9ae02436e45a3f56d68402ffa07b18dbbac8e7ceb79c148743d62e",
+      "rounds_recorded": 20
+    },
+    {
+      "spec": "soak-g2-schemas",
+      "foreman": "mock",
+      "seed": 42,
+      "dir": "soak-g2-schemas/mock/seed-42",
+      "exit_code": 0,
+      "elapsed_ms": 17,
+      "csv_sha256": "550ed807b773940ddb028e5f3bbe6468b2ab24c41f0bdebf2e8922b42d31a392",
+      "spec_sha256": "52dc1980d85529beb632f67339e5f0ea55517cdf0b012192742ecf79fcd7a0ac",
+      "rounds_recorded": 20
+    },
+    {
+      "spec": "soak-g2-schemas",
+      "foreman": "geared",
+      "seed": 42,
+      "dir": "soak-g2-schemas/geared/seed-42",
+      "exit_code": 0,
+      "elapsed_ms": 27,
+      "csv_sha256": "1c0079588204f30e15fdc1b749f5bb86ab150f8fa0e8d6d8b98e2492f2c17a2e",
+      "spec_sha256": "52dc1980d85529beb632f67339e5f0ea55517cdf0b012192742ecf79fcd7a0ac",
+      "rounds_recorded": 20
+    }
+  ]
+}

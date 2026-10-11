@@ -1,0 +1,9 @@
+[11:32:24] sh defects4j checkout -p
+[11:32:29] sh defects4j compile
+[11:32:43] sh defects4j export -p
+[11:32:46] sh defects4j export -p
+[11:32:48] sh defects4j export -p
+[11:32:50] sh defects4j export -p
+[11:32:52] sh defects4j export -p
+[11:32:53] sh javac -nowarn -cp
+{"bug": "Lang-42", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 25, "compiled": 18, "patterns": {"DataTypeReplacer": 6, "NullPointerChecker": 5, "StatementRemover": 5, "OperatorMutator": 5, "ConditionalExpressionMutator": 4}, "kept": [], "setup_s": 19.2, "positions": [["src/java/org/apache/commons/lang/Entities.java", [828, 831]]], "test_s": 9.2, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 26, "ast_equal": false, "fixed_derived": ["src/java/org/apache/commons/lang/Entities.java"], "patch_files": ["src/java/org/apache/commons/lang/Entities.java"], "pattern": null, "cpu_s": 44.02, "est_j": 440.2, "wall_s": 46.9}

@@ -1,0 +1,3 @@
+2026-10-10T14:17:00.019512Z  INFO rce::runtime::engine: RCE promotion: FGIR static estimate of compiled form (est_j; interpreter is what runs) node=dep_DEP1 est_pj=0 compute_pj=0 memory_pj=0 control_pj=0 code_size=1 substrate=x86_64-intel-spr host=x86_64-linux
+2026-10-10T14:17:00.031224Z  INFO rce::runtime::engine: RCE promotion: FGIR static estimate of compiled form (est_j; interpreter is what runs) node=role_R5 est_pj=0 compute_pj=0 memory_pj=0 control_pj=0 code_size=1 substrate=x86_64-intel-spr host=x86_64-linux
+2026-10-10T14:17:00.031307Z  INFO rce::runtime::engine: RCE promotion: FGIR static estimate of compiled form (est_j; interpreter is what runs) node=role_R6 est_pj=0 compute_pj=0 memory_pj=0 control_pj=0 code_size=1 substrate=x86_64-intel-spr host=x86_64-linux

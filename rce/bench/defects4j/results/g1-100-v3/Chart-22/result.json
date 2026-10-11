@@ -1,0 +1,63 @@
+{
+ "bug": "Chart-22",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": true,
+ "tries": 57,
+ "compiled": 36,
+ "patterns": {
+  "OperatorMutator": 5,
+  "ConditionalExpressionMutator": 7,
+  "MethodInvocationMutator": 8,
+  "VariableReplacer": 19,
+  "NullPointerChecker": 5,
+  "StatementRemover": 3,
+  "StatementInserter": 9,
+  "StatementMover": 1
+ },
+ "kept": [
+  {
+   "file": "source/org/jfree/data/KeyedObjects2D.java",
+   "line": 231,
+   "pattern": "ConditionalExpressionMutator",
+   "from": "if (row >= 0) {\r\n        KeyedObjects rowData = (KeyedObjects) this.rows.get(row);\r\n            return rowData.getObject(columnKey);\r\n        }\r\n        else {\r\n            return null;\r\n        }",
+   "to": "if (row == column && (row >= 0)) {\r\n        KeyedObjects rowData = (KeyedObjects) this.rows.get(row);\r\n            return rowData.getObject(columnKey);\r\n        }\r\n        else {\r\n            return null;\r\n        }"
+  },
+  {
+   "file": "source/org/jfree/data/KeyedObjects2D.java",
+   "line": 378,
+   "pattern": "MethodInvocationMutator",
+   "from": "rowData.removeValue(columnKey);",
+   "to": "rowData.getIndex(columnKey);"
+  }
+ ],
+ "setup_s": 28.7,
+ "positions": [
+  [
+   "source/org/jfree/data/KeyedObjects2D.java",
+   [
+    231,
+    233,
+    345,
+    378
+   ]
+  ]
+ ],
+ "test_s": 4.7,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 6,
+ "candidates": 122,
+ "ast_equal": false,
+ "fixed_derived": [
+  "source/org/jfree/data/KeyedObjects2D.java"
+ ],
+ "patch_files": [
+  "source/org/jfree/data/KeyedObjects2D.java"
+ ],
+ "pattern": null,
+ "cpu_s": 52.73,
+ "est_j": 527.3,
+ "wall_s": 55.0
+}

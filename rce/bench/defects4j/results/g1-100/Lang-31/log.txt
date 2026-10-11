@@ -1,0 +1,52 @@
+[09:02:23] sh defects4j checkout -p
+[09:02:26] sh defects4j compile
+[09:02:31] sh defects4j export -p
+[09:02:32] sh defects4j export -p
+[09:02:33] sh defects4j export -p
+[09:02:34] sh defects4j export -p
+[09:02:34] sh defects4j export -p
+[09:02:35] sh javac -nowarn -cp
+[09:02:36] test 19
+[09:02:41] test 2
+[09:02:42] test 2
+[09:02:42] test 2
+[09:02:42] test 2
+[09:02:42] test 2
+[09:02:42] test 2
+[09:02:43] test 2
+[09:02:43] test 2
+[09:02:43] test 2
+[09:02:43] test 2
+[09:02:43] test 2
+[09:02:43] test 2
+[09:02:43] test 2
+[09:02:43] test 2
+[09:02:43] test 2
+[09:02:43] test 2
+[09:02:43] test 2
+[09:02:43] test 2
+[09:02:44] test 2
+[09:02:44] test 2
+[09:02:44] test 2
+[09:02:44] test 2
+[09:02:44] test 2
+[09:02:44] test 2
+[09:02:44] test 2
+[09:02:44] test 2
+[09:02:44] test 2
+[09:02:45] test 2
+[09:02:45] test 2
+[09:02:45] test 2
+[09:02:45] test 2
+[09:02:45] test 2
+[09:02:45] test 2
+[09:02:45] test 2
+[09:02:45] test 2
+[09:02:45] test 2
+[09:02:45] test 2
+[09:02:45] test 2
+[09:02:46] test 2
+[09:02:46] test 2
+[09:02:46] test 2
+[09:02:46] test 19
+{"bug": "Lang-31", "plausible": true, "correct": false, "tries": 70, "compiled": 40, "patterns": {"FP11": 15, "FP9": 2, "FP7": 3, "FP13": 48, "FP15": 2}, "setup_s": 8.8, "test_s": 10.6, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 2, "candidates": 75, "pattern": "FP9", "tier": 3, "edit": {"file": "src/main/java/org/apache/commons/lang3/StringUtils.java", "from": "0", "to": "1"}, "cpu_s": 47.8, "est_j": 478.0, "wall_s": 28.3}

@@ -1,0 +1,17 @@
+[09:01:37] sh defects4j checkout -p
+[09:01:41] sh defects4j compile
+[09:01:45] sh defects4j export -p
+[09:01:46] sh defects4j export -p
+[09:01:47] sh defects4j export -p
+[09:01:48] sh defects4j export -p
+[09:01:48] sh defects4j export -p
+[09:01:49] sh javac -nowarn -cp
+[09:01:50] test 25
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.commons.lang3.builder.ReflectionToStringBuilder (file:/workspace/d4j-runs/g1-100/Lang-29/work/target/classes/) to field java.lang.Integer.digits
+WARNING: Please consider reporting this to the maintainers of org.apache.commons.lang3.builder.ReflectionToStringBuilder
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[09:01:55] test 1
+[09:01:56] test 1
+{"bug": "Lang-29", "plausible": false, "correct": false, "tries": 1, "compiled": 1, "patterns": {"FP7": 1}, "setup_s": 8.4, "test_s": 5.4, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 1, "cpu_s": 42.81, "est_j": 428.1, "wall_s": 18.7}

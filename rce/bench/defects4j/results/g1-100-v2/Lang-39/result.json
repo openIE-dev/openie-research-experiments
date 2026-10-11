@@ -1,0 +1,47 @@
+{
+ "bug": "Lang-39",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": true,
+ "correct": false,
+ "partial": false,
+ "tries": 7,
+ "compiled": 4,
+ "patterns": {
+  "DataTypeReplacer": 6,
+  "NullPointerChecker": 1
+ },
+ "kept": [
+  {
+   "file": "src/java/org/apache/commons/lang3/StringUtils.java",
+   "line": 3676,
+   "pattern": "NullPointerChecker",
+   "from": "",
+   "to": "if (replacementList[i] == null) continue;\n\tif (searchList[i] == null) continue;\n\t"
+  }
+ ],
+ "setup_s": 12.1,
+ "positions": [
+  [
+   "src/java/org/apache/commons/lang3/StringUtils.java",
+   [
+    3676
+   ]
+  ]
+ ],
+ "test_s": 11.4,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 13,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/java/org/apache/commons/lang3/StringUtils.java"
+ ],
+ "patch_files": [
+  "src/java/org/apache/commons/lang3/StringUtils.java"
+ ],
+ "pattern": "NullPointerChecker",
+ "cpu_s": 40.09,
+ "est_j": 400.9,
+ "wall_s": 32.3
+}

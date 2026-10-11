@@ -1,0 +1,25 @@
+{
+ "bug": "Chart-16",
+ "plausible": false,
+ "correct": false,
+ "tries": 113,
+ "compiled": 69,
+ "patterns": {
+  "FP11": 68,
+  "FP7": 8,
+  "FP4": 2,
+  "FP15": 17,
+  "FP2": 3,
+  "FP14": 2,
+  "FP9": 9,
+  "FP5": 4
+ },
+ "setup_s": 15.7,
+ "test_s": 3.4,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 8,
+ "candidates": 113,
+ "cpu_s": 59.8,
+ "est_j": 598.0,
+ "wall_s": 36.5
+}

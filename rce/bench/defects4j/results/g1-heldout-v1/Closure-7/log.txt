@@ -1,0 +1,9 @@
+[12:04:48] sh defects4j checkout -p
+[12:04:54] sh defects4j compile
+[12:05:48] sh defects4j export -p
+[12:05:51] sh defects4j export -p
+[12:05:55] sh defects4j export -p
+[12:06:01] sh defects4j export -p
+[12:06:04] sh defects4j export -p
+[12:06:07] sh javac -nowarn -cp
+{"bug": "Closure-7", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 39, "compiled": 27, "patterns": {"ConditionalExpressionMutator": 2, "OperatorMutator": 1, "VariableReplacer": 24, "NullPointerChecker": 11, "StatementRemover": 1}, "kept": [], "setup_s": 60.1, "positions": [["src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java", [613]]], "test_s": 43.4, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 2, "candidates": 39, "ast_equal": false, "fixed_derived": ["src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java"], "patch_files": ["src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java"], "pattern": null, "cpu_s": 123.75, "est_j": 1237.5, "wall_s": 171.3}

@@ -1,0 +1,48 @@
+{
+ "bug": "Lang-62",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 100,
+ "compiled": 59,
+ "patterns": {
+  "OperatorMutator": 44,
+  "VariableReplacer": 5,
+  "NullPointerChecker": 28,
+  "LiteralExpressionMutator": 14,
+  "StatementRemover": 8,
+  "StatementMover": 1
+ },
+ "kept": [],
+ "setup_s": 11.6,
+ "positions": [
+  [
+   "src/java/org/apache/commons/lang/Entities.java",
+   [
+    846,
+    848,
+    918,
+    919,
+    922,
+    925
+   ]
+  ]
+ ],
+ "test_s": 4.3,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 104,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/java/org/apache/commons/lang/Entities.java"
+ ],
+ "patch_files": [
+  "src/java/org/apache/commons/lang/Entities.java"
+ ],
+ "pattern": null,
+ "cpu_s": 52.28,
+ "est_j": 522.8,
+ "wall_s": 25.8
+}

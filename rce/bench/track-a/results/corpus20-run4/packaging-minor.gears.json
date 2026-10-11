@@ -1,0 +1,21 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 4,
+ "llm_calls": 0,
+ "rule_tries": 3,
+ "edit": {
+  "file": "packaging/version.py",
+  "function": "minor",
+  "from": ">",
+  "to": ">="
+ },
+ "ranked": [
+  "packaging/version.py::minor",
+  "packaging/specifiers.py::version",
+  "packaging/version.py::release",
+  "packaging/version.py::release",
+  "packaging/_manylinux.py::_parse_glibc_version",
+  "packaging/_musllinux.py::_parse_musl_version"
+ ],
+ "seconds": 0.13
+}

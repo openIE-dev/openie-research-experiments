@@ -1,0 +1,21 @@
+diff -ruN -x target -x .git -x __pycache__ -x '*.pyc' -x Cargo.lock base/.test.out work/.test.out
+--- .test.out	1969-12-31 19:00:00.000000000 -0500
++++ .test.out	2026-10-11 08:24:57.654264708 -0400
+@@ -0,0 +1,5 @@
++
++running 7 tests
++.......
++test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
++
+diff -ruN -x target -x .git -x __pycache__ -x '*.pyc' -x Cargo.lock base/src/bytes.rs work/src/bytes.rs
+--- src/bytes.rs	2026-10-11 08:24:55.374264708 -0400
++++ src/bytes.rs	2026-10-11 08:24:57.394264708 -0400
+@@ -158,7 +158,7 @@
+ pub fn split(in_bytes: &[u8]) -> Option<Vec<Vec<u8>>> {
+     let mut shl = Shlex::new(in_bytes);
+     let res = shl.by_ref().collect();
+-    Some(res)
++    if shl.had_error { None } else { Some(res) }
+ }
+ 
+ /// A more configurable interface to quote strings.  If you only want the default settings you can

@@ -1,0 +1,9 @@
+[09:52:05] sh defects4j checkout -p
+[09:52:09] sh defects4j compile
+[09:52:15] sh defects4j export -p
+[09:52:16] sh defects4j export -p
+[09:52:17] sh defects4j export -p
+[09:52:18] sh defects4j export -p
+[09:52:20] sh defects4j export -p
+[09:52:21] sh javac -nowarn -cp
+{"bug": "Lang-22", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 1, "compiled": 1, "patterns": {"OperatorMutator": 1}, "kept": [{"file": "src/main/java/org/apache/commons/lang3/math/Fraction.java", "line": 584, "pattern": "OperatorMutator", "from": "if (Math.abs(u) <= 1 || Math.abs(v) <= 1) {\n            return 1;\n        }", "to": "if (Math.abs(u)==1 || Math.abs(v) <= 1) {\n            return 1;\n        }"}], "setup_s": 10.2, "positions": [["src/main/java/org/apache/commons/lang3/math/Fraction.java", [584]]], "test_s": 0.3, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 2, "candidates": 189, "ast_equal": false, "fixed_derived": ["src/main/java/org/apache/commons/lang3/math/Fraction.java"], "patch_files": ["src/main/java/org/apache/commons/lang3/math/Fraction.java"], "pattern": "OperatorMutator", "cpu_s": 29.5, "est_j": 295.0, "wall_s": 17.6}

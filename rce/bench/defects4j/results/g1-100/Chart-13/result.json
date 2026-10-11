@@ -1,0 +1,27 @@
+{
+ "bug": "Chart-13",
+ "plausible": true,
+ "correct": false,
+ "tries": 13,
+ "compiled": 3,
+ "patterns": {
+  "FP5": 2,
+  "FP13": 10,
+  "FP9": 1
+ },
+ "setup_s": 13.2,
+ "test_s": 1.2,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 18,
+ "pattern": "FP9",
+ "tier": 3,
+ "edit": {
+  "file": "source/org/jfree/chart/block/BorderArrangement.java",
+  "from": "2",
+  "to": "1"
+ },
+ "cpu_s": 47.39,
+ "est_j": 473.9,
+ "wall_s": 20.8
+}

@@ -1,0 +1,72 @@
+{
+ "bug": "Chart-13",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": true,
+ "correct": false,
+ "partial": false,
+ "tries": 166,
+ "compiled": 25,
+ "patterns": {
+  "VariableReplacer": 5,
+  "NullPointerChecker": 29,
+  "MethodInvocationMutator": 126,
+  "OperatorMutator": 1,
+  "RangeChecker": 1,
+  "StatementRemover": 2,
+  "StatementInserter": 2
+ },
+ "kept": [
+  {
+   "file": "source/org/jfree/chart/block/BorderArrangement.java",
+   "line": 454,
+   "pattern": "OperatorMutator",
+   "from": "RectangleConstraint c4 = new RectangleConstraint(0.0,\r\n                    new Range(0.0, constraint.getWidth() - w[2]),\r\n                    LengthConstraintType.RANGE, h[2], null,\r\n                    LengthConstraintType.FIXED);",
+   "to": "RectangleConstraint c4 = new RectangleConstraint(0.0,\r\n                    new Range(0.0, constraint.getWidth() + w[2]),\r\n                    LengthConstraintType.RANGE, h[2], null,\r\n                    LengthConstraintType.FIXED);"
+  }
+ ],
+ "setup_s": 28.4,
+ "positions": [
+  [
+   "source/org/jfree/chart/block/BorderArrangement.java",
+   [
+    454,
+    455,
+    456,
+    457
+   ]
+  ]
+ ],
+ "test_s": 6.2,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 664,
+ "plausible_found": [
+  {
+   "try": 155,
+   "pattern": "MethodInvocationMutator",
+   "line": 454,
+   "new_idents": [
+    "getHeight"
+   ]
+  },
+  {
+   "try": 161,
+   "pattern": "OperatorMutator",
+   "line": 454,
+   "new_idents": []
+  }
+ ],
+ "picked_try": 161,
+ "ast_equal": false,
+ "fixed_derived": [
+  "source/org/jfree/chart/block/BorderArrangement.java"
+ ],
+ "patch_files": [
+  "source/org/jfree/chart/block/BorderArrangement.java"
+ ],
+ "pattern": "OperatorMutator",
+ "cpu_s": 62.21,
+ "est_j": 622.1,
+ "wall_s": 59.7
+}

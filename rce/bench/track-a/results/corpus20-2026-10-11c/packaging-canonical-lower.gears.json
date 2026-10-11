@@ -1,0 +1,29 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 38,
+ "llm_calls": 0,
+ "rule_tries": 37,
+ "edit": {
+  "file": "packaging/utils.py",
+  "function": "canonicalize_name",
+  "tier": 2,
+  "pattern": "FP10",
+  "from": "",
+  "to": ".lower()"
+ },
+ "ranked": [
+  "packaging/utils.py::canonicalize_name",
+  "packaging/licenses/__init__.py::canonicalize_license_expression",
+  "packaging/metadata.py::_process_name",
+  "packaging/metadata.py::__set_name__",
+  "packaging/tags.py::interpreter_name",
+  "packaging/utils.py::is_normalized_name"
+ ],
+ "patterns": {
+  "FP9": 4,
+  "FP10": 9,
+  "FP11": 22,
+  "FP6": 2
+ },
+ "seconds": 2.27
+}

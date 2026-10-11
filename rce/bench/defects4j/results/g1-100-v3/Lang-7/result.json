@@ -1,0 +1,162 @@
+{
+ "bug": "Lang-7",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": true,
+ "correct": false,
+ "partial": false,
+ "tries": 90,
+ "compiled": 62,
+ "patterns": {
+  "ConditionalExpressionMutator": 72,
+  "NullPointerChecker": 2,
+  "StatementMover": 11,
+  "StatementRemover": 4,
+  "MethodInvocationMutator": 1
+ },
+ "kept": [
+  {
+   "file": "src/main/java/org/apache/commons/lang3/math/NumberUtils.java",
+   "line": 452,
+   "pattern": "ConditionalExpressionMutator",
+   "from": "if (str.startsWith(\"--\")) {\n            return null;\n        }",
+   "to": "if ((str.startsWith(\"--\")) && !(str.startsWith(\"-\"))) {\n            return null;\n        }"
+  }
+ ],
+ "setup_s": 20.7,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/lang3/math/NumberUtils.java",
+   [
+    452,
+    453,
+    454,
+    725
+   ]
+  ]
+ ],
+ "test_s": 8.4,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 179,
+ "plausible_found": [
+  {
+   "try": 2,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": [
+    "StringUtils",
+    "isBlank"
+   ]
+  },
+  {
+   "try": 6,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": [
+    "X",
+    "x"
+   ]
+  },
+  {
+   "try": 10,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": [
+    "StringUtils",
+    "isEmpty"
+   ]
+  },
+  {
+   "try": 14,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": [
+    "X",
+    "x"
+   ]
+  },
+  {
+   "try": 18,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": [
+    "X"
+   ]
+  },
+  {
+   "try": 22,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": [
+    "x"
+   ]
+  },
+  {
+   "try": 26,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": [
+    "X"
+   ]
+  },
+  {
+   "try": 32,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": []
+  },
+  {
+   "try": 46,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": [
+    "x"
+   ]
+  },
+  {
+   "try": 50,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": [
+    "x"
+   ]
+  },
+  {
+   "try": 67,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": [
+    "SPACE",
+    "StringUtils"
+   ]
+  },
+  {
+   "try": 71,
+   "pattern": "ConditionalExpressionMutator",
+   "line": 452,
+   "new_idents": [
+    "EMPTY",
+    "StringUtils"
+   ]
+  },
+  {
+   "try": 87,
+   "pattern": "StatementRemover",
+   "line": 452,
+   "new_idents": []
+  }
+ ],
+ "picked_try": 32,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/lang3/math/NumberUtils.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/lang3/math/NumberUtils.java"
+ ],
+ "pattern": "ConditionalExpressionMutator",
+ "cpu_s": 54.05,
+ "est_j": 540.5,
+ "wall_s": 51.0
+}

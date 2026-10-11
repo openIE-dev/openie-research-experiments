@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "$BENCH_ROOT/out2/packaging-sdist-dash/none/work/packaging/utils.py", line 157, in parse_sdist_filename
+    version = Version(version_part)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "$BENCH_ROOT/out2/packaging-sdist-dash/none/work/packaging/version.py", line 202, in __init__
+    raise InvalidVersion(f"Invalid version: {version!r}")
+packaging.version.InvalidVersion: Invalid version: 'bar-1.0'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "$BENCH_ROOT/out2/packaging-sdist-dash/none/work/test_task.py", line 3, in <module>
+    assert parse_sdist_filename('foo-bar-1.0.tar.gz') == ('foo-bar', Version('1.0'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$BENCH_ROOT/out2/packaging-sdist-dash/none/work/packaging/utils.py", line 159, in parse_sdist_filename
+    raise InvalidSdistFilename(
+packaging.utils.InvalidSdistFilename: Invalid sdist filename (invalid version): 'foo-bar-1.0.tar.gz'

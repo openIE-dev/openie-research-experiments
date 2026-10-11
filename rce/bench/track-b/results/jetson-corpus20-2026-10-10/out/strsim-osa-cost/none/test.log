@@ -1,0 +1,40 @@
+ right: 8
+
+---- tests::osa_distance_restricted_edit stdout ----
+
+thread 'tests::osa_distance_restricted_edit' (4105930) panicked at src/lib.rs:1137:9:
+assertion `left == right` failed
+  left: 4
+ right: 6
+
+---- tests::osa_distance_end_transposition stdout ----
+
+thread 'tests::osa_distance_end_transposition' (4105927) panicked at src/lib.rs:1132:9:
+assertion `left == right` failed
+  left: 1
+ right: 6
+
+---- tests::osa_distance_same stdout ----
+
+thread 'tests::osa_distance_same' (4105931) panicked at src/lib.rs:1064:9:
+assertion `left == right` failed
+  left: 0
+ right: 7
+
+
+failures:
+    tests::osa_distance_beginning_transposition
+    tests::osa_distance_diff_comedians
+    tests::osa_distance_diff_longer
+    tests::osa_distance_diff_reversed
+    tests::osa_distance_diff_short
+    tests::osa_distance_diff_unequal_length
+    tests::osa_distance_diff_unequal_length_reversed
+    tests::osa_distance_end_transposition
+    tests::osa_distance_many_transpositions
+    tests::osa_distance_restricted_edit
+    tests::osa_distance_same
+
+test result: FAILED. 77 passed; 11 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+error: test failed, to rerun pass `--lib`

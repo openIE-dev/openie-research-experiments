@@ -1,0 +1,22 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 33,
+ "llm_calls": 0,
+ "rule_tries": 32,
+ "edit": {
+  "file": "packaging/version.py",
+  "function": "micro",
+  "tier": 3,
+  "from": "1",
+  "to": "0"
+ },
+ "ranked": [
+  "packaging/version.py::micro",
+  "packaging/specifiers.py::version",
+  "packaging/version.py::release",
+  "packaging/version.py::release",
+  "packaging/markers.py::format_full_version",
+  "packaging/_manylinux.py::_glibc_version_string_confstr"
+ ],
+ "seconds": 1.14
+}

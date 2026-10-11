@@ -1,0 +1,9 @@
+[11:50:22] sh defects4j checkout -p
+[11:50:27] sh defects4j compile
+[11:51:02] sh defects4j export -p
+[11:51:04] sh defects4j export -p
+[11:51:08] sh defects4j export -p
+[11:51:12] sh defects4j export -p
+[11:51:15] sh defects4j export -p
+[11:51:19] sh javac -nowarn -cp
+{"bug": "Math-2", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": false, "partial": false, "tries": 31, "compiled": 27, "patterns": {"ReturnStatementMutator": 3, "OperatorMutator": 3, "MethodInvocationMutator": 24, "StatementRemover": 1}, "kept": [{"file": "src/main/java/org/apache/commons/math3/distribution/HypergeometricDistribution.java", "line": 268, "pattern": "MethodInvocationMutator", "from": "return (double) (getSampleSize() * getNumberOfSuccesses()) / (double) getPopulationSize();", "to": "return (double) (getSampleSize() * getSupportUpperBound()) / (double) getPopulationSize();"}], "setup_s": 39.5, "positions": [["src/main/java/org/apache/commons/math3/distribution/HypergeometricDistribution.java", [268]]], "test_s": 6.4, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 31, "plausible_found": [{"try": 21, "pattern": "MethodInvocationMutator", "line": 268, "new_idents": ["getSupportUpperBound"]}], "picked_try": 21, "ast_equal": false, "fixed_derived": ["src/main/java/org/apache/commons/math3/distribution/HypergeometricDistribution.java"], "patch_files": ["src/main/java/org/apache/commons/math3/distribution/HypergeometricDistribution.java"], "pattern": "MethodInvocationMutator", "cpu_s": 66.85, "est_j": 668.5, "wall_s": 69.3}

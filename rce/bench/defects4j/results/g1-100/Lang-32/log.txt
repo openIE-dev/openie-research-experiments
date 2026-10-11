@@ -1,0 +1,78 @@
+[09:02:24] sh defects4j checkout -p
+[09:02:28] sh defects4j compile
+[09:02:33] sh defects4j export -p
+[09:02:34] sh defects4j export -p
+[09:02:34] sh defects4j export -p
+[09:02:35] sh defects4j export -p
+[09:02:36] sh defects4j export -p
+[09:02:37] sh javac -nowarn -cp
+[09:02:37] test 2
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.apache.commons.lang3.builder.EqualsBuilder (file:/workspace/d4j-runs/g1-100/Lang-32/work/target/classes/) to field java.lang.Integer.digits
+WARNING: Please consider reporting this to the maintainers of org.apache.commons.lang3.builder.EqualsBuilder
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[09:02:38] test 1
+[09:02:38] test 1
+[09:02:38] test 1
+[09:02:38] test 1
+[09:02:38] test 1
+[09:02:38] test 1
+[09:02:38] test 1
+[09:02:38] test 1
+[09:02:39] test 1
+[09:02:39] test 1
+[09:02:39] test 1
+[09:02:39] test 1
+[09:02:39] test 1
+[09:02:39] test 1
+[09:02:39] test 1
+[09:02:39] test 1
+[09:02:39] test 1
+[09:02:39] test 1
+[09:02:39] test 1
+[09:02:39] test 1
+[09:02:40] test 1
+[09:02:40] test 1
+[09:02:40] test 1
+[09:02:40] test 1
+[09:02:40] test 1
+[09:02:40] test 1
+[09:02:40] test 1
+[09:02:40] test 1
+[09:02:40] test 1
+[09:02:40] test 1
+[09:02:40] test 1
+[09:02:40] test 1
+[09:02:40] test 1
+[09:02:40] test 1
+[09:02:40] test 1
+[09:02:41] test 1
+[09:02:41] test 1
+[09:02:41] test 1
+[09:02:41] test 1
+[09:02:41] test 1
+[09:02:41] test 1
+[09:02:41] test 1
+[09:02:41] test 1
+[09:02:41] test 1
+[09:02:41] test 1
+[09:02:41] test 1
+[09:02:41] test 1
+[09:02:57] test 1
+[09:02:57] test 1
+[09:02:58] test 1
+[09:02:58] test 1
+[09:02:58] test 1
+[09:02:58] test 1
+[09:02:58] test 1
+[09:02:58] test 1
+[09:02:58] test 1
+[09:02:58] test 1
+[09:02:59] test 1
+[09:02:59] test 1
+[09:02:59] test 1
+[09:02:59] test 1
+[09:02:59] test 1
+[09:02:59] test 1
+{"bug": "Lang-32", "plausible": false, "correct": false, "tries": 134, "compiled": 62, "patterns": {"FP9": 18, "FP11": 54, "FP7": 16, "FP5": 7, "FP15": 25, "FP4": 6, "FP14": 6, "FP2": 2}, "setup_s": 9.2, "test_s": 15.2, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 134, "cpu_s": 67.32, "est_j": 673.2, "wall_s": 35.5}

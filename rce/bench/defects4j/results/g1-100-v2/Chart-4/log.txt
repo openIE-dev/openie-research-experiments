@@ -1,0 +1,9 @@
+[09:58:58] sh defects4j checkout -p
+[09:59:02] sh defects4j compile
+[09:59:10] sh defects4j export -p
+[09:59:11] sh defects4j export -p
+[09:59:12] sh defects4j export -p
+[09:59:13] sh defects4j export -p
+[09:59:13] sh defects4j export -p
+[09:59:14] sh javac -nowarn -cp
+{"bug": "Chart-4", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 91, "compiled": 2, "patterns": {"VariableReplacer": 90, "NullPointerChecker": 1}, "kept": [{"file": "source/org/jfree/chart/plot/XYPlot.java", "line": 4493, "pattern": "NullPointerChecker", "from": "Collection c = r.getAnnotations();\r\n                    Iterator i = c.iterator();\r\n                    while (i.hasNext()) {\r\n                        XYAnnotation a = (XYAnnotation) i.next();\r\n                        if (a instanceof XYAnnotationBoundsInfo) {\r\n                            includedAnnotations.add(a);\r\n                        }\r\n                    }", "to": "if (r != null) {\n\tCollection c = r.getAnnotations();\r\n                    Iterator i = c.iterator();\r\n                    while (i.hasNext()) {\r\n                        XYAnnotation a = (XYAnnotation) i.next();\r\n                        if (a instanceof XYAnnotationBoundsInfo) {\r\n                            includedAnnotations.add(a);\r\n                        }\r\n                    }\n\t}\n"}], "setup_s": 12.3, "positions": [["source/org/jfree/chart/plot/XYPlot.java", [4493]]], "test_s": 2.7, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 22, "candidates": 144, "ast_equal": true, "fixed_derived": ["source/org/jfree/chart/plot/XYPlot.java"], "patch_files": ["source/org/jfree/chart/plot/XYPlot.java"], "pattern": "NullPointerChecker", "cpu_s": 70.41, "est_j": 704.1, "wall_s": 27.5}

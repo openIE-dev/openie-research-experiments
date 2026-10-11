@@ -1,0 +1,20 @@
+{
+  "track": "A",
+  "id": "track-a-toy-2026-10-10",
+  "registered": "2026-10-10",
+  "tasks": [
+    "tasks/toy-clamp"
+  ],
+  "solvers": [
+    "none",
+    "gold",
+    "cmd:python3 -c \"p='clamp.py'; s=open(p).read(); open(p,'w').write(s.replace('return x\\n    return x', 'return hi\\n    return x'))\""
+  ],
+  "hypotheses": [
+    "H1: the toy task is valid (gold solves, none does not).",
+    "H2: the cmd solver solves it."
+  ],
+  "notes": [
+    "Scaffolding check only: one toy task, no corpus."
+  ]
+}

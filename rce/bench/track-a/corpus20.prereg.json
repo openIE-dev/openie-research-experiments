@@ -1,0 +1,42 @@
+{
+ "track": "A",
+ "id": "track-a-corpus20-2026-10-10",
+ "registered": "2026-10-10",
+ "tasks": [
+  "tasks/strsim-levenshtein-row",
+  "tasks/strsim-osa-cost",
+  "tasks/strsim-jaro-lower-bound",
+  "tasks/strsim-jaro-upper-bound",
+  "tasks/strsim-damerau-match",
+  "tasks/heck-final-sigma",
+  "tasks/heck-capitalize-rest",
+  "tasks/shlex-backslash-newline",
+  "tasks/shlex-newline-split",
+  "tasks/shlex-error-none",
+  "tasks/shlex-lineno",
+  "tasks/packaging-minor",
+  "tasks/packaging-micro",
+  "tasks/packaging-postrelease",
+  "tasks/packaging-dev-of-post",
+  "tasks/packaging-sdist-dash",
+  "tasks/packaging-wheel-build",
+  "tasks/packaging-canonical-lower",
+  "tasks/idna-label-length",
+  "tasks/idna-string-length"
+ ],
+ "solvers": [
+  "none",
+  "gold",
+  "cmd:python3 \"$RCE_ROOT/scripts/track_a_solver.py\""
+ ],
+ "hypotheses": [
+  "H1: all 20 tasks are valid: gold solves, none does not.",
+  "H2: the RCE solver resolves at least 10 of 20.",
+  "H3: G1 rules resolve the single-site comparison, None-test and literal regressions with zero LLM calls; the local model is reached only when G1 fails."
+ ],
+ "notes": [
+  "11 Rust tasks from the vendored crates.io registry (strsim 0.11.1, heck 0.5.0, shlex 2.0.1), 9 Python tasks from dist-packages (packaging 25.0, idna 3.10). Each base state carries one regression; gold restores the released code.",
+  "Tests run in an unprivileged user namespace without network (unshare -rn). Rust tasks run the crate's own unit tests offline.",
+  "The solver's last gear is Qwen2.5-Coder-1.5B Q4 on llama.cpp, CPU, temperature 0, seed 0."
+ ]
+}

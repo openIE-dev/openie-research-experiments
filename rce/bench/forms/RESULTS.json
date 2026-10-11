@@ -1,0 +1,101 @@
+{
+  "format": "rce-form-bench-results/1",
+  "out_of_domain_probe": {
+    "inputs": 50,
+    "outcomes": {
+      "reject": 50
+    },
+    "reading": "the Form's int is i64: a u64 above i64::MAX is rejected at the contract, where the original computes a float"
+  },
+  "prereg": "PREREG.json",
+  "programs": [
+    {
+      "agree": 1000,
+      "est_j": {
+        "extracted": 1.4857e-8,
+        "input": 1.6925e-8,
+        "label": "est_j (estimate from the FGIR instruction table; not a measurement)"
+      },
+      "first_disagreement": null,
+      "fit_json_lines": 208,
+      "id": "b1",
+      "inputs": 1000,
+      "name": "SequenceMetrics rates",
+      "original_loc": 30,
+      "spec_lines": 29,
+      "targets": [
+        "Rust",
+        "Python",
+        "XState"
+      ],
+      "targets_byte_identical_on_first": 200,
+      "term_nodes": 36
+    },
+    {
+      "agree": 1000,
+      "est_j": {
+        "extracted": 1.2055e-8,
+        "input": 1.4123e-8,
+        "label": "est_j (estimate from the FGIR instruction table; not a measurement)"
+      },
+      "first_disagreement": null,
+      "fit_json_lines": 182,
+      "id": "b2",
+      "inputs": 1000,
+      "name": "SenderHealth reputation",
+      "original_loc": 23,
+      "spec_lines": 29,
+      "targets": [
+        "Rust",
+        "Python",
+        "XState"
+      ],
+      "targets_byte_identical_on_first": 200,
+      "term_nodes": 33
+    },
+    {
+      "agree": 2500,
+      "est_j": {
+        "extracted": 1.2091e-8,
+        "input": 1.4159e-8,
+        "label": "est_j (estimate from the FGIR instruction table; not a measurement)"
+      },
+      "first_disagreement": null,
+      "fit_json_lines": 167,
+      "id": "b3",
+      "inputs": 2500,
+      "name": "Enrollment status transitions",
+      "original_loc": 47,
+      "spec_lines": 29,
+      "targets": [
+        "Rust",
+        "Python",
+        "XState"
+      ],
+      "targets_byte_identical_on_first": 200,
+      "term_nodes": 26
+    },
+    {
+      "agree": 4000,
+      "est_j": {
+        "extracted": 7.3691e-8,
+        "input": 7.5759e-8,
+        "label": "est_j (estimate from the FGIR instruction table; not a measurement)"
+      },
+      "first_disagreement": null,
+      "fit_json_lines": 875,
+      "id": "b3full",
+      "inputs": 4000,
+      "name": "Enrollment transitions, every written field",
+      "original_loc": 51,
+      "spec_lines": 29,
+      "targets": [
+        "Rust",
+        "Python",
+        "XState"
+      ],
+      "targets_byte_identical_on_first": 200,
+      "term_nodes": 125
+    }
+  ]
+}

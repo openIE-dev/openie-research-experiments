@@ -1,0 +1,22 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 2,
+ "llm_calls": 0,
+ "rule_tries": 1,
+ "edit": {
+  "file": "packaging/utils.py",
+  "function": "parse_sdist_filename",
+  "tier": 1,
+  "from": "partition",
+  "to": "rpartition"
+ },
+ "ranked": [
+  "packaging/utils.py::parse_sdist_filename",
+  "packaging/specifiers.py::version",
+  "packaging/utils.py::canonicalize_name",
+  "packaging/utils.py::parse_wheel_filename",
+  "packaging/tags.py::parse_tag",
+  "packaging/utils.py::_"
+ ],
+ "seconds": 0.14
+}

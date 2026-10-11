@@ -1,0 +1,29 @@
+spec "b2-sender-reputation" v0.1.0
+reason "joule-sales-outreach analytics.rs SenderHealth::recalculate_reputation" by "david"
+currency max_age=24h
+
+objective O1 "Re-express"
+  metric agreement target 1
+  reason "frozen benchmark: original code re-expressed as a Form" by "david"
+
+acceptance A1 validates O1
+  property "for all recorded inputs: the Form's output equals the original program's"
+  reason "trace equivalence" by "david"
+
+deliverable D1 fulfills O1
+  schema "Reputation"
+  reason "results" by "david"
+
+role R1 "reputation" execution_node
+  reason "computes reputation" by "david"
+
+dependency DEP1 crate "sender-health"
+  reason "inputs" by "david"
+
+flow F1 from DEP1 to R1
+  reason "inputs to reputation" by "david"
+
+flow G1 from R1 to D1
+  reason "results recorded" by "david"
+
+change_control approvers ["david"] review_period 24h

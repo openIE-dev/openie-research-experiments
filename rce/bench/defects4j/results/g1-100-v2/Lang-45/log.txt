@@ -1,0 +1,9 @@
+[09:55:27] sh defects4j checkout -p
+[09:55:31] sh defects4j compile
+[09:55:37] sh defects4j export -p
+[09:55:38] sh defects4j export -p
+[09:55:39] sh defects4j export -p
+[09:55:40] sh defects4j export -p
+[09:55:41] sh defects4j export -p
+[09:55:43] sh javac -nowarn -cp
+{"bug": "Lang-45", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 68, "compiled": 55, "patterns": {"OperatorMutator": 11, "ConditionalExpressionMutator": 42, "VariableReplacer": 3, "LiteralExpressionMutator": 2, "StatementMover": 7, "StatementRemover": 3}, "kept": [], "setup_s": 9.5, "positions": [["src/java/org/apache/commons/lang/WordUtils.java", [618]]], "test_s": 0.4, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 68, "ast_equal": false, "fixed_derived": ["src/java/org/apache/commons/lang/WordUtils.java"], "patch_files": ["src/java/org/apache/commons/lang/WordUtils.java"], "pattern": null, "cpu_s": 38.64, "est_j": 386.4, "wall_s": 21.5}

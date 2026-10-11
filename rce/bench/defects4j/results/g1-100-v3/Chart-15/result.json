@@ -1,0 +1,45 @@
+{
+ "bug": "Chart-15",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 231,
+ "compiled": 36,
+ "patterns": {
+  "NullPointerChecker": 32,
+  "StatementRemover": 4,
+  "StatementInserter": 3,
+  "MethodInvocationMutator": 66,
+  "VariableReplacer": 122,
+  "StatementMover": 4
+ },
+ "kept": [],
+ "setup_s": 26.8,
+ "positions": [
+  [
+   "source/org/jfree/chart/plot/PiePlot.java",
+   [
+    1379,
+    2051,
+    2052
+   ]
+  ]
+ ],
+ "test_s": 6.7,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 436,
+ "ast_equal": false,
+ "fixed_derived": [
+  "source/org/jfree/chart/plot/PiePlot.java"
+ ],
+ "patch_files": [
+  "source/org/jfree/chart/plot/PiePlot.java"
+ ],
+ "pattern": null,
+ "cpu_s": 73.62,
+ "est_j": 736.2,
+ "wall_s": 69.0
+}

@@ -1,0 +1,22 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 6,
+ "llm_calls": 0,
+ "rule_tries": 5,
+ "edit": {
+  "file": "src/lib.rs",
+  "function": "generic_jaro",
+  "tier": 1,
+  "from": "<",
+  "to": "<="
+ },
+ "ranked": [
+  "src/lib.rs::generic_jaro",
+  "src/lib.rs::jaro",
+  "src/lib.rs::generic_jaro_winkler",
+  "src/lib.rs::jaro_winkler",
+  "src/lib.rs::into_iter",
+  "src/lib.rs::osa_distance"
+ ],
+ "seconds": 1.39
+}

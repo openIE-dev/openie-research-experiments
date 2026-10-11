@@ -1,0 +1,13 @@
+diff --git a/base/src/lib.rs b/work/src/lib.rs
+index d927ee7..6a3b098 100644
+--- a/base/src/lib.rs
++++ b/work/src/lib.rs
+@@ -122,7 +122,7 @@ where
+         let max_bound = min(b_len, i + search_range + 1);
+ 
+         for (j, b_elem) in b.into_iter().enumerate().take(max_bound) {
+-            if min_bound < j && a_elem == b_elem && !b_flags[j] {
++            if min_bound <= j && a_elem == b_elem && !b_flags[j] {
+                 a_flags[i] = true;
+                 b_flags[j] = true;
+                 matches += 1;

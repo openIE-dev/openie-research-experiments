@@ -1,0 +1,13 @@
+diff --git a/base/packaging/version.py b/work/packaging/version.py
+index f5d8bbf..c9bbda2 100644
+--- a/base/packaging/version.py
++++ b/work/packaging/version.py
+@@ -541,7 +541,7 @@ def _cmpkey(
+     # We'll do this by abusing the pre segment, but we _only_ want to do this
+     # if there is not a pre or a post segment. If we have one of those then
+     # the normal sorting rules will handle this case correctly.
+-    if pre is None and dev is not None:
++    if pre is None and post is None and dev is not None:
+         _pre: CmpPrePostDevType = NegativeInfinity
+     # Versions without a pre-release (except as noted above) should sort after
+     # those with one.

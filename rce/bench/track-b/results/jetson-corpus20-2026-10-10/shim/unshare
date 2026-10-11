@@ -1,0 +1,5 @@
+#!/bin/sh
+# Track B shim: this host forbids unprivileged user namespaces, so the
+# network namespace comes from sudo and the run drops back to this user.
+[ "$1" = "-rn" ] && shift
+exec sudo -n /usr/bin/unshare -n setpriv --reuid=1000 --regid=1000 --init-groups env HOME=$HOME PATH=$PATH "$@"

@@ -1,0 +1,36 @@
+{
+ "bug": "Closure-19",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 0,
+ "compiled": 0,
+ "patterns": {},
+ "kept": [],
+ "setup_s": 31.1,
+ "positions": [
+  [
+   "src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java",
+   [
+    174
+   ]
+  ]
+ ],
+ "test_s": 22.6,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 0,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java"
+ ],
+ "patch_files": [
+  "src/com/google/javascript/jscomp/type/ChainableReverseAbstractInterpreter.java"
+ ],
+ "pattern": null,
+ "cpu_s": 98.76,
+ "est_j": 987.6,
+ "wall_s": 69.0
+}

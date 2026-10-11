@@ -1,0 +1,46 @@
+{
+ "bug": "Lang-41",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 78,
+ "compiled": 66,
+ "patterns": {
+  "VariableReplacer": 4,
+  "NullPointerChecker": 15,
+  "StatementRemover": 5,
+  "OperatorMutator": 1,
+  "ConditionalExpressionMutator": 44,
+  "StatementMover": 3,
+  "DataTypeReplacer": 6
+ },
+ "kept": [],
+ "setup_s": 19.7,
+ "positions": [
+  [
+   "src/java/org/apache/commons/lang/ClassUtils.java",
+   [
+    203,
+    245,
+    252
+   ]
+  ]
+ ],
+ "test_s": 2.7,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 2,
+ "candidates": 79,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/java/org/apache/commons/lang/ClassUtils.java"
+ ],
+ "patch_files": [
+  "src/java/org/apache/commons/lang/ClassUtils.java"
+ ],
+ "pattern": null,
+ "cpu_s": 47.05,
+ "est_j": 470.5,
+ "wall_s": 46.4
+}

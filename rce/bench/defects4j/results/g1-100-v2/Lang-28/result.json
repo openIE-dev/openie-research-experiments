@@ -1,0 +1,41 @@
+{
+ "bug": "Lang-28",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 21,
+ "compiled": 10,
+ "patterns": {
+  "VariableReplacer": 3,
+  "NullPointerChecker": 7,
+  "StatementMover": 9,
+  "StatementRemover": 2
+ },
+ "kept": [],
+ "setup_s": 9.1,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java",
+   [
+    63
+   ]
+  ]
+ ],
+ "test_s": 0.4,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 1,
+ "candidates": 21,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/lang3/text/translate/NumericEntityUnescaper.java"
+ ],
+ "pattern": null,
+ "cpu_s": 32.71,
+ "est_j": 327.1,
+ "wall_s": 18.9
+}

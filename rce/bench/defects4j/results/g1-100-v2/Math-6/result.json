@@ -1,0 +1,100 @@
+{
+ "bug": "Math-6",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 1825,
+ "compiled": 634,
+ "patterns": {
+  "MethodInvocationMutator": 783,
+  "LiteralExpressionMutator": 2,
+  "StatementRemover": 25,
+  "VariableReplacer": 461,
+  "StatementMover": 84,
+  "StatementInserter": 72,
+  "ConditionalExpressionMutator": 318,
+  "NullPointerChecker": 63,
+  "OperatorMutator": 17
+ },
+ "kept": [],
+ "setup_s": 21.8,
+ "positions": [
+  [
+   "src/main/java/org/apache/commons/math3/optim/BaseOptimizer.java",
+   [
+    51
+   ]
+  ],
+  [
+   "src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/gradient/NonLinearConjugateGradientOptimizer.java",
+   [
+    217,
+    223,
+    277
+   ]
+  ],
+  [
+   "src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java",
+   [
+    390
+   ]
+  ],
+  [
+   "src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/PowellOptimizer.java",
+   [
+    193,
+    227
+   ]
+  ],
+  [
+   "src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/SimplexOptimizer.java",
+   [
+    158,
+    175
+   ]
+  ],
+  [
+   "src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/GaussNewtonOptimizer.java",
+   [
+    108,
+    160
+   ]
+  ],
+  [
+   "src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java",
+   [
+    325,
+    489
+   ]
+  ]
+ ],
+ "test_s": 1263.7,
+ "trigger_timeout_s": 25.8,
+ "baseline_trigger_failures": 28,
+ "candidates": 1831,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/main/java/org/apache/commons/math3/optim/BaseOptimizer.java",
+  "src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/gradient/NonLinearConjugateGradientOptimizer.java",
+  "src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java",
+  "src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/PowellOptimizer.java",
+  "src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/SimplexOptimizer.java",
+  "src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/GaussNewtonOptimizer.java",
+  "src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java"
+ ],
+ "patch_files": [
+  "src/main/java/org/apache/commons/math3/optim/BaseOptimizer.java",
+  "src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/gradient/NonLinearConjugateGradientOptimizer.java",
+  "src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/CMAESOptimizer.java",
+  "src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/PowellOptimizer.java",
+  "src/main/java/org/apache/commons/math3/optim/nonlinear/scalar/noderiv/SimplexOptimizer.java",
+  "src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/GaussNewtonOptimizer.java",
+  "src/main/java/org/apache/commons/math3/optim/nonlinear/vector/jacobian/LevenbergMarquardtOptimizer.java"
+ ],
+ "pattern": null,
+ "cpu_s": 3399.14,
+ "est_j": 33991.4,
+ "wall_s": 1338.2
+}

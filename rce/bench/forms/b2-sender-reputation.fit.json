@@ -1,0 +1,182 @@
+{
+ "handlers": {
+  "dep_DEP1": {
+   "kind": "passthrough"
+  },
+  "role_R1": {
+   "kind": "term",
+   "term": {
+    "t": "if_eq",
+    "field": "total_sent",
+    "value": 0,
+    "then": {
+     "t": "obj",
+     "fields": [
+      [
+       "reputation_score",
+       {
+        "t": "const",
+        "value": 100
+       }
+      ]
+     ]
+    },
+    "otherwise": {
+     "t": "obj",
+     "fields": [
+      [
+       "reputation_score",
+       {
+        "t": "arith",
+        "node": "role_R1",
+        "op": "max",
+        "a": {
+         "t": "const",
+         "value": 0
+        },
+        "b": {
+         "t": "arith",
+         "node": "role_R1",
+         "op": "min",
+         "a": {
+          "t": "const",
+          "value": 100
+         },
+         "b": {
+          "t": "arith",
+          "node": "role_R1",
+          "op": "fsub",
+          "a": {
+           "t": "arith",
+           "node": "role_R1",
+           "op": "fsub",
+           "a": {
+            "t": "arith",
+            "node": "role_R1",
+            "op": "fsub",
+            "a": {
+             "t": "const",
+             "value": 100
+            },
+            "b": {
+             "t": "arith",
+             "node": "role_R1",
+             "op": "fmul",
+             "a": {
+              "t": "arith",
+              "node": "role_R1",
+              "op": "fmul",
+              "a": {
+               "t": "arith",
+               "node": "role_R1",
+               "op": "fdiv",
+               "a": {
+                "t": "proj",
+                "node": "role_R1",
+                "field": "total_bounces"
+               },
+               "b": {
+                "t": "proj",
+                "node": "role_R1",
+                "field": "total_sent"
+               }
+              },
+              "b": {
+               "t": "const",
+               "value": 100
+              }
+             },
+             "b": {
+              "t": "const",
+              "value": 10
+             }
+            }
+           },
+           "b": {
+            "t": "arith",
+            "node": "role_R1",
+            "op": "fmul",
+            "a": {
+             "t": "arith",
+             "node": "role_R1",
+             "op": "fmul",
+             "a": {
+              "t": "arith",
+              "node": "role_R1",
+              "op": "fdiv",
+              "a": {
+               "t": "proj",
+               "node": "role_R1",
+               "field": "total_complaints"
+              },
+              "b": {
+               "t": "proj",
+               "node": "role_R1",
+               "field": "total_sent"
+              }
+             },
+             "b": {
+              "t": "const",
+              "value": 100
+             }
+            },
+            "b": {
+             "t": "const",
+             "value": 50
+            }
+           }
+          },
+          "b": {
+           "t": "arith",
+           "node": "role_R1",
+           "op": "fmul",
+           "a": {
+            "t": "arith",
+            "node": "role_R1",
+            "op": "fmul",
+            "a": {
+             "t": "arith",
+             "node": "role_R1",
+             "op": "fdiv",
+             "a": {
+              "t": "proj",
+              "node": "role_R1",
+              "field": "total_unsubscribes"
+             },
+             "b": {
+              "t": "proj",
+              "node": "role_R1",
+              "field": "total_sent"
+             }
+            },
+            "b": {
+             "t": "const",
+             "value": 100
+            }
+           },
+           "b": {
+            "t": "const",
+            "value": 5
+           }
+          }
+         }
+        }
+       }
+      ]
+     ]
+    }
+   }
+  },
+  "del_D1": {
+   "kind": "passthrough"
+  }
+ },
+ "types": {
+  "dep_DEP1": {
+   "total_sent": "int",
+   "total_bounces": "int",
+   "total_complaints": "int",
+   "total_unsubscribes": "int"
+  }
+ }
+}

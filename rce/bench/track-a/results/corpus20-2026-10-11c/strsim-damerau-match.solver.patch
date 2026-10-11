@@ -1,0 +1,22 @@
+diff -ruN -x target -x .git -x __pycache__ -x '*.pyc' -x Cargo.lock base/.test.out work/.test.out
+--- .test.out	1969-12-31 19:00:00.000000000 -0500
++++ .test.out	2026-10-11 08:23:49.718264708 -0400
+@@ -0,0 +1,6 @@
++
++running 89 tests
++....................................................................................... 87/89
++..
++test result: ok. 89 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
++
+diff -ruN -x target -x .git -x __pycache__ -x '*.pyc' -x Cargo.lock base/src/lib.rs work/src/lib.rs
+--- src/lib.rs	2026-10-11 08:23:47.630264708 -0400
++++ src/lib.rs	2026-10-11 08:23:49.378264708 -0400
+@@ -396,7 +396,7 @@
+                 distances[flat_index(k, db, width)] + (i - k - 1) + 1 + (j - db - 1);
+ 
+             let mut substitution_cost = distances[flat_index(i, j, width)] + 1;
+-            if a_elems[i - 1] != b_elems[j - 1] {
++            if a_elems[i - 1] == b_elems[j - 1] {
+                 db = j;
+                 substitution_cost -= 1;
+             }

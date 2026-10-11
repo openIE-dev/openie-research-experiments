@@ -1,0 +1,9 @@
+[10:02:48] sh defects4j checkout -p
+[10:02:52] sh defects4j compile
+[10:03:04] sh defects4j export -p
+[10:03:05] sh defects4j export -p
+[10:03:07] sh defects4j export -p
+[10:03:08] sh defects4j export -p
+[10:03:09] sh defects4j export -p
+[10:03:10] sh javac -nowarn -cp
+{"bug": "Chart-24", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": true, "correct": true, "partial": false, "tries": 7, "compiled": 3, "patterns": {"DataTypeReplacer": 6, "VariableReplacer": 1}, "kept": [{"file": "source/org/jfree/chart/renderer/GrayPaintScale.java", "line": 126, "pattern": "VariableReplacer", "from": "int g = (int) ((value - this.lowerBound) / (this.upperBound \r\n                - this.lowerBound) * 255.0);", "to": "int g = (int) ((v - this.lowerBound) / (this.upperBound \r\n                - this.lowerBound) * 255.0);"}], "setup_s": 15.7, "positions": [["source/org/jfree/chart/renderer/GrayPaintScale.java", [126, 127]]], "test_s": 0.5, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 26, "ast_equal": true, "fixed_derived": ["source/org/jfree/chart/renderer/GrayPaintScale.java"], "patch_files": ["source/org/jfree/chart/renderer/GrayPaintScale.java"], "pattern": "VariableReplacer", "cpu_s": 43.59, "est_j": 435.9, "wall_s": 24.2}

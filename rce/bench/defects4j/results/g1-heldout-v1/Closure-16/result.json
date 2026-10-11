@@ -1,0 +1,45 @@
+{
+ "bug": "Closure-16",
+ "engine": "G1-J (TBar port)",
+ "llm_calls": 0,
+ "plausible": false,
+ "correct": false,
+ "partial": false,
+ "tries": 234,
+ "compiled": 142,
+ "patterns": {
+  "MethodInvocationMutator": 162,
+  "VariableReplacer": 25,
+  "NullPointerChecker": 33,
+  "StatementRemover": 4,
+  "StatementInserter": 8,
+  "OperatorMutator": 1,
+  "StatementMover": 1
+ },
+ "kept": [],
+ "setup_s": 58.4,
+ "positions": [
+  [
+   "src/com/google/javascript/jscomp/ScopedAliases.java",
+   [
+    180,
+    468
+   ]
+  ]
+ ],
+ "test_s": 63.1,
+ "trigger_timeout_s": 15.0,
+ "baseline_trigger_failures": 2,
+ "candidates": 234,
+ "ast_equal": false,
+ "fixed_derived": [
+  "src/com/google/javascript/jscomp/ScopedAliases.java"
+ ],
+ "patch_files": [
+  "src/com/google/javascript/jscomp/ScopedAliases.java"
+ ],
+ "pattern": null,
+ "cpu_s": 141.59,
+ "est_j": 1415.9,
+ "wall_s": 185.6
+}

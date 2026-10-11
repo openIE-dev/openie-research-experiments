@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "$BENCH_ROOT/out/idna-string-length/none/work/test_task.py", line 2, in <module>
+    assert valid_string_length('a' * 254, True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

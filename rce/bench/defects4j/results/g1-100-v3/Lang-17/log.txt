@@ -1,0 +1,9 @@
+[11:26:09] sh defects4j checkout -p
+[11:26:14] sh defects4j compile
+[11:26:32] sh defects4j export -p
+[11:26:35] sh defects4j export -p
+[11:26:37] sh defects4j export -p
+[11:26:39] sh defects4j export -p
+[11:26:41] sh defects4j export -p
+[11:26:44] sh javac -nowarn -cp
+{"bug": "Lang-17", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 164, "compiled": 152, "patterns": {"DataTypeReplacer": 6, "LiteralExpressionMutator": 4, "StatementRemover": 15, "OperatorMutator": 12, "ConditionalExpressionMutator": 96, "VariableReplacer": 19, "StatementMover": 7, "NullPointerChecker": 5}, "kept": [], "setup_s": 23.3, "positions": [["src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java", [83, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102]]], "test_s": 269.9, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 301, "ast_equal": false, "fixed_derived": ["src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java"], "patch_files": ["src/main/java/org/apache/commons/lang3/text/translate/CharSequenceTranslator.java"], "pattern": null, "cpu_s": 209.9, "est_j": 2099.0, "wall_s": 350.3}

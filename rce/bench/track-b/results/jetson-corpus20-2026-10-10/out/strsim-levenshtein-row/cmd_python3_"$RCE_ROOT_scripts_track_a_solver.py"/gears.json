@@ -1,0 +1,21 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 60,
+ "llm_calls": 0,
+ "rule_tries": 59,
+ "edit": {
+  "file": "src/lib.rs",
+  "function": "generic_levenshtein",
+  "from": "i",
+  "to": "i + 1"
+ },
+ "ranked": [
+  "src/lib.rs::normalized_levenshtein",
+  "src/lib.rs::levenshtein",
+  "src/lib.rs::generic_levenshtein",
+  "src/lib.rs::normalized_damerau_levenshtein",
+  "src/lib.rs::damerau_levenshtein_impl",
+  "src/lib.rs::generic_damerau_levenshtein"
+ ],
+ "seconds": 5.68
+}

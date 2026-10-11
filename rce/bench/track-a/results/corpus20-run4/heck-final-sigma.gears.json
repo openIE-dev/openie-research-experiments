@@ -1,0 +1,17 @@
+{
+ "gear": "unresolved",
+ "test_runs": 29,
+ "llm_calls": 3,
+ "rule_tries": 25,
+ "edit": null,
+ "ranked": [
+  "src/shouty_snake.rs::to_shouty_snake_case",
+  "src/snake.rs::to_snake_case",
+  "src/lower_camel.rs::to_lower_camel_case",
+  "src/shouty_snake.rs::TO_SHOUTY_SNEK_CASE",
+  "src/snake.rs::to_snek_case",
+  "src/kebab.rs::to_kebab_case"
+ ],
+ "sensitive": [],
+ "seconds": 10.98
+}

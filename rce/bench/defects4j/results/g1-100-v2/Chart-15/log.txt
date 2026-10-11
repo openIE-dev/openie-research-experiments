@@ -1,0 +1,9 @@
+[10:00:52] sh defects4j checkout -p
+[10:00:58] sh defects4j compile
+[10:01:18] sh defects4j export -p
+[10:01:20] sh defects4j export -p
+[10:01:22] sh defects4j export -p
+[10:01:24] sh defects4j export -p
+[10:01:27] sh defects4j export -p
+[10:01:29] sh javac -nowarn -cp
+{"bug": "Chart-15", "engine": "G1-J (TBar port)", "llm_calls": 0, "plausible": false, "correct": false, "partial": false, "tries": 231, "compiled": 36, "patterns": {"NullPointerChecker": 32, "StatementRemover": 4, "StatementInserter": 3, "MethodInvocationMutator": 66, "VariableReplacer": 122, "StatementMover": 4}, "kept": [], "setup_s": 25.7, "positions": [["source/org/jfree/chart/plot/PiePlot.java", [1379, 2051, 2052]]], "test_s": 7.7, "trigger_timeout_s": 15.0, "baseline_trigger_failures": 1, "candidates": 436, "ast_equal": false, "fixed_derived": ["source/org/jfree/chart/plot/PiePlot.java"], "patch_files": ["source/org/jfree/chart/plot/PiePlot.java"], "pattern": null, "cpu_s": 73.11, "est_j": 731.1, "wall_s": 71.0}

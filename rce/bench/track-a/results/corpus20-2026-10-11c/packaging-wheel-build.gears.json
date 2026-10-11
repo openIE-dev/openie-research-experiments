@@ -1,0 +1,29 @@
+{
+ "gear": "G1-rules",
+ "test_runs": 33,
+ "llm_calls": 0,
+ "rule_tries": 32,
+ "edit": {
+  "file": "packaging/utils.py",
+  "function": "parse_wheel_filename",
+  "tier": 2,
+  "pattern": "FP6",
+  "from": "!= 4",
+  "to": "not in (4, 5)"
+ },
+ "ranked": [
+  "packaging/utils.py::parse_wheel_filename",
+  "packaging/specifiers.py::version",
+  "packaging/tags.py::parse_tag",
+  "packaging/utils.py::canonicalize_name",
+  "packaging/utils.py::_",
+  "packaging/utils.py::parse_sdist_filename"
+ ],
+ "patterns": {
+  "FP10": 11,
+  "FP11": 13,
+  "FP9": 4,
+  "FP6": 4
+ },
+ "seconds": 2.15
+}

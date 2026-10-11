@@ -1,0 +1,11 @@
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -315,7 +315,7 @@
+             let cost = usize::from(a_char != b_char);
+             curr_distances[j + 1] = min(
+                 curr_distances[j] + 1,
+-                min(prev_distances[j + 1] + 1, prev_distances[j] + 1),
++                min(prev_distances[j + 1] + 1, prev_distances[j] + cost),
+             );
+             if i > 0 && j > 0 && a_char != b_char && a_char == prev_b_char && b_char == prev_a_char
+             {

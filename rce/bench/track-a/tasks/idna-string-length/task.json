@@ -1,0 +1,10 @@
+{
+ "id": "idna-string-length",
+ "problem": "The 253/254 octet limit is swapped for the trailing dot.",
+ "repo": "repo",
+ "test_cmd": "unshare -rn sh -c 'python3 -B test_task.py'",
+ "gold_patch": "gold.patch",
+ "timeout_s": 600,
+ "source": "idna (dist-packages)",
+ "file": "idna/core.py"
+}
