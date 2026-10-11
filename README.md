@@ -26,4 +26,4 @@ Each run is fixed by its preregistration, whose SHA-256 sits beside it. `CHECKSU
 
 ## License
 
-Code MIT, data CC BY 4.0; see `LICENSE`.
+Code Apache-2.0, data CC BY 4.0; see `LICENSE`.
