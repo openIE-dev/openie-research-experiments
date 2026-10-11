@@ -29,13 +29,33 @@
   "frozen_runs": {
    "L0-r1": {
     "engine_commit": "65571d0",
-    "binary_sha256_prefix": "0186a288d689ebda"
+    "binary_sha256_prefix": "0186a288d689ebda",
+    "status": "complete: 547,448 tasks, 520,821 TEST"
    },
    "L1m-r1": {
     "engine_commit": "9ce790e",
     "binary_sha256_prefix": "a8f51153965d3572"
+   },
+   "L0-r2-fresh-repos": {
+    "engine_commit": "ecfe5a1",
+    "binary_sha256_prefix": "f55df0424c605a7d",
+    "repos": "commons-text, commons-io, more-itertools, httpx (never used in tuning)",
+    "status": "complete: 23,015"
+   },
+   "L1t-file14-15": {
+    "engine_commit": "f2701b7",
+    "status": "file-14 and file-15 complete; file-20, file-21 queued"
+   },
+   "L1f-r1": {
+    "engine_commit": "ecfe5a1",
+    "binary_sha256_prefix": "f55df0424c605a7d",
+    "corpus": "ManySStuBs4J TEST positions 2000..26071, full parent-commit file",
+    "status": "running (resumed after OOM at 3,680)"
    }
   },
-  "note_corpus20": "The Track A corpus20 20/20 is dev-contaminated (rules committed after the first run on it) and is not a ladder result."
+  "note_corpus20": "The Track A corpus20 20/20 is dev-contaminated (rules committed after the first run on it) and is not a ladder result.",
+  "diagnostics": {
+   "L0-r1fail-ecfe5a1": "ecfe5a1 rerun on the 280 L0-r1 TEST failures; dev-contaminated by construction (the float gear was written after these were seen); not a held-out number"
+  }
  }
 }

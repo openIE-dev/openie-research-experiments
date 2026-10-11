@@ -7,10 +7,10 @@ Reproducible material for the papers at https://research.openie.dev. The page ht
 | Path | Paper | Contents |
 |---|---|---|
 | `agency-run/` | Thermodynamic Bounds and an Optimal Tempo for Goal-Holding Agents, §8.11 | Preregistrations (v1, v2, v2 second machine), agent and meter code, task generator, analysis scripts, episode and receipt results, pilots |
-| `rce/bench/track-a/` | The Reality Code Engine, §6.1 | Corpus20 task directories (each registration), preregistrations with SHA-256, solver patches and reports |
-| `rce/bench/track-b/` | RCE §6.2 | RAPL energy runs: `results.jsonl` with raw and idle-subtracted joules, method and report |
+| `rce/bench/track-a/` | Development material (not reported in the paper) | Corpus20 task directories (each registration), preregistrations with SHA-256, solver patches and reports |
+| `rce/bench/track-b/` | Development material (not reported in the paper) | RAPL energy runs: `results.jsonl` with raw and idle-subtracted joules, method and report |
 | `rce/bench/results/` | RCE §6.3 | Track C soak results and energy receipts |
-| `rce/bench/ladder/` | RCE §2.3 | LADDER.md, PREREG.json, RESULTS.md, report.py and per-rung results |
+| `rce/bench/ladder/` | RCE §2.3, §6.1 to §6.3 (held-out results) | LADDER.md, PREREG.json, RESULTS.md, report.py and per-rung results |
 | `rce/bench/defects4j/` | RCE §8.1 | Defects4J harness, TBar port comparison, REVIEW.md and results |
 | `rce/bench/forms/`, `rce/tests/form_targets.rs`, `rce/FORM.md` | RCE §4.5, §5.1 | Form compiler harness and the five-target differential test |
 | `flowg-conformance/` | RCE §1 (flowG) | flowG cross-backend conformance suite, fixtures and the recorded 18 of 18 report |

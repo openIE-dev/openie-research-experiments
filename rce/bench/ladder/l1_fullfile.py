@@ -13,6 +13,8 @@ CACHE = os.environ.get("L1F_CACHE", "/workspace/ladder-out/l1f-cache")
 WD = os.environ.get("LADDER_WD", "/tmp/ladder-wd")
 NORM = lambda b: re.sub(rb"\s+", b"", b)
 def ordered():
+    if os.environ.get("ORDERED_GZ"):  # the same list, precomputed (for running on another host)
+        return [tuple([i, tuple(v)]) for i, v in json.load(gzip.open(os.environ["ORDERED_GZ"], "rt"))]
     d = json.load(open(os.environ.get("SSTUBS", "/workspace/ladder-out/sstubsLarge.json")))
     pos = json.load(open("/workspace/ladder-out/manysstubs-pos.json"))
     out = {}
