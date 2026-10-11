@@ -13,6 +13,7 @@ Reproducible material for the papers at https://research.openie.dev. The page ht
 | `rce/bench/ladder/` | RCE §2.3 | LADDER.md, PREREG.json, RESULTS.md, report.py and per-rung results |
 | `rce/bench/defects4j/` | RCE §8.1 | Defects4J harness, TBar port comparison, REVIEW.md and results |
 | `rce/bench/forms/`, `rce/tests/form_targets.rs`, `rce/FORM.md` | RCE §4.5, §5.1 | Form compiler harness and the five-target differential test |
+| `flowg-conformance/` | RCE §1 (flowG) | flowG cross-backend conformance suite, fixtures and the recorded 18 of 18 report |
 | `rce/SOAK_RESULTS.md`, `rce/SOAK_ENERGY.md` | RCE §6.3, §6.4 | Soak model-call counts and energy receipts |
 
 ## Energy labels

@@ -1,0 +1,114 @@
+[
+  {
+    "fixture_id": "adrsslib/longitudinal/stationary_both",
+    "scenario_source": {
+      "catalog": "Intel_ad-rss-lib",
+      "number": 1,
+      "variant": "both_stopped_bit_parity",
+      "notes": "Degenerate case — both vehicles at 0 m/s. Exercises response-phase acceleration term only. Matches ad-rss-lib PhysicsUnitTestsStoppingDistance golden case at zero velocity under canonical test parameters."
+    },
+    "rule": "longitudinal",
+    "input": { "v_rear": 0.0, "v_front": 0.0, "sensor_fuzz": 0.0, "params": "ad_rss_lib" },
+    "expected": { "safe_distance_m": 3.28125 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "ad-rss-lib constants (ρ=1, a_max_accel=3.5, a_min_rear=4, a_max_front=8). 0 + 0.5·3.5·1² + 3.5²/8 − 0 = 1.75 + 1.53125 = 3.28125 m."
+  },
+  {
+    "fixture_id": "adrsslib/longitudinal/ego_15mps_lead_stopped",
+    "scenario_source": {
+      "catalog": "Intel_ad-rss-lib",
+      "number": 2,
+      "variant": "ego_50kmh_lead_stopped",
+      "notes": "Ego ~54 km/h approaching stationary target. Typical CCRs-style test at mid-urban speed."
+    },
+    "rule": "longitudinal",
+    "input": { "v_rear": 15.0, "v_front": 0.0, "sensor_fuzz": 0.0, "params": "ad_rss_lib" },
+    "expected": { "safe_distance_m": 59.53125 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "15 + 1.75 + 18.5²/8 − 0 = 16.75 + 42.78125 = 59.53125 m."
+  },
+  {
+    "fixture_id": "adrsslib/longitudinal/ego_30mps_lead_stopped",
+    "scenario_source": {
+      "catalog": "Intel_ad-rss-lib",
+      "number": 3,
+      "variant": "ego_108kmh_lead_stopped",
+      "notes": "High-speed approach to stationary target under canonical ad-rss-lib constants."
+    },
+    "rule": "longitudinal",
+    "input": { "v_rear": 30.0, "v_front": 0.0, "sensor_fuzz": 0.0, "params": "ad_rss_lib" },
+    "expected": { "safe_distance_m": 172.03125 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "30 + 1.75 + 33.5²/8 − 0 = 31.75 + 140.28125 = 172.03125 m. Note this exceeds our earlier NHTSA/strict-RSS S7 (167.625 m) precisely because ad-rss-lib uses a_max_accel = 3.5 vs. our strict default of 3.0."
+  },
+  {
+    "fixture_id": "adrsslib/longitudinal/matched_30mps",
+    "scenario_source": {
+      "catalog": "Intel_ad-rss-lib",
+      "number": 4,
+      "variant": "matched_speed_108kmh",
+      "notes": "Matched-speed highway following at 108 km/h — the canonical ad-rss-lib lead-car-braking probe."
+    },
+    "rule": "longitudinal",
+    "input": { "v_rear": 30.0, "v_front": 30.0, "sensor_fuzz": 0.0, "params": "ad_rss_lib" },
+    "expected": { "safe_distance_m": 115.78125 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "30 + 1.75 + 33.5²/8 − 900/16 = 31.75 + 140.28125 − 56.25 = 115.78125 m."
+  },
+  {
+    "fixture_id": "adrsslib/longitudinal/matched_10mps_urban",
+    "scenario_source": {
+      "catalog": "Intel_ad-rss-lib",
+      "number": 5,
+      "variant": "matched_speed_36kmh",
+      "notes": "Urban-speed matched pair, 36 km/h both vehicles. Validates the formula in a regime where term4 (front brake) is material."
+    },
+    "rule": "longitudinal",
+    "input": { "v_rear": 10.0, "v_front": 10.0, "sensor_fuzz": 0.0, "params": "ad_rss_lib" },
+    "expected": { "safe_distance_m": 28.28125 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "10 + 1.75 + 13.5²/8 − 100/16 = 11.75 + 22.78125 − 6.25 = 28.28125 m."
+  },
+  {
+    "fixture_id": "adrsslib/longitudinal/ego_faster_closing",
+    "scenario_source": {
+      "catalog": "Intel_ad-rss-lib",
+      "number": 6,
+      "variant": "ego_20_lead_15_closing",
+      "notes": "Ego closing on slower lead (5 m/s positive differential). Ensures the formula behaves cleanly with a non-matched positive closing rate."
+    },
+    "rule": "longitudinal",
+    "input": { "v_rear": 20.0, "v_front": 15.0, "sensor_fuzz": 0.0, "params": "ad_rss_lib" },
+    "expected": { "safe_distance_m": 76.71875 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "20 + 1.75 + 23.5²/8 − 225/16 = 21.75 + 69.03125 − 14.0625 = 76.71875 m."
+  },
+  {
+    "fixture_id": "adrsslib/longitudinal/ccrs_50kmh_stationary",
+    "scenario_source": {
+      "catalog": "Intel_ad-rss-lib",
+      "number": 7,
+      "variant": "ccrs_50kmh_under_ad-rss-lib_constants",
+      "notes": "Euro NCAP CCRs 50 km/h test geometry evaluated under ad-rss-lib constants rather than Shalev-Shwartz defaults. Demonstrates our crate produces library-parity distances regardless of which published constant-set is selected."
+    },
+    "rule": "longitudinal",
+    "input": { "v_rear": 13.888888888888889, "v_front": 0.0, "sensor_fuzz": 0.0, "params": "ad_rss_lib" },
+    "expected": { "safe_distance_m": 53.43556327160494 },
+    "tolerance": { "type": "absolute", "value": 1e-4 },
+    "description": "v = 50/3.6 ≈ 13.889 m/s. 13.889 + 1.75 + 17.389²/8 ≈ 53.436 m. (Compare to strict-RSS Euro NCAP CCRs fixture: 51.043 m — the difference is purely the 3.5 vs. 3.0 a_max_accel constant.)"
+  },
+  {
+    "fixture_id": "adrsslib/longitudinal/ego_slow_lead_fast_clamp",
+    "scenario_source": {
+      "catalog": "Intel_ad-rss-lib",
+      "number": 8,
+      "variant": "ego_10_lead_25_below_floor",
+      "notes": "Ego moving slower than lead — no safe-distance requirement because front pulls away. Formula output is negative before clamp; ad-rss-lib and MGAI-auto both clamp to 0."
+    },
+    "rule": "longitudinal",
+    "input": { "v_rear": 10.0, "v_front": 25.0, "sensor_fuzz": 0.0, "params": "ad_rss_lib" },
+    "expected": { "safe_distance_m": 0.0 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "10 + 1.75 + 13.5²/8 − 625/16 = 11.75 + 22.78125 − 39.0625 = −4.53125 → clamped to 0.0 (ad-rss-lib's min_longitudinal_safety_distance = 0 preset)."
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "fixture_id": "euroncap/ccrs/50kmh_stationary_strict",
+    "scenario_source": {
+      "catalog": "EuroNCAP_AEB_2024",
+      "number": 1,
+      "variant": "CCRs_50kmh_stationary_strict_rss",
+      "notes": "Euro NCAP Car-to-Car Rear stationary (CCRs) — ego approaches stopped target at 50 km/h. Baseline strict-RSS distance."
+    },
+    "rule": "longitudinal",
+    "input": { "v_rear": 13.888888888888889, "v_front": 0.0, "sensor_fuzz": 0.0, "params": "strict_rss" },
+    "expected": { "safe_distance_m": 51.04320987654321 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "v = 50/3.6 ≈ 13.889 m/s. d = 13.889 + 1.5 + 16.889²/8 − 0 = 51.043 m."
+  },
+  {
+    "fixture_id": "euroncap/ccrs/80kmh_stationary_strict",
+    "scenario_source": {
+      "catalog": "EuroNCAP_AEB_2024",
+      "number": 2,
+      "variant": "CCRs_80kmh_stationary_strict_rss",
+      "notes": "Euro NCAP CCRs at peak protocol speed (80 km/h). Tests the formula at high closing speed into stationary target."
+    },
+    "rule": "longitudinal",
+    "input": { "v_rear": 22.22222222222222, "v_front": 0.0, "sensor_fuzz": 0.0, "params": "strict_rss" },
+    "expected": { "safe_distance_m": 103.24228395061727 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "v = 80/3.6 ≈ 22.222 m/s. d = 22.222 + 1.5 + 25.222²/8 = 103.242 m."
+  },
+  {
+    "fixture_id": "euroncap/ccrm/50_vs_20_strict",
+    "scenario_source": {
+      "catalog": "EuroNCAP_AEB_2024",
+      "number": 3,
+      "variant": "CCRm_ego_50_lead_20_strict_rss",
+      "notes": "Euro NCAP Car-to-Car Rear moving (CCRm) — ego 50 km/h, lead 20 km/h. Both moving, positive closing rate."
+    },
+    "rule": "longitudinal",
+    "input": { "v_rear": 13.888888888888889, "v_front": 5.555555555555556, "sensor_fuzz": 0.0, "params": "strict_rss" },
+    "expected": { "safe_distance_m": 49.11419753086420 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "v_r = 50/3.6, v_f = 20/3.6. Baseline CCRs reduced by v_f²/16 = 1.929 m → 49.114 m."
+  },
+  {
+    "fixture_id": "euroncap/ccrb/50_matched_strict",
+    "scenario_source": {
+      "catalog": "EuroNCAP_AEB_2024",
+      "number": 4,
+      "variant": "CCRb_matched_50kmh_strict_rss",
+      "notes": "Euro NCAP Car-to-Car Rear braking (CCRb) — both vehicles at 50 km/h. Required gap before lead deceleration event."
+    },
+    "rule": "longitudinal",
+    "input": { "v_rear": 13.888888888888889, "v_front": 13.888888888888889, "sensor_fuzz": 0.0, "params": "strict_rss" },
+    "expected": { "safe_distance_m": 38.98688271604938 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "Both at 50 km/h, lead can brake. d = 51.043 − 192.901/16 = 51.043 − 12.056 = 38.987 m."
+  }
+]

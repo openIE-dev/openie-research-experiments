@@ -1,0 +1,30 @@
+[
+  {
+    "fixture_id": "nhtsa/s31_matched_speed/highway_30v30_fuzz_0_3",
+    "scenario_source": {
+      "catalog": "NHTSA_PreCrashTypology",
+      "number": 31,
+      "variant": "rear_end_matched_30mps_highway_fuzz_0_3",
+      "notes": "Same S31 30 m/s geometry with sensor_fuzz=0.3 — drizzle / light reduced-contrast conditions."
+    },
+    "rule": "longitudinal",
+    "input": { "v_rear": 30.0, "v_front": 30.0, "sensor_fuzz": 0.3, "params": "highway_defaults" },
+    "expected": { "safe_distance_m": 177.60853625170998 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "ρ_eff=1.6, a_min_rear_eff=3.4, a_max_front_eff=8.6. d = 48 + 3.84 + 34.8²/6.8 − 900/17.2 = 177.609 m (1.6× strict)."
+  },
+  {
+    "fixture_id": "nhtsa/s31_matched_speed/highway_30v30_fuzz_1_0",
+    "scenario_source": {
+      "catalog": "NHTSA_PreCrashTypology",
+      "number": 31,
+      "variant": "rear_end_matched_30mps_highway_fuzz_full",
+      "notes": "Same S31 at fuzz=1.0 — dense fog / near-blind conditions. Worst-case envelope widening demonstration."
+    },
+    "rule": "longitudinal",
+    "input": { "v_rear": 30.0, "v_front": 30.0, "sensor_fuzz": 1.0, "params": "highway_defaults" },
+    "expected": { "safe_distance_m": 438.75 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "ρ_eff=3.0, a_min_rear_eff=2.0, a_max_front_eff=10.0. d = 90 + 13.5 + 1521/4 − 900/20 = 438.75 m (3.9× strict-RSS)."
+  }
+]

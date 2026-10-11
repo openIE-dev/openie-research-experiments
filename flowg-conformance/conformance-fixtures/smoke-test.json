@@ -1,0 +1,53 @@
+[
+  {
+    "fixture_id": "fuzz/entropy/empty",
+    "domain": "fuzz",
+    "function": "shannon_entropy",
+    "description": "Empty sequence → zero entropy",
+    "input": {"sequence": []},
+    "python_output": 0.0,
+    "tolerance": {"type": "exact", "value": 0.0},
+    "tier": "A",
+    "source": "Shannon 1948, convention"
+  },
+  {
+    "fixture_id": "fuzz/entropy/binary_uniform",
+    "domain": "fuzz",
+    "function": "shannon_entropy",
+    "description": "Uniform binary → 1 bit",
+    "input": {"sequence": [0, 1, 0, 1]},
+    "python_output": 1.0,
+    "tolerance": {"type": "exact", "value": 0.0},
+    "tier": "A"
+  },
+  {
+    "fixture_id": "fuzz/compute_fuzz/constant",
+    "domain": "fuzz",
+    "function": "compute_fuzz",
+    "description": "Constant signal → zero fuzz",
+    "input": {"data": [1.0, 1.0, 1.0, 1.0], "h_max": 8.0},
+    "python_output": 0.0,
+    "tolerance": {"type": "exact", "value": 0.0},
+    "tier": "A"
+  },
+  {
+    "fixture_id": "safety/cbf_h/safe_region",
+    "domain": "safety",
+    "function": "constraint_h",
+    "description": "Barrier function at half threshold",
+    "input": {"threshold": 0.70, "fuzz": 0.35},
+    "python_output": 0.35,
+    "tolerance": {"type": "absolute", "value": 1e-10},
+    "tier": "A"
+  },
+  {
+    "fixture_id": "safety/cbf_h/violated",
+    "domain": "safety",
+    "function": "constraint_h",
+    "description": "Negative h when fuzz exceeds threshold",
+    "input": {"threshold": 0.50, "fuzz": 0.75},
+    "python_output": -0.25,
+    "tolerance": {"type": "absolute", "value": 1e-10},
+    "tier": "A"
+  }
+]

@@ -1,0 +1,294 @@
+[
+  {
+    "fixture_id": "fuzzy/flc_compute/ordering_alpha_order",
+    "domain": "fuzzy",
+    "function": "flc_compute",
+    "description": "FLC with sensor dict in alpha_order: must produce identical output to alpha_order",
+    "input": {
+      "sensor_fuzz": {
+        "lidar": 0.05,
+        "imu": 0.05,
+        "camera": 0.05,
+        "gps": 0.05
+      }
+    },
+    "python_output": {
+      "speed": 0.95,
+      "caution_level": 0.075,
+      "action_code": "Proceed",
+      "rules_fired": 2
+    },
+    "tolerance": {
+      "type": "absolute",
+      "value": 1e-12
+    },
+    "tier": "C",
+    "source": "Tests BTreeMap-based sensor routing in FuzzyController"
+  },
+  {
+    "fixture_id": "fuzzy/flc_compute/ordering_reverse_order",
+    "domain": "fuzzy",
+    "function": "flc_compute",
+    "description": "FLC with sensor dict in reverse_order: must produce identical output to alpha_order",
+    "input": {
+      "sensor_fuzz": {
+        "gps": 0.05,
+        "camera": 0.05,
+        "imu": 0.05,
+        "lidar": 0.05
+      }
+    },
+    "python_output": {
+      "speed": 0.95,
+      "caution_level": 0.075,
+      "action_code": "Proceed",
+      "rules_fired": 2
+    },
+    "tolerance": {
+      "type": "absolute",
+      "value": 1e-12
+    },
+    "tier": "C",
+    "source": "Tests BTreeMap-based sensor routing in FuzzyController"
+  },
+  {
+    "fixture_id": "fuzzy/flc_compute/ordering_mixed_order",
+    "domain": "fuzzy",
+    "function": "flc_compute",
+    "description": "FLC with sensor dict in mixed_order: must produce identical output to alpha_order",
+    "input": {
+      "sensor_fuzz": {
+        "camera": 0.05,
+        "gps": 0.05,
+        "lidar": 0.05,
+        "imu": 0.05
+      }
+    },
+    "python_output": {
+      "speed": 0.95,
+      "caution_level": 0.075,
+      "action_code": "Proceed",
+      "rules_fired": 2
+    },
+    "tolerance": {
+      "type": "absolute",
+      "value": 1e-12
+    },
+    "tier": "C",
+    "source": "Tests BTreeMap-based sensor routing in FuzzyController"
+  },
+  {
+    "fixture_id": "fuzzy/flc_compute/ordering_another_order",
+    "domain": "fuzzy",
+    "function": "flc_compute",
+    "description": "FLC with sensor dict in another_order: must produce identical output to alpha_order",
+    "input": {
+      "sensor_fuzz": {
+        "imu": 0.05,
+        "lidar": 0.05,
+        "gps": 0.05,
+        "camera": 0.05
+      }
+    },
+    "python_output": {
+      "speed": 0.95,
+      "caution_level": 0.075,
+      "action_code": "Proceed",
+      "rules_fired": 2
+    },
+    "tolerance": {
+      "type": "absolute",
+      "value": 1e-12
+    },
+    "tier": "C",
+    "source": "Tests BTreeMap-based sensor routing in FuzzyController"
+  },
+  {
+    "fixture_id": "safety/evaluate_constraints/ordering_three_asc_thr",
+    "domain": "safety",
+    "function": "evaluate_constraints",
+    "description": "Multi-constraint with three_asc_thr \u2014 min/max are commutative so output must match",
+    "input": {
+      "thresholds": [
+        0.8,
+        0.5,
+        0.7
+      ],
+      "fuzz_values": [
+        0.3,
+        0.4,
+        0.2
+      ],
+      "alpha": 1.0,
+      "beta": 0.5
+    },
+    "python_output": {
+      "speed_limit": 0.19999999999999996,
+      "all_safe": true,
+      "violations": 0,
+      "active_constraint": 1
+    },
+    "tolerance": {
+      "type": "absolute",
+      "value": 1e-12
+    },
+    "tier": "C",
+    "source": ""
+  },
+  {
+    "fixture_id": "safety/evaluate_constraints/ordering_three_mixed_thr",
+    "domain": "safety",
+    "function": "evaluate_constraints",
+    "description": "Multi-constraint with three_mixed_thr \u2014 min/max are commutative so output must match",
+    "input": {
+      "thresholds": [
+        0.7,
+        0.8,
+        0.5
+      ],
+      "fuzz_values": [
+        0.2,
+        0.3,
+        0.4
+      ],
+      "alpha": 1.0,
+      "beta": 0.5
+    },
+    "python_output": {
+      "speed_limit": 0.19999999999999996,
+      "all_safe": true,
+      "violations": 0,
+      "active_constraint": 2
+    },
+    "tolerance": {
+      "type": "absolute",
+      "value": 1e-12
+    },
+    "tier": "C",
+    "source": ""
+  },
+  {
+    "fixture_id": "safety/evaluate_constraints/ordering_three_desc_thr",
+    "domain": "safety",
+    "function": "evaluate_constraints",
+    "description": "Multi-constraint with three_desc_thr \u2014 min/max are commutative so output must match",
+    "input": {
+      "thresholds": [
+        0.5,
+        0.7,
+        0.8
+      ],
+      "fuzz_values": [
+        0.4,
+        0.2,
+        0.3
+      ],
+      "alpha": 1.0,
+      "beta": 0.5
+    },
+    "python_output": {
+      "speed_limit": 0.19999999999999996,
+      "all_safe": true,
+      "violations": 0,
+      "active_constraint": 0
+    },
+    "tolerance": {
+      "type": "absolute",
+      "value": 1e-12
+    },
+    "tier": "C",
+    "source": ""
+  },
+  {
+    "fixture_id": "fuzz/shannon_entropy/ordering_asc",
+    "domain": "fuzz",
+    "function": "shannon_entropy",
+    "description": "Multiset {0:3, 1:2, 2:1} in order 'asc' \u2014 entropy is order-invariant",
+    "input": {
+      "sequence": [
+        0,
+        0,
+        0,
+        1,
+        1,
+        2
+      ]
+    },
+    "python_output": 1.4591479170272448,
+    "tolerance": {
+      "type": "ulp",
+      "value": 2.0
+    },
+    "tier": "C",
+    "source": "Entropy is a function of the multiset, not the sequence order"
+  },
+  {
+    "fixture_id": "fuzz/shannon_entropy/ordering_desc",
+    "domain": "fuzz",
+    "function": "shannon_entropy",
+    "description": "Multiset {0:3, 1:2, 2:1} in order 'desc' \u2014 entropy is order-invariant",
+    "input": {
+      "sequence": [
+        2,
+        1,
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    "python_output": 1.4591479170272448,
+    "tolerance": {
+      "type": "ulp",
+      "value": 2.0
+    },
+    "tier": "C",
+    "source": "Entropy is a function of the multiset, not the sequence order"
+  },
+  {
+    "fixture_id": "fuzz/shannon_entropy/ordering_interleaved",
+    "domain": "fuzz",
+    "function": "shannon_entropy",
+    "description": "Multiset {0:3, 1:2, 2:1} in order 'interleaved' \u2014 entropy is order-invariant",
+    "input": {
+      "sequence": [
+        1,
+        0,
+        2,
+        0,
+        1,
+        0
+      ]
+    },
+    "python_output": 1.4591479170272448,
+    "tolerance": {
+      "type": "ulp",
+      "value": 2.0
+    },
+    "tier": "C",
+    "source": "Entropy is a function of the multiset, not the sequence order"
+  },
+  {
+    "fixture_id": "fuzz/shannon_entropy/ordering_random_order",
+    "domain": "fuzz",
+    "function": "shannon_entropy",
+    "description": "Multiset {0:3, 1:2, 2:1} in order 'random_order' \u2014 entropy is order-invariant",
+    "input": {
+      "sequence": [
+        0,
+        2,
+        1,
+        0,
+        1,
+        0
+      ]
+    },
+    "python_output": 1.4591479170272446,
+    "tolerance": {
+      "type": "ulp",
+      "value": 2.0
+    },
+    "tier": "C",
+    "source": "Entropy is a function of the multiset, not the sequence order"
+  }
+]

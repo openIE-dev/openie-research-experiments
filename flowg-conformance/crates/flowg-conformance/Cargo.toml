@@ -1,0 +1,27 @@
+[package]
+name        = "flowg-conformance"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "flowg cross-backend conformance suite — bit-equality and tolerance checks across cpu/wgpu/wasm and sync/async, the gate every backend must pass to be admitted."
+
+[lib]
+name = "flowg_conformance"
+
+[[bin]]
+name = "flowg-conformance"
+path = "src/bin/main.rs"
+
+[dependencies]
+flowg-vm-backend-cpu  = { path = "../flowg-vm-backend-cpu" }
+flowg-vm-backend-wgpu = { path = "../flowg-vm-backend-wgpu" }
+flowg-vm-scheduler    = { path = "../flowg-vm-scheduler" }
+lux-flowg             = { path = "../lux-flowg" }
+flowg-arith           = { path = "../flowg-arith" }
+tokio                 = { workspace = true, features = ["rt-multi-thread", "sync", "macros"] }
+serde                 = { version = "1", features = ["derive"] }
+serde_json            = "1"
+thiserror             = { workspace = true }
+anyhow                = "1"
+
+[dev-dependencies]

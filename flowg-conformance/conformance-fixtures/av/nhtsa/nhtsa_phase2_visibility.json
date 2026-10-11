@@ -1,0 +1,58 @@
+[
+  {
+    "fixture_id": "nhtsa/s22_intersection_occluded/urban_cyclist_d20_v5_clear",
+    "scenario_source": {
+      "catalog": "NHTSA_PreCrashTypology",
+      "number": 22,
+      "variant": "urban_intersection_occluded_cyclist_d20_v5_clear",
+      "notes": "Urban intersection with cyclist potentially emerging at 5 m/s (18 km/h) from a 20m-visible approach."
+    },
+    "rule": "visibility",
+    "input": { "visible_distance_m": 20.0, "hidden_agent_speed": 5.0, "sensor_fuzz": 0.0, "params": "urban_defaults" },
+    "expected": { "safe_speed_ms": 12.649110640673518 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "ρ=0.8, a_min_rear=5. budget = 20 − 5·0.8 = 16. v = √(2·5·16) = √160 ≈ 12.65 m/s (~45 km/h cap)."
+  },
+  {
+    "fixture_id": "nhtsa/s22_intersection_occluded/urban_fog_d50_v1_5_fuzz_0_5",
+    "scenario_source": {
+      "catalog": "NHTSA_PreCrashTypology",
+      "number": 22,
+      "variant": "urban_intersection_pedestrian_d50_v1_5_fog",
+      "notes": "Same geometry with 50m visibility but sensor_fuzz=0.5 (moderate fog/glare). Demonstrates fuzz-adaptive urban envelope."
+    },
+    "rule": "visibility",
+    "input": { "visible_distance_m": 50.0, "hidden_agent_speed": 1.5, "sensor_fuzz": 0.5, "params": "urban_defaults" },
+    "expected": { "safe_speed_ms": 18.834808201178054 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "ρ_eff=1.8, a_min_rear_eff=3.75. budget = 50 − 1.5·1.8 = 47.3. v = √(2·3.75·47.3) = √354.75 ≈ 18.83 m/s."
+  },
+  {
+    "fixture_id": "nhtsa/s19_blind_corner/highway_d80_cyclist_v5",
+    "scenario_source": {
+      "catalog": "NHTSA_PreCrashTypology",
+      "number": 19,
+      "variant": "highway_blind_corner_cyclist_d80_v5",
+      "notes": "Highway ramp with 80m visible, cyclist potentially at 5 m/s — tight-radius blind corner on mountain road."
+    },
+    "rule": "visibility",
+    "input": { "visible_distance_m": 80.0, "hidden_agent_speed": 5.0, "sensor_fuzz": 0.0, "params": "highway_defaults" },
+    "expected": { "safe_speed_ms": 24.494897427831780 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "ρ=1.0, a_min_rear=4. budget = 80 − 5 = 75. v = √(2·4·75) = √600 ≈ 24.49 m/s (~88 km/h cap)."
+  },
+  {
+    "fixture_id": "nhtsa/s19_pedestrian_darting/urban_d15_v3_fuzz_0_7",
+    "scenario_source": {
+      "catalog": "NHTSA_PreCrashTypology",
+      "number": 19,
+      "variant": "urban_pedestrian_darting_d15_v3_fog",
+      "notes": "Pedestrian potentially darting at 3 m/s from 15m-visible gap, urban approach at fuzz=0.7 (heavy fog or rain)."
+    },
+    "rule": "visibility",
+    "input": { "visible_distance_m": 15.0, "hidden_agent_speed": 3.0, "sensor_fuzz": 0.7, "params": "urban_defaults" },
+    "expected": { "safe_speed_ms": 7.389181216237031 },
+    "tolerance": { "type": "absolute", "value": 1e-6 },
+    "description": "ρ_eff=2.2, a_min_rear_eff=3.25. budget = 15 − 3·2.2 = 8.4. v = √(2·3.25·8.4) = √54.6 ≈ 7.39 m/s (~27 km/h cap)."
+  }
+]

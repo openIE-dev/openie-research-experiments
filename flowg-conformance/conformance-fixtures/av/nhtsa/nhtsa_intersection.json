@@ -1,0 +1,86 @@
+[
+  {
+    "fixture_id": "nhtsa/s24_ltap_od/strict_15mps",
+    "scenario_source": {
+      "catalog": "NHTSA_PreCrashTypology",
+      "number": 24,
+      "variant": "left_turn_across_path_opposite_direction_15mps",
+      "notes": "NHTSA Pre-Crash Scenario 24 — Left Turn Across Path / Opposite Direction. Required stopping distance for ego approaching intersection at 15 m/s under strict RSS."
+    },
+    "rule": "intersection",
+    "input": { "v_approach": 15.0, "sensor_fuzz": 0.0, "params": "strict_rss" },
+    "expected": { "stop_distance_m": 57.0 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "ρ=1, a_max=3, a_min_rear=4. 15·1 + 0.5·3·1 + 18²/8 = 15 + 1.5 + 40.5 = 57.0 m."
+  },
+  {
+    "fixture_id": "nhtsa/s24_ltap_od/urban_13mps",
+    "scenario_source": {
+      "catalog": "NHTSA_PreCrashTypology",
+      "number": 24,
+      "variant": "left_turn_across_path_urban_13mps",
+      "notes": "Same NHTSA S24 geometry on urban arterial. Shorter response, softer accel, stronger brakes per urban defaults."
+    },
+    "rule": "intersection",
+    "input": { "v_approach": 13.0, "sensor_fuzz": 0.0, "params": "urban_defaults" },
+    "expected": { "stop_distance_m": 32.356 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "ρ=0.8, a_max=2, a_min_rear=5. 13·0.8 + 0.5·2·0.64 + 14.6²/10 = 10.4 + 0.64 + 21.316 = 32.356 m."
+  },
+  {
+    "fixture_id": "nhtsa/s25_crossing_paths/strict_20mps",
+    "scenario_source": {
+      "catalog": "NHTSA_PreCrashTypology",
+      "number": 25,
+      "variant": "crossing_paths_from_intersection_20mps_strict",
+      "notes": "NHTSA Pre-Crash Scenario 25 — vehicle crossing paths from intersection. Higher-speed approach probe."
+    },
+    "rule": "intersection",
+    "input": { "v_approach": 20.0, "sensor_fuzz": 0.0, "params": "strict_rss" },
+    "expected": { "stop_distance_m": 87.625 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "20·1 + 0.5·3·1 + 23²/8 = 20 + 1.5 + 66.125 = 87.625 m."
+  },
+  {
+    "fixture_id": "nhtsa/s25_crossing_paths/highway_fuzz_0_5",
+    "scenario_source": {
+      "catalog": "NHTSA_PreCrashTypology",
+      "number": 25,
+      "variant": "crossing_paths_highway_fuzz_0_5",
+      "notes": "Same S25 20 m/s geometry under highway_defaults at sensor_fuzz=0.5 — moderate-rain or partial-occlusion conditions where the stopping envelope must inflate."
+    },
+    "rule": "intersection",
+    "input": { "v_approach": 20.0, "sensor_fuzz": 0.5, "params": "highway_defaults" },
+    "expected": { "stop_distance_m": 158.66666666666666 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "ρ_eff=2, a_min_eff=3. 20·2 + 0.5·3·4 + 26²/6 = 40 + 6 + 112.667 ≈ 158.667 m. Stop-distance ~1.81× the strict-RSS baseline."
+  },
+  {
+    "fixture_id": "nhtsa/s26_left_turn/urban_10mps",
+    "scenario_source": {
+      "catalog": "NHTSA_PreCrashTypology",
+      "number": 26,
+      "variant": "crossing_left_turn_urban_10mps",
+      "notes": "NHTSA Pre-Crash Scenario 26 — crossing left turn. Low-speed urban approach (36 km/h)."
+    },
+    "rule": "intersection",
+    "input": { "v_approach": 10.0, "sensor_fuzz": 0.0, "params": "urban_defaults" },
+    "expected": { "stop_distance_m": 22.096 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "ρ=0.8, a_max=2, a_min_rear=5. 10·0.8 + 0.64 + 11.6²/10 = 8 + 0.64 + 13.456 = 22.096 m."
+  },
+  {
+    "fixture_id": "nhtsa/s26_left_turn/urban_fuzz_0_5",
+    "scenario_source": {
+      "catalog": "NHTSA_PreCrashTypology",
+      "number": 26,
+      "variant": "crossing_left_turn_urban_fuzz_0_5",
+      "notes": "Same S26 geometry at fuzz=0.5 under urban_defaults — typical urban-fog approach. Demonstrates the stop-line distance widening that fleet operators would receive automatically."
+    },
+    "rule": "intersection",
+    "input": { "v_approach": 10.0, "sensor_fuzz": 0.5, "params": "urban_defaults" },
+    "expected": { "stop_distance_m": 45.90133333333333 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "ρ_eff=1.8, a_min_eff=3.75. 10·1.8 + 0.5·2·3.24 + 13.6²/7.5 = 18 + 3.24 + 24.661 ≈ 45.901 m. Stop-distance >2× the clear-conditions S26 case."
+  }
+]

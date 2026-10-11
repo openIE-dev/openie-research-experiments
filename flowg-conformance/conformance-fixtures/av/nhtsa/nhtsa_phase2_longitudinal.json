@@ -1,0 +1,128 @@
+[
+  {
+    "fixture_id": "nhtsa/s2_parked/highway_ego_20mps_strict",
+    "scenario_source": {
+      "catalog": "NHTSA_PreCrashTypology",
+      "number": 2,
+      "variant": "parked_vehicle_highway_ego_20mps_strict_rss",
+      "notes": "NHTSA Pre-Crash Scenario 2 — vehicle strikes a parked vehicle. Highway approach at 20 m/s under strict RSS."
+    },
+    "rule": "longitudinal",
+    "input": { "v_rear": 20.0, "v_front": 0.0, "sensor_fuzz": 0.0, "params": "strict_rss" },
+    "expected": { "safe_distance_m": 87.625 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "20·1 + 0.5·3·1 + 23²/8 = 20 + 1.5 + 66.125 = 87.625 m."
+  },
+  {
+    "fixture_id": "nhtsa/s2_parked/urban_ego_15mps",
+    "scenario_source": {
+      "catalog": "NHTSA_PreCrashTypology",
+      "number": 2,
+      "variant": "parked_vehicle_urban_ego_15mps_fuzz_zero",
+      "notes": "Same NHTSA S2 geometry on an urban arterial. Uses urban_defaults (shorter ρ, softer accel, stronger brakes)."
+    },
+    "rule": "longitudinal",
+    "input": { "v_rear": 15.0, "v_front": 0.0, "sensor_fuzz": 0.0, "params": "urban_defaults" },
+    "expected": { "safe_distance_m": 40.196 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "ρ=0.8, a_max_accel=2, a_min_rear=5. 15·0.8 + 0.5·2·0.64 + 16.6²/10 = 12 + 0.64 + 27.556 = 40.196 m."
+  },
+  {
+    "fixture_id": "nhtsa/low_speed_15v15_strict",
+    "scenario_source": {
+      "catalog": "NHTSA_PreCrashTypology",
+      "number": 31,
+      "variant": "rear_end_matched_speed_15mps_strict_rss",
+      "notes": "Low-speed rear-end scenario — same-speed following at 54 km/h."
+    },
+    "rule": "longitudinal",
+    "input": { "v_rear": 15.0, "v_front": 15.0, "sensor_fuzz": 0.0, "params": "strict_rss" },
+    "expected": { "safe_distance_m": 42.9375 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "15 + 1.5 + 324/8 - 225/16 = 15 + 1.5 + 40.5 - 14.0625 = 42.9375 m."
+  },
+  {
+    "fixture_id": "nhtsa/high_speed_40v40_strict",
+    "scenario_source": {
+      "catalog": "NHTSA_PreCrashTypology",
+      "number": 31,
+      "variant": "rear_end_matched_speed_40mps_strict_rss",
+      "notes": "High-speed rear-end scenario — same-speed following at 144 km/h. Probes the formula's behavior at performance-envelope speeds."
+    },
+    "rule": "longitudinal",
+    "input": { "v_rear": 40.0, "v_front": 40.0, "sensor_fuzz": 0.0, "params": "strict_rss" },
+    "expected": { "safe_distance_m": 172.625 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "40 + 1.5 + 1849/8 - 1600/16 = 40 + 1.5 + 231.125 - 100 = 172.625 m."
+  },
+  {
+    "fixture_id": "nhtsa/s34_steady_lead/matched_speed_28mps_strict",
+    "scenario_source": {
+      "catalog": "NHTSA_PreCrashTypology",
+      "number": 34,
+      "variant": "following_steady_lead_28mps_strict_rss",
+      "notes": "NHTSA Pre-Crash Scenario 34 — following steady lead vehicle. Near-highway cruise (~63 mph)."
+    },
+    "rule": "longitudinal",
+    "input": { "v_rear": 28.0, "v_front": 28.0, "sensor_fuzz": 0.0, "params": "strict_rss" },
+    "expected": { "safe_distance_m": 100.625 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "28 + 1.5 + 961/8 - 784/16 = 28 + 1.5 + 120.125 - 49 = 100.625 m."
+  },
+  {
+    "fixture_id": "nhtsa/s11_accelerating/ego_20_lead_25_strict",
+    "scenario_source": {
+      "catalog": "NHTSA_PreCrashTypology",
+      "number": 11,
+      "variant": "lead_accelerating_ego_20_lead_25_strict",
+      "notes": "NHTSA S11 variant — modest positive speed differential (lead 5 m/s faster)."
+    },
+    "rule": "longitudinal",
+    "input": { "v_rear": 20.0, "v_front": 25.0, "sensor_fuzz": 0.0, "params": "strict_rss" },
+    "expected": { "safe_distance_m": 48.5625 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "20 + 1.5 + 529/8 - 625/16 = 20 + 1.5 + 66.125 - 39.0625 = 48.5625 m."
+  },
+  {
+    "fixture_id": "nhtsa/ego_25_lead_20_strict",
+    "scenario_source": {
+      "catalog": "NHTSA_PreCrashTypology",
+      "number": 31,
+      "variant": "ego_faster_than_lead_25v20_strict",
+      "notes": "Ego closing on slower lead — 5 m/s differential."
+    },
+    "rule": "longitudinal",
+    "input": { "v_rear": 25.0, "v_front": 20.0, "sensor_fuzz": 0.0, "params": "strict_rss" },
+    "expected": { "safe_distance_m": 99.5 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "25 + 1.5 + 784/8 - 400/16 = 25 + 1.5 + 98 - 25 = 99.5 m."
+  },
+  {
+    "fixture_id": "nhtsa/city_emergency_stop/ego_10_urban_parked",
+    "scenario_source": {
+      "catalog": "NHTSA_PreCrashTypology",
+      "number": 2,
+      "variant": "parked_vehicle_urban_ego_10mps",
+      "notes": "Urban approach to a parked vehicle at 36 km/h — typical city-speed emergency-stop envelope."
+    },
+    "rule": "longitudinal",
+    "input": { "v_rear": 10.0, "v_front": 0.0, "sensor_fuzz": 0.0, "params": "urban_defaults" },
+    "expected": { "safe_distance_m": 22.096 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "ρ=0.8, a_max=2, a_min_rear=5. 10·0.8 + 0.5·2·0.64 + 11.6²/10 = 8 + 0.64 + 13.456 = 22.096 m."
+  },
+  {
+    "fixture_id": "nhtsa/urban_cyclist_lead/ego_15_lead_8",
+    "scenario_source": {
+      "catalog": "NHTSA_PreCrashTypology",
+      "number": 11,
+      "variant": "urban_cyclist_ahead_ego_15_lead_8",
+      "notes": "Urban cyclist ahead at 8 m/s (~29 km/h) — mixed-mode sharing-the-road scenario."
+    },
+    "rule": "longitudinal",
+    "input": { "v_rear": 15.0, "v_front": 8.0, "sensor_fuzz": 0.0, "params": "urban_defaults" },
+    "expected": { "safe_distance_m": 36.640444444444446 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "ρ=0.8, a_max=2, a_min_rear=5, a_max_front=9. 15·0.8 + 0.5·2·0.64 + 16.6²/10 - 64/18 = 12 + 0.64 + 27.556 - 3.5555… ≈ 36.640 m."
+  }
+]

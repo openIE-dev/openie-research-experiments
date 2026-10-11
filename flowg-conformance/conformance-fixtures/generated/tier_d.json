@@ -1,0 +1,109 @@
+[
+  {
+    "fixture_id": "safety/constraint_h/edge_fuzz_zero",
+    "domain": "safety",
+    "function": "constraint_h",
+    "description": "h() at boundary fuzz=0.0, threshold=0.5",
+    "input": {
+      "threshold": 0.5,
+      "fuzz": 0.0
+    },
+    "python_output": 0.5,
+    "tolerance": {
+      "type": "absolute",
+      "value": 1e-12
+    },
+    "tier": "D",
+    "source": ""
+  },
+  {
+    "fixture_id": "safety/constraint_h/edge_fuzz_one",
+    "domain": "safety",
+    "function": "constraint_h",
+    "description": "h() at boundary fuzz=1.0, threshold=0.5",
+    "input": {
+      "threshold": 0.5,
+      "fuzz": 1.0
+    },
+    "python_output": -0.5,
+    "tolerance": {
+      "type": "absolute",
+      "value": 1e-12
+    },
+    "tier": "D",
+    "source": ""
+  },
+  {
+    "fixture_id": "safety/constraint_h/edge_fuzz_half",
+    "domain": "safety",
+    "function": "constraint_h",
+    "description": "h() at boundary fuzz=0.5, threshold=0.5",
+    "input": {
+      "threshold": 0.5,
+      "fuzz": 0.5
+    },
+    "python_output": 0.0,
+    "tolerance": {
+      "type": "absolute",
+      "value": 1e-12
+    },
+    "tier": "D",
+    "source": ""
+  },
+  {
+    "fixture_id": "fuzz/compute_fuzz/edge_h_max_zero",
+    "domain": "fuzz",
+    "function": "compute_fuzz",
+    "description": "h_max = 0 should short-circuit to 0.0",
+    "input": {
+      "data": [
+        1.0,
+        2.0,
+        3.0
+      ],
+      "h_max": 0.0
+    },
+    "python_output": 0.0,
+    "tolerance": {
+      "type": "exact",
+      "value": 0.0
+    },
+    "tier": "D",
+    "source": ""
+  },
+  {
+    "fixture_id": "fuzz/compute_fuzz/edge_single_value",
+    "domain": "fuzz",
+    "function": "compute_fuzz",
+    "description": "Single-value data (no variance) \u2192 0.0",
+    "input": {
+      "data": [
+        42.0
+      ],
+      "h_max": 8.0
+    },
+    "python_output": 0.0,
+    "tolerance": {
+      "type": "exact",
+      "value": 0.0
+    },
+    "tier": "D",
+    "source": ""
+  },
+  {
+    "fixture_id": "fuzz/shannon_entropy/edge_empty",
+    "domain": "fuzz",
+    "function": "shannon_entropy",
+    "description": "Empty sequence by convention",
+    "input": {
+      "sequence": []
+    },
+    "python_output": 0.0,
+    "tolerance": {
+      "type": "exact",
+      "value": 0.0
+    },
+    "tier": "D",
+    "source": ""
+  }
+]

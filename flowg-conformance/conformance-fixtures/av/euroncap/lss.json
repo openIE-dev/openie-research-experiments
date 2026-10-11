@@ -1,0 +1,30 @@
+[
+  {
+    "fixture_id": "euroncap/lss/lka_lat_1mps_strict",
+    "scenario_source": {
+      "catalog": "EuroNCAP_LSS_2024",
+      "number": 1,
+      "variant": "LKA_lateral_1mps_strict_rss",
+      "notes": "Euro NCAP Lane Keeping Assist — modest lateral drift at 1 m/s under strict RSS. Baseline lateral envelope."
+    },
+    "rule": "lateral",
+    "input": { "v_lat_rear": 1.0, "v_lat_front": 0.0, "sensor_fuzz": 0.0, "params": "strict_rss" },
+    "expected": { "safe_distance_m": 1.75 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "ρ_lat = 0.5·1.0 = 0.5. a_max = a_min_brake = 2.0. 1·0.5 + 0.5·2·0.25 + 4/4 = 0.5 + 0.25 + 1 = 1.75 m."
+  },
+  {
+    "fixture_id": "euroncap/lss/lka_lat_2mps_highway_fuzz_0_4",
+    "scenario_source": {
+      "catalog": "EuroNCAP_LSS_2024",
+      "number": 2,
+      "variant": "LKA_lateral_2mps_highway_fuzz_0_4",
+      "notes": "Higher-rate lateral drift (2 m/s) on highway with moderate sensor fuzz. Demonstrates lateral-envelope widening under fuzz."
+    },
+    "rule": "lateral",
+    "input": { "v_lat_rear": 2.0, "v_lat_front": 0.0, "sensor_fuzz": 0.4, "params": "highway_defaults" },
+    "expected": { "safe_distance_m": 6.22 },
+    "tolerance": { "type": "absolute", "value": 1e-9 },
+    "description": "ρ_lat = 0.5·(1·(1+2·0.4)) = 0.9. a_lat = 2.0. 2·0.9 + 0.81 + 3.8²/4 = 1.8 + 0.81 + 3.61 = 6.22 m."
+  }
+]

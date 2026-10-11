@@ -1,0 +1,458 @@
+[
+  {
+    "description": "compact variant, neutral input pattern, rung=16: deterministic adaptor + zero-padded head",
+    "domain": "dam_router",
+    "fixture_id": "dam_router/forward_at_rung/compact_neutral_rung16",
+    "function": "forward_at_rung",
+    "input": {
+      "adaptor_seed": 14627333968688430831,
+      "f_cls": {
+        "pattern": "zeros"
+      },
+      "f_cog": {
+        "pattern": "zeros"
+      },
+      "rung": 16,
+      "variant": "compact"
+    },
+    "python_output": 0.5,
+    "source": "MGAI-VLA Phase A.5 reference (neutral baseline)",
+    "tier": "B",
+    "tolerance": {
+      "type": "absolute",
+      "value": 0.0001
+    }
+  },
+  {
+    "description": "compact variant, neutral input pattern, rung=32: deterministic adaptor + zero-padded head",
+    "domain": "dam_router",
+    "fixture_id": "dam_router/forward_at_rung/compact_neutral_rung32",
+    "function": "forward_at_rung",
+    "input": {
+      "adaptor_seed": 14627333968688430831,
+      "f_cls": {
+        "pattern": "zeros"
+      },
+      "f_cog": {
+        "pattern": "zeros"
+      },
+      "rung": 32,
+      "variant": "compact"
+    },
+    "python_output": 0.5,
+    "source": "MGAI-VLA Phase A.5 reference (neutral baseline)",
+    "tier": "B",
+    "tolerance": {
+      "type": "absolute",
+      "value": 0.0001
+    }
+  },
+  {
+    "description": "compact variant, neutral input pattern, rung=64: deterministic adaptor + zero-padded head",
+    "domain": "dam_router",
+    "fixture_id": "dam_router/forward_at_rung/compact_neutral_rung64",
+    "function": "forward_at_rung",
+    "input": {
+      "adaptor_seed": 14627333968688430831,
+      "f_cls": {
+        "pattern": "zeros"
+      },
+      "f_cog": {
+        "pattern": "zeros"
+      },
+      "rung": 64,
+      "variant": "compact"
+    },
+    "python_output": 0.5,
+    "source": "MGAI-VLA Phase A.5 reference (neutral baseline)",
+    "tier": "B",
+    "tolerance": {
+      "type": "absolute",
+      "value": 0.0001
+    }
+  },
+  {
+    "description": "compact variant, neutral input pattern, rung=128: deterministic adaptor + zero-padded head",
+    "domain": "dam_router",
+    "fixture_id": "dam_router/forward_at_rung/compact_neutral_rung128",
+    "function": "forward_at_rung",
+    "input": {
+      "adaptor_seed": 14627333968688430831,
+      "f_cls": {
+        "pattern": "zeros"
+      },
+      "f_cog": {
+        "pattern": "zeros"
+      },
+      "rung": 128,
+      "variant": "compact"
+    },
+    "python_output": 0.5,
+    "source": "MGAI-VLA Phase A.5 reference (neutral baseline)",
+    "tier": "B",
+    "tolerance": {
+      "type": "absolute",
+      "value": 0.0001
+    }
+  },
+  {
+    "description": "compact variant, neutral input pattern, rung=256: deterministic adaptor + zero-padded head",
+    "domain": "dam_router",
+    "fixture_id": "dam_router/forward_at_rung/compact_neutral_rung256",
+    "function": "forward_at_rung",
+    "input": {
+      "adaptor_seed": 14627333968688430831,
+      "f_cls": {
+        "pattern": "zeros"
+      },
+      "f_cog": {
+        "pattern": "zeros"
+      },
+      "rung": 256,
+      "variant": "compact"
+    },
+    "python_output": 0.5,
+    "source": "MGAI-VLA Phase A.5 reference (neutral baseline)",
+    "tier": "B",
+    "tolerance": {
+      "type": "absolute",
+      "value": 0.0001
+    }
+  },
+  {
+    "description": "compact variant, neutral input pattern, rung=384: deterministic adaptor + zero-padded head",
+    "domain": "dam_router",
+    "fixture_id": "dam_router/forward_at_rung/compact_neutral_rung384",
+    "function": "forward_at_rung",
+    "input": {
+      "adaptor_seed": 14627333968688430831,
+      "f_cls": {
+        "pattern": "zeros"
+      },
+      "f_cog": {
+        "pattern": "zeros"
+      },
+      "rung": 384,
+      "variant": "compact"
+    },
+    "python_output": 0.5,
+    "source": "MGAI-VLA Phase A.5 reference (neutral baseline)",
+    "tier": "B",
+    "tolerance": {
+      "type": "absolute",
+      "value": 0.0001
+    }
+  },
+  {
+    "description": "compact variant, asymmetric input pattern, rung=16: deterministic adaptor + zero-padded head",
+    "domain": "dam_router",
+    "fixture_id": "dam_router/forward_at_rung/compact_asymmetric_rung16",
+    "function": "forward_at_rung",
+    "input": {
+      "adaptor_seed": 14627333968688430831,
+      "f_cls": {
+        "pattern": "ones",
+        "scale": -0.25
+      },
+      "f_cog": {
+        "pattern": "ones",
+        "scale": 0.5
+      },
+      "rung": 16,
+      "variant": "compact"
+    },
+    "python_output": 0.5035887956619263,
+    "source": "MGAI-VLA Phase A.5 reference (asymmetric ±)",
+    "tier": "B",
+    "tolerance": {
+      "type": "absolute",
+      "value": 0.0001
+    }
+  },
+  {
+    "description": "compact variant, asymmetric input pattern, rung=32: deterministic adaptor + zero-padded head",
+    "domain": "dam_router",
+    "fixture_id": "dam_router/forward_at_rung/compact_asymmetric_rung32",
+    "function": "forward_at_rung",
+    "input": {
+      "adaptor_seed": 14627333968688430831,
+      "f_cls": {
+        "pattern": "ones",
+        "scale": -0.25
+      },
+      "f_cog": {
+        "pattern": "ones",
+        "scale": 0.5
+      },
+      "rung": 32,
+      "variant": "compact"
+    },
+    "python_output": 0.512871503829956,
+    "source": "MGAI-VLA Phase A.5 reference (asymmetric ±)",
+    "tier": "B",
+    "tolerance": {
+      "type": "absolute",
+      "value": 0.0001
+    }
+  },
+  {
+    "description": "compact variant, asymmetric input pattern, rung=64: deterministic adaptor + zero-padded head",
+    "domain": "dam_router",
+    "fixture_id": "dam_router/forward_at_rung/compact_asymmetric_rung64",
+    "function": "forward_at_rung",
+    "input": {
+      "adaptor_seed": 14627333968688430831,
+      "f_cls": {
+        "pattern": "ones",
+        "scale": -0.25
+      },
+      "f_cog": {
+        "pattern": "ones",
+        "scale": 0.5
+      },
+      "rung": 64,
+      "variant": "compact"
+    },
+    "python_output": 0.507114052772522,
+    "source": "MGAI-VLA Phase A.5 reference (asymmetric ±)",
+    "tier": "B",
+    "tolerance": {
+      "type": "absolute",
+      "value": 0.0001
+    }
+  },
+  {
+    "description": "compact variant, asymmetric input pattern, rung=128: deterministic adaptor + zero-padded head",
+    "domain": "dam_router",
+    "fixture_id": "dam_router/forward_at_rung/compact_asymmetric_rung128",
+    "function": "forward_at_rung",
+    "input": {
+      "adaptor_seed": 14627333968688430831,
+      "f_cls": {
+        "pattern": "ones",
+        "scale": -0.25
+      },
+      "f_cog": {
+        "pattern": "ones",
+        "scale": 0.5
+      },
+      "rung": 128,
+      "variant": "compact"
+    },
+    "python_output": 0.5050712823867798,
+    "source": "MGAI-VLA Phase A.5 reference (asymmetric ±)",
+    "tier": "B",
+    "tolerance": {
+      "type": "absolute",
+      "value": 0.0001
+    }
+  },
+  {
+    "description": "compact variant, asymmetric input pattern, rung=256: deterministic adaptor + zero-padded head",
+    "domain": "dam_router",
+    "fixture_id": "dam_router/forward_at_rung/compact_asymmetric_rung256",
+    "function": "forward_at_rung",
+    "input": {
+      "adaptor_seed": 14627333968688430831,
+      "f_cls": {
+        "pattern": "ones",
+        "scale": -0.25
+      },
+      "f_cog": {
+        "pattern": "ones",
+        "scale": 0.5
+      },
+      "rung": 256,
+      "variant": "compact"
+    },
+    "python_output": 0.506169855594635,
+    "source": "MGAI-VLA Phase A.5 reference (asymmetric ±)",
+    "tier": "B",
+    "tolerance": {
+      "type": "absolute",
+      "value": 0.0001
+    }
+  },
+  {
+    "description": "compact variant, asymmetric input pattern, rung=384: deterministic adaptor + zero-padded head",
+    "domain": "dam_router",
+    "fixture_id": "dam_router/forward_at_rung/compact_asymmetric_rung384",
+    "function": "forward_at_rung",
+    "input": {
+      "adaptor_seed": 14627333968688430831,
+      "f_cls": {
+        "pattern": "ones",
+        "scale": -0.25
+      },
+      "f_cog": {
+        "pattern": "ones",
+        "scale": 0.5
+      },
+      "rung": 384,
+      "variant": "compact"
+    },
+    "python_output": 0.5045076012611389,
+    "source": "MGAI-VLA Phase A.5 reference (asymmetric ±)",
+    "tier": "B",
+    "tolerance": {
+      "type": "absolute",
+      "value": 0.0001
+    }
+  },
+  {
+    "description": "compact variant, high_freq input pattern, rung=16: deterministic adaptor + zero-padded head",
+    "domain": "dam_router",
+    "fixture_id": "dam_router/forward_at_rung/compact_high_freq_rung16",
+    "function": "forward_at_rung",
+    "input": {
+      "adaptor_seed": 14627333968688430831,
+      "f_cls": {
+        "pattern": "alternating",
+        "scale": 0.7
+      },
+      "f_cog": {
+        "pattern": "alternating",
+        "scale": 0.3
+      },
+      "rung": 16,
+      "variant": "compact"
+    },
+    "python_output": 0.4961763322353363,
+    "source": "MGAI-VLA Phase A.5 reference (high-frequency)",
+    "tier": "B",
+    "tolerance": {
+      "type": "absolute",
+      "value": 0.0001
+    }
+  },
+  {
+    "description": "compact variant, high_freq input pattern, rung=32: deterministic adaptor + zero-padded head",
+    "domain": "dam_router",
+    "fixture_id": "dam_router/forward_at_rung/compact_high_freq_rung32",
+    "function": "forward_at_rung",
+    "input": {
+      "adaptor_seed": 14627333968688430831,
+      "f_cls": {
+        "pattern": "alternating",
+        "scale": 0.7
+      },
+      "f_cog": {
+        "pattern": "alternating",
+        "scale": 0.3
+      },
+      "rung": 32,
+      "variant": "compact"
+    },
+    "python_output": 0.4979780614376068,
+    "source": "MGAI-VLA Phase A.5 reference (high-frequency)",
+    "tier": "B",
+    "tolerance": {
+      "type": "absolute",
+      "value": 0.0001
+    }
+  },
+  {
+    "description": "compact variant, high_freq input pattern, rung=64: deterministic adaptor + zero-padded head",
+    "domain": "dam_router",
+    "fixture_id": "dam_router/forward_at_rung/compact_high_freq_rung64",
+    "function": "forward_at_rung",
+    "input": {
+      "adaptor_seed": 14627333968688430831,
+      "f_cls": {
+        "pattern": "alternating",
+        "scale": 0.7
+      },
+      "f_cog": {
+        "pattern": "alternating",
+        "scale": 0.3
+      },
+      "rung": 64,
+      "variant": "compact"
+    },
+    "python_output": 0.5089060664176941,
+    "source": "MGAI-VLA Phase A.5 reference (high-frequency)",
+    "tier": "B",
+    "tolerance": {
+      "type": "absolute",
+      "value": 0.0001
+    }
+  },
+  {
+    "description": "compact variant, high_freq input pattern, rung=128: deterministic adaptor + zero-padded head",
+    "domain": "dam_router",
+    "fixture_id": "dam_router/forward_at_rung/compact_high_freq_rung128",
+    "function": "forward_at_rung",
+    "input": {
+      "adaptor_seed": 14627333968688430831,
+      "f_cls": {
+        "pattern": "alternating",
+        "scale": 0.7
+      },
+      "f_cog": {
+        "pattern": "alternating",
+        "scale": 0.3
+      },
+      "rung": 128,
+      "variant": "compact"
+    },
+    "python_output": 0.503812849521637,
+    "source": "MGAI-VLA Phase A.5 reference (high-frequency)",
+    "tier": "B",
+    "tolerance": {
+      "type": "absolute",
+      "value": 0.0001
+    }
+  },
+  {
+    "description": "compact variant, high_freq input pattern, rung=256: deterministic adaptor + zero-padded head",
+    "domain": "dam_router",
+    "fixture_id": "dam_router/forward_at_rung/compact_high_freq_rung256",
+    "function": "forward_at_rung",
+    "input": {
+      "adaptor_seed": 14627333968688430831,
+      "f_cls": {
+        "pattern": "alternating",
+        "scale": 0.7
+      },
+      "f_cog": {
+        "pattern": "alternating",
+        "scale": 0.3
+      },
+      "rung": 256,
+      "variant": "compact"
+    },
+    "python_output": 0.5078610777854919,
+    "source": "MGAI-VLA Phase A.5 reference (high-frequency)",
+    "tier": "B",
+    "tolerance": {
+      "type": "absolute",
+      "value": 0.0001
+    }
+  },
+  {
+    "description": "compact variant, high_freq input pattern, rung=384: deterministic adaptor + zero-padded head",
+    "domain": "dam_router",
+    "fixture_id": "dam_router/forward_at_rung/compact_high_freq_rung384",
+    "function": "forward_at_rung",
+    "input": {
+      "adaptor_seed": 14627333968688430831,
+      "f_cls": {
+        "pattern": "alternating",
+        "scale": 0.7
+      },
+      "f_cog": {
+        "pattern": "alternating",
+        "scale": 0.3
+      },
+      "rung": 384,
+      "variant": "compact"
+    },
+    "python_output": 0.5075783729553223,
+    "source": "MGAI-VLA Phase A.5 reference (high-frequency)",
+    "tier": "B",
+    "tolerance": {
+      "type": "absolute",
+      "value": 0.0001
+    }
+  }
+]
