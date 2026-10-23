@@ -51,3 +51,13 @@ first summary was not committed.
   here.
 - "Accepted" means accepted by `rce check` at this commit; the checker's
   rules are the gate, and a rule it lacks is a gap this run cannot see.
+
+# Second run over the v3 mutants (2026-10-23)
+
+Input: the 715 checker-accepted mutants of the v3 corpus (bench/form-space,
+generator `de2b38b6`); engine `690ca9be` as before; checker cpu 60.7 s.
+Violations: 0 on every invariant (I1 to I5). 409 mutants have no trace
+(no example lines); the 306 traced ones (v2: 92) gave 0 violations over
+every step of every example trace. H7 on the fuzzed arm: supported, 0
+violations over 1,275 accepted mutants across the two runs (560 + 715,
+398 of them traceable).

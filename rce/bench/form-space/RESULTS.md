@@ -127,3 +127,27 @@ At a stated 10 W that is 0.03 J per candidate, labelled an estimate with
 no meter. H2 compares this with the model's energy per candidate on the
 same hardware, which cannot be measured here; the checker side is recorded
 so that the ratio can be formed when the model side exists.
+
+# v3: ten typed mutants per operator for programs with examples (2026-10-23)
+
+Registered as the amendment of 2026-10-23T16:50 (committed at `bd5c190`
+before the run). Generator at openIE-dev/rce `de2b38b6` (PR #11); same
+population and seed, so the 180 shapes and every rho statistic are
+unchanged (python median 9.31); `rce check` median 3.1 ms.
+
+2,766 mutants (v2: 2,084): 2,051 refused across 29 diagnostic codes, 715
+accepted (409 on programs without examples, 240 equivalent on the
+examples' events, 66 behaviour changes the examples did not catch, 1 with
+the parent's shape). Traceable accepted mutants rose from 92 to 306.
+
+**Intent mutation score, v3.** Over the 41 programs with at least one
+scorable mutant: median 0.82 (13 of 41 catch every behaviour change);
+pooled, 240 of 306 behaviour changes are caught (0.78, Wilson 95% 0.73 to
+0.83). The uncaught 66 are 62 literal moves and 4 operator swaps. With
+five times the mutants the pooled estimate moved from 0.82 (v2, 109
+changes) to 0.78 and its interval narrowed; the picture is the same: the
+example lines of these programs pin about four fifths of the behaviour
+changes a one-token edit can make, and almost every miss is a constant
+no example exercises. That is the number RJ-F2 and H7 should carry
+forward, with its limit: ten mutants per operator over a corpus of 180
+programs, 41 of them scorable.

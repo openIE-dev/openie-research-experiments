@@ -1,7 +1,7 @@
 {
- "accepted_mutants": 560,
- "commit": "929bdeb1",
- "cpu_s": 60.9,
+ "accepted_mutants": 715,
+ "commit": "de2b38b6",
+ "cpu_s": 60.7,
  "per_invariant": {
   "I1": 0,
   "I2": 0,
@@ -10,13 +10,13 @@
   "I5": 0
  },
  "per_operator": {
-  "guard": 2,
-  "literal": 252,
-  "operator": 182,
-  "rename": 65,
-  "token": 5,
-  "type": 54
+  "guard": 1,
+  "literal": 321,
+  "operator": 221,
+  "rename": 98,
+  "token": 3,
+  "type": 71
  },
- "untraced_no_examples": 468,
+ "untraced_no_examples": 409,
  "violations": 0
 }

@@ -11,14 +11,14 @@
  },
  "candidates": 343,
  "check_s": {
-  "max": 1.1944,
-  "median": 0.003,
-  "min": 0.0022,
+  "max": 1.4115,
+  "median": 0.0031,
+  "min": 0.0023,
   "n": 180,
-  "q1": 0.0026,
-  "q3": 0.0038
+  "q1": 0.0028,
+  "q3": 0.0039
  },
- "commit": "2abed988",
+ "commit": "de2b38b6",
  "duplicates": 59,
  "form_tokens": {
   "max": 149218,
@@ -29,231 +29,255 @@
   "q3": 240
  },
  "intent_mutation_score": {
-  "median": 1.0,
-  "pooled_caught": 89,
-  "pooled_uncaught": 20,
-  "programs": 37,
+  "median": 0.818,
+  "pooled_caught": 240,
+  "pooled_uncaught": 66,
+  "programs": 41,
   "rows": [
    {
-    "caught": 6,
+    "caught": 9,
     "path": "spec/examples/01_counter.rce",
     "score": 1.0,
     "uncaught": 0
    },
    {
-    "caught": 2,
+    "caught": 5,
     "path": "spec/examples/04_bank_account.rce",
-    "score": 1.0,
-    "uncaught": 0
+    "score": 0.833,
+    "uncaught": 1
    },
    {
-    "caught": 3,
+    "caught": 1,
     "path": "spec/examples/17_traffic_light.rce",
     "score": 1.0,
     "uncaught": 0
    },
    {
-    "caught": 3,
+    "caught": 1,
+    "path": "spec/examples/30_state_machine_guarded.rce",
+    "score": 1.0,
+    "uncaught": 0
+   },
+   {
+    "caught": 11,
     "path": "spec/examples/51_refined_input.rce",
     "score": 1.0,
     "uncaught": 0
    },
    {
-    "caught": 3,
+    "caught": 7,
     "path": "spec/examples/52_context_text.rce",
     "score": 1.0,
     "uncaught": 0
    },
    {
-    "caught": 4,
+    "caught": 10,
     "path": "spec/examples/53_capability.rce",
-    "score": 1.0,
-    "uncaught": 0
+    "score": 0.909,
+    "uncaught": 1
    },
    {
-    "caught": 4,
+    "caught": 7,
     "path": "spec/examples/54_secret.rce",
-    "score": 1.0,
-    "uncaught": 0
+    "score": 0.778,
+    "uncaught": 2
    },
    {
-    "caught": 2,
+    "caught": 6,
     "path": "spec/examples/55_rcedb.rce",
     "score": 0.667,
+    "uncaught": 3
+   },
+   {
+    "caught": 4,
+    "path": "spec/examples/56_utf8.rce",
+    "score": 0.8,
     "uncaught": 1
    },
    {
-    "caught": 3,
-    "path": "spec/examples/56_utf8.rce",
+    "caught": 6,
+    "path": "spec/examples/57_float_vectors.rce",
     "score": 1.0,
     "uncaught": 0
    },
    {
-    "caught": 2,
-    "path": "spec/examples/57_float_vectors.rce",
-    "score": 0.667,
-    "uncaught": 1
-   },
-   {
-    "caught": 3,
+    "caught": 9,
     "path": "spec/examples/58_float_keys.rce",
     "score": 1.0,
     "uncaught": 0
    },
    {
-    "caught": 2,
+    "caught": 4,
     "path": "spec/examples/59_dim_redundant_field.rce",
-    "score": 0.667,
-    "uncaught": 1
+    "score": 0.444,
+    "uncaught": 5
    },
    {
-    "caught": 4,
+    "caught": 8,
     "path": "spec/examples/60_dim_hidden_period.rce",
     "score": 1.0,
     "uncaught": 0
    },
    {
-    "caught": 2,
+    "caught": 1,
+    "path": "spec/examples/61_dim_minimal.rce",
+    "score": 1.0,
+    "uncaught": 0
+   },
+   {
+    "caught": 4,
     "path": "programs/body/arm.rce",
     "score": 1.0,
     "uncaught": 0
    },
    {
     "caught": 3,
-    "path": "programs/money/account.rce",
-    "score": 1.0,
-    "uncaught": 0
-   },
-   {
-    "caught": 2,
-    "path": "programs/money/ledger.rce",
-    "score": 0.667,
-    "uncaught": 1
-   },
-   {
-    "caught": 3,
-    "path": "programs/network/handshake.rce",
-    "score": 1.0,
-    "uncaught": 0
-   },
-   {
-    "caught": 3,
-    "path": "programs/systems/reconcile.rce",
-    "score": 0.75,
-    "uncaught": 1
-   },
-   {
-    "caught": 2,
-    "path": "programs/systems/ring_buffer.rce",
-    "score": 0.667,
-    "uncaught": 1
-   },
-   {
-    "caught": 2,
-    "path": "programs/text/word_count.rce",
+    "path": "programs/body/thermostat.rce",
     "score": 0.5,
+    "uncaught": 3
+   },
+   {
+    "caught": 8,
+    "path": "programs/money/account.rce",
+    "score": 0.889,
+    "uncaught": 1
+   },
+   {
+    "caught": 10,
+    "path": "programs/money/ledger.rce",
+    "score": 0.909,
+    "uncaught": 1
+   },
+   {
+    "caught": 7,
+    "path": "programs/network/handshake.rce",
+    "score": 0.875,
+    "uncaught": 1
+   },
+   {
+    "caught": 9,
+    "path": "programs/systems/reconcile.rce",
+    "score": 0.9,
+    "uncaught": 1
+   },
+   {
+    "caught": 9,
+    "path": "programs/systems/ring_buffer.rce",
+    "score": 0.818,
     "uncaught": 2
    },
    {
-    "caught": 2,
+    "caught": 7,
+    "path": "programs/text/word_count.rce",
+    "score": 0.7,
+    "uncaught": 3
+   },
+   {
+    "caught": 13,
     "path": "programs/world/cellular_automaton.rce",
     "score": 1.0,
     "uncaught": 0
    },
    {
-    "caught": 3,
+    "caught": 11,
     "path": "programs/world/queue_sim.rce",
     "score": 1.0,
     "uncaught": 0
    },
    {
-    "caught": 2,
+    "caught": 4,
     "path": "apps/chat.rce",
-    "score": 1.0,
-    "uncaught": 0
-   },
-   {
-    "caught": 1,
-    "path": "apps/sfu.rce",
-    "score": 0.5,
+    "score": 0.8,
     "uncaught": 1
    },
    {
-    "caught": 2,
-    "path": "apps/terminal.rce",
-    "score": 1.0,
-    "uncaught": 0
+    "caught": 8,
+    "path": "apps/sfu.rce",
+    "score": 0.8,
+    "uncaught": 2
    },
    {
-    "caught": 5,
+    "caught": 4,
+    "path": "apps/terminal.rce",
+    "score": 0.667,
+    "uncaught": 2
+   },
+   {
+    "caught": 10,
     "path": "book/listings/ch04/counter.rce",
     "score": 1.0,
     "uncaught": 0
    },
    {
-    "caught": 2,
+    "caught": 7,
     "path": "book/listings/ch06/account.rce",
-    "score": 0.667,
+    "score": 0.875,
     "uncaught": 1
    },
    {
-    "caught": 3,
+    "caught": 7,
     "path": "book/listings/ch10/cart.rce",
+    "score": 0.7,
+    "uncaught": 3
+   },
+   {
+    "caught": 5,
+    "path": "conformance/tests/host-contract/harvested/chan-accept.rce",
+    "score": 0.455,
+    "uncaught": 6
+   },
+   {
+    "caught": 4,
+    "path": "conformance/tests/host-contract/harvested/echo-accept.rce",
+    "score": 0.5,
+    "uncaught": 4
+   },
+   {
+    "caught": 3,
+    "path": "conformance/tests/host-contract/harvested/files-accept.rce",
+    "score": 0.375,
+    "uncaught": 5
+   },
+   {
+    "caught": 3,
+    "path": "conformance/tests/host-contract/harvested/foreign-accept.rce",
+    "score": 0.429,
+    "uncaught": 4
+   },
+   {
+    "caught": 1,
+    "path": "conformance/tests/host-contract/harvested/media-accept.rce",
+    "score": 0.25,
+    "uncaught": 3
+   },
+   {
+    "caught": 0,
+    "path": "conformance/tests/host-contract/harvested/net-accept.rce",
+    "score": 0.0,
+    "uncaught": 3
+   },
+   {
+    "caught": 3,
+    "path": "conformance/tests/host-contract/harvested/priority-accept.rce",
     "score": 0.75,
     "uncaught": 1
    },
    {
     "caught": 3,
-    "path": "conformance/tests/host-contract/harvested/chan-accept.rce",
-    "score": 0.75,
-    "uncaught": 1
-   },
-   {
-    "caught": 2,
-    "path": "conformance/tests/host-contract/harvested/echo-accept.rce",
-    "score": 0.667,
-    "uncaught": 1
-   },
-   {
-    "caught": 1,
-    "path": "conformance/tests/host-contract/harvested/files-accept.rce",
-    "score": 1.0,
-    "uncaught": 0
-   },
-   {
-    "caught": 1,
-    "path": "conformance/tests/host-contract/harvested/foreign-accept.rce",
-    "score": 0.333,
-    "uncaught": 2
-   },
-   {
-    "caught": 2,
-    "path": "conformance/tests/host-contract/harvested/media-accept.rce",
-    "score": 1.0,
-    "uncaught": 0
-   },
-   {
-    "caught": 1,
-    "path": "conformance/tests/host-contract/harvested/priority-accept.rce",
-    "score": 0.5,
-    "uncaught": 1
-   },
-   {
-    "caught": 0,
     "path": "conformance/tests/host-contract/harvested/pty-accept.rce",
-    "score": 0.0,
-    "uncaught": 1
-   },
-   {
-    "caught": 1,
-    "path": "conformance/tests/host-contract/harvested/records-accept.rce",
-    "score": 0.333,
+    "score": 0.6,
     "uncaught": 2
    },
    {
-    "caught": 0,
+    "caught": 4,
+    "path": "conformance/tests/host-contract/harvested/records-accept.rce",
+    "score": 0.571,
+    "uncaught": 3
+   },
+   {
+    "caught": 4,
     "path": "conformance/tests/host-contract/harvested/ticked-accept.rce",
-    "score": 0.0,
+    "score": 0.8,
     "uncaught": 1
    }
   ]
@@ -261,76 +285,81 @@
  "negatives": {
   "conformance": 343,
   "mutant_diagnostics": {
-   "W-CAP-3": 2,
-   "W-CT-1": 4,
-   "W-CTX-1": 2,
-   "W-CTX-2": 1,
+   "W-ASSIGN-1": 1,
+   "W-CAP-2": 1,
+   "W-CT-1": 1,
+   "W-CTX-1": 5,
    "W-DEC-1": 4,
-   "W-EFF-1": 1,
-   "W-FFI-1": 5,
-   "W-IFC-1": 1,
-   "W-INT-1": 194,
-   "W-LEX-3": 6,
+   "W-EFF-1": 2,
+   "W-FFI-1": 6,
+   "W-IFC-1": 2,
+   "W-IFC-6": 1,
+   "W-INT-1": 345,
+   "W-LEX-3": 3,
+   "W-LOOP-1": 1,
    "W-MATCH-1": 1,
-   "W-NAME-1": 142,
-   "W-NAME-2": 7,
-   "W-NAME-3": 16,
-   "W-REF-1": 1,
-   "W-SIMD-1": 1,
-   "W-STEP-1": 10,
-   "W-SYN-1": 609,
-   "W-TRAIT-1": 4,
-   "W-TY-1": 228,
-   "W-TY-3": 89,
-   "W-UNUSED-1": 99,
-   "W-UNUSED-2": 90,
-   "W-WORLD-1": 2
+   "W-NAME-1": 318,
+   "W-NAME-2": 15,
+   "W-NAME-3": 28,
+   "W-REF-1": 2,
+   "W-SES-4": 1,
+   "W-SIMD-1": 2,
+   "W-STEP-1": 39,
+   "W-STEP-4": 5,
+   "W-SUP-1": 1,
+   "W-SYN-1": 619,
+   "W-TRAIT-1": 3,
+   "W-TY-1": 307,
+   "W-TY-3": 109,
+   "W-UNUSED-1": 105,
+   "W-UNUSED-2": 103,
+   "W-WORLD-1": 5
   },
-  "mutants_accept": 560,
-  "mutants_accept_behaviour_change": 20,
-  "mutants_accept_equivalent": 72,
+  "mutants_accept": 715,
+  "mutants_accept_behaviour_change": 66,
+  "mutants_accept_equivalent": 240,
   "mutants_accept_same_shape": 1,
   "mutants_by_operator": {
    "guard": {
-    "accept_no_examples": 2,
-    "refused": 158
+    "accept_no_examples": 1,
+    "refused": 169
    },
    "literal": {
-    "accept_behaviour_change": 18,
-    "accept_equivalent": 30,
-    "accept_no_examples": 204,
-    "caught_by_examples": 85,
-    "refused": 15
+    "accept_behaviour_change": 62,
+    "accept_equivalent": 82,
+    "accept_no_examples": 177,
+    "caught_by_examples": 168,
+    "refused": 14
    },
    "operator": {
-    "accept_behaviour_change": 2,
-    "accept_equivalent": 14,
-    "accept_no_examples": 166,
-    "caught_by_examples": 103,
-    "refused": 59
+    "accept_behaviour_change": 4,
+    "accept_equivalent": 72,
+    "accept_no_examples": 145,
+    "caught_by_examples": 167,
+    "refused": 88
    },
    "rename": {
-    "accept_equivalent": 13,
-    "accept_no_examples": 52,
-    "caught_by_examples": 2,
-    "refused": 291
+    "accept_equivalent": 53,
+    "accept_no_examples": 44,
+    "accept_same_shape": 1,
+    "caught_by_examples": 8,
+    "refused": 579
    },
    "token": {
-    "accept_no_examples": 4,
-    "accept_same_shape": 1,
-    "refused": 535
+    "accept_no_examples": 3,
+    "refused": 537
    },
    "type": {
-    "accept_equivalent": 15,
-    "accept_no_examples": 39,
-    "caught_by_examples": 4,
-    "refused": 272
+    "accept_equivalent": 33,
+    "accept_no_examples": 38,
+    "caught_by_examples": 2,
+    "refused": 319
    }
   },
-  "mutants_caught_by_examples": 194,
-  "mutants_reject": 1524
+  "mutants_caught_by_examples": 345,
+  "mutants_reject": 2051
  },
- "rce_cpu_s": 100.9,
+ "rce_cpu_s": 107.5,
  "refused": 104,
  "refused_rows": [
   {
