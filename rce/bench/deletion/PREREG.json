@@ -1,0 +1,20 @@
+{
+ "id": "rce-reversible-deletion-2026-10-22",
+ "registered": "2026-10-22T21:30-04:00 (before any run)",
+ "question": "Does replay-certified reversible deletion change how much confirmed-dead code is removed? Haas et al. (TOSEM 2020) found developers deleted only 20% of chunks they had confirmed unnecessary, citing risk and unknown dependents. RCE's design invariant is that reversibility replaces approval. This tests it.",
+ "unit": "one chunk = one region field, step or function that rce dim (redundancy per region) or the brick catalog (no caller) reports as unread or unreferenced",
+ "population": "rce-examples and rce-stdlib at a tagged commit; participants: contributors recruited by issue, each assigned chunks at random in two arms",
+ "arms": {
+  "control": "the report names the chunk and the evidence (unread field: dim; no caller: catalog); the participant decides whether to delete, with the usual review",
+  "treatment": "the same report, plus a certificate: the deletion is applied on a branch, every example and check of every dependent is replayed by rce test, trace agreement is recorded, and the revert is a single logged command; the participant decides whether to accept the certified deletion"
+ },
+ "primary_metric": "share of confirmed-dead chunks deleted per arm, Wilson 95% CI; difference between arms with a two-proportion test",
+ "hypotheses": {
+  "H0": "The control arm deletes between 10% and 30% (replicates the 20% baseline in this population).",
+  "H1": "The treatment arm deletes at least 25 points more than the control arm."
+ },
+ "falsifier": "If the treatment arm is within 10 points of control, a certified reversible path does not move deletion behaviour and the invariant 'reversibility replaces approval' is a design preference, not a measured effect.",
+ "power": "two-proportion test at 0.20 vs 0.45, alpha 0.05, power 0.8: 50 chunks per arm; target 100 per arm",
+ "exclusions": "chunks referenced by a test only; chunks under 2 lines",
+ "reporting": "every decision and its stated reason kept; no energy claim"
+}

@@ -1,0 +1,43 @@
+{
+ "id": "rce-dimension-2026-10-22",
+ "registered": "2026-10-22T21:30-04:00 (before any run; rce dim had not been built when this was written)",
+ "question": "What is the Nerode index (spec 6.10 dim(P)) and the redundancy of real RCE programs? No corpus measurement of this quantity exists in the literature for any language.",
+ "unit": "one program = one row in results/dimension.jsonl: file, states, bound_reached, behaviours, redundancy_bits, per-region bits, fuel",
+ "population": [
+  "spec/examples/*.rce of openIE-dev/rce at the commit recorded in results/ (59 programs plus the three dimension examples, which are excluded from the summary because they were written to have known values)",
+  "rce-examples: every .rce under body/, data/, ecosystem/, hardware/ that rce check accepts",
+  "rce-stdlib lib/*.rce functions with a state region, if any"
+ ],
+ "command": "rce dim --json --fuel 100000 FILE, engine frozen at a tagged commit whose binary sha256 is recorded before the run",
+ "primary_metric": "median and interquartile range of redundancy_bits over programs where bound_reached is false; share of programs where bound_reached is true",
+ "hypotheses": {
+  "H0": "At least half of the accepted example programs have redundancy_bits > 0.5: ordinary hand-written Forms carry state that changes no future output.",
+  "H1": "Programs whose intent names a single observable (one emit site) have higher redundancy than programs with several emit sites, because unread state accumulates where outputs are few.",
+  "H2": "The per-region report attributes at least 80% of a program's redundancy to one region when redundancy_bits > 1."
+ },
+ "falsifier": "If the median redundancy over bounded programs is below 0.1 bits, the claim that accidental state is common in small Forms is wrong at this scale and dim is a diagnostic for large programs only.",
+ "exclusions": "programs rce check refuses; programs with no state region (commands); decided by rule before running",
+ "reporting": "every row kept; bound_reached rows reported separately as lower bounds; Wilson 95% intervals on shares",
+ "labels": "no energy claim; cpu_s per program recorded as est_j = cpu_s x 10 W, labeled estimate",
+ "amendments": [
+  {
+   "date": "2026-10-23T04:20-04:00",
+   "after": "pilot-2026-10-22 (PILOT-2026-10-22.md), before any frozen run",
+   "adds": {
+    "stratum": "observable = the explored graph has at least one step that emits or refuses. A program with no such step has one behaviour by definition (spec 6.10) and is reported but excluded from H0, H1, H2.",
+    "secondary": "cpu_s per program (wall time of rce dim), est_j = cpu_s x 10 W labeled estimate",
+    "population": "rce-examples at its current commit, every .rce that rce check accepts standalone"
+   },
+   "frozen_runs": {
+    "dim-r1": {
+     "engine_commit": "22a5992",
+     "engine_tag": "dim-run-1",
+     "binary_sha256_prefix": "6fc2323e4b5fa7b7",
+     "fuel": 100000,
+     "registered_before_run": true,
+     "note": "re-frozen 2026-10-23T04:40 after replacing Moore refinement with Hopcroft; no run was made with the earlier hash"
+    }
+   }
+  }
+ ]
+}
