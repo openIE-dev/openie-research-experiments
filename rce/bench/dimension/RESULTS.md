@@ -164,3 +164,68 @@ the same programs. That leaves 8 bounded observable programs.
    exploration of a program with 15 event types. The fuel is the right
    control for a benchmark; a profile of `rce dim` on such programs is
    worth having before the population grows.
+
+# dim-r3: the strict stratum and the multi-region programs (2026-10-23)
+
+Engine: openIE-dev/rce main `690ca9be` (the checker of `929bdeb1`, which
+reports distinct observations), binary sha256 prefix `a1443e72be33c29f`.
+Registered as the amendment of 2026-10-23T16:05 in `PREREG.json` before
+the run (hash sidecar). Population: the dim-r2 rule population plus every
+program of the same directories accepted standalone with two or more
+state regions: 28 programs (`results/dim-r3.population.txt`; the three
+added are `16_multi_region`, `51_refined_input`, `53_capability`). Total
+cpu 610.1 s. The dim-r2 rows reproduce exactly (same states, behaviours
+and bits for all 25).
+
+## The strict stratum
+
+Strictly observable means observable with at least two distinct
+non-silent observations (`distinct_labels` ≥ 2). Of 28 programs: 22 are
+strictly observable, 3 observable by a constant only (`thermostat`,
+`reconcile`, `cart`, each with one observation), 3 not observable
+(`arm`, `16_multi_region`, `51_refined_input`: no explored step emits or
+refuses). 12 strictly observable programs are bounded within 100,000
+states; 6 of those are not the programs written for `rce dim` or their
+chapter 18 copies.
+
+| set | n | median bits (IQR) | redundancy > 0.5 bit | Wilson 95% |
+|---|---|---|---|---|
+| strict, bounded | 12 | 1.29 (0.00 to 2.28) | 8 of 12 | 0.39 to 0.86 |
+| strict, bounded, not written for the tool | 6 | 2.05 (0.00 to 3.74) | 4 of 6 | 0.30 to 0.90 |
+
+- **H0**: supported in direction on both sets (two thirds above 0.5 bit;
+  median 1.29 and 2.05 bits) and not established: both intervals include
+  one half. RCE-F6 (median below 0.1) is not triggered.
+- **H1**: as in dim-r2, not supported and not testable at this size (the
+  strict set has the same two single-site and two multi-site programs).
+- **H2**, now tested where it can be: over multi-region programs with more
+  than 1 bit of redundancy in the strict stratum there is one row,
+  `ch10/cart`, whose larger region carries 62% (a lower bound at the cap),
+  below the 80% threshold. The two other multi-region rows above 1 bit
+  are outside the stratum: `16_multi_region` (9.94 bits, 91% in one
+  region, unobservable) and `51_refined_input` (2.00 bits split evenly over
+  two of three regions, unobservable). H2 is not supported on n = 1 and
+  remains open; the population still has too few observable multi-region
+  programs to decide it.
+
+## What the finer rule changed
+
+The strict rule moved three programs out of the stratum (`thermostat`,
+`reconcile`, `cart`), each observable only by a constant and each
+carrying 1 to 2 bits of redundancy: the constant-observation programs
+were inflating dim-r2's count of bits that "change no output" with
+programs whose output never changes at all. The medians over the strict
+sets are the ones to cite from now on. The observation counts themselves
+are a new column: `chat` has 428 distinct observations over 176
+behaviours, `ring_buffer` 7 over 781, and the capped counters have one
+observation per state (`account` 100,001), which is the data-distinguished
+regime seen from the output side.
+
+## Next
+
+The population is the limit on every hypothesis here. Multi-region
+observable programs are the shortage (one in the strict stratum). The
+next run should draw from the standard library's state-bearing modules
+and from the host-contract conformance programs, which declare several
+regions and emit, and should be registered with the strict rule from the
+start rather than as an amendment.
