@@ -1,0 +1,17 @@
+{
+ "id": "rce-nameless-form-2026-10-22",
+ "registered": "2026-10-22T21:30-04:00 (before any run)",
+ "question": "Can a model reason correctly from a canonical Form with names erased? Obfuscating identifiers drops GPT-4o class summarisation from 87.3 to 58.7 and execution prediction by up to 24 points on ordinary code (arXiv 2510.03178, 2025). Does a Form with its concept record (spec: the unhashed side table of names and intent) restore the loss, and does the Form's structure (typed events, guards, examples) reduce it on its own?",
+ "unit": "one task = one (program, question) pair; questions are execution prediction (final state after a given event list, checked against rce run) and next-event prediction (which event is refused next), both decidable by the checker",
+ "population": "spec/examples/*.rce and rce-examples programs with a state region; 4 projections per program: (A) source as written; (B) source with identifiers replaced by positional names (f0, e1, r2) by rce fmt --nameless, a projection that must exist before the run; (C) the Form JSON of rce emit form with names erased; (D) projection B plus the concept record as a comment block",
+ "models": "three open-weight models pinned by hash and one frontier model, each run at temperature 0 with the same prompt template; prompts and raw outputs checked in",
+ "primary_metric": "accuracy per projection per task type, with the checker as the oracle; McNemar tests between projections on the same tasks",
+ "hypotheses": {
+  "H0": "Accuracy on B is at least 10 points below A on execution prediction (replicates the identifier result on RCE).",
+  "H1": "Accuracy on D recovers at least half of the A-B gap: the concept record, not the spelling, is what the model needs.",
+  "H2": "The A-B gap on RCE is smaller than the published 24-point gap on general code, because typed events, guards and examples carry intent that identifiers carry elsewhere."
+ },
+ "falsifier": "If D does not recover the gap (H1 false), the concept record as designed is not the carrier of intent and the Form must keep human names in the projection by default.",
+ "exclusions": "programs over 200 lines; questions whose answer appears verbatim in an example line",
+ "reporting": "every prompt and output kept; model calls counted; est_j from provider disclosures labeled estimate"
+}

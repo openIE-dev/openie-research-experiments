@@ -1,0 +1,20 @@
+{
+ "id": "rce-commutation-2026-10-22",
+ "registered": "2026-10-22T21:30-04:00 (before any run)",
+ "question": "How much of ordinary sequential code is over-specified order? For a lifted program, what share of adjacent statement pairs commute (disjoint read and write footprints, spec W-PAR-1 independence)?",
+ "unit": "one function = one row: file, function, statements, adjacent pairs, commuting pairs, width of the dependency poset (Dilworth, computed as the maximum antichain of the statement dependency DAG)",
+ "population": [
+  "rce-stdlib lib/*.rce: every function the brick catalog lists (457 at rce-stdlib 4ed1b7f)",
+  "the Go, Python, TypeScript and Rust fixtures that rce scan --form lifts in the brownfield set of the paper (section 5.6)"
+ ],
+ "method": "from the lift's dependency graph (reads and writes per statement, as brick_lower computes them), count adjacent pairs with disjoint write footprints and no read-after-write between them; width = size of a maximum antichain by Dilworth via bipartite matching; frozen engine, binary hash recorded",
+ "primary_metric": "share of adjacent statement pairs that commute, per language and overall, Wilson 95% CI; distribution of poset width per function",
+ "hypotheses": {
+  "H0": "At least 30% of adjacent statement pairs in stdlib functions commute: the source states a total order where a partial order of width >= 2 is the semantics.",
+  "H1": "Median poset width per function is >= 2 for functions of 10 or more statements.",
+  "H2": "The commuting share is lower in lifted Go and Rust than in lifted Python, because explicit error handling in Go and Rust interleaves reads of a result with writes to it."
+ },
+ "falsifier": "If fewer than 10% of adjacent pairs commute, sequential source is not materially over-specified at statement granularity and the partial-order log proposal gains nothing at this level; the claim would then rest on inter-step order only.",
+ "exclusions": "functions the lift refuses (188 of 457 at the last count), reported as a separate share",
+ "reporting": "every row kept; per-language tables; no energy claim"
+}
