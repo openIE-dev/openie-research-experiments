@@ -18,5 +18,26 @@
  "falsifier": "If the median redundancy over bounded programs is below 0.1 bits, the claim that accidental state is common in small Forms is wrong at this scale and dim is a diagnostic for large programs only.",
  "exclusions": "programs rce check refuses; programs with no state region (commands); decided by rule before running",
  "reporting": "every row kept; bound_reached rows reported separately as lower bounds; Wilson 95% intervals on shares",
- "labels": "no energy claim; cpu_s per program recorded as est_j = cpu_s x 10 W, labeled estimate"
+ "labels": "no energy claim; cpu_s per program recorded as est_j = cpu_s x 10 W, labeled estimate",
+ "amendments": [
+  {
+   "date": "2026-10-23T04:20-04:00",
+   "after": "pilot-2026-10-22 (PILOT-2026-10-22.md), before any frozen run",
+   "adds": {
+    "stratum": "observable = the explored graph has at least one step that emits or refuses. A program with no such step has one behaviour by definition (spec 6.10) and is reported but excluded from H0, H1, H2.",
+    "secondary": "cpu_s per program (wall time of rce dim), est_j = cpu_s x 10 W labeled estimate",
+    "population": "rce-examples at its current commit, every .rce that rce check accepts standalone"
+   },
+   "frozen_runs": {
+    "dim-r1": {
+     "engine_commit": "22a5992",
+     "engine_tag": "dim-run-1",
+     "binary_sha256_prefix": "6fc2323e4b5fa7b7",
+     "fuel": 100000,
+     "registered_before_run": true,
+     "note": "re-frozen 2026-10-23T04:40 after replacing Moore refinement with Hopcroft; no run was made with the earlier hash"
+    }
+   }
+  }
+ ]
 }
