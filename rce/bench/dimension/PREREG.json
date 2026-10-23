@@ -56,6 +56,24 @@
      "registered_before_run": true
     }
    }
+  },
+  {
+   "date": "2026-10-23T16:05-04:00",
+   "after": "dim-r2 (RESULTS.md), before the third frozen run",
+   "adds": {
+    "stratum": "strictly observable = rce dim reports observable and at least two distinct non-silent observations (the distinct_labels key, since commit 929bdeb1); a program with one observation is observable only by a constant and is reported but excluded from H0, H1, H2",
+    "population": "the dim-r2 rule population plus every .rce of the same directories that rce check accepts standalone and declares two or more state regions, whatever its text contains (the multi-region programs H2 needs): 28 programs, listed in results/dim-r3.population.txt",
+    "H2": "tested over programs with two or more state regions only; a single-region program satisfies it trivially and is excluded from H2"
+   },
+   "frozen_runs": {
+    "dim-r3": {
+     "engine_commit": "690ca9be (main after PR #10; the checker of 929bdeb1)",
+     "binary_sha256_prefix": "a1443e72be33c29f",
+     "fuel": 100000,
+     "command": "rce dim --json --fuel 100000 --control FILE",
+     "registered_before_run": true
+    }
+   }
   }
  ]
 }
