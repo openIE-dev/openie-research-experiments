@@ -1,0 +1,670 @@
+{
+ "accepted": 239,
+ "by_origin": {
+  "apps": 3,
+  "book-listings": 19,
+  "conformance-accept": 35,
+  "programs": 18,
+  "spec-examples": 61,
+  "spec-examples-0.9": 18,
+  "stdlib": 26
+ },
+ "candidates": 343,
+ "commit": "145d2a8a",
+ "duplicates": 59,
+ "form_tokens": {
+  "max": 149218,
+  "median": 121,
+  "min": 6,
+  "n": 180,
+  "q1": 68,
+  "q3": 240
+ },
+ "negatives": {
+  "conformance": 343,
+  "mutants_accept": 2,
+  "mutants_accept_same_shape": 0,
+  "mutants_reject": 538
+ },
+ "rce_cpu_s": 56.9,
+ "refused": 104,
+ "refused_rows": [
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/26_use_module/shop/orders.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/26_use_module/shop/orders.rce: line 2: W-NAME-1 unknown module `shop.pricing`; line 10: W-NAME-1 unknown name `pricing`"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/arena_escape.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/arena_escape.rce: line 5: W-REG-1 a value in arena `a` escapes into `out`"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/assign_let.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/assign_let.rce: line 3: W-PLACE `x` is not mutable (declare it with var)"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/borrow_escape.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/borrow_escape.rce: line 1: W-OWN-3 a returned borrow must derive from a borrowed parameter (R-RET); line 3: W-OWN-3 returned borrow is not derived from a borrowed parameter"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/device_emit.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/device_emit.rce: line 3: W-DEV-1 emit inside a device region"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/device_extern.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/device_extern.rce: line 1: W-WORLD-1 the foreign function `c_tick` must take `&World` as its first parameter, and only there; line 5: W-UNUSED-1 `t` is never read; remove it or name it `_t`; line 5: W-DEV-1 `c_tick` is a foreign function and cannot be c"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/device_list.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/device_list.rce: line 3: W-DEV-1 a device region holds fixed-size values only, found List[u64]"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/extern_abi.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/extern_abi.rce: line 1: W-WORLD-1 the foreign function `c_f` must take `&World` as its first parameter, and only there; line 1: W-FFI-1 unknown ABI \"stdcall\" (only \"C\")"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/extern_in_pure.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/extern_in_pure.rce: line 1: W-WORLD-1 the foreign function `c_rand` must take `&World` as its first parameter, and only there; line 3: W-EFF-1 `c_rand` is a foreign function: only main and task functions may call it"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/extern_owned_param.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/extern_owned_param.rce: line 1: W-WORLD-1 the foreign function `c_take` must take `&World` as its first parameter, and only there; line 1: W-FFI-1 foreign parameter type List[u8] is not bool, an integer, f64, &text, &[scalar] or &mut [scalar]"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/extern_spawn.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/extern_spawn.rce: line 1: W-WORLD-1 the foreign function `c_work` must take `&World` as its first parameter, and only there; line 4: W-SPAWN-1 `c_work` is a foreign function and cannot be spawned"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/extern_text_result.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/extern_text_result.rce: line 1: W-WORLD-1 the foreign function `c_name` must take `&World` as its first parameter, and only there; line 1: W-FFI-1 foreign result type text is not bool, an integer, f64 or ()"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/f32_literal.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/f32_literal.rce: line 2: W-TY-1 `*` on f32 and f64: no implicit conversion"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/f32_mixed.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/f32_mixed.rce: line 2: W-TY-1 `+` on f32 and f64: no implicit conversion"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/fail_not_error.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/fail_not_error.rce: line 2: W-TY-1 fail needs an error, found ?0; line 2: W-TY-1 fail in a function that does not return an error union"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/int_mismatch.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/int_mismatch.rce: line 1: W-TY-1 `+` on u8 and i64: no implicit conversion; line 1: W-TY-1 expected i64, found u8"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/iter_effect.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/iter_effect.rce: line 1: W-UNUSED-1 `c` is never read; remove it or name it `_c`; line 1: W-ITER-1 iterator function `ticks` must be pure"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/iter_stored.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/iter_stored.rce: line 5: W-UNUSED-1 `it` is never read; remove it or name it `_it`; line 5: W-ITER-1 an iterator may only be the operand of `for` or the receiver of `.collect()`"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/iter_yield_type.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/iter_yield_type.rce: line 2: W-TY-1 expected text, found ?0"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/linear_copy.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/linear_copy.rce: line 4: W-WORLD-1 the foreign function `c_close` must take `&World` as its first parameter, and only there; line 8: W-LIN-1 a linear value cannot be copied"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/linear_field.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/linear_field.rce: line 4: W-LIN-1 struct field `a` cannot hold a linear value"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/linear_in_list.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/linear_in_list.rce: line 4: W-UNUSED-1 `hs` is never read; remove it or name it `_hs`; line 4: W-LIN-1 a linear value cannot sit inside List"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/linear_loop.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/linear_loop.rce: line 4: W-WORLD-1 the foreign function `c_close` must take `&World` as its first parameter, and only there; line 8: W-UNUSED-1 `i` is never read; remove it or name it `_i`; line 0: W-LIN-1 linear `h` is moved inside a loop"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/linear_one_branch.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/linear_one_branch.rce: line 4: W-WORLD-1 the foreign function `c_close` must take `&World` as its first parameter, and only there; line 8: W-LIN-1 linear `h` is consumed on some branches but not others"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/linear_unconsumed.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/linear_unconsumed.rce: line 4: W-WORLD-1 the foreign function `c_close` must take `&World` as its first parameter, and only there; line 0: W-LIN-1 linear `h` is not consumed at the end of its block"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/loop_limit_type.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/loop_limit_type.rce: line 1: W-LOOP-1 LOOP_LIMIT must be declared `const LOOP_LIMIT: u64 = n` with a positive literal n"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/missing_return.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/missing_return.rce: line 1: W-TY-1 `f` can reach its end without returning i64"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/modify_while_iterating.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/modify_while_iterating.rce: line 3: W-OWN-2 `xs` is borrowed by the for loop and cannot be modified inside it"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/mut_alias.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/mut_alias.rce: line 1: W-UNUSED-1 `a` is never read; remove it or name it `_a`; line 1: W-UNUSED-1 `b` is never read; remove it or name it `_b`; line 6: W-OWN-2 `xs` is borrowed mutably and again in one call"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/non_exhaustive.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/non_exhaustive.rce: line 6: W-MATCH-1 match is not exhaustive: missing Green"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/orphan_impl.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/orphan_impl.rce: line 1: W-TRAIT-2 orphan impl: neither the trait nor the type is declared in this module"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/pure_send.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/pure_send.rce: line 2: W-EFF-1 emit in a pure function"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/rec_not_structural.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/rec_not_structural.rce: line 4: W-REC-1 recursion through countdown has no decreasing measure (6.7): no layers of summed measures, each kept by every call not yet done and shrunk by at least one, leave the remaining calls without a cycle, and a cycle of"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/rec_same_arg.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/rec_same_arg.rce: line 8: W-UNUSED-1 `l` is never read; remove it or name it `_l`; line 8: W-UNUSED-1 `r` is never read; remove it or name it `_r`; line 8: W-REC-1 recursion through loop_forever has no decreasing measure (6.7): no layers of summed measu"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/recursion.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/recursion.rce: line 1: W-REC-1 recursion through f, g has no decreasing measure (6.7): no layers of summed measures, each kept by every call not yet done and shrunk by at least one, leave the remaining calls without a cycle, and a cycle of its calls pas"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/select_after_type.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/select_after_type.rce: line 2: W-UNUSED-1 `x` is never read; remove it or name it `_x`; line 2: W-TY-1 expected u64, found text"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/simd_len.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/simd_len.rce: line 2: W-SIMD-1 lane-wise `+` needs two arrays of one fixed length, found [i32; 3] and [i32; 4]"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/simd_text.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/simd_text.rce: line 2: W-SIMD-1 lane-wise `*` needs numeric lanes, found text"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/spawn_borrow.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/spawn_borrow.rce: line 1: W-UNUSED-1 `xs` is never read; remove it or name it `_xs`; line 7: W-SPAWN-1 spawned tasks cannot receive borrows; line 7: W-SPAWN-1 spawned tasks cannot receive borrows or arena values"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/state_no_init.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/state_no_init.rce: line 2: W-STATE-2 field `n` needs a comptime initial value"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/text_index_char.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/text_index_char.rce: line 2: W-TY-1 cannot compare u8 with text"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/u64_mixed.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/u64_mixed.rce: line 2: W-TY-1 `+` on u64 and i64: no implicit conversion"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/unchecked_union.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/unchecked_union.rce: line 6: W-TY-1 expected i64, found i64 ! E"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/unhandled_event.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/unhandled_event.rce: line 5: W-STEP-2 event `Dec` is handled by no step or actor: \u03b4 would not be total"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/unknown_name.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/unknown_name.rce: line 1: W-NAME-1 unknown name `y`; line 1: W-TY-1 `+` needs numbers, found never and ?0"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/unreachable_step.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/unreachable_step.rce: line 7: W-STEP-4 unreachable: the unguarded step at line 6 already handles S on E"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/unsafe_name.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/unsafe_name.rce: line 2: W-SAFE-1 `unsafe` is refused"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/use_after_move.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/use_after_move.rce: line 1: W-LEN-1 text has no unqualified `len`: use `len_bytes` or `len_chars` (F.5.2); line 5: W-OWN-1 `s` is used after it was moved"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/ill_typed/yield_outside.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/ill_typed/yield_outside.rce: line 2: W-ITER-1 yield outside an iterator function"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/inadmissible/arena_size_limit.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/inadmissible/arena_size_limit.rce: line 8: W-INT-1 check: trap: size limit"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/inadmissible/bslice_boundary.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/inadmissible/bslice_boundary.rce: line 1: W-INT-1 check: trap: not a char boundary"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/inadmissible/comptime_check.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/inadmissible/comptime_check.rce: line 3: W-CT-1 comptime block in `f`: trap: check failed"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/inadmissible/const_overflow.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/inadmissible/const_overflow.rce: line 1: W-CT-1 const `BIG`: trap: overflow: 300 is outside u8"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/inadmissible/f32_overflow.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/inadmissible/f32_overflow.rce: line 1: W-INT-1 check: trap: non-finite float"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/inadmissible/false_check.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/inadmissible/false_check.rce: line 2: W-INT-1 check is false"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/inadmissible/guard_trap.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/inadmissible/guard_trap.rce: line 2: W-INT-1 example does not hold: event 1 (Go) refused: trap(division by zero)"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/inadmissible/iter_unbounded.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/inadmissible/iter_unbounded.rce: line 9: W-INT-1 check: trap: loop bound"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/inadmissible/literal_out_of_range.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/inadmissible/literal_out_of_range.rce: line 1: W-LEX-3 literal 300 is outside u8"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/inadmissible/loop_bound.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/inadmissible/loop_bound.rce: line 5: W-UNUSED-1 `k` is never read; remove it or name it `_k`; line 6: W-UNUSED-2 a condition that is a constant"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/inadmissible/loop_limit_low.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/inadmissible/loop_limit_low.rce: line 9: W-INT-1 check: trap: loop bound"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/inadmissible/state_init_overflow.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/inadmissible/state_init_overflow.rce: line 0: W-CT-1 state initializer: trap: overflow: 256 is outside u8"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/inadmissible/u64_underflow.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/inadmissible/u64_underflow.rce: line 4: W-INT-1 check: trap: overflow: -1 is outside u64"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/inadmissible/unexpected_refusal.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/inadmissible/unexpected_refusal.rce: line 2: W-INT-1 example does not hold: event 1 (Dec) refused: trap(overflow: -1 is outside u64)"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/inadmissible/wrong_example_value.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/inadmissible/wrong_example_value.rce: line 2: W-INT-1 example does not hold: final value is 2, expected 3"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/inadmissible/wrong_refusal.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/inadmissible/wrong_refusal.rce: line 2: W-INT-1 example does not hold: event 1 (Dec) refused: Underflow"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/reject/assign_in_expr.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/reject/assign_in_expr.rce: line 1: W-SYN-1 expected `)` (found `=`)"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/reject/bad_dedent.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/reject/bad_dedent.rce: line 3: W-LEX-2 inconsistent dedent"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/reject/chained_compare.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/reject/chained_compare.rce: line 1: W-SYN-1 expected end of line (found `<`)"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/reject/class_keyword.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/reject/class_keyword.rce: line 1: W-SYN-1 expected a declaration (found `class`)"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/reject/if_expr_no_else.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/reject/if_expr_no_else.rce: line 1: W-SYN-1 expected `else` (found end of line)"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/reject/kind_empty.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/reject/kind_empty.rce: line 2: W-SYN-1 expected indented block (found `fn`)"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/reject/missing_arrow_example.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/reject/missing_arrow_example.rce: line 2: W-SYN-1 expected `->` (found integer `1`)"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/reject/state_no_fields.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/reject/state_no_fields.rce: line 2: W-SYN-1 expected indented block (found `event`)"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/reject/step_no_on.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/reject/step_no_on.rce: line 4: W-SYN-1 expected `on` (found `E`)"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/reject/tab_indent.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/reject/tab_indent.rce: line 2: W-LEX-1 tab character"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/reject/try_in_then.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/reject/try_in_then.rce: line 1: W-SYN-1 expected an expression (found `try`)"
+  },
+  {
+   "origin": "spec-examples",
+   "path": "spec/examples/reject/unterminated_string.rce",
+   "why": "REFUSED /home/user/rce/spec/examples/reject/unterminated_string.rce: line 1: W-SYN-1 unterminated string"
+  },
+  {
+   "origin": "programs",
+   "path": "programs/ecosystem/hpke.rce",
+   "why": "REFUSED /home/user/rce/programs/ecosystem/hpke.rce: line 26: W-NAME-1 unknown name `hp_derive_sk`; line 29: W-NAME-1 unknown name `pubkey`; line 32: W-NAME-1 unknown name `hpke_seal`; line 36: W-NAME-1 unknown name `hpke_open`"
+  },
+  {
+   "origin": "programs",
+   "path": "programs/ecosystem/mls_key_schedule.rce",
+   "why": "REFUSED /home/user/rce/programs/ecosystem/mls_key_schedule.rce: line 29: W-NAME-1 unknown name `mls_epoch`; line 30: W-TY-1 cannot index never; line 31: W-TY-1 cannot index never; line 32: W-TY-1 cannot index never; line 33: W-TY-1 cannot index never; line 34: W-TY-1 cannot index never; line 35: W-T"
+  },
+  {
+   "origin": "programs",
+   "path": "programs/ecosystem/pqxdh.rce",
+   "why": "REFUSED /home/user/rce/programs/ecosystem/pqxdh.rce: line 30: W-NAME-2 `ct` is reserved and is not used as its construct here; line 57: W-NAME-2 `ct` is reserved and is not used as its construct here; line 67: W-NAME-2 `ct` is reserved and is not used as its construct here; line 73: W-NAME-2 `ct` is"
+  },
+  {
+   "origin": "programs",
+   "path": "programs/ecosystem/sfu.rce",
+   "why": "REFUSED /home/user/rce/programs/ecosystem/sfu.rce: line 110: W-UNUSED-1 `d` is never read; remove it or name it `_d`; line 110: W-UNUSED-1 `e` is never read; remove it or name it `_e`; line 110: W-UNUSED-1 `r` is never read; remove it or name it `_r`; line 73: W-UNUSED-1 `e` is never read; remove it"
+  },
+  {
+   "origin": "apps",
+   "path": "apps/chat-app.rce",
+   "why": "REFUSED /home/user/rce/apps/chat-app.rce: line 118: W-NAME-1 unknown type `Ratchet`; line 135: W-NAME-1 unknown type `Ratchet`; line 69: W-NAME-1 unknown name `tohex`; line 71: W-NAME-1 unknown type `Ratchet`; line 71: W-NAME-1 unknown name `Ratchet`; line 202: W-NAME-1 unknown name `tohex`; line 20"
+  },
+  {
+   "origin": "book-listings",
+   "path": "book/listings/ch12/shop/checkout.rce",
+   "why": "REFUSED /home/user/rce/book/listings/ch12/shop/checkout.rce: line 2: W-NAME-1 unknown module `shop.pricing`; line 4: W-NAME-1 unknown name `pricing`"
+  },
+  {
+   "origin": "book-listings",
+   "path": "book/listings/ch12/shop/orders.rce",
+   "why": "REFUSED /home/user/rce/book/listings/ch12/shop/orders.rce: line 2: W-NAME-1 unknown module `shop.pricing`; line 10: W-NAME-1 unknown name `pricing`"
+  },
+  {
+   "origin": "stdlib",
+   "path": "stdlib/lib/data/cdc.rce",
+   "why": "REFUSED /home/user/rce/stdlib/lib/data/cdc.rce: line 3: W-NAME-1 unknown module `data.events`; line 4: W-NAME-1 unknown module `data.feed`; line 37: W-NAME-1 unknown type `events.Jv`; line 949: W-NAME-1 unknown type `events.Jv`; line 1143: W-NAME-1 unknown type `events.Jv`; line 48: W-NAME-1 unknown"
+  },
+  {
+   "origin": "stdlib",
+   "path": "stdlib/lib/data/events.rce",
+   "why": "REFUSED /home/user/rce/stdlib/lib/data/events.rce: line 3: W-NAME-1 unknown module `enc`; line 254: W-NAME-1 unknown name `enc`; line 269: W-NAME-1 unknown name `enc`; line 539: W-NAME-1 unknown name `enc`; line 539: W-TY-1 catch needs an error union, found never; line 540: W-TY-1 cannot compare nev"
+  },
+  {
+   "origin": "stdlib",
+   "path": "stdlib/lib/data/feed.rce",
+   "why": "REFUSED /home/user/rce/stdlib/lib/data/feed.rce: line 3: W-NAME-1 unknown module `data.events`; line 26: W-NAME-1 unknown type `events.Jv`; line 51: W-NAME-1 unknown type `events.Jv`; line 51: W-NAME-1 unknown name `events`; line 53: W-NAME-1 unknown type `events.Jv`; line 54: W-NAME-1 unknown name "
+  },
+  {
+   "origin": "stdlib",
+   "path": "stdlib/lib/data/sync.rce",
+   "why": "REFUSED /home/user/rce/stdlib/lib/data/sync.rce: line 3: W-NAME-1 unknown module `data.events`; line 524: W-NAME-1 unknown type `events.Jv`; line 722: W-NAME-1 unknown type `events.Jv`; line 729: W-NAME-1 unknown type `events.Jv`; line 884: W-NAME-1 unknown type `events.Jv`; line 942: W-NAME-1 unkno"
+  },
+  {
+   "origin": "stdlib",
+   "path": "stdlib/lib/effect/effect.rce",
+   "why": "REFUSED /home/user/rce/stdlib/lib/effect/effect.rce: line 20: W-NAME-1 unknown module `enc`; line 140: W-NAME-1 unknown type `enc.JsonDoc`; line 118: W-NAME-1 unknown type `enc.JsonDoc`; line 120: W-NAME-1 `JArr` is not a variant, event or error; line 120: W-NAME-1 unknown type `enc.JsonDoc`; line 1"
+  },
+  {
+   "origin": "stdlib",
+   "path": "stdlib/lib/energy/energy.rce",
+   "why": "REFUSED /home/user/rce/stdlib/lib/energy/energy.rce: line 4: W-NAME-1 unknown module `enc`; line 5: W-NAME-1 unknown module `hash.blake3`; line 180: W-NAME-1 unknown type `enc.Cbor`; line 180: W-NAME-1 unknown name `enc`; line 182: W-NAME-1 unknown type `enc.Cbor`; line 182: W-NAME-1 unknown name `e"
+  },
+  {
+   "origin": "stdlib",
+   "path": "stdlib/lib/hpke.rce",
+   "why": "REFUSED /home/user/rce/stdlib/lib/hpke.rce: line 127: W-NAME-1 unknown name `cat`; line 159: W-NAME-1 unknown name `cat`; line 176: W-NAME-1 unknown name `slice`; line 185: W-NAME-1 unknown name `cat`; line 188: W-NAME-1 unknown name `cat`; line 190: W-NAME-1 unknown name `hmac`; line 193: W-NAME-1 "
+  },
+  {
+   "origin": "stdlib",
+   "path": "stdlib/lib/mls.rce",
+   "why": "REFUSED /home/user/rce/stdlib/lib/mls.rce: line 84: W-NAME-1 unknown name `cat`; line 85: W-NAME-1 unknown name `cat`; line 92: W-NAME-1 unknown name `hmac`; line 99: W-NAME-1 unknown name `hmac`; line 103: W-NAME-1 unknown name `cat`; line 106: W-NAME-1 unknown name `tobytes`; line 123: W-NAME-1 un"
+  },
+  {
+   "origin": "stdlib",
+   "path": "stdlib/lib/net/url.rce",
+   "why": "REFUSED /home/user/rce/stdlib/lib/net/url.rce: line 3: W-NAME-1 unknown module `net.idna`; line 4: W-NAME-1 unknown module `text.utf8`; line 371: W-NAME-1 unknown name `idna`; line 375: W-NAME-1 unknown name `idna`; line 376: W-NAME-1 unknown name `idna`; line 377: W-NAME-1 never has no field `err`;"
+  },
+  {
+   "origin": "stdlib",
+   "path": "stdlib/lib/num/special.rce",
+   "why": "REFUSED /home/user/rce/stdlib/lib/num/special.rce: line 4: W-NAME-1 unknown module `math`; line 814: W-NAME-1 unknown name `math`; line 816: W-NAME-1 unknown name `math`"
+  },
+  {
+   "origin": "stdlib",
+   "path": "stdlib/lib/num/stats.rce",
+   "why": "REFUSED /home/user/rce/stdlib/lib/num/stats.rce: line 3: W-NAME-1 unknown module `num.linalg`; line 4: W-NAME-1 unknown module `num.special`; line 1038: W-NAME-1 unknown type `linalg.Mat`; line 357: W-NAME-1 unknown name `special`; line 357: W-TY-1 `*` needs numbers, found f64 and never; line 357: W"
+  },
+  {
+   "origin": "stdlib",
+   "path": "stdlib/lib/os/pkg.rce",
+   "why": "REFUSED /home/user/rce/stdlib/lib/os/pkg.rce: line 3: W-NAME-1 unknown module `enc`; line 4: W-NAME-1 unknown module `data.events`; line 809: W-NAME-1 unknown type `events.Jv`; line 811: W-NAME-1 `JsStr` is not a variant, event or error; line 811: W-NAME-1 unknown name `t`; line 814: W-NAME-1 unknow"
+  },
+  {
+   "origin": "stdlib",
+   "path": "stdlib/lib/os/target.rce",
+   "why": "REFUSED /home/user/rce/stdlib/lib/os/target.rce: line 3: W-NAME-1 unknown module `data.events`; line 102: W-NAME-1 unknown type `events.Jv`; line 103: W-NAME-1 unknown name `events`; line 105: W-TY-1 `some` cannot match never; line 105: W-NAME-1 unknown type `events.Jv`; line 104: W-MATCH-1 match is"
+  },
+  {
+   "origin": "stdlib",
+   "path": "stdlib/lib/pq.rce",
+   "why": "REFUSED /home/user/rce/stdlib/lib/pq.rce: line 39: W-NAME-1 unknown name `MASK`; line 39: W-TY-1 `&` needs integers; line 39: W-TY-1 `^` needs integers; line 40: W-NAME-1 unknown name `MASK`; line 40: W-TY-1 `&` needs integers; line 40: W-TY-1 `^` needs integers; line 42: W-TY-1 `^` needs integers; "
+  },
+  {
+   "origin": "stdlib",
+   "path": "stdlib/lib/text/xml.rce",
+   "why": "REFUSED /home/user/rce/stdlib/lib/text/xml.rce: line 3: W-NAME-1 unknown module `data.events`; line 120: W-NAME-1 unknown name `events`; line 120: W-TY-1 catch needs an error union, found never"
+  },
+  {
+   "origin": "stdlib",
+   "path": "stdlib/lib/ui/ecma.rce",
+   "why": "REFUSED /home/user/rce/stdlib/lib/ui/ecma.rce: line 24: W-NAME-1 unknown module `text.xml`; line 1653: W-NAME-1 unknown type `xml.Xml`; line 1655: W-NAME-1 never has no field `name`; line 1655: W-TY-1 cannot index never; line 1656: W-NAME-1 never has no field `an`; line 1656: W-TY-1 cannot index nev"
+  },
+  {
+   "origin": "stdlib",
+   "path": "stdlib/lib/ui/input.rce",
+   "why": "REFUSED /home/user/rce/stdlib/lib/ui/input.rce: line 3: W-NAME-1 unknown module `text.utf8`; line 297: W-NAME-1 unknown name `utf8`; line 298: W-NAME-1 unknown name `utf8`; line 299: W-TY-1 cannot compare never with ?215; line 302: W-TY-1 cannot index never; line 399: W-NAME-1 unknown name `utf8`; l"
+  },
+  {
+   "origin": "stdlib",
+   "path": "stdlib/lib/ui/states.rce",
+   "why": "REFUSED /home/user/rce/stdlib/lib/ui/states.rce: line 3: W-NAME-1 unknown module `text.xml`; line 4: W-NAME-1 unknown module `ui.ecma`; line 5: W-NAME-1 unknown module `data.events`; line 806: W-NAME-1 unknown type `ecma.V`; line 806: W-NAME-1 unknown type `ecma.Js`; line 241: W-NAME-1 unknown type "
+  },
+  {
+   "origin": "stdlib",
+   "path": "stdlib/lib/ui/text.rce",
+   "why": "REFUSED /home/user/rce/stdlib/lib/ui/text.rce: line 3: W-NAME-1 unknown module `text.utf8`; line 22: W-NAME-1 unknown name `utf8`"
+  },
+  {
+   "origin": "stdlib",
+   "path": "stdlib/lib/ui/view.rce",
+   "why": "REFUSED /home/user/rce/stdlib/lib/ui/view.rce: line 3: W-NAME-1 unknown module `enc`; line 4: W-NAME-1 unknown module `hash.blake3`; line 5: W-NAME-1 unknown module `text.utf8`; line 569: W-NAME-1 unknown name `utf8`; line 570: W-NAME-1 unknown name `enc`; line 570: W-TY-1 cannot iterate over never;"
+  }
+ ],
+ "rho": {
+  "js": {
+   "max": 57.001,
+   "median": 11.058,
+   "min": 4.196,
+   "n": 173,
+   "q1": 9.553,
+   "q3": 14.018
+  },
+  "python": {
+   "max": 33.707,
+   "median": 9.31,
+   "min": 2.879,
+   "n": 173,
+   "q1": 8.421,
+   "q3": 10.914
+  },
+  "rust": {
+   "max": 137.692,
+   "median": 17.331,
+   "min": 8.534,
+   "n": 173,
+   "q1": 13.45,
+   "q3": 23.21
+  },
+  "scala": {
+   "max": 104.909,
+   "median": 13.661,
+   "min": 6.442,
+   "n": 173,
+   "q1": 10.684,
+   "q3": 17.894
+  }
+ },
+ "rho_bytes": {
+  "js": {
+   "max": 31.706,
+   "median": 8.122,
+   "min": 2.979,
+   "n": 173,
+   "q1": 6.455,
+   "q3": 10.307
+  },
+  "python": {
+   "max": 20.647,
+   "median": 7.233,
+   "min": 2.801,
+   "n": 173,
+   "q1": 5.795,
+   "q3": 8.993
+  },
+  "rust": {
+   "max": 73.706,
+   "median": 13.154,
+   "min": 3.584,
+   "n": 173,
+   "q1": 9.802,
+   "q3": 17.568
+  },
+  "scala": {
+   "max": 54.147,
+   "median": 10.655,
+   "min": 2.961,
+   "n": 173,
+   "q1": 8.064,
+   "q3": 13.859
+  }
+ },
+ "rho_gz": {
+  "js": {
+   "max": 10.801,
+   "median": 4.269,
+   "min": 1.243,
+   "n": 173,
+   "q1": 3.306,
+   "q3": 5.776
+  },
+  "python": {
+   "max": 7.631,
+   "median": 3.641,
+   "min": 1.231,
+   "n": 173,
+   "q1": 2.869,
+   "q3": 4.859
+  },
+  "rust": {
+   "max": 15.808,
+   "median": 5.733,
+   "min": 1.302,
+   "n": 173,
+   "q1": 4.493,
+   "q3": 7.612
+  },
+  "scala": {
+   "max": 13.308,
+   "median": 5.029,
+   "min": 1.25,
+   "n": 173,
+   "q1": 3.895,
+   "q3": 6.712
+  }
+ },
+ "seed": "0x5eedc0de0001",
+ "split": {
+  "test": 23,
+  "train": 141,
+  "validation": 16
+ },
+ "unique_shapes": 180,
+ "vocab": {
+  "form": 20912,
+  "js": 31937,
+  "python": 31865,
+  "rust": 32490,
+  "scala": 32309
+ },
+ "with_intent": 43
+}
