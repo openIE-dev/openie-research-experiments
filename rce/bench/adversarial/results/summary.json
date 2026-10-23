@@ -1,0 +1,22 @@
+{
+ "accepted_mutants": 560,
+ "commit": "929bdeb1",
+ "cpu_s": 60.9,
+ "per_invariant": {
+  "I1": 0,
+  "I2": 0,
+  "I3": 0,
+  "I4": 0,
+  "I5": 0
+ },
+ "per_operator": {
+  "guard": 2,
+  "literal": 252,
+  "operator": 182,
+  "rename": 65,
+  "token": 5,
+  "type": 54
+ },
+ "untraced_no_examples": 468,
+ "violations": 0
+}

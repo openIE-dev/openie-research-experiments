@@ -8,10 +8,30 @@ from pathlib import Path
 GENESIS = "0" * 64
 
 
+import importlib.util, struct
+_spec = importlib.util.spec_from_file_location("cjv", "/home/user/rce/scripts/canonical-json-vectors.py")
+_cjv = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_cjv)
+
+
 def canon(v):
-    # the canonical JSON of 6.1 for the values that appear in a trace:
-    # sorted keys, no spaces; numbers as the trace prints them (integers)
-    return json.dumps(v, sort_keys=True, separators=(",", ":"), ensure_ascii=False)
+    """The canonical JSON of 6.1 for the values of a trace: sorted keys, no
+    spaces, text escaped as the canonical writer does, floats in the shortest
+    round-trip text of N3 (the writer of scripts/canonical-json-vectors.py in
+    openIE-dev/rce, the project's own reference for the format)."""
+    if v is None:
+        return "null"
+    if v is True or v is False:
+        return "true" if v else "false"
+    if isinstance(v, int):
+        return str(v)
+    if isinstance(v, float):
+        return _cjv.float_text(struct.unpack(">Q", struct.pack(">d", v))[0])
+    if isinstance(v, str):
+        return _cjv.text(v)
+    if isinstance(v, list):
+        return "[" + ",".join(canon(x) for x in v) + "]"
+    return "{" + ",".join(_cjv.text(k) + ":" + canon(v[k]) for k in sorted(v, key=lambda k: [ord(c) for c in k])) + "}"
 
 
 def sha(s):
