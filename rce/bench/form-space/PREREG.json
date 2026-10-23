@@ -33,6 +33,14 @@
     "intent_mutation_score": "over programs with at least one example line and at least one mutant that parses: the share of behaviour-changing mutants (accepted or refused only by W-INT-1, the example-does-not-hold rule) that the example lines catch. Reported per program and as a median with Wilson intervals on the pooled share. This is a measurement of how well the intent block pins behaviour, which the RCE-JEPA page needs for RJ-F2 and H7 and which dim-r2 raised (unobservable intent). No threshold is registered; it is descriptive at v2.",
     "check_cost": "check_s per program: wall seconds of rce check alone (cpu of the reference checker, release build), reported as median and interquartile range; est_j = check_s x 10 W, labelled estimate, no meter; this is the checker side of H2, whose model side is not measurable here"
    }
+  },
+  {
+   "date": "2026-10-23T16:50-04:00",
+   "after": "the v2 run; before any v3 run",
+   "adds": {
+    "typed_depth": "programs with example lines get ten mutants per typed operator instead of two (--typed-depth-with-examples 10); duplicate mutant texts of one program are dropped. Programs without example lines keep two. Purpose: more scorable mutants for the intent mutation score and a stronger fuzzed arm for H7 (bench/adversarial), whose traceable rows were 92 of 560 in v2.",
+    "unchanged": "the population, the seed, rho and its views; the whitespace-token mutants (three per program). The random stream is consumed in a different order from v2 after the first program with examples, so v2's mutants are not a prefix of v3's; v2 stays in the git history at a757973."
+   }
   }
  ]
 }
