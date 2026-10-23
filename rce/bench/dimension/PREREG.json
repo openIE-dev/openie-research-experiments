@@ -38,6 +38,24 @@
      "note": "re-frozen 2026-10-23T04:40 after replacing Moore refinement with Hopcroft; no run was made with the earlier hash"
     }
    }
+  },
+  {
+   "date": "2026-10-23T12:40-04:00",
+   "after": "dim-r1 (RESULTS.md), before the second frozen run",
+   "adds": {
+    "population": "the observable stratum sampled by rule, not only reported: every .rce of openIE-dev/rce (monorepo, main) under spec/examples, programs, apps and book/listings that rce check accepts standalone, has a state region, and whose text contains an emit or a fail statement; the stratum itself (some explored step emits or refuses) is read from the `observable` key that rce dim --json reports since 2026-10-23",
+    "primary_metric": "as registered, computed over the observable stratum; the unobservable rows are reported as before and excluded from H0, H1, H2",
+    "H1_operationalisation": "emit sites counted as the number of `emit` statements in the program text"
+   },
+   "frozen_runs": {
+    "dim-r2": {
+     "engine_commit": "1107442b (merged to main as c83f9e5d, PR #5)",
+     "binary_sha256_prefix": "c304324798ebf582",
+     "fuel": 100000,
+     "command": "rce dim --json --fuel 100000 --control FILE",
+     "registered_before_run": true
+    }
+   }
   }
  ]
 }
