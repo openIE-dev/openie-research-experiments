@@ -74,6 +74,24 @@
      "registered_before_run": true
     }
    }
+  },
+  {
+   "date": "2026-10-23T16:40-04:00",
+   "after": "dim-r3 (RESULTS.md), before the fourth frozen run",
+   "adds": {
+    "population": "the conformance programs of openIE-dev/rce (tests whose expectation is accept, run, trace, host or replicate, standalone, with at least one state region) that either declare two or more state regions or contain an emit or fail statement: 86 programs, listed in results/dim-r4.population.txt. The standard library has no state-bearing module at this commit (grep '^state ' over stdlib/lib finds none), so the library tier of the dim-r3 note is empty.",
+    "question": "does the public corpus contain strictly observable multi-region programs at all? The text grep finds 26 multi-region conformance programs, none with an emit or fail statement; the tool's strict stratum is the test, since a refusal can also come from a trap. If the strict multi-region count is 0 after this run, H2 cannot be decided from existing public material and the next step is authoring, which is registered as the conclusion in advance.",
+    "H0_H1": "reported over the strict bounded rows as in dim-r3; the conformance programs are generated or targeted tests, so their redundancy is reported separately from the hand-written corpora and not pooled with dim-r3"
+   },
+   "frozen_runs": {
+    "dim-r4": {
+     "engine_commit": "690ca9be",
+     "binary_sha256_prefix": "a1443e72be33c29f",
+     "fuel": 100000,
+     "command": "rce dim --json --fuel 100000 --control FILE",
+     "registered_before_run": true
+    }
+   }
   }
  ]
 }
