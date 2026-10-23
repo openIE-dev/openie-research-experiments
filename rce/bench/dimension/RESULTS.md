@@ -229,3 +229,65 @@ next run should draw from the standard library's state-bearing modules
 and from the host-contract conformance programs, which declare several
 regions and emit, and should be registered with the strict rule from the
 start rather than as an amendment.
+
+# dim-r4: the conformance programs, and the multi-region question (2026-10-23)
+
+Engine `690ca9be` (binary `a1443e72be33c29f`), registered as the amendment
+of 2026-10-23T16:40 before the run. Population: the 86 conformance
+programs of openIE-dev/rce with at least one state region that declare two
+or more regions or contain an emit or fail statement
+(`results/dim-r4.population.txt`); the standard library has no
+state-bearing module at this commit. Total cpu 2,199 s; 0 refused; 40 of
+86 capped at 100,000 states.
+
+The 86 files are 86 distinct shapes under the nameless hash because their
+example lines differ, but they are variants of eleven programs: the five
+harvested host-contract programs (`chan`, `media`, `files`, `net`,
+`pty`), copies of the spec examples 16, 30, 51, 52 and 53, and one targeted
+capability test. Statistics are therefore given per program family, with
+the file counts in the rows.
+
+## The strict stratum, by family
+
+| family | files | states | behaviours | bits | observations | control states |
+|---|---|---|---|---|---|---|
+| chan (host) | 3 | 79,967 | 17,915 | 2.16 | 540 | 15,975 |
+| 52_context_text | 10 | 3 | 1 | 1.58 | 2 | 1 |
+| media (host) | 4 | 40,819 | 26,938 | 0.60 | 331 | 6,374 |
+| files (host) | 3 | 39,459 | 28,648 | 0.46 | 1,585 | 18,162 |
+| net (host) | 3 | 18,657 | 18,269 | 0.03 | 2,523 | 3,218 |
+| pty (host) | 3 | 40,531 | 40,129 | 0.01 | 1,006 | 17,808 |
+| 30_state_machine_guarded | 7 | 3 | 3 | 0.00 | 2 | 3 |
+
+Seven bounded strictly observable families: median 0.46 bits, 3 of 7
+above 0.5 bit. Over the 33 bounded strict files the median is 0.60
+(interquartile range 0.01 to 1.58; 17 of 33 above 0.5, Wilson 0.35 to
+0.67), which over-weights the ten copies of `52_context_text` and the
+seven of the guarded state machine, so the family numbers are the ones to
+read. H0 is not supported on this population: the conformance programs
+are mostly data-distinguished, and RCE-F6 (median below 0.1 bit) is not
+triggered either (0.46 by family, 0.60 by file).
+
+**The host programs are the new measurement.** `chan`, `media`, `files`,
+`net` and `pty` are the first host-contract Forms the quantity has been
+computed for: programs that drive channels, media, files, the network and
+a terminal through host events. All five are bounded within the fuel, all
+five carry hundreds to thousands of distinct observations, and their
+redundancy runs from 0.01 bit (`pty`: every reachable state is its own
+behaviour) to 2.16 bits (`chan`: four fifths of its reachable states are
+indistinguishable from another). Their control quotients are large
+(3,218 to 18,162 control states), unlike the ring buffer's 5: a host
+program's behaviour is mostly which steps fire.
+
+## The multi-region question, answered for this corpus
+
+26 files declare two or more regions. By the tool: the copies of
+`51_refined_input` and `16_multi_region` are not observable; the eleven
+strictly observable multi-region files are all `53_capability` and the
+targeted capability test, and all are capped and data-distinguished (0
+bits). So the public corpus holds, at this commit, no strictly observable
+multi-region program with redundancy to attribute, apart from the one
+`cart` of dim-r3 (62%, a lower bound). As registered in advance: H2
+cannot be decided from existing public material, and the next step is
+authoring observable multi-region programs (or lifting them), to be
+registered as a population before the run.
