@@ -67,3 +67,63 @@ is not read as a claim about information content.
 - The population is the project's own hand-written programs (180 shapes);
   no lifted or model-written program is in it. The next run should add the
   lifted tier when the lift pipeline is public.
+
+# v2: typed negatives, the intent mutation score and the cost of a check (2026-10-23)
+
+Registered as the amendment of 2026-10-23T15:00 (committed at `69b2971`
+before the run). Generator `scripts/corpus.py` at openIE-dev/rce commit
+`2abed988`; the same population and seed as v1, so the 180 shapes, the
+vocabularies and every rho statistic are unchanged (python median 9.31).
+
+## Mutants
+
+2,084 mutants of the 180 programs: 540 whitespace-token mutants (three per
+program) and 1,544 typed mutants (two per operator per program where the
+operator applies). Outcomes:
+
+| outcome | token | rename | operator | literal | guard | type | all |
+|---|---|---|---|---|---|---|---|
+| refused, other rule | 535 | 291 | 59 | 15 | 158 | 272 | 1,330 |
+| caught by the program's examples (W-INT-1) | 0 | 2 | 103 | 85 | 0 | 4 | 194 |
+| accepted, program has no examples | 4 | 52 | 166 | 204 | 2 | 39 | 467 |
+| accepted, equivalent (same trace heads) | 0 | 13 | 14 | 30 | 0 | 15 | 72 |
+| accepted, behaviour change not caught | 0 | 0 | 2 | 18 | 0 | 0 | 20 |
+| accepted, same shape | 1 | 0 | 0 | 0 | 0 | 0 | 1 |
+
+The refusals now span 24 diagnostic codes (v1: 3): W-SYN-1 609, W-TY-1
+228, W-INT-1 194, W-NAME-1 142, W-UNUSED-1 99, W-UNUSED-2 90, W-TY-3 89,
+W-NAME-3 16, W-STEP-1 10, and 15 codes with fewer rows. The typed operators
+produce the typing, naming and hygiene negatives the card's v1 gap asked
+for; the token operator still produces syntax errors almost only.
+
+## The intent mutation score
+
+For a program with example lines, a mutant that changes behaviour is
+either caught by those lines (the checker refuses it with W-INT-1) or
+accepted with different trace heads. Over the 37 programs with at least one
+such mutant: median score 1.00 (20 of 37 programs catch every
+behaviour-changing mutant); pooled, 89 of 109 behaviour changes are caught
+(0.82, Wilson 95% 0.73 to 0.88). The 20 uncaught changes are 18 literal
+mutations (a constant moved by one that no example exercises) and 2
+operator swaps; the lowest scores are two harvested host-contract tests
+(0 of 1 each), whose examples cover the host entries and not the value in
+question.
+
+Read with its limits: the operators are two per class per program, so a
+score is over at most ten mutants; 467 accepted mutants belong to programs
+with no example lines and are unscored; "equivalent" means equal trace
+heads on the examples' events, not proved equivalence. The number says
+what dim-r2 raised from the other side: the example lines of these
+programs pin most, not all, of the behaviour they describe, and the gap is
+concentrated in constants. It is the first measurement the RCE-JEPA page
+can use for RJ-F2 (what an intent block costs against what it buys) and
+for H7's premise that the gate, not the model, decides.
+
+## The cost of a check (the checker side of H2)
+
+`rce check` alone, release build, one program: median 3.0 ms
+(interquartile range 2.6 to 3.8 ms; largest 1.19 s for the IDNA tables).
+At a stated 10 W that is 0.03 J per candidate, labelled an estimate with
+no meter. H2 compares this with the model's energy per candidate on the
+same hardware, which cannot be measured here; the checker side is recorded
+so that the ratio can be formed when the model side exists.

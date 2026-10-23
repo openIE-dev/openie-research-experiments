@@ -10,7 +10,15 @@
   "stdlib": 26
  },
  "candidates": 343,
- "commit": "145d2a8a",
+ "check_s": {
+  "max": 1.1944,
+  "median": 0.003,
+  "min": 0.0022,
+  "n": 180,
+  "q1": 0.0026,
+  "q3": 0.0038
+ },
+ "commit": "2abed988",
  "duplicates": 59,
  "form_tokens": {
   "max": 149218,
@@ -20,13 +28,309 @@
   "q1": 68,
   "q3": 240
  },
+ "intent_mutation_score": {
+  "median": 1.0,
+  "pooled_caught": 89,
+  "pooled_uncaught": 20,
+  "programs": 37,
+  "rows": [
+   {
+    "caught": 6,
+    "path": "spec/examples/01_counter.rce",
+    "score": 1.0,
+    "uncaught": 0
+   },
+   {
+    "caught": 2,
+    "path": "spec/examples/04_bank_account.rce",
+    "score": 1.0,
+    "uncaught": 0
+   },
+   {
+    "caught": 3,
+    "path": "spec/examples/17_traffic_light.rce",
+    "score": 1.0,
+    "uncaught": 0
+   },
+   {
+    "caught": 3,
+    "path": "spec/examples/51_refined_input.rce",
+    "score": 1.0,
+    "uncaught": 0
+   },
+   {
+    "caught": 3,
+    "path": "spec/examples/52_context_text.rce",
+    "score": 1.0,
+    "uncaught": 0
+   },
+   {
+    "caught": 4,
+    "path": "spec/examples/53_capability.rce",
+    "score": 1.0,
+    "uncaught": 0
+   },
+   {
+    "caught": 4,
+    "path": "spec/examples/54_secret.rce",
+    "score": 1.0,
+    "uncaught": 0
+   },
+   {
+    "caught": 2,
+    "path": "spec/examples/55_rcedb.rce",
+    "score": 0.667,
+    "uncaught": 1
+   },
+   {
+    "caught": 3,
+    "path": "spec/examples/56_utf8.rce",
+    "score": 1.0,
+    "uncaught": 0
+   },
+   {
+    "caught": 2,
+    "path": "spec/examples/57_float_vectors.rce",
+    "score": 0.667,
+    "uncaught": 1
+   },
+   {
+    "caught": 3,
+    "path": "spec/examples/58_float_keys.rce",
+    "score": 1.0,
+    "uncaught": 0
+   },
+   {
+    "caught": 2,
+    "path": "spec/examples/59_dim_redundant_field.rce",
+    "score": 0.667,
+    "uncaught": 1
+   },
+   {
+    "caught": 4,
+    "path": "spec/examples/60_dim_hidden_period.rce",
+    "score": 1.0,
+    "uncaught": 0
+   },
+   {
+    "caught": 2,
+    "path": "programs/body/arm.rce",
+    "score": 1.0,
+    "uncaught": 0
+   },
+   {
+    "caught": 3,
+    "path": "programs/money/account.rce",
+    "score": 1.0,
+    "uncaught": 0
+   },
+   {
+    "caught": 2,
+    "path": "programs/money/ledger.rce",
+    "score": 0.667,
+    "uncaught": 1
+   },
+   {
+    "caught": 3,
+    "path": "programs/network/handshake.rce",
+    "score": 1.0,
+    "uncaught": 0
+   },
+   {
+    "caught": 3,
+    "path": "programs/systems/reconcile.rce",
+    "score": 0.75,
+    "uncaught": 1
+   },
+   {
+    "caught": 2,
+    "path": "programs/systems/ring_buffer.rce",
+    "score": 0.667,
+    "uncaught": 1
+   },
+   {
+    "caught": 2,
+    "path": "programs/text/word_count.rce",
+    "score": 0.5,
+    "uncaught": 2
+   },
+   {
+    "caught": 2,
+    "path": "programs/world/cellular_automaton.rce",
+    "score": 1.0,
+    "uncaught": 0
+   },
+   {
+    "caught": 3,
+    "path": "programs/world/queue_sim.rce",
+    "score": 1.0,
+    "uncaught": 0
+   },
+   {
+    "caught": 2,
+    "path": "apps/chat.rce",
+    "score": 1.0,
+    "uncaught": 0
+   },
+   {
+    "caught": 1,
+    "path": "apps/sfu.rce",
+    "score": 0.5,
+    "uncaught": 1
+   },
+   {
+    "caught": 2,
+    "path": "apps/terminal.rce",
+    "score": 1.0,
+    "uncaught": 0
+   },
+   {
+    "caught": 5,
+    "path": "book/listings/ch04/counter.rce",
+    "score": 1.0,
+    "uncaught": 0
+   },
+   {
+    "caught": 2,
+    "path": "book/listings/ch06/account.rce",
+    "score": 0.667,
+    "uncaught": 1
+   },
+   {
+    "caught": 3,
+    "path": "book/listings/ch10/cart.rce",
+    "score": 0.75,
+    "uncaught": 1
+   },
+   {
+    "caught": 3,
+    "path": "conformance/tests/host-contract/harvested/chan-accept.rce",
+    "score": 0.75,
+    "uncaught": 1
+   },
+   {
+    "caught": 2,
+    "path": "conformance/tests/host-contract/harvested/echo-accept.rce",
+    "score": 0.667,
+    "uncaught": 1
+   },
+   {
+    "caught": 1,
+    "path": "conformance/tests/host-contract/harvested/files-accept.rce",
+    "score": 1.0,
+    "uncaught": 0
+   },
+   {
+    "caught": 1,
+    "path": "conformance/tests/host-contract/harvested/foreign-accept.rce",
+    "score": 0.333,
+    "uncaught": 2
+   },
+   {
+    "caught": 2,
+    "path": "conformance/tests/host-contract/harvested/media-accept.rce",
+    "score": 1.0,
+    "uncaught": 0
+   },
+   {
+    "caught": 1,
+    "path": "conformance/tests/host-contract/harvested/priority-accept.rce",
+    "score": 0.5,
+    "uncaught": 1
+   },
+   {
+    "caught": 0,
+    "path": "conformance/tests/host-contract/harvested/pty-accept.rce",
+    "score": 0.0,
+    "uncaught": 1
+   },
+   {
+    "caught": 1,
+    "path": "conformance/tests/host-contract/harvested/records-accept.rce",
+    "score": 0.333,
+    "uncaught": 2
+   },
+   {
+    "caught": 0,
+    "path": "conformance/tests/host-contract/harvested/ticked-accept.rce",
+    "score": 0.0,
+    "uncaught": 1
+   }
+  ]
+ },
  "negatives": {
   "conformance": 343,
-  "mutants_accept": 2,
-  "mutants_accept_same_shape": 0,
-  "mutants_reject": 538
+  "mutant_diagnostics": {
+   "W-CAP-3": 2,
+   "W-CT-1": 4,
+   "W-CTX-1": 2,
+   "W-CTX-2": 1,
+   "W-DEC-1": 4,
+   "W-EFF-1": 1,
+   "W-FFI-1": 5,
+   "W-IFC-1": 1,
+   "W-INT-1": 194,
+   "W-LEX-3": 6,
+   "W-MATCH-1": 1,
+   "W-NAME-1": 142,
+   "W-NAME-2": 7,
+   "W-NAME-3": 16,
+   "W-REF-1": 1,
+   "W-SIMD-1": 1,
+   "W-STEP-1": 10,
+   "W-SYN-1": 609,
+   "W-TRAIT-1": 4,
+   "W-TY-1": 228,
+   "W-TY-3": 89,
+   "W-UNUSED-1": 99,
+   "W-UNUSED-2": 90,
+   "W-WORLD-1": 2
+  },
+  "mutants_accept": 560,
+  "mutants_accept_behaviour_change": 20,
+  "mutants_accept_equivalent": 72,
+  "mutants_accept_same_shape": 1,
+  "mutants_by_operator": {
+   "guard": {
+    "accept_no_examples": 2,
+    "refused": 158
+   },
+   "literal": {
+    "accept_behaviour_change": 18,
+    "accept_equivalent": 30,
+    "accept_no_examples": 204,
+    "caught_by_examples": 85,
+    "refused": 15
+   },
+   "operator": {
+    "accept_behaviour_change": 2,
+    "accept_equivalent": 14,
+    "accept_no_examples": 166,
+    "caught_by_examples": 103,
+    "refused": 59
+   },
+   "rename": {
+    "accept_equivalent": 13,
+    "accept_no_examples": 52,
+    "caught_by_examples": 2,
+    "refused": 291
+   },
+   "token": {
+    "accept_no_examples": 4,
+    "accept_same_shape": 1,
+    "refused": 535
+   },
+   "type": {
+    "accept_equivalent": 15,
+    "accept_no_examples": 39,
+    "caught_by_examples": 4,
+    "refused": 272
+   }
+  },
+  "mutants_caught_by_examples": 194,
+  "mutants_reject": 1524
  },
- "rce_cpu_s": 56.9,
+ "rce_cpu_s": 100.9,
  "refused": 104,
  "refused_rows": [
   {
