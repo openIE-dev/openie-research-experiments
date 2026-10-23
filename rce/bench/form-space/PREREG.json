@@ -1,0 +1,26 @@
+{
+ "id": "rce-form-space-2026-10-23",
+ "registered": "2026-10-23T14:10-04:00 (before any run; the corpus generator scripts/corpus.py in openIE-dev/rce was written alongside this file and had not been run over the population when this was committed)",
+ "question": "RCE-JEPA H1: is Form space much smaller than source space for the same programs? rho = b(code) / b(P), where b(P) is the bits to encode the Form canonically and b(code) the bits of the equivalent emitted source. The page states: supported if the median rho over the corpus is at least 5, disproved if below 2.",
+ "unit": "one program = one row of results/forms.jsonl: path, licence, shape hash, intent block, nameless canonical source, verdict, sizes per target, rho per target, split",
+ "population": "every .rce of openIE-dev/rce (main, commit recorded in the rows) under spec/examples, spec/examples-0.9/ok, programs, apps, book/listings (not under a refused/ directory), stdlib/lib, and the conformance tests whose expectation is accept, that rce check accepts standalone; multi-file packages are excluded, decided by rule before running",
+ "operationalisation": {
+  "b_P": "tokens(N) x log2 |V_P| where N is the nameless canonical source of the program (rce fmt --nameless: every declared identifier replaced by its positional name, so the measure does not reward or punish naming) and V_P is the set of distinct tokens over all N in the population",
+  "b_code": "tokens(C_t) x log2 |V_t| where C_t is the program part of rce emit t (the emitted file minus the shared runtime prelude, which is the same bytes for every program and is checked to be a verbatim prefix) for t in python (primary), rust, js, scala, and V_t is the set of distinct tokens over all C_t in the population",
+  "tokenizer": "one fixed regular expression for both sides: identifiers [A-Za-z_][A-Za-z0-9_]*, numbers, double- and single-quoted strings with escapes as one token each, every other non-space character as one token; full-line and trailing comments (# in RCE, // in the emitted languages, outside strings) are removed on both sides before tokenising",
+  "secondary_views": "the same ratio with b = UTF-8 bytes x 8 (uncompressed) and with b = gzip -9 bytes x 8 (a compressed description length), reported next to the primary so a reader can see how much the vocabulary term matters",
+  "primary_metric": "median rho over the population with t = python, and its interquartile range; the medians for rust, js and scala are secondary",
+  "near_duplicates": "rows with the same shape hash (SHA-256 of the nameless canonical source) are collapsed to one before any statistic; the split is by shape hash (SHA-256 mod 10: 0 to 7 train, 8 validation, 9 test), never by surface text"
+ },
+ "hypotheses": {
+  "H1": "median rho (python) >= 5 supports H1 of the RCE-JEPA page; median rho < 2 disproves it; between 2 and 5 the result is recorded as neither"
+ },
+ "falsifier": "median rho (python) below 2",
+ "known_biases": "the emitted programs carry type annotations, explicit error handling and runtime calls that the Form expresses by declaration; this inflates b(code) and is the point of H1 as stated on the page (the Form is the compact object). A reader who wants a tighter comparison should use the gzip view, which removes repetition the vocabulary term does not. The runtime prelude is excluded from b(code) because it is shared by every program; including it would make rho grow without bound for small programs.",
+ "exclusions": "programs rce check refuses standalone; multi-file packages; decided by rule before running",
+ "reporting": "every row kept in results/forms.jsonl; negatives (conformance rejects with their diagnostic code, and checker-verified token mutants of the accepted programs under a fixed seed) in results/negatives.jsonl; the dataset card in CARD.md; Wilson 95% intervals where a share is reported; cpu_s per program; no energy claim",
+ "frozen_run": {
+  "engine": "openIE-dev/rce main after PR #6 (the commit is written in every row), rce built from spec/checker with cargo build --release",
+  "generator": "scripts/corpus.py of the same commit; the run is a pure function of the checkout and the seed 0x5eed_c0de_0001"
+ }
+}
