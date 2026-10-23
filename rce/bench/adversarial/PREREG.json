@@ -1,0 +1,19 @@
+{
+ "id": "rce-adversarial-2026-10-23",
+ "registered": "2026-10-23T15:40-04:00 (before any run)",
+ "question": "RCE-JEPA H7: are there adversarial Forms, accepted by the checker, that violate a stated invariant? The page states: supported at 0 such Forms, disproved at 1 or more confirmed.",
+ "unit": "one Form = one accepted mutant of results/negatives.jsonl of bench/form-space (v2 run: 560 mutants the checker accepted, produced by token-level and typed mutation of hand-written programs under a fixed seed, which is the fuzzed arm of the hypothesis; no model-generated arm exists yet)",
+ "invariants": {
+  "I1 chain (6.1, T1)": "every trace of the Form's examples is a well-formed chain: seq is the position, prev_hash links to the previous entry's hash or the genesis, state_hash is the SHA-256 of the canonical JSON of hashed.state, hash is the SHA-256 of the canonical JSON of {event: hashed.event, prev_hash, seq, state_hash}",
+  "I2 atomicity (T8)": "a refused step's state_hash equals the previous step's state_hash (or the initial state's), and a refused step is the last of its trace",
+  "I3 determinism (T37)": "rce trace --json run twice on the same file gives identical bytes",
+  "I4 the gate decides": "the Form is accepted by rce check with its own example lines holding (W-INT-1 would have refused it), which is the premise of the row",
+  "I5 fuel (T2, 6.7)": "every trace of the Form terminates under the checker's fuel: no trace reports a fuel trap on the examples' events"
+ },
+ "primary_metric": "number of accepted mutants that violate any of I1 to I5, over all 560; each violation is listed with the mutant's parent, operator and the invariant",
+ "hypotheses": {"H7": "0 violations supports H7 on the fuzzed arm; 1 or more, confirmed by re-running the mutant alone, disproves it"},
+ "falsifier": "a single confirmed violation",
+ "exclusions": "mutants whose program has no example lines have no trace; they are counted and reported as untraced, and I3 and I4 are still checked on them (rce check twice, rce trace --json twice with the trace empty)",
+ "reporting": "results/violations.jsonl (empty when none), results/summary.json with counts per invariant and per operator, RESULTS.md; cpu_s recorded; no energy claim",
+ "frozen_run": {"engine": "openIE-dev/rce main (commit recorded in the summary), rce built from spec/checker in release mode", "script": "run.py in this directory, committed with this file"}
+}
