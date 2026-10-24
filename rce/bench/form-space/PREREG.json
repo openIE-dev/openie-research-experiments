@@ -41,6 +41,13 @@
     "typed_depth": "programs with example lines get ten mutants per typed operator instead of two (--typed-depth-with-examples 10); duplicate mutant texts of one program are dropped. Programs without example lines keep two. Purpose: more scorable mutants for the intent mutation score and a stronger fuzzed arm for H7 (bench/adversarial), whose traceable rows were 92 of 560 in v2.",
     "unchanged": "the population, the seed, rho and its views; the whitespace-token mutants (three per program). The random stream is consumed in a different order from v2 after the first program with examples, so v2's mutants are not a prefix of v3's; v2 stays in the git history at a757973."
    }
+  },
+  {
+   "date": "2026-10-24T00:50-04:00",
+   "after": "the v3 run; before any v4 run",
+   "adds": {
+    "population": "unchanged in rule; the checkout moves to openIE-dev/rce ffaceec0, whose programs/multi/ holds the twelve two-region programs of dim-r5 (authored 2026-10-24), so the rule admits them: the expected change is twelve new shapes, each with an intent block and example lines, and their mutants. Everything else (seed, depths, views) is as in v3; rows of programs present in v3 keep their values except where the random stream shifts the mutants of programs that follow the new ones in path order."
+   }
   }
  ]
 }
