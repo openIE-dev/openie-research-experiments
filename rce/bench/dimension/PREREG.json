@@ -92,6 +92,24 @@
      "registered_before_run": true
     }
    }
+  },
+  {
+   "date": "2026-10-24T00:20-04:00",
+   "after": "dim-r4 (RESULTS.md); before the fifth frozen run",
+   "adds": {
+    "population": "the twelve programs of programs/multi/ in openIE-dev/rce at ffaceec0 (PR #12), listed in results/dim-r5.population.txt: authored two-region programs (elevator, vending, crossing, parking, printer, lobby, card, washer, session, player, climate, reservoir), each emitting or refusing, each with small state domains",
+    "disclosure": "the programs were written by the person running this benchmark, after dim-r4 showed that the public corpus had no observable multi-region program with redundancy to attribute. While writing them, rce dim was run on the drafts; three were then changed, for correctness of their stated intent and not for any hypothesis: the crossing's pedestrian phase was restated (a region cannot read another region's field), the reservoir's pump was given an observable step so that its comment is true, and the car park's barrier reports closing. The authored population is therefore not blind to the instrument, and H0 to H2 over it are descriptive of what two-region programs written in this style look like, not a test of a prediction. The run itself is frozen as before.",
+    "H2": "over the programs with redundancy above 1 bit: the share of bits in the larger region; the preregistered threshold (at least 80% in one region) is reported, with the disclosure above"
+   },
+   "frozen_runs": {
+    "dim-r5": {
+     "engine_commit": "ffaceec0 (the checker of 929bdeb1)",
+     "binary_sha256_prefix": "a1443e72be33c29f",
+     "fuel": 100000,
+     "command": "rce dim --json --fuel 100000 --control FILE",
+     "registered_before_run": true
+    }
+   }
   }
  ]
 }
