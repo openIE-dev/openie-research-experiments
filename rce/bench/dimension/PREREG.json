@@ -38,6 +38,78 @@
      "note": "re-frozen 2026-10-23T04:40 after replacing Moore refinement with Hopcroft; no run was made with the earlier hash"
     }
    }
+  },
+  {
+   "date": "2026-10-23T12:40-04:00",
+   "after": "dim-r1 (RESULTS.md), before the second frozen run",
+   "adds": {
+    "population": "the observable stratum sampled by rule, not only reported: every .rce of openIE-dev/rce (monorepo, main) under spec/examples, programs, apps and book/listings that rce check accepts standalone, has a state region, and whose text contains an emit or a fail statement; the stratum itself (some explored step emits or refuses) is read from the `observable` key that rce dim --json reports since 2026-10-23",
+    "primary_metric": "as registered, computed over the observable stratum; the unobservable rows are reported as before and excluded from H0, H1, H2",
+    "H1_operationalisation": "emit sites counted as the number of `emit` statements in the program text"
+   },
+   "frozen_runs": {
+    "dim-r2": {
+     "engine_commit": "1107442b (merged to main as c83f9e5d, PR #5)",
+     "binary_sha256_prefix": "c304324798ebf582",
+     "fuel": 100000,
+     "command": "rce dim --json --fuel 100000 --control FILE",
+     "registered_before_run": true
+    }
+   }
+  },
+  {
+   "date": "2026-10-23T16:05-04:00",
+   "after": "dim-r2 (RESULTS.md), before the third frozen run",
+   "adds": {
+    "stratum": "strictly observable = rce dim reports observable and at least two distinct non-silent observations (the distinct_labels key, since commit 929bdeb1); a program with one observation is observable only by a constant and is reported but excluded from H0, H1, H2",
+    "population": "the dim-r2 rule population plus every .rce of the same directories that rce check accepts standalone and declares two or more state regions, whatever its text contains (the multi-region programs H2 needs): 28 programs, listed in results/dim-r3.population.txt",
+    "H2": "tested over programs with two or more state regions only; a single-region program satisfies it trivially and is excluded from H2"
+   },
+   "frozen_runs": {
+    "dim-r3": {
+     "engine_commit": "690ca9be (main after PR #10; the checker of 929bdeb1)",
+     "binary_sha256_prefix": "a1443e72be33c29f",
+     "fuel": 100000,
+     "command": "rce dim --json --fuel 100000 --control FILE",
+     "registered_before_run": true
+    }
+   }
+  },
+  {
+   "date": "2026-10-23T16:40-04:00",
+   "after": "dim-r3 (RESULTS.md), before the fourth frozen run",
+   "adds": {
+    "population": "the conformance programs of openIE-dev/rce (tests whose expectation is accept, run, trace, host or replicate, standalone, with at least one state region) that either declare two or more state regions or contain an emit or fail statement: 86 programs, listed in results/dim-r4.population.txt. The standard library has no state-bearing module at this commit (grep '^state ' over stdlib/lib finds none), so the library tier of the dim-r3 note is empty.",
+    "question": "does the public corpus contain strictly observable multi-region programs at all? The text grep finds 26 multi-region conformance programs, none with an emit or fail statement; the tool's strict stratum is the test, since a refusal can also come from a trap. If the strict multi-region count is 0 after this run, H2 cannot be decided from existing public material and the next step is authoring, which is registered as the conclusion in advance.",
+    "H0_H1": "reported over the strict bounded rows as in dim-r3; the conformance programs are generated or targeted tests, so their redundancy is reported separately from the hand-written corpora and not pooled with dim-r3"
+   },
+   "frozen_runs": {
+    "dim-r4": {
+     "engine_commit": "690ca9be",
+     "binary_sha256_prefix": "a1443e72be33c29f",
+     "fuel": 100000,
+     "command": "rce dim --json --fuel 100000 --control FILE",
+     "registered_before_run": true
+    }
+   }
+  },
+  {
+   "date": "2026-10-24T00:20-04:00",
+   "after": "dim-r4 (RESULTS.md); before the fifth frozen run",
+   "adds": {
+    "population": "the twelve programs of programs/multi/ in openIE-dev/rce at ffaceec0 (PR #12), listed in results/dim-r5.population.txt: authored two-region programs (elevator, vending, crossing, parking, printer, lobby, card, washer, session, player, climate, reservoir), each emitting or refusing, each with small state domains",
+    "disclosure": "the programs were written by the person running this benchmark, after dim-r4 showed that the public corpus had no observable multi-region program with redundancy to attribute. While writing them, rce dim was run on the drafts; three were then changed, for correctness of their stated intent and not for any hypothesis: the crossing's pedestrian phase was restated (a region cannot read another region's field), the reservoir's pump was given an observable step so that its comment is true, and the car park's barrier reports closing. The authored population is therefore not blind to the instrument, and H0 to H2 over it are descriptive of what two-region programs written in this style look like, not a test of a prediction. The run itself is frozen as before.",
+    "H2": "over the programs with redundancy above 1 bit: the share of bits in the larger region; the preregistered threshold (at least 80% in one region) is reported, with the disclosure above"
+   },
+   "frozen_runs": {
+    "dim-r5": {
+     "engine_commit": "ffaceec0 (the checker of 929bdeb1)",
+     "binary_sha256_prefix": "a1443e72be33c29f",
+     "fuel": 100000,
+     "command": "rce dim --json --fuel 100000 --control FILE",
+     "registered_before_run": true
+    }
+   }
   }
  ]
 }

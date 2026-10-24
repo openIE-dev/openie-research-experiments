@@ -1,0 +1,16 @@
+{
+ "id": "rce-determinism-2026-10-23",
+ "registered": "2026-10-23T14:50-04:00 (before the first parity run that carries the streams)",
+ "question": "RCE-JEPA H8: does every accepted Form replay to a bit-identical trajectory on different machines and operating systems? The page states: supported if there are 0 output mismatches over at least 10,000 recorded event streams on at least 3 different machines and operating systems; disproved by a single mismatch.",
+ "unit": "one stream = one event list traced by rce trace --json FILE --streams PATH; the recorded quantity per program is the SHA-256 of the whole trace text of its streams (every step's event, state_hash, prev_hash, hash and outcome), so one digest line per program covers every stream's chain",
+ "population": "the 15 example programs of spec/examples that carry example lines; for each, 700 streams of 1 to 12 events drawn from the pool of event instances in its example lines under the seed 0x5eedd3ad0008 (scripts/xarch-streams.py): 10,500 streams, a pure function of the seed and the examples",
+ "machines": "the targets of .github/workflows/xarch-parity.yml: linux-x86_64 (ubuntu-latest), linux-aarch64 (ubuntu-24.04-arm), macos-aarch64 (macos-latest), windows-x86_64 (windows-latest), and wasm32-wasip1 under wasmtime on ubuntu; the golden set scripts/xarch-hashes.x86_64-linux.txt is produced on the x86_64 Linux reference and every target must reproduce every line byte for byte",
+ "primary_metric": "number of digest lines that differ from the golden set on any target, over the 15 stream lines (10,500 streams) and the 48 pre-existing lines (the example traces, the RCEdb host run, the chat app trace and the crypto vectors)",
+ "hypotheses": {
+  "H8": "0 differing lines on all five targets supports H8 at this scale; a single differing stream line disproves it (a bit-level difference in any step of any stream changes the program's digest)"
+ },
+ "falsifier": "any target reproducing a stream digest that differs from the golden set, on a run where the target's build is the same commit",
+ "exclusions": "a target that declares a line unsupported (XARCH_SKIP) is listed, never hidden, and does not count as agreement for that line; a workflow run that fails before the parity step (toolchain, build, runner loss) is not a mismatch and is rerun",
+ "reporting": "RESULTS.md records the workflow run id, the commit, each target's conclusion and the digest count; the artefacts xarch-<target>.txt are the recorded outputs",
+ "limits": "the streams are drawn from the examples' own event instances, so payload values are the examples' values and their combinations, not fuzzed values; floats, text and maps are exercised only where an example uses them (57_float_vectors, 58_float_keys, 56_utf8, 16-style multi-region programs are in the population only if they carry example lines). A wider population (payloads from the refinement boundaries that rce dim explores) is the next step and would be registered before the run."
+}

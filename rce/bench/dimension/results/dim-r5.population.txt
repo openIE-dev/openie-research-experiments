@@ -1,0 +1,12 @@
+programs/multi/card.rce
+programs/multi/climate.rce
+programs/multi/crossing.rce
+programs/multi/elevator.rce
+programs/multi/lobby.rce
+programs/multi/parking.rce
+programs/multi/player.rce
+programs/multi/printer.rce
+programs/multi/reservoir.rce
+programs/multi/session.rce
+programs/multi/vending.rce
+programs/multi/washer.rce
