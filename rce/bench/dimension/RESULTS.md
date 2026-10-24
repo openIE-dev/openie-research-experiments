@@ -291,3 +291,74 @@ multi-region program with redundancy to attribute, apart from the one
 cannot be decided from existing public material, and the next step is
 authoring observable multi-region programs (or lifting them), to be
 registered as a population before the run.
+
+# dim-r5: the authored two-region programs (2026-10-24)
+
+Engine `ffaceec0` (the checker of `929bdeb1`, binary `a1443e72be33c29f`).
+Registered as the amendment of 2026-10-24T00:20 before the run, with a
+disclosure: the twelve programs of `programs/multi/` were written by the
+person running the benchmark after dim-r4, and `rce dim` was run on the
+drafts while writing them (three were then changed for the correctness of
+their stated intent, not for any hypothesis). The population is not blind
+to the instrument. Total cpu 0.07 s: every program is explored completely
+in a few milliseconds.
+
+## Rows
+
+| program | regions | states | behaviours | bits | observations | control states |
+|---|---|---|---|---|---|---|
+| climate | Mode, Setpoint | 12 | 4 | 1.58 | 4 | 4 |
+| card | Pin, Account | 24 | 24 | 0.00 | 9 | 24 |
+| player | Transport, Volume | 24 | 24 | 0.00 | 5 | 8 |
+| vending | Credit, Stock | 16 | 16 | 0.00 | 6 | 16 |
+| crossing | Signal, Pedestrian | 12 | 12 | 0.00 | 4 | 12 |
+| elevator | Car, Door | 12 | 12 | 0.00 | 8 | 12 |
+| printer | Queue, Toner | 12 | 12 | 0.00 | 6 | 12 |
+| parking | Barrier, Lot | 10 | 10 | 0.00 | 7 | 10 |
+| reservoir | Tank, Pump | 10 | 10 | 0.00 | 8 | 10 |
+| lobby | Lobby, Match | 8 | 8 | 0.00 | 6 | 8 |
+| session | Auth, Limit | 6 | 6 | 0.00 | 4 | 6 |
+| washer | Cycle, Door | 4 | 4 | 0.00 | 3 | 4 |
+
+All twelve are strictly observable, bounded, and multi-region. Median
+redundancy 0.00 bits (interquartile range 0.00 to 0.00); 1 of 12 above
+0.5 bit (Wilson 95% 0.01 to 0.35).
+
+## What the run says
+
+**RCE-F6 is triggered on this population.** The preregistration's
+falsifier reads: if the median redundancy over bounded programs is below
+0.1 bit, the claim that accidental state is common in small Forms is wrong
+at this scale, and `rce dim` is a diagnostic for large programs only. On
+twelve small two-region programs written in the ordinary style of this
+repository the median is 0.00. The reason is visible in the rows: every
+count in these programs has a cap that a refusal enforces, every flag
+gates a refusal or an output, and every phase emits, so every reachable
+state is told apart by what the program does next. The one exception,
+`climate`, keeps two flags (`heating`, `cooling`) that the next reading
+overwrites whatever they were; they are the program's memory of its last
+action and nothing reads them, which is accidental state in the sense of
+6.10, and the whole 1.58 bits sits in that region (H2's 80% is met on the
+one row, with the disclosure that the author could see it).
+
+Read with the earlier runs, the picture is: small hand-written programs
+with enforced caps carry no redundancy (this run); the spec examples and
+corpora carry some, concentrated in regions nothing observes (dim-r3,
+median 1.29 bits over the strict bounded rows, with the barrier, the
+statistics and the hidden-period programs as the cases); the host
+programs carry a little (dim-r4, 0.01 to 2.16 bits); and the one
+application explored, `chat`, carries at least 9 bits. So the quantity
+grows with program size and with the number of fields nothing reads, and
+the falsifier's own conclusion holds: `rce dim` is a diagnostic for
+larger programs and for regions that were added without an observer, not
+a property of small Forms in general. That is a narrower claim than the
+preregistration's H0, and it is the one the data supports.
+
+## The authored population as a corpus
+
+The twelve programs join `programs/` as teaching material and the Form
+corpus (bench/form-space) at its next run. Their value for the dimension
+benchmark is as a baseline of what careful small programs look like:
+zero. A future population for H2 should be larger programs (the
+applications) or programs written without the benchmark in mind, and
+should be registered blind.
