@@ -28,7 +28,7 @@ scraped from outside the project, and no model wrote any program in v1.
 
 ## Population and size
 
-343 candidates by the registered rule; 239 accepted standalone by `rce
+355 candidates by the registered rule (v4); 251 accepted standalone by `rce
 check`; 104 refused by rule (the `ill_typed/` examples are written to be
 refused, modules of multi-file packages and standard-library modules that
 need a package or the `#!lib` directive do not admit alone; each refusal
@@ -94,7 +94,7 @@ programs written after the corpus date or the test split only.
 
 ## Known gaps
 
-- 43 of 180 programs carry an intent block; the rest are paired only with
+- 55 of 192 programs carry an intent block; the rest are paired only with
   their own trace (a self-generated specification) or with nothing.
 - No lifted programs: the lift pipeline (`rce scan --form`) is in the
   private engine, so the passive tier of the data plan is empty here.
