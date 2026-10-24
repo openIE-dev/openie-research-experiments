@@ -1,3 +1,7 @@
+# Terminology (24 October 2026)
+
+The runs below use the words "observable" and "unobservable" for the strata, after the `observable` and `distinct_labels` keys that `rce dim` reported at the commits they name. Those keys are now `has_output`, `emits`, `refuses` and `distinct_outputs` (specification 10.11, ledger entry of 24 October 2026): a program is *output-bearing* when some explored step has a λ output, an emitted value or a refusal (6.1), and *silent* otherwise; a silent program's state is in the log and readable, and an `example` may check it, but no future output depends on it. A refusal is the rejection of an input and is counted separately from an emitted value. The strata and numbers below are unchanged; read "observable" as output-bearing, "unobservable" as silent, "observation" as output, and "strictly observable" as output-bearing with at least two distinct outputs. Later runs use the new words and keys.
+
 # dim-r1: the frozen run (2026-10-23)
 
 Engine: openIE-dev/rce tag `dim-run-1` (commit `22a5992`), binary sha256 prefix
