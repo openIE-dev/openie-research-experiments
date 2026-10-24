@@ -34,7 +34,7 @@ Written 24 October 2026. Hosts other than github.com were unreachable for fetchi
 
 ## 4. Mixed positions
 
-- **Rust.** std is "the foundation of portable Rust software, a set of minimal and battle-tested shared abstractions" (read from source); RFC 1242: std "gets less flexibility than other crates," new APIs begin as external crates, and rust-lang crates are "the rest of the standard library"; blessed.rs as a curated substitute. Specification: RFC approved July 2023; the Ferrocene Language Specification (2022) donated to the Rust Project in March 2025.
+- **Rust.** std is "the foundation of portable Rust software, a set of minimal and battle-tested shared abstractions" (read from source); RFC 1242: std's stability is tied to Rust's own versioning, "meaning that the standard library has much less flexibility than other crates enjoy," and new APIs "can just as well begin their life as external crates," and rust-lang crates are "the rest of the standard library"; blessed.rs as a curated substitute. Specification: RFC approved July 2023; the Ferrocene Language Specification (2022) donated to the Rust Project in March 2025.
 - **Haskell.** The Core Libraries Committee manages `base` and collectively owns core libraries distinct from GHC boot libraries (read from source).
 - **OCaml.** 4.07 (2018) added `Seq` and `Float` and packed the library into `Stdlib` (read from Changes); Jane Street's Core is "an industrial-strength alternative to the OCaml standard library," Base a minimal replacement.
 - **Zig.** std ships with the compiler at one commit; the specification issue (#75, 2016) was closed as not planned in April 2026 with the work moved to a separate repository; no std stability before 1.0.
@@ -67,7 +67,7 @@ Written 24 October 2026. Hosts other than github.com were unreachable for fetchi
 
 ## What this note establishes
 
-1. A bundled library trades flexibility for stability: every one-library language ties the library's API to its compatibility promise (Go 1; Rust RFC 1242; "where modules go to die"; Deno's per-package versions).
+1. A bundled library trades flexibility for stability: every one-library language ties the library's API to its compatibility promise (Go 1; Rust RFC 1242, "much less flexibility than other crates enjoy"; "where modules go to die"; Deno's per-package versions).
 2. Batteries are removed once an installer exists: Python (PEP 453, then PEP 594, 22 modules), Java (JEP 320, 9 modules) and Julia all cite maintenance cost and the same code in a registry.
 3. Free ecosystems produce deep transitive graphs and concentrated risk: a median of 21 to 41 transitive dependencies in npm, Cargo and NuGet, single packages reaching large parts of npm, 75% bloated Maven relationships, left-pad.
 4. Specification-with-many-implementations languages pay in portability: Scheme, Prolog, SQL, C and JSON.
