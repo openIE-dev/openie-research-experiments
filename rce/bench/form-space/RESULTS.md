@@ -151,3 +151,25 @@ changes a one-token edit can make, and almost every miss is a constant
 no example exercises. That is the number RJ-F2 and H7 should carry
 forward, with its limit: ten mutants per operator over a corpus of 180
 programs, 41 of them scorable.
+
+# v4: the twelve two-region programs join the corpus (2026-10-24)
+
+Registered as the amendment of 2026-10-24T00:50 (committed before the run).
+Generator at openIE-dev/rce `ffaceec0`, whose `programs/multi/` holds the
+twelve programs authored for dim-r5; the population rule is unchanged and
+admits them. 192 distinct shapes (v3: 180), 55 with an intent block (v3:
+43), split 151 / 17 / 24.
+
+- **H1** on 185 programs with an emitted form: python median 9.34
+  (interquartile range 8.45 to 10.81; v3: 9.31 on 173), gzip view 3.57.
+  The twelve new programs sit inside the old range (8.1 to 11.0 on
+  python). The vocabulary term and the thresholds are unchanged.
+- **Negatives**: 3,113 mutants (2,287 refused across 31 diagnostic codes,
+  826 accepted: 348 equivalent, 75 uncaught behaviour changes).
+- **Intent mutation score**: 54 scorable programs (v3: 41); median 0.91,
+  24 programs catch every behaviour change; pooled 317 of 392 (0.81,
+  Wilson 95% 0.77 to 0.85). The twelve new programs score 1.00 on ten and
+  0.91 and 0.86 on two (`card`: one literal move uncaught; `session`: one),
+  with 3 to 13 behaviour-changing mutants each. Their example lines were
+  written with refusals in mind, which is where the score comes from.
+- `rce check` median 3.2 ms per program.
