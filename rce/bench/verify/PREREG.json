@@ -47,13 +47,42 @@
   "recorded": "the facts file records each tool version it can query"
  },
  "commands": [
-  {"id": "tests", "cwd": "spec/checker", "run": "cargo test --release --no-fail-fast", "features": "default"},
-  {"id": "spec_check", "cwd": "spec/checker", "run": "cargo run --release --bin rce-spec-check"},
-  {"id": "spec_check_three_parsers", "cwd": "spec/checker", "run": "cargo run --release --features tree-sitter --bin rce-spec-check"},
-  {"id": "wasm", "cwd": "spec/wasm-test", "run": "npm ci && node test.mjs", "note": "tests the committed builds spec/checker-wasm/pkg and tree-sitter/tree-sitter-rce.wasm; their sha256 and the commit of their last change are recorded"},
-  {"id": "lean", "run": "taken from the CI job of lean_source; the job log is archived next to the results"},
-  {"id": "collect", "cwd": ".", "run": "python3 scripts/claim-counts.py --runs DIR --write DIR/rce-facts.json, then python3 scripts/claim-counts.py --check --runs DIR --facts DIR/rce-facts.json"},
-  {"id": "all", "cwd": ".", "run": "scripts/verify-run.sh DIR runs the commands above in this order and prints the summary digest"}
+  {
+   "id": "tests",
+   "cwd": "spec/checker",
+   "run": "cargo test --release --no-fail-fast",
+   "features": "default"
+  },
+  {
+   "id": "spec_check",
+   "cwd": "spec/checker",
+   "run": "cargo run --release --bin rce-spec-check"
+  },
+  {
+   "id": "spec_check_three_parsers",
+   "cwd": "spec/checker",
+   "run": "cargo run --release --features tree-sitter --bin rce-spec-check"
+  },
+  {
+   "id": "wasm",
+   "cwd": "spec/wasm-test",
+   "run": "npm ci && node test.mjs",
+   "note": "tests the committed builds spec/checker-wasm/pkg and tree-sitter/tree-sitter-rce.wasm; their sha256 and the commit of their last change are recorded"
+  },
+  {
+   "id": "lean",
+   "run": "taken from the CI job of lean_source; the job log is archived next to the results"
+  },
+  {
+   "id": "collect",
+   "cwd": ".",
+   "run": "python3 scripts/claim-counts.py --runs DIR --write DIR/rce-facts.json, then python3 scripts/claim-counts.py --check --runs DIR --facts DIR/rce-facts.json"
+  },
+  {
+   "id": "all",
+   "cwd": ".",
+   "run": "scripts/verify-run.sh DIR runs the commands above in this order and prints the summary digest"
+  }
  ],
  "count_definitions": {
   "lean_files_top": "files spec/lean/RCE/*.lean (one directory level)",
@@ -86,5 +115,22 @@
   "logs": "the log of each command, archived under rce/bench/verify/results/ of this repository with a SHA256SUMS file; the per-test lines of the tests log are the per-task rows"
  },
  "amendments_rule": "a change to a command, a definition or a criterion after this file is committed is added below as a dated amendment before the run it affects",
- "amendments": []
+ "amendments": [
+  {
+   "date": "2026-10-27T06:39Z",
+   "after": "run1 (local, started 2026-10-27T04:42:42Z at run commit 070310d6cf90513091d9078ce676aa2873c1a22a; its test step ended 06:33:42Z; it was stopped before the specification check); before run2",
+   "observed_in_run1": {
+    "shared_target_directory": "the target directory /home/user/rce/spec/checker/target was used at the same time by a job building openIE-dev/rce at another commit (2aad87f6, branch claude/rebuild-t4-emit-edges, which changes spec/checker/src). Between 05:29:47Z and 06:33:38Z that job's builds replaced 58 of the test executables and, at 06:16:31Z, target/release/rce, which 11 test targets run (CARGO_BIN_EXE_rce). Cargo holds the directory's lock while it builds, not while tests run. The tests of run1 are therefore not all tests of the run commit.",
+    "recorded": "118 test targets; 450 passed, 1 failed, 2 ignored. The failed test is emit_run::js_runtime_agrees_with_run_main: `timeout 120 node <TMPDIR>/rce-emit-run/scope.mjs --run` ended with a non-zero status and no error output, while the host load average exceeded 250 and another job's test run used the same fixed directory <TMPDIR>/rce-emit-run.",
+    "use": "run1 is archived as recorded and is not the source of the facts file"
+   },
+   "changes": {
+    "tests": "scripts/verify-tests.py tests DIR (openIE-dev/rce, branch claude/rebuild-t1-facts) replaces the direct `cargo test --release --no-fail-fast`: the same build (`cargo test --release --no-run`); under the lock cargo takes on the target directory (<target>/release/.cargo-lock) every executable is checked to be the file that build wrote and is hard-linked into DIR/bin; the 11 targets that run target/release/rce run while that lock is held; every other target runs from its hard link; doc tests run through `cargo test --release --doc`; TMPDIR is DIR/tmp for every test process",
+    "spec_check": "rce-spec-check, in the default and the tree-sitter build, is built with cargo build --release and run under the same lock by scripts/verify-tests.py bin",
+    "added_pass_criteria": "tests: the rce binary embeds the run commit, it is unchanged while the locked targets run, and every hard link has at the end the sha256 recorded at the start",
+    "run_commit": "the commit of claude/rebuild-t1-facts that adds scripts/verify-tests.py; the identity rule for the tested trees is unchanged",
+    "unchanged": "the code under test (d2b28e76), the Lean source, every count definition and every other pass criterion"
+   }
+  }
+ ]
 }
