@@ -1,0 +1,90 @@
+{
+ "id": "rce-verify-2026-10-27",
+ "registered": "2026-10-27T04:35Z, before the local run of the commands below and before the collector commit in openIE-dev/rce",
+ "track": "T1 of the plan to rebuild every result of the RCE paper on public code: the verification counts of paper section 3.7 at one public commit",
+ "question": "At one public commit of openIE-dev/rce, does each verification check record the outcome it defines as passing (reference checker tests, specification check, WebAssembly checks, Lean build and axiom audit), and what are the counts that paper section 3.7 quotes, each with a stated definition?",
+ "code_under_test": {
+  "repo": "https://github.com/openIE-dev/rce",
+  "branch": "main",
+  "commit": "d2b28e76d6995fd887079a0117346847cdada7f6",
+  "note": "the head of main when this file was written"
+ },
+ "run_commit": {
+  "repo": "https://github.com/openIE-dev/rce",
+  "branch": "claude/rebuild-t1-facts",
+  "parent": "d2b28e76d6995fd887079a0117346847cdada7f6",
+  "changes": "adds the collector only: scripts/claim-counts.py gains --write PATH (and --runs DIR, --facts PATH for --check); scripts/verify-run.sh runs the commands below; spec/wasm-test/test.mjs gains one line that prints the checks by component (grammar and checker) next to its existing total",
+  "identity_rule": "the git tree hashes of spec/checker, spec/lean, spec/examples, spec/conc06, spec/conc06b, spec/data, spec/book, spec/checker-wasm and tree-sitter at the run commit must equal those at d2b28e76; the facts file records them. If any differs, the run is recorded as a run of the run commit, not of d2b28e76."
+ },
+ "lean_source": {
+  "reason": "the Lean toolchain (Lean 4.12.0) is not installed on the run host for lack of disk; scripts/lean-audit.sh is therefore not run locally",
+  "rule": "the Lean build and axiom audit are taken from the public continuous-integration (CI) run of workflow .github/workflows/lean.yml (job proofs) at the most recent commit of main that has one, provided its spec/lean tree equals that of the code under test; the facts file names that commit for the Lean figures",
+  "selected": {
+   "workflow": ".github/workflows/lean.yml",
+   "job_name": "proofs",
+   "run_id": 40074018950,
+   "job_id": 120813405672,
+   "commit": "9e01e406095c9233c985f8642475294cfa784e1c",
+   "spec_lean_tree": "6871faa4971d58b8a6f9d9f38d912a4dbd0d76a6, equal at 9e01e406, f2bd7222 and d2b28e76",
+   "note": "the job runs the commands of scripts/lean-audit.sh in two steps (lean-action builds spec/lean with lake; the step 'Axiom audit' runs lake env lean audit/Audit.lean and requires the text 'standard axioms only'); it does not call the script itself. The lake cache was empty for this run (the log reports 'Cache not found'), so every module was compiled and every compiler message is in the log. Main at d2b28e76 has no run of this workflow, because the workflow runs only when spec/lean, the script or the workflow changes."
+  }
+ },
+ "known_before_registration": [
+  "the log line of the selected Lean job: 'lean audit: 5052 RCE theorems, standard axioms only', and the absence of the text 'sorry' in its compiler messages",
+  "the conclusion 'success' of every job of CI run 40441466160 (workflow ci.yml) at d2b28e76, and the specification-check lines of its job 'spec' (121982574872)",
+  "the static counts printed by the previous scripts/claim-counts.py at d2b28e76 (62 examples, 443 #[test] attributes under spec/checker/tests, 62 top-level Lean files, 77 canonical-JSON vectors)",
+  "the Lean declaration counts by the definition below at 4304048 (882), e416fd0 (1,113), f2bd7222 (1,149) and d2b28e76 (1,149)",
+  "nothing about the local run: no test binary, no specification check and no WebAssembly check had been run at d2b28e76 on the run host"
+ ],
+ "environment": {
+  "host": "Linux x86_64, 4 cores shared with other jobs; cargo with CARGO_BUILD_JOBS=2 and the shared target directory /home/user/rce/spec/checker/target",
+  "rust": "1.98.1, pinned by spec/checker/rust-toolchain.toml",
+  "node": "v22.22.0",
+  "npm_packages": "web-tree-sitter 0.27.1, pinned by spec/wasm-test/package-lock.json",
+  "tree_sitter_cli": "0.27.1 on PATH, so tests/tree_sitter_sync.rs and the tree-sitter differential of tests/grammar_fuzz.rs run instead of returning early",
+  "python": "3.13",
+  "absent": "scala (tests that need it return early, as their source states); Lean (see lean_source)",
+  "recorded": "the facts file records each tool version it can query"
+ },
+ "commands": [
+  {"id": "tests", "cwd": "spec/checker", "run": "cargo test --release --no-fail-fast", "features": "default"},
+  {"id": "spec_check", "cwd": "spec/checker", "run": "cargo run --release --bin rce-spec-check"},
+  {"id": "spec_check_three_parsers", "cwd": "spec/checker", "run": "cargo run --release --features tree-sitter --bin rce-spec-check"},
+  {"id": "wasm", "cwd": "spec/wasm-test", "run": "npm ci && node test.mjs", "note": "tests the committed builds spec/checker-wasm/pkg and tree-sitter/tree-sitter-rce.wasm; their sha256 and the commit of their last change are recorded"},
+  {"id": "lean", "run": "taken from the CI job of lean_source; the job log is archived next to the results"},
+  {"id": "collect", "cwd": ".", "run": "python3 scripts/claim-counts.py --runs DIR --write DIR/rce-facts.json, then python3 scripts/claim-counts.py --check --runs DIR --facts DIR/rce-facts.json"},
+  {"id": "all", "cwd": ".", "run": "scripts/verify-run.sh DIR runs the commands above in this order and prints the summary digest"}
+ ],
+ "count_definitions": {
+  "lean_files_top": "files spec/lean/RCE/*.lean (one directory level)",
+  "lean_files_rce_all": "files spec/lean/RCE/**/*.lean (all subdirectories)",
+  "lean_files_all": "every .lean file under spec/lean/",
+  "lean_declarations": "in every .lean file under spec/lean/, after removing line comments (-- to end of line) and nested block comments (/- ... -/, including doc comments), the lines whose first word is theorem or lemma, optionally preceded by attributes @[...] and the modifiers private, protected, noncomputable, nonrec, partial or unsafe; reported as theorem and lemma separately and as their sum",
+  "lean_sorry_in_source": "occurrences of the word sorry in every .lean file under spec/lean/ after removing comments and string literals",
+  "lean_axiom_declarations": "lines whose first word is axiom, by the rule of lean_declarations",
+  "lean_audit_theorem_constants": "N in the CI log line 'lean audit: N RCE theorems, standard axioms only': every constant of kind theorem in the kernel environment whose module is under RCE, including constants the elaborator generates (spec/lean/audit/Audit.lean)",
+  "checker_test_attributes": "lines matching ^\\s*#\\[test\\] in spec/checker/tests/**/*.rs and in spec/checker/src/**/*.rs, reported separately and summed",
+  "checker_tests_run": "the sums over every 'test result:' line printed by the tests command: passed, failed, ignored, measured and filtered out, and the number of test targets (each 'Running' line and each 'Doc-tests' line)",
+  "spec_check": "the lines of rce-spec-check as printed: LALR(1) rules, productions, states and conflicts per grammar; examples accepted by the grammar and by the checker; programs of spec/examples/reject, ill_typed and inadmissible whose diagnostic the check records; the three-parser lines in the tree-sitter build",
+  "grammar_conflicts": "the conflicts figure of every LALR(1) line of rce-spec-check",
+  "examples": "spec/examples/*.rce (top level); spec/examples/<directory>/**/*.rce for each directory other than reject, ill_typed and inadmissible (packages); spec/examples/reject/*.rce; spec/examples/ill_typed/*.rce; spec/examples/inadmissible/*.rce",
+  "canonical_json_vectors": "the length of the array vectors in spec/data/canonical-json-vectors.json",
+  "emit_targets": "the target names that rce emit dispatches to a program emitter in spec/checker/src/cli.rs; form (the Form JSON) is reported separately",
+  "wasm_checks": "the checks of spec/wasm-test/test.mjs: those whose label begins with 'ts' are grammar checks (tree-sitter-rce.wasm), all others are checker checks (checker-wasm/pkg); passed and run for each, and the printed total"
+ },
+ "pass_criteria": {
+  "tests": "0 failed in every 'test result:' line, and exit status 0; ignored tests are reported and are not counted as passed",
+  "spec_check": "exit status 0 and the line 'ALL OK', in the default build and in the tree-sitter build",
+  "grammar_conflicts": "0 in every LALR(1) line",
+  "wasm": "0 lines beginning with FAIL, the total line 'N/N wasm checks passed', and exit status 0",
+  "lean": "the CI job concluded success; its log has the line 'lean audit: N RCE theorems, standard axioms only' (Audit.lean records an error for any RCE theorem constant whose axioms are not all in {propext, Quot.sound, Classical.choice}, and sorryAx is not in that set); the build log has no compiler message containing the word sorry; lean_sorry_in_source is 0 and lean_axiom_declarations is 0",
+  "collect": "claim-counts.py --check holds on the written facts: every count recomputed from the checkout and the run logs equals the value in the file"
+ },
+ "outputs": {
+  "facts": "rce-facts.json written only by scripts/claim-counts.py --write; the object summary holds every count, definition, outcome, commit and toolchain, with no timestamp, duration or host path, so a rerun from a clean clone with the same tools gives the same bytes",
+  "summary_digest": "sha256 of the canonical JSON of summary (keys sorted, separators ',' and ':', UTF-8), recorded in the file as summary_sha256 and printed by --write",
+  "logs": "the log of each command, archived under rce/bench/verify/results/ of this repository with a SHA256SUMS file; the per-test lines of the tests log are the per-task rows"
+ },
+ "amendments_rule": "a change to a command, a definition or a criterion after this file is committed is added below as a dated amendment before the run it affects",
+ "amendments": []
+}
