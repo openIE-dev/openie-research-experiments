@@ -1,0 +1,34 @@
+{
+  "reference": {
+    "display_sweep_step": 97,
+    "edge_examples": 159,
+    "examples": 660,
+    "examples_ending_in_a_trap": 118,
+    "examples_jsonl_sha256": "c198b8cd155481db3cdc85c80de3e40199bc0dbf247a8a657e9776143aafb7f6",
+    "heads_sha256": "8ae0a2a846cf310d83f29f5e499b5f26c5c9ee95422de22b62bcfca1f27a314f",
+    "module": "spec/checker/tests/emit_edges.rce",
+    "module_sha256": "4f96db7b52c577f3321e0c62b1f1a9afb8abd663a506295d8b89c897bfd76d27",
+    "module_with_seeded_sha256": "a172524ce50c09c5f478035576fff28ed22285fe63fbf9984bcdaa08f73b4614",
+    "observation_bytes": 181183,
+    "observation_lines": 1980,
+    "observation_sha256": "6de6652b02d21bbb3b9a7b733820ca7d473895cc6c2189783fef68da1411cad9",
+    "operators": 76,
+    "seed": "0x63ed6e20261027",
+    "seeded_examples": 500,
+    "seeded_sha256": "17f2cfd8bc2d6627e75d71373ee1df9b23777d822a75f0421611e4c8abc47a6b",
+    "seeded_values": 843
+  },
+  "run_commit": "2aad87f6c6a3733badeefb2d75fbd544305f1142",
+  "targets_agreeing": [
+    "rust",
+    "python",
+    "js",
+    "wasm32-wasip1"
+  ],
+  "targets_skipped": [
+    "scala"
+  ],
+  "targets_without_agreement": [],
+  "track": "T4 emit-edges",
+  "verdict": "every target that ran agrees"
+}

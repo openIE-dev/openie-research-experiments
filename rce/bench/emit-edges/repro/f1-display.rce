@@ -1,0 +1,9 @@
+state S
+    t: text = ""
+
+event Set(s: text)
+
+step S on Set(s: s)
+    t = s
+
+example Set(s: "\u{200B}\u{A0}\u{FFFF}") -> t.len_bytes() == 8

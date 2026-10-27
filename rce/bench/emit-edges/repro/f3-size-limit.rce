@@ -1,0 +1,13 @@
+state S
+    n: usize = 0
+
+event Big(k: usize)
+event Comp(k: usize)
+
+step S on Big(k: k)
+    n = [0; k].len()
+step S on Comp(k: k)
+    n = [i for i in 0..k].len()
+
+example Big(k: 1000001) -> refused: trap("size limit")
+example Comp(k: 1000001) -> refused: trap("size limit")
