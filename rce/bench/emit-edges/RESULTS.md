@@ -108,3 +108,40 @@ every target agrees with it:
   `utf8: byte outside 0..255`.
 - 6.2 lists the trap texts as "exactly those of 6.3". The reference also
   has other trap texts, for example the two above.
+
+## After the registered run
+
+A full `cargo test --release` of the checker at `e4f91ced`, the run commit
+plus the dated sentence of spec 10.5, was run on the same host. It passed
+451 tests and recorded 6 failures, 2 ignored, in 119 test targets. None of
+the failures concerns `tests/emit_edges.rs` or its record. Each was traced
+to its cause:
+
+- `tests/form_roundtrip.rs` (2 tests): a finding. `unparse` printed the
+  characters that W-LEX-4 keeps out of source raw inside string literals,
+  so the printed source of the edge module, and `rce unform` of its Form,
+  were not admitted. openIE-dev/rce `39e160a1` adds `unparse_source`, which
+  writes them `\u{...}`, and uses it in `rce unform` and in the round-trip
+  test. `unparse` keeps its bytes, because module, brick and program
+  hashes, and the pins of `stdlib/lib/MANIFEST.json`, are taken over it.
+  The test then passes 4 of 4.
+- `tests/tree_sitter_sync.rs`: a finding, and also an artefact of the host.
+  The tree-sitter grammar had only `refused: NAME`, while spec 3.2 and the
+  Rust parser also have `refused: trap("K")`. `39e160a1` adds the trap
+  form (a scanner token for `trap` before `(`) and regenerates the parser
+  with tree-sitter 0.27.1. The six other files listed, all with
+  `refused: NAME`, came from the shared parser cache
+  `~/.cache/tree-sitter/lib/rce.so`, which another job on the host had
+  compiled from a different grammar. With a private cache
+  (`TREE_SITTER_LIBDIR`), tree_sitter_sync agrees on 365 of 365 files,
+  grammar_fuzz passes, and `tree-sitter test` passes 26 of 26.
+  `tree-sitter-rce.wasm` was not rebuilt (no emscripten on the host).
+- `tests/unicode_pin.rs` (1 test): an artefact of the host. The shared
+  target directory's `rce` binary had been rebuilt by another job from
+  sources without the display rule. With this branch's own binary the
+  test passes 3 of 3.
+- `tests/emit_run.rs` (2 tests): `rustc` ended without a message. The test
+  writes to the fixed directory `$TMPDIR/rce-emit-run`, which other jobs
+  on the host were writing at the same time. The test passed 11 of 11 in
+  the earlier run of the emit tests, and 11 of 11 again when it was rerun
+  at `39e160a1` with a private `TMPDIR`.
