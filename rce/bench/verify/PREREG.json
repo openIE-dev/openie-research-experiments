@@ -131,6 +131,19 @@
     "run_commit": "the commit of claude/rebuild-t1-facts that adds scripts/verify-tests.py; the identity rule for the tested trees is unchanged",
     "unchanged": "the code under test (d2b28e76), the Lean source, every count definition and every other pass criterion"
    }
+  },
+  {
+   "date": "2026-10-27T08:35Z",
+   "after": "run2 (started 2026-10-27T08:11:05Z at run commit e774f546; stopped at 08:33:26Z while its build ran a second time; no test, specification check or WebAssembly check had run); before run3",
+   "observed_in_run2": "two other jobs (branches claude/compliance-g1 and claude/rebuild-t4-emit-edges) build openIE-dev/rce at other commits into the same target directory. Under amendment 1 the lock was taken after the build ended, and another job's build took the lock first and replaced the files, so the build had to run again; with several jobs this need not end.",
+   "changes": {
+    "tests": "scripts/verify-tests.py tests DIR hard-links every listed file into DIR/bin the moment the build ends, and accepts the build only when no link has a modification time later than the end of the build (otherwise the build runs again, at most three times); every target runs from its hard link. For the 11 targets that run target/release/rce (a path compiled into them) the script holds the target directory's lock; if target/release/rce is not this build's file, this build's file is put at that path for the duration (rename of a hard link) and the file found there is put back before the lock is released",
+    "spec_check": "rce-spec-check (default and tree-sitter builds) runs from a hard link made the same way; no lock",
+    "added_tree": "stdlib/lib, which the checker embeds at build time (spec/checker/build_stdlib.rs), joins the trees of the identity rule",
+    "added_pass_criteria": "specification checks: the binary's hard link has at the end the sha256 recorded at the start",
+    "run_commit": "the commit of claude/rebuild-t1-facts that makes these changes",
+    "unchanged": "the code under test (d2b28e76; main has since moved to ace40713, whose tested trees, stdlib/lib included, equal those of d2b28e76), the Lean source, every count definition and every other pass criterion"
+   }
   }
  ]
 }
