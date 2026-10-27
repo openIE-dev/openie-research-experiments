@@ -1,0 +1,65 @@
+{
+ "id": "rce-emit-edges-2026-10-27",
+ "registered": "2026-10-27T06:12Z, after the development runs listed under known_before_registration and before the registered run of run.sh",
+ "track": "T4 of the plan to rebuild every result of the RCE paper on public code: a differential test across the program emit targets at the edges of spec 6.3 (T9-L of spec 10.5)",
+ "question": "At one public commit of openIE-dev/rce, does every program emit target that runs on the run host print the reference evaluator's observations for a module written from spec 6.3, line for line and byte for byte over the whole output, and the same head of the log D (6.1) after every example?",
+ "scope": "T9-L only (the program emitters of spec 10.5). No claim is made for a Form IR target (T9-F, `rce form --emit`), for XState or SCXML, or for any target that does not run on the run host.",
+ "run_commit": {
+  "repo": "https://github.com/openIE-dev/rce",
+  "branch": "claude/rebuild-t4-emit-edges",
+  "commit": "2aad87f6c6a3733badeefb2d75fbd544305f1142",
+  "parent": "d2b28e76d6995fd887079a0117346847cdada7f6",
+  "spec_checker_tree": "a7a5bf99248c8be3a31cab22a82ccd8fe4ee7983",
+  "changes": "adds spec/checker/tests/emit_edges.rs and tests/emit_edges.rce; the reference evaluator and the Rust runtime display a text by a fixed escape set (interp::show_text, rt.rs rdebug) in place of Rust's {:?}; the four runtimes apply SIZE_LIMIT to [x; n] and to list comprehensions; spec 10.5 states the display rule and describes the test; tests/unicode_pin.rs expects U+2009 and U+180E as themselves"
+ },
+ "module": {
+  "path": "spec/checker/tests/emit_edges.rce",
+  "sha256": "4f96db7b52c577f3321e0c62b1f1a9afb8abd663a506295d8b89c897bfd76d27",
+  "source": "written from the text of spec 6.3 (N1 to N9) and the method table of 5.15 alone; no private-engine file and no file of this repository that came from the engine was read or used",
+  "operators": 76,
+  "edge_examples": 159,
+  "edge_examples_with_the_reference_trap_text": "7 (utf8 on four byte lists, toint on three texts): 6.3 and 5.15 name these outcomes without a trap text, so the text stated is the reference evaluator's",
+  "edges": "checked i64 arithmetic with the exact result in the trap text; division and remainder by zero; i64.MIN / -1 and i64.MIN % -1; negation and abs of i64.MIN; shifts at, past and below the width for i64, u64 and u8; arithmetic and logical right shift; bitwise operators on the two's-complement representation; wrapping, saturating and checked methods; u64 at and above 2^63; u8 range; integer, float and text comparison (code-point order, -0.0 == 0.0); correctly rounded f64 operations; no contraction (0.1 * 10.0 - 1.0); subnormals; non-finite results; signed zero through +, *, sqrt, round, ceil, abs, min, max and tostr; floor, ceil and round with ties away from zero; int to f64 rounding above 2^53; f64 to i64 truncation and range; float text at 1e-5 and 1e16 and in exponent form; f32 operations, rounding, subnormals and range; UTF-8 byte and character lengths; byte indexing; slicing at character boundaries, out of range and reversed; ASCII-only case mapping and class tests; the 25 White_Space code points in strip, words and toint; utf8 from bytes; SIZE_LIMIT for [x; n], list comprehensions and text"
+ },
+ "seeded": {
+  "generator": "SplitMix64 in spec/checker/tests/emit_edges.rs (seeded, SEED)",
+  "seed": "0x63ed6e20261027",
+  "examples": 500,
+  "values": 843,
+  "lines_sha256": "17f2cfd8bc2d6627e75d71373ee1df9b23777d822a75f0421611e4c8abc47a6b",
+  "operators_drawn": 40,
+  "outcome_of_each": "computed by the function model of the test, a reading of 6.3 written there; where 6.3 states a behaviour without its trap text (toint on a non-integer, f64 to f32 out of range, shift overflow of <<, order of the slice conditions), the model follows the reference evaluator and says so at that line"
+ },
+ "display_sweep": "one example whose text holds every 97th Unicode scalar value (U+0000 to U+10FFFF, surrogates excluded)",
+ "targets": [
+  {"name": "rust", "how": "rustc --edition 2024 -O, native"},
+  {"name": "python", "how": "python3"},
+  {"name": "js", "how": "node"},
+  {"name": "scala", "how": "scala-cli --power package (Scala 3.10.0), java -jar; run only when scala-cli is on the path"},
+  {"name": "wasm32-wasip1", "how": "the Rust output compiled with rustc --target wasm32-wasip1 -O, run under wasmtime when installed, else Node's node:wasi with --no-turbo-fast-api-calls (see known_before_registration)"}
+ ],
+ "comparisons": {
+  "admission": "rce_spec_check::check_one on the module with its seeded examples and the display sweep returns Ok: every stated outcome holds in the reference evaluator (spec 6.9, W-INT-1)",
+  "line_for_line": "the lines of the target's standard output equal emit::observe of the module, line by line",
+  "byte_for_byte": "the target's whole standard output equals the observation lines each ended by one line feed, byte for byte",
+  "d_heads": "run with --trace, the target prints one line 'trace HEAD' after each example, and the sequence of heads equals the hash of the last entry of each log of interp::form_json (64 zeros for a log with no entry)"
+ },
+ "pass_criterion": "admission holds; rust, python and js run; every target that runs meets line_for_line, byte_for_byte and d_heads. A target that cannot run is recorded as skipped with its reason and is never counted as agreeing.",
+ "command": "rce/bench/emit-edges/run.sh [OUT_DIR]: fetches run_commit into a new temporary directory, runs cargo test --release --test emit_edges there with RCE_EMIT_EDGES_OUT set, and writes results/ (test.log, examples.jsonl, module.rce, targets.jsonl, summary.json, summary.json.sha256)",
+ "summary_digest": "the SHA-256 of results/summary.json as summarize.py writes it (canonical JSON of the host-independent fields: the reference counts and digests, and the names of the targets that agree, are skipped or have no agreement). It is reproduced on a host where the same targets run.",
+ "rows": "results/examples.jsonl: one row per example (660), with its source line, its reference observation lines and its head of D; results/targets.jsonl: one row per target, with the tool, the outcome and the digests of what it printed",
+ "environment": {
+  "host": "Linux x86_64, 4 cores shared with other jobs; cargo with CARGO_BUILD_JOBS=2 and the shared target directory /home/user/rce/spec/checker/target",
+  "rust": "1.98.1, pinned by spec/checker/rust-toolchain.toml, with the wasm32-wasip1 standard library added by rustup for this track",
+  "python": "3.13.16",
+  "node": "v22.22.0",
+  "absent": "scala-cli (the scala target is recorded as skipped); wasmtime (node:wasi runs wasm32-wasip1)"
+ },
+ "known_before_registration": [
+  "Development runs of the test on the run host, at uncommitted states of the branch, before this file was written. They found two differences between targets and the reference, both fixed in run_commit: (1) the text display: the reference and the Rust runtime used Rust's {:?}, whose escapes depend on the toolchain's Unicode tables, and Python and JavaScript printed 31 of 1,965 observation lines differently; (2) SIZE_LIMIT: the four runtimes did not apply it to [x; n] (and to list comprehensions), so rust, python, js and wasm32-wasip1 held a list of 1,000,001 elements where the reference ends the step with trap(size limit).",
+  "One defect of the WASI host, not of an emitter: Node v22.22.0 ends with SIGSEGV on a WASI call made after the wasm memory has grown by tens of MB while V8 calls the WASI functions through its fast API path; --no-turbo-fast-api-calls turns that path off.",
+  "One gap between spec and reference that no target shows, since every target agrees with the reference: VALUE_LIMIT (6.3 N9, a value written to state at most 1,048,576 bytes of canonical JSON) is enforced by neither the reference evaluator nor any runtime. It is not part of this test.",
+  "The last development run, on the content of run_commit, recorded: module admitted; rust, python, js and wasm32-wasip1 agree on 1,980 observation lines (181,183 bytes) and 660 heads of D; scala skipped (scala-cli not found).",
+  "This registration is therefore not blind: it fixes the commit, the module, the seed, the comparisons and the command, so that the registered run from a clean clone can be compared with them."
+ ]
+}
