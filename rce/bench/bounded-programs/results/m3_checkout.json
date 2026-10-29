@@ -1,0 +1,135 @@
+{
+ "fit_check_s": {
+  "intercept": 0.0017,
+  "r2": 0.87075,
+  "slope_per_option": 0.000247
+ },
+ "fit_form_bytes": {
+  "intercept": 5458.2083,
+  "r2": 0.99996,
+  "slope_per_option": 1347.367473
+ },
+ "fit_source_bytes": {
+  "intercept": 469.0833,
+  "r2": 0.99996,
+  "slope_per_option": 180.552151
+ },
+ "repo_checkout_is_generated_40": true,
+ "rows": [
+  {
+   "check_wall_s_all": [
+    0.0052,
+    0.0038,
+    0.0056,
+    0.0074,
+    0.0039
+   ],
+   "check_wall_s_median": 0.0052,
+   "dim_behaviours": 64,
+   "dim_bound_reached": false,
+   "dim_rc": 0,
+   "dim_states": 64,
+   "dim_tail": "",
+   "dim_wall_s": 0.0115,
+   "form_bytes": 12326,
+   "form_rc": 0,
+   "options": 5,
+   "source_bytes": 1393,
+   "source_lines": 56,
+   "test_out": "me-user/b95ad116-a306-5002-8c8a-21e9239340a2/scratchpad/bp-work/checkout5.rce (3 examples, 0 checks)\n1 passed, 0 failed\n",
+   "test_rc": 0
+  },
+  {
+   "check_wall_s_all": [
+    0.0215,
+    0.0051,
+    0.0051,
+    0.0039,
+    0.0084
+   ],
+   "check_wall_s_median": 0.0051,
+   "dim_behaviours": 4096,
+   "dim_bound_reached": false,
+   "dim_rc": 0,
+   "dim_states": 4096,
+   "dim_tail": "",
+   "dim_wall_s": 1.9673,
+   "form_bytes": 18538,
+   "form_rc": 0,
+   "options": 10,
+   "source_bytes": 2217,
+   "source_lines": 90,
+   "test_out": "e-user/b95ad116-a306-5002-8c8a-21e9239340a2/scratchpad/bp-work/checkout10.rce (3 examples, 0 checks)\n1 passed, 0 failed\n",
+   "test_rc": 0
+  },
+  {
+   "check_wall_s_all": [
+    0.0109,
+    0.006,
+    0.0059,
+    0.0097,
+    0.0046
+   ],
+   "check_wall_s_median": 0.006,
+   "dim_behaviours": null,
+   "dim_bound_reached": null,
+   "dim_rc": 0,
+   "dim_states": null,
+   "dim_tail": "tRegion9(255): trap: refinement: value is outside Region\",\"SetRegion13(255): trap: refinement: value is outside Region\",\"SetRegion17(255): trap: refinement: value is outside Region\"],\"states\":100000}\n",
+   "dim_wall_s": 177.5008,
+   "form_bytes": 32612,
+   "form_rc": 0,
+   "options": 20,
+   "source_bytes": 4111,
+   "source_lines": 167,
+   "test_out": "e-user/b95ad116-a306-5002-8c8a-21e9239340a2/scratchpad/bp-work/checkout20.rce (3 examples, 0 checks)\n1 passed, 0 failed\n",
+   "test_rc": 0
+  },
+  {
+   "check_wall_s_all": [
+    0.0075,
+    0.007,
+    0.0069,
+    0.0068,
+    0.0069
+   ],
+   "check_wall_s_median": 0.0069,
+   "dim_behaviours": null,
+   "dim_bound_reached": null,
+   "dim_rc": 0,
+   "dim_states": null,
+   "dim_tail": "Region29(255): trap: refinement: value is outside Region\",\"SetRegion33(255): trap: refinement: value is outside Region\",\"SetRegion37(255): trap: refinement: value is outside Region\"],\"states\":100000}\n",
+   "dim_wall_s": 754.3701,
+   "form_bytes": 59487,
+   "form_rc": 0,
+   "options": 40,
+   "source_bytes": 7706,
+   "source_lines": 312,
+   "test_out": "e-user/b95ad116-a306-5002-8c8a-21e9239340a2/scratchpad/bp-work/checkout40.rce (3 examples, 0 checks)\n1 passed, 0 failed\n",
+   "test_rc": 0
+  },
+  {
+   "check_wall_s_all": [
+    0.0239,
+    0.0195,
+    0.0241,
+    0.0201,
+    0.0238
+   ],
+   "check_wall_s_median": 0.0238,
+   "dim_behaviours": null,
+   "dim_bound_reached": null,
+   "dim_rc": "timeout",
+   "dim_states": null,
+   "dim_tail": "",
+   "dim_wall_s": 900.4225,
+   "form_bytes": 113170,
+   "form_rc": 0,
+   "options": 80,
+   "source_bytes": 14904,
+   "source_lines": 602,
+   "test_out": "e-user/b95ad116-a306-5002-8c8a-21e9239340a2/scratchpad/bp-work/checkout80.rce (3 examples, 0 checks)\n1 passed, 0 failed\n",
+   "test_rc": 0
+  }
+ ]
+}

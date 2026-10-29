@@ -1,0 +1,9 @@
+# A recursion whose written measure W-DEC-1 accepts, with no `bound`:
+# does `decreases` alone admit it under W-REC-1?
+fn f(n: u64) -> u64
+    decreases n
+    if n == 0
+        return 0
+    return f(n - 1) + 1
+
+check f(5) == 5

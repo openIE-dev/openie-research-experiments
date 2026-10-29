@@ -1,0 +1,45 @@
+{
+ "id": "rce-bounded-programs-2026-10-29",
+ "registered": "2026-10-29 (before the registered run; after pilot runs made while writing the programs, whose observations are listed under pilot)",
+ "critiques": {
+  "2": "State explosion: 40 independent flags give 2^40 states.",
+  "3": "Fuel: bounded loops turn non-termination into a step-count failure; event loops, schedulers, parsers of arbitrarily nested input, SAT solvers."
+ },
+ "engine": "openIE-dev/rce main at 8ce91cea, rce built in release mode from spec/checker (the binary of the coordinator, bin-main/rce); no Rust is changed by this work",
+ "programs": "openIE-dev/rce branch claude/bounded-programs at 4fff2483: programs/text/json_nest.rce, programs/text/change/json_descent.rce, programs/systems/accounts.rce, programs/money/checkout.rce, programs/science/graph.rce, programs/science/dpll.rce",
+ "harness": {
+  "command": "python3 tools/run_bench.py RCE programs/ results/ WORK m1 m2 m3 m4",
+  "sha256": {
+   "drive.py": "025272b0e559500e833f9dcdd147fc18b322f548ede5c1886c36075f5fb9ab28",
+   "gen_checkout.py": "75801644b36cf9ea775f52fa5c9bb5e791f46747a92c9abef9913077781fd57a",
+   "gen_events.py": "3d49fcfbc7edf8f92996cf7c72bc232c84524683d069820ccb84a0aec83a5397",
+   "json_descent_bound.rce": "65da2912e94bf27de21fa85311d4cc70c90f87b43ecac8273929f7c9289c73f5",
+   "run_bench.py": "440721e1a6d7c3de02bd91bc65b56f115dd0e3f6b7146ce7452f1fc3bab36b03"
+  }
+ },
+ "measurements": {
+  "M1_nested_input": "json_nest.rce: wall time of rce check and rce test (median of 3); for each depth d in {1, 10, 100, 1000, 2000, 4000}, rce run of a driver (the program without its check lines, plus fn main) emitting loop_depth(nest(d)) and loop_depth(unclosed(d)); depth_of(nest(d)) (structural recursion over the parsed tree) for d in {1, 10, 100, 1000, 2000}; loop_depth of a flat array of w numbers for w in {1000, 4000, 16000}; wall time (median of 3, one run above 2000) and peak RSS; the verdict of rce check on change/json_descent.rce; the smallest depth at which rce test of `check depth_of(nest(d)) == d` aborts natively (bisection on 100..4000, resolution 10); the capped recursive descent tools/json_descent_bound.rce (bound 2000) run at depths 1000, 1999, 2000",
+  "M2_service": "accounts.rce under rce host serve, driven in lockstep by tools/drive.py (write one event line, wait for its Display reply: 'ok' or 'kept SEQ CAUSE' from the delivered StepKept), 100,000 events from tools/gen_events.py (LCG seed 12345: 256 Open, then 40% Deposit, 55% Transfer, 3% Fee over all accounts, 2% Open); per-event latency; median, p90, p99, max and mean per block of 10,000; the log D: entries, bytes, the count of host.StepKept entries and, for each, whether the kept entry's state_hash equals the state_hash of the entry before it (T8); the pure step without the host: rce trace --json --streams over the first 25,000, 50,000 and 100,000 events in one stream",
+  "M3_options": "tools/gen_checkout.py with N in {5, 10, 20, 40, 80} options in one record state (flag, refined tax region, inventory hold count, promo code, in turn; Place emits a total of one term per option): source lines and bytes, rce test verdict, rce check wall time (median of 5), bytes of rce emit form, rce dim --json (states explored, behaviours, bound reached, wall time) at the default exploration bound; least-squares lines of form bytes, source bytes and check time on N, with R^2",
+  "M4_search": "graph.rce (Dijkstra, BFS) and dpll.rce: the count of bound clauses and decreases lines written, rce test time; far(n) and far_hops(n) on a path of n vertices for n in {100, 200, 400, 800}; DPLL on the pigeonhole formula PHP(m+1, m) for m in {2, 3, 4, 5} (timeout 900 s) and on n tautological two-literal clauses for n = 63 and 64"
+ },
+ "hypotheses": {
+  "H1_parser_without_fuel": "json_nest.rce is admitted with no bound, decreases or LOOP_LIMIT written, and returns the right depth at d = 1, 10, 100, 1000 and the right failure position on each malformed input. Falsified by any wrong value, or by a trap of the evaluator (fuel, size, evaluation depth) at d <= 1000.",
+  "H1b_descent": "Recursive descent over a position (change/json_descent.rce) requires change under W-REC-1, and the only rule of 6.7 that admits it is a declared bound (a literal cap on active calls), so recursive descent of unbounded depth is not expressible. Falsified if json_descent.rce is admitted, or if `decreases` alone admits a recursive function.",
+  "H1c_cost": "Prediction from the pilot: the loop parser's run time grows faster than linearly in depth (the reference interpreter copies a value on each move), and linearly in width. Recorded, not a pass/fail claim about the language: the work the program does is linear; the measured cost is the interpreter's.",
+  "H2_service": "Over 100,000 events the per-block median latency of the last block is within 25% of the second block (the first holds the 256 account openings), and no block median rises monotonically by more than 25% across the run. Every host.StepKept names an entry whose state_hash equals the entry before it (0 violations). Falsified by a block median more than 25% above the second block's, or by one T8 violation.",
+  "H3_options_linear": "Form bytes and check time are linear in N: R^2 of the least-squares line >= 0.98 for form bytes and >= 0.95 for check time, and form(80)/form(40) within 1.6 to 2.4. Falsified by growth like 2^N in either. Prediction for rce dim: states explored double per option until the default bound is reached (expected at N >= 17); dim is an explicit-state count and is expected to be exponential; this is reported, not hidden.",
+  "H4_search_tax": "Dijkstra in array form needs no written bound; BFS needs one bound (the queue); DPLL needs one literal bound on recursion and traps on 64 tautological variables (prediction from the pilot). Reported as the expressiveness cost."
+ },
+ "pilot": [
+  "json_nest.rce: rce run of the loop parser at depth 400, 800, 1600, 3200 took 0.24, 0.77, 4.7 and 25 s (superlinear); depth_of at depth 1000 under rce run took 5 s and 2.1 GB RSS",
+  "rce test of check depth_of(nest(d)) == d aborted with a native stack overflow (SIGABRT, 'thread main has overflowed its stack') near d = 800 to 900; gdb shows the recursion in V::clone of a deep kind value",
+  "a first version that kept the open containers as a list of lists was also superlinear; the registered version keeps one flat stack",
+  "accounts.rce: 2,000 lockstep events under rce host serve: median 4.0 ms per event",
+  "dpll.rce: taut(63) true, taut(64) stopped: trap: recursion bound",
+  "a `decreases` clause alone does not admit a recursive function (W-REC-1 asks for a structural measure or `bound`)",
+  "checkout generator: rce dim states explored 2, 4, 16, 32, 64, 128 for N = 1..6"
+ ],
+ "falsifiers_reported_as_found": "any hypothesis above that fails is reported as failed in RESULTS.md with its numbers; no rerun replaces a registered run unless the harness crashed, and a crash and the fix are listed",
+ "limits": "one machine (the session's Linux container, shared with other agents, so wall times carry load noise); the lockstep latency includes the pipe round trip and the host's durable append; the reference interpreter is measured, not an emitted target"
+}
