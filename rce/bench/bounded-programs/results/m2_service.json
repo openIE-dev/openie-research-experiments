@@ -1,0 +1,174 @@
+{
+ "blocks": [
+  {
+   "block": 0,
+   "events": [
+    0,
+    10000
+   ],
+   "max_us": 65865.923,
+   "mean_us": 4712.1561323999995,
+   "median_us": 4000.18,
+   "p90_us": 7984.59,
+   "p99_us": 14333.935
+  },
+  {
+   "block": 1,
+   "events": [
+    10000,
+    20000
+   ],
+   "max_us": 25397.272,
+   "mean_us": 4371.626044,
+   "median_us": 3998.239,
+   "p90_us": 4527.694,
+   "p99_us": 12027.984
+  },
+  {
+   "block": 2,
+   "events": [
+    20000,
+    30000
+   ],
+   "max_us": 47114.201,
+   "mean_us": 4591.4271507,
+   "median_us": 3999.604,
+   "p90_us": 7070.913,
+   "p99_us": 12039.313
+  },
+  {
+   "block": 3,
+   "events": [
+    30000,
+    40000
+   ],
+   "max_us": 48102.123,
+   "mean_us": 4804.9789714,
+   "median_us": 4001.746,
+   "p90_us": 7997.146,
+   "p99_us": 15975.227
+  },
+  {
+   "block": 4,
+   "events": [
+    40000,
+    50000
+   ],
+   "max_us": 64227.225,
+   "mean_us": 5274.2108722,
+   "median_us": 4005.061,
+   "p90_us": 8064.661,
+   "p99_us": 19818.338
+  },
+  {
+   "block": 5,
+   "events": [
+    50000,
+    60000
+   ],
+   "max_us": 52424.309,
+   "mean_us": 4747.094544099999,
+   "median_us": 4000.69,
+   "p90_us": 7989.914,
+   "p99_us": 15981.544
+  },
+  {
+   "block": 6,
+   "events": [
+    60000,
+    70000
+   ],
+   "max_us": 56045.078,
+   "mean_us": 4863.5108542,
+   "median_us": 4002.006,
+   "p90_us": 8001.47,
+   "p99_us": 15988.595
+  },
+  {
+   "block": 7,
+   "events": [
+    70000,
+    80000
+   ],
+   "max_us": 46148.934,
+   "mean_us": 4536.5541017000005,
+   "median_us": 4000.006,
+   "p90_us": 7567.021,
+   "p99_us": 12029.647
+  },
+  {
+   "block": 8,
+   "events": [
+    80000,
+    90000
+   ],
+   "max_us": 43983.397,
+   "mean_us": 4323.7410763,
+   "median_us": 3997.415,
+   "p90_us": 4503.784,
+   "p99_us": 12007.528
+  },
+  {
+   "block": 9,
+   "events": [
+    90000,
+    100000
+   ],
+   "max_us": 38217.951,
+   "mean_us": 4333.940239799999,
+   "median_us": 3996.936,
+   "p90_us": 4106.441,
+   "p99_us": 12010.209
+  }
+ ],
+ "driver_wall_s": 548.68,
+ "entry_types": {
+  "Deposit": 39895,
+  "Fee": 2957,
+  "Open": 2261,
+  "StepKept": 17766,
+  "Transfer": 54887,
+  "host.Bind": 1,
+  "host.FabricCaps": 1,
+  "host.StepKept": 17766,
+  "host.StorageCaps": 1,
+  "host.Synced": 100001
+ },
+ "events": 100000,
+ "host_stderr_tail": "st: seq 235492 kept (fail)\nrce host: seq 235496 kept (fail)\nrce host: seq 235504 kept (fail)\nrce host: seq 235510 kept (fail)\nrce host: seq 235524 kept (fail)\nrce host: seq 235528 kept (fail)\nrce host: validated 235536 entries, 17766 kept: replay with adapters disconnected gives the live state_hash\n",
+ "host_tail": "\ndurable 235534 entries=235536 state_hash 61e8f7eb3a76497a59934cfea0a6dffc0bd9e96c858b92ab62995bd271e58d09\n",
+ "kept_entries": 17766,
+ "kept_replies": 17766,
+ "log_bytes": 73067467,
+ "log_entries": 235536,
+ "program": "programs/systems/accounts.rce",
+ "rc": 0,
+ "t8_state_unchanged": 17766,
+ "t8_violations": [],
+ "trace": [
+  {
+   "bytes": 1239741,
+   "events": 25000,
+   "rc": 0,
+   "stderr": "",
+   "us_per_event": 21.41,
+   "wall_s": 0.535
+  },
+  {
+   "bytes": 2146981,
+   "events": 50000,
+   "rc": 0,
+   "stderr": "",
+   "us_per_event": 18.59,
+   "wall_s": 0.93
+  },
+  {
+   "bytes": 3960600,
+   "events": 100000,
+   "rc": 0,
+   "stderr": "",
+   "us_per_event": 17.4,
+   "wall_s": 1.74
+  }
+ ]
+}

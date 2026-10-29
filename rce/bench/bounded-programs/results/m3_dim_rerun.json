@@ -1,0 +1,21 @@
+[
+ {
+  "options": 20,
+  "wall_s": 235.56,
+  "rc": 0,
+  "states": 100000,
+  "behaviours": 100000,
+  "bound_reached": true,
+  "skipped": 5
+ },
+ {
+  "options": 40,
+  "wall_s": 1048,
+  "rc": 0,
+  "states": 100000,
+  "behaviours": 95045,
+  "bound_reached": true,
+  "skipped": 10,
+  "note": "second rerun: the first rerun of N=40 printed nothing on stdout (exit status not recorded) under a load average near 370; this run wrote stdout to a file"
+ }
+]
