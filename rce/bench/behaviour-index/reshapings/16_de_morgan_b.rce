@@ -1,0 +1,17 @@
+state G
+    a: bool = false
+    b: bool = false
+
+event FlipA
+event FlipB
+
+error Blocked
+
+step G on FlipA
+    a = not a
+    if not a or not b
+        emit a
+    else
+        fail Blocked
+step G on FlipB
+    b = not b

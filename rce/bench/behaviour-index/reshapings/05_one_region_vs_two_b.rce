@@ -1,0 +1,15 @@
+state PartA
+    a: u64 = 0
+
+state PartB
+    b: u64 = 0
+
+event IncA
+event IncB
+
+step PartA on IncA
+    a = (a + 1) % 3
+    emit a
+step PartB on IncB
+    b = (b + 1) % 2
+    emit b

@@ -1,0 +1,13 @@
+state Acc
+    last: u64 = 0
+
+event Ask(k: u8)
+
+fn tri(k: u64) -> u64 bound 300
+    if k == 0
+        return 0
+    return k + tri(k - 1)
+
+step Acc on Ask(k: k)
+    last = tri(k as u64)
+    emit last

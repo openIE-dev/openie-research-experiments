@@ -1,0 +1,8 @@
+state D
+    x: u64 = 0
+
+event Set(v: u8)
+
+step D on Set(v: v)
+    x = v as u64 + v as u64
+    emit x

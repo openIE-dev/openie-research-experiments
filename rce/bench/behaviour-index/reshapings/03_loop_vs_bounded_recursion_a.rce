@@ -1,0 +1,14 @@
+state Acc
+    last: u64 = 0
+
+event Ask(k: u8)
+
+fn tri(k: u64) -> u64
+    var s: u64 = 0
+    for i in 0..k
+        s += i + 1
+    return s
+
+step Acc on Ask(k: k)
+    last = tri(k as u64)
+    emit last

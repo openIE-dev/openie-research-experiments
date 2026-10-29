@@ -1,0 +1,15 @@
+state V
+    x: i64 = 0
+
+event Put(v: i8)
+
+error Zero
+error Negative
+
+step V on Put(v: v) if v == 0
+    fail Zero
+step V on Put(v: v) if v < 0
+    fail Negative
+step V on Put(v: v)
+    x = (x + v as i64) % 10
+    emit x

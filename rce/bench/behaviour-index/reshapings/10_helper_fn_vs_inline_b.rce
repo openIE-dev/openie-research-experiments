@@ -1,0 +1,9 @@
+state S
+    total: u64 = 0
+
+event Add(v: u8)
+
+step S on Add(v: v)
+    let c = if v as u64 > 100 then 100 else v as u64
+    total = (total + c) % 7
+    emit total

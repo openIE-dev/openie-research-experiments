@@ -1,0 +1,13 @@
+state Pair
+    b: u64 = 0
+    a: u64 = 0
+
+event IncA
+event IncB
+
+step Pair on IncA
+    a = (a + 1) % 3
+    emit a
+step Pair on IncB
+    b = (b + 1) % 2
+    emit b

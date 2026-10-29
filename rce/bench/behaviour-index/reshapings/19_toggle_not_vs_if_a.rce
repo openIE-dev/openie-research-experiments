@@ -1,0 +1,8 @@
+state Lamp
+    lit: bool = false
+
+event Press
+
+step Lamp on Press
+    lit = not lit
+    emit lit

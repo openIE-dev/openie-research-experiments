@@ -1,0 +1,8 @@
+state C
+    n: u64 = 0
+
+event Inc
+
+step C on Inc
+    n = (n + 1) % 4
+    emit n == 0
