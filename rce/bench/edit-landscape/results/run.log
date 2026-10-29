@@ -1,0 +1,192 @@
+family 0 spec/examples/01_counter.rce: 1838 evaluations, 26.3 s
+family 1 spec/examples/04_bank_account.rce: 2071 evaluations, 28.6 s
+family 2 spec/examples/17_traffic_light.rce: 2310 evaluations, 33.7 s
+family 3 spec/examples/30_state_machine_guarded.rce: 2307 evaluations, 34.3 s
+family 5 spec/examples/52_context_text.rce: 1877 evaluations, 27.8 s
+family 4 spec/examples/51_refined_input.rce: 2138 evaluations, 29.8 s
+family 7 spec/examples/54_secret.rce: 1998 evaluations, 28.9 s
+family 6 spec/examples/53_capability.rce: 2322 evaluations, 32.1 s
+family 9 spec/examples/56_utf8.rce: 1626 evaluations, 26.6 s
+family 8 spec/examples/55_rcedb.rce: 2077 evaluations, 32.2 s
+family 10 spec/examples/57_float_vectors.rce: 1691 evaluations, 28.8 s
+family 11 spec/examples/58_float_keys.rce: 1994 evaluations, 29.2 s
+family 13 spec/examples/60_dim_hidden_period.rce: 907 evaluations, 12.6 s
+family 12 spec/examples/59_dim_redundant_field.rce: 1788 evaluations, 25.9 s
+family 17 programs/ecosystem/hpke.rce: 0 evaluations, 0 s
+family 18 programs/ecosystem/mls_key_schedule.rce: 0 evaluations, 0 s
+family 14 spec/examples/61_dim_minimal.rce: 2453 evaluations, 33.2 s
+family 15 programs/body/arm.rce: 2176 evaluations, 28.7 s
+family 16 programs/body/thermostat.rce: 2108 evaluations, 28.5 s
+family 20 programs/money/account.rce: 1998 evaluations, 27.2 s
+family 21 programs/money/ledger.rce: 2013 evaluations, 27.4 s
+family 22 programs/multi/card.rce: 1816 evaluations, 24.0 s
+family 24 programs/multi/crossing.rce: 2010 evaluations, 32.6 s
+family 23 programs/multi/climate.rce: 2386 evaluations, 38.6 s
+family 25 programs/multi/elevator.rce: 2651 evaluations, 44.6 s
+family 26 programs/multi/lobby.rce: 2135 evaluations, 32.7 s
+family 27 programs/multi/parking.rce: 2310 evaluations, 36.7 s
+family 28 programs/multi/player.rce: 2581 evaluations, 39.7 s
+family 29 programs/multi/printer.rce: 2456 evaluations, 35.3 s
+family 30 programs/multi/reservoir.rce: 2136 evaluations, 29.8 s
+family 31 programs/multi/session.rce: 1817 evaluations, 23.8 s
+family 33 programs/multi/washer.rce: 2011 evaluations, 26.7 s
+family 35 programs/network/notes_http.rce: 0 evaluations, 0 s
+family 34 programs/network/handshake.rce: 2011 evaluations, 26.5 s
+family 32 programs/multi/vending.rce: 2641 evaluations, 36.2 s
+family 38 programs/text/word_count.rce: 1728 evaluations, 21.2 s
+family 36 programs/systems/reconcile.rce: 2291 evaluations, 30.9 s
+family 37 programs/systems/ring_buffer.rce: 2139 evaluations, 27.7 s
+family 39 programs/world/cellular_automaton.rce: 1878 evaluations, 23.5 s
+family 40 programs/world/queue_sim.rce: 2001 evaluations, 22.7 s
+family 19 programs/ecosystem/pqxdh.rce: 1886 evaluations, 339.2 s
+family 42 apps/sfu.rce: 1758 evaluations, 27.9 s
+family 44 book/listings/ch04/counter.rce: 1905 evaluations, 26.2 s
+family 43 apps/terminal.rce: 1886 evaluations, 60.7 s
+family 45 book/listings/ch05/door.rce: 2360 evaluations, 32.8 s
+family 46 book/listings/ch06/account.rce: 1876 evaluations, 25.7 s
+family 47 book/listings/ch10/cart.rce: 2073 evaluations, 27.7 s
+family 48 book/listings/ch16/hello_http.rce: 1950 evaluations, 27.8 s
+family 49 conformance/tests/host-contract/harvested/chan-accept.rce: 1820 evaluations, 30.2 s
+family 50 conformance/tests/host-contract/harvested/echo-accept.rce: 1757 evaluations, 26.5 s
+family 51 conformance/tests/host-contract/harvested/files-accept.rce: 1566 evaluations, 26.9 s
+family 52 conformance/tests/host-contract/harvested/foreign-accept.rce: 2011 evaluations, 30.9 s
+family 53 conformance/tests/host-contract/harvested/media-accept.rce: 1822 evaluations, 32.0 s
+family 54 conformance/tests/host-contract/harvested/net-accept.rce: 1437 evaluations, 30.1 s
+family 55 conformance/tests/host-contract/harvested/priority-accept.rce: 1555 evaluations, 20.0 s
+family 56 conformance/tests/host-contract/harvested/pty-accept.rce: 1565 evaluations, 25.5 s
+family 57 conformance/tests/host-contract/harvested/records-accept.rce: 1691 evaluations, 24.0 s
+family 41 apps/chat.rce: 1310 evaluations, 261.0 s
+family 58 conformance/tests/host-contract/harvested/ticked-accept.rce: 1982 evaluations, 20.5 s
+{
+ "commit": "0cb1a2a7",
+ "seed": "0x5eedc0de0004",
+ "families": 56,
+ "excluded": [
+  {
+   "path": "programs/ecosystem/hpke.rce",
+   "excluded": "the original cannot be traced on its probes",
+   "source_sha256": "8e64401e16160ca06c15faa07d3628b2e9c83dc9eeebdb25391f60ac59c88e13"
+  },
+  {
+   "path": "programs/ecosystem/mls_key_schedule.rce",
+   "excluded": "the original cannot be traced on its probes",
+   "source_sha256": "6c03f2d25fb037b3f4867b7dbff2b6ac0a9c415f0bbf8bfa6e773c26920148e5"
+  },
+  {
+   "path": "programs/network/notes_http.rce",
+   "excluded": "the original cannot be traced on its probes",
+   "source_sha256": "263df4a3a3f781ced05e7976650cb336b4a8a2d24d928dae9a61a60790f7e20a"
+  }
+ ],
+ "points": 1680,
+ "descents": 1008,
+ "edits_by_class": {
+  "rename": 1616,
+  "operator": 20,
+  "literal": 28,
+  "type": 16
+ },
+ "outcomes_by_d": {
+  "1": {
+   "admitted_equal": 9,
+   "admitted_differs": 4,
+   "requires_change_examples": 17,
+   "requires_change": 306
+  },
+  "2": {
+   "admitted_equal": 2,
+   "admitted_differs": 0,
+   "requires_change_examples": 3,
+   "requires_change": 331
+  },
+  "3": {
+   "admitted_equal": 0,
+   "admitted_differs": 0,
+   "requires_change_examples": 1,
+   "requires_change": 335
+  },
+  "4": {
+   "admitted_equal": 0,
+   "admitted_differs": 0,
+   "requires_change_examples": 0,
+   "requires_change": 336
+  },
+  "5": {
+   "admitted_equal": 0,
+   "admitted_differs": 0,
+   "requires_change_examples": 0,
+   "requires_change": 336
+  }
+ },
+ "flip_rate": 0.2,
+ "transitions": 1680,
+ "flips_admitted_to_change": 336,
+ "flips_change_to_admitted": 0,
+ "d1_requires_change_share": 0.9613,
+ "mean_energy_by_d": {
+  "0": 0.0,
+  "1": 2.8215,
+  "2": 3.749,
+  "3": 4.3472,
+  "4": 4.744,
+  "5": 5.128
+ },
+ "mean_energy_nondecreasing": true,
+ "spearman_E_d": 0.5601,
+ "H11_primary_share_nondecreasing": 0.7679,
+ "H11_secondary_share_spearman_positive": 1.0,
+ "H11": "against",
+ "descent": {
+  "1": {
+   "n": 336,
+   "success": 81,
+   "reached_admitted": 85,
+   "end_is_original": 65,
+   "already_admitted_equal_at_start": 9,
+   "success_rate": 0.2411
+  },
+  "3": {
+   "n": 336,
+   "success": 7,
+   "reached_admitted": 9,
+   "end_is_original": 5,
+   "already_admitted_equal_at_start": 0,
+   "success_rate": 0.0208
+  },
+  "5": {
+   "n": 336,
+   "success": 2,
+   "reached_admitted": 4,
+   "end_is_original": 1,
+   "already_admitted_equal_at_start": 0,
+   "success_rate": 0.006
+  }
+ },
+ "RJ-F4": "observed",
+ "rule_counts": {
+  "W-NAME-1": 1149,
+  "W-TY-1": 1035,
+  "W-STEP-1": 812,
+  "W-STEP-2": 601,
+  "W-UNUSED-1": 507,
+  "W-PLACE": 418,
+  "W-NAME-2": 395,
+  "W-NAME-3": 103,
+  "W-SYN-1": 70,
+  "W-TRAIT-3": 42,
+  "W-MATCH-1": 40,
+  "W-STEP-4": 34,
+  "W-MATCH-2": 23,
+  "W-INT-1": 21,
+  "W-TY-3": 14,
+  "W-CTX-1": 11,
+  "W-CAP-2": 10,
+  "W-OWN-1": 10,
+  "W-REF-1": 9,
+  "W-CAP-1": 9,
+  "W-PAT-1": 5,
+  "W-STATE-1": 5,
+  "W-ASSIGN-1": 2
+ },
+ "rce_cpu_s": 2190.6
+}

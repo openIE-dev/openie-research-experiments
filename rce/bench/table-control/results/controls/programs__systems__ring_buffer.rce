@@ -1,0 +1,83 @@
+# A fixed-size ring buffer, the kind used in drivers and logs. Pushing into
+# a full buffer keeps the state rather than overwriting data.
+intent "a ring buffer that never loses data silently"
+    example Push(v: 1), Push(v: 2), Pop -> head == 1 and count == 1
+    example Pop -> kept: Empty
+    example Push(v: 1), Push(v: 2), Push(v: 3), Push(v: 4), Push(v: 5) -> kept: Full
+
+state Ring
+    tblpos: u64 = 0
+    slots: [i64; 4] = [0; 4]
+    head: usize = 0
+    count: usize = 0
+
+event Push(v: i64)
+event Pop
+
+error Full
+error Empty
+
+struct Popped
+    v: i64
+
+step Ring on Push(v: _) if (count == 4) and (tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 5 or tblpos == 6)
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 5
+    elif tblpos == 5
+        tblpos = 6
+    elif tblpos == 6
+        tblpos = 7
+    fail Full
+step Ring on Push(v: v) if tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 5 or tblpos == 6
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 5
+    elif tblpos == 5
+        tblpos = 6
+    elif tblpos == 6
+        tblpos = 7
+    slots[(head + count) % 4] = v
+    count += 1
+step Ring on Push(v: _) if tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 5 or tblpos == 6
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 5
+    elif tblpos == 5
+        tblpos = 6
+    elif tblpos == 6
+        tblpos = 7
+step Ring on Push(v: _)
+    fail TblOff
+step Ring on Pop if (count == 0) and (tblpos == 2 or tblpos == 0)
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 0
+        tblpos = 4
+    fail Empty
+step Ring on Pop if tblpos == 2 or tblpos == 0
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 0
+        tblpos = 4
+    emit Popped(v: slots[head])
+    head = (head + 1) % 4
+    count -= 1
+step Ring on Pop if tblpos == 2 or tblpos == 0
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 0
+        tblpos = 4
+step Ring on Pop
+    fail TblOff
+
+error TblOff

@@ -1,0 +1,73 @@
+# A checkout queue simulated one event at a time: customers arrive, the
+# till serves one per Serve event, and the queue has a fixed capacity.
+intent "a bounded queue with arrivals and service"
+    example Arrive, Arrive, Serve -> waiting == 1 and served == 1
+    example Serve -> kept: Empty
+    example Arrive, Arrive, Arrive, Arrive -> kept: Full
+
+const CAPACITY: u32 = 3
+
+state Till
+    tblpos: u64 = 0
+    waiting: u32 = 0
+    served: u32 = 0
+
+event Arrive
+event Serve
+
+error Empty
+error Full
+
+step Till on Arrive if (waiting >= CAPACITY) and (tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 5)
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 5
+    elif tblpos == 5
+        tblpos = 6
+    fail Full
+step Till on Arrive if tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 5
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 5
+    elif tblpos == 5
+        tblpos = 6
+    waiting += 1
+step Till on Arrive if tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 5
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 5
+    elif tblpos == 5
+        tblpos = 6
+step Till on Arrive
+    fail TblOff
+step Till on Serve if (waiting == 0) and (tblpos == 2 or tblpos == 0)
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 0
+        tblpos = 4
+    fail Empty
+step Till on Serve if tblpos == 2 or tblpos == 0
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 0
+        tblpos = 4
+    waiting -= 1
+    served += 1
+step Till on Serve if tblpos == 2 or tblpos == 0
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 0
+        tblpos = 4
+step Till on Serve
+    fail TblOff
+
+error TblOff

@@ -1,0 +1,95 @@
+# A media player: transport and volume are separate regions. Only the
+# transport's output depends on the track; the volume changes nothing heard.
+intent "a player whose output is the track it plays"
+    example Play, Next -> track == 1
+    example Next, Next, Next -> track == 0
+    example VolUp, VolUp, VolUp -> kept: Loudest
+
+state Transport
+    tblpos: u64 = 0
+    playing: bool = false
+    track: u8 = 0
+
+state Volume
+    tblpos: u64 = 0
+    level: u8 = 1
+
+event Play
+event Pause
+event Next
+event VolUp
+event VolDown
+
+error Loudest
+error Silent
+
+step Transport on Play if tblpos == 0
+    if tblpos == 0
+        tblpos = 1
+    playing = true
+    emit track
+step Transport on Play if tblpos == 0
+    if tblpos == 0
+        tblpos = 1
+step Transport on Play
+    fail TblOff
+step Transport on Pause if tblpos == tblpos + 1
+    playing = false
+step Transport on Pause
+    fail TblOff
+step Transport on Next if tblpos == 1 or tblpos == 0 or tblpos == 3 or tblpos == 4
+    if tblpos == 1
+        tblpos = 2
+    elif tblpos == 0
+        tblpos = 3
+    elif tblpos == 3
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+    track = (track + 1) % 3
+    if playing
+        emit track
+step Transport on Next if tblpos == 1 or tblpos == 0 or tblpos == 3 or tblpos == 4
+    if tblpos == 1
+        tblpos = 2
+    elif tblpos == 0
+        tblpos = 3
+    elif tblpos == 3
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+step Transport on Next
+    fail TblOff
+step Volume on VolUp if (level >= 3) and (tblpos == 0 or tblpos == 1 or tblpos == 2)
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    fail Loudest
+step Volume on VolUp if tblpos == 0 or tblpos == 1 or tblpos == 2
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    level += 1
+step Volume on VolUp if tblpos == 0 or tblpos == 1 or tblpos == 2
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+step Volume on VolUp
+    fail TblOff
+step Volume on VolDown if (level == 0) and (tblpos == tblpos + 1)
+    fail Silent
+step Volume on VolDown if tblpos == tblpos + 1
+    level -= 1
+step Volume on VolDown
+    fail TblOff
+
+error TblOff

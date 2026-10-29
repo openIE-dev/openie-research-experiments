@@ -1,0 +1,112 @@
+# A reservoir with a pump. Rain raises the level, draws lower it, the tank
+# drains one unit on each tick, and the pump reports each tick it runs.
+# On an overflow or a dry draw the step keeps the state.
+intent "a reservoir that neither overflows nor runs dry unnoticed"
+    example Rain, Rain, Draw -> level == 3
+    example Rain, Rain, Rain -> kept: Overflow
+    example Draw, Draw, Draw -> kept: Dry
+    example Toggle, Rain, Tick -> level == 2
+
+state Tank
+    tblpos: u64 = 0
+    level: u8 = 2
+
+state Pump
+    tblpos: u64 = 0
+    running: bool = false
+
+event Rain
+event Draw
+event Toggle
+event Tick
+
+error Overflow
+error Dry
+
+step Tank on Rain if (level >= 4) and (tblpos == 0 or tblpos == 1 or tblpos == 2)
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 4
+    fail Overflow
+step Tank on Rain if tblpos == 0 or tblpos == 1 or tblpos == 2
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 4
+    level += 1
+    emit level
+step Tank on Rain if tblpos == 0 or tblpos == 1 or tblpos == 2
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 4
+step Tank on Rain
+    fail TblOff
+step Tank on Draw if (level == 0) and (tblpos == 2 or tblpos == 0 or tblpos == 5 or tblpos == 6)
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 0
+        tblpos = 5
+    elif tblpos == 5
+        tblpos = 6
+    elif tblpos == 6
+        tblpos = 7
+    fail Dry
+step Tank on Draw if tblpos == 2 or tblpos == 0 or tblpos == 5 or tblpos == 6
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 0
+        tblpos = 5
+    elif tblpos == 5
+        tblpos = 6
+    elif tblpos == 6
+        tblpos = 7
+    level -= 1
+    emit level
+step Tank on Draw if tblpos == 2 or tblpos == 0 or tblpos == 5 or tblpos == 6
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 0
+        tblpos = 5
+    elif tblpos == 5
+        tblpos = 6
+    elif tblpos == 6
+        tblpos = 7
+step Tank on Draw
+    fail TblOff
+step Pump on Toggle if tblpos == 0
+    if tblpos == 0
+        tblpos = 1
+    running = not running
+step Pump on Toggle if tblpos == 0
+    if tblpos == 0
+        tblpos = 1
+step Pump on Toggle
+    fail TblOff
+step Tank on Tick if (level > 0) and (tblpos == 1)
+    if tblpos == 1
+        tblpos = 8
+    level -= 1
+step Tank on Tick if tblpos == 1
+    if tblpos == 1
+        tblpos = 8
+step Tank on Tick
+    fail TblOff
+step Pump on Tick if (running) and (tblpos == 1)
+    if tblpos == 1
+        tblpos = 2
+    emit "pumping"
+step Pump on Tick if tblpos == 1
+    if tblpos == 1
+        tblpos = 2
+step Pump on Tick
+    fail TblOff
+
+error TblOff

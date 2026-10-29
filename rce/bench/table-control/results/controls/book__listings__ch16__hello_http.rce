@@ -1,0 +1,68 @@
+module hello_http
+
+intent "answer GET /hello with a greeting and any other request with 404; a malformed request gets the status the host names, and a step that keeps the state 500"
+    example HttpRequest(id: 5, method: "GET", target: "/hello", version: "HTTP/1.1", names: ["Host"], values: ["x"], body: []) -> answered == 1 and last == 200
+    example HttpRequest(id: 5, method: "POST", target: "/hello", version: "HTTP/1.1", names: ["Host"], values: ["x"], body: [104, 105]) -> last == 404
+    example HttpMalformed(id: 5, status: 431, why: "over 100 fields") -> last == 431
+    example StepKept(seq: 5, cause: "fuel") -> last == 500
+
+struct HttpRespond
+    req: u64
+    status: u64
+    names: List[text]
+    values: List[text]
+    body: text
+
+event HttpRequest(id: u64, method: text, target: text, version: text, names: List[text], values: List[text], body: List[i64])
+event HttpMalformed(id: u64, status: u64, why: text)
+event HttpRespondDone(req: u64, status: text, data: u64?, err: text)
+event StepKept(seq: u64, cause: text)
+
+state Greeter
+    tblpos: u64 = 0
+    answered: u64 = 0
+    last: u64 = 0
+
+fn reply(id: u64, status: u64, body: text) -> HttpRespond = HttpRespond(req: id, status: status, names: ["Content-Type"], values: ["text/plain"], body: body)
+
+step Greeter on HttpRequest(id: id, method: m, target: t, version: _, names: _, values: _, body: _) if tblpos == 0
+    if tblpos == 0
+        tblpos = 1
+    let found = m == "GET" and t == "/hello"
+    last = if found then 200 else 404
+    answered += 1
+    emit reply(id, last, if found then "hello\n" else "not found\n")
+step Greeter on HttpRequest(id: _, method: _, target: _, version: _, names: _, values: _, body: _) if tblpos == 0
+    if tblpos == 0
+        tblpos = 1
+step Greeter on HttpRequest(id: _, method: _, target: _, version: _, names: _, values: _, body: _)
+    fail TblOff
+
+step Greeter on HttpMalformed(id: id, status: st, why: w) if tblpos == 0
+    if tblpos == 0
+        tblpos = 2
+    last = st
+    emit reply(id, st, w + "\n")
+step Greeter on HttpMalformed(id: _, status: _, why: _) if tblpos == 0
+    if tblpos == 0
+        tblpos = 2
+step Greeter on HttpMalformed(id: _, status: _, why: _)
+    fail TblOff
+
+step Greeter on StepKept(seq: q, cause: c) if tblpos == 0
+    if tblpos == 0
+        tblpos = 3
+    last = 500
+    emit reply(q, 500, "kept: " + c + "\n")
+step Greeter on StepKept(seq: _, cause: _) if tblpos == 0
+    if tblpos == 0
+        tblpos = 3
+step Greeter on StepKept(seq: _, cause: _)
+    fail TblOff
+
+step Greeter on HttpRespondDone(_, _, _, _) if tblpos == tblpos + 1
+    pass
+step Greeter on HttpRespondDone(req: _, status: _, data: _, err: _)
+    fail TblOff
+
+error TblOff
