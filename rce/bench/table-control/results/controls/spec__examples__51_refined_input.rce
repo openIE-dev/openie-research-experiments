@@ -1,0 +1,61 @@
+module refined
+
+intent "input validation is a declared predicate: an event whose payload is outside its refined type has the kept outcome, state unchanged"
+    example SetVolume(pct: 40) -> level == 40
+    example Rename(name: "ok") -> name == "ok"
+    example Code(pin: "0042"), Code(pin: "9999") -> accepted == 2
+    example SetVolume(pct: 40), Rename(name: "ok") -> level == 40
+
+type Pct = u8 where self <= 100
+type Name = text where self.len() >= 1 and self.len() <= 2
+type Pin = text where self.isdigit() and self.len() == 4
+
+state Volume
+    tblpos: u64 = 0
+    level: Pct = 0
+
+state Codes
+    tblpos: u64 = 0
+    accepted: u32 = 0
+
+state Profile
+    tblpos: u64 = 0
+    name: text = "-"
+
+event SetVolume(pct: Pct)
+event Rename(name: Name)
+event Code(pin: Pin)
+
+step Volume on SetVolume(pct: p) if tblpos == 0
+    if tblpos == 0
+        tblpos = 1
+    level = p
+step Volume on SetVolume(pct: _) if tblpos == 0
+    if tblpos == 0
+        tblpos = 1
+step Volume on SetVolume(pct: _)
+    fail TblOff
+step Codes on Code(pin: _) if tblpos == 0 or tblpos == 1
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    accepted = accepted + 1
+step Codes on Code(pin: _) if tblpos == 0 or tblpos == 1
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+step Codes on Code(pin: _)
+    fail TblOff
+step Profile on Rename(name: n) if tblpos == 0
+    if tblpos == 0
+        tblpos = 1
+    name = n
+step Profile on Rename(name: _) if tblpos == 0
+    if tblpos == 0
+        tblpos = 1
+step Profile on Rename(name: _)
+    fail TblOff
+
+error TblOff

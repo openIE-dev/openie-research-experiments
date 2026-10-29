@@ -1,0 +1,153 @@
+# A bank card: a PIN region that locks after three wrong entries, and an
+# account region in whole units. A withdrawal needs an unlocked card.
+intent "a card that locks after three wrong PINs and never overdraws"
+    example Enter(ok: true), Withdraw -> balance == 2
+    example Enter(ok: false), Enter(ok: false), Enter(ok: false), Enter(ok: true) -> kept: Locked
+    example Withdraw, Withdraw, Withdraw, Withdraw -> kept: Insufficient
+    example Deposit, Deposit, Deposit -> kept: Limit
+
+state Pin
+    tblpos: u64 = 0
+    tries: u8 = 0
+    locked: bool = false
+
+state Account
+    tblpos: u64 = 0
+    balance: u8 = 3
+
+event Enter(ok: bool)
+event Withdraw
+event Deposit
+
+error Locked
+error Insufficient
+error Limit
+
+step Pin on Enter(ok: _) if (locked) and (tblpos == 0 or tblpos == 1 or tblpos == 3 or tblpos == 4)
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 3
+    elif tblpos == 3
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+    fail Locked
+step Pin on Enter(ok: true) if tblpos == 0 or tblpos == 1 or tblpos == 3 or tblpos == 4
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 3
+    elif tblpos == 3
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+    tries = 0
+step Pin on Enter(ok: false) if tblpos == 0 or tblpos == 1 or tblpos == 3 or tblpos == 4
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 3
+    elif tblpos == 3
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+    tries += 1
+    if tries >= 3
+        locked = true
+        emit "locked"
+step Pin on Enter(ok: _) if tblpos == 0 or tblpos == 1 or tblpos == 3 or tblpos == 4
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 3
+    elif tblpos == 3
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+step Pin on Enter(ok: _)
+    fail TblOff
+step Pin on Withdraw if (locked) and (tblpos == 1 or tblpos == 0 or tblpos == 6 or tblpos == 7 or tblpos == 8)
+    if tblpos == 1
+        tblpos = 2
+    elif tblpos == 0
+        tblpos = 6
+    elif tblpos == 6
+        tblpos = 7
+    elif tblpos == 7
+        tblpos = 8
+    elif tblpos == 8
+        tblpos = 9
+    fail Locked
+step Pin on Withdraw if tblpos == 1 or tblpos == 0 or tblpos == 6 or tblpos == 7 or tblpos == 8
+    if tblpos == 1
+        tblpos = 2
+    elif tblpos == 0
+        tblpos = 6
+    elif tblpos == 6
+        tblpos = 7
+    elif tblpos == 7
+        tblpos = 8
+    elif tblpos == 8
+        tblpos = 9
+step Pin on Withdraw
+    fail TblOff
+step Account on Withdraw if (balance == 0) and (tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 3)
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    elif tblpos == 3
+        tblpos = 4
+    fail Insufficient
+step Account on Withdraw if tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 3
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    elif tblpos == 3
+        tblpos = 4
+    balance -= 1
+    emit balance
+step Account on Withdraw if tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 3
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    elif tblpos == 3
+        tblpos = 4
+step Account on Withdraw
+    fail TblOff
+step Account on Deposit if (balance >= 5) and (tblpos == 0 or tblpos == 5 or tblpos == 6)
+    if tblpos == 0
+        tblpos = 5
+    elif tblpos == 5
+        tblpos = 6
+    elif tblpos == 6
+        tblpos = 7
+    fail Limit
+step Account on Deposit if tblpos == 0 or tblpos == 5 or tblpos == 6
+    if tblpos == 0
+        tblpos = 5
+    elif tblpos == 5
+        tblpos = 6
+    elif tblpos == 6
+        tblpos = 7
+    balance += 1
+step Account on Deposit if tblpos == 0 or tblpos == 5 or tblpos == 6
+    if tblpos == 0
+        tblpos = 5
+    elif tblpos == 5
+        tblpos = 6
+    elif tblpos == 6
+        tblpos = 7
+step Account on Deposit
+    fail TblOff
+
+error TblOff

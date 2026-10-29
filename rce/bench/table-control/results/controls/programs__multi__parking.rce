@@ -1,0 +1,111 @@
+# A car park with a barrier and a counted lot. The barrier opens for an
+# arrival only while there is space, and closes on the next tick.
+intent "a barrier that never admits a car to a full lot"
+    example Arrive, Arrive -> cars == 2 and open == true
+    example Arrive, Arrive, Arrive, Arrive, Arrive -> kept: Full
+    example Leave -> kept: Empty
+    example Arrive, Tick -> open == false
+
+state Barrier
+    tblpos: u64 = 0
+    open: bool = false
+
+state Lot
+    tblpos: u64 = 0
+    cars: u8 = 0
+
+event Arrive
+event Leave
+event Tick
+
+error Full
+error Empty
+
+step Lot on Arrive if (cars >= 4) and (tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 3 or tblpos == 4)
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    elif tblpos == 3
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+    fail Full
+step Lot on Arrive if tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 3 or tblpos == 4
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    elif tblpos == 3
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+    cars += 1
+    emit cars
+step Lot on Arrive if tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 3 or tblpos == 4
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    elif tblpos == 3
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+step Lot on Arrive
+    fail TblOff
+step Barrier on Arrive if tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 3 or tblpos == 4
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    elif tblpos == 3
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+    open = true
+step Barrier on Arrive if tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 3 or tblpos == 4
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    elif tblpos == 3
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+step Barrier on Arrive
+    fail TblOff
+step Lot on Leave if (cars == 0) and (tblpos == 0)
+    if tblpos == 0
+        tblpos = 6
+    fail Empty
+step Lot on Leave if tblpos == 0
+    if tblpos == 0
+        tblpos = 6
+    cars -= 1
+step Lot on Leave if tblpos == 0
+    if tblpos == 0
+        tblpos = 6
+step Lot on Leave
+    fail TblOff
+step Barrier on Tick if (open) and (tblpos == 1)
+    if tblpos == 1
+        tblpos = 6
+    open = false
+    emit "closed"
+step Barrier on Tick if tblpos == 1
+    if tblpos == 1
+        tblpos = 6
+step Barrier on Tick
+    fail TblOff
+
+error TblOff

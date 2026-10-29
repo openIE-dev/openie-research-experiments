@@ -1,0 +1,41 @@
+intent "a counter that never goes negative"
+    example Inc, Inc, Dec -> n == (1)
+    example Dec -> kept: Underflow
+
+state Counter
+    tblpos: u64 = 0
+    n: u64 = 0
+
+event Inc
+event Dec
+
+error Underflow
+
+step Counter on Inc if tblpos == 0 or tblpos == 1
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    n = n + 1
+step Counter on Inc if tblpos == 0 or tblpos == 1
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+step Counter on Inc
+    fail TblOff
+step Counter on Dec if tblpos == 2 or tblpos == 0
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 0
+        tblpos = 4
+    n = try n.checked_sub(1) else Underflow
+step Counter on Dec if tblpos == 2 or tblpos == 0
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 0
+        tblpos = 4
+step Counter on Dec
+    fail TblOff
+
+error TblOff

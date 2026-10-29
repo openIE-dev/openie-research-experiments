@@ -1,0 +1,87 @@
+# A climate controller: a mode region decides heating or cooling from each
+# reading, and a setpoint region moves the target. The output is the action.
+intent "a controller that heats when cold, cools when hot and otherwise idles"
+    example Reading(hot: false) -> heating == true
+    example Reading(hot: true) -> cooling == true
+    example Warmer, Warmer, Warmer -> kept: Highest
+    example Cooler, Cooler -> kept: Lowest
+
+state Mode
+    tblpos: u64 = 0
+    heating: bool = false
+    cooling: bool = false
+
+state Setpoint
+    tblpos: u64 = 0
+    target: u8 = 1
+
+event Reading(hot: bool)
+event Warmer
+event Cooler
+
+error Highest
+error Lowest
+
+step Mode on Reading(hot: true) if tblpos == 0
+    if tblpos == 0
+        tblpos = 1
+    heating = false
+    cooling = true
+    emit "cool"
+step Mode on Reading(hot: false) if tblpos == 0
+    if tblpos == 0
+        tblpos = 1
+    heating = true
+    cooling = false
+    emit "heat"
+step Mode on Reading(hot: _) if tblpos == 0
+    if tblpos == 0
+        tblpos = 1
+step Mode on Reading(hot: _)
+    fail TblOff
+step Setpoint on Warmer if (target >= 3) and (tblpos == 0 or tblpos == 1 or tblpos == 2)
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    fail Highest
+step Setpoint on Warmer if tblpos == 0 or tblpos == 1 or tblpos == 2
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    target += 1
+step Setpoint on Warmer if tblpos == 0 or tblpos == 1 or tblpos == 2
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+step Setpoint on Warmer
+    fail TblOff
+step Setpoint on Cooler if (target == 0) and (tblpos == 0 or tblpos == 4)
+    if tblpos == 0
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+    fail Lowest
+step Setpoint on Cooler if tblpos == 0 or tblpos == 4
+    if tblpos == 0
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+    target -= 1
+step Setpoint on Cooler if tblpos == 0 or tblpos == 4
+    if tblpos == 0
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+step Setpoint on Cooler
+    fail TblOff
+
+error TblOff

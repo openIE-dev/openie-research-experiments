@@ -1,0 +1,34 @@
+# rce-version: 0.6
+module admit_order
+
+intent "simultaneous inputs are admitted by (priority, arrival); D records the order"
+    example Key(c: "a"), Alarm(n: 1) -> seen == "a!"
+
+interrupt event Alarm(n: u64) priority 200
+event Key(c: text)
+
+state S
+    tblpos: u64 = 0
+    seen: text = ""
+
+step S on Key(c: c) if tblpos == 0
+    if tblpos == 0
+        tblpos = 1
+    seen = seen + c
+step S on Key(c: _) if tblpos == 0
+    if tblpos == 0
+        tblpos = 1
+step S on Key(c: _)
+    fail TblOff
+
+step S on Alarm(n: _n) if tblpos == 1
+    if tblpos == 1
+        tblpos = 2
+    seen = seen + "!"
+step S on Alarm(n: _) if tblpos == 1
+    if tblpos == 1
+        tblpos = 2
+step S on Alarm(n: _)
+    fail TblOff
+
+error TblOff

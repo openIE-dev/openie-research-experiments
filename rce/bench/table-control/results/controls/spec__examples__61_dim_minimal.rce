@@ -1,0 +1,65 @@
+intent "a door whose state is exactly its behaviour"
+    "rce dim (10.11): 3 states explored (open and locked at once is unreachable), 3 behaviours, redundancy 0.00 bits: every reachable state answers some future event differently"
+    example DimOpen, DimClose, DimLock -> locked
+    example DimOpen, DimLock -> kept: DimDoorOpen
+
+state DimDoor
+    tblpos: u64 = 0
+    open: bool = false
+    locked: bool = false
+
+event DimOpen
+event DimClose
+event DimLock
+event DimUnlock
+
+error DimDoorOpen
+error DimLocked
+
+step DimDoor on DimOpen if (locked) and (tblpos == 0)
+    if tblpos == 0
+        tblpos = 1
+    fail DimLocked
+step DimDoor on DimOpen if tblpos == 0
+    if tblpos == 0
+        tblpos = 1
+    open = true
+step DimDoor on DimOpen if tblpos == 0
+    if tblpos == 0
+        tblpos = 1
+step DimDoor on DimOpen
+    fail TblOff
+step DimDoor on DimClose if tblpos == 1
+    if tblpos == 1
+        tblpos = 2
+    open = false
+step DimDoor on DimClose if tblpos == 1
+    if tblpos == 1
+        tblpos = 2
+step DimDoor on DimClose
+    fail TblOff
+step DimDoor on DimLock if (open) and (tblpos == 2 or tblpos == 1)
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 1
+        tblpos = 4
+    fail DimDoorOpen
+step DimDoor on DimLock if tblpos == 2 or tblpos == 1
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 1
+        tblpos = 4
+    locked = true
+step DimDoor on DimLock if tblpos == 2 or tblpos == 1
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 1
+        tblpos = 4
+step DimDoor on DimLock
+    fail TblOff
+step DimDoor on DimUnlock if tblpos == tblpos + 1
+    locked = false
+step DimDoor on DimUnlock
+    fail TblOff
+
+error TblOff

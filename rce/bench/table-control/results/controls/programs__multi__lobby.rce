@@ -1,0 +1,129 @@
+# A game lobby and a match. Players join the lobby; a match starts with at
+# least two of them and nobody joins or leaves while it runs.
+intent "a match that starts with two players and holds them until it ends"
+    example Join, Join, Start -> running == true
+    example Join, Start -> kept: NotEnough
+    example Join, Join, Start, Join -> kept: InMatch
+    example Join, Join, Start, End, Leave -> players == 1
+
+state Lobby
+    tblpos: u64 = 0
+    players: u8 = 0
+
+state Match
+    tblpos: u64 = 0
+    running: bool = false
+
+event Join
+event Leave
+event Start
+event End
+
+error NotEnough
+error InMatch
+error LobbyFull
+error Nobody
+
+step Match on Join if (running) and (tblpos == 0 or tblpos == 1 or tblpos == 3)
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 3
+        tblpos = 5
+    fail InMatch
+step Match on Join if tblpos == 0 or tblpos == 1 or tblpos == 3
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 3
+        tblpos = 5
+step Match on Join
+    fail TblOff
+step Lobby on Join if (players >= 4) and (tblpos == 0 or tblpos == 1 or tblpos == 3)
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 3
+        tblpos = 5
+    fail LobbyFull
+step Lobby on Join if tblpos == 0 or tblpos == 1 or tblpos == 3
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 3
+        tblpos = 5
+    players += 1
+step Lobby on Join if tblpos == 0 or tblpos == 1 or tblpos == 3
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 3
+        tblpos = 5
+step Lobby on Join
+    fail TblOff
+step Match on Leave if (running) and (tblpos == 6)
+    if tblpos == 6
+        tblpos = 7
+    fail InMatch
+step Match on Leave if tblpos == 6
+    if tblpos == 6
+        tblpos = 7
+step Match on Leave
+    fail TblOff
+step Lobby on Leave if (players == 0) and (tblpos == 3)
+    if tblpos == 3
+        tblpos = 6
+    fail Nobody
+step Lobby on Leave if tblpos == 3
+    if tblpos == 3
+        tblpos = 6
+    players -= 1
+step Lobby on Leave if tblpos == 3
+    if tblpos == 3
+        tblpos = 6
+step Lobby on Leave
+    fail TblOff
+step Lobby on Start if (players < 2) and (tblpos == 2 or tblpos == 1)
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 1
+        tblpos = 4
+    fail NotEnough
+step Lobby on Start if tblpos == 2 or tblpos == 1
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 1
+        tblpos = 4
+step Lobby on Start
+    fail TblOff
+step Match on Start if tblpos == 2 or tblpos == 1
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 1
+        tblpos = 4
+    running = true
+    emit "started"
+step Match on Start if tblpos == 2 or tblpos == 1
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 1
+        tblpos = 4
+step Match on Start
+    fail TblOff
+step Match on End if tblpos == 3
+    if tblpos == 3
+        tblpos = 6
+    running = false
+    emit "ended"
+step Match on End if tblpos == 3
+    if tblpos == 3
+        tblpos = 6
+step Match on End
+    fail TblOff
+
+error TblOff

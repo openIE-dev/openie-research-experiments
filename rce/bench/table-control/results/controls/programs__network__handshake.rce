@@ -1,0 +1,103 @@
+# A connection that must be opened before data is sent, written as a
+# protocol state machine.
+intent "a three-way handshake, then data, then close"
+    example Syn, SynAck, Ack, Data(n: 10), Data(n: 5) -> phase == Established and bytes == 15
+    example Data(n: 1) -> kept: NotConnected
+    example Syn, Ack -> kept: OutOfOrder
+
+kind Phase
+    Closed
+    SynSent
+    SynReceived
+    Established
+
+state Conn
+    tblpos: u64 = 0
+    phase: Phase = Closed
+    bytes: u64 = 0
+
+event Syn
+event SynAck
+event Ack
+event Data(n: u64)
+event Fin
+
+error OutOfOrder
+error NotConnected
+
+step Conn on Syn if (phase != Closed) and (tblpos == 0)
+    if tblpos == 0
+        tblpos = 1
+    fail OutOfOrder
+step Conn on Syn if tblpos == 0
+    if tblpos == 0
+        tblpos = 1
+    phase = SynSent
+step Conn on Syn if tblpos == 0
+    if tblpos == 0
+        tblpos = 1
+step Conn on Syn
+    fail TblOff
+step Conn on SynAck if (phase != SynSent) and (tblpos == 1)
+    if tblpos == 1
+        tblpos = 2
+    fail OutOfOrder
+step Conn on SynAck if tblpos == 1
+    if tblpos == 1
+        tblpos = 2
+    phase = SynReceived
+step Conn on SynAck if tblpos == 1
+    if tblpos == 1
+        tblpos = 2
+step Conn on SynAck
+    fail TblOff
+step Conn on Ack if (phase != SynReceived) and (tblpos == 2 or tblpos == 1)
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 1
+        tblpos = 7
+    fail OutOfOrder
+step Conn on Ack if tblpos == 2 or tblpos == 1
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 1
+        tblpos = 7
+    phase = Established
+step Conn on Ack if tblpos == 2 or tblpos == 1
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 1
+        tblpos = 7
+step Conn on Ack
+    fail TblOff
+step Conn on Data(n: _) if (phase != Established) and (tblpos == 3 or tblpos == 4 or tblpos == 0)
+    if tblpos == 3
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+    elif tblpos == 0
+        tblpos = 6
+    fail NotConnected
+step Conn on Data(n: n) if tblpos == 3 or tblpos == 4 or tblpos == 0
+    if tblpos == 3
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+    elif tblpos == 0
+        tblpos = 6
+    bytes += n
+step Conn on Data(n: _) if tblpos == 3 or tblpos == 4 or tblpos == 0
+    if tblpos == 3
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+    elif tblpos == 0
+        tblpos = 6
+step Conn on Data(n: _)
+    fail TblOff
+step Conn on Fin if tblpos == tblpos + 1
+    phase = Closed
+step Conn on Fin
+    fail TblOff
+
+error TblOff
