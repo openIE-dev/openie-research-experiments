@@ -1,0 +1,31 @@
+# Recursive descent over a position, admitted only by declared bounds (6.7):
+# at most 2000 active calls of each function, so a document nested deeper
+# than about 2000 levels (or a long array: `items` recurses once per element)
+# traps with "recursion bound". This is the capped alternative to the loop
+# parser of programs/text/json_nest.rce.
+kind Val
+    Nul
+    Arr(items: List[Val])
+
+struct Parsed
+    v: Val
+    at: usize
+
+fn value(cs: &List[text], at: usize) -> Parsed bound 2000
+    if cs[at] == "["
+        return items(cs, at + 1, [])
+    return Parsed(v: Nul, at: at + 1)
+
+fn items(cs: &List[text], at: usize, acc: List[Val]) -> Parsed bound 2000
+    if cs[at] == "]"
+        return Parsed(v: Arr(items: acc), at: at + 1)
+    let p = value(cs, at)
+    var a = acc
+    a.push(copy(p.v))
+    return items(cs, p.at, a)
+
+fn run(n: usize) -> usize
+    let cs = ("".join(["[" for _i in 0..n]) + "n" + "".join(["]" for _i in 0..n])).chars()
+    return value(&cs, 0).at
+
+check run(10) == 21
