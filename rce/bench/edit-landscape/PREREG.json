@@ -1,0 +1,27 @@
+{
+ "id": "rce-edit-landscape-2026-10-29",
+ "registered": "2026-10-29 (before the first run of scripts/edit-landscape.py on the population)",
+ "question": "Critique 4 (the landscape is not smooth) and RCE-JEPA H11 / RJ-F4 as stated on research.openie.dev/about/rce-jepa/: H11 'Energy is monotone in edit distance', metric 'share of test families in which energy E rises with edit distance 1 to k from an accepted fit', supported at >= 80% of families, against at < 80%; RJ-F4 'H11 fails and search does not reach accepted Forms within the beam budget'. No energy head exists in the RCE project today, so this study registers a hand-defined candidate energy over checker outcomes and measures whether even that score is monotone and whether greedy descent on it returns to the original program.",
+ "rce_commit": "8ce91cea (openIE-dev/rce main) plus the branch claude/gate-measures that adds scripts/edit-landscape.py; the checker binary is built from 8ce91cea",
+ "population": "the admitted, shape-deduplicated programs of the scripts/corpus.py population (spec/examples, spec/examples-0.9/ok, programs, apps, book/listings, stdlib/lib, and the standalone conformance accept tests) that carry at least one example line; one family = one program (59 programs expected at 8ce91cea)",
+ "edits": "symmetric typed edits applied to code lines only (never to intent, example or check lines, never inside string literals): rename (one occurrence of a non-keyword identifier replaced by another identifier name that occurs in the program), operator (one operator replaced by another of its class: + - * /, < <= > >=, == !=, and or), literal (one integer literal n replaced by n+1 or n-1 when n > 0; true and false swapped), type (one of u64 i64 f64 replaced by another of the three, text and bool swapped). Each edit has an inverse in the same set, so the original is always reachable",
+ "chains": "per family 6 chains under the seed 0x5eedc0de0004 (one seeded generator per family, seeded with the seed plus the family index in path order); each chain applies 5 edits, each drawn uniformly from all single edits of the current text whose result is neither the original nor a text already on the chain; points at nominal edit distance d = 1..5 (the true edit distance is at most d)",
+ "outcome_per_point": "admitted_equal (rce check exits 0 and behaviour equals the original on every probe), admitted_differs (exits 0, behaviour differs on at least one probe), requires_change_examples (requires change and the only rule named is W-INT-1), requires_change (requires change, with the rule ids named)",
+ "behaviour": "probes = the original's example event lists plus every ordered pair of them concatenated; each probe is traced with rce trace --json FILE --streams on the text with its example and check lines removed; a probe differs when the sequence of (outcome, hashed state) differs from the original's or the edited text cannot be traced",
+ "energy": "E(x) = R(x) + B(x), R = number of distinct rule ids named by rce check (0 when admitted), B = fraction of probes that differ (in [0, 1]); E(original) = 0",
+ "metrics": {
+  "flip_rate": "over all chain transitions (d-1 -> d, d = 1..5), the share whose verdict (admitted vs requires change) differs between the two ends; and the share of d = 1 points that require change",
+  "mean_energy_by_d": "mean E over all points at each d = 0..5, and whether it is non-decreasing in d",
+  "spearman": "Spearman rank correlation of E with d over all points (d = 0 counted once per family), with ties averaged",
+  "H11_primary": "share of families whose mean-E profile over d = 0..5 (mean over that family's 6 chains) is non-decreasing",
+  "H11_secondary": "share of families whose per-family Spearman correlation of E with d is > 0",
+  "descent": "from the chain points at k = 1, 3, 5: greedy best-improvement descent on E; each step evaluates up to 64 single edits of the current text (all when fewer, otherwise a seeded uniform sample), moves to the lowest E when it is strictly below the current E, and stops at E = 0, at no strict improvement, or after k + 3 steps (the beam budget of this study); success = the end point is admitted and equal in behaviour to the original on every probe; also reported: the end point is admitted at all"
+ },
+ "decision": {
+  "H11": "supported if H11_primary >= 0.80, against if < 0.80 (the page's threshold)",
+  "RJ-F4": "observed (goes against energy-guided planning) if H11 fails and the descent success rate from k = 3 is below 0.50; this budget and threshold are set by this study, the page gives none"
+ },
+ "predictions": "most single edits require change (flip rate from the original above 0.6); mean E rises from d = 0 to d = 1 and keeps rising slowly as edits accumulate distinct rules, so the pooled mean may be monotone while many single families are not; descent from k = 1 succeeds often only when the repairing edit is among the 64 sampled neighbours, and success falls with k",
+ "exclusions": "a family whose original cannot be traced on its probes is excluded and listed; no point is excluded",
+ "limits": "the energy is hand-defined over checker outcomes, not a trained energy head, so the study bounds what an outcome-based score can do; edits are typed single-token changes, not the latent edits of an encoder; behaviour is judged on probes built from the examples, not on all inputs"
+}
