@@ -1,0 +1,7 @@
+browser: browser: 0/11 transcripts equal to rce run
+fastapi: fastapi: 2/11 transcripts equal to rce run
+js: js: 0/11 transcripts equal to rce run
+numpy: numpy: 2/11 transcripts equal to rce run
+python: python: 2/11 transcripts equal to rce run
+react: react: 0/11 transcripts equal to rce run
+rust: cargo build failed (E0603)

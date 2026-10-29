@@ -1,0 +1,92 @@
+{
+ "lang": "js",
+ "version": "v22.22.0",
+ "passes": 3000,
+ "reps": 5,
+ "results": {
+  "emitted": {
+   "counter": {
+    "decode_ns": 1566,
+    "step_ns": 6954,
+    "encode_ns": 2115
+   },
+   "bank": {
+    "decode_ns": 2661,
+    "step_ns": 5312,
+    "encode_ns": 2444
+   },
+   "multi_region": {
+    "decode_ns": 2695,
+    "step_ns": 2528,
+    "encode_ns": 5256
+   },
+   "traffic_light": {
+    "decode_ns": 1332,
+    "step_ns": 777,
+    "encode_ns": 2116
+   },
+   "door": {
+    "decode_ns": 1713,
+    "step_ns": 4656,
+    "encode_ns": 3206
+   },
+   "inventory": {
+    "decode_ns": 3783,
+    "step_ns": 16984,
+    "encode_ns": 5057
+   },
+   "rcedb": {
+    "decode_ns": 4290,
+    "step_ns": 20490,
+    "encode_ns": 11476
+   },
+   "float_keys": {
+    "decode_ns": 4181,
+    "step_ns": 21742,
+    "encode_ns": 7796
+   }
+  },
+  "hand": {
+   "counter": {
+    "decode_ns": 1352,
+    "step_ns": 878,
+    "encode_ns": 975
+   },
+   "bank": {
+    "decode_ns": 2493,
+    "step_ns": 1132,
+    "encode_ns": 1660
+   },
+   "multi_region": {
+    "decode_ns": 1701,
+    "step_ns": 459,
+    "encode_ns": 1711
+   },
+   "traffic_light": {
+    "decode_ns": 1434,
+    "step_ns": 428,
+    "encode_ns": 625
+   },
+   "door": {
+    "decode_ns": 1615,
+    "step_ns": 1226,
+    "encode_ns": 1086
+   },
+   "inventory": {
+    "decode_ns": 3938,
+    "step_ns": 2162,
+    "encode_ns": 2655
+   },
+   "rcedb": {
+    "decode_ns": 3224,
+    "step_ns": 2320,
+    "encode_ns": 3585
+   },
+   "float_keys": {
+    "decode_ns": 4754,
+    "step_ns": 1564,
+    "encode_ns": 7446
+   }
+  }
+ }
+}

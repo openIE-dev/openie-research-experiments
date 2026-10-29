@@ -1,0 +1,11 @@
+python: 11/11 transcripts equal to rce run
+fastapi: 11/11 transcripts equal to rce run
+numpy: 11/11 transcripts equal to rce run
+rust: 11/11 transcripts equal to rce run
+js: 11/11 transcripts equal to rce run
+react: 11/11 transcripts equal to rce run
+browser: 11/11 transcripts equal to rce run
+hand-python: 11/11 transcripts equal to rce run
+hand-js: 11/11 transcripts equal to rce run
+hand-rust: 11/11 transcripts equal to rce run
+exit 0
