@@ -127,8 +127,9 @@ program (see below).
 
 - **(a) Determinism under faults: 0 of 72,000 runs.** Every D replayed
   with every adapter disconnected to the live state and state hash,
-  after drops, duplicates, reordering, lost answers, 2,200 to 3,300
-  restarts per program and mix with every kill variant, and clock steps.
+  after drops, duplicates, reordering, lost answers, 20,779 restarts in
+  all (251 to 5,107 per program and mix; torn, cut to the barrier and
+  cut part way past it among them), and clock steps.
   The 7,200 reruns wrote byte-identical D files.
 - **(b) Every event is a step or a kept step: 0 runs.** Every host entry
   and every kept entry left the state hash unchanged, every kept cause was
@@ -164,7 +165,7 @@ program). With faults, the same programs mishandle them often:
 Any of these reproduces with
 `RCE_FAULT_SEED=N RCE_FAULT_MIXES=CLASS RCE_FAULT_PROGRAMS=PROGRAM`, and
 `RCE_FAULT_KEEP=1` keeps the D file, which `rce host replay` folds to the
-same state. Under `restart` alone, 87 to 96 of 1,000 typed runs applied a
+same state. Under `restart` alone, 47 to 96 of 1,000 typed runs applied a
 duplicate: a kill after a batch was in D but before its barrier answered,
 so the client retried an input that the reopened D still held.
 
