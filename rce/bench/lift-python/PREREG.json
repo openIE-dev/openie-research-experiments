@@ -34,5 +34,14 @@
  },
  "development": "The lifter was written and debugged against the 92 corpus cases (they are the acceptance suite of section 20; there is no held-out part of the corpus, and a case that differs is fixed in the lifter, rule K4). Before this registration the functions mode was run once on heapq.py to check that it reports every function (0 lifted); after that run only the wording of diagnostics changed (bound methods and keyword-only parameters were named under the right rule), no rule of what lifts. The secondary modules were not run before registration.",
  "exclusions": "none: every case and every function is reported",
- "reporting": "RESULTS.md with the rce commit, the counts, the breakdown, and the RJ-F1 line; results/verify.txt (the harness output), results/coverage-*.txt, results/summary.json"
+ "reporting": "RESULTS.md with the rce commit, the counts, the breakdown, and the RJ-F1 line; results/verify.txt (the harness output), results/coverage-*.txt, results/summary.json",
+ "amendments": [
+  {
+   "date": "2026-10-29",
+   "after": "the registered run at 5583974e (results/verify.txt, results/coverage-*.txt, results/corpus-functions.txt, kept as recorded); before the second run",
+   "why": "the run found one lifter defect: the descriptive function-level run over the corpus printed text for matrix.py's mul that rce check does not accept (INTERNAL: sum() of a generator inside a comprehension bound a temporary outside the comprehension). Reading the code for that defect found two more of the same family (temporaries bound before a while test, a branch, an and/or operand; an elif test discarding the if test's temporaries) and an order dependence of type inference (a call written after a function did not fix the parameter types before the function's methods were resolved).",
+   "change": "openIE-dev/rce claude/lift-python commit eb2cd4e5 fixes these; nothing else in the rules of what lifts changes",
+   "second_run": "the same population, outcomes and metrics at eb2cd4e5, recorded under results/v2/; RESULTS.md reports both runs, the registered one first"
+  }
+ ]
 }
