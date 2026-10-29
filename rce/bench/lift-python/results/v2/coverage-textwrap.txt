@@ -1,0 +1,22 @@
+requires change wrap: L-PY-CALL, L-PY-CLOSURE, L-PY-POLY
+requires change fill: L-PY-CALL, L-PY-CLOSURE, L-PY-POLY
+requires change shorten: L-PY-CALL, L-PY-CLOSURE, L-PY-POLY
+requires change dedent: L-PY-EXC, L-PY-GLOBAL, L-PY-NONE
+requires change indent: L-PY-CALL, L-PY-CLOSURE, L-PY-NONE, L-PY-POLY
+
+module textwrap.py
+functions 5
+lifted 0
+internal 0
+coverage 0.0%
+requires change, functions naming each rule:
+  L-PY-CALL 4
+  L-PY-CLOSURE 4
+  L-PY-EXC 1
+  L-PY-GLOBAL 1
+  L-PY-NONE 2
+  L-PY-POLY 4
+requires change, by the rule of the first line reported:
+  L-PY-CALL 4
+  L-PY-GLOBAL 1
+requires change, functions whose only rule (L-PY-CALLEE aside) is:
