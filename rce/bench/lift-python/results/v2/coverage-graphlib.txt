@@ -1,0 +1,9 @@
+
+module graphlib.py
+functions 0
+lifted 0
+internal 0
+coverage n/a
+requires change, functions naming each rule:
+requires change, by the rule of the first line reported:
+requires change, functions whose only rule (L-PY-CALLEE aside) is:

@@ -1,0 +1,13 @@
+state F
+    bits: u8 = 0
+
+event SetA
+event SetB
+event Query
+
+step F on SetA
+    bits = bits ^ 1
+step F on SetB
+    bits = bits ^ 2
+step F on Query
+    emit bits

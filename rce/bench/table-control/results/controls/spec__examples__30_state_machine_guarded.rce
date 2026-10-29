@@ -1,0 +1,65 @@
+intent "a door that locks only when closed"
+    "the door starts closed and unlocked"
+    example Open, Close, Lock -> locked
+    example Open, Lock -> kept: DoorOpen
+
+state Door
+    tblpos: u64 = 0
+    open: bool = false
+    locked: bool = false
+
+event Open
+event Close
+event Lock
+event Unlock
+
+error DoorOpen
+error Locked
+
+step Door on Open if (locked) and (tblpos == 0)
+    if tblpos == 0
+        tblpos = 1
+    fail Locked
+step Door on Open if tblpos == 0
+    if tblpos == 0
+        tblpos = 1
+    open = true
+step Door on Open if tblpos == 0
+    if tblpos == 0
+        tblpos = 1
+step Door on Open
+    fail TblOff
+step Door on Close if tblpos == 1
+    if tblpos == 1
+        tblpos = 2
+    open = false
+step Door on Close if tblpos == 1
+    if tblpos == 1
+        tblpos = 2
+step Door on Close
+    fail TblOff
+step Door on Lock if (open) and (tblpos == 2 or tblpos == 1)
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 1
+        tblpos = 4
+    fail DoorOpen
+step Door on Lock if tblpos == 2 or tblpos == 1
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 1
+        tblpos = 4
+    locked = true
+step Door on Lock if tblpos == 2 or tblpos == 1
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 1
+        tblpos = 4
+step Door on Lock
+    fail TblOff
+step Door on Unlock if tblpos == tblpos + 1
+    locked = false
+step Door on Unlock
+    fail TblOff
+
+error TblOff

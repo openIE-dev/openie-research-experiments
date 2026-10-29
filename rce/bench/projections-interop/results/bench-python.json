@@ -1,0 +1,92 @@
+{
+ "lang": "python",
+ "passes": 300,
+ "reps": 5,
+ "results": {
+  "emitted": {
+   "bank": {
+    "decode_ns": 3202,
+    "encode_ns": 8293,
+    "step_ns": 14406
+   },
+   "counter": {
+    "decode_ns": 4638,
+    "encode_ns": 6712,
+    "step_ns": 10819
+   },
+   "door": {
+    "decode_ns": 1874,
+    "encode_ns": 9388,
+    "step_ns": 8469
+   },
+   "float_keys": {
+    "decode_ns": 4082,
+    "encode_ns": 29154,
+    "step_ns": 34844
+   },
+   "inventory": {
+    "decode_ns": 7636,
+    "encode_ns": 19800,
+    "step_ns": 32019
+   },
+   "multi_region": {
+    "decode_ns": 3236,
+    "encode_ns": 21281,
+    "step_ns": 17587
+   },
+   "rcedb": {
+    "decode_ns": 6545,
+    "encode_ns": 17979,
+    "step_ns": 36633
+   },
+   "traffic_light": {
+    "decode_ns": 1799,
+    "encode_ns": 9649,
+    "step_ns": 7283
+   }
+  },
+  "hand": {
+   "bank": {
+    "decode_ns": 1364,
+    "encode_ns": 6224,
+    "step_ns": 981
+   },
+   "counter": {
+    "decode_ns": 1006,
+    "encode_ns": 5590,
+    "step_ns": 1139
+   },
+   "door": {
+    "decode_ns": 1147,
+    "encode_ns": 4971,
+    "step_ns": 3691
+   },
+   "float_keys": {
+    "decode_ns": 1556,
+    "encode_ns": 16372,
+    "step_ns": 1123
+   },
+   "inventory": {
+    "decode_ns": 1311,
+    "encode_ns": 11019,
+    "step_ns": 791
+   },
+   "multi_region": {
+    "decode_ns": 3978,
+    "encode_ns": 10634,
+    "step_ns": 1915
+   },
+   "rcedb": {
+    "decode_ns": 3517,
+    "encode_ns": 9750,
+    "step_ns": 1774
+   },
+   "traffic_light": {
+    "decode_ns": 1140,
+    "encode_ns": 6404,
+    "step_ns": 1093
+   }
+  }
+ },
+ "version": "3.13.16"
+}

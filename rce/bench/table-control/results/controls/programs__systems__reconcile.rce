@@ -1,0 +1,56 @@
+# A reconcile loop, as in infrastructure tools: each Tick moves the actual
+# number of replicas one step towards the desired number.
+intent "actual replicas converge to the desired count"
+    example Desire(n: 3), Reconcile, Reconcile -> actual == 2
+    example Desire(n: 3), Reconcile, Reconcile, Reconcile, Reconcile -> actual == 3
+    example Desire(n: 100) -> kept: TooMany
+
+state Cluster
+    tblpos: u64 = 0
+    desired: u32 = 0
+    actual: u32 = 0
+
+event Desire(n: u32)
+event Reconcile
+
+error TooMany
+
+step Cluster on Desire(n: n) if (n > 50) and (tblpos == 0)
+    if tblpos == 0
+        tblpos = 1
+    fail TooMany
+step Cluster on Desire(n: n) if tblpos == 0
+    if tblpos == 0
+        tblpos = 1
+    desired = n
+step Cluster on Desire(n: _) if tblpos == 0
+    if tblpos == 0
+        tblpos = 1
+step Cluster on Desire(n: _)
+    fail TblOff
+step Cluster on Reconcile if tblpos == 1 or tblpos == 2 or tblpos == 3 or tblpos == 4
+    if tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    elif tblpos == 3
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+    if actual < desired
+        actual += 1
+    elif actual > desired
+        actual -= 1
+step Cluster on Reconcile if tblpos == 1 or tblpos == 2 or tblpos == 3 or tblpos == 4
+    if tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    elif tblpos == 3
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+step Cluster on Reconcile
+    fail TblOff
+
+error TblOff

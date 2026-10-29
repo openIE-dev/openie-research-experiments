@@ -1,0 +1,466 @@
+{
+ "cost_equiv_seconds": {
+  "max": 120.24631,
+  "median": 0.00644,
+  "min": 0.00185,
+  "n": 1212,
+  "p95": 45.5808
+ },
+ "cost_fingerprint": {
+  "1": {
+   "seconds": {
+    "max": 0.07476,
+    "median": 0.00408,
+    "min": 0.00204,
+    "n": 308,
+    "p95": 0.01649
+   },
+   "states": {
+    "max": 1,
+    "median": 1,
+    "min": 1,
+    "n": 308,
+    "p95": 1
+   }
+  },
+  "2": {
+   "seconds": {
+    "max": 0.11552,
+    "median": 0.00403,
+    "min": 0.00192,
+    "n": 308,
+    "p95": 0.06608
+   },
+   "states": {
+    "max": 17,
+    "median": 3,
+    "min": 1,
+    "n": 308,
+    "p95": 8
+   }
+  },
+  "4": {
+   "seconds": {
+    "max": 11.74623,
+    "median": 0.00426,
+    "min": 0.002,
+    "n": 308,
+    "p95": 0.50504
+   },
+   "states": {
+    "max": 1024,
+    "median": 7,
+    "min": 1,
+    "n": 308,
+    "p95": 70
+   }
+  },
+  "8": {
+   "seconds": {
+    "max": 11.26722,
+    "median": 0.00423,
+    "min": 0.00213,
+    "n": 302,
+    "p95": 0.25348
+   },
+   "states": {
+    "max": 4336,
+    "median": 10,
+    "min": 1,
+    "n": 302,
+    "p95": 616
+   }
+  }
+ },
+ "coverage": {
+  "1": {
+   "fingerprinted": 308,
+   "not_fingerprinted_reasons": {
+    "no explorable event": 17,
+    "no state region": 750,
+    "results/.work/3a86d23c7798ee34.rce: line 555: W-SYN-1 expected end of line (foun": 1,
+    "results/.work/6a9491c808bf6e56.rce: line 46: W-SYN-1 expected end of line (found": 1,
+    "results/.work/a0179da3fb424da7.rce: line 341: W-SYN-1 expected end of line (foun": 1,
+    "results/.work/be6ca68e64bd1b47.rce: line 35: W-SYN-1 expected end of line (found": 1
+   }
+  },
+  "2": {
+   "fingerprinted": 308,
+   "not_fingerprinted_reasons": {
+    "no explorable event": 17,
+    "no state region": 750,
+    "results/.work/3a86d23c7798ee34.rce: line 555: W-SYN-1 expected end of line (foun": 1,
+    "results/.work/6a9491c808bf6e56.rce: line 46: W-SYN-1 expected end of line (found": 1,
+    "results/.work/a0179da3fb424da7.rce: line 341: W-SYN-1 expected end of line (foun": 1,
+    "results/.work/be6ca68e64bd1b47.rce: line 35: W-SYN-1 expected end of line (found": 1
+   }
+  },
+  "4": {
+   "fingerprinted": 308,
+   "not_fingerprinted_reasons": {
+    "no explorable event": 17,
+    "no state region": 750,
+    "results/.work/3a86d23c7798ee34.rce: line 555: W-SYN-1 expected end of line (foun": 1,
+    "results/.work/6a9491c808bf6e56.rce: line 46: W-SYN-1 expected end of line (found": 1,
+    "results/.work/a0179da3fb424da7.rce: line 341: W-SYN-1 expected end of line (foun": 1,
+    "results/.work/be6ca68e64bd1b47.rce: line 35: W-SYN-1 expected end of line (found": 1
+   }
+  },
+  "8": {
+   "fingerprinted": 302,
+   "not_fingerprinted_reasons": {
+    "fuel": 4,
+    "no explorable event": 17,
+    "no state region": 750,
+    "results/.work/3a86d23c7798ee34.rce: line 555: W-SYN-1 expected end of line (foun": 1,
+    "results/.work/6a9491c808bf6e56.rce: line 46: W-SYN-1 expected end of line (found": 1,
+    "results/.work/a0179da3fb424da7.rce: line 341: W-SYN-1 expected end of line (foun": 1,
+    "results/.work/be6ca68e64bd1b47.rce: line 35: W-SYN-1 expected end of line (found": 1,
+    "timeout after 120 s": 2
+   }
+  }
+ },
+ "depths": [
+  1,
+  2,
+  4,
+  8
+ ],
+ "equiv_calls": 1212,
+ "equiv_timeouts": 25,
+ "false_positives": {
+  "1": {
+   "buckets": 84,
+   "buckets_capped": 0,
+   "fingerprinted": 308,
+   "pairs_checked": 580,
+   "pairs_different": 86,
+   "pairs_different_with_distinct_program_hash": 86,
+   "pairs_equivalent": 469,
+   "pairs_in_buckets": 580,
+   "pairs_undecided": 25,
+   "shared_buckets": 74
+  },
+  "2": {
+   "buckets": 96,
+   "buckets_capped": 0,
+   "fingerprinted": 308,
+   "pairs_checked": 535,
+   "pairs_different": 41,
+   "pairs_different_with_distinct_program_hash": 41,
+   "pairs_equivalent": 469,
+   "pairs_in_buckets": 535,
+   "pairs_undecided": 25,
+   "shared_buckets": 75
+  },
+  "4": {
+   "buckets": 100,
+   "buckets_capped": 0,
+   "fingerprinted": 308,
+   "pairs_checked": 504,
+   "pairs_different": 10,
+   "pairs_different_with_distinct_program_hash": 10,
+   "pairs_equivalent": 469,
+   "pairs_in_buckets": 504,
+   "pairs_undecided": 25,
+   "shared_buckets": 77
+  },
+  "8": {
+   "buckets": 99,
+   "buckets_capped": 0,
+   "fingerprinted": 302,
+   "pairs_checked": 489,
+   "pairs_different": 10,
+   "pairs_different_with_distinct_program_hash": 10,
+   "pairs_equivalent": 469,
+   "pairs_in_buckets": 489,
+   "pairs_undecided": 10,
+   "shared_buckets": 76
+  }
+ },
+ "fuel": 20000,
+ "pair_cap": 200,
+ "primary_depth": 8,
+ "programs": 1079,
+ "programs_admitted": 1052,
+ "rce_commit": "de957edcb62141084ac25423ba15129d2ba4dc08",
+ "sets": {
+  "H": {
+   "depth1": {
+    "different_both_fingerprinted": 1,
+    "different_same_fingerprint": 1,
+    "equivalent_both_fingerprinted": 23,
+    "equivalent_distinct_program_hash_both_fingerprinted": 23,
+    "equivalent_distinct_program_hash_same_fingerprint": 23,
+    "equivalent_same_fingerprint": 23,
+    "undecided_same_fingerprint": 0
+   },
+   "depth2": {
+    "different_both_fingerprinted": 1,
+    "different_same_fingerprint": 1,
+    "equivalent_both_fingerprinted": 23,
+    "equivalent_distinct_program_hash_both_fingerprinted": 23,
+    "equivalent_distinct_program_hash_same_fingerprint": 23,
+    "equivalent_same_fingerprint": 23,
+    "undecided_same_fingerprint": 0
+   },
+   "depth4": {
+    "different_both_fingerprinted": 1,
+    "different_same_fingerprint": 1,
+    "equivalent_both_fingerprinted": 23,
+    "equivalent_distinct_program_hash_both_fingerprinted": 23,
+    "equivalent_distinct_program_hash_same_fingerprint": 23,
+    "equivalent_same_fingerprint": 23,
+    "undecided_same_fingerprint": 0
+   },
+   "depth8": {
+    "different_both_fingerprinted": 1,
+    "different_same_fingerprint": 1,
+    "equivalent_both_fingerprinted": 23,
+    "equivalent_distinct_program_hash_both_fingerprinted": 23,
+    "equivalent_distinct_program_hash_same_fingerprint": 23,
+    "equivalent_same_fingerprint": 23,
+    "undecided_same_fingerprint": 0
+   },
+   "different_same_program_hash": 0,
+   "equiv_different": 1,
+   "equiv_equivalent": 23,
+   "equiv_exact": 21,
+   "equiv_undecided": 0,
+   "equivalent_distinct_program_hash": 23,
+   "equivalent_same_program_hash": 0,
+   "pairs": 24
+  },
+  "M-change": {
+   "depth1": {
+    "different_both_fingerprinted": 4,
+    "different_same_fingerprint": 1,
+    "equivalent_both_fingerprinted": 19,
+    "equivalent_distinct_program_hash_both_fingerprinted": 19,
+    "equivalent_distinct_program_hash_same_fingerprint": 19,
+    "equivalent_same_fingerprint": 19,
+    "undecided_same_fingerprint": 1
+   },
+   "depth2": {
+    "different_both_fingerprinted": 4,
+    "different_same_fingerprint": 0,
+    "equivalent_both_fingerprinted": 19,
+    "equivalent_distinct_program_hash_both_fingerprinted": 19,
+    "equivalent_distinct_program_hash_same_fingerprint": 19,
+    "equivalent_same_fingerprint": 19,
+    "undecided_same_fingerprint": 1
+   },
+   "depth4": {
+    "different_both_fingerprinted": 4,
+    "different_same_fingerprint": 0,
+    "equivalent_both_fingerprinted": 19,
+    "equivalent_distinct_program_hash_both_fingerprinted": 19,
+    "equivalent_distinct_program_hash_same_fingerprint": 19,
+    "equivalent_same_fingerprint": 19,
+    "undecided_same_fingerprint": 1
+   },
+   "depth8": {
+    "different_both_fingerprinted": 4,
+    "different_same_fingerprint": 0,
+    "equivalent_both_fingerprinted": 19,
+    "equivalent_distinct_program_hash_both_fingerprinted": 19,
+    "equivalent_distinct_program_hash_same_fingerprint": 19,
+    "equivalent_same_fingerprint": 19,
+    "undecided_same_fingerprint": 1
+   },
+   "different_same_program_hash": 0,
+   "equiv_different": 4,
+   "equiv_equivalent": 19,
+   "equiv_exact": 11,
+   "equiv_undecided": 4,
+   "equivalent_distinct_program_hash": 19,
+   "equivalent_same_program_hash": 0,
+   "pairs": 27
+  },
+  "M-eq": {
+   "depth1": {
+    "different_both_fingerprinted": 16,
+    "different_same_fingerprint": 10,
+    "equivalent_both_fingerprinted": 66,
+    "equivalent_distinct_program_hash_both_fingerprinted": 35,
+    "equivalent_distinct_program_hash_same_fingerprint": 35,
+    "equivalent_same_fingerprint": 66,
+    "undecided_same_fingerprint": 6
+   },
+   "depth2": {
+    "different_both_fingerprinted": 16,
+    "different_same_fingerprint": 4,
+    "equivalent_both_fingerprinted": 66,
+    "equivalent_distinct_program_hash_both_fingerprinted": 35,
+    "equivalent_distinct_program_hash_same_fingerprint": 35,
+    "equivalent_same_fingerprint": 66,
+    "undecided_same_fingerprint": 6
+   },
+   "depth4": {
+    "different_both_fingerprinted": 16,
+    "different_same_fingerprint": 2,
+    "equivalent_both_fingerprinted": 66,
+    "equivalent_distinct_program_hash_both_fingerprinted": 35,
+    "equivalent_distinct_program_hash_same_fingerprint": 35,
+    "equivalent_same_fingerprint": 66,
+    "undecided_same_fingerprint": 6
+   },
+   "depth8": {
+    "different_both_fingerprinted": 16,
+    "different_same_fingerprint": 2,
+    "equivalent_both_fingerprinted": 66,
+    "equivalent_distinct_program_hash_both_fingerprinted": 35,
+    "equivalent_distinct_program_hash_same_fingerprint": 35,
+    "equivalent_same_fingerprint": 66,
+    "undecided_same_fingerprint": 2
+   },
+   "different_same_program_hash": 0,
+   "equiv_different": 16,
+   "equiv_equivalent": 66,
+   "equiv_exact": 46,
+   "equiv_undecided": 7,
+   "equivalent_distinct_program_hash": 35,
+   "equivalent_same_program_hash": 31,
+   "pairs": 89
+  },
+  "M-noex": {
+   "depth1": {
+    "different_both_fingerprinted": 6,
+    "different_same_fingerprint": 3,
+    "equivalent_both_fingerprinted": 17,
+    "equivalent_distinct_program_hash_both_fingerprinted": 9,
+    "equivalent_distinct_program_hash_same_fingerprint": 9,
+    "equivalent_same_fingerprint": 17,
+    "undecided_same_fingerprint": 0
+   },
+   "depth2": {
+    "different_both_fingerprinted": 6,
+    "different_same_fingerprint": 1,
+    "equivalent_both_fingerprinted": 17,
+    "equivalent_distinct_program_hash_both_fingerprinted": 9,
+    "equivalent_distinct_program_hash_same_fingerprint": 9,
+    "equivalent_same_fingerprint": 17,
+    "undecided_same_fingerprint": 0
+   },
+   "depth4": {
+    "different_both_fingerprinted": 6,
+    "different_same_fingerprint": 1,
+    "equivalent_both_fingerprinted": 17,
+    "equivalent_distinct_program_hash_both_fingerprinted": 9,
+    "equivalent_distinct_program_hash_same_fingerprint": 9,
+    "equivalent_same_fingerprint": 17,
+    "undecided_same_fingerprint": 0
+   },
+   "depth8": {
+    "different_both_fingerprinted": 6,
+    "different_same_fingerprint": 1,
+    "equivalent_both_fingerprinted": 17,
+    "equivalent_distinct_program_hash_both_fingerprinted": 9,
+    "equivalent_distinct_program_hash_same_fingerprint": 9,
+    "equivalent_same_fingerprint": 17,
+    "undecided_same_fingerprint": 0
+   },
+   "different_same_program_hash": 0,
+   "equiv_different": 6,
+   "equiv_equivalent": 17,
+   "equiv_exact": 10,
+   "equiv_undecided": 462,
+   "equivalent_distinct_program_hash": 9,
+   "equivalent_same_program_hash": 8,
+   "pairs": 485
+  },
+  "M-same": {
+   "depth1": {
+    "different_both_fingerprinted": 0,
+    "different_same_fingerprint": 0,
+    "equivalent_both_fingerprinted": 0,
+    "equivalent_distinct_program_hash_both_fingerprinted": 0,
+    "equivalent_distinct_program_hash_same_fingerprint": 0,
+    "equivalent_same_fingerprint": 0,
+    "undecided_same_fingerprint": 0
+   },
+   "depth2": {
+    "different_both_fingerprinted": 0,
+    "different_same_fingerprint": 0,
+    "equivalent_both_fingerprinted": 0,
+    "equivalent_distinct_program_hash_both_fingerprinted": 0,
+    "equivalent_distinct_program_hash_same_fingerprint": 0,
+    "equivalent_same_fingerprint": 0,
+    "undecided_same_fingerprint": 0
+   },
+   "depth4": {
+    "different_both_fingerprinted": 0,
+    "different_same_fingerprint": 0,
+    "equivalent_both_fingerprinted": 0,
+    "equivalent_distinct_program_hash_both_fingerprinted": 0,
+    "equivalent_distinct_program_hash_same_fingerprint": 0,
+    "equivalent_same_fingerprint": 0,
+    "undecided_same_fingerprint": 0
+   },
+   "depth8": {
+    "different_both_fingerprinted": 0,
+    "different_same_fingerprint": 0,
+    "equivalent_both_fingerprinted": 0,
+    "equivalent_distinct_program_hash_both_fingerprinted": 0,
+    "equivalent_distinct_program_hash_same_fingerprint": 0,
+    "equivalent_same_fingerprint": 0,
+    "undecided_same_fingerprint": 0
+   },
+   "different_same_program_hash": 0,
+   "equiv_different": 0,
+   "equiv_equivalent": 0,
+   "equiv_exact": 0,
+   "equiv_undecided": 1,
+   "equivalent_distinct_program_hash": 0,
+   "equivalent_same_program_hash": 0,
+   "pairs": 1
+  },
+  "T7": {
+   "depth1": {
+    "different_both_fingerprinted": 0,
+    "different_same_fingerprint": 0,
+    "equivalent_both_fingerprinted": 62,
+    "equivalent_distinct_program_hash_both_fingerprinted": 0,
+    "equivalent_distinct_program_hash_same_fingerprint": 0,
+    "equivalent_same_fingerprint": 62,
+    "undecided_same_fingerprint": 2
+   },
+   "depth2": {
+    "different_both_fingerprinted": 0,
+    "different_same_fingerprint": 0,
+    "equivalent_both_fingerprinted": 62,
+    "equivalent_distinct_program_hash_both_fingerprinted": 0,
+    "equivalent_distinct_program_hash_same_fingerprint": 0,
+    "equivalent_same_fingerprint": 62,
+    "undecided_same_fingerprint": 2
+   },
+   "depth4": {
+    "different_both_fingerprinted": 0,
+    "different_same_fingerprint": 0,
+    "equivalent_both_fingerprinted": 62,
+    "equivalent_distinct_program_hash_both_fingerprinted": 0,
+    "equivalent_distinct_program_hash_same_fingerprint": 0,
+    "equivalent_same_fingerprint": 62,
+    "undecided_same_fingerprint": 2
+   },
+   "depth8": {
+    "different_both_fingerprinted": 0,
+    "different_same_fingerprint": 0,
+    "equivalent_both_fingerprinted": 62,
+    "equivalent_distinct_program_hash_both_fingerprinted": 0,
+    "equivalent_distinct_program_hash_same_fingerprint": 0,
+    "equivalent_same_fingerprint": 62,
+    "undecided_same_fingerprint": 1
+   },
+   "different_same_program_hash": 0,
+   "equiv_different": 0,
+   "equiv_equivalent": 62,
+   "equiv_exact": 36,
+   "equiv_undecided": 155,
+   "equivalent_distinct_program_hash": 0,
+   "equivalent_same_program_hash": 62,
+   "pairs": 217
+  }
+ },
+ "timeout_s": 120
+}

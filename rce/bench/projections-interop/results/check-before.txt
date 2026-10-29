@@ -1,0 +1,40 @@
+== python
+FAIL python counter stream 0: exit 0
+FAIL python counter stream 1: exit 0
+FAIL python bank stream 0: exit 0
+== fastapi
+FAIL fastapi counter stream 0: exit 0
+FAIL fastapi counter stream 1: exit 0
+FAIL fastapi bank stream 0: exit 0
+== numpy
+FAIL numpy counter stream 0: exit 0
+FAIL numpy counter stream 1: exit 0
+FAIL numpy bank stream 0: exit 0
+== rust
+cargo build RCE_TREE/examples/interop/rust: error[E0603]: function `initial_state` is private
+note: the function `initial_state` is defined here
+note: the function `event_fields` is defined here
+cargo build RCE_TREE/examples/interop/rust: error[E0603]: function `initial_state` is private
+error[E0603]: function `event_fields` is private
+error[E0603]: function `show_state` is private
+== js
+FAIL js counter stream 0: exit 1
+FAIL js counter stream 1: exit 1
+FAIL js bank stream 0: exit 1
+TypeError: m.fuelReset is not a function
+TypeError: m.fuelReset is not a function
+TypeError: m.fuelReset is not a function
+== react
+FAIL react counter stream 0: exit 1
+FAIL react counter stream 1: exit 1
+FAIL react bank stream 0: exit 1
+TypeError: m.fuelReset is not a function
+TypeError: m.fuelReset is not a function
+TypeError: m.fuelReset is not a function
+== browser
+FAIL browser counter stream 0: exit 1
+FAIL browser counter stream 1: exit 1
+FAIL browser bank stream 0: exit 1
+ReferenceError: process is not defined
+ReferenceError: process is not defined
+ReferenceError: process is not defined

@@ -1,0 +1,143 @@
+# An elevator car with a door. The car moves only while the door is closed;
+# the door opens only while the car is still. Two regions, one for each.
+intent "a car that never moves with its door open"
+    example Up, Up, Down -> floor == 1
+    example OpenDoor, Up -> kept: DoorOpen
+    example Up, Up, Up, Up -> kept: TopFloor
+
+state Car
+    tblpos: u64 = 0
+    floor: u8 = 0
+    moving: bool = false
+
+state Door
+    tblpos: u64 = 0
+    open: bool = false
+
+event Up
+event Down
+event OpenDoor
+event CloseDoor
+event Arrive
+
+error DoorOpen
+error TopFloor
+error GroundFloor
+error InMotion
+
+step Door on Up if (open) and (tblpos == 0 or tblpos == 1 or tblpos == 4 or tblpos == 2 or tblpos == 6)
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 4
+        tblpos = 5
+    elif tblpos == 2
+        tblpos = 6
+    elif tblpos == 6
+        tblpos = 7
+    fail DoorOpen
+step Door on Up if tblpos == 0 or tblpos == 1 or tblpos == 4 or tblpos == 2 or tblpos == 6
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 4
+        tblpos = 5
+    elif tblpos == 2
+        tblpos = 6
+    elif tblpos == 6
+        tblpos = 7
+step Door on Up
+    fail TblOff
+step Car on Up if (floor >= 3) and (tblpos == 0 or tblpos == 1 or tblpos == 4 or tblpos == 2 or tblpos == 6)
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 4
+        tblpos = 5
+    elif tblpos == 2
+        tblpos = 6
+    elif tblpos == 6
+        tblpos = 7
+    fail TopFloor
+step Car on Up if tblpos == 0 or tblpos == 1 or tblpos == 4 or tblpos == 2 or tblpos == 6
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 4
+        tblpos = 5
+    elif tblpos == 2
+        tblpos = 6
+    elif tblpos == 6
+        tblpos = 7
+    floor += 1
+    moving = true
+    emit floor
+step Car on Up if tblpos == 0 or tblpos == 1 or tblpos == 4 or tblpos == 2 or tblpos == 6
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 4
+        tblpos = 5
+    elif tblpos == 2
+        tblpos = 6
+    elif tblpos == 6
+        tblpos = 7
+step Car on Up
+    fail TblOff
+step Door on Down if (open) and (tblpos == 2)
+    if tblpos == 2
+        tblpos = 3
+    fail DoorOpen
+step Door on Down if tblpos == 2
+    if tblpos == 2
+        tblpos = 3
+step Door on Down
+    fail TblOff
+step Car on Down if (floor == 0) and (tblpos == 2)
+    if tblpos == 2
+        tblpos = 3
+    fail GroundFloor
+step Car on Down if tblpos == 2
+    if tblpos == 2
+        tblpos = 3
+    floor -= 1
+    moving = true
+    emit floor
+step Car on Down if tblpos == 2
+    if tblpos == 2
+        tblpos = 3
+step Car on Down
+    fail TblOff
+step Car on OpenDoor if (moving) and (tblpos == 0)
+    if tblpos == 0
+        tblpos = 4
+    fail InMotion
+step Car on OpenDoor if tblpos == 0
+    if tblpos == 0
+        tblpos = 4
+step Car on OpenDoor
+    fail TblOff
+step Door on OpenDoor if tblpos == 0
+    if tblpos == 0
+        tblpos = 4
+    open = true
+step Door on OpenDoor if tblpos == 0
+    if tblpos == 0
+        tblpos = 4
+step Door on OpenDoor
+    fail TblOff
+step Door on CloseDoor if tblpos == tblpos + 1
+    open = false
+step Door on CloseDoor
+    fail TblOff
+step Car on Arrive if tblpos == tblpos + 1
+    moving = false
+step Car on Arrive
+    fail TblOff
+
+error TblOff

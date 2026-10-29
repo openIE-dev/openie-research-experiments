@@ -1,0 +1,110 @@
+# A pedestrian crossing: the vehicle signal cycles on each tick and says
+# when it turns red; a pedestrian who pressed the button gets a walk phase
+# of one tick. The two regions share the clock and nothing else.
+intent "a crossing whose walk phase lasts one tick after a press"
+    example Press, Tick -> walking == true
+    example Press, Tick, Tick -> walking == false
+    example Tick, Tick, Tick -> walking == false
+    example Press, Press -> kept: AlreadyWaiting
+
+kind Light
+    Green
+    Yellow
+    Red
+
+state Signal
+    tblpos: u64 = 0
+    light: Light = Green
+
+state Pedestrian
+    tblpos: u64 = 0
+    waiting: bool = false
+    walking: bool = false
+
+event Tick
+event Press
+
+error AlreadyWaiting
+
+step Pedestrian on Press if (waiting) and (tblpos == 0 or tblpos == 1)
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 7
+    fail AlreadyWaiting
+step Pedestrian on Press if tblpos == 0 or tblpos == 1
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 7
+    waiting = true
+step Pedestrian on Press if tblpos == 0 or tblpos == 1
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 7
+step Pedestrian on Press
+    fail TblOff
+step Signal on Tick if tblpos == 0 or tblpos == 1 or tblpos == 2
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    match light
+        Green -> light = Yellow
+        Yellow
+            light = Red
+            emit "red"
+        Red -> light = Green
+step Signal on Tick if tblpos == 0 or tblpos == 1 or tblpos == 2
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+step Signal on Tick
+    fail TblOff
+step Pedestrian on Tick if (waiting and not walking) and (tblpos == 1 or tblpos == 2 or tblpos == 0 or tblpos == 4 or tblpos == 5)
+    if tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    elif tblpos == 0
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+    elif tblpos == 5
+        tblpos = 6
+    walking = true
+    waiting = false
+    emit "walk"
+step Pedestrian on Tick if (walking) and (tblpos == 1 or tblpos == 2 or tblpos == 0 or tblpos == 4 or tblpos == 5)
+    if tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    elif tblpos == 0
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+    elif tblpos == 5
+        tblpos = 6
+    walking = false
+step Pedestrian on Tick if tblpos == 1 or tblpos == 2 or tblpos == 0 or tblpos == 4 or tblpos == 5
+    if tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    elif tblpos == 0
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+    elif tblpos == 5
+        tblpos = 6
+step Pedestrian on Tick
+    fail TblOff
+
+error TblOff

@@ -1,0 +1,10 @@
+state S
+    total: u64 = 0
+
+event Add(v: u8)
+
+fn clip(v: u64) -> u64 = if v > 100 then 100 else v
+
+step S on Add(v: v)
+    total = (total + clip(v as u64)) % 7
+    emit total

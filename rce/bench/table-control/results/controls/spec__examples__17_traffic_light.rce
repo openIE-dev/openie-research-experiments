@@ -1,0 +1,32 @@
+intent "a traffic light that cycles on each tick"
+    example Tick, Tick -> light == Yellow
+
+kind Light
+    Red
+    Green
+    Yellow
+
+state Signal
+    tblpos: u64 = 0
+    light: Light = Red
+
+event Tick
+
+step Signal on Tick if tblpos == 0 or tblpos == 1
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    match light
+        Red -> light = Green
+        Green -> light = Yellow
+        Yellow -> light = Red
+step Signal on Tick if tblpos == 0 or tblpos == 1
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+step Signal on Tick
+    fail TblOff
+
+error TblOff

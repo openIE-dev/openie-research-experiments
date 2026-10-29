@@ -1,0 +1,37 @@
+{
+ "admitted_of_valid": 56,
+ "commit": "58ba72de",
+ "distinguished_of_valid": 0,
+ "not_valid": [
+  {
+   "outcome": "control_admitted_untraceable",
+   "path": "programs/ecosystem/hpke.rce",
+   "why": ""
+  },
+  {
+   "outcome": "control_admitted_untraceable",
+   "path": "programs/ecosystem/mls_key_schedule.rce",
+   "why": ""
+  },
+  {
+   "outcome": "control_admitted_untraceable",
+   "path": "programs/network/notes_http.rce",
+   "why": ""
+  }
+ ],
+ "outcomes": {
+  "control_admitted": 56,
+  "control_admitted_untraceable": 3
+ },
+ "programs_with_examples": 59,
+ "rce_cpu_s": 17.3,
+ "valid_controls": 56,
+ "valid_with_other_obligations": {
+  "checks": 1,
+  "ensures": 0,
+  "refined_types": 1,
+  "requires": 0
+ },
+ "valid_with_probe_difference": 56,
+ "valid_without_probe_difference": []
+}

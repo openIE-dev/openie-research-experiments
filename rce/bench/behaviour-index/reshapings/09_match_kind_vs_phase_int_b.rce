@@ -1,0 +1,8 @@
+state Signal
+    phase: u8 = 0
+
+event Tick
+
+step Signal on Tick
+    phase = (phase + 1) % 3
+    emit phase == 0

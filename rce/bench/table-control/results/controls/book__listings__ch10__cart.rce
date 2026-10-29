@@ -1,0 +1,90 @@
+intent "a cart and its statistics, updated by the same events"
+    example AddItem(name: "tea"), AddItem(name: "jam"), RemoveItem(name: "tea") -> items == ["jam"] and adds == 2
+    example AddItem(name: "a"), AddItem(name: "b"), AddItem(name: "c"), AddItem(name: "d") -> kept: CartFull
+
+state Cart
+    tblpos: u64 = 0
+    items: List[text] = []
+
+state Stats
+    tblpos: u64 = 0
+    adds: u64 = 0
+    removes: u64 = 0
+
+event AddItem(name: text)
+event RemoveItem(name: text)
+
+error CartFull
+
+step Cart on AddItem(name: _) if (items.len() >= 3) and (tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 4)
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+    fail CartFull
+step Cart on AddItem(name: n) if tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 4
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+    items = items.with(n)
+step Cart on AddItem(name: _) if tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 4
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+step Cart on AddItem(name: _)
+    fail TblOff
+step Stats on AddItem(name: _) if tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 4
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+    adds += 1
+step Stats on AddItem(name: _) if tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 4
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 4
+    elif tblpos == 4
+        tblpos = 5
+step Stats on AddItem(name: _)
+    fail TblOff
+step Cart on RemoveItem(name: n) if tblpos == 2
+    if tblpos == 2
+        tblpos = 3
+    items = [copy(i) for i in items if i != n]
+step Cart on RemoveItem(name: _) if tblpos == 2
+    if tblpos == 2
+        tblpos = 3
+step Cart on RemoveItem(name: _)
+    fail TblOff
+step Stats on RemoveItem(name: _) if tblpos == 2
+    if tblpos == 2
+        tblpos = 3
+    removes += 1
+step Stats on RemoveItem(name: _) if tblpos == 2
+    if tblpos == 2
+        tblpos = 3
+step Stats on RemoveItem(name: _)
+    fail TblOff
+
+error TblOff

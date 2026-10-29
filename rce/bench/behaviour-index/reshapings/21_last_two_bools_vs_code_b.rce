@@ -1,0 +1,8 @@
+state Mem
+    code: u8 = 0
+
+event Bit(v: bool)
+
+step Mem on Bit(v: v)
+    code = ((code * 2) + (if v then 1 else 0)) % 4
+    emit code == 3

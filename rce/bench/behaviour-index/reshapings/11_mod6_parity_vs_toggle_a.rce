@@ -1,0 +1,8 @@
+state Phase
+    n: u64 = 0
+
+event Step
+
+step Phase on Step
+    n = (n + 1) % 6
+    emit n % 2

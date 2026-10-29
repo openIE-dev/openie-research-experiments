@@ -1,0 +1,27 @@
+   Compiling rce-spec-check v0.1.0 (/tmp/claude-0/-home-user/b95ad116-a306-5002-8c8a-21e9239340a2/scratchpad/t4tmp/tmp.Yn2VuQaJKi/rce/spec/checker)
+    Finished `release` profile [optimized] target(s) in 4m 58s
+     Running tests/emit_edges.rs (/home/user/rce/spec/checker/target/release/deps/emit_edges-3681e5aae759e445)
+
+running 6 tests
+node oracle: v22.22.0
+emit_edges: 76 operators, 159 edge examples, 500 seeded examples with 843 seeded values (seed 0x63ed6e20261027, sha256 17f2cfd8bc2d6627e75d71373ee1df9b23777d822a75f0421611e4c8abc47a6b), 1 display sweep, 118 examples end in a trap, 1980 observation lines
+test module_is_admitted_with_every_edge_and_seeded_outcome ... ok
+python oracle: Python 3.13.16
+js: agrees with the reference: 1980 observation lines equal line for line, 181183 bytes equal byte for byte, 660 D heads equal
+test js_target_agrees ... ok
+rust oracle: rustc 1.98.1 (48a229cea 2026-09-01)
+python: agrees with the reference: 1980 observation lines equal line for line, 181183 bytes equal byte for byte, 660 D heads equal
+test python_target_agrees ... ok
+wasm32-wasip1 runtime: node:wasi (v22.22.0)
+test rust_target_agrees has been running for over 60 seconds
+test rust_wasm32_wasip1_target_agrees has been running for over 60 seconds
+rust: agrees with the reference: 1980 observation lines equal line for line, 181183 bytes equal byte for byte, 660 D heads equal
+test rust_target_agrees ... ok
+SKIPPED scala: scala-cli not found (not a pass)
+test scala_target_agrees ... ok
+wasm32-wasip1: agrees with the reference: 1980 observation lines equal line for line, 181183 bytes equal byte for byte, 660 D heads equal
+test rust_wasm32_wasip1_target_agrees ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 126.82s
+
+cargo test exit 0

@@ -1,0 +1,124 @@
+# A printer with a job queue and a toner cartridge. Printing takes a job
+# and a unit of toner; the printer says how many jobs remain.
+intent "a printer that prints while it has jobs and toner"
+    example Submit, Submit, Print -> jobs == 1 and toner == 1
+    example Print -> kept: NoJobs
+    example Submit, Submit, Submit, Print, Print, Print -> kept: NoToner
+    example Submit, Submit, Submit, Submit -> kept: QueueFull
+
+state Queue
+    tblpos: u64 = 0
+    jobs: u8 = 0
+
+state Toner
+    tblpos: u64 = 0
+    toner: u8 = 2
+
+event Submit
+event Print
+event Refill
+
+error NoJobs
+error NoToner
+error QueueFull
+
+step Queue on Submit if (jobs >= 3) and (tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 5)
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 5
+    elif tblpos == 5
+        tblpos = 9
+    fail QueueFull
+step Queue on Submit if tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 5
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 5
+    elif tblpos == 5
+        tblpos = 9
+    jobs += 1
+step Queue on Submit if tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 5
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 5
+    elif tblpos == 5
+        tblpos = 9
+step Queue on Submit
+    fail TblOff
+step Queue on Print if (jobs == 0) and (tblpos == 2 or tblpos == 0 or tblpos == 5 or tblpos == 6 or tblpos == 7)
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 0
+        tblpos = 4
+    elif tblpos == 5
+        tblpos = 6
+    elif tblpos == 6
+        tblpos = 7
+    elif tblpos == 7
+        tblpos = 8
+    fail NoJobs
+step Toner on Print if (toner == 0) and (tblpos == 0 or tblpos == 1 or tblpos == 2)
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    fail NoToner
+step Queue on Print if tblpos == 2 or tblpos == 0 or tblpos == 5 or tblpos == 6 or tblpos == 7
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 0
+        tblpos = 4
+    elif tblpos == 5
+        tblpos = 6
+    elif tblpos == 6
+        tblpos = 7
+    elif tblpos == 7
+        tblpos = 8
+    jobs -= 1
+    emit jobs
+step Queue on Print if tblpos == 2 or tblpos == 0 or tblpos == 5 or tblpos == 6 or tblpos == 7
+    if tblpos == 2
+        tblpos = 3
+    elif tblpos == 0
+        tblpos = 4
+    elif tblpos == 5
+        tblpos = 6
+    elif tblpos == 6
+        tblpos = 7
+    elif tblpos == 7
+        tblpos = 8
+step Queue on Print
+    fail TblOff
+step Toner on Print if tblpos == 0 or tblpos == 1 or tblpos == 2
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    toner -= 1
+step Toner on Print if tblpos == 0 or tblpos == 1 or tblpos == 2
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+step Toner on Print
+    fail TblOff
+step Toner on Refill if tblpos == tblpos + 1
+    toner = 2
+step Toner on Refill
+    fail TblOff
+
+error TblOff

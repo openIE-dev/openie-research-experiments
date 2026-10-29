@@ -1,0 +1,26 @@
+[
+ {
+  "events": 25000,
+  "wall_s": 143.22,
+  "us_per_event": 5728.9,
+  "rc": 1,
+  "durable": "durable 54722 entries=54724 state_hash fdf02da7384b12d00ada96f362c480a22e6e98de3d91f87e3c75a1338990e170",
+  "stderr_tail": "tructions) on all threads, no exec, no new IP sockets\nrce host: validated 54724 entries, 2360 kept: replay with adapters disconnected gives the live state_hash\n"
+ },
+ {
+  "events": 50000,
+  "wall_s": 180.04,
+  "us_per_event": 3600.8,
+  "rc": 1,
+  "durable": "durable 108642 entries=108644 state_hash c6ff2cecfa0599974779bfdee78d2635357630ddb1b47ff833b6a69c56e6313b",
+  "stderr_tail": "ructions) on all threads, no exec, no new IP sockets\nrce host: validated 108644 entries, 4320 kept: replay with adapters disconnected gives the live state_hash\n"
+ },
+ {
+  "events": 100000,
+  "wall_s": 310.23,
+  "us_per_event": 3102.3,
+  "rc": 1,
+  "durable": "durable 235534 entries=235536 state_hash 61e8f7eb3a76497a59934cfea0a6dffc0bd9e96c858b92ab62995bd271e58d09",
+  "stderr_tail": "uctions) on all threads, no exec, no new IP sockets\nrce host: validated 235536 entries, 17766 kept: replay with adapters disconnected gives the live state_hash\n"
+ }
+]

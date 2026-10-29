@@ -1,0 +1,9 @@
+state Par
+    ones: u64 = 0
+
+event Bit(v: bool)
+
+step Par on Bit(v: v)
+    if v
+        ones = (ones + 1) % 2
+    emit ones == 1

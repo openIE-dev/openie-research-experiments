@@ -1,0 +1,932 @@
+{
+ "registered": {
+  "corpus": {
+   "by_rule": {
+    "L-PY-ALIAS": 4,
+    "L-PY-BYTES": 8,
+    "L-PY-CALL": 37,
+    "L-PY-CLASS": 8,
+    "L-PY-CLOSURE": 16,
+    "L-PY-DYN": 9,
+    "L-PY-EXC": 26,
+    "L-PY-FLOAT": 22,
+    "L-PY-FORMAT": 4,
+    "L-PY-GEN": 5,
+    "L-PY-GLOBAL": 3,
+    "L-PY-IMPORT": 32,
+    "L-PY-INT": 7,
+    "L-PY-MATCH": 1,
+    "L-PY-NONE": 11,
+    "L-PY-POLY": 14,
+    "L-PY-SET": 8,
+    "L-PY-SYNTAX": 12,
+    "L-PY-TEXT": 1,
+    "L-PY-TYPE": 30,
+    "L-PY-UNBOUNDED": 14
+   },
+   "cases": {
+    "algorithms/base64_codec": {
+     "detail": "L-PY-BYTES, L-PY-CALL, L-PY-IMPORT, L-PY-POLY, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/bfs_grid": {
+     "detail": "L-PY-IMPORT, L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/binary_search": {
+     "detail": "L-PY-IMPORT, L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/brackets": {
+     "detail": "e7cd1d3e63953ab74e66ed3dee5ed7fd4caac2a48356110cfd0da8651f88cd72",
+     "outcome": "MATCH"
+    },
+    "algorithms/collatz": {
+     "detail": "L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/crc32": {
+     "detail": "L-PY-BYTES, L-PY-IMPORT, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/dijkstra": {
+     "detail": "L-PY-IMPORT, L-PY-NONE, L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/edit_distance": {
+     "detail": "dd82a4347c64a0b061f4f11998ef030ab21d93764716d2baa9570a3e043dee60",
+     "outcome": "MATCH"
+    },
+    "algorithms/fib_big": {
+     "detail": "trap: overflow: 18446744073709551616 is outside i64",
+     "outcome": "KEPT-RESOURCE"
+    },
+    "algorithms/fnv_hash": {
+     "detail": "L-PY-BYTES, L-PY-CALL, L-PY-INT, L-PY-POLY",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/gcd_lcm": {
+     "detail": "L-PY-IMPORT, L-PY-SYNTAX, L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/hanoi": {
+     "detail": "rce run did not end within 120 s",
+     "outcome": "INTERNAL"
+    },
+    "algorithms/heap_pq": {
+     "detail": "L-PY-CLASS, L-PY-CLOSURE, L-PY-IMPORT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/kmp": {
+     "detail": "L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/knapsack": {
+     "detail": "3468c1da247e186c4a15b86b74077b8b2f1424fd98b2c03354e15c5171dfb300",
+     "outcome": "MATCH"
+    },
+    "algorithms/lcg": {
+     "detail": "trap: overflow: 18446744073709551616 is outside i64",
+     "outcome": "KEPT-RESOURCE"
+    },
+    "algorithms/lcs": {
+     "detail": "L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/matrix": {
+     "detail": "L-PY-ALIAS, L-PY-CALL, L-PY-FLOAT, L-PY-GEN, L-PY-IMPORT, L-PY-NONE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/mergesort": {
+     "detail": "L-PY-ALIAS, L-PY-CALL",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/nqueens": {
+     "detail": "L-PY-CLOSURE, L-PY-POLY, L-PY-SET",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/permutations": {
+     "detail": "L-PY-GEN, L-PY-IMPORT, L-PY-SYNTAX, L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/prime_factors": {
+     "detail": "L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/quicksort": {
+     "detail": "05d52b02920fe9fbaad7b59b00f8f154a8fab53cd98c214d20ee8acd28386ec9",
+     "outcome": "MATCH"
+    },
+    "algorithms/rle": {
+     "detail": "L-PY-IMPORT, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/roman": {
+     "detail": "L-PY-GEN, L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/sieve": {
+     "detail": "L-PY-BYTES, L-PY-CALL, L-PY-SYNTAX, L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/topo_sort": {
+     "detail": "L-PY-IMPORT, L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/word_count": {
+     "detail": "L-PY-CALL, L-PY-IMPORT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/bool_logic": {
+     "detail": "L-PY-FLOAT, L-PY-GLOBAL, L-PY-NONE, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/break_continue": {
+     "detail": "L-PY-NONE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/classes": {
+     "detail": "L-PY-CLASS, L-PY-CLOSURE, L-PY-DYN, L-PY-EXC, L-PY-IMPORT, L-PY-SET, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/closures": {
+     "detail": "L-PY-CLOSURE, L-PY-POLY",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/compare": {
+     "detail": "L-PY-DYN, L-PY-EXC, L-PY-FLOAT, L-PY-NONE, L-PY-SET, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/comprehensions": {
+     "detail": "L-PY-CALL, L-PY-GEN, L-PY-SET, L-PY-SYNTAX, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/dict_basics": {
+     "detail": "L-PY-CALL, L-PY-EXC, L-PY-NONE, L-PY-SYNTAX, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/exceptions": {
+     "detail": "L-PY-EXC, L-PY-POLY",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/exit_status": {
+     "detail": "L-PY-EXC, L-PY-IMPORT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/float_arith": {
+     "detail": "L-PY-CALL, L-PY-FLOAT, L-PY-IMPORT, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/float_print": {
+     "detail": "L-PY-CALL, L-PY-FLOAT, L-PY-FORMAT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/functions": {
+     "detail": "L-PY-CALL, L-PY-CLOSURE, L-PY-DYN, L-PY-EXC, L-PY-POLY, L-PY-SYNTAX, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/hello": {
+     "detail": "ff024369b302b0dcb8225c5114df20da0f9cb484b30d575be86d87251fbc91a1",
+     "outcome": "MATCH"
+    },
+    "basics/if_else": {
+     "detail": "L-PY-NONE, L-PY-SYNTAX, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/int_arith": {
+     "detail": "L-PY-FLOAT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/int_div_mod": {
+     "detail": "L-PY-CALL, L-PY-FLOAT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/int_literals": {
+     "detail": "L-PY-CALL, L-PY-EXC, L-PY-FLOAT, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/iterators": {
+     "detail": "L-PY-CALL, L-PY-CLASS, L-PY-CLOSURE, L-PY-IMPORT, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/list_basics": {
+     "detail": "L-PY-SYNTAX",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/list_sort": {
+     "detail": "L-PY-CALL, L-PY-FLOAT, L-PY-SET, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/loops": {
+     "detail": "L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/match_statement": {
+     "detail": "L-PY-CLASS, L-PY-CLOSURE, L-PY-FLOAT, L-PY-IMPORT, L-PY-MATCH, L-PY-NONE, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/print_values": {
+     "detail": "L-PY-BYTES, L-PY-CALL, L-PY-FLOAT, L-PY-NONE, L-PY-SET, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/recursion": {
+     "detail": "trap: overflow: 51090942171709440000 is outside i64",
+     "outcome": "KEPT-RESOURCE"
+    },
+    "basics/stderr_write": {
+     "detail": "L-PY-IMPORT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/string_basics": {
+     "detail": "L-PY-EXC",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/string_format": {
+     "detail": "L-PY-CALL, L-PY-FLOAT, L-PY-FORMAT, L-PY-NONE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/string_methods": {
+     "detail": "L-PY-CALL, L-PY-FORMAT, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/tuples_unpacking": {
+     "detail": "L-PY-CALL, L-PY-CLASS, L-PY-CLOSURE, L-PY-EXC, L-PY-FLOAT, L-PY-IMPORT, L-PY-SYNTAX, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/uncaught_exception": {
+     "detail": "L-PY-EXC",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/unicode_len": {
+     "detail": "L-PY-BYTES, L-PY-CALL, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/big_ints": {
+     "detail": "L-PY-CALL, L-PY-FLOAT, L-PY-IMPORT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/bool_int": {
+     "detail": "L-PY-DYN, L-PY-FLOAT, L-PY-SET, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/custom_exception": {
+     "detail": "L-PY-CALL, L-PY-CLASS, L-PY-CLOSURE, L-PY-DYN, L-PY-EXC",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/dataclass_repr": {
+     "detail": "L-PY-CLASS, L-PY-CLOSURE, L-PY-DYN, L-PY-EXC, L-PY-IMPORT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/dict_order": {
+     "detail": "L-PY-CALL, L-PY-SYNTAX",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/div_zero": {
+     "detail": "L-PY-FLOAT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/exceptions_chain": {
+     "detail": "L-PY-EXC",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/exit_message": {
+     "detail": "L-PY-IMPORT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/float_ops": {
+     "detail": "L-PY-CLOSURE, L-PY-EXC, L-PY-FLOAT, L-PY-IMPORT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/float_repr": {
+     "detail": "L-PY-CALL, L-PY-FLOAT, L-PY-IMPORT, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/format_spec": {
+     "detail": "L-PY-CALL, L-PY-EXC, L-PY-FLOAT, L-PY-FORMAT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/generators": {
+     "detail": "L-PY-CALL, L-PY-EXC, L-PY-GEN, L-PY-GLOBAL, L-PY-NONE, L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/global_scope": {
+     "detail": "L-PY-CLASS, L-PY-CLOSURE, L-PY-EXC, L-PY-GLOBAL",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/int_float_compare": {
+     "detail": "L-PY-DYN, L-PY-FLOAT, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/int_str_limit": {
+     "detail": "L-PY-CALL, L-PY-EXC, L-PY-IMPORT, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/list_aliasing": {
+     "detail": "L-PY-ALIAS, L-PY-CALL, L-PY-DYN, L-PY-EXC, L-PY-SYNTAX, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/math_transcendental": {
+     "detail": "L-PY-FLOAT, L-PY-IMPORT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/recursion_caught": {
+     "detail": "L-PY-EXC, L-PY-IMPORT, L-PY-POLY",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/recursion_limit": {
+     "detail": "trap: recursion bound",
+     "outcome": "MATCH-RESOURCE"
+    },
+    "boundaries/round_half_even": {
+     "detail": "L-PY-CALL, L-PY-DYN, L-PY-EXC, L-PY-FLOAT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/set_int_order": {
+     "detail": "L-PY-SET, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/slicing": {
+     "detail": "L-PY-ALIAS, L-PY-CALL, L-PY-EXC, L-PY-SYNTAX, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/str_compare": {
+     "detail": "L-PY-BYTES, L-PY-CALL",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/str_repr": {
+     "detail": "L-PY-BYTES, L-PY-CALL, L-PY-TEXT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/str_unicode": {
+     "detail": "L-PY-CALL, L-PY-IMPORT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "generated/float_ops": {
+     "detail": "L-PY-CLOSURE, L-PY-EXC, L-PY-IMPORT, L-PY-INT, L-PY-POLY, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "generated/float_print_bits": {
+     "detail": "L-PY-CALL, L-PY-IMPORT, L-PY-INT, L-PY-POLY, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "generated/float_print_decimals": {
+     "detail": "L-PY-CALL, L-PY-IMPORT, L-PY-INT, L-PY-POLY, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "generated/float_print_edges": {
+     "detail": "L-PY-CALL, L-PY-IMPORT, L-PY-INT, L-PY-POLY, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "generated/int_ops_big": {
+     "detail": "L-PY-CLOSURE, L-PY-EXC, L-PY-INT, L-PY-POLY",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "generated/int_ops_small": {
+     "detail": "L-PY-CLOSURE, L-PY-EXC, L-PY-POLY",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "generated/int_ops_word": {
+     "detail": "L-PY-CLOSURE, L-PY-EXC, L-PY-INT, L-PY-POLY",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "generated/str_repr": {
+     "detail": "L-PY-CALL",
+     "outcome": "REQUIRES-CHANGE"
+    }
+   },
+   "counts": {
+    "DIFFERS": 0,
+    "INTERNAL": 1,
+    "KEPT-RESOURCE": 3,
+    "MATCH": 5,
+    "MATCH-RESOURCE": 1,
+    "REQUIRES-CHANGE": 82
+   },
+   "first_rule": {
+    "L-PY-ALIAS": 1,
+    "L-PY-BYTES": 2,
+    "L-PY-CALL": 10,
+    "L-PY-CLASS": 1,
+    "L-PY-DYN": 2,
+    "L-PY-EXC": 4,
+    "L-PY-FLOAT": 9,
+    "L-PY-GLOBAL": 1,
+    "L-PY-IMPORT": 31,
+    "L-PY-NONE": 3,
+    "L-PY-POLY": 7,
+    "L-PY-SET": 1,
+    "L-PY-SYNTAX": 2,
+    "L-PY-TEXT": 1,
+    "L-PY-UNBOUNDED": 7
+   },
+   "holds": 6,
+   "only_rule": {
+    "L-PY-CALL": 1,
+    "L-PY-EXC": 3,
+    "L-PY-FLOAT": 2,
+    "L-PY-IMPORT": 2,
+    "L-PY-NONE": 1,
+    "L-PY-SYNTAX": 1,
+    "L-PY-UNBOUNDED": 5
+   }
+  },
+  "corpus_functions": {
+   "functions": 67,
+   "internal": 1,
+   "lifted": 16
+  },
+  "modules": {
+   "bisect": {
+    "functions": 4,
+    "internal": 0,
+    "lifted": 0
+   },
+   "colorsys": {
+    "functions": 7,
+    "internal": 0,
+    "lifted": 0
+   },
+   "graphlib": {
+    "functions": 0,
+    "internal": 0,
+    "lifted": 0
+   },
+   "heapq": {
+    "functions": 15,
+    "internal": 0,
+    "lifted": 0
+   },
+   "textwrap": {
+    "functions": 5,
+    "internal": 0,
+    "lifted": 0
+   }
+  },
+  "rce_commit": "5583974e95cd9d968e913de10b627cf2273695ee"
+ },
+ "second": {
+  "corpus": {
+   "by_rule": {
+    "L-PY-ALIAS": 4,
+    "L-PY-BYTES": 8,
+    "L-PY-CALL": 39,
+    "L-PY-CLASS": 8,
+    "L-PY-CLOSURE": 16,
+    "L-PY-DYN": 9,
+    "L-PY-EXC": 26,
+    "L-PY-FLOAT": 22,
+    "L-PY-FORMAT": 4,
+    "L-PY-GEN": 5,
+    "L-PY-GLOBAL": 3,
+    "L-PY-IMPORT": 32,
+    "L-PY-INT": 7,
+    "L-PY-MATCH": 1,
+    "L-PY-NONE": 11,
+    "L-PY-POLY": 14,
+    "L-PY-SET": 8,
+    "L-PY-SYNTAX": 12,
+    "L-PY-TEXT": 1,
+    "L-PY-TYPE": 26,
+    "L-PY-UNBOUNDED": 14
+   },
+   "cases": {
+    "algorithms/base64_codec": {
+     "detail": "L-PY-BYTES, L-PY-CALL, L-PY-IMPORT, L-PY-POLY, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/bfs_grid": {
+     "detail": "L-PY-CALL, L-PY-IMPORT, L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/binary_search": {
+     "detail": "L-PY-IMPORT, L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/brackets": {
+     "detail": "e7cd1d3e63953ab74e66ed3dee5ed7fd4caac2a48356110cfd0da8651f88cd72",
+     "outcome": "MATCH"
+    },
+    "algorithms/collatz": {
+     "detail": "L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/crc32": {
+     "detail": "L-PY-BYTES, L-PY-IMPORT, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/dijkstra": {
+     "detail": "L-PY-IMPORT, L-PY-NONE, L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/edit_distance": {
+     "detail": "dd82a4347c64a0b061f4f11998ef030ab21d93764716d2baa9570a3e043dee60",
+     "outcome": "MATCH"
+    },
+    "algorithms/fib_big": {
+     "detail": "trap: overflow: 18446744073709551616 is outside i64",
+     "outcome": "KEPT-RESOURCE"
+    },
+    "algorithms/fnv_hash": {
+     "detail": "L-PY-BYTES, L-PY-CALL, L-PY-INT, L-PY-POLY",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/gcd_lcm": {
+     "detail": "L-PY-IMPORT, L-PY-SYNTAX, L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/hanoi": {
+     "detail": "rce run did not end within 120 s",
+     "outcome": "INTERNAL"
+    },
+    "algorithms/heap_pq": {
+     "detail": "L-PY-CLASS, L-PY-CLOSURE, L-PY-IMPORT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/kmp": {
+     "detail": "L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/knapsack": {
+     "detail": "3468c1da247e186c4a15b86b74077b8b2f1424fd98b2c03354e15c5171dfb300",
+     "outcome": "MATCH"
+    },
+    "algorithms/lcg": {
+     "detail": "trap: overflow: 18446744073709551616 is outside i64",
+     "outcome": "KEPT-RESOURCE"
+    },
+    "algorithms/lcs": {
+     "detail": "L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/matrix": {
+     "detail": "L-PY-ALIAS, L-PY-CALL, L-PY-FLOAT, L-PY-GEN, L-PY-IMPORT, L-PY-NONE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/mergesort": {
+     "detail": "L-PY-ALIAS, L-PY-CALL",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/nqueens": {
+     "detail": "L-PY-CLOSURE, L-PY-POLY, L-PY-SET",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/permutations": {
+     "detail": "L-PY-GEN, L-PY-IMPORT, L-PY-SYNTAX, L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/prime_factors": {
+     "detail": "L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/quicksort": {
+     "detail": "05d52b02920fe9fbaad7b59b00f8f154a8fab53cd98c214d20ee8acd28386ec9",
+     "outcome": "MATCH"
+    },
+    "algorithms/rle": {
+     "detail": "L-PY-IMPORT, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/roman": {
+     "detail": "L-PY-GEN, L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/sieve": {
+     "detail": "L-PY-BYTES, L-PY-CALL, L-PY-SYNTAX, L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/topo_sort": {
+     "detail": "L-PY-IMPORT, L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "algorithms/word_count": {
+     "detail": "L-PY-CALL, L-PY-IMPORT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/bool_logic": {
+     "detail": "L-PY-FLOAT, L-PY-GLOBAL, L-PY-NONE, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/break_continue": {
+     "detail": "L-PY-NONE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/classes": {
+     "detail": "L-PY-CLASS, L-PY-CLOSURE, L-PY-DYN, L-PY-EXC, L-PY-IMPORT, L-PY-SET, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/closures": {
+     "detail": "L-PY-CLOSURE, L-PY-POLY",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/compare": {
+     "detail": "L-PY-DYN, L-PY-EXC, L-PY-FLOAT, L-PY-NONE, L-PY-SET, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/comprehensions": {
+     "detail": "L-PY-CALL, L-PY-GEN, L-PY-SET, L-PY-SYNTAX, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/dict_basics": {
+     "detail": "L-PY-CALL, L-PY-EXC, L-PY-NONE, L-PY-SYNTAX, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/exceptions": {
+     "detail": "L-PY-EXC, L-PY-POLY",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/exit_status": {
+     "detail": "L-PY-EXC, L-PY-IMPORT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/float_arith": {
+     "detail": "L-PY-CALL, L-PY-FLOAT, L-PY-IMPORT, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/float_print": {
+     "detail": "L-PY-CALL, L-PY-FLOAT, L-PY-FORMAT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/functions": {
+     "detail": "L-PY-CALL, L-PY-CLOSURE, L-PY-DYN, L-PY-EXC, L-PY-POLY, L-PY-SYNTAX, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/hello": {
+     "detail": "ff024369b302b0dcb8225c5114df20da0f9cb484b30d575be86d87251fbc91a1",
+     "outcome": "MATCH"
+    },
+    "basics/if_else": {
+     "detail": "L-PY-NONE, L-PY-SYNTAX, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/int_arith": {
+     "detail": "L-PY-FLOAT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/int_div_mod": {
+     "detail": "L-PY-CALL, L-PY-FLOAT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/int_literals": {
+     "detail": "L-PY-CALL, L-PY-EXC, L-PY-FLOAT, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/iterators": {
+     "detail": "L-PY-CALL, L-PY-CLASS, L-PY-CLOSURE, L-PY-IMPORT, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/list_basics": {
+     "detail": "L-PY-SYNTAX",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/list_sort": {
+     "detail": "L-PY-CALL, L-PY-FLOAT, L-PY-SET, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/loops": {
+     "detail": "L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/match_statement": {
+     "detail": "L-PY-CLASS, L-PY-CLOSURE, L-PY-FLOAT, L-PY-IMPORT, L-PY-MATCH, L-PY-NONE, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/print_values": {
+     "detail": "L-PY-BYTES, L-PY-CALL, L-PY-FLOAT, L-PY-NONE, L-PY-SET, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/recursion": {
+     "detail": "trap: overflow: 51090942171709440000 is outside i64",
+     "outcome": "KEPT-RESOURCE"
+    },
+    "basics/stderr_write": {
+     "detail": "L-PY-IMPORT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/string_basics": {
+     "detail": "L-PY-EXC",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/string_format": {
+     "detail": "L-PY-CALL, L-PY-FLOAT, L-PY-FORMAT, L-PY-NONE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/string_methods": {
+     "detail": "L-PY-CALL, L-PY-FORMAT, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/tuples_unpacking": {
+     "detail": "L-PY-CALL, L-PY-CLASS, L-PY-CLOSURE, L-PY-EXC, L-PY-FLOAT, L-PY-IMPORT, L-PY-SYNTAX, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/uncaught_exception": {
+     "detail": "L-PY-EXC",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "basics/unicode_len": {
+     "detail": "L-PY-BYTES, L-PY-CALL, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/big_ints": {
+     "detail": "L-PY-CALL, L-PY-FLOAT, L-PY-IMPORT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/bool_int": {
+     "detail": "L-PY-DYN, L-PY-FLOAT, L-PY-SET, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/custom_exception": {
+     "detail": "L-PY-CALL, L-PY-CLASS, L-PY-CLOSURE, L-PY-DYN, L-PY-EXC",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/dataclass_repr": {
+     "detail": "L-PY-CLASS, L-PY-CLOSURE, L-PY-DYN, L-PY-EXC, L-PY-IMPORT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/dict_order": {
+     "detail": "L-PY-CALL, L-PY-SYNTAX",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/div_zero": {
+     "detail": "L-PY-FLOAT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/exceptions_chain": {
+     "detail": "L-PY-EXC",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/exit_message": {
+     "detail": "L-PY-IMPORT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/float_ops": {
+     "detail": "L-PY-CLOSURE, L-PY-EXC, L-PY-FLOAT, L-PY-IMPORT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/float_repr": {
+     "detail": "L-PY-CALL, L-PY-FLOAT, L-PY-IMPORT, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/format_spec": {
+     "detail": "L-PY-CALL, L-PY-EXC, L-PY-FLOAT, L-PY-FORMAT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/generators": {
+     "detail": "L-PY-CALL, L-PY-EXC, L-PY-GEN, L-PY-GLOBAL, L-PY-NONE, L-PY-UNBOUNDED",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/global_scope": {
+     "detail": "L-PY-CLASS, L-PY-CLOSURE, L-PY-EXC, L-PY-GLOBAL",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/int_float_compare": {
+     "detail": "L-PY-DYN, L-PY-FLOAT, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/int_str_limit": {
+     "detail": "L-PY-CALL, L-PY-EXC, L-PY-IMPORT, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/list_aliasing": {
+     "detail": "L-PY-ALIAS, L-PY-CALL, L-PY-DYN, L-PY-EXC, L-PY-SYNTAX, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/math_transcendental": {
+     "detail": "L-PY-FLOAT, L-PY-IMPORT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/recursion_caught": {
+     "detail": "L-PY-EXC, L-PY-IMPORT, L-PY-POLY",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/recursion_limit": {
+     "detail": "trap: recursion bound",
+     "outcome": "MATCH-RESOURCE"
+    },
+    "boundaries/round_half_even": {
+     "detail": "L-PY-CALL, L-PY-DYN, L-PY-EXC, L-PY-FLOAT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/set_int_order": {
+     "detail": "L-PY-SET, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/slicing": {
+     "detail": "L-PY-ALIAS, L-PY-CALL, L-PY-EXC, L-PY-SYNTAX, L-PY-TYPE",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/str_compare": {
+     "detail": "L-PY-BYTES, L-PY-CALL",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/str_repr": {
+     "detail": "L-PY-BYTES, L-PY-CALL, L-PY-TEXT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "boundaries/str_unicode": {
+     "detail": "L-PY-CALL, L-PY-IMPORT",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "generated/float_ops": {
+     "detail": "L-PY-CALL, L-PY-CLOSURE, L-PY-EXC, L-PY-IMPORT, L-PY-INT, L-PY-POLY",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "generated/float_print_bits": {
+     "detail": "L-PY-CALL, L-PY-IMPORT, L-PY-INT, L-PY-POLY",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "generated/float_print_decimals": {
+     "detail": "L-PY-CALL, L-PY-IMPORT, L-PY-INT, L-PY-POLY",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "generated/float_print_edges": {
+     "detail": "L-PY-CALL, L-PY-IMPORT, L-PY-INT, L-PY-POLY",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "generated/int_ops_big": {
+     "detail": "L-PY-CLOSURE, L-PY-EXC, L-PY-INT, L-PY-POLY",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "generated/int_ops_small": {
+     "detail": "L-PY-CLOSURE, L-PY-EXC, L-PY-POLY",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "generated/int_ops_word": {
+     "detail": "L-PY-CLOSURE, L-PY-EXC, L-PY-INT, L-PY-POLY",
+     "outcome": "REQUIRES-CHANGE"
+    },
+    "generated/str_repr": {
+     "detail": "L-PY-CALL",
+     "outcome": "REQUIRES-CHANGE"
+    }
+   },
+   "counts": {
+    "DIFFERS": 0,
+    "INTERNAL": 1,
+    "KEPT-RESOURCE": 3,
+    "MATCH": 5,
+    "MATCH-RESOURCE": 1,
+    "REQUIRES-CHANGE": 82
+   },
+   "first_rule": {
+    "L-PY-ALIAS": 1,
+    "L-PY-BYTES": 2,
+    "L-PY-CALL": 10,
+    "L-PY-CLASS": 1,
+    "L-PY-DYN": 2,
+    "L-PY-EXC": 4,
+    "L-PY-FLOAT": 9,
+    "L-PY-GLOBAL": 1,
+    "L-PY-IMPORT": 31,
+    "L-PY-NONE": 3,
+    "L-PY-POLY": 7,
+    "L-PY-SET": 1,
+    "L-PY-SYNTAX": 2,
+    "L-PY-TEXT": 1,
+    "L-PY-UNBOUNDED": 7
+   },
+   "holds": 6,
+   "only_rule": {
+    "L-PY-CALL": 1,
+    "L-PY-EXC": 3,
+    "L-PY-FLOAT": 2,
+    "L-PY-IMPORT": 2,
+    "L-PY-NONE": 1,
+    "L-PY-SYNTAX": 1,
+    "L-PY-UNBOUNDED": 5
+   }
+  },
+  "corpus_functions": {
+   "functions": 67,
+   "internal": 0,
+   "lifted": 17
+  },
+  "modules": {
+   "bisect": {
+    "functions": 4,
+    "internal": 0,
+    "lifted": 0
+   },
+   "colorsys": {
+    "functions": 7,
+    "internal": 0,
+    "lifted": 0
+   },
+   "graphlib": {
+    "functions": 0,
+    "internal": 0,
+    "lifted": 0
+   },
+   "heapq": {
+    "functions": 15,
+    "internal": 0,
+    "lifted": 0
+   },
+   "textwrap": {
+    "functions": 5,
+    "internal": 0,
+    "lifted": 0
+   }
+  },
+  "rce_commit": "eb2cd4e59b492189c3a5794cc395cc189808cd19"
+ }
+}

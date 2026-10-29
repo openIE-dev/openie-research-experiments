@@ -1,0 +1,8 @@
+state Bag
+    count: u64 = 0
+
+event Put(name: text)
+
+step Bag on Put(name: _)
+    count = (count + 1) % 3
+    emit count

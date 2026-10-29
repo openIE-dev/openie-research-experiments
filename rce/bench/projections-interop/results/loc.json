@@ -1,0 +1,228 @@
+{
+ "emitted": {
+  "js": {
+   "bank": {
+    "driver": 12,
+    "program": 59,
+    "runtime": 1955,
+    "total": 2026
+   },
+   "counter": {
+    "driver": 12,
+    "program": 37,
+    "runtime": 1955,
+    "total": 2004
+   },
+   "door": {
+    "driver": 12,
+    "program": 100,
+    "runtime": 1955,
+    "total": 2067
+   },
+   "float_keys": {
+    "driver": 12,
+    "program": 55,
+    "runtime": 1955,
+    "total": 2022
+   },
+   "inventory": {
+    "driver": 10,
+    "program": 64,
+    "runtime": 1955,
+    "total": 2029
+   },
+   "multi_region": {
+    "driver": 10,
+    "program": 79,
+    "runtime": 1955,
+    "total": 2044
+   },
+   "rcedb": {
+    "driver": 13,
+    "program": 127,
+    "runtime": 1955,
+    "total": 2095
+   },
+   "traffic_light": {
+    "driver": 11,
+    "program": 73,
+    "runtime": 1955,
+    "total": 2039
+   }
+  },
+  "python": {
+   "bank": {
+    "driver": 6,
+    "program": 51,
+    "runtime": 2017,
+    "total": 2074
+   },
+   "counter": {
+    "driver": 6,
+    "program": 33,
+    "runtime": 2017,
+    "total": 2056
+   },
+   "door": {
+    "driver": 6,
+    "program": 80,
+    "runtime": 2017,
+    "total": 2103
+   },
+   "float_keys": {
+    "driver": 6,
+    "program": 47,
+    "runtime": 2017,
+    "total": 2070
+   },
+   "inventory": {
+    "driver": 5,
+    "program": 55,
+    "runtime": 2017,
+    "total": 2077
+   },
+   "multi_region": {
+    "driver": 5,
+    "program": 66,
+    "runtime": 2017,
+    "total": 2088
+   },
+   "rcedb": {
+    "driver": 7,
+    "program": 106,
+    "runtime": 2017,
+    "total": 2130
+   },
+   "traffic_light": {
+    "driver": 5,
+    "program": 58,
+    "runtime": 2017,
+    "total": 2080
+   }
+  },
+  "rust": {
+   "bank": {
+    "driver": 7,
+    "program": 131,
+    "runtime": 2004,
+    "total": 2142
+   },
+   "counter": {
+    "driver": 7,
+    "program": 109,
+    "runtime": 2004,
+    "total": 2120
+   },
+   "door": {
+    "driver": 7,
+    "program": 175,
+    "runtime": 2004,
+    "total": 2186
+   },
+   "float_keys": {
+    "driver": 7,
+    "program": 126,
+    "runtime": 2004,
+    "total": 2137
+   },
+   "inventory": {
+    "driver": 5,
+    "program": 137,
+    "runtime": 2004,
+    "total": 2146
+   },
+   "multi_region": {
+    "driver": 5,
+    "program": 151,
+    "runtime": 2004,
+    "total": 2160
+   },
+   "rcedb": {
+    "driver": 8,
+    "program": 202,
+    "runtime": 2004,
+    "total": 2214
+   },
+   "traffic_light": {
+    "driver": 6,
+    "program": 145,
+    "runtime": 2004,
+    "total": 2155
+   }
+  }
+ },
+ "glue": {
+  "js": {
+   "js/Program.mjs": 36,
+   "js/browser_drive.mjs": 22,
+   "js/rce_host.mjs": 77,
+   "js/react_drive.mjs": 16,
+   "js/service.mjs": 40
+  },
+  "python": {
+   "python/fastapi_app.py": 34,
+   "python/numpy_drive.py": 18,
+   "python/rce_host.py": 80,
+   "python/service.py": 52
+  },
+  "rust": {
+   "rust/src/adapter.rs": 100,
+   "rust/src/bench.rs": 25,
+   "rust/src/main.rs": 98
+  }
+ },
+ "glue_per_program_lines": {
+  "js": 0,
+  "python": 0,
+  "rust": 2
+ },
+ "hand": {
+  "js": {
+   "bank": 12,
+   "counter": 9,
+   "door": 11,
+   "float_keys": 11,
+   "inventory": 12,
+   "multi_region": 10,
+   "preamble": 1,
+   "rcedb": 16,
+   "tail": 1,
+   "traffic_light": 5
+  },
+  "python": {
+   "bank": 12,
+   "counter": 11,
+   "door": 18,
+   "float_keys": 19,
+   "inventory": 13,
+   "multi_region": 16,
+   "preamble": 5,
+   "rcedb": 19,
+   "tail": 0,
+   "traffic_light": 9
+  },
+  "rust": {
+   "bank": 30,
+   "counter": 19,
+   "door": 23,
+   "float_keys": 23,
+   "inventory": 29,
+   "multi_region": 23,
+   "preamble": 19,
+   "rcedb": 29,
+   "tail": 0,
+   "traffic_light": 18
+  }
+ },
+ "hand_glue": {
+  "js": {
+   "hand/js/drive.mjs": 32
+  },
+  "python": {
+   "hand/python/drive.py": 51
+  },
+  "rust": {
+   "hand/rust/src/main.rs": 79
+  }
+ }
+}

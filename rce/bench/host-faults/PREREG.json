@@ -1,0 +1,35 @@
+{
+ "id": "rce-host-faults-2026-10-29",
+ "registered": "2026-10-29 (before the 1,000-seed run; the harness was tried on seeds 1 to 50 while it was written, and those trial counts are not reported as results)",
+ "question": "Critique 6: most production faults happen at the host boundary (reordering, duplicates, drops, clock skew, crashes and restarts), outside the pure step. What does the RCE host contract (Appendix E) guarantee under those faults, and what does it leave to the program?",
+ "engine": "openIE-dev/rce branch claude/host-faults at ca9371c1 (from main a82a0348), spec/checker/tests/host_faults.rs, release build",
+ "unit": "one run = one (program, admission path, fault mix, seed): a simulated client and transport drive a program on the real Host with a durable D file under /dev/shm; the seed fixes the client's operations and every fault",
+ "programs": {
+  "account/typed, ledger/typed, handshake/typed": "programs/money/account.rce, programs/money/ledger.rce, programs/network/handshake.rce; one client, up to 3 operations in flight, each copy admitted as a typed input (Host::apply_input then settle, as a line of rce host run/serve)",
+  "account/sourced, ledger/sourced, handshake/sourced": "the same programs and operations, each copy offered as a sourced input (source, seq, tick) and admitted by close_window each round (HC-15 to HC-17)",
+  "ratelimit/typed": "spec/checker/tests/host/faults/ratelimit.rce (new: a token bucket of 3 per client refilled once per second of WallTime), one client, WallTime delivered every round",
+  "notes_http/http": "programs/network/notes_http.rce on the HTTP event host (Host::http_input then settle, as rce host serve --http), 3 clients of 8 operations, a simulated HttpRespond",
+  "notes_net/net": "spec/checker/tests/host/notes_net.rce on a simulated net adapter with Tick polling (as rce host run/serve --net), 2 clients of 6 operations, request bytes in 1 to 3 segments; ids issued as the reference adapter issues them"
+ },
+ "faults": "per copy: drop 10 %, dup 10 % (a second copy), delay 0 to 4 rounds (reorder); per answer: lose 10 %; per round: restart 3 % (kill at a random position in the round's batch, then D as a kill -9 leaves it, with a torn last line, cut to the last barrier, or cut at a random line past it) and skew 10 % (the wall clock steps to true time minus 0 to 3 s, plus 0 to 3 s, or back to true time; a host.WallTime is admitted). A client retransmits after 6 rounds without an answer (12 for notes_net).",
+ "mixes": "all (every class at the rates above), none, and each class alone (drop, dup, reorder, lose, restart, skew)",
+ "seeds": "1 to 1000 for every program and mix: 9 programs x 8 mixes x 1000 = 72,000 runs; every seed divisible by 10 is run twice and its two D files compared byte for byte",
+ "metrics": {
+  "a": "runs in which replay of D with no adapters does not reproduce the live state hash and state, or a rerun of the seed writes a different D",
+  "b": "runs with an entry that is neither a step nor a kept step: a host entry or a kept entry that changes the state hash, a kept cause outside HC-21, or a D that replay reports as a host fault",
+  "c": "runs in which a restart reuses an id: a host.Restarted whose below is not its own seq, a net id after a restart below that restart's below, a net id issued twice, or an HTTP request id used twice",
+  "d": "per kind, runs in which the program mishandles a fault against the client's intent (each operation applied once, in the client's order): duplicate_applied, answer_differs, state_differs (stream programs), duplicate_note, lost_note, delete_answered_404 (notes services), over_limit, kept_on_clock_step (ratelimit); with the lowest seed per kind and mix",
+  "gap": "duplicate_acked_without_outcome: a sourced client whose answer was a duplicate ack (HC-16 acks a duplicate without the outcome of its step), counted separately from d",
+  "live": "runs that do not finish within 3,000 rounds"
+ },
+ "hypotheses": {
+  "H-a": "0 runs violate (a)",
+  "H-b": "0 runs violate (b)",
+  "H-c": "0 runs violate (c)",
+  "H-dedupe": "0 sourced runs have duplicate_applied, answer_differs or state_differs (HC-16 and in-order admission per source)",
+  "H-d": "typed and HTTP runs under dup, lose or restart show duplicate_applied or duplicate_note in a positive number of seeds: the host contract does not prevent application-level double application of inputs without a source identity"
+ },
+ "falsifier": "a single run violating (a), (b) or (c), or a sourced run applying an operation twice, disproves the corresponding host guarantee at this scale; H-d is disproved if no typed or HTTP run applies a duplicate",
+ "exclusions": "none; a run that panics is a failure of the harness and is reported with its seed",
+ "limits": "the transport, the HTTP connections and the net sockets are simulated (the real TCP and HTTP adapters are not exercised); a kill is between host calls, never inside one admission's drain; wall time is injected through Host::wall_time because rce host run and serve supply no WallTime adapter; the oracle is one client's intent, so concurrent clients' interleavings are not judged"
+}

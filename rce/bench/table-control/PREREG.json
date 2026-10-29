@@ -1,0 +1,18 @@
+{
+ "id": "rce-table-control-2026-10-29",
+ "registered": "2026-10-29 (before the first run of scripts/table-control.py on the population)",
+ "question": "Critique 5 (Goodhart: a completeness predicate made of examples is met by a lookup table) and RCE-JEPA RJ-F2 (the cost of intent specifications). For each admitted program with example lines, does its stated obligations' gate admit the program's lookup-table control, a program that equals it on the listed example event sequences and keeps the state on every other sequence?",
+ "rce_commit": "8ce91cea (openIE-dev/rce main) plus the branch claude/gate-measures that adds scripts/table-control.py; the checker binary is built from 8ce91cea",
+ "population": "the admitted, shape-deduplicated programs of the scripts/corpus.py population that carry at least one example line (59 expected at 8ce91cea)",
+ "control": "per region R: a field tblpos: u64 = 0 tracking R's node in a trie of the example event lists restricted to the events R has a step for; each original step keeps its pattern, guard and body, applies only at a trie node with a child for its event and moves tblpos to it; one step per (R, event) moves along the trie without touching the original fields; a last unguarded step fails with the new error TblOff, so every event off the table keeps the state. For a program with exactly one region with exactly one field, arrow steps become their block form and an example -> v becomes -> f == (v) (6.9, 8.4: the same proposition)",
+ "validity": "a control is valid when (a) rce check admits it or names only W-INT-1, and (b) traced on the example event lists (example and check lines removed, rce trace --json --streams) its (outcome, hashed state with tblpos projected away) equals the original's on every step; an invalid control is a construction failure, listed with its reason, never counted as admitted or distinguished",
+ "metrics": {
+  "primary": "number of valid controls rce check admits, out of valid controls",
+  "distinguished": "number of valid controls that require change on W-INT-1 (the obligations distinguish the program from its control)",
+  "off_table": "for each valid control, the number of probe event lists (every ordered pair of example lists concatenated) on which the control's trace differs from the original's; a control with no differing probe is listed (the probe set did not show it to be a different behaviour)",
+  "other_obligations": "per program, counts of check lines, requires and ensures contracts and refined types, and whether any of them is the reason a control requires change"
+ },
+ "predictions": "every valid control is admitted (examples are a finite set of event sequences, so a table over them meets them by construction; check lines and contracts concern functions, which the control keeps unchanged); nearly every valid control differs from its program on at least one off-table probe",
+ "after_the_measurement": "if the measurement shows that example-only obligations never distinguish a program from its control, rce check is given a recommended (not requires-change) note with a new rule id saying so, specified in spec/book with a conformance test; the note is outside this measurement and does not change any admitted program",
+ "limits": "the table is keyed on event names per region, not on payload values (two examples that differ only in payload share a trie path and the control computes the payload with the original step); a stricter payload-keyed table would also be admitted by the same argument. The control is built at source level by scripts/table-control.py; programs whose steps it cannot rewrite are listed as not synthesised"
+}

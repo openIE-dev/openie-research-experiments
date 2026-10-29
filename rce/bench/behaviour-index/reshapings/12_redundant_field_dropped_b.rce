@@ -1,0 +1,12 @@
+state Counter
+    n: u64 = 0
+
+event Inc
+event Dec
+
+step Counter on Inc
+    n = (n + 1) % 4
+    emit n
+step Counter on Dec
+    n = if n == 0 then 3 else n - 1
+    emit n

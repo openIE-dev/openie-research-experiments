@@ -1,0 +1,10 @@
+state Acc
+    last: u64 = 0
+
+event Ask(k: u8)
+
+fn tri(k: u64) -> u64 = k * (k + 1) / 2
+
+step Acc on Ask(k: k)
+    last = tri(k as u64)
+    emit last

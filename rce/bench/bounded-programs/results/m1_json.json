@@ -1,0 +1,448 @@
+{
+ "bounded_descent": [
+  {
+   "depth": 1000,
+   "rc": 0,
+   "tail": "emit \"2001\"\n",
+   "wall_s": 0.9729
+  },
+  {
+   "depth": 1999,
+   "rc": 0,
+   "tail": "emit \"3999\"\n",
+   "wall_s": 3.741
+  },
+  {
+   "depth": 2000,
+   "rc": 1,
+   "tail": "stopped: trap: recursion bound\n",
+   "wall_s": 2.6798
+  }
+ ],
+ "check": {
+  "out": "ok programs/text/json_nest.rce\n",
+  "rc": 0,
+  "wall_s_all": [
+   2.9799,
+   3.1038,
+   2.992
+  ],
+  "wall_s_median": 2.992
+ },
+ "descent_verdict": {
+  "out": "requires change programs/text/change/json_descent.rce: line 13: W-REC-1 recursion through items, value has no decreasing measure (6.7): no layers of summed measures, each kept by every call not yet done and shrunk by at least one, leave the remaining calls without a cycle, and a cycle of its calls passes through no function declared with `bound`\n",
+  "rc": 1,
+  "wall_s": 0.011
+ },
+ "program": "programs/text/json_nest.rce",
+ "runs": [
+  {
+   "expect": "1",
+   "got": "1",
+   "kind": "loop",
+   "param": 1,
+   "peak": {
+    "maxrss_kb": 11532,
+    "rc": 0
+   },
+   "rc": 0,
+   "tail": "emit \"1\"\n",
+   "wall_s_all": [
+    0.0165,
+    0.014,
+    0.0165
+   ],
+   "wall_s_median": 0.0165
+  },
+  {
+   "expect": "-3",
+   "got": "-3",
+   "kind": "malformed",
+   "param": 1,
+   "peak": {
+    "maxrss_kb": 11536,
+    "rc": 0
+   },
+   "rc": 0,
+   "tail": "emit \"-3\"\n",
+   "wall_s_all": [
+    0.0224,
+    0.0167,
+    0.0238
+   ],
+   "wall_s_median": 0.0224
+  },
+  {
+   "expect": "10",
+   "got": "10",
+   "kind": "loop",
+   "param": 10,
+   "peak": {
+    "maxrss_kb": 11480,
+    "rc": 0
+   },
+   "rc": 0,
+   "tail": "emit \"10\"\n",
+   "wall_s_all": [
+    0.0292,
+    0.0386,
+    0.0299
+   ],
+   "wall_s_median": 0.0299
+  },
+  {
+   "expect": "-21",
+   "got": "-21",
+   "kind": "malformed",
+   "param": 10,
+   "peak": {
+    "maxrss_kb": 11516,
+    "rc": 0
+   },
+   "rc": 0,
+   "tail": "emit \"-21\"\n",
+   "wall_s_all": [
+    0.0314,
+    0.0204,
+    0.0157
+   ],
+   "wall_s_median": 0.0204
+  },
+  {
+   "expect": "100",
+   "got": "100",
+   "kind": "loop",
+   "param": 100,
+   "peak": {
+    "maxrss_kb": 11460,
+    "rc": 0
+   },
+   "rc": 0,
+   "tail": "emit \"100\"\n",
+   "wall_s_all": [
+    0.0503,
+    0.0857,
+    0.0428
+   ],
+   "wall_s_median": 0.0503
+  },
+  {
+   "expect": "-201",
+   "got": "-201",
+   "kind": "malformed",
+   "param": 100,
+   "peak": {
+    "maxrss_kb": 11572,
+    "rc": 0
+   },
+   "rc": 0,
+   "tail": "emit \"-201\"\n",
+   "wall_s_all": [
+    0.0549,
+    0.0751,
+    0.0703
+   ],
+   "wall_s_median": 0.0703
+  },
+  {
+   "expect": "1000",
+   "got": "1000",
+   "kind": "loop",
+   "param": 1000,
+   "peak": {
+    "maxrss_kb": 14696,
+    "rc": 0
+   },
+   "rc": 0,
+   "tail": "emit \"1000\"\n",
+   "wall_s_all": [
+    2.6718,
+    2.6257,
+    2.3026
+   ],
+   "wall_s_median": 2.6257
+  },
+  {
+   "expect": "-2001",
+   "got": "-2001",
+   "kind": "malformed",
+   "param": 1000,
+   "peak": {
+    "maxrss_kb": 15000,
+    "rc": 0
+   },
+   "rc": 0,
+   "tail": "emit \"-2001\"\n",
+   "wall_s_all": [
+    2.47,
+    2.0937,
+    2.6443
+   ],
+   "wall_s_median": 2.47
+  },
+  {
+   "expect": "2000",
+   "got": "2000",
+   "kind": "loop",
+   "param": 2000,
+   "peak": {
+    "maxrss_kb": 19544,
+    "rc": 0
+   },
+   "rc": 0,
+   "tail": "emit \"2000\"\n",
+   "wall_s_all": [
+    13.7053,
+    13.8353,
+    13.4007
+   ],
+   "wall_s_median": 13.7053
+  },
+  {
+   "expect": "-4001",
+   "got": "-4001",
+   "kind": "malformed",
+   "param": 2000,
+   "peak": {
+    "maxrss_kb": 19728,
+    "rc": 0
+   },
+   "rc": 0,
+   "tail": "emit \"-4001\"\n",
+   "wall_s_all": [
+    13.9803,
+    13.9586,
+    14.0666
+   ],
+   "wall_s_median": 13.9803
+  },
+  {
+   "expect": "4000",
+   "got": "4000",
+   "kind": "loop",
+   "param": 4000,
+   "peak": {
+    "maxrss_kb": 28564,
+    "rc": 0
+   },
+   "rc": 0,
+   "tail": "emit \"4000\"\n",
+   "wall_s_all": [
+    71.9087
+   ],
+   "wall_s_median": 71.9087
+  },
+  {
+   "expect": "-8001",
+   "got": "-8001",
+   "kind": "malformed",
+   "param": 4000,
+   "peak": {
+    "maxrss_kb": 28392,
+    "rc": 0
+   },
+   "rc": 0,
+   "tail": "emit \"-8001\"\n",
+   "wall_s_all": [
+    77.8503
+   ],
+   "wall_s_median": 77.8503
+  },
+  {
+   "expect": "1",
+   "got": "1",
+   "kind": "recursion",
+   "param": 1,
+   "peak": {
+    "maxrss_kb": 11464,
+    "rc": 0
+   },
+   "rc": 0,
+   "tail": "emit \"1\"\n",
+   "wall_s_all": [
+    0.0183,
+    0.0171,
+    0.0143
+   ],
+   "wall_s_median": 0.0171
+  },
+  {
+   "expect": "10",
+   "got": "10",
+   "kind": "recursion",
+   "param": 10,
+   "peak": {
+    "maxrss_kb": 11592,
+    "rc": 0
+   },
+   "rc": 0,
+   "tail": "emit \"10\"\n",
+   "wall_s_all": [
+    0.0186,
+    0.016,
+    0.0149
+   ],
+   "wall_s_median": 0.016
+  },
+  {
+   "expect": "100",
+   "got": "100",
+   "kind": "recursion",
+   "param": 100,
+   "peak": {
+    "maxrss_kb": 33640,
+    "rc": 0
+   },
+   "rc": 0,
+   "tail": "emit \"100\"\n",
+   "wall_s_all": [
+    0.0769,
+    0.0849,
+    0.0711
+   ],
+   "wall_s_median": 0.0769
+  },
+  {
+   "expect": "1000",
+   "got": "1000",
+   "kind": "recursion",
+   "param": 1000,
+   "peak": {
+    "maxrss_kb": 2095668,
+    "rc": 0
+   },
+   "rc": 0,
+   "tail": "emit \"1000\"\n",
+   "wall_s_all": [
+    8.9092,
+    8.5186,
+    8.1265
+   ],
+   "wall_s_median": 8.5186
+  },
+  {
+   "expect": "2000",
+   "got": null,
+   "kind": "recursion",
+   "param": 2000,
+   "peak": {
+    "maxrss_kb": 3928420,
+    "rc": -6
+   },
+   "rc": -6,
+   "tail": "memory allocation of 336 bytes failed\nmemory allocation of 512 bytes failed\nskipping backtrace printing to avoid potential recursion\n",
+   "wall_s_all": [
+    19.9981,
+    20.7197,
+    20.603
+   ],
+   "wall_s_median": 20.603
+  },
+  {
+   "expect": "1",
+   "got": "1",
+   "kind": "wide",
+   "param": 1000,
+   "peak": {
+    "maxrss_kb": 15112,
+    "rc": 0
+   },
+   "rc": 0,
+   "tail": "emit \"1\"\n",
+   "wall_s_all": [
+    0.8111,
+    0.5935,
+    0.5043
+   ],
+   "wall_s_median": 0.5935
+  },
+  {
+   "expect": "1",
+   "got": "1",
+   "kind": "wide",
+   "param": 4000,
+   "peak": {
+    "maxrss_kb": 27064,
+    "rc": 0
+   },
+   "rc": 0,
+   "tail": "emit \"1\"\n",
+   "wall_s_all": [
+    16.3904
+   ],
+   "wall_s_median": 16.3904
+  },
+  {
+   "expect": "1",
+   "got": "1",
+   "kind": "wide",
+   "param": 16000,
+   "peak": {
+    "maxrss_kb": 77540,
+    "rc": 0
+   },
+   "rc": 0,
+   "tail": "emit \"1\"\n",
+   "wall_s_all": [
+    327.3267
+   ],
+   "wall_s_median": 327.3267
+  }
+ ],
+ "test": {
+  "out": "ok programs/text/json_nest.rce (0 examples, 15 checks)\n1 passed, 0 failed\n",
+  "rc": 0,
+  "wall_s_all": [
+   3.053,
+   4.3789,
+   3.2992
+  ],
+  "wall_s_median": 3.2992
+ },
+ "test_stack_abort": {
+  "first_abort": 807,
+  "last_pass": 800,
+  "probes": [
+   [
+    4000,
+    -6
+   ],
+   [
+    2050,
+    -6
+   ],
+   [
+    1075,
+    -6
+   ],
+   [
+    587,
+    0
+   ],
+   [
+    831,
+    -6
+   ],
+   [
+    709,
+    0
+   ],
+   [
+    770,
+    0
+   ],
+   [
+    800,
+    0
+   ],
+   [
+    815,
+    -6
+   ],
+   [
+    807,
+    -6
+   ]
+  ]
+ }
+}

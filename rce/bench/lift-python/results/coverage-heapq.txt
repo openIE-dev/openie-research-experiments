@@ -1,0 +1,39 @@
+requires change heappush: L-PY-CALLEE, L-PY-POLY
+requires change heappop: L-PY-CALLEE, L-PY-POLY, L-PY-TYPE
+requires change heapreplace: L-PY-CALLEE, L-PY-POLY
+requires change heappushpop: L-PY-CALLEE, L-PY-POLY
+requires change heapify: L-PY-CALLEE, L-PY-POLY
+requires change _heappop_max: L-PY-CALLEE, L-PY-POLY, L-PY-TYPE
+requires change _heapreplace_max: L-PY-CALLEE, L-PY-POLY
+requires change _heapify_max: L-PY-CALLEE, L-PY-POLY
+requires change _siftdown: L-PY-POLY, L-PY-UNBOUNDED
+requires change _siftup: L-PY-CALLEE, L-PY-POLY, L-PY-UNBOUNDED
+requires change _siftdown_max: L-PY-POLY, L-PY-UNBOUNDED
+requires change _siftup_max: L-PY-CALLEE, L-PY-POLY, L-PY-UNBOUNDED
+requires change merge: L-PY-CALL, L-PY-CLOSURE, L-PY-EXC, L-PY-GEN, L-PY-NONE, L-PY-TYPE, L-PY-UNBOUNDED
+requires change nsmallest: L-PY-ALIAS, L-PY-CALL, L-PY-CALLEE, L-PY-CLOSURE, L-PY-DYN, L-PY-EXC, L-PY-NONE, L-PY-POLY, L-PY-TYPE
+requires change nlargest: L-PY-ALIAS, L-PY-CALL, L-PY-CALLEE, L-PY-CLOSURE, L-PY-DYN, L-PY-EXC, L-PY-NONE, L-PY-POLY, L-PY-TYPE
+
+module heapq.py
+functions 15
+lifted 0
+internal 0
+coverage 0.0%
+requires change, functions naming each rule:
+  L-PY-ALIAS 2
+  L-PY-CALL 3
+  L-PY-CALLEE 12
+  L-PY-CLOSURE 3
+  L-PY-DYN 2
+  L-PY-EXC 3
+  L-PY-GEN 1
+  L-PY-NONE 3
+  L-PY-POLY 14
+  L-PY-TYPE 5
+  L-PY-UNBOUNDED 5
+requires change, by the rule of the first line reported:
+  L-PY-CALL 3
+  L-PY-CALLEE 10
+  L-PY-POLY 2
+requires change, functions whose only rule (L-PY-CALLEE aside) is:
+  L-PY-POLY 6

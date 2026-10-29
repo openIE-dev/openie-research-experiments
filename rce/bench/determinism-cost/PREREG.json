@@ -1,0 +1,117 @@
+{
+ "id": "rce-determinism-cost-2026-10-29",
+ "registered": "2026-10-29 (before the registered run; a pilot of the harness with 1 or 2 repeats and short runs was used to debug it, and its numbers are not reported; the pilot found that the emitted Rust's log D wrote one exact-tie float differently from the reference, fixed in the same rce commit before this registration, see harness.fix)",
+ "question": "Critique 7: 'bit-for-bit determinism and hash-chained logging degrade throughput 10x to 100x' (claimed, never measured). What does each part of determinism cost per step: the hash-chained log D (6.1), and the float rules (no fused multiply-add, FMA), in the reference checker, in the emitted Rust and against hand-written Rust?",
+ "separate_from": "rce/bench/determinism/ (H8, cross-machine parity of the trace hashes); this bench measures time, not parity",
+ "harness": {
+  "repo": "openIE-dev/rce, branch claude/determinism-cost at ac018204647605986782c72ba3977ef1d9740c17 (the harness and the emitter fix); results/results.json records the commit the run used (machine.rce_commit), which must be this one",
+  "driver": "scripts/bench-determinism.py BENCH_BIN OUT_DIR",
+  "bench_binary": "rce-bench-det (spec/checker/src/bin/bench_det.rs), built with cargo build --release from the same commit; a benchmark-only binary that adds no command or flag to rce and changes no semantics",
+  "baselines": "scripts/bench-determinism/baselines/*.rs (hand-written idiomatic Rust: native i64/u8/f64, enums, HashMap; common.rs reads the stream and writes the positional JSON)",
+  "fix": "spec/checker/src/emit/rt.rs float_json now takes its digits from shortest_e, as interp::float_json does (6.1.1 rule 3, exact ties to the even digit); before, the emitted Rust's --trace state hash differed from the reference for 799.00299072265625 (an f32 product widened to f64). tests/emit.rs rust_emitter_log_floats_tie_to_even checks it."
+ },
+ "population": {
+  "programs": [
+   {
+    "id": "bank",
+    "path": "spec/examples/04_bank_account.rce",
+    "class": "arithmetic",
+    "baseline": true
+   },
+   {
+    "id": "ring",
+    "path": "programs/systems/ring_buffer.rce",
+    "class": "arithmetic",
+    "baseline": false
+   },
+   {
+    "id": "automaton",
+    "path": "programs/world/cellular_automaton.rce",
+    "class": "arithmetic",
+    "baseline": true
+   },
+   {
+    "id": "inventory",
+    "path": "spec/examples/31_inventory.rce",
+    "class": "collection",
+    "baseline": true
+   },
+   {
+    "id": "rcedb",
+    "path": "spec/examples/55_rcedb.rce",
+    "class": "collection",
+    "baseline": false
+   },
+   {
+    "id": "cart",
+    "path": "spec/examples/16_multi_region.rce",
+    "class": "collection",
+    "baseline": false
+   },
+   {
+    "id": "arm",
+    "path": "programs/body/arm.rce",
+    "class": "float",
+    "baseline": true
+   },
+   {
+    "id": "floatvec",
+    "path": "spec/examples/57_float_vectors.rce",
+    "class": "float",
+    "baseline": false
+   },
+   {
+    "id": "fir",
+    "path": "scripts/bench-determinism/programs/fir_filter.rce",
+    "class": "float",
+    "baseline": true,
+    "note": "a benchmark program written for this bench from the kernels of programs/science/numerics.rce, since no existing state program does float loops in its steps"
+   },
+   {
+    "id": "elevator",
+    "path": "programs/multi/elevator.rce",
+    "class": "state",
+    "baseline": true
+   },
+   {
+    "id": "lexer",
+    "path": "programs/text/word_count.rce",
+    "class": "state",
+    "baseline": false
+   }
+  ],
+  "streams": "one stream of 1,000 events per program, all applied: 4,000 candidates drawn from per-program templates (bench-determinism.py PROGRAMS) by SplitMix64 under seed 0x5eedd3ad0007 (the generator of scripts/xarch-streams.py), then the first 1,000 whose step applies under the reference (rce-bench-det filter); kept steps are skipped so every configuration runs the same 1,000 steps. Key spaces are bounded (64 SKUs, 64 keys, 32 item names), so collection state stays bounded."
+ },
+ "configurations": {
+  "a_checker_chain": "reference interpreter, per step: build the event, run delta, the canonical JSON of the entry (readable and positional event, positional state) and the two SHA-256 (state_hash, hash), entry kept in memory; its head hash must equal the emitted program's --trace head (parity)",
+  "a_checker_host": "the host runtime of Appendix E on an in-memory store (one batch per run, apply_input per event; no file, no fdatasync); host1: one batch per event",
+  "b_checker_delta": "the same loop without the log: build the event, run delta (the floor)",
+  "checker_encode": "a plus the JSON, without hashing (to split JSON from SHA-256)",
+  "checker_chainfast": "a with the same bytes and hashes, hex from a table instead of one format! per byte (a semantics-preserving speed-up; head must equal a's)",
+  "checker_ckpt64": "a with the state hash only every 64th step: a different D, not the specification's, measured to price the direction of proposal HS-12 (checkpoints)",
+  "c_emit_trace": "rce emit rust of the program (the stream read at start-up by a benchmark-only main, since an emitted 1,000-event example does not compile in reasonable time and memory), rustc --edition 2024 -O, run with --trace: prints every D entry and the state after every step",
+  "c_emit_plain": "the same without --trace: prints the state after every step (its observations)",
+  "c_emit_quiet": "a benchmark-only copy with the per-step state prints removed (pure step cost of the emitted code)",
+  "c_emit_trace_quiet": "c_emit_quiet run with --trace: D entries computed and printed, no state prints",
+  "d_hand_fma": "hand-written Rust, rustc -C opt-level=3 -C target-cpu=native, f64::mul_add where the RCE program multiplies then adds",
+  "d_hand_nofma": "the same with two roundings (the RCE float rule), same flags",
+  "d_hand_nofma_log": "d_hand_nofma plus the log D kept natively (positional JSON, two SHA-256 per step with the portable SHA-256 of the emitted runtime, no SHA instructions); its head must equal a's"
+ },
+ "timing": "per configuration: R = the smallest power of 4 such that a run takes at least 0.5 s of wall time more than start-up; 11 repeats of (start-up run with R = 0, run with R); per step = (run - median start-up) / (R x 1000). Primary: CPU time (user + system of the child, wait4 rusage); secondary: wall time. Median over the 11 repeats; min and max kept. The machine (CPU model, logical CPUs, OS, load average at start), the rce commit and the rustc version are recorded. Programs run one after another; the machine is a shared 4-vCPU cloud VM on which other jobs may run, which is why CPU time is primary.",
+ "metrics": {
+  "log_cost_checker": "a_checker_chain / b_checker_delta and a_checker_host / b_checker_delta (CPU)",
+  "log_cost_emitted": "c_emit_trace_quiet / c_emit_quiet (CPU)",
+  "log_cost_native": "d_hand_nofma_log / d_hand_nofma (CPU)",
+  "float_rule_cost": "d_hand_nofma / d_hand_fma, over the float programs (CPU)",
+  "emitted_vs_hand": "c_emit_quiet / d_hand_fma and c_emit_trace_quiet / d_hand_fma (CPU): the whole determinism and representation cost of emitted code against native code",
+  "absolute": "ns per step (CPU and wall) of every configuration",
+  "energy": "est_j per step = CPU seconds per step x 10 W, the estimate of research.openie.dev/papers/rce section 6.3; an estimate, never a measurement (no meter, no RAPL reading here)"
+ },
+ "decision_rule": {
+  "per_factor": "for each factor (log in the checker, log in emitted code, log in native code, float rules) and each program class (arithmetic, collection, float, state), the median of the factor's ratio over the class's programs is classed: below 10x ('the claim overstates'), 10x to 100x ('the claim holds'), above 100x ('the claim understates')",
+  "verdict": "the claim 'determinism and hash-chained logging degrade throughput 10x to 100x' is reported to hold for a class and layer only when the ratio of that layer with determinism to the same layer without it is in [10, 100]; the emitted-vs-hand ratio is reported beside it and is not attributed to determinism unless the factor ratios account for it",
+  "dominant_cost": "per program, the largest of: delta (b), JSON encoding (encode - b), hashing (a - encode), host bookkeeping (host - a), as a share of a_checker_host"
+ },
+ "exclusions": "a configuration whose parity check fails (emit_trace head, chainfast head, hand_nofma_log head, hand state hash) is reported with its numbers and marked, never dropped",
+ "limits": "one machine; one stream length (1,000) with bounded collections, so state-size growth of the state hash is not swept; the emitted programs run through a benchmark-only main; the native log uses a portable SHA-256 (the checker's sha2 crate uses SHA instructions where the CPU has them); stdout of every run goes to a file; no file store and no fdatasync are timed"
+}

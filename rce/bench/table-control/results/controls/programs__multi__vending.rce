@@ -1,0 +1,148 @@
+# A vending machine: credit in coins and cans in stock are separate regions.
+# A purchase needs both a coin and a can; the machine reports what it did.
+intent "a vending machine that sells only what it has and only when paid"
+    example Coin, Buy -> credit == 0 and cans == 2
+    example Buy -> kept: NoCredit
+    example Coin, Buy, Coin, Buy, Coin, Buy, Coin, Buy -> kept: SoldOut
+    example Coin, Coin, Coin, Coin -> kept: Overpay
+
+state Credit
+    tblpos: u64 = 0
+    credit: u8 = 0
+
+state Stock
+    tblpos: u64 = 0
+    cans: u8 = 3
+
+event Coin
+event Buy
+event Restock
+
+error NoCredit
+error SoldOut
+error Overpay
+
+step Credit on Coin if (credit >= 3) and (tblpos == 0 or tblpos == 2 or tblpos == 5 or tblpos == 7 or tblpos == 1 or tblpos == 10 or tblpos == 11)
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 2
+        tblpos = 4
+    elif tblpos == 5
+        tblpos = 6
+    elif tblpos == 7
+        tblpos = 8
+    elif tblpos == 1
+        tblpos = 10
+    elif tblpos == 10
+        tblpos = 11
+    elif tblpos == 11
+        tblpos = 12
+    fail Overpay
+step Credit on Coin if tblpos == 0 or tblpos == 2 or tblpos == 5 or tblpos == 7 or tblpos == 1 or tblpos == 10 or tblpos == 11
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 2
+        tblpos = 4
+    elif tblpos == 5
+        tblpos = 6
+    elif tblpos == 7
+        tblpos = 8
+    elif tblpos == 1
+        tblpos = 10
+    elif tblpos == 10
+        tblpos = 11
+    elif tblpos == 11
+        tblpos = 12
+    credit += 1
+step Credit on Coin if tblpos == 0 or tblpos == 2 or tblpos == 5 or tblpos == 7 or tblpos == 1 or tblpos == 10 or tblpos == 11
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 2
+        tblpos = 4
+    elif tblpos == 5
+        tblpos = 6
+    elif tblpos == 7
+        tblpos = 8
+    elif tblpos == 1
+        tblpos = 10
+    elif tblpos == 10
+        tblpos = 11
+    elif tblpos == 11
+        tblpos = 12
+step Credit on Coin
+    fail TblOff
+step Credit on Buy if (credit == 0) and (tblpos == 1 or tblpos == 0 or tblpos == 4 or tblpos == 6 or tblpos == 8)
+    if tblpos == 1
+        tblpos = 2
+    elif tblpos == 0
+        tblpos = 3
+    elif tblpos == 4
+        tblpos = 5
+    elif tblpos == 6
+        tblpos = 7
+    elif tblpos == 8
+        tblpos = 9
+    fail NoCredit
+step Stock on Buy if (cans == 0) and (tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 3)
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    elif tblpos == 3
+        tblpos = 4
+    fail SoldOut
+step Credit on Buy if tblpos == 1 or tblpos == 0 or tblpos == 4 or tblpos == 6 or tblpos == 8
+    if tblpos == 1
+        tblpos = 2
+    elif tblpos == 0
+        tblpos = 3
+    elif tblpos == 4
+        tblpos = 5
+    elif tblpos == 6
+        tblpos = 7
+    elif tblpos == 8
+        tblpos = 9
+    credit -= 1
+step Credit on Buy if tblpos == 1 or tblpos == 0 or tblpos == 4 or tblpos == 6 or tblpos == 8
+    if tblpos == 1
+        tblpos = 2
+    elif tblpos == 0
+        tblpos = 3
+    elif tblpos == 4
+        tblpos = 5
+    elif tblpos == 6
+        tblpos = 7
+    elif tblpos == 8
+        tblpos = 9
+step Credit on Buy
+    fail TblOff
+step Stock on Buy if tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 3
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    elif tblpos == 3
+        tblpos = 4
+    cans -= 1
+    emit cans
+step Stock on Buy if tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 3
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    elif tblpos == 3
+        tblpos = 4
+step Stock on Buy
+    fail TblOff
+step Stock on Restock if tblpos == tblpos + 1
+    cans = 3
+step Stock on Restock
+    fail TblOff
+
+error TblOff

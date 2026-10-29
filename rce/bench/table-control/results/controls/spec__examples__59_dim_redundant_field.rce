@@ -1,0 +1,49 @@
+intent "a counter mod 4 that also records the last event, which nothing reads"
+    "rce dim (10.11): 8 states explored, 4 behaviours, redundancy 1.00 bit; region DimCounter reports the 1 bit"
+    example DimInc, DimInc, DimInc, DimInc -> n == 0
+    example DimInc, DimDec -> last_inc == false
+
+state DimCounter
+    tblpos: u64 = 0
+    n: u64 = 0
+    last_inc: bool = false
+
+event DimInc
+event DimDec
+
+step DimCounter on DimInc if tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 3
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    elif tblpos == 3
+        tblpos = 4
+    n = (n + 1) % 4
+    last_inc = true
+    emit n
+step DimCounter on DimInc if tblpos == 0 or tblpos == 1 or tblpos == 2 or tblpos == 3
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    elif tblpos == 3
+        tblpos = 4
+step DimCounter on DimInc
+    fail TblOff
+step DimCounter on DimDec if tblpos == 1
+    if tblpos == 1
+        tblpos = 5
+    n = (n + 3) % 4
+    last_inc = false
+    emit n
+step DimCounter on DimDec if tblpos == 1
+    if tblpos == 1
+        tblpos = 5
+step DimCounter on DimDec
+    fail TblOff
+
+error TblOff

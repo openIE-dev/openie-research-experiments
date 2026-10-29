@@ -1,0 +1,16 @@
+kind Light
+    Red
+    Green
+    Yellow
+
+state Signal
+    light: Light = Red
+
+event Tick
+
+step Signal on Tick
+    match light
+        Red -> light = Green
+        Green -> light = Yellow
+        Yellow -> light = Red
+    emit light == Red

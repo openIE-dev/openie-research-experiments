@@ -1,0 +1,18 @@
+error Diverged
+
+state Acc
+    last: u64 = 0
+
+event Ask(k: u8)
+
+fn tri(k: u64) -> u64 ! Diverged
+    var s: u64 = 0
+    var i: u64 = k
+    while i > 0 bound 1000
+        s += i
+        i -= 1
+    return s
+
+step Acc on Ask(k: k)
+    last = try tri(k as u64)
+    emit last

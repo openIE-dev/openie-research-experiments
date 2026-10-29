@@ -1,0 +1,8 @@
+state M
+    low: u64 = 50
+
+event See(v: u8)
+
+step M on See(v: v)
+    low = if v as u64 < low then v as u64 else low
+    emit low

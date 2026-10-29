@@ -1,0 +1,863 @@
+{
+ "H11": "against",
+ "H11_primary_share_nondecreasing": 0.7679,
+ "H11_secondary_share_spearman_positive": 1.0,
+ "RJ-F4": "observed",
+ "commit": "0cb1a2a7",
+ "d1_requires_change_share": 0.9613,
+ "descent": {
+  "1": {
+   "already_admitted_equal_at_start": 9,
+   "end_is_original": 65,
+   "n": 336,
+   "reached_admitted": 85,
+   "success": 81,
+   "success_rate": 0.2411
+  },
+  "3": {
+   "already_admitted_equal_at_start": 0,
+   "end_is_original": 5,
+   "n": 336,
+   "reached_admitted": 9,
+   "success": 7,
+   "success_rate": 0.0208
+  },
+  "5": {
+   "already_admitted_equal_at_start": 0,
+   "end_is_original": 1,
+   "n": 336,
+   "reached_admitted": 4,
+   "success": 2,
+   "success_rate": 0.006
+  }
+ },
+ "descents": 1008,
+ "edits_by_class": {
+  "literal": 28,
+  "operator": 20,
+  "rename": 1616,
+  "type": 16
+ },
+ "excluded": [
+  {
+   "excluded": "the original cannot be traced on its probes",
+   "path": "programs/ecosystem/hpke.rce",
+   "source_sha256": "8e64401e16160ca06c15faa07d3628b2e9c83dc9eeebdb25391f60ac59c88e13"
+  },
+  {
+   "excluded": "the original cannot be traced on its probes",
+   "path": "programs/ecosystem/mls_key_schedule.rce",
+   "source_sha256": "6c03f2d25fb037b3f4867b7dbff2b6ac0a9c415f0bbf8bfa6e773c26920148e5"
+  },
+  {
+   "excluded": "the original cannot be traced on its probes",
+   "path": "programs/network/notes_http.rce",
+   "source_sha256": "263df4a3a3f781ced05e7976650cb336b4a8a2d24d928dae9a61a60790f7e20a"
+  }
+ ],
+ "families": 56,
+ "families_detail": [
+  {
+   "nondecreasing": true,
+   "path": "spec/examples/01_counter.rce",
+   "profile": [
+    0.0,
+    2.9167,
+    3.5,
+    4.8333,
+    4.8333,
+    5.0
+   ],
+   "spearman": 0.5931
+  },
+  {
+   "nondecreasing": false,
+   "path": "spec/examples/04_bank_account.rce",
+   "profile": [
+    0.0,
+    3.0,
+    3.3333,
+    3.1667,
+    3.1667,
+    3.3333
+   ],
+   "spearman": 0.1507
+  },
+  {
+   "nondecreasing": false,
+   "path": "spec/examples/17_traffic_light.rce",
+   "profile": [
+    0.0,
+    3.5,
+    4.5,
+    4.8333,
+    4.6667,
+    4.8333
+   ],
+   "spearman": 0.3346
+  },
+  {
+   "nondecreasing": true,
+   "path": "spec/examples/30_state_machine_guarded.rce",
+   "profile": [
+    0.0,
+    3.5,
+    4.1667,
+    4.1667,
+    4.6667,
+    5.5
+   ],
+   "spearman": 0.4279
+  },
+  {
+   "nondecreasing": true,
+   "path": "spec/examples/51_refined_input.rce",
+   "profile": [
+    0.0,
+    3.0,
+    4.0,
+    4.0,
+    4.5,
+    4.6667
+   ],
+   "spearman": 0.4361
+  },
+  {
+   "nondecreasing": true,
+   "path": "spec/examples/52_context_text.rce",
+   "profile": [
+    0.0,
+    3.3333,
+    4.0,
+    4.3333,
+    4.5,
+    4.6667
+   ],
+   "spearman": 0.5311
+  },
+  {
+   "nondecreasing": true,
+   "path": "spec/examples/53_capability.rce",
+   "profile": [
+    0.0,
+    2.8056,
+    4.0,
+    4.5,
+    5.5,
+    6.3333
+   ],
+   "spearman": 0.8714
+  },
+  {
+   "nondecreasing": true,
+   "path": "spec/examples/54_secret.rce",
+   "profile": [
+    0.0,
+    3.3333,
+    4.3333,
+    5.0,
+    5.3333,
+    5.3333
+   ],
+   "spearman": 0.6037
+  },
+  {
+   "nondecreasing": true,
+   "path": "spec/examples/55_rcedb.rce",
+   "profile": [
+    0.0,
+    3.0,
+    3.6667,
+    4.0,
+    4.1667,
+    5.1667
+   ],
+   "spearman": 0.5163
+  },
+  {
+   "nondecreasing": true,
+   "path": "spec/examples/56_utf8.rce",
+   "profile": [
+    0.0,
+    1.6667,
+    2.5,
+    3.8333,
+    4.5,
+    5.0
+   ],
+   "spearman": 0.7926
+  },
+  {
+   "nondecreasing": true,
+   "path": "spec/examples/57_float_vectors.rce",
+   "profile": [
+    0.0,
+    3.3333,
+    4.3333,
+    4.6667,
+    5.0,
+    5.5
+   ],
+   "spearman": 0.6984
+  },
+  {
+   "nondecreasing": true,
+   "path": "spec/examples/58_float_keys.rce",
+   "profile": [
+    0.0,
+    2.6667,
+    4.1667,
+    4.3333,
+    4.5,
+    4.6667
+   ],
+   "spearman": 0.4759
+  },
+  {
+   "nondecreasing": true,
+   "path": "spec/examples/59_dim_redundant_field.rce",
+   "profile": [
+    0.0,
+    1.5556,
+    1.9444,
+    2.4444,
+    3.3333,
+    4.5
+   ],
+   "spearman": 0.6455
+  },
+  {
+   "nondecreasing": false,
+   "path": "spec/examples/60_dim_hidden_period.rce",
+   "profile": [
+    0.0,
+    3.0,
+    3.1667,
+    3.8333,
+    3.5,
+    4.3333
+   ],
+   "spearman": 0.5086
+  },
+  {
+   "nondecreasing": true,
+   "path": "spec/examples/61_dim_minimal.rce",
+   "profile": [
+    0.0,
+    3.2222,
+    4.6667,
+    4.6667,
+    5.3333,
+    6.0
+   ],
+   "spearman": 0.6847
+  },
+  {
+   "nondecreasing": true,
+   "path": "programs/body/arm.rce",
+   "profile": [
+    0.0,
+    2.6667,
+    3.6667,
+    4.0,
+    4.3333,
+    4.8333
+   ],
+   "spearman": 0.6954
+  },
+  {
+   "nondecreasing": true,
+   "path": "programs/body/thermostat.rce",
+   "profile": [
+    0.0,
+    2.3917,
+    4.1667,
+    4.1667,
+    4.8333,
+    5.6667
+   ],
+   "spearman": 0.7422
+  },
+  {
+   "nondecreasing": true,
+   "path": "programs/ecosystem/pqxdh.rce",
+   "profile": [
+    0.0,
+    3.0,
+    4.1667,
+    5.0,
+    5.6667,
+    6.1667
+   ],
+   "spearman": 0.6297
+  },
+  {
+   "nondecreasing": true,
+   "path": "programs/money/account.rce",
+   "profile": [
+    0.0,
+    2.5,
+    3.5,
+    4.1667,
+    4.5,
+    5.0
+   ],
+   "spearman": 0.7655
+  },
+  {
+   "nondecreasing": true,
+   "path": "programs/money/ledger.rce",
+   "profile": [
+    0.0,
+    3.3333,
+    3.6667,
+    4.0,
+    4.0,
+    4.5
+   ],
+   "spearman": 0.2897
+  },
+  {
+   "nondecreasing": false,
+   "path": "programs/multi/card.rce",
+   "profile": [
+    0.0,
+    2.8333,
+    2.6667,
+    3.8333,
+    4.5,
+    4.8333
+   ],
+   "spearman": 0.4863
+  },
+  {
+   "nondecreasing": true,
+   "path": "programs/multi/climate.rce",
+   "profile": [
+    0.0,
+    3.3333,
+    4.6667,
+    5.3333,
+    5.8333,
+    6.3333
+   ],
+   "spearman": 0.752
+  },
+  {
+   "nondecreasing": true,
+   "path": "programs/multi/crossing.rce",
+   "profile": [
+    0.0,
+    2.5,
+    3.6667,
+    5.0,
+    5.5,
+    6.1667
+   ],
+   "spearman": 0.7026
+  },
+  {
+   "nondecreasing": true,
+   "path": "programs/multi/elevator.rce",
+   "profile": [
+    0.0,
+    3.0,
+    3.8333,
+    5.3333,
+    6.5,
+    6.8333
+   ],
+   "spearman": 0.7994
+  },
+  {
+   "nondecreasing": true,
+   "path": "programs/multi/lobby.rce",
+   "profile": [
+    0.0,
+    2.6667,
+    3.8333,
+    5.0,
+    6.0,
+    6.1667
+   ],
+   "spearman": 0.7041
+  },
+  {
+   "nondecreasing": true,
+   "path": "programs/multi/parking.rce",
+   "profile": [
+    0.0,
+    2.1167,
+    3.1667,
+    4.1667,
+    4.8333,
+    5.6667
+   ],
+   "spearman": 0.8504
+  },
+  {
+   "nondecreasing": true,
+   "path": "programs/multi/player.rce",
+   "profile": [
+    0.0,
+    3.0,
+    4.0,
+    5.5,
+    5.8333,
+    6.1667
+   ],
+   "spearman": 0.7435
+  },
+  {
+   "nondecreasing": true,
+   "path": "programs/multi/printer.rce",
+   "profile": [
+    0.0,
+    3.0,
+    4.0,
+    5.0,
+    5.1667,
+    5.6667
+   ],
+   "spearman": 0.7279
+  },
+  {
+   "nondecreasing": true,
+   "path": "programs/multi/reservoir.rce",
+   "profile": [
+    0.0,
+    2.2167,
+    3.8333,
+    4.8333,
+    5.3333,
+    5.8333
+   ],
+   "spearman": 0.7643
+  },
+  {
+   "nondecreasing": false,
+   "path": "programs/multi/session.rce",
+   "profile": [
+    0.0,
+    2.5,
+    3.0,
+    3.5,
+    3.8333,
+    3.6667
+   ],
+   "spearman": 0.4038
+  },
+  {
+   "nondecreasing": true,
+   "path": "programs/multi/vending.rce",
+   "profile": [
+    0.0,
+    3.1667,
+    3.8333,
+    5.0,
+    5.8333,
+    6.0
+   ],
+   "spearman": 0.6563
+  },
+  {
+   "nondecreasing": true,
+   "path": "programs/multi/washer.rce",
+   "profile": [
+    0.0,
+    2.3333,
+    3.0,
+    4.3333,
+    5.0,
+    5.0
+   ],
+   "spearman": 0.7595
+  },
+  {
+   "nondecreasing": true,
+   "path": "programs/network/handshake.rce",
+   "profile": [
+    0.0,
+    2.2222,
+    3.3333,
+    4.1667,
+    5.0,
+    5.0
+   ],
+   "spearman": 0.6779
+  },
+  {
+   "nondecreasing": true,
+   "path": "programs/systems/reconcile.rce",
+   "profile": [
+    0.0,
+    3.1111,
+    3.6667,
+    4.0,
+    4.8333,
+    5.3333
+   ],
+   "spearman": 0.5625
+  },
+  {
+   "nondecreasing": false,
+   "path": "programs/systems/ring_buffer.rce",
+   "profile": [
+    0.0,
+    3.8333,
+    4.5,
+    5.1667,
+    4.0,
+    4.3333
+   ],
+   "spearman": 0.1422
+  },
+  {
+   "nondecreasing": false,
+   "path": "programs/text/word_count.rce",
+   "profile": [
+    0.0,
+    2.8333,
+    2.6667,
+    3.1667,
+    3.6667,
+    3.6667
+   ],
+   "spearman": 0.3718
+  },
+  {
+   "nondecreasing": true,
+   "path": "programs/world/cellular_automaton.rce",
+   "profile": [
+    0.0,
+    3.5,
+    5.0,
+    5.1667,
+    5.6667,
+    6.0
+   ],
+   "spearman": 0.4996
+  },
+  {
+   "nondecreasing": true,
+   "path": "programs/world/queue_sim.rce",
+   "profile": [
+    0.0,
+    3.4444,
+    4.3333,
+    4.8333,
+    4.8333,
+    5.0
+   ],
+   "spearman": 0.3691
+  },
+  {
+   "nondecreasing": true,
+   "path": "apps/chat.rce",
+   "profile": [
+    0.0,
+    2.1667,
+    3.1667,
+    3.8333,
+    4.1667,
+    4.3333
+   ],
+   "spearman": 0.7577
+  },
+  {
+   "nondecreasing": true,
+   "path": "apps/sfu.rce",
+   "profile": [
+    0.0,
+    2.5,
+    3.6667,
+    4.0,
+    4.6667,
+    4.8333
+   ],
+   "spearman": 0.7231
+  },
+  {
+   "nondecreasing": true,
+   "path": "apps/terminal.rce",
+   "profile": [
+    0.0,
+    3.1667,
+    3.8333,
+    4.0,
+    4.8333,
+    6.0
+   ],
+   "spearman": 0.5435
+  },
+  {
+   "nondecreasing": false,
+   "path": "book/listings/ch04/counter.rce",
+   "profile": [
+    0.0,
+    2.5,
+    4.1667,
+    4.5,
+    4.3333,
+    4.8333
+   ],
+   "spearman": 0.5429
+  },
+  {
+   "nondecreasing": true,
+   "path": "book/listings/ch05/door.rce",
+   "profile": [
+    0.0,
+    2.5833,
+    4.6667,
+    5.5,
+    6.1667,
+    6.5
+   ],
+   "spearman": 0.646
+  },
+  {
+   "nondecreasing": false,
+   "path": "book/listings/ch06/account.rce",
+   "profile": [
+    0.0,
+    2.4167,
+    3.8333,
+    4.1667,
+    4.6667,
+    4.5
+   ],
+   "spearman": 0.6585
+  },
+  {
+   "nondecreasing": true,
+   "path": "book/listings/ch10/cart.rce",
+   "profile": [
+    0.0,
+    3.0,
+    4.0,
+    4.8333,
+    5.3333,
+    6.0
+   ],
+   "spearman": 0.8759
+  },
+  {
+   "nondecreasing": false,
+   "path": "book/listings/ch16/hello_http.rce",
+   "profile": [
+    0.0,
+    3.1667,
+    3.3333,
+    3.5,
+    3.8333,
+    3.6667
+   ],
+   "spearman": 0.2229
+  },
+  {
+   "nondecreasing": true,
+   "path": "conformance/tests/host-contract/harvested/chan-accept.rce",
+   "profile": [
+    0.0,
+    2.1667,
+    3.0,
+    3.8333,
+    4.1667,
+    4.8333
+   ],
+   "spearman": 0.6053
+  },
+  {
+   "nondecreasing": true,
+   "path": "conformance/tests/host-contract/harvested/echo-accept.rce",
+   "profile": [
+    0.0,
+    2.8333,
+    3.6667,
+    3.6667,
+    4.5,
+    5.0
+   ],
+   "spearman": 0.6223
+  },
+  {
+   "nondecreasing": true,
+   "path": "conformance/tests/host-contract/harvested/files-accept.rce",
+   "profile": [
+    0.0,
+    2.6667,
+    4.3333,
+    4.5,
+    4.8333,
+    5.1667
+   ],
+   "spearman": 0.506
+  },
+  {
+   "nondecreasing": false,
+   "path": "conformance/tests/host-contract/harvested/foreign-accept.rce",
+   "profile": [
+    0.0,
+    3.6667,
+    4.3333,
+    5.0,
+    4.8333,
+    4.8333
+   ],
+   "spearman": 0.3709
+  },
+  {
+   "nondecreasing": true,
+   "path": "conformance/tests/host-contract/harvested/media-accept.rce",
+   "profile": [
+    0.0,
+    2.8333,
+    3.3333,
+    4.3333,
+    4.6667,
+    5.0
+   ],
+   "spearman": 0.5848
+  },
+  {
+   "nondecreasing": true,
+   "path": "conformance/tests/host-contract/harvested/net-accept.rce",
+   "profile": [
+    0.0,
+    3.0,
+    3.6667,
+    4.5,
+    4.8333,
+    5.6667
+   ],
+   "spearman": 0.7975
+  },
+  {
+   "nondecreasing": false,
+   "path": "conformance/tests/host-contract/harvested/priority-accept.rce",
+   "profile": [
+    0.0,
+    2.0,
+    3.1667,
+    2.6667,
+    2.6667,
+    3.3333
+   ],
+   "spearman": 0.2654
+  },
+  {
+   "nondecreasing": true,
+   "path": "conformance/tests/host-contract/harvested/pty-accept.rce",
+   "profile": [
+    0.0,
+    3.0,
+    4.1667,
+    4.8333,
+    4.8333,
+    4.8333
+   ],
+   "spearman": 0.5409
+  },
+  {
+   "nondecreasing": true,
+   "path": "conformance/tests/host-contract/harvested/records-accept.rce",
+   "profile": [
+    0.0,
+    2.0,
+    3.1667,
+    3.8333,
+    4.1667,
+    4.3333
+   ],
+   "spearman": 0.7745
+  },
+  {
+   "nondecreasing": false,
+   "path": "conformance/tests/host-contract/harvested/ticked-accept.rce",
+   "profile": [
+    0.0,
+    3.0,
+    4.0,
+    4.6667,
+    5.1667,
+    4.8333
+   ],
+   "spearman": 0.695
+  }
+ ],
+ "flip_rate": 0.2,
+ "flips_admitted_to_change": 336,
+ "flips_change_to_admitted": 0,
+ "mean_energy_by_d": {
+  "0": 0.0,
+  "1": 2.8215,
+  "2": 3.749,
+  "3": 4.3472,
+  "4": 4.744,
+  "5": 5.128
+ },
+ "mean_energy_nondecreasing": true,
+ "outcomes_by_d": {
+  "1": {
+   "admitted_differs": 4,
+   "admitted_equal": 9,
+   "requires_change": 306,
+   "requires_change_examples": 17
+  },
+  "2": {
+   "admitted_differs": 0,
+   "admitted_equal": 2,
+   "requires_change": 331,
+   "requires_change_examples": 3
+  },
+  "3": {
+   "admitted_differs": 0,
+   "admitted_equal": 0,
+   "requires_change": 335,
+   "requires_change_examples": 1
+  },
+  "4": {
+   "admitted_differs": 0,
+   "admitted_equal": 0,
+   "requires_change": 336,
+   "requires_change_examples": 0
+  },
+  "5": {
+   "admitted_differs": 0,
+   "admitted_equal": 0,
+   "requires_change": 336,
+   "requires_change_examples": 0
+  }
+ },
+ "points": 1680,
+ "rce_cpu_s": 2190.6,
+ "rule_counts": {
+  "W-ASSIGN-1": 2,
+  "W-CAP-1": 9,
+  "W-CAP-2": 10,
+  "W-CTX-1": 11,
+  "W-INT-1": 21,
+  "W-MATCH-1": 40,
+  "W-MATCH-2": 23,
+  "W-NAME-1": 1149,
+  "W-NAME-2": 395,
+  "W-NAME-3": 103,
+  "W-OWN-1": 10,
+  "W-PAT-1": 5,
+  "W-PLACE": 418,
+  "W-REF-1": 9,
+  "W-STATE-1": 5,
+  "W-STEP-1": 812,
+  "W-STEP-2": 601,
+  "W-STEP-4": 34,
+  "W-SYN-1": 70,
+  "W-TRAIT-3": 42,
+  "W-TY-1": 1035,
+  "W-TY-3": 14,
+  "W-UNUSED-1": 507
+ },
+ "seed": "0x5eedc0de0004",
+ "spearman_E_d": 0.5601,
+ "transitions": 1680
+}

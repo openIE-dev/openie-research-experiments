@@ -1,0 +1,92 @@
+{
+ "lang": "rust",
+ "passes": 20000,
+ "reps": 5,
+ "results": {
+  "emitted": {
+   "bank": {
+    "decode_ns": 402,
+    "encode_ns": 620,
+    "step_ns": 841
+   },
+   "counter": {
+    "decode_ns": 170,
+    "encode_ns": 530,
+    "step_ns": 262
+   },
+   "door": {
+    "decode_ns": 401,
+    "encode_ns": 904,
+    "step_ns": 458
+   },
+   "float_keys": {
+    "decode_ns": 526,
+    "encode_ns": 1406,
+    "step_ns": 2720
+   },
+   "inventory": {
+    "decode_ns": 778,
+    "encode_ns": 920,
+    "step_ns": 1993
+   },
+   "multi_region": {
+    "decode_ns": 704,
+    "encode_ns": 2470,
+    "step_ns": 2966
+   },
+   "rcedb": {
+    "decode_ns": 734,
+    "encode_ns": 1820,
+    "step_ns": 3886
+   },
+   "traffic_light": {
+    "decode_ns": 215,
+    "encode_ns": 794,
+    "step_ns": 567
+   }
+  },
+  "hand": {
+   "bank": {
+    "decode_ns": 524,
+    "encode_ns": 143,
+    "step_ns": 25
+   },
+   "counter": {
+    "decode_ns": 169,
+    "encode_ns": 73,
+    "step_ns": 21
+   },
+   "door": {
+    "decode_ns": 154,
+    "encode_ns": 164,
+    "step_ns": 27
+   },
+   "float_keys": {
+    "decode_ns": 311,
+    "encode_ns": 935,
+    "step_ns": 69
+   },
+   "inventory": {
+    "decode_ns": 270,
+    "encode_ns": 542,
+    "step_ns": 161
+   },
+   "multi_region": {
+    "decode_ns": 223,
+    "encode_ns": 311,
+    "step_ns": 29
+   },
+   "rcedb": {
+    "decode_ns": 342,
+    "encode_ns": 745,
+    "step_ns": 178
+   },
+   "traffic_light": {
+    "decode_ns": 192,
+    "encode_ns": 288,
+    "step_ns": 23
+   }
+  }
+ },
+ "version": "rustc 1.97.0 (2d8144b78 2026-07-07)"
+}

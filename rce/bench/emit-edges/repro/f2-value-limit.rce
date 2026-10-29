@@ -1,0 +1,11 @@
+state S
+    t: text = ""
+
+event Wide(k: usize)
+
+# 6.3 N9: a value written to state is at most 1,048,576 bytes of canonical
+# JSON; this text is 1,048,578 bytes (524,289 two-byte characters) before quoting
+step S on Wide(k: k)
+    t = "".join(["\u{E9}" for _i in 0..k])
+
+example Wide(k: 524289) -> refused: trap("value limit")

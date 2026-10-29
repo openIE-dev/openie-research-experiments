@@ -1,0 +1,111 @@
+# A washing machine: the cycle advances on each tick and the door is locked
+# while the cycle runs. Opening a locked door keeps the state.
+intent "a door that stays locked from start to finish"
+    example Start, Tick, Tick, Tick -> phase == Idle and locked == false
+    example Start, Open -> kept: DoorLocked
+    example Start, Start -> kept: Running
+
+kind Phase
+    Idle
+    Wash
+    Rinse
+    Spin
+
+state Cycle
+    tblpos: u64 = 0
+    phase: Phase = Idle
+
+state Door
+    tblpos: u64 = 0
+    locked: bool = false
+
+event Start
+event Tick
+event Open
+
+error DoorLocked
+error Running
+
+step Cycle on Start if (phase != Idle) and (tblpos == 0 or tblpos == 1)
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 5
+    fail Running
+step Cycle on Start if tblpos == 0 or tblpos == 1
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 5
+    phase = Wash
+step Cycle on Start if tblpos == 0 or tblpos == 1
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 5
+step Cycle on Start
+    fail TblOff
+step Door on Start if tblpos == 0 or tblpos == 1
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 6
+    locked = true
+step Door on Start if tblpos == 0 or tblpos == 1
+    if tblpos == 0
+        tblpos = 1
+    elif tblpos == 1
+        tblpos = 6
+step Door on Start
+    fail TblOff
+step Cycle on Tick if tblpos == 1 or tblpos == 2 or tblpos == 3
+    if tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    elif tblpos == 3
+        tblpos = 4
+    match phase
+        Idle -> phase = Idle
+        Wash -> phase = Rinse
+        Rinse -> phase = Spin
+        Spin
+            phase = Idle
+            emit "done"
+step Cycle on Tick if tblpos == 1 or tblpos == 2 or tblpos == 3
+    if tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    elif tblpos == 3
+        tblpos = 4
+step Cycle on Tick
+    fail TblOff
+step Door on Tick if (locked) and (tblpos == 1 or tblpos == 2 or tblpos == 3)
+    if tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    elif tblpos == 3
+        tblpos = 4
+    locked = false
+step Door on Tick if tblpos == 1 or tblpos == 2 or tblpos == 3
+    if tblpos == 1
+        tblpos = 2
+    elif tblpos == 2
+        tblpos = 3
+    elif tblpos == 3
+        tblpos = 4
+step Door on Tick
+    fail TblOff
+step Door on Open if (locked) and (tblpos == 1)
+    if tblpos == 1
+        tblpos = 5
+    fail DoorLocked
+step Door on Open if tblpos == 1
+    if tblpos == 1
+        tblpos = 5
+step Door on Open
+    fail TblOff
+
+error TblOff

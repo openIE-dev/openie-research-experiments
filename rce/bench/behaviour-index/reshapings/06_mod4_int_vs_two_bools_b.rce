@@ -1,0 +1,11 @@
+state C
+    hi: bool = false
+    lo: bool = false
+
+event Inc
+
+step C on Inc
+    if lo
+        hi = not hi
+    lo = not lo
+    emit not hi and not lo
