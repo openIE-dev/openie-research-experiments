@@ -1,0 +1,146 @@
+REQUIRES-CHANGE basics/bool_logic: L-PY-FLOAT, L-PY-GLOBAL, L-PY-NONE, L-PY-TYPE
+REQUIRES-CHANGE basics/break_continue: L-PY-NONE
+REQUIRES-CHANGE basics/classes: L-PY-CLASS, L-PY-CLOSURE, L-PY-DYN, L-PY-EXC, L-PY-IMPORT, L-PY-SET, L-PY-TYPE
+REQUIRES-CHANGE basics/closures: L-PY-CLOSURE, L-PY-POLY
+REQUIRES-CHANGE basics/compare: L-PY-DYN, L-PY-EXC, L-PY-FLOAT, L-PY-NONE, L-PY-SET, L-PY-TYPE
+REQUIRES-CHANGE basics/comprehensions: L-PY-CALL, L-PY-GEN, L-PY-SET, L-PY-SYNTAX, L-PY-TYPE
+REQUIRES-CHANGE basics/dict_basics: L-PY-CALL, L-PY-EXC, L-PY-NONE, L-PY-SYNTAX, L-PY-TYPE
+REQUIRES-CHANGE basics/exceptions: L-PY-EXC, L-PY-POLY
+REQUIRES-CHANGE basics/exit_status: L-PY-EXC, L-PY-IMPORT
+REQUIRES-CHANGE basics/float_arith: L-PY-CALL, L-PY-FLOAT, L-PY-IMPORT, L-PY-TYPE
+REQUIRES-CHANGE basics/float_print: L-PY-CALL, L-PY-FLOAT, L-PY-FORMAT
+REQUIRES-CHANGE basics/functions: L-PY-CALL, L-PY-CLOSURE, L-PY-DYN, L-PY-EXC, L-PY-POLY, L-PY-SYNTAX, L-PY-TYPE
+MATCH basics/hello lifted ff024369b302b0dcb8225c5114df20da0f9cb484b30d575be86d87251fbc91a1
+REQUIRES-CHANGE basics/if_else: L-PY-NONE, L-PY-SYNTAX, L-PY-TYPE
+REQUIRES-CHANGE basics/int_arith: L-PY-FLOAT
+REQUIRES-CHANGE basics/int_div_mod: L-PY-CALL, L-PY-FLOAT
+REQUIRES-CHANGE basics/int_literals: L-PY-CALL, L-PY-EXC, L-PY-FLOAT, L-PY-TYPE
+REQUIRES-CHANGE basics/iterators: L-PY-CALL, L-PY-CLASS, L-PY-CLOSURE, L-PY-IMPORT, L-PY-TYPE
+REQUIRES-CHANGE basics/list_basics: L-PY-SYNTAX
+REQUIRES-CHANGE basics/list_sort: L-PY-CALL, L-PY-FLOAT, L-PY-SET, L-PY-TYPE
+REQUIRES-CHANGE basics/loops: L-PY-UNBOUNDED
+REQUIRES-CHANGE basics/match_statement: L-PY-CLASS, L-PY-CLOSURE, L-PY-FLOAT, L-PY-IMPORT, L-PY-MATCH, L-PY-NONE, L-PY-TYPE
+REQUIRES-CHANGE basics/print_values: L-PY-BYTES, L-PY-CALL, L-PY-FLOAT, L-PY-NONE, L-PY-SET, L-PY-TYPE
+KEPT-RESOURCE basics/recursion: trap: overflow: 51090942171709440000 is outside i64
+REQUIRES-CHANGE basics/stderr_write: L-PY-IMPORT
+REQUIRES-CHANGE basics/string_basics: L-PY-EXC
+REQUIRES-CHANGE basics/string_format: L-PY-CALL, L-PY-FLOAT, L-PY-FORMAT, L-PY-NONE
+REQUIRES-CHANGE basics/string_methods: L-PY-CALL, L-PY-FORMAT, L-PY-TYPE
+REQUIRES-CHANGE basics/tuples_unpacking: L-PY-CALL, L-PY-CLASS, L-PY-CLOSURE, L-PY-EXC, L-PY-FLOAT, L-PY-IMPORT, L-PY-SYNTAX, L-PY-TYPE
+REQUIRES-CHANGE basics/uncaught_exception: L-PY-EXC
+REQUIRES-CHANGE basics/unicode_len: L-PY-BYTES, L-PY-CALL, L-PY-TYPE
+REQUIRES-CHANGE algorithms/base64_codec: L-PY-BYTES, L-PY-CALL, L-PY-IMPORT, L-PY-POLY, L-PY-TYPE
+REQUIRES-CHANGE algorithms/bfs_grid: L-PY-CALL, L-PY-IMPORT, L-PY-UNBOUNDED
+REQUIRES-CHANGE algorithms/binary_search: L-PY-IMPORT, L-PY-UNBOUNDED
+MATCH algorithms/brackets lifted e7cd1d3e63953ab74e66ed3dee5ed7fd4caac2a48356110cfd0da8651f88cd72
+REQUIRES-CHANGE algorithms/collatz: L-PY-UNBOUNDED
+REQUIRES-CHANGE algorithms/crc32: L-PY-BYTES, L-PY-IMPORT, L-PY-TYPE
+REQUIRES-CHANGE algorithms/dijkstra: L-PY-IMPORT, L-PY-NONE, L-PY-UNBOUNDED
+MATCH algorithms/edit_distance lifted dd82a4347c64a0b061f4f11998ef030ab21d93764716d2baa9570a3e043dee60
+KEPT-RESOURCE algorithms/fib_big: trap: overflow: 18446744073709551616 is outside i64
+REQUIRES-CHANGE algorithms/fnv_hash: L-PY-BYTES, L-PY-CALL, L-PY-INT, L-PY-POLY
+REQUIRES-CHANGE algorithms/gcd_lcm: L-PY-IMPORT, L-PY-SYNTAX, L-PY-UNBOUNDED
+INTERNAL algorithms/hanoi: rce run did not end within 120 s
+REQUIRES-CHANGE algorithms/heap_pq: L-PY-CLASS, L-PY-CLOSURE, L-PY-IMPORT
+REQUIRES-CHANGE algorithms/kmp: L-PY-UNBOUNDED
+MATCH algorithms/knapsack lifted 3468c1da247e186c4a15b86b74077b8b2f1424fd98b2c03354e15c5171dfb300
+KEPT-RESOURCE algorithms/lcg: trap: overflow: 18446744073709551616 is outside i64
+REQUIRES-CHANGE algorithms/lcs: L-PY-UNBOUNDED
+REQUIRES-CHANGE algorithms/matrix: L-PY-ALIAS, L-PY-CALL, L-PY-FLOAT, L-PY-GEN, L-PY-IMPORT, L-PY-NONE
+REQUIRES-CHANGE algorithms/mergesort: L-PY-ALIAS, L-PY-CALL
+REQUIRES-CHANGE algorithms/nqueens: L-PY-CLOSURE, L-PY-POLY, L-PY-SET
+REQUIRES-CHANGE algorithms/permutations: L-PY-GEN, L-PY-IMPORT, L-PY-SYNTAX, L-PY-UNBOUNDED
+REQUIRES-CHANGE algorithms/prime_factors: L-PY-UNBOUNDED
+MATCH algorithms/quicksort lifted 05d52b02920fe9fbaad7b59b00f8f154a8fab53cd98c214d20ee8acd28386ec9
+REQUIRES-CHANGE algorithms/rle: L-PY-IMPORT, L-PY-TYPE
+REQUIRES-CHANGE algorithms/roman: L-PY-GEN, L-PY-UNBOUNDED
+REQUIRES-CHANGE algorithms/sieve: L-PY-BYTES, L-PY-CALL, L-PY-SYNTAX, L-PY-UNBOUNDED
+REQUIRES-CHANGE algorithms/topo_sort: L-PY-IMPORT, L-PY-UNBOUNDED
+REQUIRES-CHANGE algorithms/word_count: L-PY-CALL, L-PY-IMPORT
+REQUIRES-CHANGE boundaries/big_ints: L-PY-CALL, L-PY-FLOAT, L-PY-IMPORT
+REQUIRES-CHANGE boundaries/bool_int: L-PY-DYN, L-PY-FLOAT, L-PY-SET, L-PY-TYPE
+REQUIRES-CHANGE boundaries/custom_exception: L-PY-CALL, L-PY-CLASS, L-PY-CLOSURE, L-PY-DYN, L-PY-EXC
+REQUIRES-CHANGE boundaries/dataclass_repr: L-PY-CLASS, L-PY-CLOSURE, L-PY-DYN, L-PY-EXC, L-PY-IMPORT
+REQUIRES-CHANGE boundaries/dict_order: L-PY-CALL, L-PY-SYNTAX
+REQUIRES-CHANGE boundaries/div_zero: L-PY-FLOAT
+REQUIRES-CHANGE boundaries/exceptions_chain: L-PY-EXC
+REQUIRES-CHANGE boundaries/exit_message: L-PY-IMPORT
+REQUIRES-CHANGE boundaries/float_ops: L-PY-CLOSURE, L-PY-EXC, L-PY-FLOAT, L-PY-IMPORT
+REQUIRES-CHANGE boundaries/float_repr: L-PY-CALL, L-PY-FLOAT, L-PY-IMPORT, L-PY-TYPE
+REQUIRES-CHANGE boundaries/format_spec: L-PY-CALL, L-PY-EXC, L-PY-FLOAT, L-PY-FORMAT
+REQUIRES-CHANGE boundaries/generators: L-PY-CALL, L-PY-EXC, L-PY-GEN, L-PY-GLOBAL, L-PY-NONE, L-PY-UNBOUNDED
+REQUIRES-CHANGE boundaries/global_scope: L-PY-CLASS, L-PY-CLOSURE, L-PY-EXC, L-PY-GLOBAL
+REQUIRES-CHANGE boundaries/int_float_compare: L-PY-DYN, L-PY-FLOAT, L-PY-TYPE
+REQUIRES-CHANGE boundaries/int_str_limit: L-PY-CALL, L-PY-EXC, L-PY-IMPORT, L-PY-TYPE
+REQUIRES-CHANGE boundaries/list_aliasing: L-PY-ALIAS, L-PY-CALL, L-PY-DYN, L-PY-EXC, L-PY-SYNTAX, L-PY-TYPE
+REQUIRES-CHANGE boundaries/math_transcendental: L-PY-FLOAT, L-PY-IMPORT
+REQUIRES-CHANGE boundaries/recursion_caught: L-PY-EXC, L-PY-IMPORT, L-PY-POLY
+MATCH-RESOURCE boundaries/recursion_limit: trap: recursion bound
+REQUIRES-CHANGE boundaries/round_half_even: L-PY-CALL, L-PY-DYN, L-PY-EXC, L-PY-FLOAT
+REQUIRES-CHANGE boundaries/set_int_order: L-PY-SET, L-PY-TYPE
+REQUIRES-CHANGE boundaries/slicing: L-PY-ALIAS, L-PY-CALL, L-PY-EXC, L-PY-SYNTAX, L-PY-TYPE
+REQUIRES-CHANGE boundaries/str_compare: L-PY-BYTES, L-PY-CALL
+REQUIRES-CHANGE boundaries/str_repr: L-PY-BYTES, L-PY-CALL, L-PY-TEXT
+REQUIRES-CHANGE boundaries/str_unicode: L-PY-CALL, L-PY-IMPORT
+REQUIRES-CHANGE generated/float_ops: L-PY-CALL, L-PY-CLOSURE, L-PY-EXC, L-PY-IMPORT, L-PY-INT, L-PY-POLY
+REQUIRES-CHANGE generated/float_print_bits: L-PY-CALL, L-PY-IMPORT, L-PY-INT, L-PY-POLY
+REQUIRES-CHANGE generated/float_print_decimals: L-PY-CALL, L-PY-IMPORT, L-PY-INT, L-PY-POLY
+REQUIRES-CHANGE generated/float_print_edges: L-PY-CALL, L-PY-IMPORT, L-PY-INT, L-PY-POLY
+REQUIRES-CHANGE generated/int_ops_big: L-PY-CLOSURE, L-PY-EXC, L-PY-INT, L-PY-POLY
+REQUIRES-CHANGE generated/int_ops_small: L-PY-CLOSURE, L-PY-EXC, L-PY-POLY
+REQUIRES-CHANGE generated/int_ops_word: L-PY-CLOSURE, L-PY-EXC, L-PY-INT, L-PY-POLY
+REQUIRES-CHANGE generated/str_repr: L-PY-CALL
+
+cases 92
+MATCH 5
+MATCH-RESOURCE 1
+DIFFERS 0
+KEPT-RESOURCE 3
+REQUIRES-CHANGE 82
+INTERNAL 1
+requires change, cases naming each rule (a case can name several):
+  L-PY-ALIAS 4
+  L-PY-BYTES 8
+  L-PY-CALL 39
+  L-PY-CLASS 8
+  L-PY-CLOSURE 16
+  L-PY-DYN 9
+  L-PY-EXC 26
+  L-PY-FLOAT 22
+  L-PY-FORMAT 4
+  L-PY-GEN 5
+  L-PY-GLOBAL 3
+  L-PY-IMPORT 32
+  L-PY-INT 7
+  L-PY-MATCH 1
+  L-PY-NONE 11
+  L-PY-POLY 14
+  L-PY-SET 8
+  L-PY-SYNTAX 12
+  L-PY-TEXT 1
+  L-PY-TYPE 26
+  L-PY-UNBOUNDED 14
+requires change, by the rule of the first line reported:
+  L-PY-ALIAS 1
+  L-PY-BYTES 2
+  L-PY-CALL 10
+  L-PY-CLASS 1
+  L-PY-DYN 2
+  L-PY-EXC 4
+  L-PY-FLOAT 9
+  L-PY-GLOBAL 1
+  L-PY-IMPORT 31
+  L-PY-NONE 3
+  L-PY-POLY 7
+  L-PY-SET 1
+  L-PY-SYNTAX 2
+  L-PY-TEXT 1
+  L-PY-UNBOUNDED 7
+requires change, cases whose only rule is:
+  L-PY-CALL 1
+  L-PY-EXC 3
+  L-PY-FLOAT 2
+  L-PY-IMPORT 2
+  L-PY-NONE 1
+  L-PY-SYNTAX 1
+  L-PY-UNBOUNDED 5

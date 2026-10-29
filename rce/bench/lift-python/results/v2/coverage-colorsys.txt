@@ -1,0 +1,25 @@
+requires change rgb_to_yiq: L-PY-FLOAT, L-PY-POLY
+requires change yiq_to_rgb: L-PY-FLOAT, L-PY-POLY
+requires change rgb_to_hls: L-PY-FLOAT, L-PY-POLY
+requires change hls_to_rgb: L-PY-CALLEE, L-PY-FLOAT, L-PY-GLOBAL
+requires change _v: L-PY-FLOAT, L-PY-GLOBAL
+requires change rgb_to_hsv: L-PY-FLOAT, L-PY-POLY
+requires change hsv_to_rgb: L-PY-FLOAT, L-PY-NONE, L-PY-POLY
+
+module colorsys.py
+functions 7
+lifted 0
+internal 0
+coverage 0.0%
+requires change, functions naming each rule:
+  L-PY-CALLEE 1
+  L-PY-FLOAT 7
+  L-PY-GLOBAL 2
+  L-PY-NONE 1
+  L-PY-POLY 5
+requires change, by the rule of the first line reported:
+  L-PY-CALLEE 1
+  L-PY-GLOBAL 1
+  L-PY-NONE 1
+  L-PY-POLY 4
+requires change, functions whose only rule (L-PY-CALLEE aside) is:

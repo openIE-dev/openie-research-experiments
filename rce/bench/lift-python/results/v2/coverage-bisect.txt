@@ -1,0 +1,21 @@
+requires change insort_right: L-PY-CALL, L-PY-CALLEE, L-PY-NONE, L-PY-POLY
+requires change bisect_right: L-PY-CALL, L-PY-CLOSURE, L-PY-EXC, L-PY-NONE, L-PY-POLY, L-PY-UNBOUNDED
+requires change insort_left: L-PY-CALL, L-PY-CALLEE, L-PY-NONE, L-PY-POLY
+requires change bisect_left: L-PY-CALL, L-PY-CLOSURE, L-PY-EXC, L-PY-NONE, L-PY-POLY, L-PY-UNBOUNDED
+
+module bisect.py
+functions 4
+lifted 0
+internal 0
+coverage 0.0%
+requires change, functions naming each rule:
+  L-PY-CALL 4
+  L-PY-CALLEE 2
+  L-PY-CLOSURE 2
+  L-PY-EXC 2
+  L-PY-NONE 4
+  L-PY-POLY 4
+  L-PY-UNBOUNDED 2
+requires change, by the rule of the first line reported:
+  L-PY-CALL 4
+requires change, functions whose only rule (L-PY-CALLEE aside) is:

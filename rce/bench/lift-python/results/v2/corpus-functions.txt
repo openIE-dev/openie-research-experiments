@@ -1,0 +1,101 @@
+requires change basics/bool_logic:t: L-PY-GLOBAL
+requires change basics/bool_logic:f: L-PY-GLOBAL
+requires change basics/closures:counter: L-PY-CLOSURE, L-PY-POLY
+requires change basics/closures:adder: L-PY-CLOSURE, L-PY-POLY
+requires change basics/closures:fib_gen: L-PY-CLOSURE, L-PY-POLY
+requires change basics/closures:outer: L-PY-CLOSURE, L-PY-POLY
+requires change basics/exceptions:trial: L-PY-EXC, L-PY-POLY
+lifted basics/functions:divmod2
+requires change basics/functions:greet: L-PY-CALL
+requires change basics/functions:total: L-PY-CALL
+requires change basics/functions:info: L-PY-CALL
+requires change basics/functions:apply: L-PY-CLOSURE, L-PY-POLY
+lifted basics/if_else:classify
+requires change basics/match_statement:describe: L-PY-MATCH
+lifted basics/recursion:fact
+lifted basics/recursion:fib
+lifted basics/recursion:ack
+lifted basics/recursion:is_even
+lifted basics/recursion:is_odd
+requires change basics/uncaught_exception:check: L-PY-EXC
+requires change algorithms/base64_codec:encode: L-PY-CALL, L-PY-POLY, L-PY-TYPE
+requires change algorithms/binary_search:search: L-PY-UNBOUNDED
+lifted algorithms/brackets:check
+lifted algorithms/edit_distance:lev
+requires change algorithms/fnv_hash:fnv32a: L-PY-POLY
+requires change algorithms/fnv_hash:fnv64a: L-PY-INT, L-PY-POLY
+requires change algorithms/gcd_lcm:gcd: L-PY-UNBOUNDED
+lifted algorithms/gcd_lcm:egcd
+lifted algorithms/hanoi:hanoi
+requires change algorithms/kmp:failure: L-PY-UNBOUNDED
+requires change algorithms/kmp:find_all: L-PY-CALLEE, L-PY-UNBOUNDED
+requires change algorithms/lcs:lcs: L-PY-UNBOUNDED
+lifted algorithms/matrix:mul
+requires change algorithms/matrix:det: L-PY-GEN
+requires change algorithms/matrix:det_frac: L-PY-ALIAS, L-PY-CALL, L-PY-FLOAT, L-PY-NONE
+requires change algorithms/mergesort:mergesort: L-PY-ALIAS
+requires change algorithms/nqueens:solve: L-PY-CLOSURE, L-PY-POLY, L-PY-SET
+requires change algorithms/permutations:next_perm: L-PY-GEN, L-PY-SYNTAX, L-PY-UNBOUNDED
+requires change algorithms/prime_factors:factors: L-PY-UNBOUNDED
+lifted algorithms/quicksort:quicksort
+requires change algorithms/rle:encode: L-PY-TYPE
+requires change algorithms/rle:decode: L-PY-TYPE
+requires change algorithms/roman:to_roman: L-PY-UNBOUNDED
+lifted algorithms/roman:from_roman
+requires change algorithms/sieve:sieve: L-PY-BYTES, L-PY-CALL, L-PY-SYNTAX, L-PY-UNBOUNDED
+requires change algorithms/topo_sort:topo: L-PY-UNBOUNDED
+requires change boundaries/exceptions_chain:override: L-PY-EXC
+requires change boundaries/generators:counter: L-PY-GEN, L-PY-NONE, L-PY-UNBOUNDED
+requires change boundaries/generators:outer: L-PY-GEN
+requires change boundaries/generators:lazy: L-PY-GEN, L-PY-GLOBAL
+requires change boundaries/generators:closer: L-PY-EXC
+lifted boundaries/global_scope:reads
+requires change boundaries/global_scope:shadows: L-PY-EXC
+requires change boundaries/global_scope:writes: L-PY-GLOBAL
+requires change boundaries/global_scope:outer: L-PY-CLOSURE
+requires change boundaries/list_aliasing:append_to: L-PY-ALIAS, L-PY-CALL
+lifted boundaries/recursion_caught:depth
+requires change boundaries/recursion_caught:forever: L-PY-POLY
+lifted boundaries/recursion_limit:down
+requires change generated/float_ops:f: L-PY-CALL, L-PY-POLY
+requires change generated/float_ops:show: L-PY-EXC, L-PY-POLY
+requires change generated/float_print_bits:f: L-PY-CALL, L-PY-POLY
+requires change generated/float_print_decimals:f: L-PY-CALL, L-PY-POLY
+requires change generated/float_print_edges:f: L-PY-CALL, L-PY-POLY
+requires change generated/int_ops_big:show: L-PY-EXC, L-PY-POLY
+requires change generated/int_ops_small:show: L-PY-EXC, L-PY-POLY
+requires change generated/int_ops_word:show: L-PY-EXC, L-PY-POLY
+
+functions 67
+lifted 17
+internal 0
+coverage 25.4%
+requires change, functions naming each rule:
+  L-PY-ALIAS 3
+  L-PY-BYTES 1
+  L-PY-CALL 11
+  L-PY-CALLEE 1
+  L-PY-CLOSURE 7
+  L-PY-EXC 9
+  L-PY-FLOAT 1
+  L-PY-GEN 5
+  L-PY-GLOBAL 4
+  L-PY-INT 1
+  L-PY-MATCH 1
+  L-PY-NONE 2
+  L-PY-POLY 19
+  L-PY-SET 1
+  L-PY-SYNTAX 2
+  L-PY-TYPE 3
+  L-PY-UNBOUNDED 11
+requires change, functions whose only rule (L-PY-CALLEE aside) is:
+  L-PY-ALIAS 1
+  L-PY-CALL 3
+  L-PY-CLOSURE 1
+  L-PY-EXC 4
+  L-PY-GEN 2
+  L-PY-GLOBAL 3
+  L-PY-MATCH 1
+  L-PY-POLY 2
+  L-PY-TYPE 2
+  L-PY-UNBOUNDED 8
