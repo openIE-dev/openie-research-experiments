@@ -1,0 +1,2480 @@
+{
+ "candidates": 367,
+ "commit": "a82a0348",
+ "files": 106,
+ "notes": {
+  "bare_requires_change": [
+   "spec/examples/32_comptime_block.rce",
+   "spec/examples-0.9/ok/11_contracts_ghost.rce"
+  ],
+  "duplicate_shape": 25,
+  "no_obligation": 145,
+  "not_admitted": 91
+ },
+ "part_a": {
+  "all": {
+   "body_bytes": {
+    "max": 45056,
+    "median": 388,
+    "min": 55,
+    "n": 106,
+    "q1": 213,
+    "q3": 551
+   },
+   "body_bytes_over_python_bytes_no_table": {
+    "max": 0.235,
+    "median": 0.109,
+    "min": 0.002,
+    "n": 104,
+    "q1": 0.088,
+    "q3": 0.127
+   },
+   "body_lines": {
+    "max": 1364,
+    "median": 17,
+    "min": 1,
+    "n": 106,
+    "q1": 10,
+    "q3": 27
+   },
+   "files": 106,
+   "files_ratio_bytes_above_1": 8,
+   "form_nameless_bytes": {
+    "max": 64939,
+    "median": 464,
+    "min": 88,
+    "n": 104,
+    "q1": 286,
+    "q3": 644
+   },
+   "intent_text_bytes": {
+    "max": 400,
+    "median": 50,
+    "min": 0,
+    "n": 106,
+    "q1": 0,
+    "q3": 82
+   },
+   "intent_text_lines": {
+    "max": 2,
+    "median": 1,
+    "min": 0,
+    "n": 106,
+    "q1": 0,
+    "q3": 1
+   },
+   "obligation_bytes_over_python_bytes": {
+    "max": 0.043,
+    "median": 0.006,
+    "min": 0.0,
+    "n": 104,
+    "q1": 0.003,
+    "q3": 0.009
+   },
+   "obligation_bytes_over_python_bytes_no_table": {
+    "max": 0.211,
+    "median": 0.033,
+    "min": 0.0,
+    "n": 104,
+    "q1": 0.017,
+    "q3": 0.057
+   },
+   "obligations_bytes": {
+    "max": 2078,
+    "median": 119,
+    "min": 14,
+    "n": 106,
+    "q1": 71,
+    "q3": 179
+   },
+   "obligations_lines": {
+    "max": 16,
+    "median": 3,
+    "min": 1,
+    "n": 106,
+    "q1": 2,
+    "q3": 4
+   },
+   "python_bytes": {
+    "max": 416559,
+    "median": 18392,
+    "min": 16094,
+    "n": 104,
+    "q1": 17242,
+    "q3": 19906
+   },
+   "python_bytes_no_table": {
+    "max": 401451,
+    "median": 3284,
+    "min": 986,
+    "n": 104,
+    "q1": 2134,
+    "q3": 4798
+   },
+   "python_lines": {
+    "max": 5157,
+    "median": 86,
+    "min": 35,
+    "n": 104,
+    "q1": 58,
+    "q3": 116
+   },
+   "python_lines_no_table": {
+    "max": 5156,
+    "median": 85,
+    "min": 34,
+    "n": 104,
+    "q1": 57,
+    "q3": 115
+   },
+   "ratio_bytes": {
+    "max": 2.473,
+    "median": 0.306,
+    "min": 0.015,
+    "n": 106,
+    "q1": 0.201,
+    "q3": 0.493
+   },
+   "ratio_bytes_with_intent": {
+    "max": 3.231,
+    "median": 0.465,
+    "min": 0.015,
+    "n": 106,
+    "q1": 0.229,
+    "q3": 0.689
+   },
+   "ratio_lines": {
+    "max": 2.5,
+    "median": 0.148,
+    "min": 0.007,
+    "n": 106,
+    "q1": 0.094,
+    "q3": 0.214
+   },
+   "ratio_lines_with_intent": {
+    "max": 2.5,
+    "median": 0.188,
+    "min": 0.007,
+    "n": 106,
+    "q1": 0.12,
+    "q3": 0.286
+   },
+   "rust_bytes": {
+    "max": 473883,
+    "median": 21014,
+    "min": 17910,
+    "n": 104,
+    "q1": 19424,
+    "q3": 23081
+   },
+   "rust_bytes_no_table": {
+    "max": 458755,
+    "median": 5886,
+    "min": 2782,
+    "n": 104,
+    "q1": 4296,
+    "q3": 7953
+   },
+   "rust_lines": {
+    "max": 6212,
+    "median": 183,
+    "min": 111,
+    "n": 104,
+    "q1": 142,
+    "q3": 223
+   },
+   "rust_lines_no_table": {
+    "max": 6211,
+    "median": 182,
+    "min": 110,
+    "n": 104,
+    "q1": 141,
+    "q3": 222
+   }
+  },
+  "all_by_kind": {
+   "command": {
+    "body_bytes": {
+     "max": 454,
+     "median": 378,
+     "min": 190,
+     "n": 3,
+     "q1": 190,
+     "q3": 454
+    },
+    "body_bytes_over_python_bytes_no_table": {
+     "max": 0.084,
+     "median": 0.083,
+     "min": 0.083,
+     "n": 2,
+     "q1": 0.083,
+     "q3": 0.084
+    },
+    "body_lines": {
+     "max": 25,
+     "median": 18,
+     "min": 9,
+     "n": 3,
+     "q1": 9,
+     "q3": 25
+    },
+    "files": 3,
+    "files_ratio_bytes_above_1": 1,
+    "form_nameless_bytes": {
+     "max": 627,
+     "median": 523,
+     "min": 523,
+     "n": 2,
+     "q1": 523,
+     "q3": 627
+    },
+    "intent_text_bytes": {
+     "max": 0,
+     "median": 0,
+     "min": 0,
+     "n": 3,
+     "q1": 0,
+     "q3": 0
+    },
+    "intent_text_lines": {
+     "max": 0,
+     "median": 0,
+     "min": 0,
+     "n": 3,
+     "q1": 0,
+     "q3": 0
+    },
+    "obligation_bytes_over_python_bytes": {
+     "max": 0.002,
+     "median": 0.002,
+     "min": 0.002,
+     "n": 2,
+     "q1": 0.002,
+     "q3": 0.002
+    },
+    "obligation_bytes_over_python_bytes_no_table": {
+     "max": 0.01,
+     "median": 0.008,
+     "min": 0.008,
+     "n": 2,
+     "q1": 0.008,
+     "q3": 0.01
+    },
+    "obligations_bytes": {
+     "max": 212,
+     "median": 44,
+     "min": 42,
+     "n": 3,
+     "q1": 42,
+     "q3": 212
+    },
+    "obligations_lines": {
+     "max": 8,
+     "median": 3,
+     "min": 3,
+     "n": 3,
+     "q1": 3,
+     "q3": 8
+    },
+    "python_bytes": {
+     "max": 20489,
+     "median": 19635,
+     "min": 19635,
+     "n": 2,
+     "q1": 19635,
+     "q3": 20489
+    },
+    "python_bytes_no_table": {
+     "max": 5381,
+     "median": 4527,
+     "min": 4527,
+     "n": 2,
+     "q1": 4527,
+     "q3": 5381
+    },
+    "python_lines": {
+     "max": 161,
+     "median": 121,
+     "min": 121,
+     "n": 2,
+     "q1": 121,
+     "q3": 161
+    },
+    "python_lines_no_table": {
+     "max": 160,
+     "median": 120,
+     "min": 120,
+     "n": 2,
+     "q1": 120,
+     "q3": 160
+    },
+    "ratio_bytes": {
+     "max": 1.116,
+     "median": 0.116,
+     "min": 0.092,
+     "n": 3,
+     "q1": 0.092,
+     "q3": 1.116
+    },
+    "ratio_bytes_with_intent": {
+     "max": 1.116,
+     "median": 0.116,
+     "min": 0.092,
+     "n": 3,
+     "q1": 0.092,
+     "q3": 1.116
+    },
+    "ratio_lines": {
+     "max": 0.889,
+     "median": 0.167,
+     "min": 0.12,
+     "n": 3,
+     "q1": 0.12,
+     "q3": 0.889
+    },
+    "ratio_lines_with_intent": {
+     "max": 0.889,
+     "median": 0.167,
+     "min": 0.12,
+     "n": 3,
+     "q1": 0.12,
+     "q3": 0.889
+    },
+    "rust_bytes": {
+     "max": 23081,
+     "median": 22019,
+     "min": 22019,
+     "n": 2,
+     "q1": 22019,
+     "q3": 23081
+    },
+    "rust_bytes_no_table": {
+     "max": 7953,
+     "median": 6891,
+     "min": 6891,
+     "n": 2,
+     "q1": 6891,
+     "q3": 7953
+    },
+    "rust_lines": {
+     "max": 241,
+     "median": 202,
+     "min": 202,
+     "n": 2,
+     "q1": 202,
+     "q3": 241
+    },
+    "rust_lines_no_table": {
+     "max": 240,
+     "median": 201,
+     "min": 201,
+     "n": 2,
+     "q1": 201,
+     "q3": 240
+    }
+   },
+   "library": {
+    "body_bytes": {
+     "max": 27729,
+     "median": 310,
+     "min": 55,
+     "n": 44,
+     "q1": 151,
+     "q3": 441
+    },
+    "body_bytes_over_python_bytes_no_table": {
+     "max": 0.129,
+     "median": 0.094,
+     "min": 0.019,
+     "n": 43,
+     "q1": 0.071,
+     "q3": 0.105
+    },
+    "body_lines": {
+     "max": 773,
+     "median": 13,
+     "min": 1,
+     "n": 44,
+     "q1": 6,
+     "q3": 20
+    },
+    "files": 44,
+    "files_ratio_bytes_above_1": 4,
+    "form_nameless_bytes": {
+     "max": 38687,
+     "median": 421,
+     "min": 109,
+     "n": 43,
+     "q1": 220,
+     "q3": 636
+    },
+    "intent_text_bytes": {
+     "max": 59,
+     "median": 0,
+     "min": 0,
+     "n": 44,
+     "q1": 0,
+     "q3": 0
+    },
+    "intent_text_lines": {
+     "max": 1,
+     "median": 0,
+     "min": 0,
+     "n": 44,
+     "q1": 0,
+     "q3": 0
+    },
+    "obligation_bytes_over_python_bytes": {
+     "max": 0.011,
+     "median": 0.004,
+     "min": 0.001,
+     "n": 43,
+     "q1": 0.002,
+     "q3": 0.006
+    },
+    "obligation_bytes_over_python_bytes_no_table": {
+     "max": 0.134,
+     "median": 0.023,
+     "min": 0.001,
+     "n": 43,
+     "q1": 0.007,
+     "q3": 0.044
+    },
+    "obligations_bytes": {
+     "max": 1466,
+     "median": 88,
+     "min": 14,
+     "n": 44,
+     "q1": 36,
+     "q3": 136
+    },
+    "obligations_lines": {
+     "max": 8,
+     "median": 3,
+     "min": 1,
+     "n": 44,
+     "q1": 1,
+     "q3": 3
+    },
+    "python_bytes": {
+     "max": 329194,
+     "median": 18229,
+     "min": 16094,
+     "n": 43,
+     "q1": 16821,
+     "q3": 19906
+    },
+    "python_bytes_no_table": {
+     "max": 314086,
+     "median": 3121,
+     "min": 986,
+     "n": 43,
+     "q1": 1713,
+     "q3": 4798
+    },
+    "python_lines": {
+     "max": 4433,
+     "median": 78,
+     "min": 35,
+     "n": 43,
+     "q1": 53,
+     "q3": 116
+    },
+    "python_lines_no_table": {
+     "max": 4432,
+     "median": 77,
+     "min": 34,
+     "n": 43,
+     "q1": 52,
+     "q3": 115
+    },
+    "ratio_bytes": {
+     "max": 2.473,
+     "median": 0.236,
+     "min": 0.015,
+     "n": 44,
+     "q1": 0.113,
+     "q3": 0.423
+    },
+    "ratio_bytes_with_intent": {
+     "max": 2.473,
+     "median": 0.236,
+     "min": 0.015,
+     "n": 44,
+     "q1": 0.113,
+     "q3": 0.424
+    },
+    "ratio_lines": {
+     "max": 2.5,
+     "median": 0.167,
+     "min": 0.01,
+     "n": 44,
+     "q1": 0.1,
+     "q3": 0.375
+    },
+    "ratio_lines_with_intent": {
+     "max": 2.5,
+     "median": 0.167,
+     "min": 0.01,
+     "n": 44,
+     "q1": 0.1,
+     "q3": 0.375
+    },
+    "rust_bytes": {
+     "max": 381032,
+     "median": 20820,
+     "min": 17910,
+     "n": 43,
+     "q1": 18989,
+     "q3": 22634
+    },
+    "rust_bytes_no_table": {
+     "max": 365904,
+     "median": 5692,
+     "min": 2782,
+     "n": 43,
+     "q1": 3861,
+     "q3": 7506
+    },
+    "rust_lines": {
+     "max": 5684,
+     "median": 175,
+     "min": 111,
+     "n": 43,
+     "q1": 135,
+     "q3": 221
+    },
+    "rust_lines_no_table": {
+     "max": 5683,
+     "median": 174,
+     "min": 110,
+     "n": 43,
+     "q1": 134,
+     "q3": 220
+    }
+   },
+   "machine": {
+    "body_bytes": {
+     "max": 45056,
+     "median": 423,
+     "min": 91,
+     "n": 59,
+     "q1": 291,
+     "q3": 603
+    },
+    "body_bytes_over_python_bytes_no_table": {
+     "max": 0.235,
+     "median": 0.125,
+     "min": 0.002,
+     "n": 59,
+     "q1": 0.106,
+     "q3": 0.139
+    },
+    "body_lines": {
+     "max": 1364,
+     "median": 21,
+     "min": 6,
+     "n": 59,
+     "q1": 14,
+     "q3": 31
+    },
+    "files": 59,
+    "files_ratio_bytes_above_1": 3,
+    "form_nameless_bytes": {
+     "max": 64939,
+     "median": 484,
+     "min": 88,
+     "n": 59,
+     "q1": 306,
+     "q3": 669
+    },
+    "intent_text_bytes": {
+     "max": 400,
+     "median": 78,
+     "min": 41,
+     "n": 59,
+     "q1": 58,
+     "q3": 139
+    },
+    "intent_text_lines": {
+     "max": 2,
+     "median": 1,
+     "min": 1,
+     "n": 59,
+     "q1": 1,
+     "q3": 1
+    },
+    "obligation_bytes_over_python_bytes": {
+     "max": 0.043,
+     "median": 0.008,
+     "min": 0.0,
+     "n": 59,
+     "q1": 0.005,
+     "q3": 0.01
+    },
+    "obligation_bytes_over_python_bytes_no_table": {
+     "max": 0.211,
+     "median": 0.046,
+     "min": 0.0,
+     "n": 59,
+     "q1": 0.025,
+     "q3": 0.063
+    },
+    "obligations_bytes": {
+     "max": 2078,
+     "median": 153,
+     "min": 37,
+     "n": 59,
+     "q1": 105,
+     "q3": 210
+    },
+    "obligations_lines": {
+     "max": 16,
+     "median": 3,
+     "min": 1,
+     "n": 59,
+     "q1": 2,
+     "q3": 4
+    },
+    "python_bytes": {
+     "max": 416559,
+     "median": 18282,
+     "min": 16195,
+     "n": 59,
+     "q1": 17314,
+     "q3": 20070
+    },
+    "python_bytes_no_table": {
+     "max": 401451,
+     "median": 3174,
+     "min": 1087,
+     "n": 59,
+     "q1": 2206,
+     "q3": 4962
+    },
+    "python_lines": {
+     "max": 5157,
+     "median": 87,
+     "min": 39,
+     "n": 59,
+     "q1": 61,
+     "q3": 116
+    },
+    "python_lines_no_table": {
+     "max": 5156,
+     "median": 86,
+     "min": 38,
+     "n": 59,
+     "q1": 60,
+     "q3": 115
+    },
+    "ratio_bytes": {
+     "max": 2.0,
+     "median": 0.367,
+     "min": 0.037,
+     "n": 59,
+     "q1": 0.249,
+     "q3": 0.508
+    },
+    "ratio_bytes_with_intent": {
+     "max": 3.231,
+     "median": 0.599,
+     "min": 0.046,
+     "n": 59,
+     "q1": 0.463,
+     "q3": 0.787
+    },
+    "ratio_lines": {
+     "max": 0.842,
+     "median": 0.129,
+     "min": 0.007,
+     "n": 59,
+     "q1": 0.083,
+     "q3": 0.182
+    },
+    "ratio_lines_with_intent": {
+     "max": 0.895,
+     "median": 0.191,
+     "min": 0.007,
+     "n": 59,
+     "q1": 0.125,
+     "q3": 0.25
+    },
+    "rust_bytes": {
+     "max": 473883,
+     "median": 21193,
+     "min": 18046,
+     "n": 59,
+     "q1": 19522,
+     "q3": 23580
+    },
+    "rust_bytes_no_table": {
+     "max": 458755,
+     "median": 6065,
+     "min": 2918,
+     "n": 59,
+     "q1": 4394,
+     "q3": 8452
+    },
+    "rust_lines": {
+     "max": 6212,
+     "median": 183,
+     "min": 114,
+     "n": 59,
+     "q1": 143,
+     "q3": 229
+    },
+    "rust_lines_no_table": {
+     "max": 6211,
+     "median": 182,
+     "min": 113,
+     "n": 59,
+     "q1": 142,
+     "q3": 228
+    }
+   }
+  },
+  "checks_or_contracts_only": {
+   "body_bytes": {
+    "max": 27729,
+    "median": 310,
+    "min": 55,
+    "n": 46,
+    "q1": 172,
+    "q3": 449
+   },
+   "body_bytes_over_python_bytes_no_table": {
+    "max": 0.129,
+    "median": 0.094,
+    "min": 0.019,
+    "n": 44,
+    "q1": 0.073,
+    "q3": 0.105
+   },
+   "body_lines": {
+    "max": 773,
+    "median": 13,
+    "min": 1,
+    "n": 46,
+    "q1": 6,
+    "q3": 20
+   },
+   "files": 46,
+   "files_ratio_bytes_above_1": 5,
+   "form_nameless_bytes": {
+    "max": 38687,
+    "median": 442,
+    "min": 109,
+    "n": 44,
+    "q1": 241,
+    "q3": 627
+   },
+   "intent_text_bytes": {
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "n": 46,
+    "q1": 0,
+    "q3": 0
+   },
+   "intent_text_lines": {
+    "max": 0,
+    "median": 0,
+    "min": 0,
+    "n": 46,
+    "q1": 0,
+    "q3": 0
+   },
+   "obligation_bytes_over_python_bytes": {
+    "max": 0.011,
+    "median": 0.004,
+    "min": 0.001,
+    "n": 44,
+    "q1": 0.002,
+    "q3": 0.006
+   },
+   "obligation_bytes_over_python_bytes_no_table": {
+    "max": 0.134,
+    "median": 0.023,
+    "min": 0.001,
+    "n": 44,
+    "q1": 0.008,
+    "q3": 0.037
+   },
+   "obligations_bytes": {
+    "max": 1466,
+    "median": 87,
+    "min": 14,
+    "n": 46,
+    "q1": 36,
+    "q3": 138
+   },
+   "obligations_lines": {
+    "max": 8,
+    "median": 3,
+    "min": 1,
+    "n": 46,
+    "q1": 1,
+    "q3": 4
+   },
+   "python_bytes": {
+    "max": 329194,
+    "median": 18596,
+    "min": 16094,
+    "n": 44,
+    "q1": 16990,
+    "q3": 19906
+   },
+   "python_bytes_no_table": {
+    "max": 314086,
+    "median": 3488,
+    "min": 986,
+    "n": 44,
+    "q1": 1882,
+    "q3": 4798
+   },
+   "python_lines": {
+    "max": 4433,
+    "median": 83,
+    "min": 35,
+    "n": 44,
+    "q1": 56,
+    "q3": 121
+   },
+   "python_lines_no_table": {
+    "max": 4432,
+    "median": 82,
+    "min": 34,
+    "n": 44,
+    "q1": 55,
+    "q3": 120
+   },
+   "ratio_bytes": {
+    "max": 2.473,
+    "median": 0.231,
+    "min": 0.015,
+    "n": 46,
+    "q1": 0.092,
+    "q3": 0.424
+   },
+   "ratio_bytes_with_intent": {
+    "max": 2.473,
+    "median": 0.231,
+    "min": 0.015,
+    "n": 46,
+    "q1": 0.092,
+    "q3": 0.424
+   },
+   "ratio_lines": {
+    "max": 2.5,
+    "median": 0.167,
+    "min": 0.01,
+    "n": 46,
+    "q1": 0.1,
+    "q3": 0.4
+   },
+   "ratio_lines_with_intent": {
+    "max": 2.5,
+    "median": 0.167,
+    "min": 0.01,
+    "n": 46,
+    "q1": 0.1,
+    "q3": 0.4
+   },
+   "rust_bytes": {
+    "max": 381032,
+    "median": 21014,
+    "min": 17910,
+    "n": 44,
+    "q1": 19033,
+    "q3": 22634
+   },
+   "rust_bytes_no_table": {
+    "max": 365904,
+    "median": 5886,
+    "min": 2782,
+    "n": 44,
+    "q1": 3905,
+    "q3": 7506
+   },
+   "rust_lines": {
+    "max": 5684,
+    "median": 180,
+    "min": 111,
+    "n": 44,
+    "q1": 139,
+    "q3": 221
+   },
+   "rust_lines_no_table": {
+    "max": 5683,
+    "median": 179,
+    "min": 110,
+    "n": 44,
+    "q1": 138,
+    "q3": 220
+   }
+  },
+  "primary": {
+   "body_bytes": {
+    "max": 45056,
+    "median": 423,
+    "min": 91,
+    "n": 60,
+    "q1": 291,
+    "q3": 597
+   },
+   "body_bytes_over_python_bytes_no_table": {
+    "max": 0.235,
+    "median": 0.125,
+    "min": 0.002,
+    "n": 60,
+    "q1": 0.106,
+    "q3": 0.136
+   },
+   "body_lines": {
+    "max": 1364,
+    "median": 21,
+    "min": 6,
+    "n": 60,
+    "q1": 14,
+    "q3": 31
+   },
+   "files": 60,
+   "files_ratio_bytes_above_1": 3,
+   "form_nameless_bytes": {
+    "max": 64939,
+    "median": 484,
+    "min": 88,
+    "n": 60,
+    "q1": 306,
+    "q3": 654
+   },
+   "intent_text_bytes": {
+    "max": 400,
+    "median": 78,
+    "min": 41,
+    "n": 60,
+    "q1": 59,
+    "q3": 138
+   },
+   "intent_text_lines": {
+    "max": 2,
+    "median": 1,
+    "min": 1,
+    "n": 60,
+    "q1": 1,
+    "q3": 1
+   },
+   "obligation_bytes_over_python_bytes": {
+    "max": 0.043,
+    "median": 0.008,
+    "min": 0.0,
+    "n": 60,
+    "q1": 0.005,
+    "q3": 0.01
+   },
+   "obligation_bytes_over_python_bytes_no_table": {
+    "max": 0.211,
+    "median": 0.046,
+    "min": 0.0,
+    "n": 60,
+    "q1": 0.026,
+    "q3": 0.062
+   },
+   "obligations_bytes": {
+    "max": 2078,
+    "median": 153,
+    "min": 37,
+    "n": 60,
+    "q1": 105,
+    "q3": 208
+   },
+   "obligations_lines": {
+    "max": 16,
+    "median": 3,
+    "min": 1,
+    "n": 60,
+    "q1": 2,
+    "q3": 4
+   },
+   "python_bytes": {
+    "max": 416559,
+    "median": 18282,
+    "min": 16195,
+    "n": 60,
+    "q1": 17314,
+    "q3": 19867
+   },
+   "python_bytes_no_table": {
+    "max": 401451,
+    "median": 3174,
+    "min": 1087,
+    "n": 60,
+    "q1": 2206,
+    "q3": 4759
+   },
+   "python_lines": {
+    "max": 5157,
+    "median": 87,
+    "min": 39,
+    "n": 60,
+    "q1": 61,
+    "q3": 116
+   },
+   "python_lines_no_table": {
+    "max": 5156,
+    "median": 86,
+    "min": 38,
+    "n": 60,
+    "q1": 60,
+    "q3": 115
+   },
+   "ratio_bytes": {
+    "max": 2.0,
+    "median": 0.37,
+    "min": 0.037,
+    "n": 60,
+    "q1": 0.263,
+    "q3": 0.506
+   },
+   "ratio_bytes_with_intent": {
+    "max": 3.231,
+    "median": 0.604,
+    "min": 0.046,
+    "n": 60,
+    "q1": 0.464,
+    "q3": 0.787
+   },
+   "ratio_lines": {
+    "max": 0.842,
+    "median": 0.133,
+    "min": 0.007,
+    "n": 60,
+    "q1": 0.091,
+    "q3": 0.182
+   },
+   "ratio_lines_with_intent": {
+    "max": 0.895,
+    "median": 0.191,
+    "min": 0.007,
+    "n": 60,
+    "q1": 0.125,
+    "q3": 0.25
+   },
+   "rust_bytes": {
+    "max": 473883,
+    "median": 21193,
+    "min": 18046,
+    "n": 60,
+    "q1": 19522,
+    "q3": 23529
+   },
+   "rust_bytes_no_table": {
+    "max": 458755,
+    "median": 6065,
+    "min": 2918,
+    "n": 60,
+    "q1": 4394,
+    "q3": 8401
+   },
+   "rust_lines": {
+    "max": 6212,
+    "median": 183,
+    "min": 114,
+    "n": 60,
+    "q1": 143,
+    "q3": 223
+   },
+   "rust_lines_no_table": {
+    "max": 6211,
+    "median": 182,
+    "min": 113,
+    "n": 60,
+    "q1": 142,
+    "q3": 222
+   }
+  },
+  "primary_by_kind": {
+   "library": {
+    "body_bytes": {
+     "max": 100,
+     "median": 100,
+     "min": 100,
+     "n": 1,
+     "q1": 100,
+     "q3": 100
+    },
+    "body_bytes_over_python_bytes_no_table": {
+     "max": 0.071,
+     "median": 0.071,
+     "min": 0.071,
+     "n": 1,
+     "q1": 0.071,
+     "q3": 0.071
+    },
+    "body_lines": {
+     "max": 8,
+     "median": 8,
+     "min": 8,
+     "n": 1,
+     "q1": 8,
+     "q3": 8
+    },
+    "files": 1,
+    "files_ratio_bytes_above_1": 0,
+    "form_nameless_bytes": {
+     "max": 152,
+     "median": 152,
+     "min": 152,
+     "n": 1,
+     "q1": 152,
+     "q3": 152
+    },
+    "intent_text_bytes": {
+     "max": 59,
+     "median": 59,
+     "min": 59,
+     "n": 1,
+     "q1": 59,
+     "q3": 59
+    },
+    "intent_text_lines": {
+     "max": 1,
+     "median": 1,
+     "min": 1,
+     "n": 1,
+     "q1": 1,
+     "q3": 1
+    },
+    "obligation_bytes_over_python_bytes": {
+     "max": 0.002,
+     "median": 0.002,
+     "min": 0.002,
+     "n": 1,
+     "q1": 0.002,
+     "q3": 0.002
+    },
+    "obligation_bytes_over_python_bytes_no_table": {
+     "max": 0.026,
+     "median": 0.026,
+     "min": 0.026,
+     "n": 1,
+     "q1": 0.026,
+     "q3": 0.026
+    },
+    "obligations_bytes": {
+     "max": 37,
+     "median": 37,
+     "min": 37,
+     "n": 1,
+     "q1": 37,
+     "q3": 37
+    },
+    "obligations_lines": {
+     "max": 2,
+     "median": 2,
+     "min": 2,
+     "n": 1,
+     "q1": 2,
+     "q3": 2
+    },
+    "python_bytes": {
+     "max": 16526,
+     "median": 16526,
+     "min": 16526,
+     "n": 1,
+     "q1": 16526,
+     "q3": 16526
+    },
+    "python_bytes_no_table": {
+     "max": 1418,
+     "median": 1418,
+     "min": 1418,
+     "n": 1,
+     "q1": 1418,
+     "q3": 1418
+    },
+    "python_lines": {
+     "max": 53,
+     "median": 53,
+     "min": 53,
+     "n": 1,
+     "q1": 53,
+     "q3": 53
+    },
+    "python_lines_no_table": {
+     "max": 52,
+     "median": 52,
+     "min": 52,
+     "n": 1,
+     "q1": 52,
+     "q3": 52
+    },
+    "ratio_bytes": {
+     "max": 0.37,
+     "median": 0.37,
+     "min": 0.37,
+     "n": 1,
+     "q1": 0.37,
+     "q3": 0.37
+    },
+    "ratio_bytes_with_intent": {
+     "max": 0.96,
+     "median": 0.96,
+     "min": 0.96,
+     "n": 1,
+     "q1": 0.96,
+     "q3": 0.96
+    },
+    "ratio_lines": {
+     "max": 0.25,
+     "median": 0.25,
+     "min": 0.25,
+     "n": 1,
+     "q1": 0.25,
+     "q3": 0.25
+    },
+    "ratio_lines_with_intent": {
+     "max": 0.375,
+     "median": 0.375,
+     "min": 0.375,
+     "n": 1,
+     "q1": 0.375,
+     "q3": 0.375
+    },
+    "rust_bytes": {
+     "max": 18472,
+     "median": 18472,
+     "min": 18472,
+     "n": 1,
+     "q1": 18472,
+     "q3": 18472
+    },
+    "rust_bytes_no_table": {
+     "max": 3344,
+     "median": 3344,
+     "min": 3344,
+     "n": 1,
+     "q1": 3344,
+     "q3": 3344
+    },
+    "rust_lines": {
+     "max": 131,
+     "median": 131,
+     "min": 131,
+     "n": 1,
+     "q1": 131,
+     "q3": 131
+    },
+    "rust_lines_no_table": {
+     "max": 130,
+     "median": 130,
+     "min": 130,
+     "n": 1,
+     "q1": 130,
+     "q3": 130
+    }
+   },
+   "machine": {
+    "body_bytes": {
+     "max": 45056,
+     "median": 423,
+     "min": 91,
+     "n": 59,
+     "q1": 291,
+     "q3": 603
+    },
+    "body_bytes_over_python_bytes_no_table": {
+     "max": 0.235,
+     "median": 0.125,
+     "min": 0.002,
+     "n": 59,
+     "q1": 0.106,
+     "q3": 0.139
+    },
+    "body_lines": {
+     "max": 1364,
+     "median": 21,
+     "min": 6,
+     "n": 59,
+     "q1": 14,
+     "q3": 31
+    },
+    "files": 59,
+    "files_ratio_bytes_above_1": 3,
+    "form_nameless_bytes": {
+     "max": 64939,
+     "median": 484,
+     "min": 88,
+     "n": 59,
+     "q1": 306,
+     "q3": 669
+    },
+    "intent_text_bytes": {
+     "max": 400,
+     "median": 78,
+     "min": 41,
+     "n": 59,
+     "q1": 58,
+     "q3": 139
+    },
+    "intent_text_lines": {
+     "max": 2,
+     "median": 1,
+     "min": 1,
+     "n": 59,
+     "q1": 1,
+     "q3": 1
+    },
+    "obligation_bytes_over_python_bytes": {
+     "max": 0.043,
+     "median": 0.008,
+     "min": 0.0,
+     "n": 59,
+     "q1": 0.005,
+     "q3": 0.01
+    },
+    "obligation_bytes_over_python_bytes_no_table": {
+     "max": 0.211,
+     "median": 0.046,
+     "min": 0.0,
+     "n": 59,
+     "q1": 0.025,
+     "q3": 0.063
+    },
+    "obligations_bytes": {
+     "max": 2078,
+     "median": 153,
+     "min": 37,
+     "n": 59,
+     "q1": 105,
+     "q3": 210
+    },
+    "obligations_lines": {
+     "max": 16,
+     "median": 3,
+     "min": 1,
+     "n": 59,
+     "q1": 2,
+     "q3": 4
+    },
+    "python_bytes": {
+     "max": 416559,
+     "median": 18282,
+     "min": 16195,
+     "n": 59,
+     "q1": 17314,
+     "q3": 20070
+    },
+    "python_bytes_no_table": {
+     "max": 401451,
+     "median": 3174,
+     "min": 1087,
+     "n": 59,
+     "q1": 2206,
+     "q3": 4962
+    },
+    "python_lines": {
+     "max": 5157,
+     "median": 87,
+     "min": 39,
+     "n": 59,
+     "q1": 61,
+     "q3": 116
+    },
+    "python_lines_no_table": {
+     "max": 5156,
+     "median": 86,
+     "min": 38,
+     "n": 59,
+     "q1": 60,
+     "q3": 115
+    },
+    "ratio_bytes": {
+     "max": 2.0,
+     "median": 0.367,
+     "min": 0.037,
+     "n": 59,
+     "q1": 0.249,
+     "q3": 0.508
+    },
+    "ratio_bytes_with_intent": {
+     "max": 3.231,
+     "median": 0.599,
+     "min": 0.046,
+     "n": 59,
+     "q1": 0.463,
+     "q3": 0.787
+    },
+    "ratio_lines": {
+     "max": 0.842,
+     "median": 0.129,
+     "min": 0.007,
+     "n": 59,
+     "q1": 0.083,
+     "q3": 0.182
+    },
+    "ratio_lines_with_intent": {
+     "max": 0.895,
+     "median": 0.191,
+     "min": 0.007,
+     "n": 59,
+     "q1": 0.125,
+     "q3": 0.25
+    },
+    "rust_bytes": {
+     "max": 473883,
+     "median": 21193,
+     "min": 18046,
+     "n": 59,
+     "q1": 19522,
+     "q3": 23580
+    },
+    "rust_bytes_no_table": {
+     "max": 458755,
+     "median": 6065,
+     "min": 2918,
+     "n": 59,
+     "q1": 4394,
+     "q3": 8452
+    },
+    "rust_lines": {
+     "max": 6212,
+     "median": 183,
+     "min": 114,
+     "n": 59,
+     "q1": 143,
+     "q3": 229
+    },
+    "rust_lines_no_table": {
+     "max": 6211,
+     "median": 182,
+     "min": 113,
+     "n": 59,
+     "q1": 142,
+     "q3": 228
+    }
+   }
+  },
+  "primary_by_origin": {
+   "apps": {
+    "body_bytes": {
+     "max": 45056,
+     "median": 5957,
+     "min": 2126,
+     "n": 3,
+     "q1": 2126,
+     "q3": 45056
+    },
+    "body_bytes_over_python_bytes_no_table": {
+     "max": 0.119,
+     "median": 0.112,
+     "min": 0.088,
+     "n": 3,
+     "q1": 0.088,
+     "q3": 0.119
+    },
+    "body_lines": {
+     "max": 1364,
+     "median": 262,
+     "min": 79,
+     "n": 3,
+     "q1": 79,
+     "q3": 1364
+    },
+    "files": 3,
+    "files_ratio_bytes_above_1": 0,
+    "form_nameless_bytes": {
+     "max": 64939,
+     "median": 8801,
+     "min": 3725,
+     "n": 3,
+     "q1": 3725,
+     "q3": 64939
+    },
+    "intent_text_bytes": {
+     "max": 379,
+     "median": 375,
+     "min": 308,
+     "n": 3,
+     "q1": 308,
+     "q3": 379
+    },
+    "intent_text_lines": {
+     "max": 1,
+     "median": 1,
+     "min": 1,
+     "n": 3,
+     "q1": 1,
+     "q3": 1
+    },
+    "obligation_bytes_over_python_bytes": {
+     "max": 0.037,
+     "median": 0.01,
+     "min": 0.004,
+     "n": 3,
+     "q1": 0.004,
+     "q3": 0.037
+    },
+    "obligation_bytes_over_python_bytes_no_table": {
+     "max": 0.069,
+     "median": 0.013,
+     "min": 0.004,
+     "n": 3,
+     "q1": 0.004,
+     "q3": 0.069
+    },
+    "obligations_bytes": {
+     "max": 1684,
+     "median": 1230,
+     "min": 859,
+     "n": 3,
+     "q1": 859,
+     "q3": 1684
+    },
+    "obligations_lines": {
+     "max": 9,
+     "median": 6,
+     "min": 5,
+     "n": 3,
+     "q1": 5,
+     "q3": 9
+    },
+    "python_bytes": {
+     "max": 416559,
+     "median": 82720,
+     "min": 33017,
+     "n": 3,
+     "q1": 33017,
+     "q3": 416559
+    },
+    "python_bytes_no_table": {
+     "max": 401451,
+     "median": 67612,
+     "min": 17909,
+     "n": 3,
+     "q1": 17909,
+     "q3": 401451
+    },
+    "python_lines": {
+     "max": 5157,
+     "median": 969,
+     "min": 247,
+     "n": 3,
+     "q1": 247,
+     "q3": 5157
+    },
+    "python_lines_no_table": {
+     "max": 5156,
+     "median": 968,
+     "min": 246,
+     "n": 3,
+     "q1": 246,
+     "q3": 5156
+    },
+    "ratio_bytes": {
+     "max": 0.579,
+     "median": 0.144,
+     "min": 0.037,
+     "n": 3,
+     "q1": 0.037,
+     "q3": 0.579
+    },
+    "ratio_bytes_with_intent": {
+     "max": 0.723,
+     "median": 0.207,
+     "min": 0.046,
+     "n": 3,
+     "q1": 0.046,
+     "q3": 0.723
+    },
+    "ratio_lines": {
+     "max": 0.063,
+     "median": 0.023,
+     "min": 0.007,
+     "n": 3,
+     "q1": 0.007,
+     "q3": 0.063
+    },
+    "ratio_lines_with_intent": {
+     "max": 0.076,
+     "median": 0.027,
+     "min": 0.007,
+     "n": 3,
+     "q1": 0.007,
+     "q3": 0.076
+    },
+    "rust_bytes": {
+     "max": 473883,
+     "median": 94282,
+     "min": 38067,
+     "n": 3,
+     "q1": 38067,
+     "q3": 473883
+    },
+    "rust_bytes_no_table": {
+     "max": 458755,
+     "median": 79154,
+     "min": 22939,
+     "n": 3,
+     "q1": 22939,
+     "q3": 458755
+    },
+    "rust_lines": {
+     "max": 6212,
+     "median": 1217,
+     "min": 365,
+     "n": 3,
+     "q1": 365,
+     "q3": 6212
+    },
+    "rust_lines_no_table": {
+     "max": 6211,
+     "median": 1216,
+     "min": 364,
+     "n": 3,
+     "q1": 364,
+     "q3": 6211
+    }
+   },
+   "book-listings": {
+    "body_bytes": {
+     "max": 1089,
+     "median": 364,
+     "min": 148,
+     "n": 5,
+     "q1": 334,
+     "q3": 421
+    },
+    "body_bytes_over_python_bytes_no_table": {
+     "max": 0.202,
+     "median": 0.135,
+     "min": 0.116,
+     "n": 5,
+     "q1": 0.119,
+     "q3": 0.166
+    },
+    "body_lines": {
+     "max": 28,
+     "median": 17,
+     "min": 7,
+     "n": 5,
+     "q1": 17,
+     "q3": 21
+    },
+    "files": 5,
+    "files_ratio_bytes_above_1": 0,
+    "form_nameless_bytes": {
+     "max": 918,
+     "median": 286,
+     "min": 126,
+     "n": 5,
+     "q1": 279,
+     "q3": 345
+    },
+    "intent_text_bytes": {
+     "max": 162,
+     "median": 77,
+     "min": 45,
+     "n": 5,
+     "q1": 62,
+     "q3": 95
+    },
+    "intent_text_lines": {
+     "max": 2,
+     "median": 1,
+     "min": 1,
+     "n": 5,
+     "q1": 1,
+     "q3": 1
+    },
+    "obligation_bytes_over_python_bytes": {
+     "max": 0.021,
+     "median": 0.006,
+     "min": 0.003,
+     "n": 5,
+     "q1": 0.004,
+     "q3": 0.012
+    },
+    "obligation_bytes_over_python_bytes_no_table": {
+     "max": 0.081,
+     "median": 0.048,
+     "min": 0.025,
+     "n": 5,
+     "q1": 0.046,
+     "q3": 0.069
+    },
+    "obligations_bytes": {
+     "max": 438,
+     "median": 105,
+     "min": 57,
+     "n": 5,
+     "q1": 72,
+     "q3": 214
+    },
+    "obligations_lines": {
+     "max": 4,
+     "median": 2,
+     "min": 2,
+     "n": 5,
+     "q1": 2,
+     "q3": 2
+    },
+    "python_bytes": {
+     "max": 20500,
+     "median": 17975,
+     "min": 16350,
+     "n": 5,
+     "q1": 17303,
+     "q3": 18217
+    },
+    "python_bytes_no_table": {
+     "max": 5392,
+     "median": 2867,
+     "min": 1242,
+     "n": 5,
+     "q1": 2195,
+     "q3": 3109
+    },
+    "python_lines": {
+     "max": 97,
+     "median": 75,
+     "min": 40,
+     "n": 5,
+     "q1": 58,
+     "q3": 87
+    },
+    "python_lines_no_table": {
+     "max": 96,
+     "median": 74,
+     "min": 39,
+     "n": 5,
+     "q1": 57,
+     "q3": 86
+    },
+    "ratio_bytes": {
+     "max": 0.508,
+     "median": 0.385,
+     "min": 0.216,
+     "n": 5,
+     "q1": 0.288,
+     "q3": 0.402
+    },
+    "ratio_bytes_with_intent": {
+     "max": 0.689,
+     "median": 0.551,
+     "min": 0.5,
+     "n": 5,
+     "q1": 0.5,
+     "q3": 0.656
+    },
+    "ratio_lines": {
+     "max": 0.286,
+     "median": 0.118,
+     "min": 0.095,
+     "n": 5,
+     "q1": 0.118,
+     "q3": 0.143
+    },
+    "ratio_lines_with_intent": {
+     "max": 0.429,
+     "median": 0.179,
+     "min": 0.176,
+     "n": 5,
+     "q1": 0.176,
+     "q3": 0.191
+    },
+    "rust_bytes": {
+     "max": 23580,
+     "median": 20937,
+     "min": 18369,
+     "n": 5,
+     "q1": 19546,
+     "q3": 20938
+    },
+    "rust_bytes_no_table": {
+     "max": 8452,
+     "median": 5809,
+     "min": 3241,
+     "n": 5,
+     "q1": 4418,
+     "q3": 5810
+    },
+    "rust_lines": {
+     "max": 195,
+     "median": 161,
+     "min": 117,
+     "n": 5,
+     "q1": 143,
+     "q3": 183
+    },
+    "rust_lines_no_table": {
+     "max": 194,
+     "median": 160,
+     "min": 116,
+     "n": 5,
+     "q1": 142,
+     "q3": 182
+    }
+   },
+   "conformance-accept": {
+    "body_bytes": {
+     "max": 3055,
+     "median": 497,
+     "min": 159,
+     "n": 10,
+     "q1": 334,
+     "q3": 1287
+    },
+    "body_bytes_over_python_bytes_no_table": {
+     "max": 0.151,
+     "median": 0.126,
+     "min": 0.102,
+     "n": 10,
+     "q1": 0.125,
+     "q3": 0.143
+    },
+    "body_lines": {
+     "max": 124,
+     "median": 21,
+     "min": 9,
+     "n": 10,
+     "q1": 17,
+     "q3": 55
+    },
+    "files": 10,
+    "files_ratio_bytes_above_1": 0,
+    "form_nameless_bytes": {
+     "max": 2868,
+     "median": 502,
+     "min": 200,
+     "n": 10,
+     "q1": 368,
+     "q3": 1240
+    },
+    "intent_text_bytes": {
+     "max": 245,
+     "median": 93,
+     "min": 50,
+     "n": 10,
+     "q1": 85,
+     "q3": 113
+    },
+    "intent_text_lines": {
+     "max": 1,
+     "median": 1,
+     "min": 1,
+     "n": 10,
+     "q1": 1,
+     "q3": 1
+    },
+    "obligation_bytes_over_python_bytes": {
+     "max": 0.01,
+     "median": 0.005,
+     "min": 0.003,
+     "n": 10,
+     "q1": 0.004,
+     "q3": 0.007
+    },
+    "obligation_bytes_over_python_bytes_no_table": {
+     "max": 0.051,
+     "median": 0.018,
+     "min": 0.01,
+     "n": 10,
+     "q1": 0.014,
+     "q3": 0.033
+    },
+    "obligations_bytes": {
+     "max": 417,
+     "median": 113,
+     "min": 46,
+     "n": 10,
+     "q1": 89,
+     "q3": 119
+    },
+    "obligations_lines": {
+     "max": 3,
+     "median": 1,
+     "min": 1,
+     "n": 10,
+     "q1": 1,
+     "q3": 1
+    },
+    "python_bytes": {
+     "max": 42893,
+     "median": 18523,
+     "min": 16542,
+     "n": 10,
+     "q1": 17314,
+     "q3": 24407
+    },
+    "python_bytes_no_table": {
+     "max": 27785,
+     "median": 3415,
+     "min": 1434,
+     "n": 10,
+     "q1": 2206,
+     "q3": 9299
+    },
+    "python_lines": {
+     "max": 484,
+     "median": 76,
+     "min": 48,
+     "n": 10,
+     "q1": 56,
+     "q3": 177
+    },
+    "python_lines_no_table": {
+     "max": 483,
+     "median": 75,
+     "min": 47,
+     "n": 10,
+     "q1": 55,
+     "q3": 176
+    },
+    "ratio_bytes": {
+     "max": 0.338,
+     "median": 0.137,
+     "min": 0.067,
+     "n": 10,
+     "q1": 0.105,
+     "q3": 0.265
+    },
+    "ratio_bytes_with_intent": {
+     "max": 0.735,
+     "median": 0.28,
+     "min": 0.129,
+     "n": 10,
+     "q1": 0.191,
+     "q3": 0.604
+    },
+    "ratio_lines": {
+     "max": 0.111,
+     "median": 0.027,
+     "min": 0.017,
+     "n": 10,
+     "q1": 0.02,
+     "q3": 0.059
+    },
+    "ratio_lines_with_intent": {
+     "max": 0.222,
+     "median": 0.054,
+     "min": 0.032,
+     "n": 10,
+     "q1": 0.036,
+     "q3": 0.118
+    },
+    "rust_bytes": {
+     "max": 52972,
+     "median": 20869,
+     "min": 18667,
+     "n": 10,
+     "q1": 19458,
+     "q3": 28869
+    },
+    "rust_bytes_no_table": {
+     "max": 37844,
+     "median": 5741,
+     "min": 3539,
+     "n": 10,
+     "q1": 4330,
+     "q3": 13741
+    },
+    "rust_lines": {
+     "max": 672,
+     "median": 160,
+     "min": 128,
+     "n": 10,
+     "q1": 137,
+     "q3": 287
+    },
+    "rust_lines_no_table": {
+     "max": 671,
+     "median": 159,
+     "min": 127,
+     "n": 10,
+     "q1": 136,
+     "q3": 286
+    }
+   },
+   "programs": {
+    "body_bytes": {
+     "max": 3185,
+     "median": 472,
+     "min": 198,
+     "n": 26,
+     "q1": 356,
+     "q3": 577
+    },
+    "body_bytes_over_python_bytes_no_table": {
+     "max": 0.154,
+     "median": 0.125,
+     "min": 0.002,
+     "n": 26,
+     "q1": 0.101,
+     "q3": 0.133
+    },
+    "body_lines": {
+     "max": 74,
+     "median": 25,
+     "min": 9,
+     "n": 26,
+     "q1": 17,
+     "q3": 31
+    },
+    "files": 26,
+    "files_ratio_bytes_above_1": 1,
+    "form_nameless_bytes": {
+     "max": 3266,
+     "median": 540,
+     "min": 306,
+     "n": 26,
+     "q1": 464,
+     "q3": 616
+    },
+    "intent_text_bytes": {
+     "max": 400,
+     "median": 60,
+     "min": 41,
+     "n": 26,
+     "q1": 53,
+     "q3": 78
+    },
+    "intent_text_lines": {
+     "max": 1,
+     "median": 1,
+     "min": 1,
+     "n": 26,
+     "q1": 1,
+     "q3": 1
+    },
+    "obligation_bytes_over_python_bytes": {
+     "max": 0.03,
+     "median": 0.009,
+     "min": 0.0,
+     "n": 26,
+     "q1": 0.008,
+     "q3": 0.01
+    },
+    "obligation_bytes_over_python_bytes_no_table": {
+     "max": 0.087,
+     "median": 0.049,
+     "min": 0.0,
+     "n": 26,
+     "q1": 0.035,
+     "q3": 0.062
+    },
+    "obligations_bytes": {
+     "max": 2078,
+     "median": 174,
+     "min": 87,
+     "n": 26,
+     "q1": 146,
+     "q3": 210
+    },
+    "obligations_lines": {
+     "max": 14,
+     "median": 3,
+     "min": 1,
+     "n": 26,
+     "q1": 3,
+     "q3": 4
+    },
+    "python_bytes": {
+     "max": 344750,
+     "median": 18567,
+     "min": 16962,
+     "n": 26,
+     "q1": 17930,
+     "q3": 19347
+    },
+    "python_bytes_no_table": {
+     "max": 329642,
+     "median": 3459,
+     "min": 1854,
+     "n": 26,
+     "q1": 2822,
+     "q3": 4239
+    },
+    "python_lines": {
+     "max": 4694,
+     "median": 93,
+     "min": 50,
+     "n": 26,
+     "q1": 76,
+     "q3": 116
+    },
+    "python_lines_no_table": {
+     "max": 4693,
+     "median": 92,
+     "min": 49,
+     "n": 26,
+     "q1": 75,
+     "q3": 115
+    },
+    "ratio_bytes": {
+     "max": 2.0,
+     "median": 0.452,
+     "min": 0.062,
+     "n": 26,
+     "q1": 0.331,
+     "q3": 0.528
+    },
+    "ratio_bytes_with_intent": {
+     "max": 2.419,
+     "median": 0.572,
+     "min": 0.263,
+     "n": 26,
+     "q1": 0.464,
+     "q3": 0.764
+    },
+    "ratio_lines": {
+     "max": 0.333,
+     "median": 0.154,
+     "min": 0.018,
+     "n": 26,
+     "q1": 0.107,
+     "q3": 0.176
+    },
+    "ratio_lines_with_intent": {
+     "max": 0.444,
+     "median": 0.192,
+     "min": 0.036,
+     "n": 26,
+     "q1": 0.143,
+     "q3": 0.235
+    },
+    "rust_bytes": {
+     "max": 402819,
+     "median": 21612,
+     "min": 19124,
+     "n": 26,
+     "q1": 20572,
+     "q3": 22708
+    },
+    "rust_bytes_no_table": {
+     "max": 387691,
+     "median": 6484,
+     "min": 3996,
+     "n": 26,
+     "q1": 5444,
+     "q3": 7580
+    },
+    "rust_lines": {
+     "max": 5998,
+     "median": 189,
+     "min": 128,
+     "n": 26,
+     "q1": 165,
+     "q3": 229
+    },
+    "rust_lines_no_table": {
+     "max": 5997,
+     "median": 188,
+     "min": 127,
+     "n": 26,
+     "q1": 164,
+     "q3": 228
+    }
+   },
+   "spec-examples": {
+    "body_bytes": {
+     "max": 597,
+     "median": 334,
+     "min": 91,
+     "n": 16,
+     "q1": 207,
+     "q3": 397
+    },
+    "body_bytes_over_python_bytes_no_table": {
+     "max": 0.235,
+     "median": 0.12,
+     "min": 0.071,
+     "n": 16,
+     "q1": 0.1,
+     "q3": 0.151
+    },
+    "body_lines": {
+     "max": 31,
+     "median": 14,
+     "min": 6,
+     "n": 16,
+     "q1": 10,
+     "q3": 16
+    },
+    "files": 16,
+    "files_ratio_bytes_above_1": 2,
+    "form_nameless_bytes": {
+     "max": 1045,
+     "median": 286,
+     "min": 88,
+     "n": 16,
+     "q1": 191,
+     "q3": 384
+    },
+    "intent_text_bytes": {
+     "max": 227,
+     "median": 113,
+     "min": 43,
+     "n": 16,
+     "q1": 73,
+     "q3": 139
+    },
+    "intent_text_lines": {
+     "max": 2,
+     "median": 1,
+     "min": 1,
+     "n": 16,
+     "q1": 1,
+     "q3": 1
+    },
+    "obligation_bytes_over_python_bytes": {
+     "max": 0.043,
+     "median": 0.007,
+     "min": 0.002,
+     "n": 16,
+     "q1": 0.005,
+     "q3": 0.01
+    },
+    "obligation_bytes_over_python_bytes_no_table": {
+     "max": 0.211,
+     "median": 0.047,
+     "min": 0.019,
+     "n": 16,
+     "q1": 0.031,
+     "q3": 0.088
+    },
+    "obligations_bytes": {
+     "max": 805,
+     "median": 124,
+     "min": 37,
+     "n": 16,
+     "q1": 90,
+     "q3": 167
+    },
+    "obligations_lines": {
+     "max": 16,
+     "median": 2,
+     "min": 1,
+     "n": 16,
+     "q1": 2,
+     "q3": 3
+    },
+    "python_bytes": {
+     "max": 21134,
+     "median": 17242,
+     "min": 16195,
+     "n": 16,
+     "q1": 16982,
+     "q3": 17975
+    },
+    "python_bytes_no_table": {
+     "max": 6026,
+     "median": 2134,
+     "min": 1087,
+     "n": 16,
+     "q1": 1874,
+     "q3": 2867
+    },
+    "python_lines": {
+     "max": 114,
+     "median": 61,
+     "min": 39,
+     "n": 16,
+     "q1": 52,
+     "q3": 87
+    },
+    "python_lines_no_table": {
+     "max": 113,
+     "median": 60,
+     "min": 38,
+     "n": 16,
+     "q1": 51,
+     "q3": 86
+    },
+    "ratio_bytes": {
+     "max": 1.4,
+     "median": 0.444,
+     "min": 0.216,
+     "n": 16,
+     "q1": 0.271,
+     "q3": 0.634
+    },
+    "ratio_bytes_with_intent": {
+     "max": 3.231,
+     "median": 0.911,
+     "min": 0.458,
+     "n": 16,
+     "q1": 0.645,
+     "q3": 1.077
+    },
+    "ratio_lines": {
+     "max": 0.842,
+     "median": 0.214,
+     "min": 0.083,
+     "n": 16,
+     "q1": 0.133,
+     "q3": 0.273
+    },
+    "ratio_lines_with_intent": {
+     "max": 0.895,
+     "median": 0.308,
+     "min": 0.129,
+     "n": 16,
+     "q1": 0.2,
+     "q3": 0.375
+    },
+    "rust_bytes": {
+     "max": 24868,
+     "median": 19486,
+     "min": 18046,
+     "n": 16,
+     "q1": 19147,
+     "q3": 20938
+    },
+    "rust_bytes_no_table": {
+     "max": 9740,
+     "median": 4358,
+     "min": 2918,
+     "n": 16,
+     "q1": 4019,
+     "q3": 5810
+    },
+    "rust_lines": {
+     "max": 258,
+     "median": 141,
+     "min": 114,
+     "n": 16,
+     "q1": 131,
+     "q3": 183
+    },
+    "rust_lines_no_table": {
+     "max": 257,
+     "median": 140,
+     "min": 113,
+     "n": 16,
+     "q1": 130,
+     "q3": 182
+    }
+   }
+  }
+ },
+ "part_b": {
+  "command": {
+   "behaviour_changing": 0,
+   "by_operator": {
+    "guard": {
+     "behaviour_changing": 0,
+     "caught_obligations": 0
+    },
+    "literal": {
+     "behaviour_changing": 0,
+     "caught_obligations": 0
+    },
+    "operator": {
+     "behaviour_changing": 0,
+     "caught_obligations": 0
+    },
+    "rename": {
+     "behaviour_changing": 0,
+     "caught_obligations": 0
+    },
+    "type": {
+     "behaviour_changing": 0,
+     "caught_obligations": 0
+    }
+   },
+   "by_outcome": {
+    "behaviour_changing": 0,
+    "no_difference_found": 0,
+    "not_a_program": 0
+   },
+   "catch_examples_only": null,
+   "catch_examples_only_wilson95": null,
+   "catch_obligations": null,
+   "catch_obligations_wilson95": null,
+   "caught_diagnostics": {},
+   "caught_examples_only": 0,
+   "caught_no_difference_found": 0,
+   "caught_obligations": 0,
+   "files": 0,
+   "files_with_behaviour_changing": 0,
+   "mutants": 0,
+   "per_file_catch_obligations": null,
+   "pinned_files": 0
+  },
+  "machine": {
+   "behaviour_changing": 461,
+   "by_operator": {
+    "guard": {
+     "behaviour_changing": 0,
+     "caught_obligations": 0
+    },
+    "literal": {
+     "behaviour_changing": 236,
+     "caught_obligations": 147
+    },
+    "operator": {
+     "behaviour_changing": 201,
+     "caught_obligations": 166
+    },
+    "rename": {
+     "behaviour_changing": 9,
+     "caught_obligations": 6
+    },
+    "type": {
+     "behaviour_changing": 15,
+     "caught_obligations": 8
+    }
+   },
+   "by_outcome": {
+    "behaviour_changing": 461,
+    "no_difference_found": 156,
+    "not_a_program": 964
+   },
+   "catch_examples_only": 0.707,
+   "catch_examples_only_wilson95": [
+    0.664,
+    0.747
+   ],
+   "catch_obligations": 0.709,
+   "catch_obligations_wilson95": [
+    0.666,
+    0.749
+   ],
+   "caught_diagnostics": {
+    "W-INT-1": 319,
+    "W-NAME-1": 1,
+    "W-TY-1": 6,
+    "W-TY-3": 1
+   },
+   "caught_examples_only": 326,
+   "caught_no_difference_found": 15,
+   "caught_obligations": 327,
+   "corpus_py_definition": {
+    "behaviour_changing": 368,
+    "catch": 0.864,
+    "caught_obligations": 318,
+    "wilson95": [
+     0.825,
+     0.895
+    ]
+   },
+   "equiv_only": 44,
+   "files": 59,
+   "files_with_behaviour_changing": 54,
+   "mutants": 1581,
+   "per_file_catch_obligations": {
+    "max": 1.0,
+    "median": 0.75,
+    "min": 0.0,
+    "n": 54,
+    "q1": 0.5,
+    "q3": 0.917
+   },
+   "pinned_files": 12,
+   "seen_only_by_random_streams_or_equiv": 93
+  }
+ },
+ "seed": "0x5eedc0de0010"
+}
