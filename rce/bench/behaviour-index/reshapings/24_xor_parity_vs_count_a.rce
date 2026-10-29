@@ -1,0 +1,8 @@
+state Par
+    odd: bool = false
+
+event Bit(v: bool)
+
+step Par on Bit(v: v)
+    odd = odd != v
+    emit odd

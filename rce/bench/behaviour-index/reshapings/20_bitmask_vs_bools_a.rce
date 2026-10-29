@@ -1,0 +1,14 @@
+state F
+    a: bool = false
+    b: bool = false
+
+event SetA
+event SetB
+event Query
+
+step F on SetA
+    a = not a
+step F on SetB
+    b = not b
+step F on Query
+    emit (if a then 1 else 0) + (if b then 2 else 0)

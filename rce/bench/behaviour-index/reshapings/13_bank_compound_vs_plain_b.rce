@@ -1,0 +1,16 @@
+state Account
+    balance: i64 = 0
+
+event Deposit(amount: i8)
+event Withdraw(amount: i8)
+
+error Insufficient
+
+step Account on Deposit(amount: a)
+    if a > 0
+        balance = balance + a as i64
+step Account on Withdraw(amount: a)
+    if balance < a as i64
+        fail Insufficient
+    balance = balance - a as i64
+    emit balance

@@ -1,0 +1,9 @@
+state M
+    low: u64 = 50
+
+event See(v: u8)
+
+step M on See(v: v)
+    let w = v as u64
+    low = if low <= w then low else w
+    emit low

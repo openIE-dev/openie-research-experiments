@@ -1,0 +1,11 @@
+state T
+    x: u64 = 0
+
+event Feed(v: u8)
+
+step T on Feed(v: v)
+    if v <= 10
+        x = (x + 2) % 5
+    else
+        x = (x + 1) % 5
+    emit x

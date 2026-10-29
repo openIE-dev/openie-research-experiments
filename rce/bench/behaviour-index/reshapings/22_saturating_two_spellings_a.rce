@@ -1,0 +1,12 @@
+state Sat
+    n: u64 = 0
+
+event Up
+event Down
+
+step Sat on Up
+    n = if n < 3 then n + 1 else 3
+    emit n
+step Sat on Down
+    n = if n > 0 then n - 1 else 0
+    emit n

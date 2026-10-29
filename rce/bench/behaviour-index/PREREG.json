@@ -1,0 +1,34 @@
+{
+ "id": "rce-behaviour-index-2026-10-29",
+ "registered": "2026-10-29 (before the first run of run.py over the population; the 24 hand-written pairs were checked with rce check and rce equiv while they were written, and the fingerprint was tried on pairs 14 and 15 to test the command)",
+ "question": "Critique 1 of the RCE review (Rice's theorem; RCE-JEPA H1 and H10): reuse finds programs by the program hash over the name-free projection (CC-1), so two programs with the same behaviour and a different shape are never found. Does the behaviour fingerprint of proposal BF-1 (rce fingerprint) find them, how often does a shared fingerprint join programs that rce equiv judges different, and what does one fingerprint cost?",
+ "engine": "openIE-dev/rce branch claude/behaviour-index (commit named in results/summary.json as rce_commit), rce built from spec/checker with cargo build --release; the corpus from scripts/corpus.py of main 8ce91cea run with that binary (its programs and mutants do not depend on the branch, which adds a command and documents it)",
+ "definitions": {
+  "program_hash": "the last line of rce hash FILE (CC-1)",
+  "fingerprint": "rce fingerprint --json --depth d --fuel 20000 FILE, for d in 1, 2, 4, 8; depth 8 (the command's default) is primary",
+  "ground_truth": "rce equiv --json --fuel 20000 A B: equivalent (exact, or to the explored bound), different, or undecided (the command fails)"
+ },
+ "population": {
+  "programs": "every distinct source text below; a text that appears in several sets is one program",
+  "T7": "each corpus program (results/forms.jsonl of scripts/corpus.py) and its name-free projection (rce fmt --nameless): a control, the same shape by construction",
+  "M-eq": "each accepted mutant scripts/corpus.py classifies accept_equivalent (examples agree, nameless text differs), paired with its parent",
+  "M-change, M-same, M-noex": "the other accepted mutants with their parents (behaviour change caught by no example; same shape; parent without examples), used for the false-positive count and reported per set",
+  "H": "the 24 hand-written pairs of reshapings/ (NN_name_a.rce, NN_name_b.rce): loop against closed form, for against while bound, loop against bounded recursion, reordered fields, one region against two, integer against booleans, guard steps against an if in one step, kind against integer phase, helper function against inline, a state space of 6 against 2, a redundant field dropped, compound against plain assignment, checked_sub against an explicit test, a list against a counter, de Morgan, swapped branches, two spellings of min, of a toggle, of saturation, a bitmask against booleans, a shift register against booleans, nested against separate guards, parity by xor against a count"
+ },
+ "metrics": {
+  "hash_recall": "per set, among pairs rce equiv judges equivalent: the share with the same program hash",
+  "fingerprint_recall": "per set and depth, among pairs rce equiv judges equivalent and both fingerprinted: the share with the same fingerprint; and the same among the pairs with distinct program hashes (the pairs the program hash cannot find)",
+  "coverage": "the share of programs that can be fingerprinted at each depth, with the reasons for the rest (no state region, no explorable event, fuel)",
+  "false_positives": "per depth: group every fingerprinted program by fingerprint; in each group of 2 or more, run rce equiv on every pair (at most 200 pairs per group, first in sorted order, the cap reported); a pair rce equiv judges different is a false positive. Reported as the count of different pairs, of different pairs with distinct program hashes, and of equivalent pairs; also the count of pairs of the M-change set that share a fingerprint",
+  "cost": "wall time of one rce fingerprint call (process start included) and states stepped, median, p95 and max, per depth; the wall time of one rce equiv call for comparison"
+ },
+ "predictions": {
+  "P1": "hash_recall on M-eq and H pairs with distinct nameless text is at most 10% (few share the program hash); on T7 it is 100%",
+  "P2": "fingerprint_recall is 100% at every depth on every set, among pairs rce equiv judges equivalent and both fingerprinted (the guarantee of BF-1: one miss disproves the implementation)",
+  "P3": "false positives exist at depth 1 and fall as the depth grows; at depth 8 they are at most 5% of the checked pairs in shared groups",
+  "P4": "the median fingerprint at depth 8 costs under 50 ms per program including process start"
+ },
+ "falsifiers": "P2: one equivalent pair with different fingerprints at some depth where both are computed. P1, P3, P4 are predictions whose misses are reported as they are",
+ "limits": "equality is up to the bound: the alphabet is the boundary set of 6.3 per payload type, the sequences are at most d events long, and rce equiv itself is to the explored bound when the fuel is reached. Programs with no state region (commands) or no explorable event cannot be fingerprinted and are counted, not dropped. Programs whose every step is silent all have one behaviour (6.10): they share a fingerprint with every silent program of the same alphabet and rce equiv calls them equivalent; this is reported, not counted as recall of a reshaping",
+ "reporting": "RESULTS.md with summary.json, pairs.jsonl, collisions.jsonl and programs.jsonl under results/; the rce commit named; nothing excluded after the run"
+}

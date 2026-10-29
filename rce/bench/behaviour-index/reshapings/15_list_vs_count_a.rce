@@ -1,0 +1,8 @@
+state Bag
+    items: List[text] = []
+
+event Put(name: text)
+
+step Bag on Put(name: n)
+    items = items.with(n)
+    emit items.len() % 3
