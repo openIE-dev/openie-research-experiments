@@ -19,6 +19,7 @@ DEPTHS = [1, 2, 4, 8]
 PRIMARY_DEPTH = 8
 FUEL = 20000
 PAIR_CAP = 200  # equiv calls per fingerprint bucket, first pairs in sorted order
+TIMEOUT = 120  # seconds of wall time per rce call (amendment 1); beyond it the call is undecided
 HERE = Path(__file__).resolve().parent
 
 
@@ -32,7 +33,10 @@ class Rce:
 
     def run(self, *a):
         t0 = time.perf_counter()
-        r = subprocess.run([self.exe, *a], capture_output=True, text=True, timeout=600)
+        try:
+            r = subprocess.run([self.exe, *a], capture_output=True, text=True, timeout=TIMEOUT)
+        except subprocess.TimeoutExpired:
+            r = subprocess.CompletedProcess(a, 124, "", f"timeout after {TIMEOUT} s")
         return r, time.perf_counter() - t0
 
 
@@ -209,7 +213,7 @@ def main():
     cost = {str(d): {"seconds": med([p["fp"][str(d)]["s"] for p in progs.values() if p["fp"][str(d)]["hash"]]),
                      "states": med([p["fp"][str(d)]["states"] for p in progs.values() if p["fp"][str(d)]["hash"]])} for d in DEPTHS}
     eq_cost = med([e["s"] for e in equiv_cache.values()])
-    summary = {"rce_commit": commit, "depths": DEPTHS, "primary_depth": PRIMARY_DEPTH, "fuel": FUEL, "pair_cap": PAIR_CAP,
+    summary = {"rce_commit": commit, "depths": DEPTHS, "primary_depth": PRIMARY_DEPTH, "fuel": FUEL, "pair_cap": PAIR_CAP, "timeout_s": TIMEOUT, "equiv_timeouts": sum(1 for e in equiv_cache.values() if "timeout" in e.get("why", "")),
                "programs": len(progs), "programs_admitted": len(admitted), "coverage": cover, "sets": sets,
                "false_positives": fp_stats, "cost_fingerprint": cost, "cost_equiv_seconds": eq_cost, "equiv_calls": len(equiv_cache)}
     with open(out / "pairs.jsonl", "w") as fh:

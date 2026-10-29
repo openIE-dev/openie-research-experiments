@@ -30,5 +30,13 @@
  },
  "falsifiers": "P2: one equivalent pair with different fingerprints at some depth where both are computed. P1, P3, P4 are predictions whose misses are reported as they are",
  "limits": "equality is up to the bound: the alphabet is the boundary set of 6.3 per payload type, the sequences are at most d events long, and rce equiv itself is to the explored bound when the fuel is reached. Programs with no state region (commands) or no explorable event cannot be fingerprinted and are counted, not dropped. Programs whose every step is silent all have one behaviour (6.10): they share a fingerprint with every silent program of the same alphabet and rce equiv calls them equivalent; this is reported, not counted as recall of a reshaping",
- "reporting": "RESULTS.md with summary.json, pairs.jsonl, collisions.jsonl and programs.jsonl under results/; the rce commit named; nothing excluded after the run"
+ "reporting": "RESULTS.md with summary.json, pairs.jsonl, collisions.jsonl and programs.jsonl under results/; the rce commit named; nothing excluded after the run",
+ "amendments": [
+  {
+   "date": "2026-10-29",
+   "after": "the first run was stopped during its pair phase, before any result file was written (no number of it was seen)",
+   "why": "one rce equiv call on two programs with 419 event instances (apps/netecho and its mutants) at fuel 20000 took 6 minutes, so a group of such programs at the 200-pair cap would take hours, and a call over 600 s ended the script",
+   "change": "every rce call is given 120 s of wall time; a call that exceeds it is undecided (timeout), counted and reported (summary.json: equiv_timeouts), never dropped; everything else unchanged"
+  }
+ ]
 }
