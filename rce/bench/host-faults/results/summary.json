@@ -1,0 +1,2208 @@
+{
+ "account/sourced all": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 200621,
+  "faults": {
+   "drop": 4479,
+   "dup": 3951,
+   "lose": 3877,
+   "reorder": 32180,
+   "restart": 1730,
+   "restart_partial_cut": 185,
+   "restart_power_cut": 353,
+   "restart_torn": 332,
+   "skew": 564
+  },
+  "gap_runs": {
+   "duplicate_acked_without_outcome": 998
+  },
+  "host_dups_removed": 8402,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 4637
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "account/sourced drop": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 120735,
+  "faults": {
+   "drop": 3613
+  },
+  "gap_runs": {
+   "duplicate_acked_without_outcome": 847
+  },
+  "host_dups_removed": 2675,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 4637
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "account/sourced dup": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 87637,
+  "faults": {
+   "dup": 3007
+  },
+  "gap_runs": {
+   "duplicate_acked_without_outcome": 960
+  },
+  "host_dups_removed": 3007,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 4637
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "account/sourced lose": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 104875,
+  "faults": {
+   "lose": 3326
+  },
+  "gap_runs": {
+   "duplicate_acked_without_outcome": 965
+  },
+  "host_dups_removed": 3326,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 4637
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "account/sourced none": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 87637,
+  "faults": {},
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 4637
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "account/sourced reorder": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 142353,
+  "faults": {
+   "reorder": 24069
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 4637
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "account/sourced restart": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 91407,
+  "faults": {
+   "restart": 354,
+   "restart_partial_cut": 27,
+   "restart_power_cut": 61,
+   "restart_torn": 62
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 4637
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "account/sourced skew": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 89735,
+  "faults": {
+   "skew": 101
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 4637
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "account/typed all": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "answer_differs": 2560,
+   "duplicate_applied": 4145,
+   "state_differs": 998
+  },
+  "d_example": {
+   "answer_differs": [
+    "op 1 `Withdraw(cents: 9)` applied 2 times",
+    "op 17 `Deposit(cents: 30)` applied 2 times"
+   ],
+   "duplicate_applied": [
+    "op 1 `Withdraw(cents: 9)` applied 2 times",
+    "op 17 `Deposit(cents: 30)` applied 2 times"
+   ],
+   "state_differs": [
+    "op 1 `Withdraw(cents: 9)` applied 2 times",
+    "op 17 `Deposit(cents: 30)` applied 2 times"
+   ]
+  },
+  "d_min_seed": {
+   "answer_differs": 1,
+   "duplicate_applied": 1,
+   "state_differs": 1
+  },
+  "d_runs": {
+   "answer_differs": 814,
+   "duplicate_applied": 987,
+   "state_differs": 998
+  },
+  "entries": 85732,
+  "faults": {
+   "drop": 4051,
+   "dup": 3594,
+   "lose": 3553,
+   "reorder": 29168,
+   "restart": 1370,
+   "restart_partial_cut": 136,
+   "restart_power_cut": 257,
+   "restart_torn": 271,
+   "skew": 447
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 5529
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "account/typed drop": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "answer_differs": 1429,
+   "state_differs": 588
+  },
+  "d_example": {
+   "answer_differs": [
+    "op 1 `Withdraw(cents: 9)` answered `applied`, in order `kept: Insufficient`",
+    "op 8 `Withdraw(cents: 974)` answered `kept: Insufficient`, in order `applied`"
+   ],
+   "state_differs": [
+    "op 1 `Withdraw(cents: 9)` answered `applied`, in order `kept: Insufficient`",
+    "op 8 `Withdraw(cents: 974)` answered `kept: Insufficient`, in order `applied`"
+   ]
+  },
+  "d_min_seed": {
+   "answer_differs": 1,
+   "state_differs": 1
+  },
+  "d_runs": {
+   "answer_differs": 589,
+   "state_differs": 588
+  },
+  "entries": 52999,
+  "faults": {
+   "drop": 3324
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 4614
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "account/typed dup": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "answer_differs": 907,
+   "duplicate_applied": 2291,
+   "state_differs": 912
+  },
+  "d_example": {
+   "answer_differs": [
+    "op 6 `Withdraw(cents: 120)` applied 2 times",
+    "op 7 `Deposit(cents: 542)` applied 2 times"
+   ],
+   "duplicate_applied": [
+    "op 6 `Withdraw(cents: 120)` applied 2 times",
+    "op 7 `Deposit(cents: 542)` applied 2 times"
+   ],
+   "state_differs": [
+    "op 6 `Withdraw(cents: 120)` applied 2 times",
+    "op 7 `Deposit(cents: 542)` applied 2 times"
+   ]
+  },
+  "d_min_seed": {
+   "answer_differs": 1,
+   "duplicate_applied": 1,
+   "state_differs": 1
+  },
+  "d_runs": {
+   "answer_differs": 465,
+   "duplicate_applied": 912,
+   "state_differs": 912
+  },
+  "entries": 51169,
+  "faults": {
+   "dup": 3007
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 5162
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "account/typed lose": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "answer_differs": 1048,
+   "duplicate_applied": 2354,
+   "state_differs": 941
+  },
+  "d_example": {
+   "answer_differs": [
+    "op 7 `Deposit(cents: 542)` applied 2 times",
+    "op 14 `Deposit(cents: 68)` applied 2 times"
+   ],
+   "duplicate_applied": [
+    "op 7 `Deposit(cents: 542)` applied 2 times",
+    "op 14 `Deposit(cents: 68)` applied 2 times"
+   ],
+   "state_differs": [
+    "op 7 `Deposit(cents: 542)` applied 2 times",
+    "op 14 `Deposit(cents: 68)` applied 2 times"
+   ]
+  },
+  "d_min_seed": {
+   "answer_differs": 1,
+   "duplicate_applied": 1,
+   "state_differs": 1
+  },
+  "d_runs": {
+   "answer_differs": 541,
+   "duplicate_applied": 918,
+   "state_differs": 941
+  },
+  "entries": 57322,
+  "faults": {
+   "lose": 3326
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 5114
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "account/typed none": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 47637,
+  "faults": {},
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 4637
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "account/typed reorder": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "answer_differs": 1901,
+   "state_differs": 655
+  },
+  "d_example": {
+   "answer_differs": [
+    "op 1 `Withdraw(cents: 9)` answered `applied`, in order `kept: Insufficient`",
+    "the final state is not the fold of the client's operations in order"
+   ],
+   "state_differs": [
+    "op 1 `Withdraw(cents: 9)` answered `applied`, in order `kept: Insufficient`",
+    "the final state is not the fold of the client's operations in order"
+   ]
+  },
+  "d_min_seed": {
+   "answer_differs": 1,
+   "state_differs": 1
+  },
+  "d_runs": {
+   "answer_differs": 655,
+   "state_differs": 655
+  },
+  "entries": 59129,
+  "faults": {
+   "reorder": 24069
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 4650
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "account/typed restart": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "answer_differs": 78,
+   "duplicate_applied": 136,
+   "state_differs": 96
+  },
+  "d_example": {
+   "answer_differs": [
+    "op 12 `Deposit(cents: 650)` applied 2 times",
+    "op 13 `Withdraw(cents: 965)` applied 2 times"
+   ],
+   "duplicate_applied": [
+    "op 12 `Deposit(cents: 703)` applied 2 times",
+    "the final state is not the fold of the client's operations in order"
+   ],
+   "state_differs": [
+    "op 12 `Deposit(cents: 703)` applied 2 times",
+    "the final state is not the fold of the client's operations in order"
+   ]
+  },
+  "d_min_seed": {
+   "answer_differs": 43,
+   "duplicate_applied": 8,
+   "state_differs": 8
+  },
+  "d_runs": {
+   "answer_differs": 46,
+   "duplicate_applied": 96,
+   "state_differs": 96
+  },
+  "entries": 49236,
+  "faults": {
+   "restart": 354,
+   "restart_partial_cut": 38,
+   "restart_power_cut": 61,
+   "restart_torn": 62
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 4670
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "account/typed skew": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 49735,
+  "faults": {
+   "skew": 101
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 4637
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "handshake/sourced all": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 139084,
+  "faults": {
+   "drop": 3099,
+   "dup": 2798,
+   "lose": 2685,
+   "reorder": 22456,
+   "restart": 1188,
+   "restart_partial_cut": 119,
+   "restart_power_cut": 247,
+   "restart_torn": 226,
+   "skew": 392
+  },
+  "gap_runs": {
+   "duplicate_acked_without_outcome": 988
+  },
+  "host_dups_removed": 5858,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "handshake/sourced drop": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 83138,
+  "faults": {
+   "drop": 2563
+  },
+  "gap_runs": {
+   "duplicate_acked_without_outcome": 729
+  },
+  "host_dups_removed": 1878,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "handshake/sourced dup": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 59806,
+  "faults": {
+   "dup": 2137
+  },
+  "gap_runs": {
+   "duplicate_acked_without_outcome": 900
+  },
+  "host_dups_removed": 2137,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "handshake/sourced lose": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 72472,
+  "faults": {
+   "lose": 2329
+  },
+  "gap_runs": {
+   "duplicate_acked_without_outcome": 886
+  },
+  "host_dups_removed": 2329,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "handshake/sourced none": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 59806,
+  "faults": {},
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "handshake/sourced reorder": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 98066,
+  "faults": {
+   "reorder": 16893
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "handshake/sourced restart": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 62375,
+  "faults": {
+   "restart": 251,
+   "restart_partial_cut": 23,
+   "restart_power_cut": 42,
+   "restart_torn": 40
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "handshake/sourced skew": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 61366,
+  "faults": {
+   "skew": 75
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "handshake/typed all": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "answer_differs": 11121,
+   "duplicate_applied": 888,
+   "state_differs": 1000
+  },
+  "d_example": {
+   "answer_differs": [
+    "op 1 `SynAck` answered `kept: OutOfOrder`, in order `applied`",
+    "op 2 `Ack` answered `kept: OutOfOrder`, in order `applied`"
+   ],
+   "duplicate_applied": [
+    "op 14 `Syn` applied 2 times",
+    "op 1 `SynAck` answered `kept: OutOfOrder`, in order `applied`"
+   ],
+   "state_differs": [
+    "op 1 `SynAck` answered `kept: OutOfOrder`, in order `applied`",
+    "op 2 `Ack` answered `kept: OutOfOrder`, in order `applied`"
+   ]
+  },
+  "d_min_seed": {
+   "answer_differs": 1,
+   "duplicate_applied": 6,
+   "state_differs": 1
+  },
+  "d_runs": {
+   "answer_differs": 1000,
+   "duplicate_applied": 604,
+   "state_differs": 1000
+  },
+  "entries": 70967,
+  "faults": {
+   "drop": 2807,
+   "dup": 2513,
+   "lose": 2445,
+   "reorder": 20410,
+   "restart": 992,
+   "restart_partial_cut": 95,
+   "restart_power_cut": 198,
+   "restart_torn": 189,
+   "skew": 313
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 13588
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "handshake/typed drop": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "answer_differs": 4588,
+   "state_differs": 793
+  },
+  "d_example": {
+   "answer_differs": [
+    "op 1 `SynAck` answered `kept: OutOfOrder`, in order `applied`",
+    "op 2 `Ack` answered `kept: OutOfOrder`, in order `applied`"
+   ],
+   "state_differs": [
+    "op 1 `SynAck` answered `kept: OutOfOrder`, in order `applied`",
+    "op 2 `Ack` answered `kept: OutOfOrder`, in order `applied`"
+   ]
+  },
+  "d_min_seed": {
+   "answer_differs": 1,
+   "state_differs": 1
+  },
+  "d_runs": {
+   "answer_differs": 839,
+   "state_differs": 793
+  },
+  "entries": 39551,
+  "faults": {
+   "drop": 2355
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 4588
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "handshake/typed dup": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "duplicate_applied": 1248,
+   "state_differs": 611
+  },
+  "d_example": {
+   "duplicate_applied": [
+    "op 6 `Data(n: 48)` applied 2 times",
+    "op 7 `Data(n: 24)` applied 2 times"
+   ],
+   "state_differs": [
+    "op 6 `Data(n: 48)` applied 2 times",
+    "op 7 `Data(n: 24)` applied 2 times"
+   ]
+  },
+  "d_min_seed": {
+   "duplicate_applied": 1,
+   "state_differs": 1
+  },
+  "d_runs": {
+   "duplicate_applied": 725,
+   "state_differs": 611
+  },
+  "entries": 34429,
+  "faults": {
+   "dup": 2137
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 889
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "handshake/typed lose": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "answer_differs": 1708,
+   "duplicate_applied": 802,
+   "state_differs": 396
+  },
+  "d_example": {
+   "answer_differs": [
+    "op 7 `Data(n: 24)` applied 2 times",
+    "op 14 `Data(n: 74)` applied 2 times"
+   ],
+   "duplicate_applied": [
+    "op 7 `Data(n: 24)` applied 2 times",
+    "op 14 `Data(n: 74)` applied 2 times"
+   ],
+   "state_differs": [
+    "op 7 `Data(n: 24)` applied 2 times",
+    "op 14 `Data(n: 74)` applied 2 times"
+   ]
+  },
+  "d_min_seed": {
+   "answer_differs": 1,
+   "duplicate_applied": 1,
+   "state_differs": 1
+  },
+  "d_runs": {
+   "answer_differs": 784,
+   "duplicate_applied": 544,
+   "state_differs": 396
+  },
+  "entries": 39528,
+  "faults": {
+   "lose": 2329
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 1906
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "handshake/typed none": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 31403,
+  "faults": {},
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "handshake/typed reorder": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "answer_differs": 10791,
+   "state_differs": 1000
+  },
+  "d_example": {
+   "answer_differs": [
+    "op 1 `SynAck` answered `kept: OutOfOrder`, in order `applied`",
+    "op 2 `Ack` answered `kept: OutOfOrder`, in order `applied`"
+   ],
+   "state_differs": [
+    "op 1 `SynAck` answered `kept: OutOfOrder`, in order `applied`",
+    "op 2 `Ack` answered `kept: OutOfOrder`, in order `applied`"
+   ]
+  },
+  "d_min_seed": {
+   "answer_differs": 1,
+   "state_differs": 1
+  },
+  "d_runs": {
+   "answer_differs": 1000,
+   "state_differs": 1000
+  },
+  "entries": 49976,
+  "faults": {
+   "reorder": 16893
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 10791
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "handshake/typed restart": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "answer_differs": 36,
+   "duplicate_applied": 63,
+   "state_differs": 37
+  },
+  "d_example": {
+   "answer_differs": [
+    "op 10 `Data(n: 31)` applied 2 times",
+    "op 9 `Ack` answered `kept: OutOfOrder`, in order `applied`"
+   ],
+   "duplicate_applied": [
+    "op 12 `Data(n: 63)` applied 2 times",
+    "the final state is not the fold of the client's operations in order"
+   ],
+   "state_differs": [
+    "op 12 `Data(n: 63)` applied 2 times",
+    "the final state is not the fold of the client's operations in order"
+   ]
+  },
+  "d_min_seed": {
+   "answer_differs": 52,
+   "duplicate_applied": 8,
+   "state_differs": 8
+  },
+  "d_runs": {
+   "answer_differs": 27,
+   "duplicate_applied": 47,
+   "state_differs": 37
+  },
+  "entries": 32518,
+  "faults": {
+   "restart": 251,
+   "restart_partial_cut": 31,
+   "restart_power_cut": 42,
+   "restart_torn": 40
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 36
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "handshake/typed skew": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 32963,
+  "faults": {
+   "skew": 75
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "ledger/sourced all": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 204762,
+  "faults": {
+   "drop": 4479,
+   "dup": 3951,
+   "lose": 3877,
+   "reorder": 32180,
+   "restart": 1730,
+   "restart_partial_cut": 185,
+   "restart_power_cut": 353,
+   "restart_torn": 332,
+   "skew": 564
+  },
+  "gap_runs": {
+   "duplicate_acked_without_outcome": 998
+  },
+  "host_dups_removed": 8402,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 8778
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "ledger/sourced drop": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 124876,
+  "faults": {
+   "drop": 3613
+  },
+  "gap_runs": {
+   "duplicate_acked_without_outcome": 847
+  },
+  "host_dups_removed": 2675,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 8778
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "ledger/sourced dup": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 91778,
+  "faults": {
+   "dup": 3007
+  },
+  "gap_runs": {
+   "duplicate_acked_without_outcome": 960
+  },
+  "host_dups_removed": 3007,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 8778
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "ledger/sourced lose": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 109016,
+  "faults": {
+   "lose": 3326
+  },
+  "gap_runs": {
+   "duplicate_acked_without_outcome": 965
+  },
+  "host_dups_removed": 3326,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 8778
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "ledger/sourced none": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 91778,
+  "faults": {},
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 8778
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "ledger/sourced reorder": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 146494,
+  "faults": {
+   "reorder": 24069
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 8778
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "ledger/sourced restart": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 95548,
+  "faults": {
+   "restart": 354,
+   "restart_partial_cut": 27,
+   "restart_power_cut": 61,
+   "restart_torn": 62
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 8778
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "ledger/sourced skew": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 93876,
+  "faults": {
+   "skew": 101
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 8778
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "ledger/typed all": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "duplicate_applied": 3747,
+   "state_differs": 980
+  },
+  "d_example": {
+   "duplicate_applied": [
+    "op 1 `Transfer(src: \"cash\", dst: \"bank\", cents: 373)` applied 2 times",
+    "op 17 `Transfer(src: \"bank\", dst: \"cash\", cents: 567)` applied 2 times"
+   ],
+   "state_differs": [
+    "op 1 `Transfer(src: \"cash\", dst: \"bank\", cents: 373)` applied 2 times",
+    "op 17 `Transfer(src: \"bank\", dst: \"cash\", cents: 567)` applied 2 times"
+   ]
+  },
+  "d_min_seed": {
+   "duplicate_applied": 1,
+   "state_differs": 1
+  },
+  "d_runs": {
+   "duplicate_applied": 980,
+   "state_differs": 980
+  },
+  "entries": 90698,
+  "faults": {
+   "drop": 4051,
+   "dup": 3594,
+   "lose": 3553,
+   "reorder": 29168,
+   "restart": 1370,
+   "restart_partial_cut": 136,
+   "restart_power_cut": 257,
+   "restart_torn": 271,
+   "skew": 447
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 10494
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "ledger/typed drop": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 57163,
+  "faults": {
+   "drop": 3324
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 8778
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "ledger/typed dup": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "duplicate_applied": 2120,
+   "state_differs": 890
+  },
+  "d_example": {
+   "duplicate_applied": [
+    "op 1 `Transfer(src: \"cash\", dst: \"bank\", cents: 373)` applied 2 times",
+    "op 12 `Transfer(src: \"rent\", dst: \"bank\", cents: 171)` applied 2 times"
+   ],
+   "state_differs": [
+    "op 1 `Transfer(src: \"cash\", dst: \"bank\", cents: 373)` applied 2 times",
+    "op 12 `Transfer(src: \"rent\", dst: \"bank\", cents: 171)` applied 2 times"
+   ]
+  },
+  "d_min_seed": {
+   "duplicate_applied": 1,
+   "state_differs": 1
+  },
+  "d_runs": {
+   "duplicate_applied": 890,
+   "state_differs": 890
+  },
+  "entries": 55672,
+  "faults": {
+   "dup": 3007
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 9665
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "ledger/typed lose": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "duplicate_applied": 2106,
+   "state_differs": 890
+  },
+  "d_example": {
+   "duplicate_applied": [
+    "op 9 `Transfer(src: \"cash\", dst: \"rent\", cents: 117)` applied 2 times",
+    "op 17 `Transfer(src: \"bank\", dst: \"cash\", cents: 567)` applied 2 times"
+   ],
+   "state_differs": [
+    "op 9 `Transfer(src: \"cash\", dst: \"rent\", cents: 117)` applied 2 times",
+    "op 17 `Transfer(src: \"bank\", dst: \"cash\", cents: 567)` applied 2 times"
+   ]
+  },
+  "d_min_seed": {
+   "duplicate_applied": 1,
+   "state_differs": 1
+  },
+  "d_runs": {
+   "duplicate_applied": 890,
+   "state_differs": 890
+  },
+  "entries": 61971,
+  "faults": {
+   "lose": 3326
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 9763
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "ledger/typed none": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 51778,
+  "faults": {},
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 8778
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "ledger/typed reorder": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 63257,
+  "faults": {
+   "reorder": 24069
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 8778
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "ledger/typed restart": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "duplicate_applied": 120,
+   "state_differs": 87
+  },
+  "d_example": {
+   "duplicate_applied": [
+    "op 12 `Transfer(src: \"bank\", dst: \"cash\", cents: 530)` applied 2 times",
+    "the final state is not the fold of the client's operations in order"
+   ],
+   "state_differs": [
+    "op 12 `Transfer(src: \"bank\", dst: \"cash\", cents: 530)` applied 2 times",
+    "the final state is not the fold of the client's operations in order"
+   ]
+  },
+  "d_min_seed": {
+   "duplicate_applied": 8,
+   "state_differs": 8
+  },
+  "d_runs": {
+   "duplicate_applied": 87,
+   "state_differs": 87
+  },
+  "entries": 53407,
+  "faults": {
+   "restart": 354,
+   "restart_partial_cut": 36,
+   "restart_power_cut": 61,
+   "restart_torn": 62
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 8835
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "ledger/typed skew": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 53876,
+  "faults": {
+   "skew": 101
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "fail": 8778
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "notes_http/http all": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "delete_answered_404": 381,
+   "duplicate_note": 2866
+  },
+  "d_example": {
+   "delete_answered_404": [
+    "delete of Post(\"c0n2\") answered 404: an earlier attempt deleted it",
+    "note \"c0n0\" held 1 times, intended 0"
+   ],
+   "duplicate_note": [
+    "delete of Post(\"c0n2\") answered 404: an earlier attempt deleted it",
+    "note \"c0n0\" held 1 times, intended 0"
+   ]
+  },
+  "d_min_seed": {
+   "delete_answered_404": 1,
+   "duplicate_note": 1
+  },
+  "d_runs": {
+   "delete_answered_404": 323,
+   "duplicate_note": 968
+  },
+  "entries": 121951,
+  "faults": {
+   "drop": 3161,
+   "dup": 2931,
+   "lose": 2831,
+   "reorder": 23344,
+   "restart": 1264,
+   "restart_partial_cut": 137,
+   "restart_power_cut": 244,
+   "restart_torn": 246,
+   "skew": 426
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "notes_http/http drop": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 82552,
+  "faults": {
+   "drop": 2656
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "notes_http/http dup": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "duplicate_note": 1600
+  },
+  "d_example": {
+   "duplicate_note": [
+    "note \"c1n7\" held 2 times, intended 1"
+   ]
+  },
+  "d_min_seed": {
+   "duplicate_note": 2
+  },
+  "d_runs": {
+   "duplicate_note": 807
+  },
+  "entries": 75814,
+  "faults": {
+   "dup": 2407
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "notes_http/http lose": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "delete_answered_404": 395,
+   "duplicate_note": 1599
+  },
+  "d_example": {
+   "delete_answered_404": [
+    "delete of Post(\"c0n1\") answered 404: an earlier attempt deleted it",
+    "note \"c0n0\" held 2 times, intended 0"
+   ],
+   "duplicate_note": [
+    "note \"c2n1\" held 1 times, intended 0"
+   ]
+  },
+  "d_min_seed": {
+   "delete_answered_404": 5,
+   "duplicate_note": 1
+  },
+  "d_runs": {
+   "delete_answered_404": 330,
+   "duplicate_note": 815
+  },
+  "entries": 89126,
+  "faults": {
+   "lose": 2642
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "notes_http/http none": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 71000,
+  "faults": {},
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "notes_http/http reorder": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 90202,
+  "faults": {
+   "reorder": 19254
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "notes_http/http restart": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "delete_answered_404": 30,
+   "duplicate_note": 78
+  },
+  "d_example": {
+   "delete_answered_404": [
+    "delete of Post(\"c1n1\") answered 404: an earlier attempt deleted it"
+   ],
+   "duplicate_note": [
+    "note \"c0n7\" held 2 times, intended 1"
+   ]
+  },
+  "d_min_seed": {
+   "delete_answered_404": 20,
+   "duplicate_note": 10
+  },
+  "d_runs": {
+   "delete_answered_404": 26,
+   "duplicate_note": 62
+  },
+  "entries": 72379,
+  "faults": {
+   "restart": 285,
+   "restart_partial_cut": 30,
+   "restart_power_cut": 49,
+   "restart_torn": 47
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "notes_http/http skew": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 72688,
+  "faults": {
+   "skew": 83
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "notes_net/net all": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "delete_answered_404": 198,
+   "duplicate_note": 1462
+  },
+  "d_example": {
+   "delete_answered_404": [
+    "delete of Post(\"c0n1\") answered 404: an earlier attempt deleted it",
+    "note \"c0n4\" held 1 times, intended 0"
+   ],
+   "duplicate_note": [
+    "delete of Post(\"c0n1\") answered 404: an earlier attempt deleted it",
+    "note \"c0n4\" held 1 times, intended 0"
+   ]
+  },
+  "d_min_seed": {
+   "delete_answered_404": 1,
+   "duplicate_note": 1
+  },
+  "d_runs": {
+   "delete_answered_404": 177,
+   "duplicate_note": 807
+  },
+  "entries": 359015,
+  "faults": {
+   "drop": 1749,
+   "dup": 1730,
+   "lose": 1474,
+   "reorder": 14609,
+   "restart": 1864,
+   "restart_partial_cut": 184,
+   "restart_power_cut": 377,
+   "restart_torn": 373,
+   "skew": 602
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 19155,
+  "ids_after_restart": 9383,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "notes_net/net drop": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 184428,
+  "faults": {
+   "drop": 1286
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 14286,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "notes_net/net dup": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "duplicate_note": 804
+  },
+  "d_example": {
+   "duplicate_note": [
+    "note \"c1n1\" held 1 times, intended 0"
+   ]
+  },
+  "d_min_seed": {
+   "duplicate_note": 2
+  },
+  "d_runs": {
+   "duplicate_note": 557
+  },
+  "entries": 144147,
+  "faults": {
+   "dup": 1151
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 14151,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "notes_net/net lose": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "delete_answered_404": 188,
+   "duplicate_note": 808
+  },
+  "d_example": {
+   "delete_answered_404": [
+    "delete of Post(\"c0n4\") answered 404: an earlier attempt deleted it",
+    "note \"c0n4\" held 1 times, intended 0"
+   ],
+   "duplicate_note": [
+    "delete of Post(\"c0n4\") answered 404: an earlier attempt deleted it",
+    "note \"c0n4\" held 1 times, intended 0"
+   ]
+  },
+  "d_min_seed": {
+   "delete_answered_404": 1,
+   "duplicate_note": 1
+  },
+  "d_runs": {
+   "delete_answered_404": 177,
+   "duplicate_note": 560
+  },
+  "entries": 186804,
+  "faults": {
+   "lose": 1296
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 14296,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "notes_net/net none": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 135528,
+  "faults": {},
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 13000,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "notes_net/net reorder": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 182512,
+  "faults": {
+   "reorder": 9652
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 13000,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "notes_net/net restart": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 162486,
+  "faults": {
+   "restart": 645,
+   "restart_partial_cut": 66,
+   "restart_power_cut": 124,
+   "restart_torn": 117
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 13724,
+  "ids_after_restart": 3500,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "notes_net/net skew": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 138568,
+  "faults": {
+   "skew": 156
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 13000,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "ratelimit/typed all": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "duplicate_applied": 5092,
+   "kept_on_clock_step": 10283,
+   "over_limit": 30
+  },
+  "d_example": {
+   "duplicate_applied": [
+    "op 0 `Request(client: \"b\")` applied 2 times",
+    "op 5 `Request(client: \"a\")` applied 2 times"
+   ],
+   "kept_on_clock_step": [
+    "op 0 `Request(client: \"b\")` applied 2 times",
+    "op 5 `Request(client: \"a\")` applied 2 times"
+   ],
+   "over_limit": [
+    "op 5 `Request(client: \"b\")` applied 2 times",
+    "op 7 `Request(client: \"a\")` applied 2 times"
+   ]
+  },
+  "d_min_seed": {
+   "duplicate_applied": 1,
+   "kept_on_clock_step": 1,
+   "over_limit": 60
+  },
+  "d_runs": {
+   "duplicate_applied": 995,
+   "kept_on_clock_step": 995,
+   "over_limit": 28
+  },
+  "entries": 641409,
+  "faults": {
+   "drop": 5289,
+   "dup": 4946,
+   "lose": 4735,
+   "reorder": 38751,
+   "restart": 5107,
+   "restart_partial_cut": 521,
+   "restart_power_cut": 1034,
+   "restart_torn": 1001,
+   "skew": 17345
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "trap": 10283
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "ratelimit/typed drop": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 283650,
+  "faults": {
+   "drop": 4425
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "ratelimit/typed dup": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "duplicate_applied": 3990
+  },
+  "d_example": {
+   "duplicate_applied": [
+    "op 1 `Request(client: \"a\")` applied 2 times",
+    "op 6 `Request(client: \"b\")` applied 2 times"
+   ]
+  },
+  "d_min_seed": {
+   "duplicate_applied": 1
+  },
+  "d_runs": {
+   "duplicate_applied": 987
+  },
+  "entries": 207990,
+  "faults": {
+   "dup": 3990
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "ratelimit/typed lose": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "duplicate_applied": 3970
+  },
+  "d_example": {
+   "duplicate_applied": [
+    "op 6 `Request(client: \"b\")` applied 2 times",
+    "op 12 `Request(client: \"b\")` applied 2 times"
+   ]
+  },
+  "d_min_seed": {
+   "duplicate_applied": 1
+  },
+  "d_runs": {
+   "duplicate_applied": 983
+  },
+  "entries": 292260,
+  "faults": {
+   "lose": 4413
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "ratelimit/typed none": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 204000,
+  "faults": {},
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "ratelimit/typed reorder": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 445848,
+  "faults": {
+   "reorder": 32093
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "ratelimit/typed restart": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {},
+  "d_example": {},
+  "d_min_seed": {},
+  "d_runs": {},
+  "entries": 220686,
+  "faults": {
+   "restart": 1316,
+   "restart_partial_cut": 126,
+   "restart_power_cut": 267,
+   "restart_torn": 241
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {},
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ },
+ "ratelimit/typed skew": {
+  "a": 0,
+  "b": 0,
+  "c": 0,
+  "d_events": {
+   "kept_on_clock_step": 8967,
+   "over_limit": 803
+  },
+  "d_example": {
+   "kept_on_clock_step": [
+    "client b allowed 7, more than 3 + 3 s of true time",
+    "seq 42: trap(overflow: -2706913970 is outside u64)"
+   ],
+   "over_limit": [
+    "client b allowed 7, more than 3 + 3 s of true time",
+    "seq 42: trap(overflow: -2706913970 is outside u64)"
+   ]
+  },
+  "d_min_seed": {
+   "kept_on_clock_step": 1,
+   "over_limit": 1
+  },
+  "d_runs": {
+   "kept_on_clock_step": 811,
+   "over_limit": 490
+  },
+  "entries": 212967,
+  "faults": {
+   "skew": 4042
+  },
+  "gap_runs": {},
+  "host_dups_removed": 0,
+  "ids": 0,
+  "ids_after_restart": 0,
+  "kept": {
+   "trap": 8967
+  },
+  "not_live": 0,
+  "reruns": 100,
+  "runs": 1000
+ }
+}
