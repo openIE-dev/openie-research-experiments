@@ -1,0 +1,38 @@
+{
+ "id": "rce-lift-python-2026-10-29",
+ "registered": "2026-10-29 (before the registered run; written after the lifter spec/lift/python/lift_py.py was developed against the corpus, see 'development')",
+ "question": "Critique 8 and RJ-F1 of the RCE-JEPA page ('Lift coverage plateaus below 80% on any of the five target languages after the construct list is exhausted'): how much real Python does the first lifter of the RCE project carry exactly into RCE text, and what blocks the rest?",
+ "instrument": {
+  "lifter": "spec/lift/python/lift_py.py of openIE-dev/rce branch claude/lift-python (stdlib ast only; route T of spec/proposals/rce-form.md section 16; runtime spec/lift/python/runtime.rce). The run uses commit 5583974e of that branch, frozen for the run: no change to the lifter, its runtime or its rules between this registration and the run, other than an amendment registered here before a second run.",
+  "harness": "spec/lift/python/verify_lift.py RCE OUT (whole programs) and spec/lift/python/coverage.py RCE FILE (functions), same commit",
+  "reference": "rce built from openIE-dev/rce main 8ce91cea (the lifter changes no Rust), release build",
+  "oracle": "the recorded observations of lang/python3.13/corpus (CPython 3.13.16, rce-obs/1, command profile), never re-derived from the lift"
+ },
+ "population": {
+  "corpus": "all 92 cases of lang/python3.13/corpus/manifest.toml (sha256 8d655764e07325a2573ff85583a74f9468808ff2275db1e0946c56751ffb1a5a)",
+  "real_world_primary": "heapq.py of the pinned CPython 3.13.16 standard library (/usr/lib/python3.13/heapq.py, a file of the oracle record's pinned tree, sha256 6d43277e5c76fc0f073cd388fcff852d14d068f6bb6d4886c340f8b75a1229a9): a small pure-Python module written for use, not as a benchmark",
+  "real_world_secondary": {
+   "bisect.py": "f1cf7b85fc36b5da249813fc5ab97d9464f8cc1bc817f7146206fa2713e35999",
+   "colorsys.py": "65e3dfbf7bad61d4d7d7731a69dd7e75a347fd350d91327a51010a94e6fd2f1d",
+   "graphlib.py": "2a29e0adee584dc76251afef1236d7bedf250aca27911f91a4d442133ce81117",
+   "textwrap.py": "30f3d833950d53e168cc021961574b553f56aed84458712b2eb29c6495843d46"
+  }
+ },
+ "outcomes": {
+  "per_case": "exactly one of MATCH (lift applied; exit status, stdout bytes and stderr class equal the recorded observation), MATCH-RESOURCE (class resource, the lifted program kept its event at a resource limit: holds by section 20), DIFFERS (lift applied, observations differ: a lifter defect, reported with the first differing byte), KEPT-RESOURCE (lift applied, the lifted program trapped at a limit, i64 overflow, a loop or recursion bound, where CPython answered: never counted as holding), REQUIRES-CHANGE (the lift reported constructs outside the subset with their rules), INTERNAL (the lifted text fails rce check, or rce run fails or does not end within 120 s)",
+  "per_function": "for every def of the module (module level and nested defs counted where ast finds a module-level def): lifted (the function and every function it calls lift and the printed text passes rce check), or requires change with every rule named; a function is never counted as lifted when a callee requires change (rule L-PY-CALLEE)",
+  "breakdown": "counts of cases (and of functions) naming each rule, the rule of the first line reported, and the cases whose only rule is that rule"
+ },
+ "primary_metrics": {
+  "corpus_programs_matching": "MATCH + MATCH-RESOURCE out of 92",
+  "real_world_function_coverage": "lifted functions / all functions of heapq.py"
+ },
+ "predictions": {
+  "corpus": "MATCH + MATCH-RESOURCE at most 15 of 92: the corpus programs were written to exercise one construct family each, including exceptions, classes, floats, sets, generators and imports that the subset leaves out, and most programs combine several",
+  "heapq": "function coverage below 20%: the functions are polymorphic over the item type (no call in the module fixes it) and the sift loops have no bound derivable by the closed rule list",
+  "rj_f1": "the measured coverage is far below 80%; it is a first measurement and not a plateau, since the construct list (the rules L-PY-*) is not exhausted, so RJ-F1 is reported as neither met nor refuted by this run"
+ },
+ "development": "The lifter was written and debugged against the 92 corpus cases (they are the acceptance suite of section 20; there is no held-out part of the corpus, and a case that differs is fixed in the lifter, rule K4). Before this registration the functions mode was run once on heapq.py to check that it reports every function (0 lifted); after that run only the wording of diagnostics changed (bound methods and keyword-only parameters were named under the right rule), no rule of what lifts. The secondary modules were not run before registration.",
+ "exclusions": "none: every case and every function is reported",
+ "reporting": "RESULTS.md with the rce commit, the counts, the breakdown, and the RJ-F1 line; results/verify.txt (the harness output), results/coverage-*.txt, results/summary.json"
+}
