@@ -1,0 +1,8 @@
+date: 2026-10-29T18:15:30Z
+rce tree: 72823dd2777cb9218c1d9e05706c7ceadae02df0
+rce: rce 0.1.0 (RCE specification draft 0.9; one language, release label 0.9)
+cpu: Intel(R) Xeon(R) Processor @ 2.30GHz x 4
+Linux 6.18.44-fc-v185
+python: Python 3.13.16
+node: v22.22.0
+rustc: rustc 1.97.0 (2d8144b78 2026-07-07)
