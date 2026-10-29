@@ -1,0 +1,351 @@
+== bank (arithmetic) spec/examples/04_bank_account.rce: filter: 1000 applied, 7 skipped
+  checker delta           2263 ns/step wall         1148 cpu  (R=256) steps 256000 check 60f37781ccdf6ba0edc50aa2191997135e5323cc3
+  checker encode          4313 ns/step wall         2236 cpu  (R=256) steps 256000 check 175511
+  checker chain           9786 ns/step wall         4880 cpu  (R=64) steps 64000 check 328a2937f39ebce2f2f0b183f974b1b054bb739fcd
+  checker chainfast         5001 ns/step wall         2838 cpu  (R=256) steps 256000 check 328a2937f39ebce2f2f0b183f974b1b054bb739fc
+  checker ckpt64          7541 ns/step wall         3660 cpu  (R=64) steps 64000 check 4a20cbe65a0cdfefb123e7a579fce6db1036573b38
+  checker host           12143 ns/step wall         7016 cpu  (R=64) steps 64000 check 0
+  checker host1          13610 ns/step wall         7452 cpu  (R=64) steps 64000 check 0
+  emit_trace              8387 ns/step wall         4876 cpu  (R=64) trace 328a2937f39ebce2f2f0b183f974b1b054bb739fcd0b64232346b6
+  emit_plain              2579 ns/step wall         1533 cpu  (R=256)   emit Withdrawn(amount: 11)
+  emit_quiet               771 ns/step wall          435 cpu  (R=1024) 0 (initial) Account { balance = 0 }
+  emit_trace_quiet         7142 ns/step wall         4062 cpu  (R=256) trace 328a2937f39ebce2f2f0b183f974b1b054bb739fcd0b64232346b6
+  hand fma                 1.1 ns/step wall          0.6 cpu  (R=1048576) state [[19515]]
+  hand nofma               1.1 ns/step wall          0.6 cpu  (R=1048576) state [[19515]]
+  hand nofma_log        3289.6 ns/step wall       2191.9 cpu  (R=256) head 328a2937f39ebce2f2f0b183f974b1b054bb739fcd0b64232346b68
+  parity {'delta_state_hash': '60f37781ccdf6ba0edc50aa2191997135e5323cc30c78789bc3fbcbd4904098b', 'chain_head': '328a2937f39ebce2f2f0b183f974b1b054bb739fcd0b64232346b68553a7c057', 'emit_trace_head_equal': True, 'emit_trace_quiet_head_equal': True, 'ckpt64_differs_from_chain': True, 'hand_nofma_log_head_equal': True, 'chainfast_head_equal': True, 'hand_fma_state_hash_equal': True, 'hand_nofma_state_hash_equal': True}
+== ring (arithmetic) programs/systems/ring_buffer.rce: filter: 1000 applied, 271 skipped
+  checker delta           4144 ns/step wall         2753 cpu  (R=256) steps 256000 check 70639ea71626706f48861764a336c6ab6e1a1977d
+  checker encode          6076 ns/step wall         4189 cpu  (R=256) steps 256000 check 196081
+  checker chain          10876 ns/step wall         7016 cpu  (R=64) steps 64000 check 7343d29c2f48f18920d06a74fd2027ee311ca09244
+  checker chainfast         6888 ns/step wall         4737 cpu  (R=256) steps 256000 check 7343d29c2f48f18920d06a74fd2027ee311ca0924
+  checker ckpt64          8394 ns/step wall         5664 cpu  (R=64) steps 64000 check 100ff89679147fc45fc29074aac29ccd375609d929
+  checker host           14347 ns/step wall         9291 cpu  (R=64) steps 64000 check 0
+  checker host1          13605 ns/step wall         9291 cpu  (R=64) steps 64000 check 0
+  emit_trace              8842 ns/step wall         6288 cpu  (R=64) trace 7343d29c2f48f18920d06a74fd2027ee311ca092449ec4e8d2363f
+  emit_plain              3645 ns/step wall         2444 cpu  (R=256) 1000 Push(v: -657649) Ring { slots = [-383679, -657649, -158
+  emit_quiet              1368 ns/step wall          879 cpu  (R=1024) 0 (initial) Ring { slots = [0, 0, 0, 0], head = 0, count = 0
+  emit_trace_quiet         7153 ns/step wall         4702 cpu  (R=256) trace 7343d29c2f48f18920d06a74fd2027ee311ca092449ec4e8d2363f
+  parity {'delta_state_hash': '70639ea71626706f48861764a336c6ab6e1a1977dbc9e87fa2d45082c04f4676', 'chain_head': '7343d29c2f48f18920d06a74fd2027ee311ca092449ec4e8d2363fb1038975e8', 'emit_trace_head_equal': True, 'emit_trace_quiet_head_equal': True, 'ckpt64_differs_from_chain': True, 'chainfast_head_equal': True}
+== automaton (arithmetic) programs/world/cellular_automaton.rce: filter: 1000 applied, 0 skipped
+  checker delta          23494 ns/step wall        17039 cpu  (R=16) steps 16000 check 7103620cecfd3adafad33bf9bf8fd132133a455879
+  checker encode         27049 ns/step wall        18747 cpu  (R=64) steps 64000 check 173890
+  checker chain          33586 ns/step wall        21729 cpu  (R=64) steps 64000 check 09674c487e1c484492360d69ff88a3cdd614021f26
+  checker chainfast        28994 ns/step wall        19039 cpu  (R=64) steps 64000 check 09674c487e1c484492360d69ff88a3cdd614021f26
+  checker ckpt64         31005 ns/step wall        20347 cpu  (R=64) steps 64000 check e847f72ef289bba4613f06ff04e68fe1bf164f8311
+  checker host           37841 ns/step wall        22612 cpu  (R=16) steps 16000 check 0
+  checker host1          37530 ns/step wall        22994 cpu  (R=16) steps 16000 check 0
+  emit_trace             17609 ns/step wall        11662 cpu  (R=64) trace 09674c487e1c484492360d69ff88a3cdd614021f26eb86787d9fee
+  emit_plain             11683 ns/step wall         7962 cpu  (R=64) 1000 Step Grid { cells = [1, 1, 1, 0, 0, 1, 1, 1] }
+  emit_quiet              9764 ns/step wall         6649 cpu  (R=64) 0 (initial) Grid { cells = [0, 0, 0, 0, 1, 0, 0, 0] }
+  emit_trace_quiet        16556 ns/step wall        10826 cpu  (R=64) trace 09674c487e1c484492360d69ff88a3cdd614021f26eb86787d9fee
+  hand fma                 5.7 ns/step wall          3.9 cpu  (R=262144) state [[[1,1,1,0,0,1,1,1]]]
+  hand nofma               5.6 ns/step wall          3.8 cpu  (R=262144) state [[[1,1,1,0,0,1,1,1]]]
+  hand nofma_log        4156.0 ns/step wall       2418.2 cpu  (R=256) head 09674c487e1c484492360d69ff88a3cdd614021f26eb86787d9fee2
+  parity {'delta_state_hash': '7103620cecfd3adafad33bf9bf8fd132133a455879a4a1d40feac8ab0045f7b7', 'chain_head': '09674c487e1c484492360d69ff88a3cdd614021f26eb86787d9fee2c704d8d0c', 'emit_trace_head_equal': True, 'emit_trace_quiet_head_equal': True, 'ckpt64_differs_from_chain': True, 'hand_nofma_log_head_equal': True, 'chainfast_head_equal': True, 'hand_fma_state_hash_equal': True, 'hand_nofma_state_hash_equal': True}
+== inventory (collection) spec/examples/31_inventory.rce: filter: 1000 applied, 84 skipped
+  checker delta         142452 ns/step wall       104671 cpu  (R=4) steps 4000 check 33298af5a1d7f4f834a30448478ba96aa73b7344f36
+  checker encode        194428 ns/step wall       126404 cpu  (R=4) steps 4000 check 802194
+  checker chain         202254 ns/step wall       131262 cpu  (R=4) steps 4000 check e622b4d62d4a218fb5fc9c40293f4bf53a49351d822
+  checker chainfast       209378 ns/step wall       127043 cpu  (R=4) steps 4000 check e622b4d62d4a218fb5fc9c40293f4bf53a49351d822
+  checker ckpt64        193087 ns/step wall       125910 cpu  (R=4) steps 4000 check 1f34d6a05a9c7aea895e1da4843c1b56656368aea49
+  checker host          200989 ns/step wall       136640 cpu  (R=4) steps 4000 check 0
+  checker host1         208509 ns/step wall       134712 cpu  (R=4) steps 4000 check 0
+  emit_trace             81769 ns/step wall        50766 cpu  (R=16) trace e622b4d62d4a218fb5fc9c40293f4bf53a49351d822134feeec1ac
+  emit_plain             42547 ns/step wall        27623 cpu  (R=16)   emit Shipped(sku: "s41", qty: 9)
+  emit_quiet             26444 ns/step wall        17549 cpu  (R=64) 0 (initial) Inventory { stock = {} }
+  emit_trace_quiet        62883 ns/step wall        40760 cpu  (R=16) trace e622b4d62d4a218fb5fc9c40293f4bf53a49351d822134feeec1ac
+  hand fma                59.4 ns/step wall         39.5 cpu  (R=16384) state [[[["s0",81],["s1",97],["s10",78],["s11",85],["s12",80
+  hand nofma              61.7 ns/step wall         39.8 cpu  (R=16384) state [[[["s0",81],["s1",97],["s10",78],["s11",85],["s12",80
+  hand nofma_log       20142.8 ns/step wall      13238.5 cpu  (R=64) head e622b4d62d4a218fb5fc9c40293f4bf53a49351d822134feeec1ac8
+  parity {'delta_state_hash': '33298af5a1d7f4f834a30448478ba96aa73b7344f36fd1320fb1778447be10e1', 'chain_head': 'e622b4d62d4a218fb5fc9c40293f4bf53a49351d822134feeec1ac8a797267a5', 'emit_trace_head_equal': True, 'emit_trace_quiet_head_equal': True, 'ckpt64_differs_from_chain': True, 'hand_nofma_log_head_equal': True, 'chainfast_head_equal': True, 'hand_fma_state_hash_equal': True, 'hand_nofma_state_hash_equal': True}
+== rcedb (collection) spec/examples/55_rcedb.rce: filter: 1000 applied, 63 skipped
+  checker delta          97269 ns/step wall        76365 cpu  (R=16) steps 16000 check ccd6235047e94977e90d1dfe35a7ddcf7e38e1d614
+  checker encode        128951 ns/step wall        95002 cpu  (R=16) steps 16000 check 894804
+  checker chain         127427 ns/step wall        98260 cpu  (R=4) steps 4000 check dbcbd00a877f7c128fa527e9e4558d7e816f6a9ee9a
+  checker chainfast       122527 ns/step wall        91971 cpu  (R=4) steps 4000 check dbcbd00a877f7c128fa527e9e4558d7e816f6a9ee9a
+  checker ckpt64        119509 ns/step wall        96257 cpu  (R=16) steps 16000 check 17c7c7bbec12493e75f139acd2ac68782fd000ff67
+  checker host          130762 ns/step wall       103535 cpu  (R=16) steps 16000 check 0
+  checker host1         135928 ns/step wall       107211 cpu  (R=4) steps 4000 check 0
+  emit_trace             78513 ns/step wall        60708 cpu  (R=16) trace dbcbd00a877f7c128fa527e9e4558d7e816f6a9ee9a9fa8bfaad1d
+  emit_plain             48140 ns/step wall        36862 cpu  (R=16) 1000 Put(key: "k11", val: "v596") Db { rows = {"k0": "v458",
+  emit_quiet             32108 ns/step wall        25164 cpu  (R=64) 0 (initial) Db { rows = {}, writes = 0, durable = 0 }
+  emit_trace_quiet        65226 ns/step wall        49611 cpu  (R=16) trace dbcbd00a877f7c128fa527e9e4558d7e816f6a9ee9a9fa8bfaad1d
+  parity {'delta_state_hash': 'ccd6235047e94977e90d1dfe35a7ddcf7e38e1d61412ab00e033c0e26e52d97d', 'chain_head': 'dbcbd00a877f7c128fa527e9e4558d7e816f6a9ee9a9fa8bfaad1db265433d70', 'emit_trace_head_equal': True, 'emit_trace_quiet_head_equal': True, 'ckpt64_differs_from_chain': True, 'chainfast_head_equal': True}
+== cart (collection) spec/examples/16_multi_region.rce: filter: 1000 applied, 0 skipped
+  checker delta           5131 ns/step wall         4026 cpu  (R=256) steps 256000 check 43afa4418423d9d2b99707361eab97d05d3d3c251
+  checker encode          7964 ns/step wall         6346 cpu  (R=256) steps 256000 check 226668
+  checker chain          11821 ns/step wall         8963 cpu  (R=64) steps 64000 check 01136c8b55035b813f286f78aeb97b60ca5c90f5f5
+  checker chainfast         8809 ns/step wall         6771 cpu  (R=64) steps 64000 check 01136c8b55035b813f286f78aeb97b60ca5c90f5f5
+  checker ckpt64         10086 ns/step wall         7826 cpu  (R=64) steps 64000 check 1070293c5ec2f43d9d135f5cb27c6e4d4fa8211c89
+  checker host           15665 ns/step wall        12084 cpu  (R=64) steps 64000 check 0
+  checker host1          14958 ns/step wall        11658 cpu  (R=64) steps 64000 check 0
+  emit_trace             10951 ns/step wall         9641 cpu  (R=64) trace 01136c8b55035b813f286f78aeb97b60ca5c90f5f5ed33a95ca97a
+  emit_plain              5286 ns/step wall         4798 cpu  (R=256) 1000 AddItem(name: "i20") Cart { items = ["i6", "i20"] }; St
+  emit_quiet              4183 ns/step wall         2614 cpu  (R=256) 0 (initial) Cart { items = [] }; Stats { adds = 0, removes =
+  emit_trace_quiet        11576 ns/step wall         7637 cpu  (R=64) trace 01136c8b55035b813f286f78aeb97b60ca5c90f5f5ed33a95ca97a
+  parity {'delta_state_hash': '43afa4418423d9d2b99707361eab97d05d3d3c2515c8b5c56eb65de7905fec8e', 'chain_head': '01136c8b55035b813f286f78aeb97b60ca5c90f5f5ed33a95ca97aeac2ccfdd3', 'emit_trace_head_equal': True, 'emit_trace_quiet_head_equal': True, 'ckpt64_differs_from_chain': True, 'chainfast_head_equal': True}
+== arm (float) programs/body/arm.rce: filter: 1000 applied, 0 skipped
+  checker delta           2318 ns/step wall         1499 cpu  (R=256) steps 256000 check 9446dcafb861d971824b952bfb6a9819d1942c160
+  checker encode          9147 ns/step wall         5477 cpu  (R=64) steps 64000 check 197215
+  checker chain          12495 ns/step wall         8008 cpu  (R=64) steps 64000 check 74f4f5b23bc874681b674cdc6cdcee881ccef6cb52
+  checker chainfast         8977 ns/step wall         5995 cpu  (R=64) steps 64000 check 74f4f5b23bc874681b674cdc6cdcee881ccef6cb52
+  checker ckpt64         10855 ns/step wall         6859 cpu  (R=64) steps 64000 check 62ed65d16fbb3647a43119b94872a4d142772b3b52
+  checker host           17489 ns/step wall        11092 cpu  (R=64) steps 64000 check 0
+  checker host1          17312 ns/step wall        10778 cpu  (R=64) steps 64000 check 0
+  emit_trace             15497 ns/step wall         9641 cpu  (R=64) trace 74f4f5b23bc874681b674cdc6cdcee881ccef6cb5279171c499d3c
+  emit_plain              5711 ns/step wall         3549 cpu  (R=256) 1000 Sensor(reading: -0.206904) Arm { angle = 473.7454850000
+  emit_quiet               831 ns/step wall          555 cpu  (R=1024) 0 (initial) Arm { angle = 0, target = 1 }
+  emit_trace_quiet        10468 ns/step wall         6331 cpu  (R=64) trace 74f4f5b23bc874681b674cdc6cdcee881ccef6cb5279171c499d3c
+  hand fma                 2.6 ns/step wall          1.7 cpu  (R=262144) state [[473.7454850000001,1.0]]
+  hand nofma               1.7 ns/step wall          1.1 cpu  (R=1048576) state [[473.7454850000001,1.0]]
+  hand nofma_log        4968.8 ns/step wall       3008.7 cpu  (R=256) head 74f4f5b23bc874681b674cdc6cdcee881ccef6cb5279171c499d3ce
+  parity {'delta_state_hash': '9446dcafb861d971824b952bfb6a9819d1942c160a05abc6c99f8d17e3054bc4', 'chain_head': '74f4f5b23bc874681b674cdc6cdcee881ccef6cb5279171c499d3ce81d279d25', 'emit_trace_head_equal': True, 'emit_trace_quiet_head_equal': True, 'ckpt64_differs_from_chain': True, 'hand_nofma_log_head_equal': True, 'chainfast_head_equal': True, 'hand_fma_state_hash_equal': True, 'hand_nofma_state_hash_equal': True}
+== floatvec (float) spec/examples/57_float_vectors.rce: filter: 1000 applied, 0 skipped
+  checker delta           2169 ns/step wall         1385 cpu  (R=256) steps 256000 check ed96a8658fa1acbdb351345dab079a74d2c44f9fc
+  checker encode         12634 ns/step wall         6759 cpu  (R=64) steps 64000 check 195215
+  checker chain          15395 ns/step wall         9745 cpu  (R=64) steps 64000 check d34497cb25de5a9c906b19aafbcdcf28c1fbf9f799
+  checker chainfast        11399 ns/step wall         7513 cpu  (R=64) steps 64000 check d34497cb25de5a9c906b19aafbcdcf28c1fbf9f799
+  checker ckpt64         13005 ns/step wall         8204 cpu  (R=64) steps 64000 check 51464134bc49ea8603bd2963cb25f6703660cbdfc3
+  checker host           21683 ns/step wall        14628 cpu  (R=64) steps 64000 check 0
+  checker host1          19844 ns/step wall        14470 cpu  (R=64) steps 64000 check 0
+  emit_trace             16941 ns/step wall        10894 cpu  (R=64) trace d34497cb25de5a9c906b19aafbcdcf28c1fbf9f7992060ed1f85ca
+  emit_plain              6287 ns/step wall         3991 cpu  (R=256) 1000 F32Mul(a: -17.6476, b: 15.1614) Lab { x = -267.56231689
+  emit_quiet               699 ns/step wall          548 cpu  (R=1024) 0 (initial) Lab { x = 0 }
+  emit_trace_quiet         9287 ns/step wall         7227 cpu  (R=64) trace d34497cb25de5a9c906b19aafbcdcf28c1fbf9f7992060ed1f85ca
+  parity {'delta_state_hash': 'ed96a8658fa1acbdb351345dab079a74d2c44f9fc7587753eed6502bae1f6862', 'chain_head': 'd34497cb25de5a9c906b19aafbcdcf28c1fbf9f7992060ed1f85cab15ea960d1', 'emit_trace_head_equal': True, 'emit_trace_quiet_head_equal': True, 'ckpt64_differs_from_chain': True, 'chainfast_head_equal': True}
+== fir (float) scripts/bench-determinism/programs/fir_filter.rce: filter: 1000 applied, 0 skipped
+  checker delta          32382 ns/step wall        23502 cpu  (R=16) steps 16000 check ab8586c48a643327a3cadb5c7c16d2c38a68f94661
+  checker encode         48578 ns/step wall        38571 cpu  (R=16) steps 16000 check 359079
+  checker chain          56202 ns/step wall        41565 cpu  (R=16) steps 16000 check 087c4f46aef5b560c9b3b8e38bf5fdfbaa06f213ed
+  checker chainfast        50147 ns/step wall        39158 cpu  (R=16) steps 16000 check 087c4f46aef5b560c9b3b8e38bf5fdfbaa06f213ed
+  checker ckpt64         54641 ns/step wall        40649 cpu  (R=16) steps 16000 check 5a8e04cd08b29688557b00547f25626e0368e1dc82
+  checker host           61464 ns/step wall        46001 cpu  (R=16) steps 16000 check 0
+  checker host1          58577 ns/step wall        46404 cpu  (R=16) steps 16000 check 0
+  emit_trace             52332 ns/step wall        39377 cpu  (R=16) trace 087c4f46aef5b560c9b3b8e38bf5fdfbaa06f213ed825e2b9fa298
+  emit_plain             27026 ns/step wall        22845 cpu  (R=64) 1000 Sample(x: 0.198626) Filter { xs = [0.1699, -0.650308, 0
+  emit_quiet             12022 ns/step wall         9451 cpu  (R=64) 0 (initial) Filter { xs = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+  emit_trace_quiet        35737 ns/step wall        27109 cpu  (R=16) trace 087c4f46aef5b560c9b3b8e38bf5fdfbaa06f213ed825e2b9fa298
+  hand fma               189.8 ns/step wall        159.1 cpu  (R=4096) state [[[0.1699,-0.650308,0.692398,-0.853318,0.117996,-0.147
+  hand nofma             210.2 ns/step wall        167.9 cpu  (R=4096) state [[[0.1699,-0.650308,0.692398,-0.853318,0.117996,-0.147
+  hand nofma_log        9403.1 ns/step wall       7636.8 cpu  (R=64) head 087c4f46aef5b560c9b3b8e38bf5fdfbaa06f213ed825e2b9fa298c
+  parity {'delta_state_hash': 'ab8586c48a643327a3cadb5c7c16d2c38a68f9466189c352ece70da9bfe97612', 'chain_head': '087c4f46aef5b560c9b3b8e38bf5fdfbaa06f213ed825e2b9fa298cd85701c31', 'emit_trace_head_equal': True, 'emit_trace_quiet_head_equal': True, 'ckpt64_differs_from_chain': True, 'hand_nofma_log_head_equal': True, 'chainfast_head_equal': True, 'hand_fma_state_hash_equal': True, 'hand_nofma_state_hash_equal': True}
+== elevator (state) programs/multi/elevator.rce: filter: 1000 applied, 375 skipped
+  checker delta           2068 ns/step wall         1634 cpu  (R=256) steps 256000 check 971bb14bdc0bdc10f91ff7d97f93236c732e6ab69
+  checker encode          3139 ns/step wall         2609 cpu  (R=256) steps 256000 check 173081
+  checker chain           5738 ns/step wall         5240 cpu  (R=256) steps 256000 check 16de4cca0e70437b66e10c80537599c76fefbb4a7
+  checker chainfast         3257 ns/step wall         2986 cpu  (R=256) steps 256000 check 16de4cca0e70437b66e10c80537599c76fefbb4a7
+  checker ckpt64          5218 ns/step wall         4088 cpu  (R=256) steps 256000 check e5cfc97a3d2e985994edeaf5e3491e0e77efeebd3
+  checker host            9568 ns/step wall         7323 cpu  (R=64) steps 64000 check 0
+  checker host1           9808 ns/step wall         7490 cpu  (R=64) steps 64000 check 0
+  emit_trace              6635 ns/step wall         4963 cpu  (R=256) trace 16de4cca0e70437b66e10c80537599c76fefbb4a790c1359736a72
+  emit_plain              1868 ns/step wall         1422 cpu  (R=1024) 1000 Arrive Car { floor = 3, moving = false }; Door { open =
+  emit_quiet               434 ns/step wall          336 cpu  (R=4096) 0 (initial) Car { floor = 0, moving = false }; Door { open =
+  emit_trace_quiet         5003 ns/step wall         3796 cpu  (R=256) trace 16de4cca0e70437b66e10c80537599c76fefbb4a790c1359736a72
+  hand fma                 2.2 ns/step wall          1.7 cpu  (R=1048576) state [[3,false],[false]]
+  hand nofma               1.7 ns/step wall          1.5 cpu  (R=262144) state [[3,false],[false]]
+  hand nofma_log        3768.7 ns/step wall       2898.7 cpu  (R=256) head 16de4cca0e70437b66e10c80537599c76fefbb4a790c1359736a72a
+  parity {'delta_state_hash': '971bb14bdc0bdc10f91ff7d97f93236c732e6ab690db8ee409bbdcdafb451c2d', 'chain_head': '16de4cca0e70437b66e10c80537599c76fefbb4a790c1359736a72a243f6cafe', 'emit_trace_head_equal': True, 'emit_trace_quiet_head_equal': True, 'ckpt64_differs_from_chain': True, 'hand_nofma_log_head_equal': True, 'chainfast_head_equal': True, 'hand_fma_state_hash_equal': True, 'hand_nofma_state_hash_equal': True}
+== lexer (state) programs/text/word_count.rce: filter: 1000 applied, 0 skipped
+  checker delta           1689 ns/step wall         1365 cpu  (R=256) steps 256000 check 7ef1f99af582362853ed379e0728d64ce19f88576
+  checker encode          3229 ns/step wall         2648 cpu  (R=256) steps 256000 check 172920
+  checker chain           6336 ns/step wall         5397 cpu  (R=256) steps 256000 check ca4d688a67ec00f4a6d748640cbd2c7d49fd58640
+  checker chainfast         3840 ns/step wall         3129 cpu  (R=256) steps 256000 check ca4d688a67ec00f4a6d748640cbd2c7d49fd58640
+  checker ckpt64          4403 ns/step wall         4047 cpu  (R=256) steps 256000 check e0c8305064880b64a1556c8490eff1212f222e267
+  checker host            7800 ns/step wall         7640 cpu  (R=256) steps 256000 check 0
+  checker host1           7670 ns/step wall         7395 cpu  (R=64) steps 64000 check 0
+  emit_trace              5427 ns/step wall         5189 cpu  (R=256) trace ca4d688a67ec00f4a6d748640cbd2c7d49fd586407aef226de07f2
+  emit_plain              1430 ns/step wall         1411 cpu  (R=1024) 1000 Char(c: 100) Lexer { mode = Word, words = 150 }
+  emit_quiet               481 ns/step wall          442 cpu  (R=4096) 0 (initial) Lexer { mode = Start, words = 0 }
+  emit_trace_quiet         4397 ns/step wall         4014 cpu  (R=256) trace ca4d688a67ec00f4a6d748640cbd2c7d49fd586407aef226de07f2
+  parity {'delta_state_hash': '7ef1f99af582362853ed379e0728d64ce19f885769d194bc4ab33f92559de243', 'chain_head': 'ca4d688a67ec00f4a6d748640cbd2c7d49fd586407aef226de07f21653fe6db3', 'emit_trace_head_equal': True, 'emit_trace_quiet_head_equal': True, 'ckpt64_differs_from_chain': True, 'chainfast_head_equal': True}
+{
+ "bank": {
+  "log_cost_chain_over_delta": 4.250586013914642,
+  "log_cost_host_over_delta": 6.110371340602515,
+  "encode_over_delta": 1.9471685916954433,
+  "ckpt64_over_delta": 3.1876027012774935,
+  "emit_trace_over_quiet": 11.205098972126217,
+  "emit_log_cost_trace_quiet_over_quiet": 9.334126307284887,
+  "emit_trace_quiet_over_hand_fma": 6575.885692581104,
+  "emit_plain_over_quiet": 3.522088064993941,
+  "emit_quiet_over_hand_fma": 704.4993260321436,
+  "emit_trace_over_hand_fma": 7893.984673986385,
+  "hand_nofma_over_hand_fma": 0.9903930629947642,
+  "hand_log_cost_nofma_log_over_nofma": 3583.223341414173,
+  "hand_nofma_log_over_hand_fma": 3548.7995404975163,
+  "chainfast_over_delta": 2.4718900437171483,
+  "checker_delta_over_emit_quiet": 2.6386731899995506
+ },
+ "ring": {
+  "log_cost_chain_over_delta": 2.547922001461232,
+  "log_cost_host_over_delta": 3.374235513594417,
+  "encode_over_delta": 1.5214198060676563,
+  "ckpt64_over_delta": 2.056897224369933,
+  "emit_trace_over_quiet": 7.1510100359410185,
+  "emit_log_cost_trace_quiet_over_quiet": 5.347348405755894,
+  "emit_trace_quiet_over_hand_fma": null,
+  "emit_plain_over_quiet": 2.7800356300340745,
+  "emit_quiet_over_hand_fma": null,
+  "emit_trace_over_hand_fma": null,
+  "hand_nofma_over_hand_fma": null,
+  "hand_log_cost_nofma_log_over_nofma": null,
+  "hand_nofma_log_over_hand_fma": null,
+  "chainfast_over_delta": 1.7202735197940093,
+  "checker_delta_over_emit_quiet": 3.131555681924199
+ },
+ "automaton": {
+  "log_cost_chain_over_delta": 1.2752034801618308,
+  "log_cost_host_over_delta": 1.327057451280302,
+  "encode_over_delta": 1.1002105409876353,
+  "ckpt64_over_delta": 1.1940865125389266,
+  "emit_trace_over_quiet": 1.7538815843585134,
+  "emit_log_cost_trace_quiet_over_quiet": 1.6282279953470336,
+  "emit_trace_quiet_over_hand_fma": 2765.565465163756,
+  "emit_plain_over_quiet": 1.197459668417404,
+  "emit_quiet_over_hand_fma": 1698.5124153784836,
+  "emit_trace_over_hand_fma": 2978.98964613662,
+  "hand_nofma_over_hand_fma": 0.9779621063217524,
+  "hand_log_cost_nofma_log_over_nofma": 631.6703295827305,
+  "hand_nofma_log_over_hand_fma": 617.7496460196826,
+  "chainfast_over_delta": 1.1173298340981035,
+  "checker_delta_over_emit_quiet": 2.562712820332052
+ },
+ "inventory": {
+  "log_cost_chain_over_delta": 1.2540442291662188,
+  "log_cost_host_over_delta": 1.3054291671742106,
+  "encode_over_delta": 1.2076391924200407,
+  "ckpt64_over_delta": 1.202912465994559,
+  "emit_trace_over_quiet": 2.892830463518373,
+  "emit_log_cost_trace_quiet_over_quiet": 2.322654517254059,
+  "emit_trace_quiet_over_hand_fma": 1031.8046802816943,
+  "emit_plain_over_quiet": 1.5740517323508383,
+  "emit_quiet_over_hand_fma": 444.2351079839191,
+  "emit_trace_over_hand_fma": 1285.096853340255,
+  "hand_nofma_over_hand_fma": 1.0087172023373596,
+  "hand_log_cost_nofma_log_over_nofma": 332.2257853042269,
+  "hand_nofma_log_over_hand_fma": 335.12186469641205,
+  "chainfast_over_delta": 1.2137392729105316,
+  "checker_delta_over_emit_quiet": 5.964532951304705
+ },
+ "rcedb": {
+  "log_cost_chain_over_delta": 1.286717338835413,
+  "log_cost_host_over_delta": 1.3557877006910064,
+  "encode_over_delta": 1.244056305198467,
+  "ckpt64_over_delta": 1.2604897036521117,
+  "emit_trace_over_quiet": 2.412537481364101,
+  "emit_log_cost_trace_quiet_over_quiet": 1.9715548347156444,
+  "emit_trace_quiet_over_hand_fma": null,
+  "emit_plain_over_quiet": 1.4649117305725603,
+  "emit_quiet_over_hand_fma": null,
+  "emit_trace_over_hand_fma": null,
+  "hand_nofma_over_hand_fma": null,
+  "hand_log_cost_nofma_log_over_nofma": null,
+  "hand_nofma_log_over_hand_fma": null,
+  "chainfast_over_delta": 1.2043596507237846,
+  "checker_delta_over_emit_quiet": 3.034749547801973
+ },
+ "cart": {
+  "log_cost_chain_over_delta": 2.2264052815220468,
+  "log_cost_host_over_delta": 3.001575762750676,
+  "encode_over_delta": 1.5763061171420476,
+  "ckpt64_over_delta": 1.943940105490718,
+  "emit_trace_over_quiet": 3.688120173110491,
+  "emit_log_cost_trace_quiet_over_quiet": 2.921604141261986,
+  "emit_trace_quiet_over_hand_fma": null,
+  "emit_plain_over_quiet": 1.835609293929178,
+  "emit_quiet_over_hand_fma": null,
+  "emit_trace_over_hand_fma": null,
+  "hand_nofma_over_hand_fma": null,
+  "hand_log_cost_nofma_log_over_nofma": null,
+  "hand_nofma_log_over_hand_fma": null,
+  "chainfast_over_delta": 1.6819676075962633,
+  "checker_delta_over_emit_quiet": 1.5401393969825221
+ },
+ "arm": {
+  "log_cost_chain_over_delta": 5.343307312368863,
+  "log_cost_host_over_delta": 7.401196356196162,
+  "encode_over_delta": 3.654740463685767,
+  "ckpt64_over_delta": 4.57693039500606,
+  "emit_trace_over_quiet": 17.37607276874661,
+  "emit_log_cost_trace_quiet_over_quiet": 11.411119481269228,
+  "emit_trace_quiet_over_hand_fma": 3790.5006486032194,
+  "emit_plain_over_quiet": 6.396179922415673,
+  "emit_quiet_over_hand_fma": 332.17605466537555,
+  "emit_trace_over_hand_fma": 5771.915297900717,
+  "hand_nofma_over_hand_fma": 0.6476788454862697,
+  "hand_log_cost_nofma_log_over_nofma": 2781.145368266922,
+  "hand_nofma_log_over_hand_fma": 1801.2890212486066,
+  "chainfast_over_delta": 3.99994787118971,
+  "checker_delta_over_emit_quiet": 2.701124339089968
+ },
+ "floatvec": {
+  "log_cost_chain_over_delta": 7.038612369726279,
+  "log_cost_host_over_delta": 10.56514109342467,
+  "encode_over_delta": 4.8814657239748795,
+  "ckpt64_over_delta": 5.925212867404345,
+  "emit_trace_over_quiet": 19.862787099209594,
+  "emit_log_cost_trace_quiet_over_quiet": 13.17750961968202,
+  "emit_trace_quiet_over_hand_fma": null,
+  "emit_plain_over_quiet": 7.277383375266421,
+  "emit_quiet_over_hand_fma": null,
+  "emit_trace_over_hand_fma": null,
+  "hand_nofma_over_hand_fma": null,
+  "hand_log_cost_nofma_log_over_nofma": null,
+  "hand_nofma_log_over_hand_fma": null,
+  "chainfast_over_delta": 5.426552986914792,
+  "checker_delta_over_emit_quiet": 2.5245037027540507
+ },
+ "fir": {
+  "log_cost_chain_over_delta": 1.768541393533083,
+  "log_cost_host_over_delta": 1.9572781401830135,
+  "encode_over_delta": 1.641144355475658,
+  "ckpt64_over_delta": 1.7295930985514723,
+  "emit_trace_over_quiet": 4.166321967348625,
+  "emit_log_cost_trace_quiet_over_quiet": 2.868308328166977,
+  "emit_trace_quiet_over_hand_fma": 170.38958615620462,
+  "emit_plain_over_quiet": 2.417120892746435,
+  "emit_quiet_over_hand_fma": 59.40420856536504,
+  "emit_trace_over_hand_fma": 247.4970590988397,
+  "hand_nofma_over_hand_fma": 1.055202701976918,
+  "hand_log_cost_nofma_log_over_nofma": 45.48933243170531,
+  "hand_nofma_log_over_hand_fma": 48.00046649306168,
+  "chainfast_over_delta": 1.6661312583602148,
+  "checker_delta_over_emit_quiet": 2.4867088241372186
+ },
+ "elevator": {
+  "log_cost_chain_over_delta": 3.2079085994122476,
+  "log_cost_host_over_delta": 4.483009447564939,
+  "encode_over_delta": 1.5970473669485872,
+  "ckpt64_over_delta": 2.502143695764976,
+  "emit_trace_over_quiet": 14.7527860848514,
+  "emit_log_cost_trace_quiet_over_quiet": 11.28323545056672,
+  "emit_trace_quiet_over_hand_fma": 2241.4998330302724,
+  "emit_plain_over_quiet": 4.227232187888467,
+  "emit_quiet_over_hand_fma": 198.6575431178908,
+  "emit_trace_over_hand_fma": 2930.7522377603864,
+  "hand_nofma_over_hand_fma": 0.8991046705909714,
+  "hand_log_cost_nofma_log_over_nofma": 1903.7193643508344,
+  "hand_nofma_log_over_hand_fma": 1711.6429719823104,
+  "chainfast_over_delta": 1.82811457593561,
+  "checker_delta_over_emit_quiet": 4.855736065584476
+ },
+ "lexer": {
+  "log_cost_chain_over_delta": 3.9552323833788985,
+  "log_cost_host_over_delta": 5.598754705638177,
+  "encode_over_delta": 1.9406323805161527,
+  "ckpt64_over_delta": 2.965598385411448,
+  "emit_trace_over_quiet": 11.746483839784576,
+  "emit_log_cost_trace_quiet_over_quiet": 9.086999368260127,
+  "emit_trace_quiet_over_hand_fma": null,
+  "emit_plain_over_quiet": 3.1941099514781772,
+  "emit_quiet_over_hand_fma": null,
+  "emit_trace_over_hand_fma": null,
+  "hand_nofma_over_hand_fma": null,
+  "hand_log_cost_nofma_log_over_nofma": null,
+  "hand_nofma_log_over_hand_fma": null,
+  "chainfast_over_delta": 2.2927987632938747,
+  "checker_delta_over_emit_quiet": 3.0890808488859434
+ }
+}
+EXIT 0
