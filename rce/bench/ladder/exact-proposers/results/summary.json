@@ -1,0 +1,49 @@
+{
+ "bound": 2000,
+ "by_operator": {
+  "literal": {
+   "closed": 54,
+   "tasks": 55
+  },
+  "operator": {
+   "closed": 64,
+   "tasks": 64
+  },
+  "rename": {
+   "closed": 0,
+   "tasks": 1
+  }
+ },
+ "candidates_tried": {
+  "a": 303,
+  "b": 79,
+  "c": 0,
+  "d": 2216
+ },
+ "candidates_tried_total": 2598,
+ "closed": 118,
+ "closed_per_rung": {
+  "a": 4,
+  "b": 0,
+  "c": 0,
+  "d": 114
+ },
+ "commit": "6d04a0968c9994c691cc959a10b4d5e0e74182a9",
+ "equivalence": {
+  "behaviour-equal": 1,
+  "examples only": 9,
+  "not compared": 11,
+  "restored": 96,
+  "undecided": 1
+ },
+ "format": "rce-ladder-summary/1",
+ "model_calls": 0,
+ "not_closed": 2,
+ "rce_sha256": "eb76277200528fcd1f85714537279bcc7b5fa8d04a8aeb084a38a68d4829502d",
+ "share_closed_zero_model_calls": 0.9833,
+ "tasks": 120,
+ "tasks_sha256": "78b82b00fb4df9b80420614029a4c8886ec8cd9753bbe2639157ec46e3ebd26e",
+ "wall_s_median": 2.61,
+ "wall_s_repair_sum": 409.2,
+ "wall_s_total": 411.9
+}
