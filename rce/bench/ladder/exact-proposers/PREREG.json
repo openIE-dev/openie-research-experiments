@@ -1,0 +1,53 @@
+{
+ "id": "rce-ladder-exact-proposers-2026-10-31",
+ "registered": "2026-10-31 (before the registered run; one pilot run on a smaller trial task set was made first, see pilot)",
+ "question": "How many single-mutation tasks of the public RCE corpus does a deterministic ladder of exact proposers (rce repair, spec 10.13) close with zero model calls, at which rung, and how many of the closed tasks get back a program equal to the original rather than one that only passes the examples and checks?",
+ "status_of_earlier_results": "The earlier gears and repair-ladder results came from a non-public engine and were withdrawn. This registration measures only public code: openIE-dev/rce at the ladder commit below.",
+ "ladder": {
+  "repository": "openIE-dev/rce",
+  "branch": "claude/proposer-ladder",
+  "commit": "6d04a0968c9994c691cc959a10b4d5e0e74182a9",
+  "binary": "spec/checker: cargo build --release --bin rce",
+  "binary_sha256": "eb76277200528fcd1f85714537279bcc7b5fa8d04a8aeb084a38a68d4829502d",
+  "command": "rce repair json FILE (bound 2000, the default)",
+  "rungs": {
+   "a": "reuse: the body of a function becomes the body of another function with the same name-free signature (generic arity, parameter types, result type) from the program itself, its other modules or the built-in library; same name first, then by module and name; donors with equal name-free projections tried once",
+   "b": "lookup by type: from the brick catalog (rce index) of the program and the library modules it uses, in rce search order, (1) a body becomes `return h(params)` for a visible h of the same type, (2) the callee of a call becomes a visible function of the callee's type",
+   "c": "altered rules: skipped; the rewrites of pull request #85 (alter.rs) are not on main",
+   "d": "bounded enumeration: one edit at one site: binary operator within its class (+ - * / %, < <= > >=, == !=, and or, & | ^, << >>), ordering operands swapped, integer literal n to n+1, n-1, 0, 1, boolean negated, two call arguments swapped (2 to 4 arguments), a condition negated or its `not` removed; at most 2000 candidates judged"
+  },
+  "judge": "every candidate is the canonical text of the edited module, judged by check_program (the gate of rce check, which runs every example and check); the ladder stops at the first admitted candidate. Intent, example and check items are never edited.",
+  "model_calls": "none: rce repair has no model client; the count is reported per task and must be 0"
+ },
+ "task_set": {
+  "generator": "scripts/ladder-tasks.py at the ladder commit: python3 scripts/ladder-tasks.py RCE tasks.jsonl (seed 0x5EED_C0DE_0001, per-op 4, operators operator, literal, guard, rename of scripts/corpus.py)",
+  "population": "every .rce under spec/examples, programs and stdlib/tests that rce check admits standalone, has an example or check, and has a definition outside its intent, example and check lines (64 programs admitted; 45 contribute tasks)",
+  "task_rule": "one seeded mutation; kept as a task only when the changed line is not an intent, example or check line, rce check reports only W-INT-1 (an example or check does not hold), and rce equiv --fuel 2000 does not judge the mutant behaviour-equal to the original (exit 0)",
+  "tasks": 120,
+  "by_operator": {"operator": 64, "literal": 55, "rename": 1, "guard": 0},
+  "by_origin": {"programs": 90, "spec-examples": 30},
+  "tasks_jsonl_sha256": "78b82b00fb4df9b80420614029a4c8886ec8cd9753bbe2639157ec46e3ebd26e",
+  "tasks_list": "tasks.list.tsv (id, operator, line, original and mutant SHA-256 of every task)",
+  "tasks_list_sha256": "b705d49c22f24a0ec715ee767a6b08f54d8a52d23a6c366d836b044efbb381bf",
+  "generator_counts": "tasks.summary.json",
+  "known_bias": "Rung d's edits include the inverse of the operator and integer-literal mutations, which make up 119 of the 120 tasks. This set therefore measures whether the public machinery closes the errors it was built for, and how often the first admitted edit is not the original; it is not evidence about real defects, whose material is often not in the line."
+ },
+ "bound": 2000,
+ "runner": "python3 scripts/ladder-run.py RCE tasks.jsonl OUTDIR",
+ "metrics": {
+  "primary": "share of tasks closed with zero model calls (closed / 120), with the rung that closed each",
+  "equivalence_split": "for each closed task: restored (rce hash program hash equal to the original), behaviour-equal (rce equiv --fuel 2000 exit 0), examples only (exit 1: a distinguishing event sequence exists), undecided (exit 3), not compared (rce equiv cannot compare, e.g. a program of functions only, which has no Form to explore)",
+  "secondary": "candidates judged per rung, wall time per task and in all (one machine, no energy claim), closed share per mutation operator"
+ },
+ "predictions": {
+  "P1": "At least 90% of the 120 tasks close, nearly all at rung d (the bias above).",
+  "P2": "At least 5% of the closed tasks are examples only: the first admitted edit is not the original program, so passing the examples is not equivalence."
+ },
+ "falsifier": "The claim that a model-free ladder of exact proposers closes most single-mutation tasks of the public corpus is false at this scale if fewer than 50% of the 120 tasks close. The claim that closing a task restores the program is false for this ladder if restored plus behaviour-equal is below 80% of the closed tasks.",
+ "reporting": "every task reported (results/runs.compact.tsv), including not closed; the equivalence split reported for every closed task; nothing excluded after the run",
+ "pilot": {
+  "what": "one run before this registration, on a trial task set from the same generator with operators operator, literal and guard only and per-op 2 (62 tasks, tasks.jsonl SHA-256 e0136460d8daf3bf4ea167c74a8c71dfe3c67a6a032cc4fe54bd5005e314785f), with the ladder code uncommitted on main ce217ce8 (rce SHA-256 95698f83790490c9597f70d947adefc1067c3a6dcafe22d9210b614faaf99ec1)",
+  "result": "61 of 62 closed, all at rung d (a 0, b 0); restored 51, behaviour-equal 1, examples only 6, not compared 3; 1295 candidates judged; 207 s",
+  "changes_after_pilot": "the operator rename was added and per-op raised from 2 to 4 to widen the task set; no rung, edit or bound was changed"
+ }
+}

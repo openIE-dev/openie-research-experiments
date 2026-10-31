@@ -1,0 +1,15 @@
+{
+ "commit": "6d04a0968c9994c691cc959a10b4d5e0e74182a9",
+ "seed": "0x5eedc0de0001",
+ "per_op": 4,
+ "programs_seen": 6310,
+ "programs_admitted": 64,
+ "programs_used": 45,
+ "drawn": 744,
+ "spec_line": 215,
+ "admitted": 149,
+ "other_rule": 245,
+ "equivalent": 15,
+ "tasks": 120,
+ "tasks_sha256": "78b82b00fb4df9b80420614029a4c8886ec8cd9753bbe2639157ec46e3ebd26e"
+}
