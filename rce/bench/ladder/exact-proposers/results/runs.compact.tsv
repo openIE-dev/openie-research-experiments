@@ -1,0 +1,121 @@
+id	closed	rung	candidates	wall_s	equivalence	edit
+spec/examples/01_counter.rce#operator0	true	d	2	2.492	restored	in `step Counter on Inc`, line 13: `n / (1)` becomes `n + (1)`
+spec/examples/01_counter.rce#operator1	true	d	2	2.722	restored	in `step Counter on Inc`, line 13: `n - (1)` becomes `n + (1)`
+spec/examples/01_counter.rce#literal0	true	d	7	2.646	restored	in `step Counter on Inc`, line 13: `2` becomes `1`
+spec/examples/01_counter.rce#literal2	true	d	2	2.419	restored	in `Counter`, line 6: `1` becomes `0`
+spec/examples/03_fib_loop.rce#literal2	true	d	2	2.574	restored	in `fib`, line 6: `1` becomes `0`
+spec/examples/04_bank_account.rce#operator0	true	d	17	2.366	examples only	in `step Account on Withdraw(amount: a)`, line 22: `a / balance` becomes `a + balance`
+spec/examples/04_bank_account.rce#operator2	true	d	8	2.579	restored	in `step Account on Deposit(amount: a)`, line 18: `balance * a` becomes `balance + a`
+spec/examples/04_bank_account.rce#literal1	true	d	2	2.387	restored	in `Account`, line 8: `1` becomes `0`
+spec/examples/39_structural_recursion.rce#literal0	true	d	3	2.357	restored	in `sample_sum`, line 13: `3` becomes `2`
+spec/examples/39_structural_recursion.rce#literal1	true	d	3	2.501	not compared	in `sample_sum`, line 13: `2` becomes `1`
+spec/examples/39_structural_recursion.rce#literal3	true	d	3	2.422	not compared	in `sample_sum`, line 13: `2` becomes `1`
+spec/examples/43_simd_lanes.rce#operator2	true	d	6	2.531	restored	in `blend`, line 3: `a - w` becomes `a * w`
+spec/examples/43_simd_lanes.rce#literal3	true	d	18	2.553	restored	in `mix`, line 6: `8` becomes `7`
+spec/examples/44_device_region.rce#operator0	true	d	10	2.768	restored	in `dot4`, line 7: `acc / x` becomes `acc + x`
+spec/examples/44_device_region.rce#operator2	true	d	10	2.496	restored	in `dot4`, line 7: `acc * x` becomes `acc + x`
+spec/examples/44_device_region.rce#literal2	true	d	2	2.459	restored	in `dot4`, line 3: `1` becomes `0`
+spec/examples/49_loop_limit.rce#operator0	true	d	2	7.587	restored	in `count`, line 6: `k <= n` becomes `k < n`
+spec/examples/49_loop_limit.rce#operator1	true	d	2	3.354	restored	in `count`, line 6: `k > n` becomes `k < n`
+spec/examples/50_iterators.rce#operator0	true	d	13	2.568	restored	in `evens`, line 5: `i / (2)` becomes `i * (2)`
+spec/examples/50_iterators.rce#operator1	true	d	6	2.612	restored	in `evens`, line 4: `i <= n` becomes `i < n`
+spec/examples/50_iterators.rce#operator3	true	d	7	2.362	restored	in `first_over`, line 16: `x >= t` becomes `x > t`
+spec/examples/50_iterators.rce#literal2	true	d	11	2.526	not compared	in `naturals`, line 9: `0` becomes `1`
+spec/examples/53_capability.rce#operator2	true	d	5	2.381	examples only	in `Ledger`, line 15: `0` becomes `1`
+spec/examples/54_secret.rce#literal1	true	d	6	2.61	restored	in `step Vault on Login(pw: p)`, line 20: `2` becomes `1`
+spec/examples/54_secret.rce#literal2	true	d	2	2.487	restored	in `Vault`, line 10: `1` becomes `0`
+spec/examples/58_float_keys.rce#operator1	true	d	9	3.391	restored	in `step Tally on Flip(x: x)`, line 19: `x - (-(1.0))` becomes `x * (-(1.0))`
+spec/examples/58_float_keys.rce#literal1	true	d	13	2.724	undecided	in `step Tally on Flip(x: x)`, line 20: `(m.get(k) catch (1)) + (1)` becomes `(m.get(k) catch (1)) * (1)`
+spec/examples/58_float_keys.rce#literal3	true	d	18	2.633	restored	in `step Tally on Flip(x: x)`, line 20: `2` becomes `1`
+spec/examples/59_dim_redundant_field.rce#operator3	true	d	7	2.394	restored	in `step DimCounter on DimInc`, line 14: `n - (1)` becomes `n + (1)`
+spec/examples/60_dim_hidden_period.rce#operator1	true	d	6	2.241	restored	in `step DimPhase on DimStep`, line 12: `n / (1)` becomes `n + (1)`
+programs/body/arm.rce#operator0	true	d	17	2.568	restored	in `step Arm on Sensor(reading: r)`, line 18: `target + r` becomes `target - r`
+programs/body/thermostat.rce#operator0	true	d	3	2.396	examples only	in `step Heater on Reading(t: t)`, line 18: `(t < (-(400))) or (t < (800))` becomes `not ((t < (-(400))) or (t < (800)))`
+programs/data/totals.rce#operator0	true	d	1	2.499	restored	in `by_region`, line 15: `(m.get(r.region) catch (0)) / r.amount` becomes `(m.get(r.region) catch (0)) + r.amount`
+programs/data/totals.rce#literal0	true	d	14	2.631	restored	in `ROWS`, line 18: `6` becomes `5`
+programs/data/totals.rce#literal1	false		21	2.517		requires change /tmp/ladder-run-ftclm282/totals.rce: line 21: W-INT-1 check is false
+programs/data/totals.rce#literal2	true	d	9	2.593	restored	in `ROWS`, line 18: `11` becomes `10`
+programs/hardware/bits.rce#operator0	true	d	77	2.985	restored	in `crc_table`, line 10: `(c & (1)) != (1)` becomes `(c & (1)) == (1)`
+programs/hardware/bits.rce#operator1	true	d	2	2.86	restored	in `popcount`, line 23: `v == (0)` becomes `v != (0)`
+programs/hardware/bits.rce#literal0	true	d	17	2.766	restored	in `crc32`, line 17: `9` becomes `8`
+programs/hardware/bits.rce#literal2	true	d	51	3.135	restored	in `DIGITS`, line 30: `56` becomes `55`
+programs/hardware/bits.rce#literal3	true	d	5	2.568	restored	in `popcount`, line 23: `1` becomes `0`
+programs/media/gain.rce#literal0	true	d	14	2.738	restored	in `A`, line 16: `30001` becomes `30000`
+programs/media/gain.rce#literal3	true	d	6	2.568	restored	in `A`, line 16: `30001` becomes `30000`
+programs/media/moving_average.rce#operator1	true	d	41	3.108	not compared	in `smooth`, line 5: `xs[i - (1)] * xs[i]` becomes `xs[i - (1)] + xs[i]`
+programs/media/moving_average.rce#operator2	true	d	28	2.723	restored	in `smooth`, line 5: `((xs[i - (2)] + xs[i - (1)]) + xs[i]) * (3)` becomes `((xs[i - (2)] + xs[i - (1)]) + xs[i]) / (3)`
+programs/money/account.rce#operator0	true	d	15	2.472	restored	in `step Account on Withdraw(cents: a)`, line 24: `a <= balance_cents` becomes `a > balance_cents`
+programs/money/account.rce#operator3	true	d	8	2.4	examples only	in `step Account on Withdraw(cents: a)`, line 21: `a >= (0)` becomes `a < (0)`
+programs/money/account.rce#literal1	true	d	8	2.413	behaviour-equal	in `step Account on Withdraw(cents: a)`, line 21: `a <= (1)` becomes `a < (1)`
+programs/money/ledger.rce#operator3	true	d	1	2.816	restored	in `step Ledger on Transfer(src: f, dst: t, cents: _)`, line 21: `f != t` becomes `f == t`
+programs/money/ledger.rce#literal2	true	d	14	2.567	restored	in `step Ledger on Transfer(src: f, dst: t, cents: c)`, line 26: `1` becomes `0`
+programs/multi/card.rce#operator0	true	d	29	2.822	restored	in `step Account on Deposit`, line 40: `balance <= (5)` becomes `balance >= (5)`
+programs/multi/card.rce#operator2	true	d	1	2.658	examples only	in `Pin`, line 10: `0` becomes `1`
+programs/multi/card.rce#literal1	true	d	33	2.615	restored	in `step Account on Deposit`, line 40: `6` becomes `5`
+programs/multi/card.rce#literal3	true	d	29	2.568	examples only	in `step Account on Deposit`, line 40: `balance >= (5)` becomes `balance > (5)`
+programs/multi/climate.rce#literal1	true	d	15	2.975	restored	in `step Setpoint on Warmer`, line 31: `4` becomes `3`
+programs/multi/climate.rce#literal2	true	d	24	2.456	restored	in `step Setpoint on Cooler`, line 38: `2` becomes `1`
+programs/multi/climate.rce#rename2	false		24	2.537		requires change /tmp/ladder-run-ftclm282/climate.rce: line 6: W-INT-1 example does not hold: event 3 (Warmer) kept: Lowest
+programs/multi/crossing.rce#operator0	true	d	2	2.508	examples only	in `Pedestrian`, line 20: `false` becomes `true`
+programs/multi/elevator.rce#operator0	true	d	7	2.438	restored	in `step Car on Up`, line 28: `floor > (3)` becomes `floor >= (3)`
+programs/multi/elevator.rce#operator2	true	d	18	2.57	restored	in `step Car on Down`, line 36: `floor != (0)` becomes `floor == (0)`
+programs/multi/elevator.rce#operator3	true	d	7	2.335	restored	in `step Car on Up`, line 28: `floor <= (3)` becomes `floor >= (3)`
+programs/multi/elevator.rce#literal0	true	d	15	2.541	restored	in `step Car on Up`, line 31: `2` becomes `1`
+programs/multi/elevator.rce#literal1	true	d	22	2.63	restored	in `step Car on Down`, line 39: `2` becomes `1`
+programs/multi/lobby.rce#literal0	true	d	20	2.395	restored	in `step Lobby on Leave`, line 36: `2` becomes `1`
+programs/multi/lobby.rce#literal3	true	d	27	2.188	restored	in `step Lobby on Start`, line 37: `3` becomes `2`
+programs/multi/parking.rce#operator0	true	d	5	2.27	restored	in `step Lot on Arrive`, line 22: `cars < (4)` becomes `cars >= (4)`
+programs/multi/parking.rce#operator3	true	d	15	2.155	restored	in `step Lot on Leave`, line 29: `cars != (0)` becomes `cars == (0)`
+programs/multi/parking.rce#literal3	true	d	3	2.391	restored	in `Lot`, line 13: `1` becomes `0`
+programs/multi/player.rce#operator0	true	d	11	2.494	restored	in `step Transport on Next`, line 30: `track - (1)` becomes `track + (1)`
+programs/multi/player.rce#operator1	true	d	11	2.407	restored	in `step Transport on Next`, line 30: `track / (1)` becomes `track + (1)`
+programs/multi/player.rce#operator3	true	d	24	2.483	restored	in `step Volume on VolUp`, line 33: `level <= (3)` becomes `level >= (3)`
+programs/multi/player.rce#literal1	true	d	3	2.808	restored	in `Transport`, line 10: `1` becomes `0`
+programs/multi/printer.rce#operator1	true	d	7	2.785	restored	in `step Queue on Submit`, line 23: `jobs > (3)` becomes `jobs >= (3)`
+programs/multi/printer.rce#operator2	true	d	7	2.401	restored	in `step Queue on Submit`, line 23: `jobs < (3)` becomes `jobs >= (3)`
+programs/multi/printer.rce#literal0	true	d	22	2.393	restored	in `step Toner on Print`, line 29: `1` becomes `0`
+programs/multi/printer.rce#literal2	true	d	15	2.814	restored	in `step Queue on Submit`, line 26: `2` becomes `1`
+programs/multi/printer.rce#literal3	true	d	3	3.001	restored	in `Toner`, line 13: `3` becomes `2`
+programs/multi/reservoir.rce#operator2	true	d	22	2.816	restored	in `step Tank on Tick`, line 36: `level <= (0)` becomes `level > (0)`
+programs/multi/reservoir.rce#operator3	true	d	7	2.537	restored	in `step Tank on Rain`, line 24: `level < (4)` becomes `level >= (4)`
+programs/multi/reservoir.rce#literal0	true	d	11	2.608	restored	in `step Tank on Rain`, line 24: `5` becomes `4`
+programs/multi/reservoir.rce#literal2	true	d	2	2.427	restored	in `Tank`, line 11: `3` becomes `2`
+programs/multi/reservoir.rce#literal3	true	d	20	3.259	restored	in `step Tank on Draw`, line 32: `2` becomes `1`
+programs/multi/session.rce#operator1	true	d	19	3.343	restored	in `step Limit on Tick`, line 35: `strikes < (0)` becomes `strikes > (0)`
+programs/multi/session.rce#operator2	true	d	19	3.127	restored	in `step Limit on Tick`, line 35: `strikes <= (0)` becomes `strikes > (0)`
+programs/multi/session.rce#literal1	true	d	2	3.145	examples only	in `Limit`, line 13: `0` becomes `1`
+programs/multi/session.rce#literal3	true	d	12	2.969	restored	in `step Limit on Login(ok: false)`, line 25: `2` becomes `1`
+programs/multi/vending.rce#operator3	true	d	20	2.877	restored	in `step Stock on Buy`, line 29: `cans != (0)` becomes `cans == (0)`
+programs/multi/vending.rce#literal0	true	d	16	3.064	restored	in `step Credit on Coin`, line 26: `2` becomes `1`
+programs/multi/vending.rce#literal3	true	d	2	2.475	restored	in `Credit`, line 10: `1` becomes `0`
+programs/multi/washer.rce#operator1	true	d	2	2.842	restored	in `step Cycle on Start`, line 27: `phase == Idle` becomes `phase != Idle`
+programs/network/handshake.rce#operator1	true	d	4	2.56	restored	in `step Conn on SynAck`, line 31: `phase == SynSent` becomes `phase != SynSent`
+programs/network/handshake.rce#operator3	true	d	8	2.641	restored	in `step Conn on Data(n: _)`, line 39: `phase == Established` becomes `phase != Established`
+programs/network/handshake.rce#literal3	true	d	2	2.64	restored	in `Conn`, line 16: `1` becomes `0`
+programs/science/dpll.rce#operator1	true	d	214	6.488	not compared	in `propagate`, line 37: `true` becomes `false`
+programs/science/dpll.rce#operator2	true	d	75	3.955	not compared	in `dpll`, line 77: `true` becomes `false`
+programs/science/dpll.rce#operator3	true	d	9	2.458	restored	in `php_sat`, line 110: `(m + (1)) + m` becomes `(m + (1)) * m`
+programs/science/dpll.rce#literal1	true	d	67	3.401	restored	in `status`, line 24: `2` becomes `1`
+programs/science/graph.rce#operator3	true	d	29	6.115	restored	in `bfs`, line 43: `hops[u] * (1)` becomes `hops[u] + (1)`
+programs/science/graph.rce#literal0	true	d	100	13.242	restored	in `G`, line 47: `3` becomes `2`
+programs/science/graph.rce#literal2	true	a	2	3.361	not compared	the body of `far_hops` (line 60) becomes the body of `far`
+programs/science/knapsack.rce#operator1	true	d	21	2.604	restored	in `best`, line 13: `with_it <= table[w]` becomes `with_it > table[w]`
+programs/science/knapsack.rce#literal2	true	d	32	3.074	not compared	in `ITEMS`, line 20: `1` becomes `2`
+programs/science/numerics.rce#operator0	true	a	29	2.92	not compared	the body of `sqrt_newton` (line 15) becomes the body of `math.sqrt`
+programs/science/numerics.rce#operator1	true	a	51	2.685	not compared	the body of `close` (line 21) becomes the body of `math.odd_on`
+programs/science/numerics.rce#operator2	true	d	57	2.947	restored	in `mean`, line 13: `s * (xs.len() as f64)` becomes `s / (xs.len() as f64)`
+programs/science/numerics.rce#operator3	true	a	29	3.395	not compared	the body of `sqrt_newton` (line 15) becomes the body of `math.sqrt`
+programs/systems/accounts.rce#operator1	true	d	45	3.744	restored	in `step Ledger on Transfer(src: s, dst: d, cents: c)`, line 68: `bal[s] / c` becomes `bal[s] - c`
+programs/systems/reconcile.rce#operator2	true	d	12	2.687	restored	in `step Cluster on Reconcile`, line 22: `actual >= desired` becomes `actual < desired`
+programs/systems/ring_buffer.rce#operator1	true	d	6	2.952	examples only	in `Ring`, line 10: `0` becomes `1`
+programs/systems/ring_buffer.rce#literal0	true	d	40	2.446	restored	in `step Ring on Pop`, line 31: `2` becomes `1`
+programs/systems/ring_buffer.rce#literal1	true	d	46	2.544	restored	in `step Ring on Pop`, line 32: `2` becomes `1`
+programs/text/edit_distance.rce#operator3	true	d	32	2.514	restored	in `distance`, line 17: `cur[j - (1)] / (1)` becomes `cur[j - (1)] + (1)`
+programs/text/edit_distance.rce#literal0	true	d	53	2.998	restored	in `distance`, line 17: `2` becomes `1`
+programs/text/edit_distance.rce#literal1	true	d	13	2.866	restored	in `distance`, line 16: `2` becomes `1`
+programs/text/json_nest.rce#operator1	true	d	215	40.958	restored	in `build`, line 197: `want != Value` becomes `want == Value`
+programs/text/json_nest.rce#operator3	true	d	173	18.652	restored	in `lex`, line 73: `c != ","` becomes `c == ","`
+programs/text/json_nest.rce#literal1	true	d	54	12.742	restored	in `count`, line 237: `2` becomes `1`
+programs/world/cellular_automaton.rce#operator0	true	d	43	2.574	restored	in `next`, line 18: `i - (1)` becomes `i + (1)`
+programs/world/queue_sim.rce#operator2	true	d	10	2.612	restored	in `step Till on Serve`, line 24: `waiting != (0)` becomes `waiting == (0)`
+programs/world/queue_sim.rce#literal3	true	d	18	2.801	restored	in `CAPACITY`, line 8: `4` becomes `3`
