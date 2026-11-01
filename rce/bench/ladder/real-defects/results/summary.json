@@ -1,0 +1,137 @@
+{
+ "all": {
+  "candidates_tried": {
+   "a": 2714,
+   "b": 829,
+   "c": 13,
+   "d": 8547
+  },
+  "closed": 21,
+  "closed_per_rung": {
+   "a": 0,
+   "b": 0,
+   "c": 1,
+   "d": 20
+  },
+  "equivalence": {
+   "behaviour-equal": 0,
+   "examples only": 2,
+   "not compared": 1,
+   "restored": 17,
+   "undecided": 1
+  },
+  "not_closed": 130,
+  "tasks": 151,
+  "time_cap": 0
+ },
+ "bound": 2000,
+ "by_source": {
+  "guard": {
+   "candidates_tried": {
+    "a": 127,
+    "b": 12,
+    "c": 0,
+    "d": 331
+   },
+   "closed": 17,
+   "closed_per_rung": {
+    "a": 0,
+    "b": 0,
+    "c": 0,
+    "d": 17
+   },
+   "equivalence": {
+    "behaviour-equal": 0,
+    "examples only": 0,
+    "not compared": 0,
+    "restored": 16,
+    "undecided": 1
+   },
+   "not_closed": 10,
+   "tasks": 27,
+   "time_cap": 0
+  },
+  "history-admit": {
+   "candidates_tried": {
+    "a": 2302,
+    "b": 629,
+    "c": 0,
+    "d": 4402
+   },
+   "closed": 0,
+   "closed_per_rung": {
+    "a": 0,
+    "b": 0,
+    "c": 0,
+    "d": 0
+   },
+   "equivalence": {
+    "behaviour-equal": 0,
+    "examples only": 0,
+    "not compared": 0,
+    "restored": 0,
+    "undecided": 0
+   },
+   "not_closed": 33,
+   "tasks": 33,
+   "time_cap": 0
+  },
+  "history-fix": {
+   "candidates_tried": {
+    "a": 74,
+    "b": 72,
+    "c": 1,
+    "d": 178
+   },
+   "closed": 1,
+   "closed_per_rung": {
+    "a": 0,
+    "b": 0,
+    "c": 1,
+    "d": 0
+   },
+   "equivalence": {
+    "behaviour-equal": 0,
+    "examples only": 0,
+    "not compared": 0,
+    "restored": 1,
+    "undecided": 0
+   },
+   "not_closed": 7,
+   "tasks": 8,
+   "time_cap": 0
+  },
+  "rename": {
+   "candidates_tried": {
+    "a": 211,
+    "b": 116,
+    "c": 12,
+    "d": 3636
+   },
+   "closed": 3,
+   "closed_per_rung": {
+    "a": 0,
+    "b": 0,
+    "c": 0,
+    "d": 3
+   },
+   "equivalence": {
+    "behaviour-equal": 0,
+    "examples only": 2,
+    "not compared": 1,
+    "restored": 0,
+    "undecided": 0
+   },
+   "not_closed": 80,
+   "tasks": 83,
+   "time_cap": 0
+  }
+ },
+ "cap_s": 900,
+ "format": "rce-ladder-real-defects-summary/1",
+ "model_calls": 0,
+ "rce_sha256": "a620120e23b554ce17a43431336065080693b68279f37386c51c6e9f6cba1c55",
+ "tasks_sha256": "6ae255a32211f620364ef713b1a36f7daac6ab46f22ac318b45acb2a6da9af50",
+ "wall_s_median": 2.136,
+ "wall_s_total": 899.4
+}

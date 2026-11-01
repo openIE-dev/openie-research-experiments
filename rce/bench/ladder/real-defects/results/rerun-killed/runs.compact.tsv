@@ -1,0 +1,21 @@
+id	source	closed	rung	candidates	wall_s	time_cap	equivalence	mutant_rules	edit
+programs/science/knapsack.rce#guard0	guard	true	d	20	2.142	false	restored	W-INT-1	in `best`, line 13: `not (with_it > table[w])` becomes `with_it > table[w]`
+programs/science/knapsack.rce#guard1	guard	true	d	3	1.973	false	restored	W-INT-1	in `best`, line 11: `not (w >= it.weight)` becomes `w >= it.weight`
+programs/science/knapsack.rce#rename0	rename	false		60	1.919	false		W-TY-1	
+programs/science/knapsack.rce#rename1	rename	false		60	2.012	false		W-TY-1	
+programs/science/numerics.rce#rename0	rename	false		88	2.205	false		W-NAME-1,W-TY-1	
+programs/science/numerics.rce#rename1	rename	false		88	2.487	false		W-TY-1	
+programs/systems/accounts.rce#guard0	guard	true	d	89	2.231	false	restored	W-INT-1	in `step Ledger on Fee(cents: c)`, line 98: `not (c <= (0))` becomes `c <= (0)`
+programs/systems/accounts.rce#guard1	guard	true	d	5	2.014	false	restored	W-INT-1	in `step Ledger on Open(id: id)`, line 49: `not ((bal.len() as u64) >= MAX_ACCOUNTS)` becomes `(bal.len() as u64) >= MAX_ACCOUNTS`
+programs/systems/accounts.rce#rename0	rename	false		106	2.499	false		W-PLACE,W-TY-1	
+programs/systems/accounts.rce#rename1	rename	false		106	2.467	false		W-TY-1	
+programs/systems/reconcile.rce#guard0	guard	true	d	12	2.28	false	restored	W-INT-1	in `step Cluster on Reconcile`, line 22: `not (actual < desired)` becomes `actual < desired`
+programs/systems/reconcile.rce#guard1	guard	true	d	19	2.205	false	restored	W-INT-1	in `step Cluster on Reconcile`, line 24: `not (actual > desired)` becomes `actual > desired`
+programs/systems/reconcile.rce#rename0	rename	false		25	1.962	false		W-PLACE	
+programs/systems/ring_buffer.rce#rename0	rename	false		46	2.224	false		W-INT-1	
+programs/systems/ring_buffer.rce#rename1	rename	false		47	2.151	false		W-TY-3,W-UNUSED-1	
+programs/text/edit_distance.rce#guard0	guard	true	d	59	1.944	false	restored	W-INT-1	in `min3`, line 6: `not (c < m)` becomes `c < m`
+programs/text/edit_distance.rce#guard1	guard	true	d	29	1.971	false	not compared	W-INT-1	in `distance`, line 17: `prev[j] + (1)` becomes `prev[j] % (1)`
+programs/text/edit_distance.rce#rename0	rename	false		63	2.152	false		W-NAME-1	
+programs/text/json_nest.rce#guard0	guard	true	d	120	8.181	false	restored	W-INT-1	in `lex`, line 48: `not (in_num and (not c.isdigit()))` becomes `in_num and (not c.isdigit())`
+programs/text/json_nest.rce#guard1	guard	true	d	189	10.304	false	restored	W-INT-1	in `lex`, line 83: `not c.isdigit()` becomes `c.isdigit()`

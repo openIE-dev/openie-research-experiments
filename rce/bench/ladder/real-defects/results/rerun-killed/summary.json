@@ -1,0 +1,87 @@
+{
+ "all": {
+  "candidates_tried": {
+   "a": 152,
+   "b": 42,
+   "c": 1,
+   "d": 1039
+  },
+  "closed": 10,
+  "closed_per_rung": {
+   "a": 0,
+   "b": 0,
+   "c": 0,
+   "d": 10
+  },
+  "equivalence": {
+   "behaviour-equal": 0,
+   "examples only": 0,
+   "not compared": 1,
+   "restored": 9,
+   "undecided": 0
+  },
+  "not_closed": 10,
+  "tasks": 20,
+  "time_cap": 0
+ },
+ "bound": 2000,
+ "by_source": {
+  "guard": {
+   "candidates_tried": {
+    "a": 44,
+    "b": 42,
+    "c": 0,
+    "d": 459
+   },
+   "closed": 10,
+   "closed_per_rung": {
+    "a": 0,
+    "b": 0,
+    "c": 0,
+    "d": 10
+   },
+   "equivalence": {
+    "behaviour-equal": 0,
+    "examples only": 0,
+    "not compared": 1,
+    "restored": 9,
+    "undecided": 0
+   },
+   "not_closed": 0,
+   "tasks": 10,
+   "time_cap": 0
+  },
+  "rename": {
+   "candidates_tried": {
+    "a": 108,
+    "b": 0,
+    "c": 1,
+    "d": 580
+   },
+   "closed": 0,
+   "closed_per_rung": {
+    "a": 0,
+    "b": 0,
+    "c": 0,
+    "d": 0
+   },
+   "equivalence": {
+    "behaviour-equal": 0,
+    "examples only": 0,
+    "not compared": 0,
+    "restored": 0,
+    "undecided": 0
+   },
+   "not_closed": 10,
+   "tasks": 10,
+   "time_cap": 0
+  }
+ },
+ "cap_s": 900,
+ "format": "rce-ladder-real-defects-summary/1",
+ "model_calls": 0,
+ "rce_sha256": "a620120e23b554ce17a43431336065080693b68279f37386c51c6e9f6cba1c55",
+ "tasks_sha256": "272c5e692854ad6e023c92c229c7d4dcac9a62a77dc31e88d6771a356e8e1a75",
+ "wall_s_median": 2.205,
+ "wall_s_total": 57.5
+}
