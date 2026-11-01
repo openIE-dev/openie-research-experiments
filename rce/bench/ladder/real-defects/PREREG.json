@@ -1,0 +1,78 @@
+{
+ "id": "rce-ladder-real-defects-2026-11-01",
+ "registered": "2026-11-01, before the registered run; no ladder run of any kind was made on these tasks or a trial set before this registration (see pilot)",
+ "question": "On changes taken from the git history of openIE-dev/rce, and on guard-negation and rename mutations (the classes the first run lacked), how many tasks does the ladder of exact proposers (rce repair, spec 10.13, now with rung c) close with zero model calls, at which rung, and how many closed repairs are the original program rather than one that only passes the examples and checks?",
+ "relation_to_first_run": "The first registered run (rce/bench/ladder/exact-proposers/, results merged in openie-research-experiments #21) is not changed. 119 of its 120 tasks were operator and integer-literal mutations, which rung d inverts by construction. This run has no operator or literal mutation.",
+ "ladder": {
+  "repository": "openIE-dev/rce",
+  "branch": "claude/repair-rung-c (pull request #96, not merged at registration)",
+  "commit": "7dc4eded563a6d2204ec0242a9f643db4261f168",
+  "base": "bd9a5c4b0370476d2927bd42fc6b0b9577314fd3 (main at registration; the commit's parent)",
+  "binary": "spec/checker: cargo build --release --bin rce, clean tree at the commit",
+  "binary_sha256": "a620120e23b554ce17a43431336065080693b68279f37386c51c6e9f6cba1c55",
+  "command": "rce repair json FILE (bound 2000, the default)",
+  "rungs": {
+   "a": "reuse: the body of a function becomes the body of another function with the same name-free signature, from the program, its other modules or the built-in library",
+   "b": "lookup by type: from the brick catalog, a body becomes a call of a visible function of the same type, or a callee is replaced by one of the callee's type",
+   "c": "altered rules: one candidate, the canonical text of what rce fmt writes for W-UNUSED-1 and W-DROP-1 (alter.rs); none when rce fmt would alter nothing",
+   "d": "bounded enumeration: one small edit at one site (operator within its class, integer literal n+1, n-1, 0, 1, boolean negated, ordering operands swapped, two call arguments swapped, a condition negated or its `not` removed); at most 2000 candidates"
+  },
+  "judge": "every candidate is the canonical text of the edited module, judged by check_program (the gate of rce check, which runs every example and check); the ladder stops at the first admitted candidate; intent, example and check items are never edited",
+  "model_calls": "none: rce repair has no model client; the count is reported per task and must be 0"
+ },
+ "task_set": {
+  "generator": "tasks.py (this directory): python3 -I tasks.py RCE RCE_REPO bd9a5c4b0370476d2927bd42fc6b0b9577314fd3 tasks.jsonl, seed 0x5EED_C0DE_0002, at most 2 draws per program and operator",
+  "sources": {
+   "history-admit": "a commit reachable from the base (no merges, full history) modifies an .rce file under spec/examples, programs or stdlib; the parent text requires change and the child text is admitted, both judged standalone by rce check of the ladder binary; mutant = parent, original = child",
+   "history-fix": "the same, for commits whose subject names a fix (fix, fixes, fixed, bug)",
+   "guard": "one condition C of an if, elif or while (C of `while C bound N`), or a step or arm guard, becomes `not (C)`, on a line that is not an intent, example or check line",
+   "rename": "one use of a parameter or let/var/for binding becomes another parameter or binding of the same definition, bound earlier and in scope (the fields of a step's state count)"
+  },
+  "task_rule": "history: parent requires change and child admitted. guard and rename: the program is admitted standalone and has a definition outside its intent, example and check lines; the mutant changes no such line, requires change, and when its only report is W-INT-1, rce equiv fuel 2000 does not judge it behaviour-equal (exit 0). Unlike the first run, a mutant that requires change under a static rule is a task.",
+  "history_yield": "133 modifications of an .rce file in 51 commits; 54 have an admitted parent, 38 a child that requires change today; 41 tasks remain (33 history-admit, 8 history-fix). By the parent's report: W-SYN-1 25 (the retired `refuse` syntax, commit 2cc82de7), W-NAME-1 alone or with W-TY-1 7 (the retired `#!lib` line, a828e934), W-LEN-1 5 (unqualified `len`), W-WORLD-1 or W-CAP-3 2 (extern rules), W-UNUSED-1 1 (spec/examples/29_nested_kind.rce), W-INT-1 1 (spec/examples/57_float_vectors.rce, an example that expected 0 where the value is -0). 39 of the 41 are changes of the Form that the program followed, not defects of the program; 2 are program defects. Git history gives too few real defects for a set of them alone; all 41 are registered.",
+  "tasks": 151,
+  "by_source": {
+   "history-admit": 33,
+   "history-fix": 8,
+   "guard": 27,
+   "rename": 83
+  },
+  "mutant_reports": {
+   "guard": "W-INT-1 27",
+   "rename": "W-INT-1 15; static rules 68 (W-TY-1 alone 34; W-UNUSED-1 alone 8; W-PLACE alone or with W-TY-1/W-TY-3 11; W-NAME-1 alone or with W-TY-1 6; W-ASSIGN-1 alone or with W-TY-1 4; other combinations 5)"
+  },
+  "tasks_jsonl_sha256": "6ae255a32211f620364ef713b1a36f7daac6ab46f22ac318b45acb2a6da9af50",
+  "tasks_list": "tasks.list.tsv (id, source, line, mutant rules, original and mutant SHA-256, commit of every task)",
+  "tasks_list_sha256": "405fa28b610c1c0149adba206ea336c87fee713414421e906174a9c9f9924299",
+  "generator_counts": "tasks.summary.json",
+  "known_bias": [
+   "History is dominated by Form migrations (39 of 41): the parent requires change because the language changed after it was written (25 do not parse today), so no rung, which edits the parsed module one definition or site at a time, is expected to close them. They measure the ladder on real changes, not on real defects.",
+   "Guard negation is inverted by construction: rung d's edits include removing the `not` of a condition, so the 27 guard tasks repeat the first run's bias for one class.",
+   "Rename: 68 of 83 mutants fail a static rule (mostly W-TY-1), which the checker already locates; 8 fail only W-UNUSED-1, meaning the checks do not see the wrong name, and rung c answers them by naming the unread binding `_x`, which by construction leaves the wrong name in place (a closed repair that is not the original).",
+   "Same small public corpus as the first run (spec/examples, programs, stdlib/tests); one draw per site class per program at most twice."
+  ]
+ },
+ "bound": 2000,
+ "runner": "python3 run.py RCE tasks.jsonl results 900 (this directory): the procedure of scripts/ladder-run.py at the ladder commit, with each rce repair call stopped after 900 s (counted as not closed, time cap) and totals also split by source",
+ "metrics": {
+  "primary": "tasks closed with zero model calls, per rung (a, b, c, d) and per source",
+  "equivalence_split": "for each closed task: restored (rce hash program hash equal to the original), behaviour-equal (rce equiv fuel 2000 exit 0), examples only (exit 1), undecided (exit 3), not compared (rce equiv cannot compare)",
+  "secondary": "candidates judged per rung, time-capped tasks, wall time (one machine, no energy claim)"
+ },
+ "predictions": {
+  "P1": "History: at most 4 of the 41 tasks close (the 25 W-SYN-1 parents do not parse); rung c closes spec/examples/29_nested_kind.rce@013e21ed.",
+  "P2": "Guard: at least 85% of the 27 close, nearly all at rung d, and at least 70% of those closed are restored.",
+  "P3": "Rename: between 10% and 40% of the 83 close; rung c closes the W-UNUSED-1-only mutants, and none of those is restored.",
+  "P4": "Overall, under 50% of the 151 tasks close, against 98.3% in the first run."
+ },
+ "falsifier": {
+  "F1": "The claim that the first run's closure rate carries over to changes from real history is false if fewer than 50% of the 41 history tasks close.",
+  "F2": "The claim that rung c adds closures on this set is false if rung c closes no task.",
+  "F3": "The claim that closing a task restores the program is false for this ladder on this set if restored plus behaviour-equal is below 80% of the closed tasks."
+ },
+ "reporting": "every task reported (results/runs.compact.tsv), including not closed and time-capped; the equivalence split for every closed task; nothing excluded after the run",
+ "pilot": {
+  "what": "no ladder run was made before this registration. Before it, the history pairs were surveyed with rce check only (parent and child verdicts) using an rce binary built from main by another session (SHA-256 not recorded), and the generator was run twice with the ladder binary: the first output (151 tasks, tasks.jsonl SHA-256 ef30e81e...7f31) had two guard mutants that did not parse (`while not (C bound N)`), rename mutants that used a name out of scope, and a rule pattern that missed W-PLACE; the generator was corrected for these three and run again, giving the registered set",
+  "changes_after_pilot": "none to the ladder; the generator changes above were made before any repair was run"
+ }
+}

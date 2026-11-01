@@ -1,0 +1,34 @@
+{
+ "base": "bd9a5c4b0370476d2927bd42fc6b0b9577314fd3",
+ "by_source": {
+  "guard": 27,
+  "history-admit": 33,
+  "history-fix": 8,
+  "rename": 83
+ },
+ "duplicates_dropped": 0,
+ "generator_counts": {
+  "guard": {
+   "admitted": 5,
+   "drawn": 34,
+   "equivalent": 2,
+   "tasks": 27
+  },
+  "history": {
+   "child_requires_change": 38,
+   "history-admit": 33,
+   "history-fix": 8,
+   "pairs": 133,
+   "parent_admitted": 54
+  },
+  "rename": {
+   "admitted": 7,
+   "drawn": 92,
+   "equivalent": 2,
+   "tasks": 83
+  }
+ },
+ "per_op": 2,
+ "seed": "0x5eedc0de0002",
+ "tasks": 151
+}
