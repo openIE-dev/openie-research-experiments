@@ -1,0 +1,152 @@
+id	source	closed	rung	candidates	wall_s	time_cap	equivalence	mutant_rules	edit
+spec/examples/57_float_vectors.rce@b2b932da	history-admit	false		24	1.835	false		W-INT-1	
+spec/examples/11_arena.rce@013e21ed	history-fix	false		0	1.998	false		W-LEN-1	
+spec/examples/29_nested_kind.rce@013e21ed	history-fix	true	c	1	1.857	false	restored	W-UNUSED-1	the rewrites of rce fmt: line 6: W-UNUSED-1 `e` is named `_e`
+spec/examples/40_extern.rce@013e21ed	history-fix	false		12	1.913	false		W-WORLD-1	
+spec/examples/41_arena_bound_wrapping.rce@013e21ed	history-fix	false		14	1.973	false		W-LEN-1	
+spec/examples/45_byte_text.rce@013e21ed	history-fix	false		1	1.857	false		W-LEN-1	
+spec/examples/48_linear_handle.rce@013e21ed	history-fix	false		12	1.866	false		W-CAP-3,W-WORLD-1	
+spec/examples/56_utf8.rce@013e21ed	history-fix	false		222	2.011	false		W-LEN-1	
+programs/text/edit_distance.rce@29c21674	history-fix	false		63	1.83	false		W-LEN-1	
+programs/ecosystem/hpke.rce@a828e934	history-admit	false		8	1.714	false		W-NAME-1	
+programs/ecosystem/mls_key_schedule.rce@a828e934	history-admit	false		41	1.752	false		W-NAME-1,W-TY-1	
+programs/ecosystem/pqxdh.rce@a828e934	history-admit	false		30	1.802	false		W-NAME-1,W-TY-1	
+stdlib/lib/energy/energy.rce@a828e934	history-admit	false		1153	54.135	false		W-NAME-1	
+stdlib/lib/hpke.rce@a828e934	history-admit	false		1801	41.246	false		W-NAME-1,W-TY-1	
+stdlib/lib/mls.rce@a828e934	history-admit	false		1218	23.551	false		W-NAME-1	
+stdlib/lib/pq.rce@a828e934	history-admit	false		3058	109.817	false		W-NAME-1,W-TY-1	
+programs/body/arm.rce@2cc82de7	history-admit	false		0	0.004	false		W-SYN-1	
+programs/body/thermostat.rce@2cc82de7	history-admit	false		0	0.003	false		W-SYN-1	
+programs/money/account.rce@2cc82de7	history-admit	false		0	0.003	false		W-SYN-1	
+programs/money/ledger.rce@2cc82de7	history-admit	false		0	0.003	false		W-SYN-1	
+programs/multi/card.rce@2cc82de7	history-admit	false		0	0.003	false		W-SYN-1	
+programs/multi/climate.rce@2cc82de7	history-admit	false		0	0.002	false		W-SYN-1	
+programs/multi/crossing.rce@2cc82de7	history-admit	false		0	0.003	false		W-SYN-1	
+programs/multi/elevator.rce@2cc82de7	history-admit	false		0	0.003	false		W-SYN-1	
+programs/multi/lobby.rce@2cc82de7	history-admit	false		0	0.002	false		W-SYN-1	
+programs/multi/parking.rce@2cc82de7	history-admit	false		0	0.003	false		W-SYN-1	
+programs/multi/player.rce@2cc82de7	history-admit	false		0	0.003	false		W-SYN-1	
+programs/multi/printer.rce@2cc82de7	history-admit	false		0	0.002	false		W-SYN-1	
+programs/multi/reservoir.rce@2cc82de7	history-admit	false		0	0.003	false		W-SYN-1	
+programs/multi/session.rce@2cc82de7	history-admit	false		0	0.002	false		W-SYN-1	
+programs/multi/vending.rce@2cc82de7	history-admit	false		0	0.003	false		W-SYN-1	
+programs/multi/washer.rce@2cc82de7	history-admit	false		0	0.003	false		W-SYN-1	
+programs/network/handshake.rce@2cc82de7	history-admit	false		0	0.003	false		W-SYN-1	
+programs/systems/reconcile.rce@2cc82de7	history-admit	false		0	0.002	false		W-SYN-1	
+programs/systems/ring_buffer.rce@2cc82de7	history-admit	false		0	0.003	false		W-SYN-1	
+programs/world/queue_sim.rce@2cc82de7	history-admit	false		0	0.002	false		W-SYN-1	
+spec/examples/01_counter.rce@2cc82de7	history-admit	false		0	0.003	false		W-SYN-1	
+spec/examples/04_bank_account.rce@2cc82de7	history-admit	false		0	0.002	false		W-SYN-1	
+spec/examples/30_state_machine_guarded.rce@2cc82de7	history-admit	false		0	0.002	false		W-SYN-1	
+spec/examples/55_rcedb.rce@2cc82de7	history-admit	false		0	0.003	false		W-SYN-1	
+spec/examples/61_dim_minimal.rce@2cc82de7	history-admit	false		0	0.002	false		W-SYN-1	
+spec/examples/03_fib_loop.rce#rename0	rename	false		8	1.947	false		W-TY-1	
+spec/examples/03_fib_loop.rce#rename1	rename	false		8	2.018	false		W-PLACE,W-TY-3	
+spec/examples/04_bank_account.rce#guard0	guard	true	d	2	2.155	false	restored	W-INT-1	in `step Account on Deposit(amount: a)`, line 18: `not (a > (0))` becomes `a > (0)`
+spec/examples/04_bank_account.rce#guard1	guard	true	d	12	2.056	false	restored	W-INT-1	in `step Account on Withdraw(amount: a)`, line 21: `not (a > balance)` becomes `a > balance`
+spec/examples/04_bank_account.rce#rename0	rename	false		20	1.891	false		W-INT-1	
+spec/examples/30_state_machine_guarded.rce#rename0	rename	false		8	1.898	false		W-INT-1	
+spec/examples/30_state_machine_guarded.rce#rename1	rename	true	d	1	2.071	false	examples only	W-INT-1	in `Door`, line 7: `false` becomes `true`
+spec/examples/41_arena_bound_wrapping.rce#rename0	rename	false		15	2.02	false		W-OWN-2,W-TY-1,W-UNUSED-1	
+spec/examples/41_arena_bound_wrapping.rce#rename1	rename	false		14	2.078	false		W-TY-1	
+spec/examples/42_f32.rce#rename0	rename	false		9	2.156	false		W-UNUSED-1	
+spec/examples/42_f32.rce#rename1	rename	false		9	2.097	false		W-UNUSED-1	
+spec/examples/43_simd_lanes.rce#rename0	rename	false		37	2.082	false		W-UNUSED-1	
+spec/examples/44_device_region.rce#rename0	rename	false		13	2.115	false		W-TY-1	
+spec/examples/44_device_region.rce#rename1	rename	true	d	6	1.999	false	not compared	W-INT-1	in `dot4`, line 5: `a * b` becomes `a + b`
+spec/examples/49_loop_limit.rce#guard0	guard	true	d	2	2.751	false	restored	W-INT-1	in `count`, line 6: `not (k < n)` becomes `k < n`
+spec/examples/49_loop_limit.rce#rename0	rename	false		12	2.014	false		W-PLACE	
+spec/examples/50_iterators.rce#guard0	guard	true	d	5	1.886	false	restored	W-INT-1	in `first_over`, line 16: `not (x > t)` becomes `x > t`
+spec/examples/50_iterators.rce#guard1	guard	true	d	6	2.205	false	restored	W-INT-1	in `evens`, line 4: `not (i < n)` becomes `i < n`
+spec/examples/50_iterators.rce#rename0	rename	false		29	3.035	false		W-UNUSED-1	
+spec/examples/50_iterators.rce#rename1	rename	false		30	2.019	false		W-UNUSED-1	
+spec/examples/52_context_text.rce#rename0	rename	false		16	2.835	false		W-TY-1	
+spec/examples/52_context_text.rce#rename1	rename	false		16	2.086	false		W-PLACE,W-TY-1	
+spec/examples/54_secret.rce#guard0	guard	true	d	3	2.103	false	restored	W-INT-1	in `step Vault on Login(pw: p)`, line 19: `not (stored == some(p))` becomes `stored == some(p)`
+spec/examples/54_secret.rce#rename0	rename	false		8	2.224	false		W-TY-1	
+spec/examples/54_secret.rce#rename1	rename	false		8	2.091	false		W-TY-1	
+spec/examples/55_rcedb.rce#guard0	guard	true	d	2	1.852	false	undecided	W-INT-1	in `Db`, line 11: `0` becomes `1`
+spec/examples/55_rcedb.rce#rename0	rename	false		19	2.653	false		W-NAME-1	
+spec/examples/55_rcedb.rce#rename1	rename	false		19	2.492	false		W-NAME-1,W-TY-1	
+spec/examples/58_float_keys.rce#rename0	rename	false		18	2.023	false		W-NAME-1,W-TY-1	
+spec/examples/58_float_keys.rce#rename1	rename	false		18	2.942	false		W-PLACE,W-TY-1	
+spec/examples/59_dim_redundant_field.rce#rename0	rename	false		34	1.894	false		W-ASSIGN-1,W-TY-1	
+spec/examples/61_dim_minimal.rce#rename0	rename	false		8	2.331	false		W-INT-1	
+spec/examples/61_dim_minimal.rce#rename1	rename	true	d	1	2.374	false	examples only	W-INT-1	in `DimDoor`, line 7: `false` becomes `true`
+programs/body/arm.rce#rename0	rename	false		21	1.891	false		W-UNUSED-1	
+programs/body/arm.rce#rename1	rename	false		20	1.902	false		W-INT-1	
+programs/body/thermostat.rce#rename0	rename	false		41	2.224	false		W-TY-1	
+programs/body/thermostat.rce#rename1	rename	false		41	1.974	false		W-PLACE,W-TY-1	
+programs/data/totals.rce#rename0	rename	false		21	2.041	false		W-NAME-1,W-TY-1	
+programs/data/totals.rce#rename1	rename	false		22	1.966	false		W-TY-1,W-UNUSED-1	
+programs/ecosystem/hpke.rce#rename0	rename	false		15	6.807	false		W-OWN-1,W-UNUSED-1	
+programs/ecosystem/mls_key_schedule.rce#rename0	rename	false		43	4.744	false		W-TY-1	
+programs/ecosystem/mls_key_schedule.rce#rename1	rename	false		43	4.827	false		W-TY-1	
+programs/ecosystem/pqxdh.rce#rename0	rename	false		58	8.083	false		W-TY-1	
+programs/ecosystem/pqxdh.rce#rename1	rename	false		58	9.476	false		W-PLACE,W-TY-1	
+programs/hardware/bits.rce#guard0	guard	true	d	2	2.476	false	restored	W-INT-1	in `popcount`, line 23: `not (v != (0))` becomes `v != (0)`
+programs/hardware/bits.rce#rename0	rename	false		124	2.527	false		W-INT-1	
+programs/hardware/bits.rce#rename1	rename	false		124	2.043	false		W-PLACE	
+programs/media/gain.rce#guard0	guard	true	d	5	2.109	false	restored	W-INT-1	in `clip`, line 10: `not (x > (32767))` becomes `x > (32767)`
+programs/media/gain.rce#guard1	guard	true	d	18	2.107	false	restored	W-INT-1	in `clip`, line 12: `not (x < (-(32768)))` becomes `x < (-(32768))`
+programs/media/gain.rce#rename0	rename	false		64	2.082	false		W-UNUSED-1	
+programs/media/gain.rce#rename1	rename	false		63	2.177	false		W-TY-1	
+programs/media/moving_average.rce#rename0	rename	false		75	2.06	false		W-TY-1	
+programs/media/moving_average.rce#rename1	rename	false		75	2.278	false		W-TY-1	
+programs/money/account.rce#guard0	guard	true	d	14	2.116	false	restored	W-INT-1	in `step Account on Withdraw(cents: a)`, line 24: `not (a > balance_cents)` becomes `a > balance_cents`
+programs/money/account.rce#rename0	rename	false		22	2.136	false		W-PLACE	
+programs/money/account.rce#rename1	rename	false		21	1.955	false		W-INT-1	
+programs/money/checkout.rce#rename0	rename	false		474	8.026	false		W-TY-1	
+programs/money/ledger.rce#rename0	rename	false		19	2.707	false		W-INT-1	
+programs/money/ledger.rce#rename1	rename	false		19	2.582	false		W-TY-1	
+programs/multi/card.rce#rename0	rename	false		37	2.51	false		W-TY-1	
+programs/multi/card.rce#rename1	rename	false		37	2.16	false		W-TY-1	
+programs/multi/climate.rce#rename0	rename	false		24	2.477	false		W-ASSIGN-1	
+programs/multi/climate.rce#rename1	rename	false		24	2.487	false		W-ASSIGN-1	
+programs/multi/crossing.rce#rename0	rename	false		13	2.147	false		W-INT-1	
+programs/multi/crossing.rce#rename1	rename	false		13	2.153	false		W-ASSIGN-1	
+programs/multi/elevator.rce#rename0	rename	false		27	2.177	false		W-TY-1	
+programs/multi/elevator.rce#rename1	rename	false		27	3.002	false		W-TY-1	
+programs/multi/player.rce#rename0	rename	false		37	2.466	false		W-TY-1	
+programs/multi/player.rce#rename1	rename	false		37	2.935	false		W-TY-1	
+programs/network/handshake.rce#rename0	rename	false		9	2.392	false		W-TY-1	
+programs/network/handshake.rce#rename1	rename	false		9	2.351	false		W-TY-1	
+programs/network/notes_http.rce#guard0	guard	true	d	129	3.868	false	restored	W-INT-1	in `esc`, line 40: `not ((x < (32)) and (not ESC.contains(c)))` becomes `(x < (32)) and (not ESC.contains(c))`
+programs/network/notes_http.rce#rename0	rename	false		332	5.567	false		W-PLACE,W-TY-1	
+programs/science/dpll.rce#guard0	guard	true	d	73	2.75	false	restored	W-INT-1	in `dpll`, line 76: `not dpll(cs, &t)` becomes `dpll(cs, &t)`
+programs/science/dpll.rce#guard1	guard	true	d	132	3.256	false	restored	W-INT-1	in `first_free`, line 58: `not (a[v] == (0))` becomes `a[v] == (0)`
+programs/science/dpll.rce#rename0	rename	false		273	3.231	false		W-TY-1,W-UNUSED-1	
+programs/science/dpll.rce#rename1	rename	false		272	3.247	false		W-TY-1	
+programs/science/graph.rce#guard0	guard	true	d	21	7.424	false	restored	W-INT-1	in `bfs`, line 42: `not ((e.src == u) and (hops[e.dst] == (-(1))))` becomes `(e.src == u) and (hops[e.dst] == (-(1)))`
+programs/science/graph.rce#guard1	guard	true	d	42	9.236	false	restored	W-INT-1	in `dijkstra`, line 28: `not ((e.src == u) and ((dist[u] + e.w) < dist[e.dst]))` becomes `(e.src == u) and ((dist[u] + e.w) < dist[e.dst])`
+programs/science/graph.rce#rename0	rename	false		185	3.315	false		W-TY-1	
+programs/science/knapsack.rce#guard0	guard	false		0	12.231	false		W-INT-1	
+programs/science/knapsack.rce#guard1	guard	false		0	12.032	false		W-INT-1	
+programs/science/knapsack.rce#rename0	rename	false		0	17.755	false		W-TY-1	
+programs/science/knapsack.rce#rename1	rename	false		0	11.27	false		W-TY-1	
+programs/science/numerics.rce#rename0	rename	false		0	17.053	false		W-NAME-1,W-TY-1	
+programs/science/numerics.rce#rename1	rename	false		0	14.07	false		W-TY-1	
+programs/systems/accounts.rce#guard0	guard	false		0	17.123	false		W-INT-1	
+programs/systems/accounts.rce#guard1	guard	false		0	18.73	false		W-INT-1	
+programs/systems/accounts.rce#rename0	rename	false		0	19.358	false		W-PLACE,W-TY-1	
+programs/systems/accounts.rce#rename1	rename	false		0	12.946	false		W-TY-1	
+programs/systems/reconcile.rce#guard0	guard	false		0	10.934	false		W-INT-1	
+programs/systems/reconcile.rce#guard1	guard	false		0	13.931	false		W-INT-1	
+programs/systems/reconcile.rce#rename0	rename	false		0	9.566	false		W-PLACE	
+programs/systems/ring_buffer.rce#rename0	rename	false		0	11.791	false		W-INT-1	
+programs/systems/ring_buffer.rce#rename1	rename	false		0	9.028	false		W-TY-3,W-UNUSED-1	
+programs/text/edit_distance.rce#guard0	guard	false		0	12.887	false		W-INT-1	
+programs/text/edit_distance.rce#guard1	guard	false		0	17.137	false		W-INT-1	
+programs/text/edit_distance.rce#rename0	rename	false		0	16.809	false		W-NAME-1	
+programs/text/edit_distance.rce#rename1	rename	false		63	12.692	false		W-INT-1	
+programs/text/json_nest.rce#guard0	guard	false		0	9.02	false		W-INT-1	
+programs/text/json_nest.rce#guard1	guard	false		0	49.706	false		W-INT-1	
+programs/text/json_nest.rce#rename0	rename	false		265	71.894	false		W-TY-1	
+programs/text/json_nest.rce#rename1	rename	false		266	5.621	false		W-UNUSED-1	
+programs/text/word_count.rce#guard0	guard	true	d	2	1.91	false	restored	W-INT-1	in `step Lexer on Char(c: ch)`, line 18: `not (ch == (32))` becomes `ch == (32)`
+programs/text/word_count.rce#rename0	rename	false		9	1.908	false		W-TY-1	
+programs/text/word_count.rce#rename1	rename	false		9	1.978	false		W-TY-1	
+programs/world/cellular_automaton.rce#rename0	rename	false		60	2.317	false		W-TY-1	
+programs/world/cellular_automaton.rce#rename1	rename	false		60	2.487	false		W-TY-1	
+programs/world/queue_sim.rce#rename0	rename	false		20	1.818	false		W-INT-1	
+programs/world/queue_sim.rce#rename1	rename	false		20	1.981	false		W-INT-1	
