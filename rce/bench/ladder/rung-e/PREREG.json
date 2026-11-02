@@ -1,0 +1,78 @@
+{
+ "id": "rce-ladder-rung-e-2026-11-02",
+ "registered": "2026-11-02, before the registered run; no ladder run of any kind was made by this registration's author on these tasks with the pinned binary before it (see prior_evidence for the one informal rerun made by another session)",
+ "question": "On the frozen 151 tasks of the second registered run, how many does the ladder of exact proposers (rce repair, spec 10.13, now with rung e, renames) close with zero model calls, at which rung, and how many closed repairs are the original program; and what changes when the task's original is given as the known-good version (`known GOOD`)?",
+ "relation_to_earlier_runs": "Run 1 (rce/bench/ladder/exact-proposers/, openie-research-experiments #21) and run 2 (rce/bench/ladder/real-defects/, #22) are not changed. Run 1's set was 119 of 120 operator and integer-literal mutations, which rung d inverts by construction. Run 2 replaced that set with no operator or literal mutation: 41 changes from the git history of openIE-dev/rce (39 of them Form migrations, 2 program defects), 27 guard negations and 83 renames; run 2 closed 3 of 83 renames, none restored, because no rung changed a name back. Run 3 measures rung e and `known GOOD` on run 2's set unchanged, so the two runs compare task by task.",
+ "ladder": {
+  "repository": "openIE-dev/rce",
+  "branch": "main",
+  "commit": "8a5d90ea5e53d85802ca90af3c42503a8505f7f5",
+  "contains": "rung e and `known GOOD` (pull request #114, commit 0b2ec445); rung c (pull request #96)",
+  "binary": "spec/checker: cargo build --release -j1 --bin rce, clean tree at the commit (CARGO_TARGET_DIR outside the tree)",
+  "binary_sha256": "f7a8f301569ffc83ecba059be65d0abbc6ce673ed186df0b18ed2e02dd0743d1",
+  "commands": {
+   "plain": "rce repair json FILE",
+   "known": "rce repair json known ORIGINAL FILE",
+   "note": "positional words, then operands (PC-1); bound 2000, the default, for each of rungs d and e; FILE holds the task's mutant, ORIGINAL the task's original text"
+  },
+  "rungs": {
+   "a": "reuse: the body of a function becomes the body of another function with the same name-free signature, from the program, its other modules or the built-in library",
+   "b": "lookup by type: from the brick catalog, a body becomes a call of a visible function of the same type, or a callee is replaced by one of the callee's type",
+   "c": "altered rules: one candidate, the canonical text of what rce fmt writes for W-UNUSED-1 and W-DROP-1; none when rce fmt would alter nothing",
+   "d": "bounded enumeration: one small edit at one site (operator within its class, integer literal n+1, n-1, 0, 1, boolean negated, ordering operands swapped, two call arguments swapped, a condition negated or its `not` removed); at most 2000 candidates",
+   "e": "renames, after rung d: one use of a value name (or of a name the report names) becomes another value name in scope there, or one binding becomes a name the report names; uses on a reported line first, then by whether the report names the replacing name, edit distance, innermost binding; at most 2000 candidates",
+   "known GOOD": "with `known GOOD`, before rung a: when the canonical texts of FILE and GOOD differ in identifiers only, at most two candidates read from the two texts with no search (the text that keeps FILE's names and has GOOD's name-free projection, then GOOD's canonical text); reported as rung e with an edit that begins `the renaming onto`. When the texts differ otherwise, nothing is judged and the ladder runs as in the plain arm."
+  },
+  "judge": "every candidate is the canonical text of the edited module, judged by check_program (the gate of rce check, which runs every example and check); the ladder stops at the first admitted candidate; intent, example, check and law lines are never edited",
+  "model_calls": "none: rce repair has no model client. The count is reported per task by `rce repair json`, whose report writes the constant 0; it is recorded, and is not independent evidence beyond the absence of a model client"
+ },
+ "task_set": {
+  "what": "the frozen task set of run 2, unchanged: 151 tasks (history-admit 33, history-fix 8, guard 27, rename 83), listed in real-defects/tasks.list.tsv",
+  "tasks_jsonl_sha256": "6ae255a32211f620364ef713b1a36f7daac6ab46f22ac318b45acb2a6da9af50",
+  "rebuilt_by": "python3 -I frozen.py RCE_REPO ../real-defects/tasks.list.tsv tasks.jsonl (this directory): every text from git (history: the file at the commit and at its parent; guard and rename: the site of real-defects/tasks.py, run unchanged, whose mutant has the listed SHA-256), every other field from the list; no rce binary is run. The rebuilt file has the SHA-256 above, the one run 2 registered.",
+  "mutant_rules": "the rules recorded in run 2 (from run 2's binary); run 3 also records, per task, the exit code of the pinned `rce check` on the original and on the mutant",
+  "real_defect_tasks": "deferred. Run 2's text names no further task set for a next run: it records that the git history of openIE-dev/rce at its base holds 41 qualifying pairs, of which 2 are program defects, 'too few real defects for a set of them alone'. Since that base (bd9a5c4b) 11 commits change .rce files under spec/examples, programs or stdlib; whether any is a program defect was not surveyed before this registration, and adding them would break the direct comparison with run 2. A set of real defects stays open for a later registration.",
+  "known_bias": [
+   "The 83 rename tasks are the class rung e was built for after run 2 showed the gap; as with rung d on run 1's operator and literal mutations, closing them shows that the ladder undoes the mutation it was built to undo.",
+   "The known arm gives the ladder the task's original. On a rename task the original differs from the mutant in identifiers only, so the renaming onto GOOD can return the original without search; that arm measures what a known-good version supplies, not search.",
+   "Guard negation is rung d's own inverse (run 2: 27 of 27 at d). History is 39 Form migrations and 2 program defects.",
+   "Prior evidence below came from the code's author session on the same tasks, before this registration."
+  ]
+ },
+ "bound": 2000,
+ "runner": "python3 -I run.py RCE tasks.jsonl results/plain plain 900, then python3 -I run.py RCE tasks.jsonl results/known known 900 (this directory), one after the other on one machine. run.py is run 2's run.py with rungs a to e, the arm, the `rce check` exit codes of original and mutant, and per-rung candidate columns.",
+ "rerun_rule": "a task whose `rce repair` call ends by a signal (exit below 0, as the 20 tasks of run 2 killed by the out-of-memory killer) and not by the runner's time cap is run once more, alone, with the same binary, runner and cap: python3 -I killed.py results/ARM/runs.compact.tsv tasks.jsonl killed.jsonl and python3 -I run.py RCE killed.jsonl results/ARM/rerun-killed ARM 900. The rerun row replaces the first row in the report; both are kept. Nothing else is run again.",
+ "report": "python3 -I report.py results ../real-defects/results writes results/REPORT.md and results/report.json; every number, and the outcome of every prediction and falsifier by the rules stated here and in report.py, is computed from the raw results. Run 2's per-task outcomes are its runs.compact.tsv with the rows of its rerun-killed/ in place of the 20 killed rows, as run 2's RESULTS.md reports them.",
+ "metrics": {
+  "closed": "rce repair reports closed with a rung a to e. A mutant the pinned checker admits as given (rung `none`) is not closed and is counted apart (admitted as given). Reported per rung, per source and per arm; rung e split into the renaming onto GOOD (edit begins `the renaming onto`) and search",
+  "restored": "of the closed: rce hash gives the repair and the original the same program hash",
+  "behaves the same": "of the closed: restored plus behaviour-equal, where behaviour-equal is a repair that is not restored and rce equiv fuel 2000 exits 0",
+  "examples only": "of the closed: rce equiv exits 1 (a distinguishing event sequence exists); also reported: undecided (exit 3) and not compared (any other exit)",
+  "candidates judged": "the `tried` counts that rce repair json reports, per rung and in total",
+  "model calls": "the sum of `model_calls` over the tasks; must be 0",
+  "secondary": "time-capped tasks, tasks ended by a signal, rce check exit of original and mutant, wall time (one machine, no energy claim), per-task outcome changes against run 2 and between the arms"
+ },
+ "prior_evidence": "Informal and not registered: a local rerun of run 2's frozen tasks with rung e, reported in the message of rce commit 0b2ec445 and by the session that wrote it: on the 83 rename tasks 83 closed and 77 restored (run 2: 3 closed, 0 restored); on the 110 guard and rename tasks 102 restored with 6,556 candidates judged; the 27 guard tasks gave run 2's result (25 restored). Its binary SHA-256 and exact commit were not recorded, and its history tasks were not reported. The predictions below cite it as prior evidence.",
+ "predictions": {
+  "P1": "Plain arm, rename: at least 75 of 83 close and at least 70 of 83 are restored (prior evidence: 83 and 77).",
+  "P2": "Plain arm, guard: 27 of 27 close, all at rung d, 25 restored, and every guard task has run 2's outcome (closed, rung, equivalence): rung e runs after d.",
+  "P3": "Plain arm, history: at most 4 of 41 close, and spec/examples/29_nested_kind.rce@013e21ed closes at rung c, restored.",
+  "P4": "Plain arm, all: between 105 and 115 of 151 close (run 2: 31), and behaves the same is at least 85% of the closed.",
+  "P5": "Plain arm: candidates judged on the 110 guard and rename tasks lie between 5,900 and 7,200 (prior evidence: 6,556).",
+  "P6": "Known arm: every rename task whose original the pinned checker admits closes by the renaming onto GOOD and is restored; every guard and history task has the plain arm's outcome (their originals differ from the mutants in more than identifiers).",
+  "P7": "Model calls: 0 in both arms."
+ },
+ "falsifier": {
+  "F1": "The claim that rung e closes rename mutations is false on this set if the plain arm closes fewer than 42 (50%) of the 83 rename tasks.",
+  "F2": "The claim that rung e's rename closures are the original program is false on this set if, in the plain arm, behaves the same is below 80% of the closed rename tasks.",
+  "F3": "The claim that rung e leaves the earlier classes as they were is false if any guard or history task that run 2 closed is not closed in the plain arm, or is closed with a different equivalence.",
+  "F4": "The claim that the informal rerun is what this registered run measures is false if, in the plain arm, rename closed is not 83, rename restored is not 77, or guard and rename restored is not 102.",
+  "F5": "The claim that a known-good version lets the ladder undo a rename exactly is false if any rename task whose original the pinned checker admits is not restored in the known arm.",
+  "F6": "The claim that the ladder runs with zero model calls is false if any task in either arm reports a model call."
+ },
+ "reporting": "every task of both arms reported (results/ARM/runs.compact.tsv and runs.jsonl.gz), including not closed, admitted as given, time-capped and killed; the equivalence split for every closed task; nothing excluded after the run. A deviation from this registration is recorded in a dated DEVIATIONS.md; this file is not edited after the run.",
+ "pilot": {
+  "what": "no ladder run with the pinned binary was made before this registration. Before it, frozen.py was run (no rce binary) and rebuilt run 2's tasks.jsonl with the registered SHA-256, and report.py was exercised on run 2's own compact results rewritten in run 3's column format (no ladder run) to check that it reproduces run 2's merged totals (31 closed, 26 restored).",
+  "changes_after_pilot": "none"
+ }
+}
