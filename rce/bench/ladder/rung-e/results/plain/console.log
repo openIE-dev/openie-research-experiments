@@ -1,0 +1,187 @@
+plain spec/examples/57_float_vectors.rce@b2b932da: not closed  (52 tried, 2.485 s, exit 1)
+plain spec/examples/11_arena.rce@013e21ed: not closed  (22 tried, 2.493 s, exit 1)
+plain spec/examples/29_nested_kind.rce@013e21ed: closed c restored (1 tried, 2.287 s, exit 0)
+plain spec/examples/40_extern.rce@013e21ed: not closed  (14 tried, 2.374 s, exit 1)
+plain spec/examples/41_arena_bound_wrapping.rce@013e21ed: not closed  (39 tried, 2.28 s, exit 1)
+plain spec/examples/45_byte_text.rce@013e21ed: not closed  (5 tried, 2.675 s, exit 1)
+plain spec/examples/48_linear_handle.rce@013e21ed: not closed  (43 tried, 2.198 s, exit 1)
+plain spec/examples/56_utf8.rce@013e21ed: not closed  (223 tried, 2.718 s, exit 1)
+plain programs/text/edit_distance.rce@29c21674: not closed  (338 tried, 2.682 s, exit 1)
+plain programs/ecosystem/hpke.rce@a828e934: not closed  (198 tried, 2.963 s, exit 1)
+plain programs/ecosystem/mls_key_schedule.rce@a828e934: not closed  (365 tried, 2.675 s, exit 1)
+plain programs/ecosystem/pqxdh.rce@a828e934: not closed  (734 tried, 4.256 s, exit 1)
+plain stdlib/lib/energy/energy.rce@a828e934: not closed  (3153 tried, 164.478 s, exit 1)
+plain stdlib/lib/hpke.rce@a828e934: not closed  (3801 tried, 109.762 s, exit 1)
+plain stdlib/lib/mls.rce@a828e934: not closed  (2561 tried, 50.755 s, exit 1)
+plain stdlib/lib/pq.rce@a828e934: not closed  (5058 tried, 266.67 s, exit 1)
+plain programs/body/arm.rce@2cc82de7: not closed  (0 tried, 0.003 s, exit 1)
+plain programs/body/thermostat.rce@2cc82de7: not closed  (0 tried, 0.002 s, exit 1)
+plain programs/money/account.rce@2cc82de7: not closed  (0 tried, 0.003 s, exit 1)
+plain programs/money/ledger.rce@2cc82de7: not closed  (0 tried, 0.003 s, exit 1)
+plain programs/multi/card.rce@2cc82de7: not closed  (0 tried, 0.003 s, exit 1)
+plain programs/multi/climate.rce@2cc82de7: not closed  (0 tried, 0.003 s, exit 1)
+plain programs/multi/crossing.rce@2cc82de7: not closed  (0 tried, 0.002 s, exit 1)
+plain programs/multi/elevator.rce@2cc82de7: not closed  (0 tried, 0.003 s, exit 1)
+plain programs/multi/lobby.rce@2cc82de7: not closed  (0 tried, 0.003 s, exit 1)
+plain programs/multi/parking.rce@2cc82de7: not closed  (0 tried, 0.004 s, exit 1)
+plain programs/multi/player.rce@2cc82de7: not closed  (0 tried, 0.003 s, exit 1)
+plain programs/multi/printer.rce@2cc82de7: not closed  (0 tried, 0.003 s, exit 1)
+plain programs/multi/reservoir.rce@2cc82de7: not closed  (0 tried, 0.002 s, exit 1)
+plain programs/multi/session.rce@2cc82de7: not closed  (0 tried, 0.003 s, exit 1)
+plain programs/multi/vending.rce@2cc82de7: not closed  (0 tried, 0.003 s, exit 1)
+plain programs/multi/washer.rce@2cc82de7: not closed  (0 tried, 0.003 s, exit 1)
+plain programs/network/handshake.rce@2cc82de7: not closed  (0 tried, 0.004 s, exit 1)
+plain programs/systems/reconcile.rce@2cc82de7: not closed  (0 tried, 0.003 s, exit 1)
+plain programs/systems/ring_buffer.rce@2cc82de7: not closed  (0 tried, 0.003 s, exit 1)
+plain programs/world/queue_sim.rce@2cc82de7: not closed  (0 tried, 0.003 s, exit 1)
+plain spec/examples/01_counter.rce@2cc82de7: not closed  (0 tried, 0.003 s, exit 1)
+plain spec/examples/04_bank_account.rce@2cc82de7: not closed  (0 tried, 0.002 s, exit 1)
+plain spec/examples/30_state_machine_guarded.rce@2cc82de7: not closed  (0 tried, 0.002 s, exit 1)
+plain spec/examples/55_rcedb.rce@2cc82de7: not closed  (0 tried, 0.003 s, exit 1)
+plain spec/examples/61_dim_minimal.rce@2cc82de7: not closed  (0 tried, 0.002 s, exit 1)
+plain spec/examples/03_fib_loop.rce#rename0: closed e restored (13 tried, 2.417 s, exit 0)
+plain spec/examples/03_fib_loop.rce#rename1: closed e restored (11 tried, 2.673 s, exit 0)
+plain spec/examples/04_bank_account.rce#guard0: closed d restored (2 tried, 1.81 s, exit 0)
+plain spec/examples/04_bank_account.rce#guard1: closed d restored (12 tried, 1.819 s, exit 0)
+plain spec/examples/04_bank_account.rce#rename0: closed e restored (29 tried, 2.481 s, exit 0)
+plain spec/examples/30_state_machine_guarded.rce#rename0: closed e restored (11 tried, 2.456 s, exit 0)
+plain spec/examples/30_state_machine_guarded.rce#rename1: closed d examples only (1 tried, 2.567 s, exit 0)
+plain spec/examples/41_arena_bound_wrapping.rce#rename0: closed e restored (17 tried, 2.371 s, exit 0)
+plain spec/examples/41_arena_bound_wrapping.rce#rename1: closed e restored (19 tried, 2.461 s, exit 0)
+plain spec/examples/42_f32.rce#rename0: closed e restored (12 tried, 2.366 s, exit 0)
+plain spec/examples/42_f32.rce#rename1: closed e restored (10 tried, 2.479 s, exit 0)
+plain spec/examples/43_simd_lanes.rce#rename0: closed e restored (38 tried, 2.273 s, exit 0)
+plain spec/examples/44_device_region.rce#rename0: closed e restored (15 tried, 2.492 s, exit 0)
+plain spec/examples/44_device_region.rce#rename1: closed d not compared (6 tried, 2.703 s, exit 0)
+plain spec/examples/49_loop_limit.rce#guard0: closed d restored (2 tried, 4.421 s, exit 0)
+plain spec/examples/49_loop_limit.rce#rename0: closed e restored (13 tried, 4.084 s, exit 0)
+plain spec/examples/50_iterators.rce#guard0: closed d restored (5 tried, 2.734 s, exit 0)
+plain spec/examples/50_iterators.rce#guard1: closed d restored (6 tried, 2.671 s, exit 0)
+plain spec/examples/50_iterators.rce#rename0: closed e restored (31 tried, 3.793 s, exit 0)
+plain spec/examples/50_iterators.rce#rename1: closed e restored (31 tried, 2.341 s, exit 0)
+plain spec/examples/52_context_text.rce#rename0: closed e restored (20 tried, 2.51 s, exit 0)
+plain spec/examples/52_context_text.rce#rename1: closed e restored (18 tried, 2.329 s, exit 0)
+plain spec/examples/54_secret.rce#guard0: closed d restored (3 tried, 2.487 s, exit 0)
+plain spec/examples/54_secret.rce#rename0: closed e restored (9 tried, 2.303 s, exit 0)
+plain spec/examples/54_secret.rce#rename1: closed e restored (10 tried, 2.434 s, exit 0)
+plain spec/examples/55_rcedb.rce#guard0: closed d undecided (2 tried, 2.268 s, exit 0)
+plain spec/examples/55_rcedb.rce#rename0: closed e restored (20 tried, 2.201 s, exit 0)
+plain spec/examples/55_rcedb.rce#rename1: closed e restored (21 tried, 2.116 s, exit 0)
+plain spec/examples/58_float_keys.rce#rename0: closed e restored (24 tried, 2.405 s, exit 0)
+plain spec/examples/58_float_keys.rce#rename1: closed e restored (20 tried, 2.365 s, exit 0)
+plain spec/examples/59_dim_redundant_field.rce#rename0: closed e restored (37 tried, 2.239 s, exit 0)
+plain spec/examples/61_dim_minimal.rce#rename0: closed e restored (11 tried, 2.451 s, exit 0)
+plain spec/examples/61_dim_minimal.rce#rename1: closed d examples only (1 tried, 2.042 s, exit 0)
+plain programs/body/arm.rce#rename0: closed e restored (26 tried, 2.167 s, exit 0)
+plain programs/body/arm.rce#rename1: closed e restored (27 tried, 2.633 s, exit 0)
+plain programs/body/thermostat.rce#rename0: closed e restored (42 tried, 2.274 s, exit 0)
+plain programs/body/thermostat.rce#rename1: closed e restored (44 tried, 2.532 s, exit 0)
+plain programs/data/totals.rce#rename0: closed e restored (34 tried, 2.389 s, exit 0)
+plain programs/data/totals.rce#rename1: closed e restored (23 tried, 2.342 s, exit 0)
+plain programs/ecosystem/hpke.rce#rename0: closed e restored (34 tried, 9.294 s, exit 0)
+plain programs/ecosystem/mls_key_schedule.rce#rename0: closed e restored (66 tried, 7.396 s, exit 0)
+plain programs/ecosystem/mls_key_schedule.rce#rename1: closed e restored (47 tried, 6.076 s, exit 0)
+plain programs/ecosystem/pqxdh.rce#rename0: closed e behaviour-equal (78 tried, 10.144 s, exit 0)
+plain programs/ecosystem/pqxdh.rce#rename1: closed e restored (61 tried, 10.15 s, exit 0)
+plain programs/hardware/bits.rce#guard0: closed d restored (2 tried, 2.467 s, exit 0)
+plain programs/hardware/bits.rce#rename0: closed e restored (128 tried, 2.865 s, exit 0)
+plain programs/hardware/bits.rce#rename1: closed e restored (125 tried, 2.654 s, exit 0)
+plain programs/media/gain.rce#guard0: closed d restored (5 tried, 2.314 s, exit 0)
+plain programs/media/gain.rce#guard1: closed d restored (18 tried, 2.177 s, exit 0)
+plain programs/media/gain.rce#rename0: closed e restored (77 tried, 2.288 s, exit 0)
+plain programs/media/gain.rce#rename1: closed e restored (64 tried, 2.135 s, exit 0)
+plain programs/media/moving_average.rce#rename0: closed e restored (85 tried, 2.336 s, exit 0)
+plain programs/media/moving_average.rce#rename1: closed e restored (82 tried, 2.354 s, exit 0)
+plain programs/money/account.rce#guard0: closed d restored (14 tried, 2.527 s, exit 0)
+plain programs/money/account.rce#rename0: closed e restored (23 tried, 2.324 s, exit 0)
+plain programs/money/account.rce#rename1: closed e restored (27 tried, 2.368 s, exit 0)
+plain programs/money/checkout.rce#rename0: closed e examples only (524 tried, 10.137 s, exit 0)
+plain programs/money/ledger.rce#rename0: closed e restored (50 tried, 2.652 s, exit 0)
+plain programs/money/ledger.rce#rename1: closed e restored (32 tried, 2.314 s, exit 0)
+plain programs/multi/card.rce#rename0: closed e restored (38 tried, 2.16 s, exit 0)
+plain programs/multi/card.rce#rename1: closed e restored (38 tried, 2.128 s, exit 0)
+plain programs/multi/climate.rce#rename0: closed e restored (26 tried, 1.985 s, exit 0)
+plain programs/multi/climate.rce#rename1: closed e restored (25 tried, 2.139 s, exit 0)
+plain programs/multi/crossing.rce#rename0: closed e restored (21 tried, 2.256 s, exit 0)
+plain programs/multi/crossing.rce#rename1: closed e restored (17 tried, 2.151 s, exit 0)
+plain programs/multi/elevator.rce#rename0: closed e restored (28 tried, 2.416 s, exit 0)
+plain programs/multi/elevator.rce#rename1: closed e restored (28 tried, 2.472 s, exit 0)
+plain programs/multi/player.rce#rename0: closed e restored (38 tried, 2.275 s, exit 0)
+plain programs/multi/player.rce#rename1: closed e restored (39 tried, 2.256 s, exit 0)
+plain programs/network/handshake.rce#rename0: closed e restored (10 tried, 2.061 s, exit 0)
+plain programs/network/handshake.rce#rename1: closed e restored (11 tried, 2.216 s, exit 0)
+plain programs/network/notes_http.rce#guard0: closed d restored (129 tried, 4.33 s, exit 0)
+plain programs/network/notes_http.rce#rename0: closed e restored (333 tried, 6.819 s, exit 0)
+plain programs/science/dpll.rce#guard0: closed d restored (73 tried, 3.046 s, exit 0)
+plain programs/science/dpll.rce#guard1: closed d restored (132 tried, 3.818 s, exit 0)
+plain programs/science/dpll.rce#rename0: closed e restored (299 tried, 3.904 s, exit 0)
+plain programs/science/dpll.rce#rename1: closed e restored (274 tried, 4.214 s, exit 0)
+plain programs/science/graph.rce#guard0: closed d restored (21 tried, 9.06 s, exit 0)
+plain programs/science/graph.rce#guard1: closed d restored (42 tried, 10.47 s, exit 0)
+plain programs/science/graph.rce#rename0: closed e restored (192 tried, 3.489 s, exit 0)
+plain programs/science/knapsack.rce#guard0: closed d restored (20 tried, 3.081 s, exit 0)
+plain programs/science/knapsack.rce#guard1: closed d restored (3 tried, 2.651 s, exit 0)
+plain programs/science/knapsack.rce#rename0: closed e restored (66 tried, 2.529 s, exit 0)
+plain programs/science/knapsack.rce#rename1: closed e restored (68 tried, 2.005 s, exit 0)
+plain programs/science/numerics.rce#rename0: closed e restored (93 tried, 2.062 s, exit 0)
+plain programs/science/numerics.rce#rename1: closed e restored (96 tried, 3.114 s, exit 0)
+plain programs/systems/accounts.rce#guard0: closed d restored (89 tried, 2.803 s, exit 0)
+plain programs/systems/accounts.rce#guard1: closed d restored (5 tried, 2.197 s, exit 0)
+plain programs/systems/accounts.rce#rename0: closed e restored (109 tried, 2.735 s, exit 0)
+plain programs/systems/accounts.rce#rename1: closed e restored (111 tried, 2.531 s, exit 0)
+plain programs/systems/reconcile.rce#guard0: closed d restored (12 tried, 2.041 s, exit 0)
+plain programs/systems/reconcile.rce#guard1: closed d restored (19 tried, 2.321 s, exit 0)
+plain programs/systems/reconcile.rce#rename0: closed e restored (27 tried, 2.018 s, exit 0)
+plain programs/systems/ring_buffer.rce#rename0: closed e restored (74 tried, 2.398 s, exit 0)
+plain programs/systems/ring_buffer.rce#rename1: closed e restored (57 tried, 2.144 s, exit 0)
+plain programs/text/edit_distance.rce#guard0: closed d restored (59 tried, 2.445 s, exit 0)
+plain programs/text/edit_distance.rce#guard1: closed d not compared (29 tried, 2.304 s, exit 0)
+plain programs/text/edit_distance.rce#rename0: closed e restored (68 tried, 2.172 s, exit 0)
+plain programs/text/edit_distance.rce#rename1: closed e restored (109 tried, 2.731 s, exit 0)
+plain programs/text/json_nest.rce#guard0: closed d restored (120 tried, 8.56 s, exit 0)
+plain programs/text/json_nest.rce#guard1: closed d restored (189 tried, 10.682 s, exit 0)
+plain programs/text/json_nest.rce#rename0: closed e not compared (281 tried, 6.233 s, exit 0)
+plain programs/text/json_nest.rce#rename1: closed e restored (597 tried, 10.457 s, exit 0)
+plain programs/text/word_count.rce#guard0: closed d restored (2 tried, 2.278 s, exit 0)
+plain programs/text/word_count.rce#rename0: closed e restored (10 tried, 2.369 s, exit 0)
+plain programs/text/word_count.rce#rename1: closed e restored (14 tried, 2.224 s, exit 0)
+plain programs/world/cellular_automaton.rce#rename0: closed e restored (70 tried, 2.255 s, exit 0)
+plain programs/world/cellular_automaton.rce#rename1: closed e restored (71 tried, 2.685 s, exit 0)
+plain programs/world/queue_sim.rce#rename0: closed e restored (25 tried, 2.206 s, exit 0)
+plain programs/world/queue_sim.rce#rename1: closed e restored (31 tried, 2.224 s, exit 0)
+{
+ "admitted_as_given": 0,
+ "behaves_the_same": 104,
+ "candidates_tried": {
+  "a": 2866,
+  "b": 871,
+  "c": 14,
+  "d": 9586,
+  "e": 9826
+ },
+ "candidates_tried_total": 23163,
+ "closed": 111,
+ "closed_e_known": 0,
+ "closed_e_search": 80,
+ "closed_per_rung": {
+  "a": 0,
+  "b": 0,
+  "c": 1,
+  "d": 30,
+  "e": 80
+ },
+ "equivalence": {
+  "behaviour-equal": 1,
+  "examples only": 3,
+  "not compared": 3,
+  "restored": 103,
+  "undecided": 1
+ },
+ "model_calls": 0,
+ "mutant_requires_change": 151,
+ "not_closed": 40,
+ "original_admitted": 149,
+ "tasks": 151,
+ "time_cap": 0
+}
+exit 0

@@ -1,0 +1,152 @@
+id	source	arm	exit	closed	rung	e_known	candidates	tried_a	tried_b	tried_c	tried_d	tried_e	wall_s	time_cap	equivalence	original_check	mutant_check	mutant_rules	edit
+spec/examples/57_float_vectors.rce@b2b932da	history-admit	known	1	false		false	52	0	0	0	24	28	2.234	false		1	1	W-INT-1	
+spec/examples/11_arena.rce@013e21ed	history-fix	known	0	true	e	true	1	0	0	0	0	1	0.004	false	restored	0	1	W-LEN-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-11_arena.rce: `len` becomes `len_bytes`
+spec/examples/29_nested_kind.rce@013e21ed	history-fix	known	0	true	e	true	1	0	0	0	0	1	0.005	false	restored	0	1	W-UNUSED-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-29_nested_kind.rce: `e` becomes `_e`
+spec/examples/40_extern.rce@013e21ed	history-fix	known	1	false		false	14	1	0	0	11	2	2.067	false		0	1	W-WORLD-1	
+spec/examples/41_arena_bound_wrapping.rce@013e21ed	history-fix	known	0	true	e	true	1	0	0	0	0	1	0.004	false	restored	0	1	W-LEN-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-41_arena_bound_wrapping.rce: `len` becomes `len_bytes`
+spec/examples/45_byte_text.rce@013e21ed	history-fix	known	0	true	e	true	1	0	0	0	0	1	0.006	false	restored	0	1	W-LEN-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-45_byte_text.rce: `len` becomes `len_bytes`
+spec/examples/48_linear_handle.rce@013e21ed	history-fix	known	1	false		false	44	1	0	0	11	32	2.138	false		0	1	W-CAP-3,W-WORLD-1	
+spec/examples/56_utf8.rce@013e21ed	history-fix	known	0	true	e	true	1	0	0	0	0	1	0.006	false	restored	0	1	W-LEN-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-56_utf8.rce: `len` becomes `len_bytes`
+programs/text/edit_distance.rce@29c21674	history-fix	known	0	true	e	true	1	0	0	0	0	1	0.012	false	restored	0	1	W-LEN-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-edit_distance.rce: `len` becomes `len_chars`
+programs/ecosystem/hpke.rce@a828e934	history-admit	known	1	false		false	198	0	0	0	8	190	2.684	false		0	1	W-NAME-1	
+programs/ecosystem/mls_key_schedule.rce@a828e934	history-admit	known	1	false		false	365	0	0	0	41	324	2.873	false		0	1	W-NAME-1,W-TY-1	
+programs/ecosystem/pqxdh.rce@a828e934	history-admit	known	1	false		false	734	0	0	0	30	704	4.472	false		0	1	W-NAME-1,W-TY-1	
+stdlib/lib/energy/energy.rce@a828e934	history-admit	known	1	false		false	3153	284	39	0	830	2000	157.133	false		0	1	W-NAME-1	
+stdlib/lib/hpke.rce@a828e934	history-admit	known	1	false		false	3801	612	129	0	1060	2000	94.505	false		0	1	W-NAME-1,W-TY-1	
+stdlib/lib/mls.rce@a828e934	history-admit	known	1	false		false	2561	681	128	0	409	1343	41.577	false		0	1	W-NAME-1	
+stdlib/lib/pq.rce@a828e934	history-admit	known	1	false		false	5058	725	333	0	2000	2000	260.622	false		0	1	W-NAME-1,W-TY-1	
+programs/body/arm.rce@2cc82de7	history-admit	known	1	false		false	0	0	0	0	0	0	0.004	false		0	1	W-SYN-1	
+programs/body/thermostat.rce@2cc82de7	history-admit	known	1	false		false	0	0	0	0	0	0	0.004	false		0	1	W-SYN-1	
+programs/money/account.rce@2cc82de7	history-admit	known	1	false		false	0	0	0	0	0	0	0.004	false		0	1	W-SYN-1	
+programs/money/ledger.rce@2cc82de7	history-admit	known	1	false		false	0	0	0	0	0	0	0.006	false		0	1	W-SYN-1	
+programs/multi/card.rce@2cc82de7	history-admit	known	1	false		false	0	0	0	0	0	0	0.004	false		0	1	W-SYN-1	
+programs/multi/climate.rce@2cc82de7	history-admit	known	1	false		false	0	0	0	0	0	0	0.004	false		0	1	W-SYN-1	
+programs/multi/crossing.rce@2cc82de7	history-admit	known	1	false		false	0	0	0	0	0	0	0.003	false		0	1	W-SYN-1	
+programs/multi/elevator.rce@2cc82de7	history-admit	known	1	false		false	0	0	0	0	0	0	0.004	false		0	1	W-SYN-1	
+programs/multi/lobby.rce@2cc82de7	history-admit	known	1	false		false	0	0	0	0	0	0	0.003	false		0	1	W-SYN-1	
+programs/multi/parking.rce@2cc82de7	history-admit	known	1	false		false	0	0	0	0	0	0	0.004	false		0	1	W-SYN-1	
+programs/multi/player.rce@2cc82de7	history-admit	known	1	false		false	0	0	0	0	0	0	0.003	false		0	1	W-SYN-1	
+programs/multi/printer.rce@2cc82de7	history-admit	known	1	false		false	0	0	0	0	0	0	0.004	false		0	1	W-SYN-1	
+programs/multi/reservoir.rce@2cc82de7	history-admit	known	1	false		false	0	0	0	0	0	0	0.003	false		0	1	W-SYN-1	
+programs/multi/session.rce@2cc82de7	history-admit	known	1	false		false	0	0	0	0	0	0	0.003	false		0	1	W-SYN-1	
+programs/multi/vending.rce@2cc82de7	history-admit	known	1	false		false	0	0	0	0	0	0	0.003	false		0	1	W-SYN-1	
+programs/multi/washer.rce@2cc82de7	history-admit	known	1	false		false	0	0	0	0	0	0	0.004	false		1	1	W-SYN-1	
+programs/network/handshake.rce@2cc82de7	history-admit	known	1	false		false	0	0	0	0	0	0	0.005	false		0	1	W-SYN-1	
+programs/systems/reconcile.rce@2cc82de7	history-admit	known	1	false		false	0	0	0	0	0	0	0.004	false		0	1	W-SYN-1	
+programs/systems/ring_buffer.rce@2cc82de7	history-admit	known	1	false		false	0	0	0	0	0	0	0.003	false		0	1	W-SYN-1	
+programs/world/queue_sim.rce@2cc82de7	history-admit	known	1	false		false	0	0	0	0	0	0	0.003	false		0	1	W-SYN-1	
+spec/examples/01_counter.rce@2cc82de7	history-admit	known	1	false		false	0	0	0	0	0	0	0.003	false		0	1	W-SYN-1	
+spec/examples/04_bank_account.rce@2cc82de7	history-admit	known	1	false		false	0	0	0	0	0	0	0.004	false		0	1	W-SYN-1	
+spec/examples/30_state_machine_guarded.rce@2cc82de7	history-admit	known	1	false		false	0	0	0	0	0	0	0.004	false		0	1	W-SYN-1	
+spec/examples/55_rcedb.rce@2cc82de7	history-admit	known	1	false		false	0	0	0	0	0	0	0.006	false		0	1	W-SYN-1	
+spec/examples/61_dim_minimal.rce@2cc82de7	history-admit	known	1	false		false	0	0	0	0	0	0	0.004	false		0	1	W-SYN-1	
+spec/examples/03_fib_loop.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.006	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-03_fib_loop.rce that keeps the names of FILE: line 11: `n` becomes `b`
+spec/examples/03_fib_loop.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.004	false	restored	0	1	W-PLACE,W-TY-3	the renaming onto /tmp/ladder-run3-e44h63a8/orig-03_fib_loop.rce that keeps the names of FILE: line 11: `n` becomes `a`
+spec/examples/04_bank_account.rce#guard0	guard	known	0	true	d	false	2	0	0	0	2	0	2.67	false	restored	0	1	W-INT-1	in `step Account on Deposit(amount: a)`, line 18: `not (a > (0))` becomes `a > (0)`
+spec/examples/04_bank_account.rce#guard1	guard	known	0	true	d	false	12	0	0	0	12	0	2.879	false	restored	0	1	W-INT-1	in `step Account on Withdraw(amount: a)`, line 21: `not (a > balance)` becomes `a > balance`
+spec/examples/04_bank_account.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.005	false	restored	0	1	W-INT-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-04_bank_account.rce that keeps the names of FILE: line 26: `balance` becomes `a`
+spec/examples/30_state_machine_guarded.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.006	false	restored	0	1	W-INT-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-30_state_machine_guarded.rce that keeps the names of FILE: line 29: `locked` becomes `open`
+spec/examples/30_state_machine_guarded.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.005	false	restored	0	1	W-INT-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-30_state_machine_guarded.rce that keeps the names of FILE: line 26: `locked` becomes `open`
+spec/examples/41_arena_bound_wrapping.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.006	false	restored	0	1	W-OWN-2,W-TY-1,W-UNUSED-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-41_arena_bound_wrapping.rce that keeps the names of FILE: line 6: `h` becomes `cs`
+spec/examples/41_arena_bound_wrapping.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.006	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-41_arena_bound_wrapping.rce that keeps the names of FILE: line 7: `c` becomes `h`
+spec/examples/42_f32.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.004	false	restored	0	1	W-UNUSED-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-42_f32.rce that keeps the names of FILE: line 3: `y` becomes `x`
+spec/examples/42_f32.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.004	false	restored	0	1	W-UNUSED-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-42_f32.rce that keeps the names of FILE: line 3: `y` becomes `a`
+spec/examples/43_simd_lanes.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.007	false	restored	0	1	W-UNUSED-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-43_simd_lanes.rce that keeps the names of FILE: line 3: `b` becomes `a`
+spec/examples/44_device_region.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.005	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-44_device_region.rce that keeps the names of FILE: line 8: `a` becomes `acc`
+spec/examples/44_device_region.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.005	false	restored	0	1	W-INT-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-44_device_region.rce that keeps the names of FILE: line 7: `x` becomes `acc`
+spec/examples/49_loop_limit.rce#guard0	guard	known	0	true	d	false	2	0	0	0	2	0	3.858	false	restored	0	1	W-INT-1	in `count`, line 6: `not (k < n)` becomes `k < n`
+spec/examples/49_loop_limit.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	1.972	false	restored	0	1	W-PLACE	the renaming onto /tmp/ladder-run3-e44h63a8/orig-49_loop_limit.rce that keeps the names of FILE: line 7: `n` becomes `k`
+spec/examples/50_iterators.rce#guard0	guard	known	0	true	d	false	5	2	2	0	1	0	2.937	false	restored	0	1	W-INT-1	in `first_over`, line 16: `not (x > t)` becomes `x > t`
+spec/examples/50_iterators.rce#guard1	guard	known	0	true	d	false	6	2	2	0	2	0	2.216	false	restored	0	1	W-INT-1	in `evens`, line 4: `not (i < n)` becomes `i < n`
+spec/examples/50_iterators.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.009	false	restored	0	1	W-UNUSED-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-50_iterators.rce that keeps the names of FILE: line 16: `x` becomes `t`
+spec/examples/50_iterators.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.009	false	restored	0	1	W-UNUSED-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-50_iterators.rce that keeps the names of FILE: line 22: `s` becomes `n`
+spec/examples/52_context_text.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.009	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-52_context_text.rce that keeps the names of FILE: line 17: `query` becomes `b`
+spec/examples/52_context_text.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.007	false	restored	0	1	W-PLACE,W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-52_context_text.rce that keeps the names of FILE: line 16: `b` becomes `html`
+spec/examples/54_secret.rce#guard0	guard	known	0	true	d	false	3	0	0	0	3	0	2.401	false	restored	0	1	W-INT-1	in `step Vault on Login(pw: p)`, line 19: `not (stored == some(p))` becomes `stored == some(p)`
+spec/examples/54_secret.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.006	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-54_secret.rce that keeps the names of FILE: line 20: `failed` becomes `stored`
+spec/examples/54_secret.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.007	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-54_secret.rce that keeps the names of FILE: line 21: `stored` becomes `ok`
+spec/examples/55_rcedb.rce#guard0	guard	known	0	true	d	false	2	0	0	0	2	0	2.325	false	undecided	0	1	W-INT-1	in `Db`, line 11: `0` becomes `1`
+spec/examples/55_rcedb.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.008	false	restored	0	1	W-NAME-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-55_rcedb.rce that keeps the names of FILE: line 32: `writes` becomes `rows`
+spec/examples/55_rcedb.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.008	false	restored	0	1	W-NAME-1,W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-55_rcedb.rce that keeps the names of FILE: line 46: `durable` becomes `rows`
+spec/examples/58_float_keys.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.008	false	restored	0	1	W-NAME-1,W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-58_float_keys.rce that keeps the names of FILE: line 19: `k` becomes `m`
+spec/examples/58_float_keys.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.005	false	restored	0	1	W-PLACE,W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-58_float_keys.rce that keeps the names of FILE: line 19: `k` becomes `m`
+spec/examples/59_dim_redundant_field.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.005	false	restored	0	1	W-ASSIGN-1,W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-59_dim_redundant_field.rce that keeps the names of FILE: line 16: `n` becomes `last_inc`
+spec/examples/61_dim_minimal.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.005	false	restored	0	1	W-INT-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-61_dim_minimal.rce that keeps the names of FILE: line 29: `locked` becomes `open`
+spec/examples/61_dim_minimal.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.005	false	restored	0	1	W-INT-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-61_dim_minimal.rce that keeps the names of FILE: line 26: `locked` becomes `open`
+programs/body/arm.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.005	false	restored	0	1	W-UNUSED-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-arm.rce that keeps the names of FILE: line 19: `target` becomes `r`
+programs/body/arm.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.005	false	restored	0	1	W-INT-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-arm.rce that keeps the names of FILE: line 19: `angle` becomes `target`
+programs/body/thermostat.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.006	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-thermostat.rce that keeps the names of FILE: line 23: `heating` becomes `t`
+programs/body/thermostat.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.005	false	restored	0	1	W-PLACE,W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-thermostat.rce that keeps the names of FILE: line 24: `t` becomes `heating`
+programs/data/totals.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.007	false	restored	0	1	W-NAME-1,W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-totals.rce that keeps the names of FILE: line 15: `m` becomes `r`
+programs/data/totals.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.006	false	restored	0	1	W-TY-1,W-UNUSED-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-totals.rce that keeps the names of FILE: line 10: `rows` becomes `s`
+programs/ecosystem/hpke.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.844	false	restored	0	1	W-OWN-1,W-UNUSED-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-hpke.rce that keeps the names of FILE: line 33: `i` becomes `e`
+programs/ecosystem/mls_key_schedule.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	1.643	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-mls_key_schedule.rce that keeps the names of FILE: line 40: `path` becomes `n`
+programs/ecosystem/mls_key_schedule.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	1.649	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-mls_key_schedule.rce that keeps the names of FILE: line 41: `authenticator` becomes `copath`
+programs/ecosystem/pqxdh.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.117	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-pqxdh.rce that keeps the names of FILE: line 81: `ss_i` becomes `b`
+programs/ecosystem/pqxdh.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.08	false	restored	0	1	W-PLACE,W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-pqxdh.rce that keeps the names of FILE: line 55: `kp` becomes `dk`
+programs/hardware/bits.rce#guard0	guard	known	0	true	d	false	2	0	0	0	2	0	2.762	false	restored	0	1	W-INT-1	in `popcount`, line 23: `not (v != (0))` becomes `v != (0)`
+programs/hardware/bits.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.038	false	restored	0	1	W-INT-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-bits.rce that keeps the names of FILE: line 22: `x` becomes `v`
+programs/hardware/bits.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.019	false	restored	0	1	W-PLACE	the renaming onto /tmp/ladder-run3-e44h63a8/orig-bits.rce that keeps the names of FILE: line 24: `x` becomes `n`
+programs/media/gain.rce#guard0	guard	known	0	true	d	false	5	0	0	0	5	0	2.777	false	restored	0	1	W-INT-1	in `clip`, line 10: `not (x > (32767))` becomes `x > (32767)`
+programs/media/gain.rce#guard1	guard	known	0	true	d	false	18	0	0	0	18	0	3.067	false	restored	0	1	W-INT-1	in `clip`, line 12: `not (x < (-(32768)))` becomes `x < (-(32768))`
+programs/media/gain.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.007	false	restored	0	1	W-UNUSED-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-gain.rce that keeps the names of FILE: line 4: `gs` becomes `buf`
+programs/media/gain.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.007	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-gain.rce that keeps the names of FILE: line 3: `buf` becomes `g`
+programs/media/moving_average.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.005	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-moving_average.rce that keeps the names of FILE: line 5: `i` becomes `xs`
+programs/media/moving_average.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.01	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-moving_average.rce that keeps the names of FILE: line 5: `out` becomes `i`
+programs/money/account.rce#guard0	guard	known	0	true	d	false	14	0	0	0	14	0	2.405	false	restored	0	1	W-INT-1	in `step Account on Withdraw(cents: a)`, line 24: `not (a > balance_cents)` becomes `a > balance_cents`
+programs/money/account.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.006	false	restored	0	1	W-PLACE	the renaming onto /tmp/ladder-run3-e44h63a8/orig-account.rce that keeps the names of FILE: line 30: `a` becomes `balance_cents`
+programs/money/account.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.006	false	restored	0	1	W-INT-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-account.rce that keeps the names of FILE: line 28: `a` becomes `balance_cents`
+programs/money/checkout.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.038	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-checkout.rce that keeps the names of FILE: line 438: `region9` becomes `flag36`
+programs/money/ledger.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.011	false	restored	0	1	W-INT-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-ledger.rce that keeps the names of FILE: line 29: `f` becomes `t`
+programs/money/ledger.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.01	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-ledger.rce that keeps the names of FILE: line 29: `balances` becomes `c`
+programs/multi/card.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.006	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-card.rce that keeps the names of FILE: line 34: `locked` becomes `tries`
+programs/multi/card.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.009	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-card.rce that keeps the names of FILE: line 35: `locked` becomes `tries`
+programs/multi/climate.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.008	false	restored	0	1	W-ASSIGN-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-climate.rce that keeps the names of FILE: line 32: `heating` becomes `cooling`
+programs/multi/climate.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.007	false	restored	0	1	W-ASSIGN-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-climate.rce that keeps the names of FILE: line 26: `cooling` becomes `heating`
+programs/multi/crossing.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.006	false	restored	0	1	W-INT-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-crossing.rce that keeps the names of FILE: line 48: `waiting` becomes `walking`
+programs/multi/crossing.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.005	false	restored	0	1	W-ASSIGN-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-crossing.rce that keeps the names of FILE: line 44: `walking` becomes `waiting`
+programs/multi/elevator.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.007	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-elevator.rce that keeps the names of FILE: line 50: `moving` becomes `floor`
+programs/multi/elevator.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.005	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-elevator.rce that keeps the names of FILE: line 40: `floor` becomes `moving`
+programs/multi/player.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.007	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-player.rce that keeps the names of FILE: line 29: `track` becomes `playing`
+programs/multi/player.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.007	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-player.rce that keeps the names of FILE: line 36: `playing` becomes `track`
+programs/network/handshake.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.008	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-handshake.rce that keeps the names of FILE: line 47: `bytes` becomes `phase`
+programs/network/handshake.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.009	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-handshake.rce that keeps the names of FILE: line 53: `phase` becomes `bytes`
+programs/network/notes_http.rce#guard0	guard	known	0	true	d	false	129	103	0	0	26	0	4.762	false	restored	0	1	W-INT-1	in `esc`, line 40: `not ((x < (32)) and (not ESC.contains(c)))` becomes `(x < (32)) and (not ESC.contains(c))`
+programs/network/notes_http.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.038	false	restored	0	1	W-PLACE,W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-notes_http.rce that keeps the names of FILE: line 88: `n` becomes `r`
+programs/science/dpll.rce#guard0	guard	known	0	true	d	false	73	6	0	0	67	0	3.483	false	restored	0	1	W-INT-1	in `dpll`, line 76: `not dpll(cs, &t)` becomes `dpll(cs, &t)`
+programs/science/dpll.rce#guard1	guard	known	0	true	d	false	132	6	0	0	126	0	3.875	false	restored	0	1	W-INT-1	in `first_free`, line 58: `not (a[v] == (0))` becomes `a[v] == (0)`
+programs/science/dpll.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.088	false	restored	0	1	W-TY-1,W-UNUSED-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-dpll.rce that keeps the names of FILE: line 67: `cs` becomes `f`
+programs/science/dpll.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.047	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-dpll.rce that keeps the names of FILE: line 33: `sat` becomes `a`
+programs/science/graph.rce#guard0	guard	known	0	true	d	false	21	4	4	0	13	0	8.631	false	restored	0	1	W-INT-1	in `bfs`, line 42: `not ((e.src == u) and (hops[e.dst] == (-(1))))` becomes `(e.src == u) and (hops[e.dst] == (-(1)))`
+programs/science/graph.rce#guard1	guard	known	0	true	d	false	42	4	4	0	34	0	10.679	false	restored	0	1	W-INT-1	in `dijkstra`, line 28: `not ((e.src == u) and ((dist[u] + e.w) < dist[e.dst]))` becomes `(e.src == u) and ((dist[u] + e.w) < dist[e.dst])`
+programs/science/graph.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.101	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-graph.rce that keeps the names of FILE: line 16: `v` becomes `done`
+programs/science/knapsack.rce#guard0	guard	known	0	true	d	false	20	0	0	0	20	0	2.387	false	restored	0	1	W-INT-1	in `best`, line 13: `not (with_it > table[w])` becomes `with_it > table[w]`
+programs/science/knapsack.rce#guard1	guard	known	0	true	d	false	3	0	0	0	3	0	2.186	false	restored	0	1	W-INT-1	in `best`, line 11: `not (w >= it.weight)` becomes `w >= it.weight`
+programs/science/knapsack.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.006	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-knapsack.rce that keeps the names of FILE: line 11: `it` becomes `w`
+programs/science/knapsack.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.006	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-knapsack.rce that keeps the names of FILE: line 13: `table` becomes `w`
+programs/science/numerics.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.007	false	restored	0	1	W-NAME-1,W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-numerics.rce that keeps the names of FILE: line 12: `x` becomes `xs`
+programs/science/numerics.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.007	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-numerics.rce that keeps the names of FILE: line 5: `i` becomes `a`
+programs/systems/accounts.rce#guard0	guard	known	0	true	d	false	89	0	0	0	89	0	2.608	false	restored	0	1	W-INT-1	in `step Ledger on Fee(cents: c)`, line 98: `not (c <= (0))` becomes `c <= (0)`
+programs/systems/accounts.rce#guard1	guard	known	0	true	d	false	5	0	0	0	5	0	2.325	false	restored	0	1	W-INT-1	in `step Ledger on Open(id: id)`, line 49: `not ((bal.len() as u64) >= MAX_ACCOUNTS)` becomes `(bal.len() as u64) >= MAX_ACCOUNTS`
+programs/systems/accounts.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.012	false	restored	0	1	W-PLACE,W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-accounts.rce that keeps the names of FILE: line 75: `d` becomes `bal`
+programs/systems/accounts.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.013	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-accounts.rce that keeps the names of FILE: line 55: `bal` becomes `id`
+programs/systems/reconcile.rce#guard0	guard	known	0	true	d	false	12	0	0	0	12	0	2.26	false	restored	0	1	W-INT-1	in `step Cluster on Reconcile`, line 22: `not (actual < desired)` becomes `actual < desired`
+programs/systems/reconcile.rce#guard1	guard	known	0	true	d	false	19	0	0	0	19	0	1.99	false	restored	0	1	W-INT-1	in `step Cluster on Reconcile`, line 24: `not (actual > desired)` becomes `actual > desired`
+programs/systems/reconcile.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.005	false	restored	0	1	W-PLACE	the renaming onto /tmp/ladder-run3-e44h63a8/orig-reconcile.rce that keeps the names of FILE: line 21: `n` becomes `desired`
+programs/systems/ring_buffer.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.006	false	restored	0	1	W-INT-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-ring_buffer.rce that keeps the names of FILE: line 36: `head` becomes `count`
+programs/systems/ring_buffer.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.006	false	restored	0	1	W-TY-3,W-UNUSED-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-ring_buffer.rce that keeps the names of FILE: line 27: `head` becomes `v`
+programs/text/edit_distance.rce#guard0	guard	known	0	true	d	false	59	0	0	0	59	0	2.527	false	restored	0	1	W-INT-1	in `min3`, line 6: `not (c < m)` becomes `c < m`
+programs/text/edit_distance.rce#guard1	guard	known	0	true	d	false	29	0	0	0	29	0	2.292	false	not compared	0	1	W-INT-1	in `distance`, line 17: `prev[j] + (1)` becomes `prev[j] % (1)`
+programs/text/edit_distance.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.015	false	restored	0	1	W-NAME-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-edit_distance.rce that keeps the names of FILE: line 17: `b` becomes `cur`
+programs/text/edit_distance.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.012	false	restored	0	1	W-INT-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-edit_distance.rce that keeps the names of FILE: line 16: `j` becomes `i`
+programs/text/json_nest.rce#guard0	guard	known	0	true	d	false	120	22	21	0	77	0	8.993	false	restored	0	1	W-INT-1	in `lex`, line 48: `not (in_num and (not c.isdigit()))` becomes `in_num and (not c.isdigit())`
+programs/text/json_nest.rce#guard1	guard	known	0	true	d	false	189	22	21	0	146	0	10.899	false	restored	0	1	W-INT-1	in `lex`, line 83: `not c.isdigit()` becomes `c.isdigit()`
+programs/text/json_nest.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.247	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-json_nest.rce that keeps the names of FILE: line 40: `in_str` becomes `buf`
+programs/text/json_nest.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.268	false	restored	0	1	W-UNUSED-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-json_nest.rce that keeps the names of FILE: line 159: `i` becomes `m`
+programs/text/word_count.rce#guard0	guard	known	0	true	d	false	2	0	0	0	2	0	2.801	false	restored	0	1	W-INT-1	in `step Lexer on Char(c: ch)`, line 18: `not (ch == (32))` becomes `ch == (32)`
+programs/text/word_count.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.007	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-word_count.rce that keeps the names of FILE: line 19: `words` becomes `mode`
+programs/text/word_count.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.005	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-word_count.rce that keeps the names of FILE: line 21: `ch` becomes `mode`
+programs/world/cellular_automaton.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.009	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-cellular_automaton.rce that keeps the names of FILE: line 16: `i` becomes `cells`
+programs/world/cellular_automaton.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.01	false	restored	0	1	W-TY-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-cellular_automaton.rce that keeps the names of FILE: line 16: `out` becomes `i`
+programs/world/queue_sim.rce#rename0	rename	known	0	true	e	true	1	0	0	0	0	1	0.005	false	restored	0	1	W-INT-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-queue_sim.rce that keeps the names of FILE: line 25: `served` becomes `waiting`
+programs/world/queue_sim.rce#rename1	rename	known	0	true	e	true	1	0	0	0	0	1	0.005	false	restored	0	1	W-INT-1	the renaming onto /tmp/ladder-run3-e44h63a8/orig-queue_sim.rce that keeps the names of FILE: line 32: `waiting` becomes `served`

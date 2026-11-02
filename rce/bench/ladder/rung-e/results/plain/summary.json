@@ -1,0 +1,194 @@
+{
+ "all": {
+  "admitted_as_given": 0,
+  "behaves_the_same": 104,
+  "candidates_tried": {
+   "a": 2866,
+   "b": 871,
+   "c": 14,
+   "d": 9586,
+   "e": 9826
+  },
+  "candidates_tried_total": 23163,
+  "closed": 111,
+  "closed_e_known": 0,
+  "closed_e_search": 80,
+  "closed_per_rung": {
+   "a": 0,
+   "b": 0,
+   "c": 1,
+   "d": 30,
+   "e": 80
+  },
+  "equivalence": {
+   "behaviour-equal": 1,
+   "examples only": 3,
+   "not compared": 3,
+   "restored": 103,
+   "undecided": 1
+  },
+  "model_calls": 0,
+  "mutant_requires_change": 151,
+  "not_closed": 40,
+  "original_admitted": 149,
+  "tasks": 151,
+  "time_cap": 0
+ },
+ "arm": "plain",
+ "bound": 2000,
+ "by_source": {
+  "guard": {
+   "admitted_as_given": 0,
+   "behaves_the_same": 25,
+   "candidates_tried": {
+    "a": 171,
+    "b": 54,
+    "c": 0,
+    "d": 790,
+    "e": 0
+   },
+   "candidates_tried_total": 1015,
+   "closed": 27,
+   "closed_e_known": 0,
+   "closed_e_search": 0,
+   "closed_per_rung": {
+    "a": 0,
+    "b": 0,
+    "c": 0,
+    "d": 27,
+    "e": 0
+   },
+   "equivalence": {
+    "behaviour-equal": 0,
+    "examples only": 0,
+    "not compared": 1,
+    "restored": 25,
+    "undecided": 1
+   },
+   "model_calls": 0,
+   "mutant_requires_change": 27,
+   "not_closed": 0,
+   "original_admitted": 27,
+   "tasks": 27,
+   "time_cap": 0
+  },
+  "history-admit": {
+   "admitted_as_given": 0,
+   "behaves_the_same": 0,
+   "candidates_tried": {
+    "a": 2302,
+    "b": 629,
+    "c": 0,
+    "d": 4402,
+    "e": 8589
+   },
+   "candidates_tried_total": 15922,
+   "closed": 0,
+   "closed_e_known": 0,
+   "closed_e_search": 0,
+   "closed_per_rung": {
+    "a": 0,
+    "b": 0,
+    "c": 0,
+    "d": 0,
+    "e": 0
+   },
+   "equivalence": {
+    "behaviour-equal": 0,
+    "examples only": 0,
+    "not compared": 0,
+    "restored": 0,
+    "undecided": 0
+   },
+   "model_calls": 0,
+   "mutant_requires_change": 33,
+   "not_closed": 33,
+   "original_admitted": 31,
+   "tasks": 33,
+   "time_cap": 0
+  },
+  "history-fix": {
+   "admitted_as_given": 0,
+   "behaves_the_same": 1,
+   "candidates_tried": {
+    "a": 74,
+    "b": 72,
+    "c": 1,
+    "d": 178,
+    "e": 360
+   },
+   "candidates_tried_total": 685,
+   "closed": 1,
+   "closed_e_known": 0,
+   "closed_e_search": 0,
+   "closed_per_rung": {
+    "a": 0,
+    "b": 0,
+    "c": 1,
+    "d": 0,
+    "e": 0
+   },
+   "equivalence": {
+    "behaviour-equal": 0,
+    "examples only": 0,
+    "not compared": 0,
+    "restored": 1,
+    "undecided": 0
+   },
+   "model_calls": 0,
+   "mutant_requires_change": 8,
+   "not_closed": 7,
+   "original_admitted": 8,
+   "tasks": 8,
+   "time_cap": 0
+  },
+  "rename": {
+   "admitted_as_given": 0,
+   "behaves_the_same": 78,
+   "candidates_tried": {
+    "a": 319,
+    "b": 116,
+    "c": 13,
+    "d": 4216,
+    "e": 877
+   },
+   "candidates_tried_total": 5541,
+   "closed": 83,
+   "closed_e_known": 0,
+   "closed_e_search": 80,
+   "closed_per_rung": {
+    "a": 0,
+    "b": 0,
+    "c": 0,
+    "d": 3,
+    "e": 80
+   },
+   "equivalence": {
+    "behaviour-equal": 1,
+    "examples only": 3,
+    "not compared": 2,
+    "restored": 77,
+    "undecided": 0
+   },
+   "model_calls": 0,
+   "mutant_requires_change": 83,
+   "not_closed": 0,
+   "original_admitted": 83,
+   "tasks": 83,
+   "time_cap": 0
+  }
+ },
+ "cap_s": 900,
+ "command": "rce repair json FILE",
+ "exit_codes": {
+  "0": 111,
+  "1": 40
+ },
+ "format": "rce-ladder-run3-summary/1",
+ "model_calls": 0,
+ "rce_sha256": "f7a8f301569ffc83ecba059be65d0abbc6ce673ed186df0b18ed2e02dd0743d1",
+ "tasks_sha256": "6ae255a32211f620364ef713b1a36f7daac6ab46f22ac318b45acb2a6da9af50",
+ "wall_s_max": 266.67,
+ "wall_s_median": 2.366,
+ "wall_s_total": 1072.4
+}
