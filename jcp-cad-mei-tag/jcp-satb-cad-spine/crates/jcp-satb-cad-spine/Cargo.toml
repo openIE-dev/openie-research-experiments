@@ -1,0 +1,23 @@
+[package]
+name = "jcp-satb-cad-spine"
+description = "Unified JCP (JCR-1) <-> SATB-IO (L0..L4 x A1..N) <-> openie-cad (cad-joules) provenance lattice, falsifier gates, and receipt spine."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+jcp-schema = { workspace = true }
+jcp-grant = { workspace = true }
+jcp-runtime = { workspace = true }
+jcp-receipt = { workspace = true }
+jcp-energy = { workspace = true }
+jcp-efficiency = { workspace = true }
+ed25519-dalek = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+hex = { workspace = true }
+thiserror = { workspace = true }
+
+[lints]
+workspace = true

@@ -1,0 +1,40 @@
+[workspace]
+resolver = "2"
+
+[package]
+name = "mei-jcp-tag-builder"
+description = "Programmatic sovereign hardware generator + JCR-1 metered pipeline for MEI-JCP-Tag-v1 (2-layer PCB, 3D B-Rep enclosure, CR2032 electro-thermal sim, and 10,000-wakeup JCP hold/settle verification)."
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+
+[dependencies]
+cad-types = { path = "../openie-cad/crates/cad-types" }
+cad-math = { path = "../openie-cad/crates/cad-math" }
+cad-eda = { path = "../openie-cad/crates/cad-eda" }
+cad-router = { path = "../openie-cad/crates/cad-router" }
+cad-kernel = { path = "../openie-cad/crates/cad-kernel" }
+cad-sim = { path = "../openie-cad/crates/cad-sim" }
+cad-joules = { path = "../openie-cad/crates/cad-joules" }
+cad-format = { path = "../openie-cad/crates/cad-format" }
+cad-mfg = { path = "../openie-cad/crates/cad-mfg" }
+cad-interop = { path = "../openie-cad/crates/cad-interop" }
+cad-udd = { path = "../openie-cad/crates/cad-udd" }
+
+jcp-satb-cad-spine = { path = "../jcp-satb-cad-spine/crates/jcp-satb-cad-spine" }
+jcp-schema = { path = "../jcp-satb-cad-spine/crates/jcp-schema" }
+jcp-grant = { path = "../jcp-satb-cad-spine/crates/jcp-grant" }
+jcp-runtime = { path = "../jcp-satb-cad-spine/crates/jcp-runtime" }
+jcp-receipt = { path = "../jcp-satb-cad-spine/crates/jcp-receipt" }
+jcp-efficiency = { path = "../jcp-satb-cad-spine/crates/jcp-efficiency" }
+
+ed25519-dalek = { version = "3", features = ["alloc", "rand_core"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+hex = "0.4"
+
+[profile.dev]
+opt-level = 2
+
+[profile.release]
+opt-level = 3

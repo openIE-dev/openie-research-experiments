@@ -1,0 +1,19 @@
+[package]
+name = "jcp-efficiency"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "The energy-efficiency spec for agentic work, surfaced as a sealed receipt. An efficiency/1 JCR-1 receipt records the four figures the dark-factory economics turn on — joules per accepted token, tokens per second, value per token, and the tokens/joules/dollars spent per COMPLETED, VERIFIED unit of work — at honest provenance, hash-chained. The field measures token RATES; this measures the joules to a done, tested result, and makes the waste (tokens burned on units that never completed) visible. Aggregation splits value-delivered from spend so 'cost per token' can't hide an unverified project."
+
+[dependencies]
+jcp-schema = { workspace = true }
+jcp-receipt = { workspace = true }
+ed25519-dalek = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true }
+hex = { workspace = true }
+thiserror = { workspace = true }
+
+[lints]
+workspace = true

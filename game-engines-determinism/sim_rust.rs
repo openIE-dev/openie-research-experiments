@@ -1,18 +1,49 @@
-// Rust native (`aarch64-apple-darwin`) target for `game-engines` (`GE-H1` Q32.32 & `GE-H2` f64).
+// Rust native (`aarch64` / `x86_64` macOS & Linux) target for `game-engines` (`GE-H1` Q32.32 & `GE-H2` f64).
 // Compiled via: rustc --edition 2021 -O sim_rust.rs -o sim_rust
 
 use std::env;
 use std::io::{self, BufRead, Write};
+#[cfg(not(target_os = "macos"))]
+use std::sync::OnceLock;
 use std::time::Instant;
 
+#[cfg(target_os = "macos")]
 extern "C" {
     fn CC_SHA256(data: *const u8, len: u32, md: *mut u8) -> *mut u8;
 }
 
+#[cfg(not(target_os = "macos"))]
+extern "C" {
+    fn dlopen(filename: *const u8, flags: i32) -> *mut std::ffi::c_void;
+    fn dlsym(handle: *mut std::ffi::c_void, symbol: *const u8) -> *mut std::ffi::c_void;
+}
+
+#[cfg(not(target_os = "macos"))]
+type OpenSslSha256Fn = unsafe extern "C" fn(*const u8, usize, *mut u8) -> *mut u8;
+
+#[cfg(not(target_os = "macos"))]
+fn get_openssl_sha256() -> OpenSslSha256Fn {
+    static FN_PTR: OnceLock<usize> = OnceLock::new();
+    let addr = *FN_PTR.get_or_init(|| unsafe {
+        let h = dlopen(b"libcrypto.so.3\0".as_ptr(), 1);
+        assert!(!h.is_null(), "failed to dlopen libcrypto.so.3");
+        let sym = dlsym(h, b"SHA256\0".as_ptr());
+        assert!(!sym.is_null(), "failed to resolve SHA256 in libcrypto.so.3");
+        sym as usize
+    });
+    unsafe { std::mem::transmute::<usize, OpenSslSha256Fn>(addr) }
+}
+
 fn sha256_hex(bytes: &[u8]) -> String {
     let mut md = [0u8; 32];
+    #[cfg(target_os = "macos")]
     unsafe {
         CC_SHA256(bytes.as_ptr(), bytes.len() as u32, md.as_mut_ptr());
+    }
+    #[cfg(not(target_os = "macos"))]
+    unsafe {
+        let f = get_openssl_sha256();
+        f(bytes.as_ptr(), bytes.len(), md.as_mut_ptr());
     }
     let mut s = String::with_capacity(64);
     for b in md {

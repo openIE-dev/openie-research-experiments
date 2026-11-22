@@ -1,0 +1,17 @@
+G04 generator: cad-interop*
+%FSLAX46Y46*%
+%MOMM*%
+%TF.FileFunction,Profile,NP*%
+%TF.FilePolarity,Positive*%
+%TF.Part,Single*%
+%TF.SameCoordinates*%
+%TF.GenerationSoftware,OpenIE,cad-interop,0.1.0*%
+%LPD*%
+%ADD10C,0.1*%
+D10*
+X0Y0D02*
+X32000000Y0D01*
+X32000000Y24000000D01*
+X0Y24000000D01*
+X0Y0D01*
+M02*

@@ -1,0 +1,41 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/jcp-schema",
+    "crates/jcp-grant",
+    "crates/jcp-runtime",
+    "crates/jcp-receipt",
+    "crates/jcp-energy",
+    "crates/jcp-efficiency",
+    "crates/jcp-satb-cad-spine",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+repository = "https://github.com/transaction-science/open-standards"
+
+[workspace.dependencies]
+jcp-schema = { path = "crates/jcp-schema" }
+jcp-grant = { path = "crates/jcp-grant" }
+jcp-runtime = { path = "crates/jcp-runtime" }
+jcp-receipt = { path = "crates/jcp-receipt" }
+jcp-energy = { path = "crates/jcp-energy" }
+jcp-efficiency = { path = "crates/jcp-efficiency" }
+
+blake3 = "1"
+ed25519-dalek = { version = "3", features = ["alloc", "rand_core"] }
+bs58 = "0.5"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+hex = "0.4"
+thiserror = "2"
+
+[workspace.lints.clippy]
+all = "warn"
+
+[profile.dev.package.curve25519-dalek]
+opt-level = 3
+[profile.dev.package.ed25519-dalek]
+opt-level = 3

@@ -1,0 +1,15 @@
+[package]
+name = "jcp-grant"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+jcp-schema = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+ed25519-dalek = { workspace = true }
+thiserror = { workspace = true }
+
+[lints]
+workspace = true

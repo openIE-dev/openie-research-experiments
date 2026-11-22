@@ -1,0 +1,17 @@
+[package]
+name = "jcp-runtime"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+jcp-schema = { workspace = true }
+jcp-grant = { workspace = true }
+serde = { workspace = true }
+
+[dev-dependencies]
+ed25519-dalek = { workspace = true }
+
+[lints]
+workspace = true

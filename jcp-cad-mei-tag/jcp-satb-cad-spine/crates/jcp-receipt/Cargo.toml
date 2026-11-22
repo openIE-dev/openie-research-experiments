@@ -1,0 +1,21 @@
+[package]
+name = "jcp-receipt"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+jcp-schema = { workspace = true }
+jcp-runtime = { workspace = true }
+ed25519-dalek = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+hex = { workspace = true }
+thiserror = { workspace = true }
+
+[dev-dependencies]
+jcp-grant = { workspace = true }
+
+[lints]
+workspace = true

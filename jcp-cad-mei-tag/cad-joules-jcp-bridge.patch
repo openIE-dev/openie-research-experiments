@@ -1,0 +1,938 @@
+diff --git a/crates/cad-joules/src/jcp_satb_bridge.rs b/crates/cad-joules/src/jcp_satb_bridge.rs
+new file mode 100644
+index 0000000..7989582
+--- /dev/null
++++ b/crates/cad-joules/src/jcp_satb_bridge.rs
+@@ -0,0 +1,920 @@
++//! Lossless provenance bridge across SATB-IO (`L0..L4` x `A1..N`), JCP (`JCR-1`
++//! energy rungs + coverage), and `openie-cad` (`SessionJoules` tracts + `JouleReceipt`).
++//!
++//! Enforces three invariants by construction:
++//! 1. Provenance meet-semilattice monotonicity: combining two stages or telemetry
++//!    channels never silently upgrades evidence tier, JCP rung, or rail coverage.
++//! 2. SATB Falsifier 6 (`<= 5.00%` pre/post idle baseline drift): drift above
++//!    `500` basis points drops `derived_marginal_uj` to `None` while keeping
++//!    `raw_counter_uj` intact for sealing inside canonical det-CBOR `JCR-1`.
++//! 3. SATB Step 7 sequential phase conservation: `|sum(phases) - window| <= 1 uJ`.
++
++use serde::{Deserialize, Serialize};
++use serde_json::{json, Value};
++
++use crate::JouleReceipt;
++
++/// Maximum pre/post idle baseline drift allowed before SATB Falsifier 6 drops
++/// `derived_marginal_uj` (`500` basis points = `5.00%`).
++pub const FALSIFIER_6_MAX_DRIFT_BPS: u64 = 500;
++
++/// Maximum phase-sum residual allowed by SATB Step 7 (`1 uJ`).
++pub const STEP_7_MAX_RESIDUAL_UJ: u64 = 1;
++
++/// Accounting tract within an `openie-cad` engineering session.
++#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
++#[serde(rename_all = "snake_case")]
++pub enum CadTract {
++    Material,
++    SupplyChain,
++    Compute,
++}
++
++impl CadTract {
++    pub fn as_str(self) -> &'static str {
++        match self {
++            Self::Material => "material",
++            Self::SupplyChain => "supply_chain",
++            Self::Compute => "compute",
++        }
++    }
++}
++
++/// SATB-IO physical / logical measurement boundary (`L0..L4`).
++#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
++pub enum SatbBoundary {
++    /// External inline DC shunt or calibrated wall-plug power analyzer.
++    L0,
++    /// Board-level shunt or SoC energy counter (`INA238`, `IOReport`, `RAPL`).
++    L1,
++    /// Host OS process or subtree (`ri_energy_nj`, cgroup counter).
++    L2,
++    /// Container, VM, or shared-tenant slice.
++    L3,
++    /// Remote uninstrumented API boundary.
++    L4,
++}
++
++impl SatbBoundary {
++    pub fn as_str(self) -> &'static str {
++        match self {
++            Self::L0 => "L0",
++            Self::L1 => "L1",
++            Self::L2 => "L2",
++            Self::L3 => "L3",
++            Self::L4 => "L4",
++        }
++    }
++
++    /// Coarser boundary wins under meet (`L0 ^ L2 = L2`, `L1 ^ L4 = L4`).
++    pub fn meet(self, other: Self) -> Self {
++        self.max(other)
++    }
++}
++
++/// SATB-IO workload attribution discipline (`A1..N`).
++#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
++pub enum SatbAttribution {
++    /// Dedicated single-workload physical rail or isolated bench.
++    A1,
++    /// Single-process run bracketed by pre/post idle baseline checks.
++    A2,
++    /// Shared-host hardware counter without per-process rail isolation.
++    B,
++    /// Model-allocated share (for example Kepler CPU-share or utilization split).
++    C,
++    /// Deterministic analytical model (`wall_s * W_est` or operation counter).
++    D,
++    /// Non-energy proxy only (latency, token count, FLOP count).
++    P,
++    /// Unattested closed API or missing counter.
++    N,
++}
++
++impl SatbAttribution {
++    pub fn as_str(self) -> &'static str {
++        match self {
++            Self::A1 => "A1",
++            Self::A2 => "A2",
++            Self::B => "B",
++            Self::C => "C",
++            Self::D => "D",
++            Self::P => "P",
++            Self::N => "N",
++        }
++    }
++
++    pub fn strength_rank(self) -> u8 {
++        match self {
++            Self::A1 => 6,
++            Self::A2 => 5,
++            Self::B => 4,
++            Self::C => 3,
++            Self::D => 2,
++            Self::P => 1,
++            Self::N => 0,
++        }
++    }
++
++    /// Weaker attribution wins under meet (`A1 ^ B = B`, `C ^ D = D`).
++    pub fn meet(self, other: Self) -> Self {
++        if self.strength_rank() <= other.strength_rank() {
++            self
++        } else {
++            other
++        }
++    }
++}
++
++/// Physical or analytical mechanism that produced a reading.
++#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
++#[serde(rename_all = "snake_case")]
++pub enum CounterMechanism {
++    /// Physical inline sense resistor across the complete task boundary.
++    RailShuntWhole,
++    /// Physical inline sense resistor covering a strict subset of rails.
++    RailShuntPartial,
++    /// Vendor-opaque SoC/GPU counter (`IOReport`, `RAPL`, `NVML`, `ri_energy_nj`).
++    VendorOpaqueCounter { whole_board: bool },
++    /// Utilization-share model (`Kepler` CPU-share).
++    CpuShareModel { whole_scope: bool },
++    /// Analytical `wall_s * W_est`, datasheet integral, or operation counter.
++    AnalyticalEstimator { whole_scope: bool },
++    /// Closed remote API or absent counter.
++    UnattestedOrMissing,
++}
++
++impl CounterMechanism {
++    pub fn rank(self) -> u8 {
++        match self {
++            Self::RailShuntWhole => 5,
++            Self::RailShuntPartial => 4,
++            Self::VendorOpaqueCounter { .. } => 3,
++            Self::CpuShareModel { .. } => 2,
++            Self::AnalyticalEstimator { .. } => 1,
++            Self::UnattestedOrMissing => 0,
++        }
++    }
++
++    pub fn is_whole(self) -> bool {
++        match self {
++            Self::RailShuntWhole => true,
++            Self::RailShuntPartial => false,
++            Self::VendorOpaqueCounter { whole_board } => whole_board,
++            Self::CpuShareModel { whole_scope } => whole_scope,
++            Self::AnalyticalEstimator { whole_scope } => whole_scope,
++            Self::UnattestedOrMissing => false,
++        }
++    }
++
++    pub fn meet(self, other: Self) -> Self {
++        let both_whole = self.is_whole() && other.is_whole();
++        match self.rank().min(other.rank()) {
++            5 => Self::RailShuntWhole,
++            4 => Self::RailShuntPartial,
++            3 => Self::VendorOpaqueCounter {
++                whole_board: both_whole,
++            },
++            2 => Self::CpuShareModel {
++                whole_scope: both_whole,
++            },
++            1 => Self::AnalyticalEstimator {
++                whole_scope: both_whole,
++            },
++            _ => Self::UnattestedOrMissing,
++        }
++    }
++}
++
++/// Three-tier evidence separation (`measured_j`, `reported_j`, `est_j`, `not_available`).
++#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash, Serialize, Deserialize)]
++#[serde(rename_all = "snake_case")]
++pub enum EvidenceTier {
++    NotAvailable = 0,
++    EstJ = 1,
++    ReportedJ = 2,
++    MeasuredJ = 3,
++}
++
++impl EvidenceTier {
++    pub fn as_str(self) -> &'static str {
++        match self {
++            Self::MeasuredJ => "measured_j",
++            Self::ReportedJ => "reported_j",
++            Self::EstJ => "est_j",
++            Self::NotAvailable => "not_available",
++        }
++    }
++
++    pub fn meet(self, other: Self) -> Self {
++        self.min(other)
++    }
++}
++
++/// Rail coverage projected onto JCP (`Whole` vs `Partial`).
++#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
++#[serde(rename_all = "snake_case")]
++pub enum JcpCoverageKind {
++    Whole,
++    Partial,
++}
++
++impl JcpCoverageKind {
++    pub fn as_str(self) -> &'static str {
++        match self {
++            Self::Whole => "whole",
++            Self::Partial => "partial",
++        }
++    }
++
++    pub fn meet(self, other: Self) -> Self {
++        match (self, other) {
++            (Self::Whole, Self::Whole) => Self::Whole,
++            _ => Self::Partial,
++        }
++    }
++}
++
++/// JCP `JCR-1` provenance rung projection paired with coverage and vendor-opacity bit.
++#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
++#[serde(tag = "rung", rename_all = "snake_case")]
++pub enum JcpRungProjection {
++    HwShunt {
++        coverage: JcpCoverageKind,
++        vendor_opaque: bool,
++    },
++    ModelBased {
++        coverage: JcpCoverageKind,
++    },
++    Estimator {
++        coverage: JcpCoverageKind,
++    },
++    NotAvailable,
++}
++
++impl JcpRungProjection {
++    pub fn jcr1_provenance_label(self) -> &'static str {
++        match self {
++            Self::HwShunt { .. } => "HwShunt",
++            Self::ModelBased { .. } => "ModelBased",
++            Self::Estimator { .. } => "Estimator",
++            Self::NotAvailable => "NotAvailable",
++        }
++    }
++
++    pub fn evidence_tier(self) -> EvidenceTier {
++        match self {
++            Self::HwShunt {
++                vendor_opaque: false,
++                ..
++            } => EvidenceTier::MeasuredJ,
++            Self::HwShunt {
++                vendor_opaque: true,
++                ..
++            }
++            | Self::ModelBased { .. } => EvidenceTier::ReportedJ,
++            Self::Estimator { .. } => EvidenceTier::EstJ,
++            Self::NotAvailable => EvidenceTier::NotAvailable,
++        }
++    }
++
++    pub fn rung_rank(self) -> u8 {
++        match self {
++            Self::NotAvailable => 0,
++            Self::Estimator { .. } => 1,
++            Self::ModelBased { .. } => 2,
++            Self::HwShunt {
++                vendor_opaque: true,
++                ..
++            } => 3,
++            Self::HwShunt {
++                vendor_opaque: false,
++                ..
++            } => 4,
++        }
++    }
++
++    pub fn coverage(self) -> Option<JcpCoverageKind> {
++        match self {
++            Self::HwShunt { coverage, .. }
++            | Self::ModelBased { coverage }
++            | Self::Estimator { coverage } => Some(coverage),
++            Self::NotAvailable => None,
++        }
++    }
++
++    /// Monotone meet on JCP rungs: never promotes provenance or coverage.
++    pub fn meet(self, other: Self) -> Self {
++        let cov = match (self.coverage(), other.coverage()) {
++            (Some(a), Some(b)) => a.meet(b),
++            _ => return Self::NotAvailable,
++        };
++        match self.rung_rank().min(other.rung_rank()) {
++            4 => Self::HwShunt {
++                coverage: cov,
++                vendor_opaque: false,
++            },
++            3 => Self::HwShunt {
++                coverage: cov,
++                vendor_opaque: true,
++            },
++            2 => Self::ModelBased { coverage: cov },
++            1 => Self::Estimator { coverage: cov },
++            _ => Self::NotAvailable,
++        }
++    }
++}
++
++/// Unified SATB-IO provenance point (`boundary x attribution x mechanism`).
++#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Serialize, Deserialize)]
++pub struct SatbProvenance {
++    pub boundary: SatbBoundary,
++    pub attribution: SatbAttribution,
++    pub mechanism: CounterMechanism,
++}
++
++impl SatbProvenance {
++    pub fn rail_shunt(boundary: SatbBoundary, attribution: SatbAttribution, whole: bool) -> Self {
++        Self {
++            boundary,
++            attribution,
++            mechanism: if whole {
++                CounterMechanism::RailShuntWhole
++            } else {
++                CounterMechanism::RailShuntPartial
++            },
++        }
++    }
++
++    pub fn vendor_counter(
++        boundary: SatbBoundary,
++        attribution: SatbAttribution,
++        whole_board: bool,
++    ) -> Self {
++        Self {
++            boundary,
++            attribution,
++            mechanism: CounterMechanism::VendorOpaqueCounter { whole_board },
++        }
++    }
++
++    pub fn kepler_cpu_share(boundary: SatbBoundary) -> Self {
++        Self {
++            boundary,
++            attribution: SatbAttribution::C,
++            mechanism: CounterMechanism::CpuShareModel { whole_scope: false },
++        }
++    }
++
++    pub fn estimator(boundary: SatbBoundary) -> Self {
++        Self {
++            boundary,
++            attribution: SatbAttribution::D,
++            mechanism: CounterMechanism::AnalyticalEstimator { whole_scope: true },
++        }
++    }
++
++    pub fn unattested_api() -> Self {
++        Self {
++            boundary: SatbBoundary::L4,
++            attribution: SatbAttribution::N,
++            mechanism: CounterMechanism::UnattestedOrMissing,
++        }
++    }
++
++    /// Canonical projection from `(boundary, attribution, mechanism)` into JCP rung +
++    /// coverage + three-tier evidence label. Out-of-contract claims automatically
++    /// demote to the strongest valid rung rather than silently upgrading.
++    pub fn project_to_jcp(self) -> JcpRungProjection {
++        if self.boundary == SatbBoundary::L4
++            || matches!(self.attribution, SatbAttribution::P | SatbAttribution::N)
++            || self.mechanism == CounterMechanism::UnattestedOrMissing
++        {
++            return JcpRungProjection::NotAvailable;
++        }
++
++        let scope_cov = if self.mechanism.is_whole() && self.boundary != SatbBoundary::L3 {
++            JcpCoverageKind::Whole
++        } else {
++            JcpCoverageKind::Partial
++        };
++
++        match (self.boundary, self.attribution, self.mechanism) {
++            // (L0 | L1 | L2) + (A1 | A2 | B) + physical rail shunt -> JCP HwShunt / measured_j
++            (
++                SatbBoundary::L0 | SatbBoundary::L1 | SatbBoundary::L2,
++                SatbAttribution::A1 | SatbAttribution::A2 | SatbAttribution::B,
++                CounterMechanism::RailShuntWhole,
++            ) => JcpRungProjection::HwShunt {
++                coverage: JcpCoverageKind::Whole,
++                vendor_opaque: false,
++            },
++            (
++                SatbBoundary::L0 | SatbBoundary::L1 | SatbBoundary::L2,
++                SatbAttribution::A1 | SatbAttribution::A2 | SatbAttribution::B,
++                CounterMechanism::RailShuntPartial,
++            ) => JcpRungProjection::HwShunt {
++                coverage: JcpCoverageKind::Partial,
++                vendor_opaque: false,
++            },
++            // L3 container over physical shunt cannot claim Whole physical rail isolation:
++            // demotes to vendor-opaque / shared Partial reported_j unless C/D.
++            (
++                SatbBoundary::L3,
++                SatbAttribution::A1 | SatbAttribution::A2 | SatbAttribution::B,
++                CounterMechanism::RailShuntWhole | CounterMechanism::RailShuntPartial,
++            ) => JcpRungProjection::HwShunt {
++                coverage: JcpCoverageKind::Partial,
++                vendor_opaque: true,
++            },
++            // (L1 | L2 | L3) + (A1 | A2 | B) + IOReport/RAPL/NVML/ri_energy_nj ->
++            // JCP HwShunt(vendor_opaque=true) / reported_j
++            (
++                SatbBoundary::L0 | SatbBoundary::L1 | SatbBoundary::L2 | SatbBoundary::L3,
++                SatbAttribution::A1 | SatbAttribution::A2 | SatbAttribution::B,
++                CounterMechanism::VendorOpaqueCounter { .. },
++            ) => JcpRungProjection::HwShunt {
++                coverage: scope_cov,
++                vendor_opaque: true,
++            },
++            // Label C (Kepler CPU-share / model allocation) -> JCP ModelBased / reported_j
++            (
++                SatbBoundary::L0 | SatbBoundary::L1 | SatbBoundary::L2 | SatbBoundary::L3,
++                SatbAttribution::C,
++                CounterMechanism::CpuShareModel { .. }
++                | CounterMechanism::VendorOpaqueCounter { .. }
++                | CounterMechanism::RailShuntWhole
++                | CounterMechanism::RailShuntPartial,
++            ) => JcpRungProjection::ModelBased {
++                coverage: scope_cov,
++            },
++            (
++                SatbBoundary::L0 | SatbBoundary::L1 | SatbBoundary::L2 | SatbBoundary::L3,
++                _,
++                CounterMechanism::CpuShareModel { .. },
++            ) if self.attribution != SatbAttribution::D => JcpRungProjection::ModelBased {
++                coverage: scope_cov,
++            },
++            // Label D or AnalyticalEstimator -> JCP Estimator / est_j
++            (_, SatbAttribution::D, _) | (_, _, CounterMechanism::AnalyticalEstimator { .. }) => {
++                JcpRungProjection::Estimator {
++                    coverage: scope_cov,
++                }
++            }
++            _ => JcpRungProjection::NotAvailable,
++        }
++    }
++
++    pub fn evidence_tier(self) -> EvidenceTier {
++        self.project_to_jcp().evidence_tier()
++    }
++
++    /// Canonical inverse representative from a JCP rung projection back to SATB-IO.
++    pub fn from_jcp_canonical(proj: JcpRungProjection) -> Self {
++        match proj {
++            JcpRungProjection::HwShunt {
++                coverage: JcpCoverageKind::Whole,
++                vendor_opaque: false,
++            } => Self::rail_shunt(SatbBoundary::L1, SatbAttribution::A1, true),
++            JcpRungProjection::HwShunt {
++                coverage: JcpCoverageKind::Partial,
++                vendor_opaque: false,
++            } => Self::rail_shunt(SatbBoundary::L1, SatbAttribution::B, false),
++            JcpRungProjection::HwShunt {
++                coverage,
++                vendor_opaque: true,
++            } => Self::vendor_counter(
++                SatbBoundary::L1,
++                SatbAttribution::A2,
++                coverage == JcpCoverageKind::Whole,
++            ),
++            JcpRungProjection::ModelBased { .. } => Self::kepler_cpu_share(SatbBoundary::L2),
++            JcpRungProjection::Estimator { .. } => Self::estimator(SatbBoundary::L2),
++            JcpRungProjection::NotAvailable => Self::unattested_api(),
++        }
++    }
++
++    /// Meet across two SATB provenance descriptors.
++    pub fn meet(self, other: Self) -> Self {
++        Self {
++            boundary: self.boundary.meet(other.boundary),
++            attribution: self.attribution.meet(other.attribution),
++            mechanism: self.mechanism.meet(other.mechanism),
++        }
++    }
++}
++
++/// Result of evaluating SATB Falsifier 6 (`<= 5.00%` pre/post idle baseline drift).
++#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
++pub struct Falsifier6Outcome {
++    pub raw_counter_uj: u64,
++    pub window_us: u64,
++    pub pre_idle_uw: u64,
++    pub post_idle_uw: u64,
++    pub drift_bps: u64,
++    pub passed: bool,
++    /// `Some(marginal_uj)` iff `drift_bps <= 500`; `None` when baseline drifted `> 5.0%`.
++    pub derived_marginal_uj: Option<u64>,
++}
++
++impl Falsifier6Outcome {
++    pub fn evaluate(
++        raw_counter_uj: u64,
++        window_us: u64,
++        pre_idle_uw: u64,
++        post_idle_uw: u64,
++    ) -> Self {
++        let denom = pre_idle_uw.max(1);
++        let diff = post_idle_uw.abs_diff(pre_idle_uw);
++        let drift_bps = (u128::from(diff) * 10_000 / u128::from(denom)) as u64;
++        let passed = drift_bps <= FALSIFIER_6_MAX_DRIFT_BPS;
++        let derived_marginal_uj = if passed {
++            let mean_idle_uw = (u128::from(pre_idle_uw) + u128::from(post_idle_uw)) / 2;
++            let baseline_uj = (mean_idle_uw * u128::from(window_us) / 1_000_000) as u64;
++            Some(raw_counter_uj.saturating_sub(baseline_uj))
++        } else {
++            None
++        };
++        Self {
++            raw_counter_uj,
++            window_us,
++            pre_idle_uw,
++            post_idle_uw,
++            drift_bps,
++            passed,
++            derived_marginal_uj,
++        }
++    }
++}
++
++/// Result of evaluating SATB Step 7 (`|sum(phases) - window| <= 1 uJ`).
++#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
++pub struct Step7SumOutcome {
++    pub sum_phases_uj: u64,
++    pub window_uj: u64,
++    pub residual_uj: u64,
++    pub passed: bool,
++}
++
++impl Step7SumOutcome {
++    pub fn evaluate(phase_ujs: &[u64], window_uj: u64) -> Self {
++        let sum_phases_uj = phase_ujs
++            .iter()
++            .copied()
++            .fold(0u64, |acc, x| acc.saturating_add(x));
++        let residual_uj = sum_phases_uj.abs_diff(window_uj);
++        Self {
++            sum_phases_uj,
++            window_uj,
++            residual_uj,
++            passed: residual_uj <= STEP_7_MAX_RESIDUAL_UJ,
++        }
++    }
++}
++
++/// Strictly separated three-tier stage energy record ready for `JCR-1` sealing.
++#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
++pub struct StageEnergyRecord {
++    pub stage: String,
++    pub tract: CadTract,
++    pub backend: String,
++    pub hardware_model: String,
++    pub window_us: u64,
++    pub provenance: SatbProvenance,
++    pub measured_uj: Option<u64>,
++    pub reported_uj: Option<u64>,
++    pub est_uj: Option<u64>,
++    pub falsifier6: Option<Falsifier6Outcome>,
++    pub step7: Option<Step7SumOutcome>,
++}
++
++impl StageEnergyRecord {
++    /// Lift an `openie-cad` `JouleReceipt` into a strict three-tier stage record.
++    ///
++    /// Direct OS/SoC counters (`macos-ioreport`, `linux-rapl`) populate `reported_uj`
++    /// (`HwShunt` with `vendor_opaque = true`), leaving `measured_uj = None` unless an
++    /// external calibrated rail shunt is present. An optional analytical estimate
++    /// (`est_uj`) is stored alongside without ever overwriting `reported_uj` or `measured_uj`.
++    pub fn from_cad_receipt(
++        receipt: &JouleReceipt,
++        tract: CadTract,
++        est_uj: Option<u64>,
++        idle_bracket_uw: Option<(u64, u64)>,
++    ) -> Self {
++        let counter_uj = receipt
++            .joules
++            .map(|j| (j.max(0.0) * 1_000_000.0).round() as u64);
++
++        let (provenance, reported_uj, falsifier6) = match (receipt.backend.as_str(), counter_uj) {
++            ("macos-ioreport" | "linux-rapl", Some(raw_uj)) => {
++                let whole_board = receipt.backend == "macos-ioreport";
++                let (attr, f6) = match idle_bracket_uw {
++                    Some((pre_uw, post_uw)) => (
++                        SatbAttribution::A2,
++                        Some(Falsifier6Outcome::evaluate(
++                            raw_uj,
++                            receipt.window_us,
++                            pre_uw,
++                            post_uw,
++                        )),
++                    ),
++                    None => (SatbAttribution::B, None),
++                };
++                (
++                    SatbProvenance::vendor_counter(SatbBoundary::L1, attr, whole_board),
++                    Some(raw_uj),
++                    f6,
++                )
++            }
++            (_, Some(raw_uj)) => (
++                SatbProvenance::vendor_counter(SatbBoundary::L2, SatbAttribution::B, false),
++                Some(raw_uj),
++                None,
++            ),
++            (_, None) => {
++                let prov = if est_uj.is_some() {
++                    SatbProvenance::estimator(SatbBoundary::L2)
++                } else {
++                    SatbProvenance::unattested_api()
++                };
++                (prov, None, None)
++            }
++        };
++
++        Self {
++            stage: receipt.operation.clone(),
++            tract,
++            backend: receipt.backend.clone(),
++            hardware_model: receipt.model.clone(),
++            window_us: receipt.window_us,
++            provenance,
++            measured_uj: None,
++            reported_uj,
++            est_uj,
++            falsifier6,
++            step7: None,
++        }
++    }
++
++    /// Construct an analytical-only stage (`Material` embodied energy, `SupplyChain`
++    /// transport, or pre-silicon `Compute` estimate) with `measured_uj = None` and
++    /// `reported_uj = None`.
++    pub fn estimator_only(
++        stage: impl Into<String>,
++        tract: CadTract,
++        est_uj: u64,
++        window_us: u64,
++    ) -> Self {
++        Self {
++            stage: stage.into(),
++            tract,
++            backend: "analytical-estimator".to_string(),
++            hardware_model: "datasheet-analytical".to_string(),
++            window_us,
++            provenance: SatbProvenance::estimator(SatbBoundary::L2),
++            measured_uj: None,
++            reported_uj: None,
++            est_uj: Some(est_uj),
++            falsifier6: None,
++            step7: None,
++        }
++    }
++
++    /// Construct a bench-shunt stage (`INA238` / external rail analyzer) populating `measured_uj`.
++    pub fn physical_shunt(
++        stage: impl Into<String>,
++        tract: CadTract,
++        boundary: SatbBoundary,
++        attribution: SatbAttribution,
++        whole_rail: bool,
++        raw_shunt_uj: u64,
++        window_us: u64,
++        idle_bracket_uw: Option<(u64, u64)>,
++    ) -> Self {
++        let falsifier6 = idle_bracket_uw.map(|(pre_uw, post_uw)| {
++            Falsifier6Outcome::evaluate(raw_shunt_uj, window_us, pre_uw, post_uw)
++        });
++        Self {
++            stage: stage.into(),
++            tract,
++            backend: "hw-rail-shunt".to_string(),
++            hardware_model: "INA238-100mOhm".to_string(),
++            window_us,
++            provenance: SatbProvenance::rail_shunt(boundary, attribution, whole_rail),
++            measured_uj: Some(raw_shunt_uj),
++            reported_uj: None,
++            est_uj: None,
++            falsifier6,
++            step7: None,
++        }
++    }
++
++    pub fn with_step7(mut self, outcome: Step7SumOutcome) -> Self {
++        self.step7 = Some(outcome);
++        self
++    }
++
++    /// Primary integer microjoule figure and JCP projection to bind into a `JCR-1` decision.
++    pub fn primary_jcp_cost(&self) -> (u64, JcpRungProjection) {
++        let proj = self.provenance.project_to_jcp();
++        let uj = self
++            .measured_uj
++            .or(self.reported_uj)
++            .or(self.est_uj)
++            .unwrap_or(0);
++        (uj, proj)
++    }
++
++    /// Canonical det-CBOR-safe extension members (strictly `u64` and `String` —
++    /// zero floats, zero booleans, zero nulls) for inclusion inside signed `JCR-1` cores.
++    pub fn jcr1_extension_members(&self) -> Vec<(String, Value)> {
++        let proj = self.provenance.project_to_jcp();
++        let mut out = vec![
++            ("cad_stage".to_string(), json!(self.stage)),
++            ("cad_tract".to_string(), json!(self.tract.as_str())),
++            ("cad_window_us".to_string(), json!(self.window_us)),
++            ("satb_boundary".to_string(), json!(self.provenance.boundary.as_str())),
++            (
++                "satb_attribution".to_string(),
++                json!(self.provenance.attribution.as_str()),
++            ),
++            (
++                "satb_evidence_tier".to_string(),
++                json!(proj.evidence_tier().as_str()),
++            ),
++        ];
++        if !self.backend.is_empty() {
++            out.push(("cad_backend".to_string(), json!(self.backend)));
++        }
++        if let JcpRungProjection::HwShunt { vendor_opaque, .. } = proj {
++            out.push((
++                "satb_vendor_opaque".to_string(),
++                json!(u64::from(vendor_opaque)),
++            ));
++        }
++        if let Some(m) = self.measured_uj {
++            out.push(("satb_measured_uj".to_string(), json!(m)));
++        }
++        if let Some(r) = self.reported_uj {
++            out.push(("satb_reported_uj".to_string(), json!(r)));
++        }
++        if let Some(e) = self.est_uj {
++            out.push(("satb_est_uj".to_string(), json!(e)));
++        }
++        if let Some(f6) = self.falsifier6 {
++            out.push(("satb_raw_counter_uj".to_string(), json!(f6.raw_counter_uj)));
++            out.push(("satb_drift_bps".to_string(), json!(f6.drift_bps)));
++            out.push((
++                "satb_falsifier6_pass".to_string(),
++                json!(u64::from(f6.passed)),
++            ));
++            // When Falsifier 6 fails (`drift_bps > 500`), `derived_marginal_uj` is
++            // omitted from the signed core while `satb_raw_counter_uj` stays sealed.
++            if let Some(marginal) = f6.derived_marginal_uj {
++                out.push(("satb_derived_marginal_uj".to_string(), json!(marginal)));
++            }
++        }
++        if let Some(s7) = self.step7 {
++            out.push(("satb_step7_residual_uj".to_string(), json!(s7.residual_uj)));
++            out.push(("satb_step7_pass".to_string(), json!(u64::from(s7.passed))));
++        }
++        out
++    }
++}
++
++#[cfg(test)]
++mod tests {
++    use super::*;
++
++    #[test]
++    fn lattice_mapping_matches_satb_and_jcp_rungs() {
++        let shunt_whole = SatbProvenance::rail_shunt(SatbBoundary::L0, SatbAttribution::A1, true);
++        assert_eq!(
++            shunt_whole.project_to_jcp(),
++            JcpRungProjection::HwShunt {
++                coverage: JcpCoverageKind::Whole,
++                vendor_opaque: false
++            }
++        );
++        assert_eq!(shunt_whole.evidence_tier(), EvidenceTier::MeasuredJ);
++
++        let rapl_pkg = SatbProvenance::vendor_counter(SatbBoundary::L1, SatbAttribution::A2, false);
++        assert_eq!(
++            rapl_pkg.project_to_jcp(),
++            JcpRungProjection::HwShunt {
++                coverage: JcpCoverageKind::Partial,
++                vendor_opaque: true
++            }
++        );
++        assert_eq!(rapl_pkg.evidence_tier(), EvidenceTier::ReportedJ);
++
++        let kepler = SatbProvenance::kepler_cpu_share(SatbBoundary::L3);
++        assert_eq!(
++            kepler.project_to_jcp(),
++            JcpRungProjection::ModelBased {
++                coverage: JcpCoverageKind::Partial
++            }
++        );
++        assert_eq!(kepler.evidence_tier(), EvidenceTier::ReportedJ);
++
++        let est = SatbProvenance::estimator(SatbBoundary::L2);
++        assert_eq!(
++            est.project_to_jcp(),
++            JcpRungProjection::Estimator {
++                coverage: JcpCoverageKind::Whole
++            }
++        );
++        assert_eq!(est.evidence_tier(), EvidenceTier::EstJ);
++
++        let closed = SatbProvenance::unattested_api();
++        assert_eq!(closed.project_to_jcp(), JcpRungProjection::NotAvailable);
++        assert_eq!(closed.evidence_tier(), EvidenceTier::NotAvailable);
++    }
++
++    #[test]
++    fn lattice_meet_never_upgrades_provenance_or_coverage() {
++        let samples = [
++            SatbProvenance::rail_shunt(SatbBoundary::L0, SatbAttribution::A1, true),
++            SatbProvenance::rail_shunt(SatbBoundary::L1, SatbAttribution::B, false),
++            SatbProvenance::vendor_counter(SatbBoundary::L1, SatbAttribution::A2, true),
++            SatbProvenance::vendor_counter(SatbBoundary::L2, SatbAttribution::B, false),
++            SatbProvenance::kepler_cpu_share(SatbBoundary::L3),
++            SatbProvenance::estimator(SatbBoundary::L2),
++            SatbProvenance::unattested_api(),
++        ];
++
++        for &a in &samples {
++            assert_eq!(a.meet(a), a);
++            let pa = a.project_to_jcp();
++            for &b in &samples {
++                let pb = b.project_to_jcp();
++                let m = a.meet(b);
++                assert_eq!(m, b.meet(a), "meet must commute");
++                let pm = m.project_to_jcp();
++                assert!(
++                    pm.rung_rank() <= pa.rung_rank().min(pb.rung_rank()),
++                    "rung upgraded under meet: {a:?} ^ {b:?} -> {pm:?}"
++                );
++                assert!(
++                    pm.evidence_tier() <= pa.evidence_tier().min(pb.evidence_tier()),
++                    "evidence tier upgraded under meet"
++                );
++                if pa.coverage() == Some(JcpCoverageKind::Partial)
++                    || pb.coverage() == Some(JcpCoverageKind::Partial)
++                {
++                    if let Some(cov) = pm.coverage() {
++                        assert_eq!(cov, JcpCoverageKind::Partial);
++                    }
++                }
++            }
++        }
++    }
++
++    #[test]
++    fn falsifier_6_drops_marginal_above_five_percent_and_keeps_raw_counter() {
++        let ok = Falsifier6Outcome::evaluate(500_000, 1_000_000, 100_000, 104_900);
++        assert!(ok.passed);
++        assert_eq!(ok.drift_bps, 490);
++        assert_eq!(ok.derived_marginal_uj, Some(397_550));
++
++        let drifted = Falsifier6Outcome::evaluate(500_000, 1_000_000, 100_000, 106_200);
++        assert!(!drifted.passed);
++        assert_eq!(drifted.drift_bps, 620);
++        assert_eq!(drifted.raw_counter_uj, 500_000);
++        assert_eq!(drifted.derived_marginal_uj, None);
++
++        let r = JouleReceipt {
++            operation: "cad.router.autoroute".to_string(),
++            joules: Some(0.5),
++            backend: "linux-rapl".to_string(),
++            model: "AMD Ryzen".to_string(),
++            window_us: 1_000_000,
++        };
++        let stage = StageEnergyRecord::from_cad_receipt(
++            &r,
++            CadTract::Compute,
++            Some(420_000),
++            Some((100_000, 106_200)),
++        );
++        assert_eq!(stage.measured_uj, None);
++        assert_eq!(stage.reported_uj, Some(500_000));
++        assert_eq!(stage.est_uj, Some(420_000));
++        let ext = stage.jcr1_extension_members();
++        assert!(ext
++            .iter()
++            .any(|(k, v)| k == "satb_raw_counter_uj" && v == &json!(500_000)));
++        assert!(ext
++            .iter()
++            .any(|(k, v)| k == "satb_falsifier6_pass" && v == &json!(0u64)));
++        assert!(!ext.iter().any(|(k, _)| k == "satb_derived_marginal_uj"));
++    }
++
++    #[test]
++    fn step_7_enforces_one_microjoule_phase_conservation() {
++        assert!(Step7SumOutcome::evaluate(&[120, 340, 540], 1_000).passed);
++        assert!(Step7SumOutcome::evaluate(&[120, 340, 541], 1_000).passed);
++        let broken = Step7SumOutcome::evaluate(&[120, 340, 542], 1_000);
++        assert!(!broken.passed);
++        assert_eq!(broken.residual_uj, 2);
++    }
++}
+diff --git a/crates/cad-joules/src/lib.rs b/crates/cad-joules/src/lib.rs
+index bfc305d..2367718 100644
+--- a/crates/cad-joules/src/lib.rs
++++ b/crates/cad-joules/src/lib.rs
+@@ -20,6 +20,7 @@
+ //! ```
+ 
+ pub mod meter;
++pub mod jcp_satb_bridge;
+ pub mod receipt;
+ 
+ pub use meter::{EnergyMeter, Meter};

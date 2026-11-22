@@ -1,0 +1,26 @@
+# ==============================================================================
+# Sanitized xck26-sfvc784-2LV-c Power & JTAG Hardware Audit ($BUILD_DIR)
+# ==============================================================================
+
+1. JTAG & Physical Board Rail Check (`hw_server v2026.1` + `xsdb` + USB sysfs)
+------------------------------------------------------------------------------
+USB FTDI Device : 0403:6010 (FT2232C/D/H Dual UART/FIFO IC)
+Sysfs Identity  : Manufacturer="Particle", Product="tachyon-dbg-1.0"
+hw_server       : Xilinx hw_server v2026.1 (Build May 29 2026)
+xsdb `jtag targets` : [] (0 Xilinx JTAG targets detected)
+xsdb `targets`      : [] (0 DAP/PL targets detected)
+KV260 INA260 SOM `measured_j` : None (`board_metered = false`; no KV260 attached)
+
+2. Vivado 2026.1 Vectorless Post-Route Power (`est_j`)
+------------------------------------------------------------------------------
+Vivado `report_power` : not_available (`vivado v2026.1` blocked prior to
+                        `synth_design` due to absent `~/.Xilinx/Xilinx.lic`;
+                        ready-to-run batch flow staged in `scripts/run_vivado_xck26.tcl`).
+
+3. EDA Synthesis Host Counter Spend (`reported_j`, strictly separate from FPGA power)
+------------------------------------------------------------------------------
+Host CPU : 13th Gen Intel Core i9-13900H (`Linux 7.0.0-43-generic x86_64`)
+Sensor   : `/sys/class/powercap/intel-rapl:0/energy_uj` (`package-0`, `reported_j`)
+  - `clai_benes_paged_hotswap_core` Yosys `xcup` synthesis (144.82 s):  7,297.341 J
+  - `clai_kv260_axi_top` Yosys `xcup` synthesis (214.83 s)          : 10,089.356 J
+(Host synthesis energy is EDA compile spend `E_compile` on x86_64, never xck26 FPGA power.)

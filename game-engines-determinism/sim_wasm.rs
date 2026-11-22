@@ -25,7 +25,7 @@ const SM_C0: u64 = 11400714819323198485;
 const SM_C1: u64 = 13787848793156543929;
 const SM_C2: u64 = 10723151780598845931;
 
-static mut OUT_BUF: [u8; 732 * 256] = [0u8; 732 * 256];
+static mut OUT_BUF: [u8; 732 * 1024] = [0u8; 732 * 1024];
 
 #[inline]
 fn splitmix64_next(state: u64) -> (u64, u64) {
@@ -240,7 +240,7 @@ pub extern "C" fn run_q32_checkpoints(ticks: u32, stride: u32) -> u32 {
         }
 
         tick += 1;
-        if stride > 0 && (tick % stride == 0 || tick == ticks) && snap_idx < 256 {
+        if stride > 0 && (tick % stride == 0 || tick == ticks) && snap_idx < 1024 {
             let base = snap_idx * 732;
             unsafe {
                 let dst = &mut OUT_BUF[base..base + 732];

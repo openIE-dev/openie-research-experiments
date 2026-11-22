@@ -1,23 +1,41 @@
 // C++20 target for `game-engines` (`GE-H1` Q32.32 & `GE-H2` strict f64 / fast-math FMA / f32).
 // Compiled via:
-//   Strict:    clang++ -std=c++20 -O3 -ffp-contract=off -fno-fast-math sim_cpp.cpp -o sim_cpp_strict
-//   Fast-math: clang++ -std=c++20 -O3 -ffast-math -ffp-contract=fast sim_cpp.cpp -o sim_cpp_fastmath
+//   Strict:    clang++ -std=c++20 -O3 -ffp-contract=off -fno-fast-math sim_cpp.cpp -ldl -o sim_cpp_strict
+//   FMA:       clang++ -std=c++20 -O3 -ffp-contract=fast [-mavx2 -mfma] sim_cpp.cpp -ldl -o sim_cpp_fma
+//   Fast-math: clang++ -std=c++20 -O3 -ffast-math -ffp-contract=fast sim_cpp.cpp -ldl -o sim_cpp_fastmath
 
+#ifdef __APPLE__
 #include <CommonCrypto/CommonDigest.h>
+#else
+#include <dlfcn.h>
+#endif
 #include <algorithm>
 #include <array>
 #include <chrono>
 #include <cmath>
 #include <cstdint>
 #include <cstdio>
+#include <cstdlib>
 #include <cstring>
 #include <iostream>
 #include <string>
 #include <vector>
 
 static std::string sha256_hex(const uint8_t* data, size_t len) {
-    uint8_t md[CC_SHA256_DIGEST_LENGTH];
+    uint8_t md[32];
+#ifdef __APPLE__
     CC_SHA256(data, static_cast<CC_LONG>(len), md);
+#else
+    using Sha256Fn = uint8_t* (*)(const uint8_t*, size_t, uint8_t*);
+    static Sha256Fn fn = []() -> Sha256Fn {
+        void* h = dlopen("libcrypto.so.3", RTLD_LAZY);
+        if (!h) std::abort();
+        auto sym = reinterpret_cast<Sha256Fn>(dlsym(h, "SHA256"));
+        if (!sym) std::abort();
+        return sym;
+    }();
+    fn(data, len, md);
+#endif
     char hex[65];
     for (int i = 0; i < 32; ++i) {
         std::snprintf(hex + i * 2, 3, "%02x", md[i]);

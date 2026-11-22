@@ -1,0 +1,716 @@
+{
+  "completed_utc": "2026-11-22T22:54:43Z",
+  "deliverable_A_form_jepa_v1": {
+    "epoch_history_first_last": [
+      {
+        "epoch": 1,
+        "train_edit_ce": 3.6925,
+        "train_smooth_l1": 0.1386,
+        "train_vicreg_cov": 0.6205,
+        "train_vicreg_var": 0.7682,
+        "val_arg_acc": 0.706,
+        "val_joint_exact_acc": 0.546,
+        "val_latent_cos": 0.9207,
+        "val_line_acc": 0.708,
+        "val_op_acc": 0.826
+      },
+      {
+        "epoch": 7,
+        "train_edit_ce": 0.8671,
+        "train_smooth_l1": 0.11,
+        "train_vicreg_cov": 1.3842,
+        "train_vicreg_var": 0.4352,
+        "val_arg_acc": 0.902,
+        "val_joint_exact_acc": 0.728,
+        "val_latent_cos": 0.9821,
+        "val_line_acc": 0.768,
+        "val_op_acc": 0.92
+      },
+      {
+        "epoch": 12,
+        "train_edit_ce": 0.4188,
+        "train_smooth_l1": 0.2676,
+        "train_vicreg_cov": 1.2668,
+        "train_vicreg_var": 0.4245,
+        "val_arg_acc": 0.894,
+        "val_joint_exact_acc": 0.752,
+        "val_latent_cos": 0.9756,
+        "val_line_acc": 0.788,
+        "val_op_acc": 0.912
+      }
+    ],
+    "eval_1_heldout_disjoint_synthetic_200": {
+      "H11_latent_edit_distance_monotonicity": {
+        "families_tested": 50,
+        "mean_latent_l2_by_distance_0_to_5": [
+          0.0,
+          0.9875,
+          2.2554,
+          3.2727,
+          3.8866,
+          3.718
+        ],
+        "monotone_families": 18,
+        "monotone_share": 0.36
+      },
+      "H5_latent_energy_auroc_slice60": {
+        "accepted_candidates": 100,
+        "auroc_neg_latent_l2": 0.618,
+        "candidates_scored": 925,
+        "k16_admitted_on_slice60_action_logp_only": 54
+      },
+      "by_defect_tag_k16": {
+        "arith_op_swap": {
+          "admitted": 23,
+          "rate": 0.9583,
+          "total": 24
+        },
+        "const_off_by_one": {
+          "admitted": 0,
+          "rate": 0.0,
+          "total": 8
+        },
+        "guard_cmp_swap": {
+          "admitted": 29,
+          "rate": 0.9062,
+          "total": 32
+        },
+        "guard_negation": {
+          "admitted": 1,
+          "rate": 1.0,
+          "total": 1
+        },
+        "scope_ident_defect": {
+          "admitted": 51,
+          "rate": 0.8947,
+          "total": 57
+        },
+        "type_mismatch": {
+          "admitted": 65,
+          "rate": 0.942,
+          "total": 69
+        },
+        "unused_binding_hygiene": {
+          "admitted": 8,
+          "rate": 0.8889,
+          "total": 9
+        }
+      },
+      "k16_latent_beam_admitted": 177,
+      "k16_latent_beam_rate": 0.885,
+      "k1_greedy_admitted": 156,
+      "k1_greedy_rate": 0.78,
+      "tasks": 200
+    },
+    "eval_2_ladder_151_plain_arm": {
+      "by_source": {
+        "guard": {
+          "k16_admitted": 5,
+          "k16_behaves_same": 1,
+          "k1_admitted": 1,
+          "tasks": 27
+        },
+        "history-admit": {
+          "k16_admitted": 24,
+          "k16_behaves_same": 24,
+          "k1_admitted": 22,
+          "tasks": 33
+        },
+        "history-fix": {
+          "k16_admitted": 4,
+          "k16_behaves_same": 4,
+          "k1_admitted": 0,
+          "tasks": 8
+        },
+        "rename": {
+          "k16_admitted": 24,
+          "k16_behaves_same": 23,
+          "k1_admitted": 4,
+          "tasks": 83
+        }
+      },
+      "combined_ladder_a_to_e_plus_form_jepa_v1_k16_closed": 138,
+      "combined_share": 0.9139,
+      "deterministic_ladder_a_to_e_plain_closed": 111,
+      "form_jepa_v1_k16_standalone_admitted": 57,
+      "form_jepa_v1_k1_standalone_admitted": 27,
+      "mean_proposal_wall_ms": 309.333,
+      "tasks": 151
+    },
+    "eval_3_h15_residual_40": {
+      "by_mutant_rule_family": {
+        "W-CAP-3,W-WORLD-1": {
+          "cloud_opus_5_5_k1": 1,
+          "form_jepa_v1_k1": 0,
+          "form_jepa_v1_k16": 0,
+          "local_qwen3_6_35b_k1": 0,
+          "tasks": 1
+        },
+        "W-INT-1": {
+          "cloud_opus_5_5_k1": 0,
+          "form_jepa_v1_k1": 0,
+          "form_jepa_v1_k16": 0,
+          "local_qwen3_6_35b_k1": 0,
+          "tasks": 1
+        },
+        "W-LEN-1": {
+          "cloud_opus_5_5_k1": 5,
+          "form_jepa_v1_k1": 0,
+          "form_jepa_v1_k16": 2,
+          "local_qwen3_6_35b_k1": 4,
+          "tasks": 5
+        },
+        "W-NAME-1": {
+          "cloud_opus_5_5_k1": 2,
+          "form_jepa_v1_k1": 0,
+          "form_jepa_v1_k16": 0,
+          "local_qwen3_6_35b_k1": 1,
+          "tasks": 3
+        },
+        "W-NAME-1,W-TY-1": {
+          "cloud_opus_5_5_k1": 1,
+          "form_jepa_v1_k1": 0,
+          "form_jepa_v1_k16": 0,
+          "local_qwen3_6_35b_k1": 0,
+          "tasks": 4
+        },
+        "W-SYN-1": {
+          "cloud_opus_5_5_k1": 24,
+          "form_jepa_v1_k1": 22,
+          "form_jepa_v1_k16": 24,
+          "local_qwen3_6_35b_k1": 21,
+          "tasks": 25
+        },
+        "W-WORLD-1": {
+          "cloud_opus_5_5_k1": 1,
+          "form_jepa_v1_k1": 0,
+          "form_jepa_v1_k16": 1,
+          "local_qwen3_6_35b_k1": 1,
+          "tasks": 1
+        }
+      },
+      "cascade_3_gear": {
+        "single_pass_t1_cold_gear0_with_local_qwen_gear2": {
+          "gear1_form_jepa_admitted": 27,
+          "gear2_qwen_calls": 13,
+          "total_admitted": 30
+        },
+        "single_pass_t1_cold_gear0_with_opus_5_5_gear2": {
+          "gear1_form_jepa_admitted": 27,
+          "gear2_opus_calls": 13,
+          "gear2_opus_cost_usd": 0.8108,
+          "opus_only_cost_usd": 1.3783,
+          "total_admitted": 34
+        },
+        "zipf_0_85_m200_stream_with_local_qwen_gear2": {
+          "admitted_arrivals": 154,
+          "arrivals": 200,
+          "gear0_dnullmm1_hits": 126,
+          "gear1_form_jepa_admissions": 25,
+          "gear1_form_jepa_calls": 74,
+          "gear2_frontier_admissions": 3,
+          "gear2_frontier_call_reduction_vs_stateless_200": 4.08,
+          "gear2_frontier_calls": 49,
+          "gear2_total_cost_or_j": 4128.103
+        },
+        "zipf_0_85_m200_stream_with_opus_5_5_gear2": {
+          "admitted_arrivals": 184,
+          "arrivals": 200,
+          "gear0_dnullmm1_hits": 152,
+          "gear1_form_jepa_admissions": 25,
+          "gear1_form_jepa_calls": 48,
+          "gear2_frontier_admissions": 7,
+          "gear2_frontier_call_reduction_vs_stateless_200": 8.7,
+          "gear2_frontier_calls": 23,
+          "gear2_total_cost_or_j": 2.1078
+        }
+      },
+      "comparison_baselines": {
+        "cloud_claude_opus_5_5_k1": {
+          "admitted": 34,
+          "behaves_the_same": 33,
+          "cost_usd_total": 1.3783,
+          "reported_j": "not_available"
+        },
+        "local_qwen3_6_35b_a3b_k1": {
+          "admitted": 27,
+          "behaves_the_same": 26,
+          "reported_j_per_candidate_sut": 84.2472
+        }
+      },
+      "form_jepa_v1_k1": {
+        "admitted": 22,
+        "admitted_share": 0.55,
+        "behaves_the_same": 22,
+        "rapl_core_reported_j_per_proposal": 0.058646,
+        "rapl_pkg_reported_j_per_proposal": 1.193706
+      },
+      "form_jepa_v1_k16": {
+        "admitted": 27,
+        "admitted_share": 0.675,
+        "admitted_task_ids": [
+          "spec/examples/11_arena.rce@013e21ed",
+          "spec/examples/40_extern.rce@013e21ed",
+          "spec/examples/41_arena_bound_wrapping.rce@013e21ed",
+          "programs/body/arm.rce@2cc82de7",
+          "programs/body/thermostat.rce@2cc82de7",
+          "programs/money/account.rce@2cc82de7",
+          "programs/money/ledger.rce@2cc82de7",
+          "programs/multi/card.rce@2cc82de7",
+          "programs/multi/climate.rce@2cc82de7",
+          "programs/multi/crossing.rce@2cc82de7",
+          "programs/multi/elevator.rce@2cc82de7",
+          "programs/multi/lobby.rce@2cc82de7",
+          "programs/multi/parking.rce@2cc82de7",
+          "programs/multi/player.rce@2cc82de7",
+          "programs/multi/printer.rce@2cc82de7",
+          "programs/multi/reservoir.rce@2cc82de7",
+          "programs/multi/session.rce@2cc82de7",
+          "programs/multi/vending.rce@2cc82de7",
+          "programs/network/handshake.rce@2cc82de7",
+          "programs/systems/reconcile.rce@2cc82de7",
+          "programs/systems/ring_buffer.rce@2cc82de7",
+          "programs/world/queue_sim.rce@2cc82de7",
+          "spec/examples/01_counter.rce@2cc82de7",
+          "spec/examples/04_bank_account.rce@2cc82de7",
+          "spec/examples/30_state_machine_guarded.rce@2cc82de7",
+          "spec/examples/55_rcedb.rce@2cc82de7",
+          "spec/examples/61_dim_minimal.rce@2cc82de7"
+        ],
+        "behaves_the_same": 27,
+        "mean_checker_calls_per_task": 5.33,
+        "rapl_core_reported_j_per_proposal": 0.47476,
+        "rapl_pkg_reported_j_per_proposal": 6.736408,
+        "winning_ops": {
+          "OP_CAP_WORLD": 1,
+          "OP_METHOD_CALL": 2,
+          "OP_TOTALITY_KEEP": 24
+        }
+      },
+      "tasks": 40
+    },
+    "model_and_training": {
+      "anti_collapse_verification": {
+        "falsifier_F1_collapse_triggered": false,
+        "post_training_best_ckpt": {
+          "cosine_gap_pos_minus_rand": 0.0052,
+          "effective_rank_z_hat_y": 17.059,
+          "effective_rank_z_x": 85.241,
+          "effective_rank_z_y": 31.919,
+          "mean_coord_std_z_hat_y": 0.1828,
+          "mean_coord_std_z_x": 0.383,
+          "mean_coord_std_z_y": 0.1111,
+          "pos_pair_cosine_sim": 0.977,
+          "pos_pair_l2_energy": 10.5716,
+          "random_pair_cosine_sim": 0.9718,
+          "random_pair_l2_energy": 13.0204
+        },
+        "pre_training_epoch_0": {
+          "cosine_gap_pos_minus_rand": -0.0004,
+          "effective_rank_z_hat_y": 21.636,
+          "effective_rank_z_x": 32.899,
+          "effective_rank_z_y": 38.754,
+          "mean_coord_std_z_hat_y": 0.2112,
+          "mean_coord_std_z_x": 0.1038,
+          "mean_coord_std_z_y": 0.0427,
+          "pos_pair_cosine_sim": 0.0031,
+          "pos_pair_l2_energy": 149.2493,
+          "random_pair_cosine_sim": 0.0035,
+          "random_pair_l2_energy": 149.2034
+        }
+      },
+      "architecture": {
+        "checkpoint_bytes": 55753947,
+        "checkpoint_sha256": "cbfbf2274175c73736f77da413039ccc381c13f6b251a636617afdaa8064e5ee",
+        "context_encoder_layers": 6,
+        "d_model": 256,
+        "d_rule": 64,
+        "edit_decoder_layers": 2,
+        "ema_target_encoder_layers": 6,
+        "ema_tau": 0.996,
+        "n_heads": 8,
+        "name": "FormJEPA-v1",
+        "predictor_layers": 3,
+        "total_parameters_including_ema": 13917577,
+        "trainable_parameters": 8424073,
+        "vocab_active_tokens": 686,
+        "vocab_capacity": 2048
+      },
+      "completed_utc": "2026-11-22T22:43:07Z",
+      "leakage_and_corpus_audit": {
+        "candidates_scanned": 1573,
+        "cryptographic_overlap_count": 0,
+        "dataset_generation_wall_s": 10.61,
+        "disjoint_by_origin": {
+          "apps": 1,
+          "book-listings": 33,
+          "conformance-accept": 1298,
+          "spec-examples": 34,
+          "spec-examples-0.9": 18,
+          "stdlib": 3
+        },
+        "disjoint_test_forms": 137,
+        "disjoint_train_forms": 1106,
+        "disjoint_unique_shapes": 1387,
+        "disjoint_val_forms": 144,
+        "forbidden_hashes_count": 458,
+        "forbidden_paths_count": 65,
+        "forbidden_primary_decls_count": 62,
+        "forbidden_slugs_count": 87,
+        "test_200_sha256": "cdeac5199b61b86473176967f6bcd1c4a26511b0ba16022c3b5c7bf4e7fdba41",
+        "test_examples_count": 200,
+        "train_by_defect_tag": {
+          "arith_op_swap": 955,
+          "bool_flip": 6,
+          "const_off_by_one": 140,
+          "guard_cmp_swap": 574,
+          "guard_negation": 101,
+          "method_projection_defect": 22,
+          "missing_world_cap": 5,
+          "retired_refuse_syntax": 21,
+          "scope_ident_defect": 1787,
+          "stdlib_unqualified": 2,
+          "type_mismatch": 2499,
+          "unused_binding_hygiene": 217
+        },
+        "train_by_rule_code": {
+          "UNK_RULE": 18,
+          "W-ASSIGN-1": 2,
+          "W-CT-1": 1,
+          "W-CTX-1": 15,
+          "W-DEC-1": 12,
+          "W-FFI-1": 5,
+          "W-IFC-1": 3,
+          "W-INT-1": 215,
+          "W-LEN-1": 14,
+          "W-LEX-3": 63,
+          "W-NAME-1": 212,
+          "W-NAME-2": 3,
+          "W-OWN-1": 5,
+          "W-OWN-2": 15,
+          "W-OWN-3": 1,
+          "W-PAR-1": 8,
+          "W-PAR-3": 87,
+          "W-REC-1": 3,
+          "W-SES-1": 6,
+          "W-SES-2": 3,
+          "W-SES-4": 3,
+          "W-SYN-1": 1360,
+          "W-TRAIT-1": 9,
+          "W-TY-1": 1644,
+          "W-TY-3": 1095,
+          "W-UNUSED-1": 1520,
+          "W-WORLD-1": 7
+        },
+        "train_examples_count": 6329,
+        "val_500_sha256": "1502335db650f3c6e5b811525ce47eebbcdbaf323f3d3047d1aa6c84c924dd03",
+        "val_examples_count": 500
+      },
+      "prereg_id": "rce-jepa-form-jepa-v1-2026-11-22",
+      "prereg_sha256": "22682e6e936ec1205ca6b4285cfb8459aaf392a2ff656e3ef0b3393de9abc77e",
+      "schema": "openie-form-jepa-v1-train-receipt/1",
+      "seed": 20261122,
+      "training_telemetry": {
+        "batch_size": 192,
+        "board_metered": false,
+        "epochs": 12,
+        "est_j": null,
+        "measured_j": null,
+        "note": "Linux powercap intel-rapl:0 gross counter on shared build host ($BENCH_ROOT); dedicated single-inference RAPL microbenchmark recorded separately in eval_form_jepa_and_rung_f.py.",
+        "reported_j_rapl_core": 23063.329748,
+        "reported_j_rapl_package": 30720.078603,
+        "wall_clock_s": 3082.877
+      }
+    },
+    "rapl_inference_microbenchmark": {
+      "idle_baseline_check": {
+        "board_metered": false,
+        "est_j": null,
+        "falsifier_6_passed": false,
+        "falsifier_6_threshold_le": 0.1,
+        "idle_drift_fraction": 0.3338,
+        "idle_post_w": 61.231,
+        "idle_pre_w": 91.912,
+        "measured_j": null
+      },
+      "k16_latent_beam": {
+        "derived_marginal_pkg_reported_j_per_proposal": null,
+        "gross_rapl_core_reported_j_per_proposal": 0.47476,
+        "gross_rapl_core_reported_j_total": 56.971206,
+        "gross_rapl_pkg_reported_j_per_proposal": 6.736408,
+        "gross_rapl_pkg_reported_j_total": 808.368917,
+        "iterations": 120,
+        "mean_latency_ms": 67.512,
+        "wall_s": 8.1015
+      },
+      "k1_greedy": {
+        "derived_marginal_pkg_reported_j_per_proposal": null,
+        "gross_rapl_core_reported_j_per_proposal": 0.058646,
+        "gross_rapl_core_reported_j_total": 11.729191,
+        "gross_rapl_pkg_reported_j_per_proposal": 1.193706,
+        "gross_rapl_pkg_reported_j_total": 238.741224,
+        "iterations": 200,
+        "mean_latency_ms": 10.149,
+        "wall_s": 2.0298
+      }
+    }
+  },
+  "deliverable_B_rung_f_151_evaluation": {
+    "arm_A_combined_external": {
+      "criterion_exit_code": 1,
+      "human_report": "registration  rce-repair-rung-f-promotion-2026-11-03 (registered 2026-11-03), sha256 abf7f131f240e3f9eece8c2ed9d47cb1592c44ea3a99da20de092c899b104982\ncorpus        151 tasks, sha256 6ae255a32211f620364ef713b1a36f7daac6ab46f22ac318b45acb2a6da9af50 (the registered corpus)\nrecords       151, sha256 52bdaeacaf6803c6a021d02722e768910dc9c498e0530f688cc8dccf91bd3a82; 0 of programs outside the corpus\ncloses        116 by rungs a to e, 3 that rung f would close: 3 of 119 (2.5%), at most 2 of 100\ntasks         0 admitted as given, 35 not closed by rungs a to e, of which 25 where rung f did not run\nobserved      3 proposals: 3 pass W-MUT-1; against GOOD: 0 behaviour-equal, 0 contradicts, 0 not compared, 3 restored, 0 undecided\nproposals     91 judged; by origin: form-jepa-v1 88, h15-recorded 3\ncriterion     does not hold: 3 of 119 closes would come from rung f (2.5%), above 2 of 100",
+      "upstream_criterion_evaluation": {
+        "closes": {
+          "exact": 116,
+          "max_share": [
+            2,
+            100
+          ],
+          "stochastic": 3
+        },
+        "corpus": {
+          "sha256": "6ae255a32211f620364ef713b1a36f7daac6ab46f22ac318b45acb2a6da9af50",
+          "tasks": 151
+        },
+        "coverage": {
+          "missing": [],
+          "no_proposal": [],
+          "not_observe": [],
+          "wrong_bound": [],
+          "wrong_known": []
+        },
+        "format": "rce-repair-criterion/1",
+        "holds": false,
+        "observed": {
+          "known": {
+            "behaviour-equal": 0,
+            "contradicts": 0,
+            "not compared": 0,
+            "restored": 3,
+            "undecided": 0
+          },
+          "proposals": 3,
+          "w_mut_1": 3
+        },
+        "proposals": {
+          "judged": 91,
+          "origins": {
+            "form-jepa-v1": 88,
+            "h15-recorded": 3
+          }
+        },
+        "reasons": [
+          "3 of 119 closes would come from rung f (2.5%), above 2 of 100"
+        ],
+        "records": {
+          "count": 151,
+          "outside": 0,
+          "sha256": "52bdaeacaf6803c6a021d02722e768910dc9c498e0530f688cc8dccf91bd3a82"
+        },
+        "registration": {
+          "id": "rce-repair-rung-f-promotion-2026-11-03",
+          "registered": "2026-11-03",
+          "sha256": "abf7f131f240e3f9eece8c2ed9d47cb1592c44ea3a99da20de092c899b104982"
+        },
+        "tasks": {
+          "admitted_as_given": 0,
+          "not_closed": 35,
+          "rung_f_not_run": 25
+        }
+      },
+      "wave3_prereg_criterion_evaluation": {
+        "closes": {
+          "exact": 116,
+          "max_share": [
+            2,
+            100
+          ],
+          "stochastic": 3
+        },
+        "corpus": {
+          "sha256": "6ae255a32211f620364ef713b1a36f7daac6ab46f22ac318b45acb2a6da9af50",
+          "tasks": 151
+        },
+        "coverage": {
+          "missing": [],
+          "no_proposal": [],
+          "not_observe": [],
+          "wrong_bound": [],
+          "wrong_known": []
+        },
+        "format": "rce-repair-criterion/1",
+        "holds": false,
+        "observed": {
+          "known": {
+            "behaviour-equal": 0,
+            "contradicts": 0,
+            "not compared": 0,
+            "restored": 3,
+            "undecided": 0
+          },
+          "proposals": 3,
+          "w_mut_1": 3
+        },
+        "proposals": {
+          "judged": 91,
+          "origins": {
+            "form-jepa-v1": 88,
+            "h15-recorded": 3
+          }
+        },
+        "reasons": [
+          "3 of 119 closes would come from rung f (2.5%), above 2 of 100"
+        ],
+        "records": {
+          "count": 151,
+          "outside": 0,
+          "sha256": "52bdaeacaf6803c6a021d02722e768910dc9c498e0530f688cc8dccf91bd3a82"
+        },
+        "registration": {
+          "id": "rce-repair-rung-f-wave3-eval-2026-11-22",
+          "registered": "2026-11-22",
+          "sha256": "04aff4b2b44cdbea1a96a3370a1cbe894c23f1792aab89c8daede46e56aef3be"
+        },
+        "tasks": {
+          "admitted_as_given": 0,
+          "not_closed": 35,
+          "rung_f_not_run": 25
+        }
+      }
+    },
+    "arm_B_form_jepa_only": {
+      "criterion_exit_code": 0,
+      "human_report": "registration  rce-repair-rung-f-promotion-2026-11-03 (registered 2026-11-03), sha256 abf7f131f240e3f9eece8c2ed9d47cb1592c44ea3a99da20de092c899b104982\ncorpus        151 tasks, sha256 6ae255a32211f620364ef713b1a36f7daac6ab46f22ac318b45acb2a6da9af50 (the registered corpus)\nrecords       151, sha256 7a268137b542fd38f7dbaaee2f186eeed742c2433171f71ebae960e0202feb79; 0 of programs outside the corpus\ncloses        116 by rungs a to e, 0 that rung f would close: 0 of 116 (0.0%), at most 2 of 100\ntasks         0 admitted as given, 35 not closed by rungs a to e, of which 25 where rung f did not run\nobserved      0 proposals: 0 pass W-MUT-1; against GOOD: 0 behaviour-equal, 0 contradicts, 0 not compared, 0 restored, 0 undecided\nproposals     88 judged; by origin: form-jepa-v1 88\ncriterion     holds: the mode row of rung f may be changed to auto (RF-7)",
+      "upstream_criterion_evaluation": {
+        "closes": {
+          "exact": 116,
+          "max_share": [
+            2,
+            100
+          ],
+          "stochastic": 0
+        },
+        "corpus": {
+          "sha256": "6ae255a32211f620364ef713b1a36f7daac6ab46f22ac318b45acb2a6da9af50",
+          "tasks": 151
+        },
+        "coverage": {
+          "missing": [],
+          "no_proposal": [],
+          "not_observe": [],
+          "wrong_bound": [],
+          "wrong_known": []
+        },
+        "format": "rce-repair-criterion/1",
+        "holds": true,
+        "observed": {
+          "known": {
+            "behaviour-equal": 0,
+            "contradicts": 0,
+            "not compared": 0,
+            "restored": 0,
+            "undecided": 0
+          },
+          "proposals": 0,
+          "w_mut_1": 0
+        },
+        "proposals": {
+          "judged": 88,
+          "origins": {
+            "form-jepa-v1": 88
+          }
+        },
+        "reasons": [],
+        "records": {
+          "count": 151,
+          "outside": 0,
+          "sha256": "7a268137b542fd38f7dbaaee2f186eeed742c2433171f71ebae960e0202feb79"
+        },
+        "registration": {
+          "id": "rce-repair-rung-f-promotion-2026-11-03",
+          "registered": "2026-11-03",
+          "sha256": "abf7f131f240e3f9eece8c2ed9d47cb1592c44ea3a99da20de092c899b104982"
+        },
+        "tasks": {
+          "admitted_as_given": 0,
+          "not_closed": 35,
+          "rung_f_not_run": 25
+        }
+      },
+      "wave3_prereg_criterion_evaluation": {
+        "closes": {
+          "exact": 116,
+          "max_share": [
+            2,
+            100
+          ],
+          "stochastic": 0
+        },
+        "corpus": {
+          "sha256": "6ae255a32211f620364ef713b1a36f7daac6ab46f22ac318b45acb2a6da9af50",
+          "tasks": 151
+        },
+        "coverage": {
+          "missing": [],
+          "no_proposal": [],
+          "not_observe": [],
+          "wrong_bound": [],
+          "wrong_known": []
+        },
+        "format": "rce-repair-criterion/1",
+        "holds": true,
+        "observed": {
+          "known": {
+            "behaviour-equal": 0,
+            "contradicts": 0,
+            "not compared": 0,
+            "restored": 0,
+            "undecided": 0
+          },
+          "proposals": 0,
+          "w_mut_1": 0
+        },
+        "proposals": {
+          "judged": 88,
+          "origins": {
+            "form-jepa-v1": 88
+          }
+        },
+        "reasons": [],
+        "records": {
+          "count": 151,
+          "outside": 0,
+          "sha256": "7a268137b542fd38f7dbaaee2f186eeed742c2433171f71ebae960e0202feb79"
+        },
+        "registration": {
+          "id": "rce-repair-rung-f-wave3-eval-2026-11-22",
+          "registered": "2026-11-22",
+          "sha256": "04aff4b2b44cdbea1a96a3370a1cbe894c23f1792aab89c8daede46e56aef3be"
+        },
+        "tasks": {
+          "admitted_as_given": 0,
+          "not_closed": 35,
+          "rung_f_not_run": 25
+        }
+      }
+    }
+  },
+  "energy_provenance": {
+    "board_metered": false,
+    "est_j": null,
+    "measured_j": null,
+    "reported_j_note": "Linux powercap intel-rapl:0 package-0 and core L2 reported_j recorded for FormJEPA-v1; Apple M5 Max L2/L3 reported_j cited from [B33] for Qwen 3.6 and rce check; remote cloud energy is not_available."
+  },
+  "engine": {
+    "commit": "1762fb4bb65a58de07ab00f0d1bfdf4969d0358c",
+    "openie_research_experiments_commit": "ce8003f5010df994948cf7022e127fabadb81bd1",
+    "rce_linux_x86_64_binary_sha256": "5ef9931ff23a310f89fb34cd1b631ff6b6cd6acf1943da4fc712e6c80db599ed",
+    "repository": "openIE-dev/rce"
+  },
+  "preregistrations": {
+    "form_jepa_v1_prereg_sha256": "22682e6e936ec1205ca6b4285cfb8459aaf392a2ff656e3ef0b3393de9abc77e",
+    "rung_f_prereg_sha256": "04aff4b2b44cdbea1a96a3370a1cbe894c23f1792aab89c8daede46e56aef3be",
+    "upstream_rung_f_criterion_sha256": "abf7f131f240e3f9eece8c2ed9d47cb1592c44ea3a99da20de092c899b104982"
+  },
+  "schema": "openie-rce-jepa-form-jepa-v1-and-rung-f-summary/1"
+}

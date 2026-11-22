@@ -1,0 +1,15 @@
+[package]
+name = "ge_h3_wgpu_bench"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+description = "Headless cross-GPU wgpu (Metal / Vulkan) rendering tolerance benchmark for OpenIE game-engines (GE-H3)"
+
+[dependencies]
+bytemuck = { version = "1.18", features = ["derive"] }
+flate2 = "1.0"
+pollster = "0.4"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+sha2 = "0.10"
+wgpu = "22.1.0"

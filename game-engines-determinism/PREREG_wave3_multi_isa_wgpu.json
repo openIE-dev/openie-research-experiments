@@ -1,0 +1,55 @@
+{
+  "study": "game-engines",
+  "wave": "wave3_multi_isa_cross_gpu",
+  "preregistered_utc": "2026-11-22T21:20:00Z",
+  "parent_prereg_sha256_ref": "PREREG.json (arena16_q32_32_v1, seed 0x2026112200474531)",
+  "energy_discipline": {
+    "measured_j": null,
+    "board_metered": false,
+    "est_j": "Analytical Landauer (k_B T ln 2) and Hellman precomputation model parameters in the interactive observatory only; never mixed with hardware counters.",
+    "reported_j_channels": {
+      "macos_arm64": "SATB L3 per-process proc_pid_rusage(child_pid, RUSAGE_INFO_V6).ri_energy_nj (label D)",
+      "linux_x86_64_intel_rapl": "SATB L2 socket/core RAPL /sys/class/powercap/intel-rapl:0/energy_uj and intel-rapl:0:0/energy_uj (package-0 and core domains; system-socket scope disclosed)",
+      "linux_x86_64_amd_rapl": "SATB L2 socket/core RAPL /sys/class/powercap/intel-rapl:0/energy_uj and intel-rapl:0:0/energy_uj (package-0 and core domains; system-socket scope disclosed)",
+      "linux_aarch64_tegra": "null (CPU-only run; GPU lock active on shared host, no rootless per-process CPU energy counter exposed)"
+    }
+  },
+  "hypotheses": [
+    {
+      "id": "GE-H1-MULTI-ISA",
+      "claim": "The 100,000-tick Q32.32 fixed-point simulation Form (arena16_q32_32_v1, [-64, +64] arena, 16 bodies + 4 pickups, 732-byte little-endian canonical state) produces 0 SHA-256 checkpoint mismatches across all 1,000 checkpoints (ticks 100..100,000, stride 100) and all 100 stride-1000 checkpoints across arm64 macOS, aarch64 Linux, AMD Zen 5 x86_64 Linux, and Intel Raptor Lake x86_64 Linux across Rust native, Rust Wasm32, C++20 (Clang and GCC), Node.js BigInt, and Python 3 (20+ target x host cells, 20,000+ verified checkpoints).",
+      "canonical_reference_digests": {
+        "tick_1000": "21fa688e4ee8dd6e66dc7b2cc3b674a54c59f9b61967bcf97ecb58f99dc738ae",
+        "tick_10000": "0c60a804c15b682626442bdcd600869359ebdf1d70ff9f1f6ac5f47a38c95728",
+        "tick_50000": "ea01ba7938411e6a087f2ef1b29d2a92bc53ecb774687766f500566bb8206ce7",
+        "tick_100000": "82e404df6475d64dbfeaaa0f6cda8092787ea9048446ae862779fa29be0a0a78"
+      },
+      "kill_criterion": "Any SHA-256 digest mismatch (> 0) at any checkpoint tick on any (host, ISA, OS, runtime) cell."
+    },
+    {
+      "id": "GE-H2-CROSS-ISA",
+      "claim": "Over 25,000 ticks of the identical chaotic arena in IEEE-754 binary64 (f64): (a) pure IEEE-754 algebraic + sqrt arithmetic with FMA contraction disabled (-O3 -ffp-contract=off -fno-fast-math) stays bitwise identical across x86_64 and arm64/aarch64; (b) enabling hardware FMA (-mavx2 -mfma -ffp-contract=fast on x86_64 or fmadd on arm64/aarch64) or calling standard library transcendentals (std::sin/std::cos across Apple libSystem libm vs GNU glibc 2.43 x86_64 vs GNU glibc 2.39 aarch64, even without -ffast-math) diverges at an exact measurable tick t_div and cascades into macroscopic gameplay desynchronization.",
+      "observables": [
+        "t_div_ieee_bits",
+        "t_div_macro_1e3",
+        "t_div_gameplay"
+      ],
+      "kill_criterion": "Unexplained divergence under pinned IEEE-754 algebraic arithmetic without FMA/transcendentals, or failure to record exact t_div across cross-ISA / cross-libm pairs."
+    },
+    {
+      "id": "GE-H3-CROSS-GPU-WGPU",
+      "claim": "Projecting 4 canonical Q32.32 simulation snapshots (ticks 0, 250, 1000, 10000) into a 512x512 RGBA8Unorm framebuffer via an identical WGSL vertex+fragment pipeline (trigonometric procedural arena rings, SDF + Blinn-Phong 3D sphere lighting, and SrcAlpha/OneMinusSrcAlpha alpha blending) across 4 physical GPUs spanning 4 GPU architectures and 2 graphics APIs (Apple Metal on M3 Ultra, AMD RADV Vulkan on Radeon 8060S, NVIDIA Vulkan on GeForce RTX 4050, and Intel ANV Vulkan on Iris Xe) produces non-identical raw framebuffer SHA-256 hashes (confirming WGSL floating-point and SFU non-bit-exactness) while remaining strictly inside a perceptual/pixel tolerance gate without any GPU state flowing back into S.",
+      "canonical_frames": [0, 250, 1000, 10000],
+      "resolution": [512, 512],
+      "pixel_format": "RGBA8Unorm (tightly packed 512*512*4 = 1,048,576 bytes)",
+      "tolerance_gate": {
+        "upstream_state_hash_mismatches_allowed": 0,
+        "per_channel_epsilon_u8": 8,
+        "max_outlier_pixel_fraction_p_max": 0.001,
+        "min_psnr_db": 40.0,
+        "min_ssim": 0.999
+      },
+      "kill_criterion": "Any physical GPU pair failing PSNR > 40.0 dB, SSIM > 0.999, or pixel fraction with per-channel |Delta| > 8 exceeding p_max = 0.001, or any upstream Q32.32 state hash mismatch."
+    }
+  ]
+}

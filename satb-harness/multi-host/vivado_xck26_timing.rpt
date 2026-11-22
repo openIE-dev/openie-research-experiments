@@ -1,0 +1,36 @@
+# ==============================================================================
+# Sanitized xck26-sfvc784-2LV-c Timing & Combinational Depth Audit ($BUILD_DIR)
+# Target Clock : `clk_pl_250m` (`create_clock -period 4.000`, 250.000 MHz)
+# ==============================================================================
+
+1. Vivado 2026.1 Post-Place-and-Route Timing Status (`$BUILD_DIR`)
+------------------------------------------------------------------------------
+ToolBinary : $XILINX_ROOT/2026.1/Vivado/bin/vivado (v2026.1, SW Build 6511674)
+RunStatus  : BLOCKED_MISSING_LICENSE_FILE
+Message    : ERROR: Vivado Design Suite cannot be launched because a valid
+             license was not found. Visit the Vivado Licensing page to choose
+             and generate the right license.
+PostRoute WNS (ns) : not_available (requires ~/.Xilinx/Xilinx.lic)
+PostRoute Fmax     : not_available (script staged at scripts/run_vivado_xck26.tcl)
+
+2. Yosys 0.71+ `synth_xilinx -family xcup` Topological Path Audit (`ltp -noff`)
+------------------------------------------------------------------------------
+A) `clai_benes_paged_hotswap_core` (`PAGE_ADDR_BITS = 9`):
+   - Longest combinational topological path: 81 primitive levels
+   - Path composition: `bus_pipe` / `act_b1_flat` -> 17-stage `clai_benes_512_perm`
+     -> 9-stage prefix copy network -> 17-stage `clai_benes_512_perm`
+     -> `eff_t64[addr]` dynamic LUT6 mux tree -> 5-voter majority sum (`draft_word16_out`).
+   - Implication for 250 MHz (`4.000 ns`) `xck26-2LV` closure: 81 unpipelined
+     combinational levels exceed a single `4.000 ns` low-voltage (`0.72 V`) clock
+     window; inserting 2-3 pipeline register boundaries between `B1`, `Copy`,
+     and `B2` preserves `CPI = 1.0` (1 context/cycle) throughput while dividing
+     combinational depth by ~3x for post-PAR timing closure.
+
+B) `clai_kv260_axi_top` (AMBA AXI4-Lite + AXI4-Stream Rung-0 Subsystem):
+   - Longest combinational topological path: 73 primitive levels
+   - Path composition: `core_bus_reg` -> 3-layer `clai_rung0_core` / `hotswap_core`
+     -> 64-input combinational popcount accumulator -> 8-class top-2 margin
+     comparator (`comb_best_v - comb_second_v` -> `last_satiated` / `irq_pending`).
+   - Implication for 250 MHz (`4.000 ns`) `xck26-2LV` closure: pipelining the
+     64-input popcount tree from the 8-class comparator cuts the critical path
+     in half with +1 cycle escalation latency.

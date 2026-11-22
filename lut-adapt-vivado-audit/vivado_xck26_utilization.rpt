@@ -1,0 +1,51 @@
+# ==============================================================================
+# Sanitized xck26-sfvc784-2LV-c Utilization Audit ($BUILD_DIR)
+# Repository : https://github.com/openIE-dev/lut-adapt-ai @ a5e9bc1de280
+# Vivado CLI : vivado v2026.1 (SW Build 6511674) -> blocked_missing_license_file
+# Structural : Yosys 0.71+ (git sha1 b4c586fd3) `synth_xilinx -family xcup`
+# ==============================================================================
+
+Target Device: AMD Kria KV260 SOM (`xck26-sfvc784-2LV-c`)
+Available Resources:
+  CLB LUTs      : 117,120
+  CLB Registers : 234,240
+  RAMB36E2      :     144 (288 RAMB18E2 equiv)
+  URAM288       :      64
+  DSP48E2       :   1,248
+  Package IOBs  :     189
+
+1. Module: `clai_benes_paged_hotswap_core` (`PAGE_ADDR_BITS = 9`, 512 Pages)
+------------------------------------------------------------------------------
+| Primitive / Resource | Used   | Available | Utilization (%) |
+|----------------------|--------|-----------|-----------------|
+| CLB LUTs (Total)     | 41,185 |   117,120 |          35.17% |
+|   LUT2               |  2,465 |         - |               - |
+|   LUT3               | 19,982 |         - |               - |
+|   LUT4               |  3,220 |         - |               - |
+|   LUT5               |  7,714 |         - |               - |
+|   LUT6               |  7,804 |         - |               - |
+| MUXF7 / MUXF8        | 36 / 18|         - |               - |
+| CARRY Chains         |     45 |         - |               - |
+| CLB Registers (FDRE) | 36,464 |   234,240 |          15.57% |
+| Block RAM (RAMB36E2) |     81 |       144 |          56.25% |
+| UltraRAM (URAM288)   |      0 |        64 |           0.00% |
+| DSP Slices (DSP48E2) |      0 |     1,248 |           0.00% |
+| Top Ports (IBUF/OBUF)|  1,599 |       189 | OOC / AXI req'd |
+
+2. Module: `clai_kv260_axi_top` (AMBA AXI4-Lite + AXI4-Stream Rung-0 Subsystem)
+------------------------------------------------------------------------------
+| Primitive / Resource | Used   | Available | Utilization (%) |
+|----------------------|--------|-----------|-----------------|
+| CLB LUTs (Total)     | 67,366 |   117,120 |          57.52% |
+|   LUT1 / LUT2        | 1 / 747|         - |               - |
+|   LUT3               |  7,918 |         - |               - |
+|   LUT4               |  7,810 |         - |               - |
+|   LUT5               | 25,333 |         - |               - |
+|   LUT6               | 25,557 |         - |               - |
+| MUXF7 / MUXF8        |  26 / 3|         - |               - |
+| CARRY Chains         |    569 |         - |               - |
+| CLB Registers (Total)| 16,619 |   234,240 |           7.09% |
+|   FDRE / FDSE        |12905/3714|       - |               - |
+| Block RAM (RAMB36E2) |      4 |       144 |           2.78% |
+| DSP Slices (DSP48E2) |      0 |     1,248 |           0.00% |
+| Top Ports (IBUF/OBUF)|    126 |       189 |          66.67% |

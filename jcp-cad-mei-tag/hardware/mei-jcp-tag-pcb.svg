@@ -1,0 +1,307 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1148 718" width="1148" height="718" role="img" aria-label="MEI-JCP-Tag-v1 2-Layer Routed PCB Layout (32 mm x 24 mm, 0 DRC Violations)">
+<defs>
+  <style>
+    .bg { fill: #f8fafc; }
+    .title { font: 700 16px ui-sans-serif, system-ui, -apple-system, sans-serif; fill: #0f172a; }
+    .sub { font: 500 11.5px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #475569; }
+    .dim { font: 600 11px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #334155; }
+    .ref { font: 700 10px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #f8fafc; }
+    .ref-bcu { font: 700 10px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #93c5fd; }
+    .pin { font: 600 7.5px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #0f172a; }
+    .leg-h { font: 700 12px ui-sans-serif, system-ui, sans-serif; fill: #0f172a; }
+    .leg-t { font: 500 10.5px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #334155; }
+  </style>
+</defs>
+<rect class="bg" x="0" y="0" width="1148" height="718" rx="10"/>
+<text class="title" x="70" y="28">MEI-JCP-Tag-v1 — 2-Layer Sovereign Cold-Chain Sensor PCB</text>
+<text class="sub" x="70" y="47">32.0 mm × 24.0 mm · FR-4 1.6 mm · 10 Components · 14 Nets · 135 Track Segments · 14 Vias · DRC: 0 Violations (CERTIFIED)</text>
+<rect x="70.0" y="68.0" width="768.0" height="576.0" rx="6" fill="#0d3321" stroke="#eab308" stroke-width="2.2"/>
+<g stroke="#1b4d35" stroke-width="0.6" opacity="0.55">
+<line x1="118.0" y1="68.0" x2="118.0" y2="644.0"/>
+<line x1="166.0" y1="68.0" x2="166.0" y2="644.0"/>
+<line x1="214.0" y1="68.0" x2="214.0" y2="644.0"/>
+<line x1="262.0" y1="68.0" x2="262.0" y2="644.0"/>
+<line x1="310.0" y1="68.0" x2="310.0" y2="644.0"/>
+<line x1="358.0" y1="68.0" x2="358.0" y2="644.0"/>
+<line x1="406.0" y1="68.0" x2="406.0" y2="644.0"/>
+<line x1="454.0" y1="68.0" x2="454.0" y2="644.0"/>
+<line x1="502.0" y1="68.0" x2="502.0" y2="644.0"/>
+<line x1="550.0" y1="68.0" x2="550.0" y2="644.0"/>
+<line x1="598.0" y1="68.0" x2="598.0" y2="644.0"/>
+<line x1="646.0" y1="68.0" x2="646.0" y2="644.0"/>
+<line x1="694.0" y1="68.0" x2="694.0" y2="644.0"/>
+<line x1="742.0" y1="68.0" x2="742.0" y2="644.0"/>
+<line x1="790.0" y1="68.0" x2="790.0" y2="644.0"/>
+<line x1="70.0" y1="596.0" x2="838.0" y2="596.0"/>
+<line x1="70.0" y1="548.0" x2="838.0" y2="548.0"/>
+<line x1="70.0" y1="500.0" x2="838.0" y2="500.0"/>
+<line x1="70.0" y1="452.0" x2="838.0" y2="452.0"/>
+<line x1="70.0" y1="404.0" x2="838.0" y2="404.0"/>
+<line x1="70.0" y1="356.0" x2="838.0" y2="356.0"/>
+<line x1="70.0" y1="308.0" x2="838.0" y2="308.0"/>
+<line x1="70.0" y1="260.0" x2="838.0" y2="260.0"/>
+<line x1="70.0" y1="212.0" x2="838.0" y2="212.0"/>
+<line x1="70.0" y1="164.0" x2="838.0" y2="164.0"/>
+<line x1="70.0" y1="116.0" x2="838.0" y2="116.0"/>
+</g>
+<circle cx="454.0" cy="356.0" r="240.0" fill="none" stroke="#60a5fa" stroke-width="1.3" stroke-dasharray="6 4" opacity="0.72"/>
+<g stroke="#3b82f6" stroke-linecap="round" stroke-linejoin="round" opacity="0.86">
+<line x1="610.00" y1="308.00" x2="646.00" y2="272.00" stroke-width="4.32"><title>SPI_MOSI (BCu)</title></line>
+<line x1="646.00" y1="272.00" x2="670.00" y2="272.00" stroke-width="4.32"><title>SPI_MOSI (BCu)</title></line>
+<line x1="670.00" y1="272.00" x2="694.00" y2="248.00" stroke-width="4.32"><title>SPI_MOSI (BCu)</title></line>
+<line x1="694.00" y1="248.00" x2="754.00" y2="248.00" stroke-width="4.32"><title>SPI_MOSI (BCu)</title></line>
+<line x1="178.00" y1="356.00" x2="178.00" y2="224.00" stroke-width="4.32"><title>VBAT_RAW (BCu)</title></line>
+<line x1="514.00" y1="224.00" x2="658.00" y2="224.00" stroke-width="4.32"><title>VDD_SYS (BCu)</title></line>
+<line x1="238.00" y1="224.00" x2="274.00" y2="260.00" stroke-width="4.32"><title>VDD_SYS (BCu)</title></line>
+<line x1="274.00" y1="260.00" x2="274.00" y2="272.00" stroke-width="4.32"><title>VDD_SYS (BCu)</title></line>
+<line x1="274.00" y1="272.00" x2="394.00" y2="392.00" stroke-width="4.32"><title>VDD_SYS (BCu)</title></line>
+<line x1="394.00" y1="392.00" x2="394.00" y2="512.00" stroke-width="4.32"><title>VDD_SYS (BCu)</title></line>
+<line x1="730.00" y1="356.00" x2="670.00" y2="296.00" stroke-width="4.32"><title>GND (BCu)</title></line>
+<line x1="730.00" y1="356.00" x2="730.00" y2="380.00" stroke-width="4.32"><title>GND (BCu)</title></line>
+<line x1="730.00" y1="380.00" x2="706.00" y2="404.00" stroke-width="4.32"><title>GND (BCu)</title></line>
+<line x1="706.00" y1="404.00" x2="706.00" y2="512.00" stroke-width="4.32"><title>GND (BCu)</title></line>
+<line x1="706.00" y1="512.00" x2="718.00" y2="524.00" stroke-width="4.32"><title>GND (BCu)</title></line>
+<line x1="718.00" y1="524.00" x2="718.00" y2="536.00" stroke-width="4.32"><title>GND (BCu)</title></line>
+<line x1="466.00" y1="404.00" x2="454.00" y2="392.00" stroke-width="4.32"><title>GND (BCu)</title></line>
+<line x1="454.00" y1="392.00" x2="454.00" y2="272.00" stroke-width="4.32"><title>GND (BCu)</title></line>
+<line x1="454.00" y1="272.00" x2="466.00" y2="260.00" stroke-width="4.32"><title>GND (BCu)</title></line>
+<line x1="466.00" y1="260.00" x2="466.00" y2="128.00" stroke-width="4.32"><title>GND (BCu)</title></line>
+<line x1="730.00" y1="356.00" x2="682.00" y2="356.00" stroke-width="4.32"><title>GND (BCu)</title></line>
+<line x1="682.00" y1="356.00" x2="610.00" y2="428.00" stroke-width="4.32"><title>GND (BCu)</title></line>
+<line x1="610.00" y1="428.00" x2="454.00" y2="428.00" stroke-width="4.32"><title>GND (BCu)</title></line>
+<line x1="454.00" y1="428.00" x2="334.00" y2="308.00" stroke-width="4.32"><title>GND (BCu)</title></line>
+<line x1="730.00" y1="356.00" x2="682.00" y2="404.00" stroke-width="4.32"><title>GND (BCu)</title></line>
+<line x1="682.00" y1="404.00" x2="634.00" y2="404.00" stroke-width="4.32"><title>GND (BCu)</title></line>
+<line x1="634.00" y1="404.00" x2="610.00" y2="428.00" stroke-width="4.32"><title>GND (BCu)</title></line>
+<line x1="610.00" y1="428.00" x2="586.00" y2="428.00" stroke-width="4.32"><title>GND (BCu)</title></line>
+<line x1="586.00" y1="428.00" x2="562.00" y2="404.00" stroke-width="4.32"><title>GND (BCu)</title></line>
+<line x1="562.00" y1="404.00" x2="490.00" y2="404.00" stroke-width="4.32"><title>GND (BCu)</title></line>
+<line x1="730.00" y1="356.00" x2="598.00" y2="488.00" stroke-width="4.32"><title>GND (BCu)</title></line>
+<line x1="598.00" y1="488.00" x2="562.00" y2="488.00" stroke-width="4.32"><title>GND (BCu)</title></line>
+</g>
+<g stroke="#ef4444" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+<line x1="394.00" y1="212.00" x2="406.00" y2="212.00" stroke-width="4.32"><title>I2C_SCL (FCu)</title></line>
+<line x1="406.00" y1="212.00" x2="454.00" y2="260.00" stroke-width="4.32"><title>I2C_SCL (FCu)</title></line>
+<line x1="454.00" y1="260.00" x2="454.00" y2="296.00" stroke-width="4.32"><title>I2C_SCL (FCu)</title></line>
+<line x1="454.00" y1="296.00" x2="466.00" y2="308.00" stroke-width="4.32"><title>I2C_SCL (FCu)</title></line>
+<line x1="466.00" y1="308.00" x2="478.00" y2="308.00" stroke-width="4.32"><title>I2C_SCL (FCu)</title></line>
+<line x1="394.00" y1="236.00" x2="406.00" y2="236.00" stroke-width="4.32"><title>I2C_SDA (FCu)</title></line>
+<line x1="406.00" y1="236.00" x2="430.00" y2="260.00" stroke-width="4.32"><title>I2C_SDA (FCu)</title></line>
+<line x1="430.00" y1="260.00" x2="430.00" y2="296.00" stroke-width="4.32"><title>I2C_SDA (FCu)</title></line>
+<line x1="430.00" y1="296.00" x2="466.00" y2="332.00" stroke-width="4.32"><title>I2C_SDA (FCu)</title></line>
+<line x1="466.00" y1="332.00" x2="478.00" y2="332.00" stroke-width="4.32"><title>I2C_SDA (FCu)</title></line>
+<line x1="394.00" y1="260.00" x2="406.00" y2="272.00" stroke-width="4.32"><title>JCP_ALERT (FCu)</title></line>
+<line x1="406.00" y1="272.00" x2="406.00" y2="296.00" stroke-width="4.32"><title>JCP_ALERT (FCu)</title></line>
+<line x1="406.00" y1="296.00" x2="466.00" y2="356.00" stroke-width="4.32"><title>JCP_ALERT (FCu)</title></line>
+<line x1="466.00" y1="356.00" x2="478.00" y2="356.00" stroke-width="4.32"><title>JCP_ALERT (FCu)</title></line>
+<line x1="478.00" y1="380.00" x2="466.00" y2="380.00" stroke-width="4.32"><title>NTC_ADC (FCu)</title></line>
+<line x1="466.00" y1="380.00" x2="346.00" y2="500.00" stroke-width="4.32"><title>NTC_ADC (FCu)</title></line>
+<line x1="346.00" y1="500.00" x2="346.00" y2="512.00" stroke-width="4.32"><title>NTC_ADC (FCu)</title></line>
+<line x1="346.00" y1="512.00" x2="274.00" y2="512.00" stroke-width="4.32"><title>NTC_ADC (FCu)</title></line>
+<line x1="538.00" y1="260.00" x2="622.00" y2="176.00" stroke-width="4.32"><title>SPI_CS (FCu)</title></line>
+<line x1="622.00" y1="176.00" x2="658.00" y2="176.00" stroke-width="4.32"><title>SPI_CS (FCu)</title></line>
+<line x1="598.00" y1="332.00" x2="610.00" y2="332.00" stroke-width="4.32"><title>SPI_MISO (FCu)</title></line>
+<line x1="610.00" y1="332.00" x2="634.00" y2="308.00" stroke-width="4.32"><title>SPI_MISO (FCu)</title></line>
+<line x1="634.00" y1="308.00" x2="634.00" y2="212.00" stroke-width="4.32"><title>SPI_MISO (FCu)</title></line>
+<line x1="634.00" y1="212.00" x2="646.00" y2="200.00" stroke-width="4.32"><title>SPI_MISO (FCu)</title></line>
+<line x1="646.00" y1="200.00" x2="658.00" y2="200.00" stroke-width="4.32"><title>SPI_MISO (FCu)</title></line>
+<line x1="598.00" y1="308.00" x2="610.00" y2="308.00" stroke-width="4.32"><title>SPI_MOSI (FCu)</title></line>
+<line x1="598.00" y1="284.00" x2="526.00" y2="284.00" stroke-width="4.32"><title>SPI_SCK (FCu)</title></line>
+<line x1="526.00" y1="284.00" x2="514.00" y2="272.00" stroke-width="4.32"><title>SPI_SCK (FCu)</title></line>
+<line x1="514.00" y1="272.00" x2="514.00" y2="248.00" stroke-width="4.32"><title>SPI_SCK (FCu)</title></line>
+<line x1="514.00" y1="248.00" x2="538.00" y2="224.00" stroke-width="4.32"><title>SPI_SCK (FCu)</title></line>
+<line x1="538.00" y1="224.00" x2="550.00" y2="224.00" stroke-width="4.32"><title>SPI_SCK (FCu)</title></line>
+<line x1="550.00" y1="224.00" x2="622.00" y2="152.00" stroke-width="4.32"><title>SPI_SCK (FCu)</title></line>
+<line x1="622.00" y1="152.00" x2="670.00" y2="152.00" stroke-width="4.32"><title>SPI_SCK (FCu)</title></line>
+<line x1="670.00" y1="152.00" x2="742.00" y2="224.00" stroke-width="4.32"><title>SPI_SCK (FCu)</title></line>
+<line x1="742.00" y1="224.00" x2="754.00" y2="224.00" stroke-width="4.32"><title>SPI_SCK (FCu)</title></line>
+<line x1="598.00" y1="404.00" x2="634.00" y2="440.00" stroke-width="4.32"><title>SWDIO (FCu)</title></line>
+<line x1="634.00" y1="440.00" x2="742.00" y2="440.00" stroke-width="4.32"><title>SWDIO (FCu)</title></line>
+<line x1="598.00" y1="380.00" x2="586.00" y2="380.00" stroke-width="4.32"><title>SWCLK (FCu)</title></line>
+<line x1="586.00" y1="380.00" x2="574.00" y2="392.00" stroke-width="4.32"><title>SWCLK (FCu)</title></line>
+<line x1="574.00" y1="392.00" x2="574.00" y2="416.00" stroke-width="4.32"><title>SWCLK (FCu)</title></line>
+<line x1="574.00" y1="416.00" x2="634.00" y2="476.00" stroke-width="4.32"><title>SWCLK (FCu)</title></line>
+<line x1="634.00" y1="476.00" x2="742.00" y2="476.00" stroke-width="4.32"><title>SWCLK (FCu)</title></line>
+<line x1="598.00" y1="356.00" x2="586.00" y2="356.00" stroke-width="4.32"><title>UART_TX (FCu)</title></line>
+<line x1="586.00" y1="356.00" x2="550.00" y2="392.00" stroke-width="4.32"><title>UART_TX (FCu)</title></line>
+<line x1="550.00" y1="392.00" x2="550.00" y2="416.00" stroke-width="4.32"><title>UART_TX (FCu)</title></line>
+<line x1="550.00" y1="416.00" x2="646.00" y2="512.00" stroke-width="4.32"><title>UART_TX (FCu)</title></line>
+<line x1="646.00" y1="512.00" x2="742.00" y2="512.00" stroke-width="4.32"><title>UART_TX (FCu)</title></line>
+<line x1="178.00" y1="224.00" x2="190.00" y2="236.00" stroke-width="4.32"><title>VBAT_RAW (FCu)</title></line>
+<line x1="190.00" y1="236.00" x2="202.00" y2="236.00" stroke-width="4.32"><title>VBAT_RAW (FCu)</title></line>
+<line x1="202.00" y1="236.00" x2="226.00" y2="260.00" stroke-width="4.32"><title>VBAT_RAW (FCu)</title></line>
+<line x1="226.00" y1="260.00" x2="250.00" y2="236.00" stroke-width="4.32"><title>VBAT_RAW (FCu)</title></line>
+<line x1="250.00" y1="236.00" x2="298.00" y2="236.00" stroke-width="4.32"><title>VBAT_RAW (FCu)</title></line>
+<line x1="298.00" y1="236.00" x2="310.00" y2="236.00" stroke-width="4.32"><title>VBAT_RAW (FCu)</title></line>
+<line x1="310.00" y1="236.00" x2="322.00" y2="224.00" stroke-width="4.32"><title>VBAT_RAW (FCu)</title></line>
+<line x1="322.00" y1="224.00" x2="322.00" y2="200.00" stroke-width="4.32"><title>VBAT_RAW (FCu)</title></line>
+<line x1="322.00" y1="200.00" x2="310.00" y2="188.00" stroke-width="4.32"><title>VBAT_RAW (FCu)</title></line>
+<line x1="310.00" y1="188.00" x2="298.00" y2="188.00" stroke-width="4.32"><title>VBAT_RAW (FCu)</title></line>
+<line x1="226.00" y1="224.00" x2="238.00" y2="212.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="238.00" y1="212.00" x2="298.00" y2="212.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="298.00" y1="212.00" x2="286.00" y2="212.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="286.00" y1="212.00" x2="274.00" y2="200.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="274.00" y1="200.00" x2="274.00" y2="176.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="274.00" y1="176.00" x2="286.00" y2="164.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="286.00" y1="164.00" x2="310.00" y2="164.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="310.00" y1="164.00" x2="334.00" y2="188.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="334.00" y1="188.00" x2="394.00" y2="188.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="394.00" y1="188.00" x2="418.00" y2="164.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="418.00" y1="164.00" x2="418.00" y2="128.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="394.00" y1="188.00" x2="406.00" y2="188.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="406.00" y1="188.00" x2="478.00" y2="260.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="478.00" y1="260.00" x2="478.00" y2="284.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="658.00" y1="224.00" x2="694.00" y2="224.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="694.00" y1="224.00" x2="742.00" y2="272.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="742.00" y1="272.00" x2="766.00" y2="272.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="766.00" y1="272.00" x2="778.00" y2="260.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="778.00" y1="260.00" x2="778.00" y2="212.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="778.00" y1="212.00" x2="766.00" y2="200.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="766.00" y1="200.00" x2="754.00" y2="200.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="754.00" y1="200.00" x2="754.00" y2="176.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="754.00" y1="200.00" x2="766.00" y2="200.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="766.00" y1="200.00" x2="778.00" y2="212.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="778.00" y1="212.00" x2="778.00" y2="368.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="778.00" y1="368.00" x2="742.00" y2="404.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="478.00" y1="284.00" x2="490.00" y2="284.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="490.00" y1="284.00" x2="514.00" y2="308.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="514.00" y1="308.00" x2="514.00" y2="488.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="226.00" y1="224.00" x2="286.00" y2="164.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="286.00" y1="164.00" x2="310.00" y2="164.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="310.00" y1="164.00" x2="334.00" y2="188.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="334.00" y1="188.00" x2="406.00" y2="188.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="406.00" y1="188.00" x2="442.00" y2="224.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="442.00" y1="224.00" x2="514.00" y2="224.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="226.00" y1="224.00" x2="238.00" y2="224.00" stroke-width="4.32"><title>VDD_SYS (FCu)</title></line>
+<line x1="670.00" y1="296.00" x2="658.00" y2="284.00" stroke-width="4.32"><title>GND (FCu)</title></line>
+<line x1="658.00" y1="284.00" x2="658.00" y2="248.00" stroke-width="4.32"><title>GND (FCu)</title></line>
+<line x1="718.00" y1="536.00" x2="730.00" y2="548.00" stroke-width="4.32"><title>GND (FCu)</title></line>
+<line x1="730.00" y1="548.00" x2="742.00" y2="548.00" stroke-width="4.32"><title>GND (FCu)</title></line>
+<line x1="478.00" y1="404.00" x2="466.00" y2="404.00" stroke-width="4.32"><title>GND (FCu)</title></line>
+<line x1="298.00" y1="260.00" x2="226.00" y2="332.00" stroke-width="4.32"><title>GND (FCu)</title></line>
+<line x1="226.00" y1="332.00" x2="226.00" y2="512.00" stroke-width="4.32"><title>GND (FCu)</title></line>
+<line x1="334.00" y1="308.00" x2="298.00" y2="272.00" stroke-width="4.32"><title>GND (FCu)</title></line>
+<line x1="298.00" y1="272.00" x2="298.00" y2="260.00" stroke-width="4.32"><title>GND (FCu)</title></line>
+<line x1="490.00" y1="404.00" x2="478.00" y2="404.00" stroke-width="4.32"><title>GND (FCu)</title></line>
+</g>
+<rect x="156.40" y="334.40" width="43.20" height="43.20" rx="2.5" fill="#60a5fa" stroke="#fef08a" stroke-width="0.8"><title>BT1.1 -> VBAT_RAW</title></rect>
+<rect x="708.40" y="334.40" width="43.20" height="43.20" rx="2.5" fill="#60a5fa" stroke="#fef08a" stroke-width="0.8"><title>BT1.2 -> GND</title></rect>
+<text class="ref-bcu" x="454.0" y="360.0" text-anchor="middle">BT1</text>
+<rect x="401.8" y="108.8" width="80.4" height="38.4" rx="3" fill="#14532d" fill-opacity="0.35" stroke="#e2e8f0" stroke-width="1.1"/>
+<rect x="410.20" y="119.60" width="15.60" height="16.80" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>C1.1 -> VDD_SYS</title></rect>
+<rect x="458.20" y="119.60" width="15.60" height="16.80" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>C1.2 -> GND</title></rect>
+<text class="ref" x="442.0" y="103.8" text-anchor="middle">C1</text>
+<rect x="497.8" y="468.8" width="80.4" height="38.4" rx="3" fill="#14532d" fill-opacity="0.35" stroke="#e2e8f0" stroke-width="1.1"/>
+<rect x="506.20" y="479.60" width="15.60" height="16.80" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>C2.1 -> VDD_SYS</title></rect>
+<rect x="554.20" y="479.60" width="15.60" height="16.80" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>C2.2 -> GND</title></rect>
+<text class="ref" x="538.0" y="463.8" text-anchor="middle">C2</text>
+<rect x="722.8" y="385.4" width="38.4" height="181.2" rx="3" fill="#14532d" fill-opacity="0.35" stroke="#e2e8f0" stroke-width="1.1"/>
+<rect x="731.80" y="393.80" width="20.40" height="20.40" rx="2.5" fill="#facc15" stroke="#fef08a" stroke-width="0.8"><title>J1.1 -> VDD_SYS</title></rect>
+<circle cx="742.00" cy="404.00" r="6.00" fill="#0f172a"/>
+<rect x="731.80" y="429.80" width="20.40" height="20.40" rx="2.5" fill="#facc15" stroke="#fef08a" stroke-width="0.8"><title>J1.2 -> SWDIO</title></rect>
+<circle cx="742.00" cy="440.00" r="6.00" fill="#0f172a"/>
+<rect x="731.80" y="465.80" width="20.40" height="20.40" rx="2.5" fill="#facc15" stroke="#fef08a" stroke-width="0.8"><title>J1.3 -> SWCLK</title></rect>
+<circle cx="742.00" cy="476.00" r="6.00" fill="#0f172a"/>
+<rect x="731.80" y="501.80" width="20.40" height="20.40" rx="2.5" fill="#facc15" stroke="#fef08a" stroke-width="0.8"><title>J1.4 -> UART_TX</title></rect>
+<circle cx="742.00" cy="512.00" r="6.00" fill="#0f172a"/>
+<rect x="731.80" y="537.80" width="20.40" height="20.40" rx="2.5" fill="#facc15" stroke="#fef08a" stroke-width="0.8"><title>J1.5 -> GND</title></rect>
+<circle cx="742.00" cy="548.00" r="6.00" fill="#0f172a"/>
+<text class="ref" x="742.0" y="380.4" text-anchor="middle">J1</text>
+<rect x="209.8" y="492.8" width="80.4" height="38.4" rx="3" fill="#14532d" fill-opacity="0.35" stroke="#e2e8f0" stroke-width="1.1"/>
+<rect x="218.20" y="503.60" width="15.60" height="16.80" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>RT1.1 -> GND</title></rect>
+<rect x="266.20" y="503.60" width="15.60" height="16.80" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>RT1.2 -> NTC_ADC</title></rect>
+<text class="ref" x="250.0" y="487.8" text-anchor="middle">RT1</text>
+<rect x="329.8" y="492.8" width="80.4" height="38.4" rx="3" fill="#14532d" fill-opacity="0.35" stroke="#e2e8f0" stroke-width="1.1"/>
+<rect x="338.20" y="503.60" width="15.60" height="16.80" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>R_BIAS.1 -> NTC_ADC</title></rect>
+<rect x="386.20" y="503.60" width="15.60" height="16.80" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>R_BIAS.2 -> VDD_SYS</title></rect>
+<text class="ref" x="370.0" y="487.8" text-anchor="middle">R_BIAS</text>
+<rect x="161.2" y="204.8" width="81.6" height="38.4" rx="3" fill="#14532d" fill-opacity="0.35" stroke="#e2e8f0" stroke-width="1.1"/>
+<rect x="169.60" y="214.40" width="16.80" height="19.20" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>R_SHUNT.1 -> VBAT_RAW</title></rect>
+<rect x="217.60" y="214.40" width="16.80" height="19.20" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>R_SHUNT.2 -> VDD_SYS</title></rect>
+<text class="ref" x="202.0" y="199.8" text-anchor="middle">R_SHUNT</text>
+<rect x="463.6" y="244.9" width="148.8" height="174.2" rx="3" fill="#14532d" fill-opacity="0.35" stroke="#e2e8f0" stroke-width="1.1"/>
+<rect x="472.00" y="277.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U1.1 -> VDD_SYS</title></rect>
+<rect x="472.00" y="301.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U1.2 -> I2C_SCL</title></rect>
+<rect x="472.00" y="325.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U1.3 -> I2C_SDA</title></rect>
+<rect x="472.00" y="349.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U1.4 -> JCP_ALERT</title></rect>
+<rect x="472.00" y="373.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U1.5 -> NTC_ADC</title></rect>
+<rect x="472.00" y="397.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U1.6 -> GND</title></rect>
+<rect x="592.00" y="397.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U1.7 -> SWDIO</title></rect>
+<rect x="592.00" y="373.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U1.8 -> SWCLK</title></rect>
+<rect x="592.00" y="349.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U1.9 -> UART_TX</title></rect>
+<rect x="592.00" y="325.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U1.10 -> SPI_MISO</title></rect>
+<rect x="592.00" y="301.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U1.11 -> SPI_MOSI</title></rect>
+<rect x="592.00" y="277.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U1.12 -> SPI_SCK</title></rect>
+<rect x="532.00" y="253.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U1.13 -> SPI_CS</title></rect>
+<text class="ref" x="538.0" y="239.9" text-anchor="middle">U1</text>
+<rect x="283.6" y="172.9" width="124.8" height="102.2" rx="3" fill="#14532d" fill-opacity="0.35" stroke="#e2e8f0" stroke-width="1.1"/>
+<rect x="292.00" y="181.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U2.1 -> VBAT_RAW</title></rect>
+<rect x="292.00" y="205.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U2.2 -> VDD_SYS</title></rect>
+<rect x="292.00" y="229.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U2.3 -> VBAT_RAW</title></rect>
+<rect x="292.00" y="253.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U2.4 -> GND</title></rect>
+<rect x="388.00" y="253.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U2.5 -> JCP_ALERT</title></rect>
+<rect x="388.00" y="229.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U2.6 -> I2C_SDA</title></rect>
+<rect x="388.00" y="205.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U2.7 -> I2C_SCL</title></rect>
+<rect x="388.00" y="181.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U2.8 -> VDD_SYS</title></rect>
+<text class="ref" x="346.0" y="167.9" text-anchor="middle">U2</text>
+<rect x="643.6" y="160.9" width="124.8" height="102.2" rx="3" fill="#14532d" fill-opacity="0.35" stroke="#e2e8f0" stroke-width="1.1"/>
+<rect x="652.00" y="169.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U3.1 -> SPI_CS</title></rect>
+<rect x="652.00" y="193.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U3.2 -> SPI_MISO</title></rect>
+<rect x="652.00" y="217.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U3.3 -> VDD_SYS</title></rect>
+<rect x="652.00" y="241.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U3.4 -> GND</title></rect>
+<rect x="748.00" y="241.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U3.5 -> SPI_MOSI</title></rect>
+<rect x="748.00" y="217.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U3.6 -> SPI_SCK</title></rect>
+<rect x="748.00" y="193.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U3.7 -> VDD_SYS</title></rect>
+<rect x="748.00" y="169.28" width="12.00" height="13.44" rx="2.5" fill="#f87171" stroke="#fef08a" stroke-width="0.8"><title>U3.8 -> VDD_SYS</title></rect>
+<text class="ref" x="706.0" y="155.9" text-anchor="middle">U3</text>
+<circle cx="610.00" cy="308.00" r="6.72" fill="#eab308" stroke="#0f172a" stroke-width="0.8"><title>Via (SPI_MOSI)</title></circle>
+<circle cx="610.00" cy="308.00" r="3.60" fill="#0f172a"/>
+<circle cx="754.00" cy="248.00" r="6.72" fill="#eab308" stroke="#0f172a" stroke-width="0.8"><title>Via (SPI_MOSI)</title></circle>
+<circle cx="754.00" cy="248.00" r="3.60" fill="#0f172a"/>
+<circle cx="178.00" cy="224.00" r="6.72" fill="#eab308" stroke="#0f172a" stroke-width="0.8"><title>Via (VBAT_RAW)</title></circle>
+<circle cx="178.00" cy="224.00" r="3.60" fill="#0f172a"/>
+<circle cx="514.00" cy="224.00" r="6.72" fill="#eab308" stroke="#0f172a" stroke-width="0.8"><title>Via (VDD_SYS)</title></circle>
+<circle cx="514.00" cy="224.00" r="3.60" fill="#0f172a"/>
+<circle cx="658.00" cy="224.00" r="6.72" fill="#eab308" stroke="#0f172a" stroke-width="0.8"><title>Via (VDD_SYS)</title></circle>
+<circle cx="658.00" cy="224.00" r="3.60" fill="#0f172a"/>
+<circle cx="238.00" cy="224.00" r="6.72" fill="#eab308" stroke="#0f172a" stroke-width="0.8"><title>Via (VDD_SYS)</title></circle>
+<circle cx="238.00" cy="224.00" r="3.60" fill="#0f172a"/>
+<circle cx="394.00" cy="512.00" r="6.72" fill="#eab308" stroke="#0f172a" stroke-width="0.8"><title>Via (VDD_SYS)</title></circle>
+<circle cx="394.00" cy="512.00" r="3.60" fill="#0f172a"/>
+<circle cx="670.00" cy="296.00" r="6.72" fill="#eab308" stroke="#0f172a" stroke-width="0.8"><title>Via (GND)</title></circle>
+<circle cx="670.00" cy="296.00" r="3.60" fill="#0f172a"/>
+<circle cx="718.00" cy="536.00" r="6.72" fill="#eab308" stroke="#0f172a" stroke-width="0.8"><title>Via (GND)</title></circle>
+<circle cx="718.00" cy="536.00" r="3.60" fill="#0f172a"/>
+<circle cx="466.00" cy="404.00" r="6.72" fill="#eab308" stroke="#0f172a" stroke-width="0.8"><title>Via (GND)</title></circle>
+<circle cx="466.00" cy="404.00" r="3.60" fill="#0f172a"/>
+<circle cx="466.00" cy="128.00" r="6.72" fill="#eab308" stroke="#0f172a" stroke-width="0.8"><title>Via (GND)</title></circle>
+<circle cx="466.00" cy="128.00" r="3.60" fill="#0f172a"/>
+<circle cx="334.00" cy="308.00" r="6.72" fill="#eab308" stroke="#0f172a" stroke-width="0.8"><title>Via (GND)</title></circle>
+<circle cx="334.00" cy="308.00" r="3.60" fill="#0f172a"/>
+<circle cx="490.00" cy="404.00" r="6.72" fill="#eab308" stroke="#0f172a" stroke-width="0.8"><title>Via (GND)</title></circle>
+<circle cx="490.00" cy="404.00" r="3.60" fill="#0f172a"/>
+<circle cx="562.00" cy="488.00" r="6.72" fill="#eab308" stroke="#0f172a" stroke-width="0.8"><title>Via (GND)</title></circle>
+<circle cx="562.00" cy="488.00" r="3.60" fill="#0f172a"/>
+<line x1="70.0" y1="672.0" x2="838.0" y2="672.0" stroke="#334155" stroke-width="1.2"/>
+<text class="dim" x="454.0" y="688.0" text-anchor="middle">32.00 mm (Edge.Cuts)</text>
+<line x1="48.0" y1="68.0" x2="48.0" y2="644.0" stroke="#334155" stroke-width="1.2"/>
+<text class="dim" transform="translate(38.0,356.0) rotate(-90)" text-anchor="middle">24.00 mm</text>
+<rect x="862.0" y="68.0" width="270.0" height="576.0" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.2"/>
+<text class="leg-h" x="876.0" y="98.0">Stackup & Layers</text>
+<text class="leg-t" x="876.0" y="116.0">F.Cu (Top Red): MCU, INA238, FRAM, NTC</text>
+<text class="leg-t" x="876.0" y="133.5">B.Cu (Bot Blue): BT1 CR2032 + Return</text>
+<text class="leg-t" x="876.0" y="151.0">Plated Vias: 0.30 mm drill / 0.56 mm pad</text>
+<text class="leg-t" x="876.0" y="168.5">Trace / Space: 0.18 mm / >= 0.16 mm</text>
+<text class="leg-h" x="876.0" y="192.0">Key Subsystems</text>
+<text class="leg-t" x="876.0" y="210.0">U1 STM32WBA52: ULP MCU + BLE-LR Gate</text>
+<text class="leg-t" x="876.0" y="227.5">U2 TI INA238: 16-bit I2C Shunt Monitor</text>
+<text class="leg-t" x="876.0" y="245.0">R_SHUNT 100 mOhm: 0.1% 25 ppm/C Sense</text>
+<text class="leg-t" x="876.0" y="262.5">U3 MB85RS256B: 256-Kb SPI FRAM JCR-1 Ring</text>
+<text class="leg-t" x="876.0" y="280.0">RT1 + R_BIAS: 10 kOhm Cold-Chain NTC</text>
+<text class="leg-t" x="876.0" y="297.5">C1, C2: 100 nF + 1 uF X7R Decoupling</text>
+<text class="leg-t" x="876.0" y="315.0">J1 5-Pin PTH: SWD + JCR-1 UART Dump</text>
+<text class="leg-t" x="876.0" y="332.5">BT1 Keystone 3034: CR2032 225 mAh (2,430 J)</text>
+<text class="leg-h" x="876.0" y="356.0">DRC & Export Status</text>
+<text class="leg-t" x="876.0" y="374.0">cad-eda DRC: 0 errors / 0 warnings</text>
+<text class="leg-t" x="876.0" y="391.5">Board Bench State: Fabrication pkg (unbuilt)</text>
+</svg>

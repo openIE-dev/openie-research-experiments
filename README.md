@@ -17,16 +17,19 @@ Reproducible material for the papers at https://research.openie.dev. The page ht
 | `rce/SOAK_RESULTS.md`, `rce/SOAK_ENERGY.md` | RCE §6.3, §6.4 | Soak model-call counts and energy receipts |
 | `rce/bench/reported-j/` | RCE, RCE-VC (`aba99fce`), RCE-JEPA (`H2`) | Apple M5 Max `L2`/`L3` `reported_j` receipts for `rce` Form checking (`49.04 mJ/check`, `15.44 J` full 62-Form suite) and `rce-vc` `100,000`-unit admission (`317–365 µJ`) |
 | `rce/bench/h15-gear0/` | RCE-JEPA (`H15` & `Shape D` Gear-0) | Preregistration (`PREREG.json`), 40-task residual corpus, multi-vendor proposer receipts (`Opus 5.5`, `Sonnet 5.5`, `Grok 4.20`, `GPT-OSS-120B`, `Qwen 3.6`, `DeepSeek V4.1`), and `DNULLMM1` Gear-0 replay |
+| `rce/bench/form-jepa-v1/` | RCE-JEPA (`FormJEPA-v1`, 3-Gear Cascade, & `rce repair` Rung `f`) | Preregistrations (`PREREG_form_jepa_v1.json`, `PREREG_rung_f.json`), `8.42M`-param PyTorch JEPA training & evaluation scripts, `H15` & `151`-task Rung `f` observation/criterion receipts |
 | `ai-reads-human-energy/` | `"AI" Reads Human` §5c | 34-workload parse + `tiktoken` dual-channel `reported_j` harness, `170` isolated subprocess receipts, and Falsifier 6 baseline-drift flags |
-| `game-engines-determinism/` | `Writing a Game Once` §6.1 (`GE-H1`, `GE-H2`) | 5-target (`Rust`, `Wasm32`, `C++20`, `Node BigInt`, `Python 3.13`) `100,000`-tick Q32.32 simulation + `25,000`-tick float divergence horizons and `reported_j` receipts |
-| `satb-harness/` | `Satiation Benchmark Harness` | `C1–C12` conformance runner, `Falsifier 3/5/6/8` benchmarks, and live multi-vendor `satb-proxy` determinism receipts |
+| `game-engines-determinism/` | `Writing a Game Once` §6 (`GE-H1`, `GE-H2`, `GE-H3`) | 25-cell multi-ISA (`arm64`/`aarch64`/`x86_64`/`wasm32`) `100,000`-tick Q32.32 simulation, cross-ISA float drift, and 4-vendor headless `wgpu` (`Metal`/`Vulkan`) rendering tolerance receipts |
+| `satb-harness/` | `Satiation Benchmark Harness` | `C1–C12` conformance runner, `Falsifier 3/5/6/8` benchmarks, live multi-vendor `satb-proxy` determinism receipts, and `multi-host/` 4-archetype telemetry (`Apple M5 Max`, `Jetson AGX Thor` `INA238`/`INA3221` `measured_j`, `Framework AMD Strix Halo`, `Intel Raptor Lake`) |
+| `lut-adapt-vivado-audit/` | `Downward LUT6 Compilation` §4.12 | `xck26-sfvc784-2LV-c` `clai_kv260_axi_top` (`67,366` CLB LUTs) & `clai_benes_paged_hotswap_core` Yosys `xcup` primitive/topological-depth reports, `hw_server` JTAG check, and `Vivado 2026.1` OOC Tcl script |
+| `jcp-cad-mei-tag/` | `Metabolic Intelligence` & `The Search for JouleOS` | `jcp-satb-cad-spine` (`310` tests, `JCR-1` det-CBOR + Ed25519 receipts), `cad-joules` bridge patch, and `MEI-JCP-Tag-v1` DRC-clean 2-layer PCB Gerbers/KiCad/BOM/STEP/STL + `10,000`-wakeup `CR2032` simulation |
 | `time-as-an-index/` | `Time as an Index` | Kernel-checked Lean 4.36.0 proofs (`Horizon.lean`, `Paradox.lean`, `31` theorems, `0` `sorry`), `M1–M8` + `F5` Python/SymPy suite, and `195`-entry structured CSV catalogs (`TA001–TA081`, `AA01–AA40`, `P01–P74`) |
 
 Standalone companion repositories under `openIE-dev`: `openIE-dev/deterministic-null` (`Shape D` 5-language engine + `exp-001..exp-003` receipts), `openIE-dev/lut-adapt-ai` (`xck26` LUT6 RTL + AirMoL NVMe logs), `openIE-dev/rce`, and `openIE-dev/rce-vc`.
 
 ## Energy labels
 
-`est_j` is an analytical estimate. `reported_j` is an operating-system or on-chip counter (RAPL, or the macOS per-process counter). `measured_j` is a wall or shunt meter on a named rail and is empty in every result here. Labels are never summed.
+`est_j` is an analytical estimate. `reported_j` is an operating-system or on-chip counter (`RAPL`, `IOReport`, or macOS `proc_pid_rusage`). `measured_j` is a wall or physical shunt meter on a named rail: it is populated in `satb-harness/multi-host/multi_host_satb_receipts.json` for the Texas Instruments `INA238` (`VIN` `L1`) and 3-channel `INA3221` (`VDD_GPU`, `VDD_CPU_SOC_MSS`, `VIN_SYS_5V0` `L2`) rails on `NVIDIA Jetson AGX Thor` (shared host, `A2` net attribution withheld), and is empty in all other runs here. Labels are never summed.
 
 ## Reproducing
 

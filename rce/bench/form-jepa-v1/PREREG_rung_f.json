@@ -1,0 +1,50 @@
+{
+  "corpus": {
+    "path": "$BENCH_ROOT/openie-research-experiments/rce/bench/ladder/rung-e/tasks.jsonl",
+    "rebuilt_by": "python3 -I frozen.py $BENCH_ROOT/rce ../real-defects/tasks.list.tsv tasks.jsonl",
+    "repository": "openIE-dev/openie-research-experiments",
+    "sha256": "6ae255a32211f620364ef713b1a36f7daac6ab46f22ac318b45acb2a6da9af50",
+    "tasks": 151,
+    "unit": "a task: a close is a task whose program the ladder closes",
+    "what": "the frozen 151-task set of registered ladder runs 2 and 3 (history-admit 33, history-fix 8, guard 27, rename 83)"
+  },
+  "criterion": {
+    "C1": "Share. Every task of the 151-task corpus has exactly one record made with `rce repair json known ORIGINAL proposals PROPOSALS MUTANT` in `observe` mode (`bound 2000`), and every task left open by rungs a to e whose mutant parses has at least one proposal judged. Let E be exact closes (rungs a to e) and F be open tasks on which rung f observes at least one admitted proposal: E + F > 0 and 100 * F <= 2 * (E + F) (at most 2% of closes from rung f).",
+    "C2": "W-MUT-1. Every observed proposal passes the mutation gate W-MUT-1 (`mutation.vacuous == 0`).",
+    "C3": "GOOD. Zero observed proposals contradict the task's known-good original (`observed.known.contradicts == 0` under `rce equiv` state bound 20,000).",
+    "holds": "C1, C2 and C3 all hold.",
+    "max_stochastic_share": [
+      2,
+      100
+    ]
+  },
+  "engine_and_upstream_registration": {
+    "rce_binary_sha256": "5ef9931ff23a310f89fb34cd1b631ff6b6cd6acf1943da4fc712e6c80db599ed",
+    "rce_commit": "1762fb4bb65a58de07ab00f0d1bfdf4969d0358c",
+    "upstream_criterion_id": "rce-repair-rung-f-promotion-2026-11-03",
+    "upstream_criterion_path": "spec/proposals/repair-observe/criterion.json",
+    "upstream_criterion_sha256": "abf7f131f240e3f9eece8c2ed9d47cb1592c44ea3a99da20de092c899b104982"
+  },
+  "evaluated_arms": {
+    "arm_A_combined_external": "Proposals file per task combining FormJEPA-v1 (k=16 latent-ranked candidates) and recorded H15 external model proposals (`origin` labels `form-jepa-v1` and `h15-recorded`), evaluated by `rce repair criterion json`.",
+    "arm_B_form_jepa_only": "Proposals file per task containing only FormJEPA-v1 (k=16 latent-ranked candidates, `origin` label `form-jepa-v1`), evaluated by `rce repair criterion json`."
+  },
+  "evaluated_by": "rce repair criterion json REGISTRATION CORPUS RECORDS (spec 10.13, RF-6), verified against both upstream spec/proposals/repair-observe/criterion.json and this PREREG_rung_f.json",
+  "format": "rce-repair-registration/1",
+  "id": "rce-repair-rung-f-wave3-eval-2026-11-22",
+  "observation": {
+    "bound": 2000,
+    "command": "rce repair json known ORIGINAL proposals PROPOSALS MUTANT",
+    "known": "original",
+    "mode": "observe",
+    "proposals": "Canonical JSON rce-proposals/1 file per task generated strictly from mutant text and rce check diagnostic without reading original",
+    "records": "151 rce-repair/1 JSON lines, one per task in corpus order"
+  },
+  "predictions": {
+    "P1_exact_known_closes": "Rungs a to e with `known ORIGINAL` close ~116 of 151 tasks at 0 model calls, leaving ~35 tasks open (25 of which fail parse with W-SYN-1 so rung f skips them under RF-2, and ~10 of which parse and enter rung f).",
+    "P2_gate_and_contradiction_safety": "100% of rung-f observed proposals pass W-MUT-1 (C2 holds) and 0 contradict ORIGINAL (C3 holds).",
+    "P3_share_cap_keeps_observe": "When external proposers close more than 2 of the parsing open tasks (F >= 3 against E = 116, stochastic share > 2.0%), C1 blocks promotion to `auto`, confirming by exact measurement why rung f remains in `observe` mode."
+  },
+  "question": "Across all 151 tasks of ladder runs 2 and 3 at openIE-dev/rce 1762fb4b, how many open tasks does `rce repair` rung f admit in `observe` mode when fed FormJEPA-v1 and recorded H15 proposals, what is the W-MUT-1 pass rate and contradiction count against ORIGINAL, and does the registered 2% stochastic-close promotion criterion hold?",
+  "registered": "2026-11-22, locked with SHA-256 sidecar before running rce repair rung f or rce repair criterion on any of the 151 tasks"
+}

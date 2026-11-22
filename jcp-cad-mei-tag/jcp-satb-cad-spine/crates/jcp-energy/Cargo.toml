@@ -1,0 +1,18 @@
+[package]
+name = "jcp-energy"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+jcp-schema = { workspace = true }
+nvml-wrapper = { version = "0.10", optional = true }
+
+[features]
+# GPU energy via NVML (libnvidia-ml loaded at runtime; init failure degrades
+# gracefully to the CPU/estimate ladder).
+nvml = ["dep:nvml-wrapper"]
+
+[lints]
+workspace = true

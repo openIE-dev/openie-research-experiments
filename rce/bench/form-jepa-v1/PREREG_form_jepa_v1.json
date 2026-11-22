@@ -1,0 +1,115 @@
+{
+  "arms": {
+    "cascade_3gear": {
+      "description": "3-Gear Cascade: Gear 0 (Shape D DNULLMM1nameless lookup, 0 model calls) -> Gear 1 (FormJEPA-v1 k=16 latent beam + rce check) -> Gear 2 (Frontier Proposer fallback on Gear-1 misses)",
+      "role": "Measures marginal call and energy savings when FormJEPA-v1 intercepts structural/syntax/type/method repairs ahead of large autoregressive proposers"
+    },
+    "form_jepa_v1_k1": {
+      "beam_k": 1,
+      "description": "Single-shot greedy top-1 typed Form edit conditioned on (x, z_hat_y), verified by rce check + obligation preservation"
+    },
+    "form_jepa_v1_k16": {
+      "beam_k": 16,
+      "description": "Latent-reranked beam of up to 16 distinct candidate Form edits ranked by ||z_hat_y - E_ema(y_cand)||_2^2 before rce check + obligation preservation"
+    }
+  },
+  "architecture": {
+    "anti_collapse": {
+      "ema_tau": 0.996,
+      "logged_metrics": [
+        "effective_rank_pre_train",
+        "effective_rank_post_train",
+        "mean_coord_std_pre_train",
+        "mean_coord_std_post_train",
+        "val_cosine_sim_pos_vs_random"
+      ],
+      "vicreg_cov_weight": 0.04,
+      "vicreg_std_target_gamma": 1.0,
+      "vicreg_var_weight": 1.0
+    },
+    "context_encoder_E_theta": {
+      "d_model": 256,
+      "dim_feedforward": 1024,
+      "dropout": 0.1,
+      "input": "Indentation-aware Form AST S-expression token stream of broken Form x centered on checker diagnostic span + checker diagnostic rule token r",
+      "max_seq_len": 384,
+      "nhead": 8,
+      "num_layers": 6
+    },
+    "edit_decoder_D_psi": {
+      "conditioning": "Cross-attention and FiLM conditioning on Context Encoder token states H_x and predicted clean Form latent z_hat_y",
+      "edit_families": [
+        "OP_CMP_SWAP",
+        "OP_CONST_BOUND",
+        "OP_ARITH_EXPR",
+        "OP_TYPE_ANNOT",
+        "OP_SCOPE_IDENT",
+        "OP_METHOD_CALL",
+        "OP_TOTALITY_KEEP",
+        "OP_CAP_WORLD"
+      ],
+      "max_rollout_steps": 3,
+      "num_layers": 2,
+      "reranker": "Latent L2 energy ||z_hat_y - E_ema(y_cand)||_2^2"
+    },
+    "latent_predictor_P_phi": {
+      "hidden_dim": 512,
+      "input_dim": 320,
+      "loss": "SmoothL1(z_hat_y, stop_grad(z_y))",
+      "num_layers": 3,
+      "output_dim": 256,
+      "rule_embed_dim": 64
+    },
+    "name": "FormJEPA-v1",
+    "target_encoder_E_ema": {
+      "d_model": 256,
+      "ema_momentum": 0.996,
+      "input": "Canonical Form AST S-expression token stream of valid Form y (canonicalized via rce fmt and rce fmt nameless)",
+      "stop_gradient": true
+    },
+    "target_param_range": "4,000,000 to 8,500,000 trainable parameters"
+  },
+  "data_and_leakage_controls": {
+    "disjoint_filter_rules": [
+      "1. Exclude any file path appearing in the 151-task ladder (65 unique paths) or 40-task H15 residual set (40 unique paths).",
+      "2. Exclude any Form sharing a filename stem or numeric-stripped program slug with any evaluation task.",
+      "3. Exclude any Form sharing a primary state, actor, or module declaration identifier with any evaluation task.",
+      "4. Exclude any Form whose rce fmt nameless SHA-256 digest (shape_hash), canonical rce fmt SHA-256, or raw SHA-256 matches any original, mutant, or HEAD version of the 151 ladder tasks or 40 H15 residual tasks."
+    ],
+    "forbidden_corpora": {
+      "h15_residual_40_sha256": "3ca3a32769145e9b502b9b7b9d2c0402e97ce6a860203668a35a35535d46b25b",
+      "ladder_151_sha256": "6ae255a32211f620364ef713b1a36f7daac6ab46f22ac318b45acb2a6da9af50"
+    },
+    "split_rule": "Partition disjoint valid Form shapes strictly by shape_hash (SHA-256 of rce fmt nameless) into train (~80%), synthetic validation (~10%, N=500 defect pairs), and held-out synthetic test (~10%, N=200 defect pairs).",
+    "target_train_examples": "6,000 to 12,000 checker-verified (broken_form, checker_rule_code, edit_op_and_span, valid_form) tuples",
+    "upstream_repositories": {
+      "openie_research_experiments_commit": "ce8003f5010df994948cf7022e127fabadb81bd1",
+      "rce_commit": "1762fb4bb65a58de07ab00f0d1bfdf4969d0358c",
+      "rce_linux_x86_64_binary_sha256": "5ef9931ff23a310f89fb34cd1b631ff6b6cd6acf1943da4fc712e6c80db599ed"
+    }
+  },
+  "energy_and_telemetry": {
+    "board_metered": false,
+    "energy_separation_rule": "est_j, reported_j, and measured_j are reported in separate fields and never summed; cloud API server energy remains not_available.",
+    "inference_rapl_host": "x86_64 Linux host with world-readable /sys/class/powercap/intel-rapl:0/energy_uj (package-0 and core L2 RAPL reported_j), paired with pre/post idle drift check (Falsifier 6)",
+    "measured_j": null,
+    "training_host": "32-thread AMD Ryzen AI Max+ 395 ($BENCH_ROOT), Linux powercap intel-rapl:0 package-0 and core L2 reported_j"
+  },
+  "evaluation_benchmarks": [
+    "1. Held-out disjoint synthetic Form defects (N = 200, unseen shape_hashes): pass@1 (k=1), pass@16 (k=16), latent energy AUROC (H5 diagnostic), and edit-distance energy monotonicity (H11 diagnostic).",
+    "2. Frozen 151-task ladder benchmark (H14 plain arm, sha256 6ae255a3...): standalone FormJEPA-v1 (k=1, k=16) and combined deterministic ladder + FormJEPA-v1.",
+    "3. Frozen 40 open residual tasks (H15, sha256 3ca3a327...): admitted count under strict C(z)=1 (rce check exit 0 + obligation preservation), restored + behaviour-equal count, reported_j per proposal vs Qwen 3.6 35B-A3B (84.25 J, 27/40) and Claude Opus 5.5 (34/40), and 3-Gear Cascade (Gear 0 DNULLMM1 -> Gear 1 FormJEPA-v1 k=16 -> Gear 2 Frontier)."
+  ],
+  "falsifiers_and_predictions": {
+    "F1_collapse": "Post-training effective rank of z_x or z_y on held-out validation Forms drops below 16 (out of d=256) or mean per-coordinate std drops below 0.25.",
+    "F2_leakage": "Any training or validation example shares a path, program slug, primary state/actor name, or rce fmt nameless digest with any of the 151 ladder tasks or 40 H15 residual tasks.",
+    "F3_vacuous_gate": "Any candidate counted as admitted fails rce check exit 0 (including W-UI-1 and W-MUT-1) or deletes mutant obligations.",
+    "P1_non_collapse": "EMA + VICReg maintains post-training effective rank >= 64 (of d=256) and positive-pair latent cosine similarity > random-pair baseline by at least 0.25.",
+    "P2_synthetic_heldout": "FormJEPA-v1 k=16 admits >= 50% of the N=200 held-out disjoint synthetic Form defects under rce check.",
+    "P3_sub_joule_inference": "Per-proposal CPU inference energy (reported_j via L2 RAPL) is < 1.0 J at k=1 and < 5.0 J at k=16 (>15x cheaper per attempt than 84.25 J local 35B MoE generation).",
+    "P4_honest_scope_on_h15": "A compact ~7M-parameter non-pretrained FormJEPA-v1 repairs structured syntax, method, capability, and single-site guard/type defects on the 40 residual tasks at sub-joule cost, while multi-clause cryptographic stdlib API migrations without pretraining require Gear-2 frontier proposers."
+  },
+  "id": "rce-jepa-form-jepa-v1-2026-11-22",
+  "registered": "2026-11-22, locked with SHA-256 sidecar before dataset generation, weight initialization, training, or benchmark evaluation",
+  "seed": 20261122
+}
