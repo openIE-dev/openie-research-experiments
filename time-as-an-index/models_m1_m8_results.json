@@ -1,0 +1,254 @@
+{
+  "seed": 20261122,
+  "M1_indexed_dataset": {
+    "n": 1000000,
+    "direct_index_steps": 1,
+    "binary_search_worst_case_steps": 20,
+    "binary_search_target_steps": 20,
+    "linear_scan_target_steps": 777778,
+    "world_bits": 4.0,
+    "lossless_mutual_info_bits": 4.0,
+    "coarse_2bit_mutual_info_bits": 2.0,
+    "lossy_distinct_futures_at_t5": 8,
+    "mean_counterexample": {
+      "profile_a": [
+        -3,
+        -1,
+        1,
+        3
+      ],
+      "profile_b": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "mean": 0.0
+    }
+  },
+  "M2_and_M2b_ctc_loops": {
+    "classical_markov_stationary_residual": 0.0,
+    "qhronology_grandfather_cnot_swap": {
+      "dctc_respecting_family": "g|0><0| + (1 - g)|1><1| for g in [0, 1]",
+      "dctc_violating_family": "g|0><0| + (1 - g)|1><1| for g in [0, 1]",
+      "dctc_unique": false,
+      "pctc_respecting_state": "|+><+|",
+      "pctc_violating_state": "I/2"
+    },
+    "bitflip_grandfather": {
+      "dctc_fixed_point_p1": 0.5,
+      "dctc_residual": 0.0,
+      "pctc_amplitude_tr_X_over_2": 0.0
+    },
+    "m2b_np_witness_circuits": [
+      {
+        "n_bits": 3,
+        "dimension_d": 8,
+        "secret_witness": 5,
+        "dctc_fixed_point_prob_on_witness": 1.0,
+        "dctc_residual": 0.0,
+        "pctc_postselection_prob": 0.015625,
+        "pctc_expected_repetitions_1_over_d2": 64,
+        "classical_expected_queries_d_over_2": 4.0
+      },
+      {
+        "n_bits": 4,
+        "dimension_d": 16,
+        "secret_witness": 13,
+        "dctc_fixed_point_prob_on_witness": 1.0,
+        "dctc_residual": 0.0,
+        "pctc_postselection_prob": 0.00390625,
+        "pctc_expected_repetitions_1_over_d2": 256,
+        "classical_expected_queries_d_over_2": 8.0
+      },
+      {
+        "n_bits": 5,
+        "dimension_d": 32,
+        "secret_witness": 29,
+        "dctc_fixed_point_prob_on_witness": 1.0,
+        "dctc_residual": 0.0,
+        "pctc_postselection_prob": 0.0009765625,
+        "pctc_expected_repetitions_1_over_d2": 1024,
+        "classical_expected_queries_d_over_2": 16.0
+      },
+      {
+        "n_bits": 6,
+        "dimension_d": 64,
+        "secret_witness": 61,
+        "dctc_fixed_point_prob_on_witness": 1.0,
+        "dctc_residual": 0.0,
+        "pctc_postselection_prob": 0.000244140625,
+        "pctc_expected_repetitions_1_over_d2": 4096,
+        "classical_expected_queries_d_over_2": 32.0
+      }
+    ]
+  },
+  "M3_frequency_index": {
+    "plancherel_N": 128,
+    "plancherel_rel_error": 2.3446004319982504e-16,
+    "exact_d_mode_recovery_d": 8,
+    "exact_d_mode_rel_error": 1.5557054162750338e-10,
+    "design_matrix_condition_number": 1940564078.6282904,
+    "slepian_eigenvalues_indices_6_to_11": [
+      0.990705,
+      0.928142,
+      0.681265,
+      0.288641,
+      0.062875,
+      0.008357
+    ],
+    "extrapolation_20_runs": {
+      "noiseless": {
+        "rel_err_lead_1_to_8": 2.5e-05,
+        "rel_err_lead_57_to_64": 0.600006
+      },
+      "snr_80dB": {
+        "rel_err_lead_1_to_8": 0.005302,
+        "rel_err_lead_57_to_64": 1.12389
+      },
+      "snr_20dB": {
+        "rel_err_lead_1_to_8": 0.469509,
+        "rel_err_lead_57_to_64": 1.293603
+      }
+    }
+  },
+  "M4_godel_spacetime": {
+    "metric_line_element": "ds^2 = -dt^2 - 2*exp(sqrt(2)*omega*x)*dt*dy - (1/2)*exp(2*sqrt(2)*omega*x)*dy^2 + dx^2 + dz^2",
+    "det_g": "-exp(2*sqrt(2)*omega*x)/2",
+    "ricci_scalar": "-2*omega**2",
+    "comoving_four_velocity_norm": "-1",
+    "g_yy_component": "-exp(2*sqrt(2)*omega*x)/2",
+    "partial_y_timelike_everywhere": true,
+    "cosmological_constant_Lambda": "-omega**2",
+    "dust_density_kappa_rho": "2*omega**2",
+    "einstein_tensor_residual_identically_zero": true
+  },
+  "M5_restoration_count": {
+    "landauer_300K_J_per_bit": 2.870978885078724e-21,
+    "landauer_300K_eV_per_bit": 0.0179192407638041,
+    "irreversible_2_pow_128_bits_J": 9.769434903946252e+17,
+    "irreversible_2_pow_256_bits_J": 3.3243664325948616e+56,
+    "landauer_ceiling_310K_bits_per_J": 3.3707734338050864e+20,
+    "brain_speech_39bps_at_20W_bits_per_J": 1.95,
+    "bijection_entropy_preserved_diff": 4.440892098500626e-16,
+    "single_bit_reset_entropy_nats_before": 0.6931471805599453,
+    "single_bit_reset_entropy_nats_after": 0.0
+  },
+  "M6_energy_query": {
+    "haar_unitaries_tested": 500,
+    "min_energy_delta_above_E0": 0.34673288271862424,
+    "ground_state_passivity_verified": true,
+    "parametric_squeezing_r": 5.0,
+    "parametric_sinh2_theory_photons": 5506.11646005166,
+    "parametric_wigner_mc_photons": 5558.39900569778,
+    "casimir_pressure_1um_Pa": 0.0013001257724477536,
+    "casimir_pressure_10nm_Pa": 130012.57724477533,
+    "casimir_oneshot_work_1um_J_per_m2": 4.333752574825845e-10,
+    "casimir_oneshot_work_10nm_J_per_m2": 0.0004333752574825844,
+    "closed_cycle_net_work_J": 0.0
+  },
+  "M7_crypto_consequence": {
+    "pow_sha256d": [
+      {
+        "difficulty_bits": 8,
+        "first_valid_nonce": 392,
+        "dctc_oracle_fixed_point_queries": 1,
+        "expected_1_over_p_trials": 256,
+        "mean_postselection_trials_10_runs": 243.9,
+        "first_run_postselection_trials": 64
+      },
+      {
+        "difficulty_bits": 12,
+        "first_valid_nonce": 4245,
+        "dctc_oracle_fixed_point_queries": 1,
+        "expected_1_over_p_trials": 4096,
+        "mean_postselection_trials_10_runs": 5294.2,
+        "first_run_postselection_trials": 10124
+      },
+      {
+        "difficulty_bits": 16,
+        "first_valid_nonce": 9459,
+        "dctc_oracle_fixed_point_queries": 1,
+        "expected_1_over_p_trials": 65536,
+        "mean_postselection_trials_10_runs": 27078.9,
+        "first_run_postselection_trials": 53047
+      }
+    ],
+    "hellman_demo_16bit": {
+      "keyspace_N": 65536,
+      "chains_m": 256,
+      "chain_len_t": 64,
+      "fill_hash_evaluations": 16384,
+      "unsalted_recovery_rate_200_trials": 0.34,
+      "fresh_challenge_reuse_rate_200_trials": 0.0,
+      "hellman_asymptotic_point_N_2_over_3": 1625.5
+    }
+  },
+  "M8_compton_bridge": {
+    "electron_compton_Hz": 1.2355899654893406e+20,
+    "cs133_compton_Hz": 2.993486273519074e+25,
+    "fractional_redshift_per_mm": 1.0911369672198218e-19,
+    "proper_time_offset_1mm_per_year_s": 3.443366395673625e-12,
+    "cs133_compton_phase_diff_1mm_per_year_rad": 647650009474995.8,
+    "cs133_hyperfine_phase_diff_1mm_per_year_rad": 0.19888543019580052
+  },
+  "F5_sha256_spectral_test": {
+    "N_digests": 65536,
+    "M_interior_fourier_bins": 32767,
+    "max_normalized_periodogram_bin": 10.5368,
+    "max_bin_index": 476,
+    "expected_gumbel_median_max": 10.7637,
+    "sidak_corrected_p_value": 0.580916,
+    "bins_exceeding_corrected_p_1e_6": 0,
+    "k_bit_prediction_checks": [
+      {
+        "k_bits": 1,
+        "trials": 65535,
+        "empirical_hit_rate": 0.499367,
+        "null_2_pow_minus_k": 0.5,
+        "z_score_sigma": -0.3242,
+        "within_5sigma": true
+      },
+      {
+        "k_bits": 2,
+        "trials": 65535,
+        "empirical_hit_rate": 0.249149,
+        "null_2_pow_minus_k": 0.25,
+        "z_score_sigma": -0.5029,
+        "within_5sigma": true
+      },
+      {
+        "k_bits": 4,
+        "trials": 65535,
+        "empirical_hit_rate": 0.062608,
+        "null_2_pow_minus_k": 0.0625,
+        "z_score_sigma": 0.114,
+        "within_5sigma": true
+      },
+      {
+        "k_bits": 8,
+        "trials": 65535,
+        "empirical_hit_rate": 0.004349,
+        "null_2_pow_minus_k": 0.003906,
+        "z_score_sigma": 1.8163,
+        "within_5sigma": true
+      }
+    ],
+    "f5_null_retained": true
+  },
+  "paradox_ledger_checks": {
+    "newcomb_one_box_accuracy_threshold": 0.5005,
+    "gibbs_mixing_1mol_distinct_J_per_K": 11.5263,
+    "bekenstein_bound_1m_1kg_bits": 2.5769082115715275e+43,
+    "holographic_density_bits_per_m2": 1.380685525571003e+69,
+    "parrondo_100_rounds": {
+      "game_A_mean_capital": -0.953,
+      "game_B_mean_capital": -1.369,
+      "random_AB_mean_capital": 1.18
+    },
+    "braess_equilibrium_minutes": {
+      "without_shortcut": 65.0,
+      "with_zero_cost_shortcut": 80.0
+    }
+  }
+}

@@ -1,0 +1,12 @@
+name = "TimeAsAnIndex"
+version = "0.1.0"
+defaultTargets = ["TimeAsAnIndex"]
+
+[[lean_lib]]
+name = "Horizon"
+
+[[lean_lib]]
+name = "Paradox"
+
+[[lean_lib]]
+name = "TimeAsAnIndex"

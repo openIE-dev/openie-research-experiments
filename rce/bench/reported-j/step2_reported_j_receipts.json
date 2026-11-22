@@ -1,0 +1,693 @@
+{
+  "machine": {
+    "active_cotenants_untouched": [
+      "mds_stores (34.7% CPU)",
+      "python (91.7% CPU)",
+      "yosys-abc (92.7% CPU)"
+    ],
+    "arch": "arm64",
+    "chip": "Apple M5 Max",
+    "logical_cpus": 18,
+    "os": "macOS 27.2.1"
+  },
+  "provenance_labels": {
+    "board_metered": false,
+    "measured_j": null,
+    "reported_j": "macOS kernel proc_pid_rusage(pid, RUSAGE_INFO_V6).ri_energy_nj (SATB L3 label D, per-PID isolated) + macmon IOReport (SATB L2 label A2, whole-SoC with Falsifier 6 5% idle-drift gate)"
+  },
+  "rce_spec_examples_check_mut_n20": {
+    "files_per_pass": 62,
+    "measured_j": null,
+    "median_reported_l3_mj_per_62_form_suite": 3040.364,
+    "median_reported_l3_uj_per_form_check": 49038.13,
+    "median_wall_ms_per_form_check": 7.3223,
+    "median_wall_s_window": 9.0797,
+    "passes_per_run": 20,
+    "programs_per_pass": 61,
+    "runs": [
+      {
+        "derived_metrics": {
+          "measured_j": null,
+          "reported_l3_mj_per_62_form_suite": 2610.363,
+          "reported_l3_uj_per_form_check": 42102.62,
+          "wall_ms_per_62_form_suite": 504.819,
+          "wall_ms_per_form_check": 8.1422
+        },
+        "satb_meter": {
+          "board_metered": false,
+          "boundary": "SATB_Dual_L2_SoC_A2_and_L3_PID_D",
+          "external_sync_wall_s": 10.096514,
+          "l2_soc_a2": {
+            "attribution_label": "A2",
+            "baseline_drift_valid_5pct": false,
+            "cooldown_post_s": 0.346,
+            "cooldown_pre_s": 0.397,
+            "idle_drift_pct": 6.79,
+            "idle_post_w": 35.083,
+            "idle_pre_w": 37.549,
+            "level": "L2_package_soc",
+            "mean_chip_w": 36.207,
+            "mean_cpu_w": 27.537,
+            "mean_gpu_w": 0.402,
+            "peak_gpu_temp_c": 62.1,
+            "reported_derived_marginal_j": "invalidated_by_cotenant_drift_falsifier6",
+            "reported_gross_j": 365.5565,
+            "sampler": "macmon pipe -s 0 -i 200 (IOReport)",
+            "samples": 49
+          },
+          "l3_pid_d": {
+            "attribution_label": "D",
+            "counter": "proc_pid_rusage(pid, RUSAGE_INFO_V6).ri_energy_nj",
+            "external_parent_observed_nj": 52207254649,
+            "level": "L3_process_cgroup",
+            "reported_j": 52.207255,
+            "reported_nj": 52207254649,
+            "ri_cycles": 38578942225,
+            "ri_instructions": 185179899478
+          },
+          "measured_j": null,
+          "wall_s": 10.096372
+        },
+        "workload": {
+          "checks_ok": 1240,
+          "emits_ok": 0,
+          "emitted_bytes": 0,
+          "files_per_pass": 62,
+          "mode": "check_mut",
+          "passes": 20,
+          "programs_per_pass": 61,
+          "self_l3_cycles": 38578942225,
+          "self_l3_instructions": 185179899478,
+          "self_l3_ri_energy_j": 52.207254649,
+          "self_l3_ri_energy_nj": 52207254649,
+          "traces_ran": 0,
+          "wall_s": 10.096372
+        }
+      },
+      {
+        "derived_metrics": {
+          "measured_j": null,
+          "reported_l3_mj_per_62_form_suite": 3059.647,
+          "reported_l3_uj_per_form_check": 49349.14,
+          "wall_ms_per_62_form_suite": 450.719,
+          "wall_ms_per_form_check": 7.2697
+        },
+        "satb_meter": {
+          "board_metered": false,
+          "boundary": "SATB_Dual_L2_SoC_A2_and_L3_PID_D",
+          "external_sync_wall_s": 9.014457,
+          "l2_soc_a2": {
+            "attribution_label": "A2",
+            "baseline_drift_valid_5pct": true,
+            "cooldown_post_s": 0.329,
+            "cooldown_pre_s": 0.527,
+            "idle_drift_pct": 3.88,
+            "idle_post_w": 29.022,
+            "idle_pre_w": 30.17,
+            "level": "L2_package_soc",
+            "mean_chip_w": 37.638,
+            "mean_cpu_w": 29.037,
+            "mean_gpu_w": 0.397,
+            "peak_gpu_temp_c": 60.7,
+            "reported_derived_marginal_j": 72.497,
+            "reported_gross_j": 339.286,
+            "sampler": "macmon pipe -s 0 -i 200 (IOReport)",
+            "samples": 44
+          },
+          "l3_pid_d": {
+            "attribution_label": "D",
+            "counter": "proc_pid_rusage(pid, RUSAGE_INFO_V6).ri_energy_nj",
+            "external_parent_observed_nj": 61192931919,
+            "level": "L3_process_cgroup",
+            "reported_j": 61.192932,
+            "reported_nj": 61192931919,
+            "ri_cycles": 36883922918,
+            "ri_instructions": 185143642032
+          },
+          "measured_j": null,
+          "wall_s": 9.014384
+        },
+        "workload": {
+          "checks_ok": 1240,
+          "emits_ok": 0,
+          "emitted_bytes": 0,
+          "files_per_pass": 62,
+          "mode": "check_mut",
+          "passes": 20,
+          "programs_per_pass": 61,
+          "self_l3_cycles": 36883922918,
+          "self_l3_instructions": 185143642032,
+          "self_l3_ri_energy_j": 61.192931919,
+          "self_l3_ri_energy_nj": 61192931919,
+          "traces_ran": 0,
+          "wall_s": 9.014384416
+        }
+      },
+      {
+        "derived_metrics": {
+          "measured_j": null,
+          "reported_l3_mj_per_62_form_suite": 3040.364,
+          "reported_l3_uj_per_form_check": 49038.13,
+          "wall_ms_per_62_form_suite": 453.985,
+          "wall_ms_per_form_check": 7.3223
+        },
+        "satb_meter": {
+          "board_metered": false,
+          "boundary": "SATB_Dual_L2_SoC_A2_and_L3_PID_D",
+          "external_sync_wall_s": 9.079788,
+          "l2_soc_a2": {
+            "attribution_label": "A2",
+            "baseline_drift_valid_5pct": false,
+            "cooldown_post_s": 0.534,
+            "cooldown_pre_s": 0.532,
+            "idle_drift_pct": 23.57,
+            "idle_post_w": 36.584,
+            "idle_pre_w": 28.87,
+            "level": "L2_package_soc",
+            "mean_chip_w": 38.684,
+            "mean_cpu_w": 30.375,
+            "mean_gpu_w": 0.196,
+            "peak_gpu_temp_c": 60.2,
+            "reported_derived_marginal_j": "invalidated_by_cotenant_drift_falsifier6",
+            "reported_gross_j": 351.2391,
+            "sampler": "macmon pipe -s 0 -i 200 (IOReport)",
+            "samples": 44
+          },
+          "l3_pid_d": {
+            "attribution_label": "D",
+            "counter": "proc_pid_rusage(pid, RUSAGE_INFO_V6).ri_energy_nj",
+            "external_parent_observed_nj": 60807281408,
+            "level": "L3_process_cgroup",
+            "reported_j": 60.807281,
+            "reported_nj": 60807281408,
+            "ri_cycles": 37101482099,
+            "ri_instructions": 185057947570
+          },
+          "measured_j": null,
+          "wall_s": 9.07971
+        },
+        "workload": {
+          "checks_ok": 1240,
+          "emits_ok": 0,
+          "emitted_bytes": 0,
+          "files_per_pass": 62,
+          "mode": "check_mut",
+          "passes": 20,
+          "programs_per_pass": 61,
+          "self_l3_cycles": 37101482099,
+          "self_l3_instructions": 185057947570,
+          "self_l3_ri_energy_j": 60.807281408,
+          "self_l3_ri_energy_nj": 60807281408,
+          "traces_ran": 0,
+          "wall_s": 9.079709666
+        }
+      }
+    ],
+    "total_form_checks_per_run": 1240
+  },
+  "rce_spec_examples_full_suite_check_run_emit_n20": {
+    "files_per_pass": 62,
+    "measured_j": null,
+    "passes": 20,
+    "programs_per_pass": 61,
+    "reported_l3_j_total_20_passes": 308.7644,
+    "reported_l3_mj_per_full_suite": 15438.22,
+    "reported_l3_uj_per_form_lifecycle": 249003.56,
+    "run": {
+      "derived_metrics": {
+        "measured_j": null,
+        "reported_l3_j_total_20_passes": 308.7644,
+        "reported_l3_mj_per_full_suite": 15438.22,
+        "reported_l3_uj_per_form_lifecycle": 249003.56,
+        "wall_ms_per_form_lifecycle": 37.468,
+        "wall_s_per_full_suite": 2.323
+      },
+      "satb_meter": {
+        "board_metered": false,
+        "boundary": "SATB_Dual_L2_SoC_A2_and_L3_PID_D",
+        "external_sync_wall_s": 46.460585,
+        "l2_soc_a2": {
+          "attribution_label": "A2",
+          "baseline_drift_valid_5pct": true,
+          "cooldown_post_s": 0.332,
+          "cooldown_pre_s": 0.351,
+          "idle_drift_pct": 1.51,
+          "idle_post_w": 30.505,
+          "idle_pre_w": 30.969,
+          "level": "L2_package_soc",
+          "mean_chip_w": 35.885,
+          "mean_cpu_w": 27.485,
+          "mean_gpu_w": 0.382,
+          "peak_gpu_temp_c": 59.9,
+          "reported_derived_marginal_j": 239.1538,
+          "reported_gross_j": 1667.2147,
+          "sampler": "macmon pipe -s 0 -i 200 (IOReport)",
+          "samples": 231
+        },
+        "l3_pid_d": {
+          "attribution_label": "D",
+          "counter": "proc_pid_rusage(pid, RUSAGE_INFO_V6).ri_energy_nj",
+          "external_parent_observed_nj": 308764410499,
+          "level": "L3_process_cgroup",
+          "reported_j": 308.76441,
+          "reported_nj": 308764410499,
+          "ri_cycles": 189525859105,
+          "ri_instructions": 957289940223
+        },
+        "measured_j": null,
+        "wall_s": 46.460512
+      },
+      "workload": {
+        "checks_ok": 1240,
+        "emits_ok": 6000,
+        "emitted_bytes": 595269000,
+        "files_per_pass": 62,
+        "mode": "full_suite_mut",
+        "passes": 20,
+        "programs_per_pass": 61,
+        "self_l3_cycles": 189525859105,
+        "self_l3_instructions": 957289940223,
+        "self_l3_ri_energy_j": 308.764410499,
+        "self_l3_ri_energy_nj": 308764410499,
+        "traces_ran": 1040,
+        "wall_s": 46.460512208
+      }
+    },
+    "targets": [
+      "form",
+      "rust",
+      "python",
+      "js",
+      "scala"
+    ],
+    "total_example_traces_ran": 1040,
+    "total_form_checks": 1240,
+    "total_target_emissions": 6000,
+    "wall_s_per_full_suite": 2.323,
+    "wall_s_total": 46.4605
+  },
+  "rce_vc_100k_units_admission": {
+    "modules": 10000,
+    "readme_workload_64w_x_5r_320_admissions": {
+      "measured_j": null,
+      "median_genesis_s": 1.2441,
+      "median_reported_l3_uj_per_admission": 365.349,
+      "median_wall_us_per_admission": 69.685,
+      "runs": [
+        {
+          "accepted": 315,
+          "est_uj_total": 140329720,
+          "genesis_s": 1.209127,
+          "paths": {
+            "accept G1Commute": 256,
+            "accept G2Structural>G3Revalidate": 33,
+            "accept G2Structural>G4Proposer>G3Revalidate": 26,
+            "refuse G1Commute": 2,
+            "refuse G2Structural>G3Revalidate": 1,
+            "refuse G2Structural>G4Proposer>G3Revalidate": 2
+          },
+          "proposer_g4_calls": 28,
+          "refused": 5,
+          "reuse_promoted": 26,
+          "rounds": 5,
+          "self_l3_cycles": 107461255,
+          "self_l3_instructions": 371461859,
+          "self_l3_ri_energy_j": 0.115702,
+          "self_l3_ri_energy_nj": 115702125,
+          "self_l3_uj_per_submission": 361.569,
+          "stale": 315,
+          "stale_admitted": 310,
+          "submissions": 320,
+          "units": 100000,
+          "wall_s": 0.026927,
+          "wall_us_per_submission": 84.148,
+          "writers": 64
+        },
+        {
+          "accepted": 315,
+          "est_uj_total": 140329720,
+          "genesis_s": 1.244071,
+          "paths": {
+            "accept G1Commute": 256,
+            "accept G2Structural>G3Revalidate": 33,
+            "accept G2Structural>G4Proposer>G3Revalidate": 26,
+            "refuse G1Commute": 2,
+            "refuse G2Structural>G3Revalidate": 1,
+            "refuse G2Structural>G4Proposer>G3Revalidate": 2
+          },
+          "proposer_g4_calls": 28,
+          "refused": 5,
+          "reuse_promoted": 26,
+          "rounds": 5,
+          "self_l3_cycles": 92374345,
+          "self_l3_instructions": 367063768,
+          "self_l3_ri_energy_j": 0.120347,
+          "self_l3_ri_energy_nj": 120346980,
+          "self_l3_uj_per_submission": 376.084,
+          "stale": 315,
+          "stale_admitted": 310,
+          "submissions": 320,
+          "units": 100000,
+          "wall_s": 0.022299,
+          "wall_us_per_submission": 69.685,
+          "writers": 64
+        },
+        {
+          "accepted": 315,
+          "est_uj_total": 140329720,
+          "genesis_s": 1.291493,
+          "paths": {
+            "accept G1Commute": 256,
+            "accept G2Structural>G3Revalidate": 33,
+            "accept G2Structural>G4Proposer>G3Revalidate": 26,
+            "refuse G1Commute": 2,
+            "refuse G2Structural>G3Revalidate": 1,
+            "refuse G2Structural>G4Proposer>G3Revalidate": 2
+          },
+          "proposer_g4_calls": 28,
+          "refused": 5,
+          "reuse_promoted": 26,
+          "rounds": 5,
+          "self_l3_cycles": 85968660,
+          "self_l3_instructions": 365765526,
+          "self_l3_ri_energy_j": 0.126631,
+          "self_l3_ri_energy_nj": 126631115,
+          "self_l3_uj_per_submission": 395.722,
+          "stale": 315,
+          "stale_admitted": 310,
+          "submissions": 320,
+          "units": 100000,
+          "wall_s": 0.020315,
+          "wall_us_per_submission": 63.483,
+          "writers": 64
+        },
+        {
+          "accepted": 315,
+          "est_uj_total": 140329720,
+          "genesis_s": 1.271706,
+          "paths": {
+            "accept G1Commute": 256,
+            "accept G2Structural>G3Revalidate": 33,
+            "accept G2Structural>G4Proposer>G3Revalidate": 26,
+            "refuse G1Commute": 2,
+            "refuse G2Structural>G3Revalidate": 1,
+            "refuse G2Structural>G4Proposer>G3Revalidate": 2
+          },
+          "proposer_g4_calls": 28,
+          "refused": 5,
+          "reuse_promoted": 26,
+          "rounds": 5,
+          "self_l3_cycles": 90255030,
+          "self_l3_instructions": 366825719,
+          "self_l3_ri_energy_j": 0.11085,
+          "self_l3_ri_energy_nj": 110849631,
+          "self_l3_uj_per_submission": 346.405,
+          "stale": 315,
+          "stale_admitted": 310,
+          "submissions": 320,
+          "units": 100000,
+          "wall_s": 0.021445,
+          "wall_us_per_submission": 67.017,
+          "writers": 64
+        },
+        {
+          "accepted": 315,
+          "est_uj_total": 140329720,
+          "genesis_s": 1.234833,
+          "paths": {
+            "accept G1Commute": 256,
+            "accept G2Structural>G3Revalidate": 33,
+            "accept G2Structural>G4Proposer>G3Revalidate": 26,
+            "refuse G1Commute": 2,
+            "refuse G2Structural>G3Revalidate": 1,
+            "refuse G2Structural>G4Proposer>G3Revalidate": 2
+          },
+          "proposer_g4_calls": 28,
+          "refused": 5,
+          "reuse_promoted": 26,
+          "rounds": 5,
+          "self_l3_cycles": 95123455,
+          "self_l3_instructions": 367107659,
+          "self_l3_ri_energy_j": 0.116912,
+          "self_l3_ri_energy_nj": 116911670,
+          "self_l3_uj_per_submission": 365.349,
+          "stale": 315,
+          "stale_admitted": 310,
+          "submissions": 320,
+          "units": 100000,
+          "wall_s": 0.022573,
+          "wall_us_per_submission": 70.54,
+          "writers": 64
+        }
+      ],
+      "submissions_per_trial": 320,
+      "trials": 5
+    },
+    "sustained_window_64w_x_500r_32000_admissions": {
+      "measured_j": null,
+      "median_instructions_per_admission": 1153975.7,
+      "median_reported_l3_uj_per_admission": 317.211,
+      "median_wall_s_window": 2.3539,
+      "median_wall_us_per_admission": 73.56,
+      "runs": [
+        {
+          "derived_metrics": {
+            "est_uj_per_admission_table": 424152.7,
+            "instructions_per_admission": 1154353.8,
+            "measured_j": null,
+            "reported_l3_uj_per_admission": 369.004,
+            "wall_us_per_admission": 69.329
+          },
+          "satb_meter": {
+            "board_metered": false,
+            "boundary": "SATB_Dual_L2_SoC_A2_and_L3_PID_D",
+            "external_sync_wall_s": 2.218598,
+            "l2_soc_a2": {
+              "attribution_label": "A2",
+              "baseline_drift_valid_5pct": true,
+              "cooldown_post_s": 0.54,
+              "cooldown_pre_s": 0.33,
+              "idle_drift_pct": 2.67,
+              "idle_post_w": 33.717,
+              "idle_pre_w": 32.828,
+              "level": "L2_package_soc",
+              "mean_chip_w": 37.43,
+              "mean_cpu_w": 28.688,
+              "mean_gpu_w": 0.344,
+              "peak_gpu_temp_c": 59.4,
+              "reported_derived_marginal_j": 9.2225,
+              "reported_gross_j": 83.0386,
+              "sampler": "macmon pipe -s 0 -i 200 (IOReport)",
+              "samples": 10
+            },
+            "l3_pid_d": {
+              "attribution_label": "D",
+              "counter": "proc_pid_rusage(pid, RUSAGE_INFO_V6).ri_energy_nj",
+              "external_parent_observed_nj": 11808130898,
+              "level": "L3_process_cgroup",
+              "reported_j": 11.808131,
+              "reported_nj": 11808130898,
+              "ri_cycles": 9240076610,
+              "ri_instructions": 36939322501
+            },
+            "measured_j": null,
+            "wall_s": 2.218531
+          },
+          "workload": {
+            "accepted": 31357,
+            "est_uj_total": 13572887300,
+            "genesis_s": 1.199959,
+            "paths": {
+              "accept G1Commute": 26103,
+              "accept G2Structural>G3Revalidate": 2594,
+              "accept G2Structural>G4Proposer>G3Revalidate": 2660,
+              "refuse G1Commute": 544,
+              "refuse G2Structural>G3Revalidate": 51,
+              "refuse G2Structural>G4Proposer>G3Revalidate": 48
+            },
+            "proposer_g4_calls": 2708,
+            "refused": 643,
+            "reuse_promoted": 2660,
+            "rounds": 500,
+            "self_l3_cycles": 9240076610,
+            "self_l3_instructions": 36939322501,
+            "self_l3_ri_energy_j": 11.808131,
+            "self_l3_ri_energy_nj": 11808130898,
+            "self_l3_uj_per_submission": 369.004,
+            "stale": 31490,
+            "stale_admitted": 30857,
+            "submissions": 32000,
+            "units": 100000,
+            "wall_s": 2.218531,
+            "wall_us_per_submission": 69.329,
+            "writers": 64
+          }
+        },
+        {
+          "derived_metrics": {
+            "est_uj_per_admission_table": 424152.7,
+            "instructions_per_admission": 1153519.2,
+            "measured_j": null,
+            "reported_l3_uj_per_admission": 317.211,
+            "wall_us_per_admission": 73.56
+          },
+          "satb_meter": {
+            "board_metered": false,
+            "boundary": "SATB_Dual_L2_SoC_A2_and_L3_PID_D",
+            "external_sync_wall_s": 2.353998,
+            "l2_soc_a2": {
+              "attribution_label": "A2",
+              "baseline_drift_valid_5pct": false,
+              "cooldown_post_s": 0.547,
+              "cooldown_pre_s": 0.538,
+              "idle_drift_pct": 7.28,
+              "idle_post_w": 36.575,
+              "idle_pre_w": 39.338,
+              "level": "L2_package_soc",
+              "mean_chip_w": 37.628,
+              "mean_cpu_w": 29.236,
+              "mean_gpu_w": 0.373,
+              "peak_gpu_temp_c": 59.8,
+              "reported_derived_marginal_j": "invalidated_by_cotenant_drift_falsifier6",
+              "reported_gross_j": 88.5738,
+              "sampler": "macmon pipe -s 0 -i 200 (IOReport)",
+              "samples": 11
+            },
+            "l3_pid_d": {
+              "attribution_label": "D",
+              "counter": "proc_pid_rusage(pid, RUSAGE_INFO_V6).ri_energy_nj",
+              "external_parent_observed_nj": 10150738128,
+              "level": "L3_process_cgroup",
+              "reported_j": 10.150738,
+              "reported_nj": 10150738128,
+              "ri_cycles": 9307786196,
+              "ri_instructions": 36912614294
+            },
+            "measured_j": null,
+            "wall_s": 2.353915
+          },
+          "workload": {
+            "accepted": 31357,
+            "est_uj_total": 13572887300,
+            "genesis_s": 1.279244,
+            "paths": {
+              "accept G1Commute": 26103,
+              "accept G2Structural>G3Revalidate": 2594,
+              "accept G2Structural>G4Proposer>G3Revalidate": 2660,
+              "refuse G1Commute": 544,
+              "refuse G2Structural>G3Revalidate": 51,
+              "refuse G2Structural>G4Proposer>G3Revalidate": 48
+            },
+            "proposer_g4_calls": 2708,
+            "refused": 643,
+            "reuse_promoted": 2660,
+            "rounds": 500,
+            "self_l3_cycles": 9307786196,
+            "self_l3_instructions": 36912614294,
+            "self_l3_ri_energy_j": 10.150738,
+            "self_l3_ri_energy_nj": 10150738128,
+            "self_l3_uj_per_submission": 317.211,
+            "stale": 31490,
+            "stale_admitted": 30857,
+            "submissions": 32000,
+            "units": 100000,
+            "wall_s": 2.353915,
+            "wall_us_per_submission": 73.56,
+            "writers": 64
+          }
+        },
+        {
+          "derived_metrics": {
+            "est_uj_per_admission_table": 424152.7,
+            "instructions_per_admission": 1153975.7,
+            "measured_j": null,
+            "reported_l3_uj_per_admission": 278.851,
+            "wall_us_per_admission": 75.661
+          },
+          "satb_meter": {
+            "board_metered": false,
+            "boundary": "SATB_Dual_L2_SoC_A2_and_L3_PID_D",
+            "external_sync_wall_s": 2.421218,
+            "l2_soc_a2": {
+              "attribution_label": "A2",
+              "baseline_drift_valid_5pct": true,
+              "cooldown_post_s": 0.559,
+              "cooldown_pre_s": 0.539,
+              "idle_drift_pct": 1.22,
+              "idle_post_w": 35.964,
+              "idle_pre_w": 36.405,
+              "level": "L2_package_soc",
+              "mean_chip_w": 38.109,
+              "mean_cpu_w": 28.412,
+              "mean_gpu_w": 0.364,
+              "peak_gpu_temp_c": 59.9,
+              "reported_derived_marginal_j": 4.6605,
+              "reported_gross_j": 92.268,
+              "sampler": "macmon pipe -s 0 -i 200 (IOReport)",
+              "samples": 11
+            },
+            "l3_pid_d": {
+              "attribution_label": "D",
+              "counter": "proc_pid_rusage(pid, RUSAGE_INFO_V6).ri_energy_nj",
+              "external_parent_observed_nj": 8923244237,
+              "level": "L3_process_cgroup",
+              "reported_j": 8.923244,
+              "reported_nj": 8923244237,
+              "ri_cycles": 9264862395,
+              "ri_instructions": 36927221802
+            },
+            "measured_j": null,
+            "wall_s": 2.421151
+          },
+          "workload": {
+            "accepted": 31357,
+            "est_uj_total": 13572887300,
+            "genesis_s": 1.338527,
+            "paths": {
+              "accept G1Commute": 26103,
+              "accept G2Structural>G3Revalidate": 2594,
+              "accept G2Structural>G4Proposer>G3Revalidate": 2660,
+              "refuse G1Commute": 544,
+              "refuse G2Structural>G3Revalidate": 51,
+              "refuse G2Structural>G4Proposer>G3Revalidate": 48
+            },
+            "proposer_g4_calls": 2708,
+            "refused": 643,
+            "reuse_promoted": 2660,
+            "rounds": 500,
+            "self_l3_cycles": 9264862395,
+            "self_l3_instructions": 36927221802,
+            "self_l3_ri_energy_j": 8.923244,
+            "self_l3_ri_energy_nj": 8923244237,
+            "self_l3_uj_per_submission": 278.851,
+            "stale": 31490,
+            "stale_admitted": 30857,
+            "submissions": 32000,
+            "units": 100000,
+            "wall_s": 2.421151,
+            "wall_us_per_submission": 75.661,
+            "writers": 64
+          }
+        }
+      ],
+      "submissions_per_trial": 32000,
+      "trials": 3
+    },
+    "units": 100000,
+    "units_per_module": 10
+  },
+  "recorded_utc": "2026-11-22T16:59:02Z",
+  "repos": {
+    "rce": {
+      "commit_date": "2026-11-20",
+      "commit_full": "1762fb4bb65a58de07ab00f0d1bfdf4969d0358c",
+      "commit_short": "1762fb4b"
+    },
+    "rce_vc": {
+      "commit_date": "2026-11-13",
+      "commit_full": "aba99fcec4414a32bff30ab075668350d3fb80bf",
+      "commit_short": "aba99fce"
+    }
+  },
+  "schema": "openie-rce-reported-energy-receipt/1"
+}

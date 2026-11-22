@@ -1,0 +1,82 @@
+ID,Name,Category,Grade,Status,Mode,Falsifier,Summary
+TA001,Moberly-Jourdain Versailles incident,H1,B,CONJECTURE,Reconstruction from records,F15,1901 Petit Trianon walk published in 1911; costume gatherings and memory reconstruction proposed; open under sealed-archive test F15.
+TA002,"Edith Olivier, Avebury fair",H1,C,SPECULATION,Reconstruction from records,F15,1916 evening drive reporting an vanished village fair; recorded years later after archival reading.
+TA003,"Victor Goddard, RAF Drem",H1,C,SPECULATION,Signalling from future,F11;F15,1935 flight over disused airfield later recounted in 1960s-1975 books as pre-seeing 1939 yellow trainers; post-hoc retelling.
+TA004,Kersey cadets,H1,C,SPECULATION,Reconstruction from records,F15,1957 Suffolk village walk written down roughly 30 years later; butcher shop registry (1790-1905) matches public local history.
+TA005,"Charlotte Warburton, Tunbridge Wells cafe",H1,C,SPECULATION,Reconstruction from records,F15,1968 anecdotal timeslip narrative transmitted through secondary paranormal compilations without contemporaneous log.
+TA006,"Bold Street, Liverpool (Frank)",H1,C,SPECULATION,Reconstruction from records,F15,1996 urban folklore account popularized by Slemen (1997) without primary witness record.
+TA007,Montreal and SPR timeslip collections,H1,C,SPECULATION,Reconstruction from records,F15,Secondary Society for Psychical Research compilation entries lacking pre-unsealed archival controls.
+TA008,Time-traveling hipster photo,H2,D,ESTABLISHED,Misidentification,F10,"1941 South Fork Bridge reopening photograph (Virtual Museum of Canada): sunglasses, printed sweater, and portable camera are documented 1940s items."
+TA009,Chaplin's time traveller (The Circus premiere),H2,D,ESTABLISHED,Misidentification,F10,1928 archival premiere footage showing a pedestrian holding a dark acoustic ear trumpet / Siemens carbon hearing aid.
+TA010,Newquay beach mobile device,H2,D,ESTABLISHED,Misidentification,F10,1943 Towan Beach photograph showing a man looking down at his hands while rolling a cigarette or winding a watch.
+TA011,Waldmuller painting phone,H2,D,ESTABLISHED,Misidentification,F10,1860 Ferdinand Georg Waldmuller painting 'The Expected One' depicts a young woman carrying a small hymnal or prayer book.
+TA012,Rudolph Fentz,H2,D,DEBUNKED,Fiction,None,1876-to-1950 Times Square legend traced by Aubeck directly to Jack Finney's 1951 Collier's science-fiction story 'I'm Scared'.
+TA013,Man from Taured (John Zegrus case),H2,D,ESTABLISHED,Misreport,None,"1959-1960 Tokyo Haneda passport-fraud prosecution of John Allen Kuchar Zegrus, embellished in 1960s-1981 occult paperbacks."
+TA014,John Titor,H2,D,DEBUNKED,Fiction,F6,2000-2001 forum persona claiming arrival from 2036 to retrieve an IBM 5100; specific near-term historical predictions failed.
+TA015,Andrew Carlssin,H2,D,DEBUNKED,Fiction,F11,2003 stock-trading time-traveller arrest story originated as Weekly World News tabloid satire.
+TA016,Sergei Ponomarenko,H2,D,DEBUNKED,Fiction,None,Viral 1958-to-2006 Kyiv photographs traced to staged dramatizations from the 2012 Ukrainian television series 'Aliens'.
+TA017,Hakan Nordkvist,H2,D,DEBUNKED,Fiction,None,2006 video meeting a future self under a kitchen sink produced as a viral marketing campaign for Swedish pension insurer AMF.
+TA018,Mike Madman Marcum,H2,D,DEBUNKED,Hoax,None,1995 Coast to Coast AM radio caller narrative claiming a Jacob's-ladder backyard vortex with zero physical verification.
+TA019,Bob White / Tim Jones (Robert Todino),H2,D,ESTABLISHED,Misreport,None,2003 spam-email time-machine parts request traced to prankster/replier dynamics documented by journalists.
+TA020,Chronovisor (Pellegrino Ernetti),H2,D,DEBUNKED,Hoax,F15,Claimed past-viewing cathode device whose alleged crucifixion photograph matched a postcard of a Collevalenza wood carving.
+TA021,Die Glocke,H2,D,SPECULATION,Fiction,None,Wunderwaffe bell lore first introduced by Witkowski (2000) without wartime archival documentation.
+TA022,Philadelphia Experiment,H2,D,DEBUNKED,Hoax,None,1955 Carl Meredith Allen ('Carlos Allende') letters alleging 1943 USS Eldridge teleportation; contradicted by deck logs and crew.
+TA023,Montauk Project,H2,D,DEBUNKED,Fiction,None,1980s-1992 Preston Nichols pulp narratives extending the Philadelphia hoax via uncorroborated recovered-memory claims.
+TA024,Mandela effect,H2,C,ESTABLISHED,Reconstruction from records,F10,Shared schema-driven false recall (e.g. brand spellings) explained by constructive memory and confabulation without timeline branching.
+TA025,Aberfan premonitions,H3,B,CONJECTURE,Signalling from future,F11;F12,Barker (1967) collected post-disaster letters after the 1966 coal-tip slide; real reports but retrospective with unknown base rate.
+TA026,British Premonitions Bureau,H3,B,ESTABLISHED,Reconstruction from records,F11,1967-1968 registry collected hundreds of predictions; retrospective hits reflect multiple-hypothesis selection across high volume.
+TA027,Futility (Morgan Robertson) and Titanic,H3,B,ESTABLISHED,Reconstruction from records,None,1898 novella drew on contemporary North Atlantic liner engineering; 1912 post-sinking reissue adjusted tonnage and specs.
+TA028,Lincoln assassination dream,H3,C,CONJECTURE,Reconstruction from records,F12,Recounted years later by Ward Hill Lamon (1895); presidential assassination threats were frequent during the Civil War.
+TA029,"J. W. Dunne, An Experiment with Time",H3,B,SPECULATION,Reconstruction from records,F12,"1927 dream-diary protocol lacked blinded scoring and pre-registered target hashes, inviting confirmation bias."
+TA030,Bem 2011 Feeling the Future,H3,A,DEBUNKED,Signalling from future,F4;F11,"Initial d = 0.22 claim across 9 tasks failed pre-registered replications (Ritchie et al. 2012 p = 0.83; Galak et al. 2012 N = 3,289, d = 0.04)."
+TA031,Presentiment meta-analysis (Mossbridge et al.),H3,A,CONJECTURE,Signalling from future,F4;F11,"2012 meta-analysis reported d = 0.21 pre-stimulus arousal; contested over expectation bias, trial-sequence artifacts, and publication bias."
+TA032,Stargate / remote viewing (AIR 1995 evaluation),H3,B,CONJECTURE,Signalling from future,F11,1995 American Institutes for Research review: Utts noted statistical anomalies while Hyman cited methodological flaws and non-replication.
+TA033,Deja vu (general),H4,A,ESTABLISHED,Reconstruction from records,F12,Reported by ~2/3 of adults across 50+ surveys (Brown 2004); Cleary & Claxton (2018) showed predictive accuracy stays at chance.
+TA034,Deja vu in temporal lobe epilepsy,H4,A,ESTABLISHED,Reconstruction from records,F10,"Reproducibly triggered by rhinal/hippocampal aura and direct cortical stimulation, decoupling familiarity signals from episodic retrieval."
+TA035,Jamais vu,H4,B,ESTABLISHED,Reconstruction from records,F10,Transient dissociation of familiarity during semantic satiation or focal seizure without altered external chronology.
+TA036,Precognitive dreams (general),H4,C,SPECULATION,Reconstruction from records,F12,Thousands of nightly dreams per year create high coincidence base rates compounded by morning memory reconstruction.
+TA037,Aboriginal Dreaming (everywhen),H5,B,ESTABLISHED,Cultural-textual,None,"Stanner (1953) 'everywhen' ontological tradition encoding landscape, kinship, and deep ecological memory."
+TA038,Urashima Taro,H5,B,ESTABLISHED,Cultural-textual,None,8th-century Japanese chronicle/folklore motif in which days in an undersea palace correspond to centuries ashore.
+TA039,Oisin in Tir na nOg,H5,B,ESTABLISHED,Cultural-textual,None,Irish Fenian cycle narrative in which three apparent years in Tir na nOg span three centuries in Ireland.
+TA040,Rip Van Winkle,H5,D,ESTABLISHED,Fiction,None,Washington Irving's 1819 literary short story adapting German Peter Klaus folk motifs.
+TA041,Kakudmi and Revati,H5,B,ESTABLISHED,Cultural-textual,None,Mahabharata / Bhagavata Purana narrative contrasting Brahma's celestial timescale against elapsed human yugas.
+TA042,Honi HaMe'agel sleeps 70 years,H5,B,ESTABLISHED,Cultural-textual,None,Babylonian Talmud Ta'anit 23a parable of a 70-year slumber spanning the destruction and rebuilding of generations.
+TA043,Seven Sleepers of Ephesus / People of the Cave,H5,B,ESTABLISHED,Cultural-textual,None,Late-antique Christian and Quranic (Surah Al-Kahf) attested textual tradition of multi-century protective dormancy.
+TA044,Isra and Mi'raj (Night Journey),H5,B,ESTABLISHED,Cultural-textual,None,Attested Islamic textual tradition of a transcendent journey occurring within a brief earthly interval.
+TA045,Zeitraffer phenomenon,H6,A,ESTABLISHED,Reconstruction from records,F10,Cortical lesion / migraine subjective acceleration of perceived visual motion speed.
+TA046,Akinetopsia (motion blindness),H6,A,ESTABLISHED,Reconstruction from records,F10,Bilateral V5/MT lesion replacing smooth visual motion with discrete static frames without affecting physical clocks.
+TA047,Alice in Wonderland syndrome (time distortion),H6,B,ESTABLISHED,Reconstruction from records,F10,Transient neurological distortion of perceived duration and spatial scale during migraine or viral encephalitis.
+TA048,Flash-lag effect and postdiction,H6,A,ESTABLISHED,Reconstruction from records,F10,Eagleman & Sejnowski (2000): visual percept integrates events across the following ~80 ms before conscious commitment.
+TA049,Chronostasis (stopped-clock illusion),H6,A,ESTABLISHED,Reconstruction from records,F10,"Saccadic suppression back-fills the post-saccadic target onto the saccade interval, stretching the first perceived second."
+TA050,Slow motion during danger (free-fall study),H6,A,ESTABLISHED,Reconstruction from records,F10,Stetson et al. (2007) free-fall chronometer test found no temporal resolution gain; denser amygdala encoding inflates retrospective duration.
+TA051,Near-death life review,H6,C,ESTABLISHED,Reconstruction from records,F10,Panoramic autobiographical recall under acute hypoxia/hypercarbia reading stored past-cone traces.
+TA052,Missing time in abduction narratives,H6,C,ESTABLISHED,Reconstruction from records,F10,"Sleep paralysis, hypnagogic hallucination, and suggestive interview confabulation accounting for perceived gaps."
+TA053,OPERA superluminal neutrinos,H7,A,ESTABLISHED,Instrumental offset,F6,2011 apparent 73 ns early neutrino arrival traced to a loose fiber-optic timing connector and oscillator drift; corrected v = c.
+TA054,Nimtz superluminal microwave tunnelling,H7,A,ESTABLISHED,Pulse reshaping,F6,Evanescent barrier attenuates trailing pulse components while front velocity never exceeds c (Winful 2006); zero early signalling.
+TA055,Gain-assisted negative group velocity,H7,A,ESTABLISHED,Pulse reshaping,F6,"Wang, Kuzmich & Dogariu (2000) anomalous dispersion shifts smooth pulse peak forward from leading-edge analyticity; causal front <= c."
+TA056,Hartman effect and Larmor-clock tunnelling time,H7,A,ESTABLISHED,Postselected dwell time,F4;F6,Ramos et al. (2020) Larmor-clock measurement on postselected transmitted Rb atoms; transmitted fraction decays exponentially with barrier width.
+TA057,Delayed-choice quantum eraser,H7,A,ESTABLISHED,Past-cone correlation,F4,Kim et al. (2000): interference fringes appear only after post-hoc coincidence sorting with classical idler records; marginal signal never changes.
+TA058,Wheeler delayed choice (Jacques et al.),H7,A,ESTABLISHED,Past-cone correlation,F4,2007 space-like separated interferometer choice confirms complementarity without backward classical messaging.
+TA059,Negative time photons in an atom cloud,H7,A,ESTABLISHED,Group-delay phase,F4;F6,"Angulo et al. (2024) negative atomic excitation dwell time reflects narrowband resonant phase shift, not reception before emission."
+TA060,Retrocausal interpretations of quantum mechanics,H7,A,CONJECTURE,Interpretive ontology,F4,"TSVF, Leifer-Pusey, and Price-Wharton reproduce standard Born-rule marginals and inherit exact no-signalling."
+TA061,Apparent superluminal jets,H7,A,ESTABLISHED,Geometric projection,F6,Relativistic AGN jets moving near c at small viewing angle produce apparent transverse speed > c while true speed stays < c.
+TA062,Hafele-Keating flying clocks,H7,A,ESTABLISHED,One-way proper-time dilation,F1,1971 circumnavigating caesium clocks confirmed kinematic and gravitational proper-time offsets predicted by relativity.
+TA063,GPS relativistic correction,H7,A,ESTABLISHED,One-way proper-time dilation,F1,Satellite clocks gain ~38.6 us/day (+45.8 us gravitational minus 7.2 us kinematic) relative to geoid; engineered continuously.
+TA064,"Sergei Krikalev, about 0.02 s into the future",H7,B,ESTABLISHED,One-way proper-time dilation,F1,803 cumulative days in low Earth orbit produced ~22.7 ms net kinematic time dilation into the Earth-frame future.
+TA065,Optical-clock dilation at 33 cm and 1 mm,H7,A,ESTABLISHED,One-way proper-time dilation,F1;F3,Chou et al. (2010) at 33 cm and Bothwell et al. (2022) across a 1 mm Sr cloud confirmed g*dh/c^2 = 1.09e-19/mm.
+TA066,2004 Indian Ocean tsunami animal flight,N1,B,CONJECTURE,Present physical precursor,F14,Eyewitness reports of animals moving inland prior to wave arrival; acoustic/infrasound and ground-Rayleigh wave cues plausible.
+TA067,Common toads before L'Aquila earthquake,N1,A,CONJECTURE,Present physical precursor,F14,Grant & Halliday (2010) logged breeding-site abandonment 5 days pre-quake; groundwater/radon chemistry vs F14 precursor audit.
+TA068,Animal earthquake precursors (review),N1,A,ESTABLISHED,Present physical precursor,F14,Woith et al. (2018) meta-review of 729 reports found only 14 continuous time series and pervasive foreshock confounding.
+TA069,"Jaytee, the dog who knows",N2,B,CONJECTURE,Present cue vs signalling,F11,"Sheldrake (1999) owner-return anticipation claim vs Wiseman, Smith & Milton (1998) controlled null replication."
+TA070,Oscar the cat,N2,B,CONJECTURE,Present biochemical cue,F14,Dosa (2007) nursing-home case report of curling beside terminally ill patients; volatile ketotic odor cues untested under blinding.
+TA071,Food-anticipatory activity,N3,A,ESTABLISHED,Mechanistic internal oscillator,None,Mammalian food-entrainable circadian oscillator ramps locomotion prior to scheduled daily meals from past schedule history.
+TA072,Plant circadian anticipation of dawn,N3,A,ESTABLISHED,Mechanistic internal oscillator,None,Arabidopsis starch-degradation arithmetic divides stored night reserves by endogenous clock time remaining until dawn.
+TA073,Migratory restlessness (Zugunruhe),N3,A,ESTABLISHED,Mechanistic internal oscillator,None,Photoperiod and circannual clock genes trigger seasonal migratory preparation weeks before winter onset.
+TA074,Physarum anticipates periodic shocks,N3,A,ESTABLISHED,Mechanistic internal oscillator,None,Saigusa et al. (2008) slime-mold slowdown at periodic cold-dry intervals reflects damped biochemical oscillation from prior pulses.
+TA075,Adaptive prediction in microbes,N3,A,ESTABLISHED,Mechanistic evolutionary prior,None,Tagkopoulos et al. (2008): E. coli switches from temperature to anaerobic pathways because evolutionary history coupled both cues.
+TA076,"Periodical cicadas, 13 and 17 years",N3,A,ESTABLISHED,Mechanistic prime-cycle counter,None,Magicicada xylem-flux seasonal counting emerges synchronously at prime intervals avoiding predator resonance (Yoshimura 1997).
+TA077,"Panagrolaimus kolymaensis revived after about 46,000 years",N4,A,ESTABLISHED,Metabolic arrest (one-way forward),None,Shatilovich et al. (2023) revived Siberian permafrost nematodes via trehalose/anhydrobiosis metabolic suspension.
+TA078,"Silene stenophylla regenerated from about 32,000-year-old tissue",N4,A,ESTABLISHED,Metabolic arrest (one-way forward),None,Yashina et al. (2012) regenerated fertile plants from Pleistocene squirrel-burrow placental fruit tissue in vitro.
+TA079,Sacred lotus seed about 1300 years old germinated,N4,A,ESTABLISHED,Metabolic arrest (one-way forward),None,Shen-Miller et al. (1995) radiocarbon-dated Nelumbo nucifera seed germinated via impermeable pericarp and L-isoaspartyl methyltransferase repair.
+TA080,Tardigrade cryptobiosis,N4,A,ESTABLISHED,Metabolic arrest (one-way forward),None,Reversible tun desiccation arrest suspending internal biological turnover while ambient proper time advances.
+TA081,Mpemba effect,N5,B,CONJECTURE,Non-equilibrium relaxation,None,History-dependent relaxation rates in warm vs cool water/colloids; contested experimentally and purely causal forward dynamics.

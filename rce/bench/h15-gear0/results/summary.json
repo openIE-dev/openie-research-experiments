@@ -1,0 +1,559 @@
+{
+  "by_mutant_rule_family": {
+    "W-CAP-3,W-WORLD-1": {
+      "admitted_by_arm": {
+        "arm1a_claude_opus_5_5": 1,
+        "arm1b_claude_sonnet_5_5": 0,
+        "arm2a_openai_gpt_oss_120b": 0,
+        "arm2b_deepseek_v4p1": 0,
+        "arm2c_xai_grok_4_20_reasoning": 0,
+        "arm3_local_qwen3.6_35b_a3b": 0
+      },
+      "tasks": 1
+    },
+    "W-INT-1": {
+      "admitted_by_arm": {
+        "arm1a_claude_opus_5_5": 0,
+        "arm1b_claude_sonnet_5_5": 0,
+        "arm2a_openai_gpt_oss_120b": 0,
+        "arm2b_deepseek_v4p1": 0,
+        "arm2c_xai_grok_4_20_reasoning": 0,
+        "arm3_local_qwen3.6_35b_a3b": 0
+      },
+      "tasks": 1
+    },
+    "W-LEN-1": {
+      "admitted_by_arm": {
+        "arm1a_claude_opus_5_5": 5,
+        "arm1b_claude_sonnet_5_5": 5,
+        "arm2a_openai_gpt_oss_120b": 5,
+        "arm2b_deepseek_v4p1": 5,
+        "arm2c_xai_grok_4_20_reasoning": 5,
+        "arm3_local_qwen3.6_35b_a3b": 4
+      },
+      "tasks": 5
+    },
+    "W-NAME-1": {
+      "admitted_by_arm": {
+        "arm1a_claude_opus_5_5": 2,
+        "arm1b_claude_sonnet_5_5": 2,
+        "arm2a_openai_gpt_oss_120b": 1,
+        "arm2b_deepseek_v4p1": 2,
+        "arm2c_xai_grok_4_20_reasoning": 1,
+        "arm3_local_qwen3.6_35b_a3b": 1
+      },
+      "tasks": 3
+    },
+    "W-NAME-1,W-TY-1": {
+      "admitted_by_arm": {
+        "arm1a_claude_opus_5_5": 1,
+        "arm1b_claude_sonnet_5_5": 0,
+        "arm2a_openai_gpt_oss_120b": 1,
+        "arm2b_deepseek_v4p1": 0,
+        "arm2c_xai_grok_4_20_reasoning": 0,
+        "arm3_local_qwen3.6_35b_a3b": 0
+      },
+      "tasks": 4
+    },
+    "W-SYN-1": {
+      "admitted_by_arm": {
+        "arm1a_claude_opus_5_5": 24,
+        "arm1b_claude_sonnet_5_5": 24,
+        "arm2a_openai_gpt_oss_120b": 21,
+        "arm2b_deepseek_v4p1": 9,
+        "arm2c_xai_grok_4_20_reasoning": 24,
+        "arm3_local_qwen3.6_35b_a3b": 21
+      },
+      "tasks": 25
+    },
+    "W-WORLD-1": {
+      "admitted_by_arm": {
+        "arm1a_claude_opus_5_5": 1,
+        "arm1b_claude_sonnet_5_5": 1,
+        "arm2a_openai_gpt_oss_120b": 1,
+        "arm2b_deepseek_v4p1": 1,
+        "arm2c_xai_grok_4_20_reasoning": 1,
+        "arm3_local_qwen3.6_35b_a3b": 1
+      },
+      "tasks": 1
+    }
+  },
+  "completed_utc": "2026-11-22T17:19:24Z",
+  "corpus_sha256": "3ca3a32769145e9b502b9b7b9d2c0402e97ce6a860203668a35a35535d46b25b",
+  "engine": {
+    "commit_date": "2026-11-20",
+    "commit_full": "1762fb4bb65a58de07ab00f0d1bfdf4969d0358c",
+    "commit_short": "1762fb4b",
+    "gate_C_z_eq_1": [
+      "1. `rce check candidate.rce` exits with code 0 (parses, links stdlib, type-checks, evaluates all `example` and `check` obligations, enforces `W-UI-1` and `W-MUT-1` non-vacuity).",
+      "2. Obligation preservation (`no_spec_deletion`): candidate `z` preserves all declared `state`, `event`, `error`, `struct`, `kind`, `fn`, `extern`, and `step` headers of `mutant` (permitting `w: &World` capability addition for `W-WORLD-1`), and keeps `count_examples(z) >= count_examples(mutant)` and `count_checks(z) >= count_checks(mutant)` with every `example` input event trace LHS of `mutant` preserved.",
+      "3. Secondary equivalence audit against historical `original`: `rce hash` (`restored`) and `rce equiv fuel 2000` (`behaviour-equal`, `contradicts`/`examples only`, `undecided`, `not compared`), plus `rce repair json known ORIGINAL proposals PROPOSALS MUTANT` (`rce-proposals/1`, `observe` mode) on all parsing mutants."
+    ],
+    "note_on_two_w_mut_1_originals": "As already recorded in `rung-e/results/REPORT.md` (149/151 originals admitted), two of the 40 historical originals (`spec/examples/57_float_vectors.rce@b2b932da` and `programs/multi/washer.rce@2cc82de7`) predate the `W-MUT-1` vacuous-example check. Both strict `W-MUT-1` admission (`rce check` exit 0) and `W-MUT-1`-exempt admission (`check_program_with(..., mutation=false)`) are recorded; strict `rce check` exit 0 is the primary `C(z) = 1` criterion.",
+    "rce_binary_sha256": "1d3b0d07ff5b2e8fc37b57f037a66a0b8eceef1e1107a97ff33e68587fb0da99",
+    "repository": "openIE-dev/rce",
+    "spec_draft": "0.9"
+  },
+  "hypothesis_evaluations": {
+    "Gear0_crystallization_and_replay": {
+      "cold_admitted": 0,
+      "mean_dnullmm1_probe_us": 0.3246,
+      "nameless_alpha_invariance_rate": 0.7778,
+      "t2_replay_admitted": 34,
+      "t2_replay_model_calls": 0,
+      "verdict": "supported"
+    },
+    "H15_equal_budget_residual_comparison": {
+      "admitted_counts": {
+        "arm1a_claude_opus_5_5": 34,
+        "arm1b_claude_sonnet_5_5": 32,
+        "arm2a_openai_gpt_oss_120b": 29,
+        "arm2b_deepseek_v4p1": 17,
+        "arm2c_xai_grok_4_20_reasoning": 31,
+        "arm3_local_qwen3.6_35b_a3b": 27
+      },
+      "admitted_shares": {
+        "arm1a_claude_opus_5_5": 0.85,
+        "arm1b_claude_sonnet_5_5": 0.8,
+        "arm2a_openai_gpt_oss_120b": 0.725,
+        "arm2b_deepseek_v4p1": 0.425,
+        "arm2c_xai_grok_4_20_reasoning": 0.775,
+        "arm3_local_qwen3.6_35b_a3b": 0.675
+      },
+      "behaves_the_same_counts": {
+        "arm1a_claude_opus_5_5": 33,
+        "arm1b_claude_sonnet_5_5": 32,
+        "arm2a_openai_gpt_oss_120b": 27,
+        "arm2b_deepseek_v4p1": 16,
+        "arm2c_xai_grok_4_20_reasoning": 30,
+        "arm3_local_qwen3.6_35b_a3b": 26
+      },
+      "status": "measured_at_k_eq_1_single_shot",
+      "tasks": 40
+    },
+    "H2_local_checker_vs_model_energy": {
+      "c_check_reported_j": 0.049038,
+      "e_model_per_candidate_reported_j": 84.247,
+      "ratio_c_check_over_e_model": 0.000582,
+      "support_threshold_le": 0.05,
+      "verdict": "supported"
+    }
+  },
+  "prereg_id": "rce-jepa-h15-and-shape-d-gear0-2026-11-22",
+  "prereg_sha256": "b64c4c671ae85755109c9b5b75b34cda3929a6138dcd525e4640db2085d58f49",
+  "proposer_arms": {
+    "arm1a_claude_opus_5_5": {
+      "admitted": 34,
+      "admitted_share": 0.85,
+      "architecture_class": "Cloud Frontier Autoregressive + Adaptive Thinking (Anthropic)",
+      "arm": "arm1a_claude_opus_5_5",
+      "behaves_the_same": 33,
+      "behaviour_equal": 3,
+      "closed_api_server_energy": {
+        "attribution_label": "N",
+        "boundary": "remote_provider_server",
+        "level": "L2_package_soc",
+        "status": "not_available"
+      },
+      "cost_usd": 1.37825,
+      "cost_usd_per_admitted": 0.04054,
+      "equivalence_breakdown": {
+        "behaviour-equal": 3,
+        "not compared": 1,
+        "restored": 30
+      },
+      "input_tokens": 114855,
+      "measured_j": null,
+      "model": "claude-opus-5-5",
+      "model_calls": 40,
+      "output_tokens": 32159,
+      "proposal_budget_k": 1,
+      "restored": 30,
+      "tasks": 40,
+      "thinking_tokens": 8293,
+      "wall_s": 46.897
+    },
+    "arm1b_claude_sonnet_5_5": {
+      "admitted": 32,
+      "admitted_share": 0.8,
+      "architecture_class": "Cloud Frontier Autoregressive + Adaptive Thinking (Anthropic)",
+      "arm": "arm1b_claude_sonnet_5_5",
+      "behaves_the_same": 32,
+      "behaviour_equal": 2,
+      "closed_api_server_energy": {
+        "attribution_label": "N",
+        "boundary": "remote_provider_server",
+        "level": "L2_package_soc",
+        "status": "not_available"
+      },
+      "cost_usd": 0.80602,
+      "cost_usd_per_admitted": 0.02519,
+      "equivalence_breakdown": {
+        "behaviour-equal": 2,
+        "restored": 30
+      },
+      "input_tokens": 114855,
+      "measured_j": null,
+      "model": "claude-sonnet-5-5",
+      "model_calls": 40,
+      "output_tokens": 30764,
+      "proposal_budget_k": 1,
+      "restored": 30,
+      "tasks": 40,
+      "thinking_tokens": 11505,
+      "wall_s": 39.972
+    },
+    "arm2a_openai_gpt_oss_120b": {
+      "admitted": 29,
+      "admitted_share": 0.725,
+      "architecture_class": "Cloud Reasoning MoE (OpenAI GPT-OSS-120B on Cerebras)",
+      "arm": "arm2a_openai_gpt_oss_120b",
+      "behaves_the_same": 27,
+      "behaviour_equal": 2,
+      "closed_api_server_energy": {
+        "attribution_label": "N",
+        "boundary": "remote_provider_server",
+        "level": "L2_package_soc",
+        "status": "not_available"
+      },
+      "cost_usd": 0.13402,
+      "cost_usd_per_admitted": 0.00462,
+      "equivalence_breakdown": {
+        "behaviour-equal": 2,
+        "not compared": 2,
+        "restored": 25
+      },
+      "input_tokens": 78825,
+      "measured_j": null,
+      "model": "cerebras:gpt-oss-120b",
+      "model_calls": 40,
+      "output_tokens": 43596,
+      "proposal_budget_k": 1,
+      "restored": 25,
+      "tasks": 40,
+      "thinking_tokens": 28617,
+      "wall_s": 5.812
+    },
+    "arm2b_deepseek_v4p1": {
+      "admitted": 17,
+      "admitted_share": 0.425,
+      "architecture_class": "Cloud MLA Sparse MoE (DeepSeek V4.1 on Fireworks)",
+      "arm": "arm2b_deepseek_v4p1",
+      "behaves_the_same": 16,
+      "behaviour_equal": 1,
+      "closed_api_server_energy": {
+        "attribution_label": "N",
+        "boundary": "remote_provider_server",
+        "level": "L2_package_soc",
+        "status": "not_available"
+      },
+      "cost_usd": 0.09303,
+      "cost_usd_per_admitted": 0.00547,
+      "equivalence_breakdown": {
+        "behaviour-equal": 1,
+        "not compared": 1,
+        "restored": 15
+      },
+      "input_tokens": 63446,
+      "measured_j": null,
+      "model": "fireworks:accounts/fireworks/models/deepseek-v4p1-flash",
+      "model_calls": 40,
+      "output_tokens": 64215,
+      "proposal_budget_k": 1,
+      "restored": 15,
+      "tasks": 40,
+      "thinking_tokens": 58868,
+      "wall_s": 73.325
+    },
+    "arm2c_xai_grok_4_20_reasoning": {
+      "admitted": 31,
+      "admitted_share": 0.775,
+      "architecture_class": "Cloud Reasoning Transformer (xAI Grok-4.20-Reasoning)",
+      "arm": "arm2c_xai_grok_4_20_reasoning",
+      "behaves_the_same": 30,
+      "behaviour_equal": 2,
+      "closed_api_server_energy": {
+        "attribution_label": "N",
+        "boundary": "remote_provider_server",
+        "level": "L2_package_soc",
+        "status": "not_available"
+      },
+      "cost_usd": 0.27471,
+      "cost_usd_per_admitted": 0.00886,
+      "equivalence_breakdown": {
+        "behaviour-equal": 2,
+        "not compared": 1,
+        "restored": 28
+      },
+      "input_tokens": 76546,
+      "measured_j": null,
+      "model": "xai:grok-4.20-0309-reasoning",
+      "model_calls": 40,
+      "output_tokens": 18474,
+      "proposal_budget_k": 1,
+      "restored": 28,
+      "tasks": 40,
+      "thinking_tokens": 87410,
+      "wall_s": 301.097
+    },
+    "arm3_local_qwen3.6_35b_a3b": {
+      "admitted": 27,
+      "admitted_share": 0.675,
+      "architecture_class": "Local Open-Weight Hybrid Gated-DeltaNet + Sparse MoE (Apple M5 Max)",
+      "arm": "arm3_local_qwen3.6_35b_a3b",
+      "behaves_the_same": 26,
+      "behaviour_equal": 1,
+      "cost_usd": 0.0,
+      "equivalence_breakdown": {
+        "behaviour-equal": 1,
+        "not compared": 1,
+        "restored": 25
+      },
+      "input_tokens": 82330,
+      "model": "Qwen3.6-35B-A3B-UD-Q5_K_M.gguf",
+      "model_calls": 40,
+      "output_tokens": 18411,
+      "proposal_budget_k": 1,
+      "restored": 25,
+      "satb_local_energy": {
+        "baseline_drift_valid_5pct": false,
+        "board_metered": false,
+        "cooldown_post_s": 0.628,
+        "cooldown_pre_s": 0.682,
+        "idle_drift_pct": 68.31,
+        "idle_post_w": 16.106,
+        "idle_pre_w": 32.813,
+        "l3_llama_cycles": 211160334909,
+        "l3_llama_instructions": 601060444484,
+        "mean_chip_w": 36.88,
+        "mean_cpu_w": 9.878,
+        "mean_gpu_w": 8.416,
+        "measured_j": null,
+        "peak_gpu_temp_c": 62.5,
+        "reported_j_per_admitted_repair_sut": 124.811,
+        "reported_j_per_candidate_sut": 84.247,
+        "reported_l2_derived_marginal_j": "invalidated_by_cotenant_drift_falsifier6",
+        "reported_l2_gpu_only_j": 3303.624,
+        "reported_l2_gross_j": 14476.177,
+        "reported_l2_gross_j_per_admitted_repair": 536.155,
+        "reported_l3_llama_pid_j": 66.264,
+        "reported_sut_gpu_plus_l3_j": 3369.888,
+        "samples": 1957
+      },
+      "tasks": 40,
+      "wall_s": 392.523
+    }
+  },
+  "rce_rules_sha256": "7a8bdcbe7525fe25b285ddd03eadcbb91e6854f19daa7853bd2d49c39a12c247",
+  "schema": "openie-rce-jepa-h15-gear0-summary/1",
+  "shape_d_gear0": {
+    "arm0_cold_static_gear0": {
+      "admitted": 0,
+      "hits": 0,
+      "model_calls": 0,
+      "probe_40_wall_us": 37.71,
+      "records": 0,
+      "store_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "tasks": 40
+    },
+    "arm4_online_crystallized_gear0": {
+      "crystallized_records": 34,
+      "nameless_alpha_renaming_invariance": {
+        "admitted_parsing_tasks_tested": 9,
+        "dnullmm1_zero_call_hits_under_alpha_rename": 7,
+        "invariance_rate": 0.7778
+      },
+      "post_replay_jsonl_sha256": "d92a57b40de0b0ecd3530398c9517e80e7f63984ed7a2c98803f8d880e731a50",
+      "probe_microbench_40000_lookups": {
+        "instructions_per_probe": 9516.5,
+        "mean_probe_ns": 324.56,
+        "mean_probe_us": 0.3246,
+        "reported_l3_nj_per_probe": 1771.307,
+        "total_hits": 34000,
+        "total_probes": 40000,
+        "wall_s": 0.012982
+      },
+      "reference_crystallizer_arm": "arm1a_claude_opus_5_5",
+      "store_format": "DNULLMM1 (64B header + 48B open-addressed slots)",
+      "store_immutable_verified": true,
+      "store_jsonl_sha256": "d92a57b40de0b0ecd3530398c9517e80e7f63984ed7a2c98803f8d880e731a50",
+      "t2_exact_replay_40_tasks": {
+        "dnullmm1_hits": 34,
+        "hit_verification_rate": 1.0,
+        "model_calls": 0,
+        "rce_re_admitted": 34,
+        "wall_s_including_rce_check": 0.9395
+      },
+      "zipf_0p85_M200_stream_by_arm": {
+        "arm1a_claude_opus_5_5": {
+          "gear0_crystallized_verified_only": {
+            "admitted_arrivals": 184,
+            "calls_reduction_factor": 4.17,
+            "cost_usd": 2.63258,
+            "dnullmm1_gear0_hits": 152,
+            "local_energy_reduction_factor": null,
+            "model_calls": 48,
+            "reported_local_j": null,
+            "usd_saved": 4.175
+          },
+          "gear0_with_dedup_misses": {
+            "admitted_arrivals": 184,
+            "calls_reduction_factor": 5.41,
+            "cost_usd": 1.19081,
+            "dnullmm1_gear0_hits": 152,
+            "model_calls": 37,
+            "reported_local_j": null
+          },
+          "stateless_proposer": {
+            "admitted_arrivals": 184,
+            "cost_usd": 6.80758,
+            "model_calls": 200,
+            "reported_local_j": null
+          },
+          "stream_arrivals_M": 200,
+          "unique_tasks_visited": 37
+        },
+        "arm1b_claude_sonnet_5_5": {
+          "gear0_crystallized_verified_only": {
+            "admitted_arrivals": 174,
+            "calls_reduction_factor": 3.57,
+            "cost_usd": 1.72897,
+            "dnullmm1_gear0_hits": 144,
+            "local_energy_reduction_factor": null,
+            "model_calls": 56,
+            "reported_local_j": null,
+            "usd_saved": 2.20531
+          },
+          "gear0_with_dedup_misses": {
+            "admitted_arrivals": 174,
+            "calls_reduction_factor": 5.41,
+            "cost_usd": 0.69238,
+            "dnullmm1_gear0_hits": 144,
+            "model_calls": 37,
+            "reported_local_j": null
+          },
+          "stateless_proposer": {
+            "admitted_arrivals": 174,
+            "cost_usd": 3.93428,
+            "model_calls": 200,
+            "reported_local_j": null
+          },
+          "stream_arrivals_M": 200,
+          "unique_tasks_visited": 37
+        },
+        "arm2a_openai_gpt_oss_120b": {
+          "gear0_crystallized_verified_only": {
+            "admitted_arrivals": 161,
+            "calls_reduction_factor": 3.03,
+            "cost_usd": 0.30873,
+            "dnullmm1_gear0_hits": 134,
+            "local_energy_reduction_factor": null,
+            "model_calls": 66,
+            "reported_local_j": null,
+            "usd_saved": 0.34445
+          },
+          "gear0_with_dedup_misses": {
+            "admitted_arrivals": 161,
+            "calls_reduction_factor": 5.41,
+            "cost_usd": 0.11884,
+            "dnullmm1_gear0_hits": 134,
+            "model_calls": 37,
+            "reported_local_j": null
+          },
+          "stateless_proposer": {
+            "admitted_arrivals": 161,
+            "cost_usd": 0.65318,
+            "model_calls": 200,
+            "reported_local_j": null
+          },
+          "stream_arrivals_M": 200,
+          "unique_tasks_visited": 37
+        },
+        "arm2b_deepseek_v4p1": {
+          "gear0_crystallized_verified_only": {
+            "admitted_arrivals": 85,
+            "calls_reduction_factor": 1.53,
+            "cost_usd": 0.21992,
+            "dnullmm1_gear0_hits": 69,
+            "local_energy_reduction_factor": null,
+            "model_calls": 131,
+            "reported_local_j": null,
+            "usd_saved": 0.152
+          },
+          "gear0_with_dedup_misses": {
+            "admitted_arrivals": 85,
+            "calls_reduction_factor": 5.41,
+            "cost_usd": 0.07951,
+            "dnullmm1_gear0_hits": 69,
+            "model_calls": 37,
+            "reported_local_j": null
+          },
+          "stateless_proposer": {
+            "admitted_arrivals": 85,
+            "cost_usd": 0.37191,
+            "model_calls": 200,
+            "reported_local_j": null
+          },
+          "stream_arrivals_M": 200,
+          "unique_tasks_visited": 37
+        },
+        "arm2c_xai_grok_4_20_reasoning": {
+          "gear0_crystallized_verified_only": {
+            "admitted_arrivals": 172,
+            "calls_reduction_factor": 3.51,
+            "cost_usd": 0.76026,
+            "dnullmm1_gear0_hits": 143,
+            "local_energy_reduction_factor": null,
+            "model_calls": 57,
+            "reported_local_j": null,
+            "usd_saved": 0.70255
+          },
+          "gear0_with_dedup_misses": {
+            "admitted_arrivals": 172,
+            "calls_reduction_factor": 5.41,
+            "cost_usd": 0.26773,
+            "dnullmm1_gear0_hits": 143,
+            "model_calls": 37,
+            "reported_local_j": null
+          },
+          "stateless_proposer": {
+            "admitted_arrivals": 172,
+            "cost_usd": 1.46281,
+            "model_calls": 200,
+            "reported_local_j": null
+          },
+          "stream_arrivals_M": 200,
+          "unique_tasks_visited": 37
+        },
+        "arm3_local_qwen3.6_35b_a3b": {
+          "gear0_crystallized_verified_only": {
+            "admitted_arrivals": 131,
+            "calls_reduction_factor": 2.13,
+            "cost_usd": 0.0,
+            "dnullmm1_gear0_hits": 106,
+            "local_energy_reduction_factor": 1.56,
+            "model_calls": 94,
+            "reported_local_j": 10553.524,
+            "usd_saved": 0.0
+          },
+          "gear0_with_dedup_misses": {
+            "admitted_arrivals": 131,
+            "calls_reduction_factor": 5.41,
+            "cost_usd": 0.0,
+            "dnullmm1_gear0_hits": 106,
+            "model_calls": 37,
+            "reported_local_j": 2906.378
+          },
+          "stateless_proposer": {
+            "admitted_arrivals": 131,
+            "cost_usd": 0.0,
+            "model_calls": 200,
+            "reported_local_j": 16457.924
+          },
+          "stream_arrivals_M": 200,
+          "unique_tasks_visited": 37
+        }
+      }
+    }
+  }
+}

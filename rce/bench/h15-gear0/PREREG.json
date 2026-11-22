@@ -1,0 +1,90 @@
+{
+  "id": "rce-jepa-h15-and-shape-d-gear0-2026-11-22",
+  "registered": "2026-11-22, committed with SHA-256 sidecar prior to executing any proposer run on the 40 residual tasks",
+  "question": "On the 40 open residual tasks left unsolved by the 5-rung deterministic `rce repair` ladder (`111/151` closed by `a..e` in `rce/bench/ladder/rung-e/`, plain arm, leaving `40` real git-history tasks), how many tasks does each of four distinct proposer architecture classes close under an identical single-shot `k = 1` proposal budget and deterministic `rce` gate `C(z) = 1`, at what token/dollar/`reported_j` cost (`H15`, `H2`), and how many model calls and joules does `Shape D` (`DNULLMM1`) Gear-0 eliminate upon recurring arrivals (`t = 2` and `Zipf-0.85` `M = 200` stream)?",
+  "engine_and_gate": {
+    "repository": "openIE-dev/rce",
+    "commit_full": "1762fb4bb65a58de07ab00f0d1bfdf4969d0358c",
+    "commit_short": "1762fb4b",
+    "commit_date": "2026-11-20",
+    "spec_draft": "0.9",
+    "rce_binary_sha256": "1d3b0d07ff5b2e8fc37b57f037a66a0b8eceef1e1107a97ff33e68587fb0da99",
+    "gate_C_z_eq_1": [
+      "1. `rce check candidate.rce` exits with code 0 (parses, links stdlib, type-checks, evaluates all `example` and `check` obligations, enforces `W-UI-1` and `W-MUT-1` non-vacuity).",
+      "2. Obligation preservation (`no_spec_deletion`): candidate `z` preserves all declared `state`, `event`, `error`, `struct`, `kind`, `fn`, `extern`, and `step` headers of `mutant` (permitting `w: &World` capability addition for `W-WORLD-1`), and keeps `count_examples(z) >= count_examples(mutant)` and `count_checks(z) >= count_checks(mutant)` with every `example` input event trace LHS of `mutant` preserved.",
+      "3. Secondary equivalence audit against historical `original`: `rce hash` (`restored`) and `rce equiv fuel 2000` (`behaviour-equal`, `contradicts`/`examples only`, `undecided`, `not compared`), plus `rce repair json known ORIGINAL proposals PROPOSALS MUTANT` (`rce-proposals/1`, `observe` mode) on all parsing mutants."
+    ],
+    "note_on_two_w_mut_1_originals": "As already recorded in `rung-e/results/REPORT.md` (149/151 originals admitted), two of the 40 historical originals (`spec/examples/57_float_vectors.rce@b2b932da` and `programs/multi/washer.rce@2cc82de7`) predate the `W-MUT-1` vacuous-example check. Both strict `W-MUT-1` admission (`rce check` exit 0) and `W-MUT-1`-exempt admission (`check_program_with(..., mutation=false)`) are recorded; strict `rce check` exit 0 is the primary `C(z) = 1` criterion."
+  },
+  "corpus": {
+    "upstream_tasks_151_sha256": "6ae255a32211f620364ef713b1a36f7daac6ab46f22ac318b45acb2a6da9af50",
+    "upstream_source": "openIE-dev/openie-research-experiments `rce/bench/ladder/rung-e/results/plain/runs.compact.tsv` rows with `closed == false`",
+    "residual_file": "residual_40_tasks.jsonl",
+    "residual_tasks_count": 40,
+    "residual_tasks_sha256": "3ca3a32769145e9b502b9b7b9d2c0402e97ce6a860203668a35a35535d46b25b",
+    "breakdown_by_source": {
+      "history-admit": 33,
+      "history-fix": 7
+    },
+    "breakdown_by_mutant_rules": {
+      "W-SYN-1": 25,
+      "W-LEN-1": 5,
+      "W-NAME-1,W-TY-1": 4,
+      "W-NAME-1": 3,
+      "W-WORLD-1": 1,
+      "W-CAP-3,W-WORLD-1": 1,
+      "W-INT-1": 1
+    }
+  },
+  "budget_and_prompt_fairness": {
+    "proposal_budget_k": 1,
+    "leakage_controls": "Proposers receive ONLY the public RCE Draft 0.9 surface reference card (`SURFACE.md` / `04-programs.md` / `rce lib`), the broken `mutant` source text, and the deterministic `rce check` diagnostic on `mutant` (with temp paths redacted). `original`, git `commit`, and commit `subject` are NEVER shown to any proposer.",
+    "patch_protocol": "For files <= 100 lines (36/40 tasks), proposers emit full `.rce` source (or `<<<SEARCH ... === ... >>>REPLACE` blocks); for files > 100 lines (4/40 `stdlib/lib/*.rce` tasks, 168..564 lines), proposers emit `<<<SEARCH ... === ... >>>REPLACE` blocks (or full `.rce` source) to prevent context/output truncation."
+  },
+  "arms": {
+    "arm0_shape_d_cold_gear0": {
+      "architecture_class": "Deterministic Null (`Shape D` Cold Static `DNULLMM1` Gear-0 + 5-rung `rce repair` `a..e`)",
+      "model_calls_per_task": 0,
+      "prediction": "0/40 closed on unseen historical defects left open by `a..e`, 0 false admissions"
+    },
+    "arm1_anthropic_frontier_ar": {
+      "architecture_class": "Cloud Frontier Autoregressive Transformer + Adaptive Thinking",
+      "models": [
+        "claude-opus-5-5",
+        "claude-sonnet-5-5"
+      ],
+      "energy_provenance": "Closed-API remote server energy strictly `not_available` (`SATB` label `N`); exact `L4` token counts, wall latency, and Nov 2026 API list USD recorded."
+    },
+    "arm2_cloud_reasoning_and_alt_moe": {
+      "architecture_class": "Cloud Alternative Reasoning & Sparse MLA-MoE Architectures",
+      "preflight_note": "1-token pre-flight probe prior to registration found direct `api.openai.com` key HTTP 401 and direct `api.deepseek.com` key HTTP 402; live verified endpoints for OpenAI Reasoning MoE (`gpt-oss-120b` on Cerebras), DeepSeek V4.1 MLA-MoE (`deepseek-v4p1-flash` on Fireworks), and xAI Reasoning (`grok-4.20-0309-reasoning`) are registered.",
+      "models": [
+        "cerebras:gpt-oss-120b",
+        "fireworks:accounts/fireworks/models/deepseek-v4p1-flash",
+        "xai:grok-4.20-0309-reasoning"
+      ],
+      "energy_provenance": "Closed-API remote server energy strictly `not_available` (`SATB` label `N`); exact `L4` token counts, wall latency, and USD recorded."
+    },
+    "arm3_local_m5max_hybrid_moe": {
+      "architecture_class": "Local Open-Weight Hybrid Gated-DeltaNet + Sparse MoE on Apple M5 Max",
+      "model": "Qwen3.6-35B-A3B-UD-Q5_K_M.gguf",
+      "server": "llama-server on 127.0.0.1:18095 (-ngl 99 -c 16384 -np 1)",
+      "energy_provenance": "Metered locally with `SATB` Dual-Channel `L2` `macmon` `IOReport` (`label = A2`, with Falsifier 6 5% idle-drift check) + `L3` `proc_pid_rusage(llama_pid, RUSAGE_INFO_V6).ri_energy_nj` (`label = D`); `measured_j = None` (`board_metered = false`). Reports exact `reported_j` per candidate and `J_acc` per admitted repair, plus `H2` ratio `C_check / E_model`."
+    },
+    "arm4_shape_d_online_crystallized_gear0": {
+      "architecture_class": "Deterministic Null (`Shape D` Online Crystallized `DNULLMM1` Gear-0)",
+      "index_format": "Binary `DNULLMM1` (`<8sQQ32sQ` 64-byte header + `<16sqqqQ` 48-byte open-addressed linear-probing slots, `Q = 1,000,000` integer fixed-point, SHA-256 verified)",
+      "canonical_key": "first 16 bytes (32 hex chars) of SHA-256(broken_form_hash + ':' + contract_hash), where broken_form_hash is SHA-256(`rce fmt nameless` projection) whenever `mutant` parses (alpha-renaming invariant by RCE Theorem T7) and SHA-256(normalized tokens) otherwise",
+      "evaluations": [
+        "1. `t = 2` Replay over all 40 tasks (`0` model calls, `< 1 us` `DNULLMM1` mmap lookup + deterministic `rce check` re-verification, metered via `L3` `ri_energy_nj`).",
+        "2. Alpha-renaming invariance test: local variable renames of admitted parsing tasks hit the identical `rce fmt nameless` `DNULLMM1` slot at `0` model calls.",
+        "3. Recurring defect stream (`Zipf(s = 0.85)`, `M = 200` arrivals over the 40 tasks, deterministic `SplitMix64` seed `0x20261122`): compares stateless proposer (`200` model calls) vs `Shape D` Online Gear-0 (`<= 40` model calls on first-seen misses, `0` model calls on all recurring hits)."
+      ]
+    }
+  },
+  "hypotheses_and_falsifiers": {
+    "H15_equal_budget": "Reports exact `C(z) = 1` gate-admitted shares (`admitted / 40`), restored/behaviour-equal shares, and energy/cost efficiency across all four proposer classes under identical `k = 1` proposal budget.",
+    "H2_checker_vs_generator_joules": "Supported on local Apple M5 Max (`Arm 3`) if `C_check / E_model <= 0.05` in `reported_j`; disproved if `>= 0.5`.",
+    "Gear0_amortization": "Supported if `Shape D` Online Gear-0 achieves `100%` hit recall on recurring previously-admitted tasks at `0` model calls (`< 1 us` `DNULLMM1` probe latency) and reduces cumulative stream energy/calls by `>= 3x` on the `Zipf-0.85` `M = 200` stream; falsified if any replayed entry fails `C(z) = 1` or triggers a model call."
+  }
+}

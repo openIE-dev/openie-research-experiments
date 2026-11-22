@@ -1,0 +1,41 @@
+ID,Anomaly,Domain,Representative_Hz,Frequency_Form,Status,Falsifier
+AA01,Black hole information paradox and Page curve (islands),SKY,4.35,Turnover at Page time; scrambling delay t_scr = (4GM/c^3) ln S (1/t_scr = 4.35 Hz at 62 M_sun),OPEN,F17
+AA02,Firewall paradox (AMPS 2012),SKY,,Near-horizon mode entanglement monogamy across Rindler frequencies,OPEN,F16;F17
+AA03,Hawking radiation thermal spectrum,SKY,20.7,Thermal peak nu_H = c^3/(8*pi*G*M) = 20.7 Hz for 62 M_sun; 3.1e-4 Hz for Sgr A*,OPEN,F16
+AA04,"Quasinormal-mode ringdown, GW150914",SKY,195.0,Fundamental l=m=2 ringdown f_QNM = 195 Hz (9.39 * nu_H non-spinning); overtone resolved at 3.6 sigma,RESOLVED,F16
+AA05,GW250114 area theorem and horizon direct wave,SKY,245.0,Horizon angular frequency 2*Omega_H and surface-gravity decay kappa read directly in post-merger wave,OPEN,F16
+AA06,GW echoes claim and nulls,SKY,4.4,Claimed Planck-scale echo comb spacing 1/dt = 4.4 Hz at 62 M_sun; LIGO-Virgo O1-O3 searches consistent with noise,RESOLVED,F17
+AA07,"EHT shadow and photon ring, M87*",SKY,2.1e-6,Photon-orbit frequency c/(3*sqrt(3)*pi*r_g) = 2.1e-6 Hz for 6.5e9 M_sun,RESOLVED,F16
+AA08,"EHT shadow, Sgr A*",SKY,3.2e-3,Photon-orbit frequency ~3.2e-3 Hz (orbital period ~310 s) for 4.1e6 M_sun,RESOLVED,F16
+AA09,Hubble tension,SKY,2.27e-18,Cosmic expansion rate H0 = 2.367e-18 Hz (SH0ES) vs 2.184e-18 Hz (Planck CMB),OPEN,F18
+AA10,S8 tension,SKY,,Late-time matter clustering amplitude sigma_8*(Omega_m/0.3)^0.5 growth-rate offset vs CMB lensing,OPEN,F18
+AA11,DESI evolving dark energy,SKY,,"Baryon acoustic H(z) expansion history with w0 > -1, wa < 0 preference over flat LambdaCDM",CONTESTED,F18
+AA12,Rotation curves and MOND a0,SKY,4.00e-19,"Galactic acceleration scale a0/c = 4.00e-19 Hz, within 6-15% of H0/(2*pi) = 3.48e-19 to 3.77e-19 Hz",OPEN,F18
+AA13,Pioneer anomaly,SKY,1.0e-8,S-band 2.29 GHz carrier Doppler drift (~6e-9 Hz/s) resolved via anisotropic RTG thermal recoil,RESOLVED,None
+AA14,Earth flyby anomaly,SKY,0.066,Residual ~66 mHz X-band Doppler shift on some near-Earth gravity-assist trajectories,OPEN,F6
+AA15,Pulsar timing array background,SKY,3.17e-8,Nanohertz stochastic gravitational-wave strain 2.4e-15 at reference frequency 1/yr = 3.17e-8 Hz,OPEN,F6
+AA16,Periodic FRB 180916,SKY,7.08e-7,16.35-day activity modulation window corresponding to 7.08e-7 Hz binary/precession period,RESOLVED,None
+AA17,Shapiro delay,SKY,,Relativistic gravitational radar/pulsar carrier phase delay confirming past-cone metric curvature,RESOLVED,F6
+AA18,Lithium problem,SKY,,Primordial 7Li nuclear reaction resonance rates vs Big Bang nucleosynthesis abundance deficit,OPEN,None
+AA19,CMB large-angle anomalies,SKY,,"Lowest spherical-harmonic multipoles (l = 2, 3 quadrupole-octupole alignment and hemispherical asymmetry)",CONTESTED,None
+AA20,GRB 090510 timing,SKY,7.5e24,31 GeV photon arrival within 0.86 s across z = 0.903 bounds linear E_QG dispersion above 1.2 E_Planck,OPEN,F6
+AA21,Muon g-2,EARTH,2.29e5,Anomalous spin precession omega_a = 229 kHz in 1.45 T ring; reconciled with Standard Model via lattice QCD HVP,RESOLVED,None
+AA22,Proton radius puzzle,EARTH,1.2e13,Muonic hydrogen 2S-2P Lamb-shift spectroscopy (~49.9 THz / electronic Rydberg shifts) converged near 0.841 fm,RESOLVED,None
+AA23,Neutron lifetime,EARTH,1.28e-5,Bottle (1.1393e-3 Hz) vs beam (1.1265e-3 Hz) beta-decay rate discrepancy of 1.28e-5 Hz (~8.6 s),OPEN,None
+AA24,Atomki X17,EARTH,4.04e21,Claimed 16.7 MeV/c^2 e+e- pair angular anomaly in 8Be/4He/12C corresponding to nu_C = 4.04e21 Hz,CONTESTED,None
+AA25,Gallium anomaly (BEST),EARTH,2.9e20,51Cr neutrino-capture deficit at ~0.75 MeV (~1.8e20-2.9e20 Hz) in gallium detectors,OPEN,None
+AA26,"LSND, MiniBooNE; MicroBooNE null",EARTH,,Short-baseline neutrino appearance oscillation phase delta_m^2 * L / (4E); constrained by MicroBooNE,CONTESTED,None
+AA27,Lamb shift,EARTH,1.057e9,"Hydrogen 2S_1/2 - 2P_1/2 vacuum radiative splitting of 1,057.845 MHz confirming QED zero-point dressing",RESOLVED,F8
+AA28,Casimir effect,EARTH,1.5e14,Cavity cutoff frequency c/(2d) = 1.5e14 Hz at d = 1 um; equilibrium force repaid identically on reset,RESOLVED,F8
+AA29,OPERA neutrinos,EARTH,1.37e7,73 ns timing offset (1/73 ns = 13.7 MHz) traced to loose fiber-optic connector; causal front preserved,RESOLVED,F6
+AA30,"Negative group delay, Hartman, negative-time photons",EARTH,3.84e14,d_phi/d_omega < 0 inside narrowband Rb D2 (384 THz) or microwave passband; signal front obeys v <= c,RESOLVED,F4;F6
+AA31,Quantum Zeno and anti-Zeno,EARTH,,Repeated projective/weak measurement rate vs system correlation frequency modulates decay rate with back-action cost,RESOLVED,None
+AA32,Mpemba effect,EARTH,,Multi-mode thermal/convective relaxation rate spectrum crossing without backward causation,CONTESTED,None
+AA33,Sonoluminescence,EARTH,2.65e4,Picosecond optical flash locked to 26.5 kHz acoustic cavitation compression cycle,RESOLVED,None
+AA34,Ball lightning,EARTH,,Transient atmospheric optical emission and soil-silicon lines (Cen et al. 2014) lacking reproducible lab trigger,OPEN,None
+AA35,Varying constants (clocks),EARTH,6.42e14,Yb+ E3 (642 THz) vs E2/Sr optical clock ratio bounds alpha_dot/alpha = 1.0(1.1)e-18/yr,OPEN,F1;F3
+AA36,Equivalence principle (MICROSCOPE),EARTH,8.0e-4,Orbital differential accelerometer modulation (~0.8 mHz) bounds Eotvos parameter eta = (-1.5 +- 2.7)e-15,RESOLVED,F1
+AA37,Allais effect,EARTH,,Claimed Foucault pendulum precession anomalies during solar eclipses; atmospheric tilt vs null gravimeter tests,CONTESTED,None
+AA38,Big G scatter,EARTH,,100-500 ppm spread across mHz torsion-balance oscillation and atom-interferometer determinations of Newton's G,OPEN,None
+AA39,Compton-frequency clock,EARTH,2.993e25,Cs-133 Compton frequency nu_C = m*c^2/h = 2.993486e25 Hz; debate over direct Compton vs laser-phase observable,CONTESTED,F3
+AA40,Quantum-gravity timing,SKY,2.95e42,Planck frequency nu_P = E_P/h = 2.95e42 Hz (omega_P = 1.855e43 rad/s) bounding astrophysical group-velocity dispersion,OPEN,F6

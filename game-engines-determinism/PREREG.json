@@ -1,0 +1,59 @@
+{
+  "study": "game-engines",
+  "preregistered_utc": "2026-11-22T16:45:00Z",
+  "energy_discipline": {
+    "measured_j": null,
+    "board_metered": false,
+    "reported_j_channel": "L3 proc_pid_rusage(child_pid, RUSAGE_INFO_V6).ri_energy_nj (SATB label D)"
+  },
+  "simulation_form": {
+    "name": "arena16_q32_32_v1",
+    "entities": 16,
+    "pickups": 4,
+    "arena_half_extent_units": 64,
+    "entity_radius_units": 2,
+    "pickup_radius_units": 3,
+    "dt_seconds": 0.015625,
+    "fixed_point_format": "Q32.32 signed 64-bit integer with explicit 128-bit intermediate products (arithmetic right shift >> 32, toward-zero unsigned-magnitude division, exact integer floor square root isqrt_u128)",
+    "fsm_states": ["IDLE (0)", "DASHING (1, 12 ticks)", "COOLDOWN (2, 40 ticks)"],
+    "execution_contract": "SCXML macrostep + GameRule declaration-order traversal + deferred pickup deactivation/respawn at tick end",
+    "rng": "SplitMix64 (seed = 0x2026112200474531)",
+    "total_ticks": 100000,
+    "checkpoint_stride_ticks": 1000,
+    "checkpoint_count": 100,
+    "canonical_state_bytes": 732,
+    "state_hash": "SHA-256 (FIPS 180-4) over 732-byte little-endian canonical state vector"
+  },
+  "hypotheses": [
+    {
+      "id": "GE-H1",
+      "claim": "Simulation projections of the 16-body Form under Q32.32 integer physics are bitwise identical across all 5 compilation/runtime targets for 100,000 ticks.",
+      "targets": [
+        "rust_native_aarch64 (rustc -O)",
+        "rust_wasm32_node (rustc --target wasm32-unknown-unknown -O in Node.js WebAssembly)",
+        "cpp20_clang_o3 (clang++ -std=c++20 -O3)",
+        "python_3_13 (CPython 3.13)",
+        "javascript_bigint_node (Node.js ES2024 BigInt)"
+      ],
+      "kill_criterion": "Any SHA-256 state hash mismatch at any 1,000-tick checkpoint or at tick 100,000 on any target pair."
+    },
+    {
+      "id": "GE-H2",
+      "claim": "Relaxing strict numeric discipline (compiler -ffast-math FMA contraction, cross-runtime hardware/library sin/cos transcendentals, or f32 precision) causes state hashes to diverge at an exact measurable tick t_div, and chaotic 16-body collisions amplify single-ULP perturbations into macroscopic position (>=1e-3 units) and discrete gameplay (score/FSM/quadrant) desynchronization.",
+      "controls": [
+        "cpp_f64_strict (-O3 -ffp-contract=off -fno-fast-math, algebraic + sqrt)",
+        "rust_f64_strict (rustc -O, algebraic + sqrt)",
+        "js_f64_strict (Node.js Number, algebraic + sqrt)",
+        "py_f64_strict (Python 3.13 float, algebraic + sqrt)",
+        "cpp_f64_fastmath_fma (-O3 -ffast-math -ffp-contract=fast, hardware FMA contraction)",
+        "cpp_f32_strict (-O3 -ffp-contract=off, IEEE-754 binary32)",
+        "cpp_f64_strict_trig vs js_f64_math_sin_trig (strict f64 with native libm sin/cos vs V8 Math.sin/Math.cos)"
+      ],
+      "observables": [
+        "t_div_ieee_bits: first tick where canonical IEEE-754 state hash diverges",
+        "t_div_macro_1e3: first tick where quantized 1e-3 arena-unit position hash diverges",
+        "t_div_gameplay: first tick where discrete gameplay state (scores, cooldown FSM states, active pickups, arena quadrants) diverges"
+      ]
+    }
+  ]
+}

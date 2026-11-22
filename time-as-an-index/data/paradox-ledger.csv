@@ -1,0 +1,75 @@
+ID,Paradox,Family,Quine_Type,Constraint_Or_Model,Status,Cost_Accounting
+P01,Grandfather paradox,Time travel,antinomy (classical deterministic),C4;M2,RESOLVED,Deterministic NOT loop has no pure fixed point (grandfather_no_pure); requires mixed fixed point p=1/2 (D-CTC) or postselection (P-CTC).
+P02,Bootstrap / ontological paradox,Time travel,antinomy (origin),C1;M2;M5,PARTIAL,Unaging object/bit in a closed loop violates thermodynamic entropy increase unless external free energy restores wear each cycle.
+P03,Knowledge-creation paradox (Deutsch),Time travel,veridical (complexity debt),M2;M7,OPEN,Fixed-point loop outputs NP/PSPACE witnesses without running the search; charges PSPACE oracle complexity debt.
+P04,Unproven theorem paradox,Time travel,antinomy (origin),M2;M7,OPEN,Proof copied from future textbook is logically consistent only if a fallback prover branch exists inside the circuit.
+P05,Novikov self-consistency / predestination,Time travel,"principle, not a paradox",C4;M2,PARTIAL,Restricts Cauchy initial data to globally self-consistent histories; Tested in diagonal trials by F19.
+P06,Polchinski billiard,Time travel,falsidical (assumes no self-hit),C4;M2,RESOLVED,"Echeverria, Klinkhammer & Thorne (1991) found glancing self-consistent trajectories, often with multiple fixed points (polchinski_multiplicity)."
+P07,Chronology protection,Time travel,conjecture,C4;M4,OPEN,"Hawking (1992): vacuum stress-energy <T_uv> diverges near compactly generated Cauchy horizons, charging infinite back-reaction."
+P08,Twin paradox,Relativity,veridical,C1;M4;M8,RESOLVED,Worldline proper time tau = int d_tau is path-dependent; non-inertial turnaround breaks frame symmetry (frame-labelled index).
+P09,Ladder / barn paradox,Relativity,falsidical,C1;C4;M4,RESOLVED,Simultaneity of front/rear doors is chart-dependent; causal stress waves propagate <= c.
+P10,Bell's spaceship paradox,Relativity,veridical,C1;M4,RESOLVED,"Identical coordinate acceleration increases proper separation in comoving frame, snapping the thread."
+P11,Ehrenfest paradox,Relativity,veridical,C1;M4,RESOLVED,Born-rigid spin-up of a disk is impossible; spatial slice of rotating congruence has negative spatial curvature.
+P12,EPR paradox,Quantum,veridical,C4,RESOLVED,Bell-nonlocal entanglement correlations violate local hidden variables while preserving exact marginal no-signalling.
+P13,Schrodinger's cat,Quantum,antinomy (interpretive),C2;H3,PARTIAL,Decoherence rapidly exports phase into environment; single definite macro-record requires an interpretive rule.
+P14,Measurement problem,Quantum,open problem (tension),C2;H3,OPEN,Direct tension between strictly unitary evolution (C2) and irreversible single-outcome laboratory records.
+P15,Wigner's friend / Frauchiger-Renner,Quantum,antinomy (claimed),C2;H3,OPEN,Records of nested quantum observers need not compose into a single observer-independent Boolean table.
+P16,Quantum Zeno effect,Quantum,veridical,C1;M6,RESOLVED,Frequent projective queries at rate >> correlation time freeze transitions at the price of measurement back-action energy.
+P17,Hardy's paradox,Quantum,veridical,C4,RESOLVED,Pre- and post-selected non-null branch occurs at small probability without enabling superluminal or backward messaging.
+P18,Quantum Cheshire cat,Quantum,veridical (weak-value),C4,PARTIAL,Weak-value separation of particle path and spin appears only in ensemble averages conditioned on paid postselection; physical ontology contested.
+P19,Three-box paradox (Aharonov-Vaidman),Quantum,veridical (claimed),C4;M2,PARTIAL,Counterfactual certainty in two boxes simultaneously holds only under two-state postselection of rare successful runs.
+P20,Wheeler delayed choice,Quantum,falsidical (if read as retro-signal),C4,RESOLVED,"Choosing wave vs particle readout after entry alters which correlation subset is measured, never past detector marginals."
+P21,Elitzur-Vaidman bomb tester,Quantum,veridical,C4,RESOLVED,Interaction-free detection uses coherent past-cone interference paths with bounded success probability.
+P22,Klein paradox,Quantum,veridical,M6,RESOLVED,Relativistic barrier step > 2mc^2 triggers electron-positron pair creation paid entirely by the electrostatic potential.
+P23,Gibbs paradox,Thermodynamics,falsidical,C1;M5,RESOLVED,1/N! quantum indistinguishability yields 0 mixing entropy for identical gases and 2R ln 2 = 11.53 J/K for distinct gases.
+P24,Loschmidt reversibility paradox,Thermodynamics,antinomy (apparent),C2;H3;M5,RESOLVED,Micro-reversibility (C2) coexists with coarse-grained entropy growth (H3) given atypical low-entropy initial conditions.
+P25,Poincare recurrence (Zermelo),Thermodynamics,veridical,C2;M5,RESOLVED,"Finite bijective systems eventually recur (recurrence theorem), requiring exponential wait exp(S/k_B) and a past hypothesis."
+P26,Maxwell's demon / Szilard engine,Thermodynamics,falsidical,M5;M6,RESOLVED,Sorting work k_B T ln 2 per molecule is repaid when the demon's 1-bit memory register is reset (Landauer floor).
+P27,Mpemba effect,Thermodynamics,veridical (in some systems),H3,PARTIAL,Multi-mode non-equilibrium state is not indexed by mean temperature alone (coarse-record horizon H3).
+P28,Arrow of time / past hypothesis,Thermodynamics,open problem (tension),C2;C4;M5,OPEN,Past-only records require a low-entropy early-universe boundary condition whose dynamical origin remains open.
+P29,Boltzmann brain,Cosmology,antinomy (cognitive instability),C4;H3;M5,OPEN,Thermal de Sitter fluctuations producing fake past-cone records undermine provenance unless cosmological measure suppresses them.
+P30,Olbers' paradox,Cosmology,falsidical (premise),C4;M4,RESOLVED,Finite cosmic age (~13.8 Gyr) and expansion redshift bound integrated past-light-cone starlight.
+P31,Bentley / Seeliger paradox,Cosmology,veridical,M4,RESOLVED,Infinite static Newtonian dust is ill-posed; general relativity replaces it with dynamical Friedmann or rotating metrics.
+P32,Horizon problem,Cosmology,open problem (tension),C4;M4,OPEN,Near-uniform CMB temperature across disjoint post-recombination past cones requires inflation or bounce phase.
+P33,Flatness problem,Cosmology,open problem (tension),M4,OPEN,Near-critical spatial curvature |Omega_k| << 1 requires early accelerated expansion or anthropic/measure selection.
+P34,Cosmological constant problem,Cosmology,open problem (tension),M6;M8,OPEN,Naive Planck QFT cutoff (~4.6e113 J/m^3) exceeds observed rho_Lambda (~5.3e-10 J/m^3) by ~60-123 orders; gravitating zero-point open.
+P35,Hierarchy problem,Cosmology,open problem (tension),M6;M8,OPEN,Electroweak-to-Planck mass ratio (~10^-17) radiative stability unexplained by Compton clock relations alone.
+P36,Black hole information paradox,Black holes,antinomy (unitarity vs thermal),C2;C4;H3,OPEN,"2D/replica island calculations recover the Page curve after scrambling latency, while 4D Kerr microstate mechanism stays open."
+P37,Firewall (AMPS),Black holes,antinomy,C2;C4;H3,OPEN,"Simultaneous unitarity, semi-classical EFT outside the stretched horizon, and smooth infall clash after the Page time."
+P38,Black hole complementarity,Black holes,principle,C4;H3,PARTIAL,No single causal observer can collect both interior infalling and exterior decoded Hawking records before singularity impact.
+P39,Fermi paradox,Cosmology,open problem (tension),C4,OPEN,"Absence of technosignatures inside Earth's past light cone constrains civilization longevity, energy, or broadcast visibility."
+P40,Russell's paradox,Set theory,antinomy,C1,RESOLVED,Unrestricted comprehension fails (no_universal_answer_table); indexes require stratified types or ZFC separation.
+P41,Cantor's paradox,Set theory,antinomy,C1,RESOLVED,|P(Q)| > |Q| forbids a set of all sets and any flat universal predicate index.
+P42,Burali-Forti paradox,Set theory,antinomy (per source),C1,RESOLVED,Well-ordered time/ordinal indices form a proper class rather than a completed self-member ordinal.
+P43,Berry paradox,Logic,antinomy,C1;M7,RESOLVED,'Definable in < k words' is not definable inside the same object language; blocks short self-referential query keys.
+P44,Richard's paradox,Logic,antinomy,C1,RESOLVED,Diagonalization over effective real definitions separates syntax enumeration from semantic truth.
+P45,Liar paradox,Logic,antinomy,C1;M2,RESOLVED,No total Boolean self-oracle exists (no_total_self_oracle); requires Tarski hierarchy or Deutsch p = 1/2 mixture.
+P46,Curry's paradox,Logic,antinomy,C1;M2,RESOLVED,'If this query returns true then P' proves arbitrary P unless self-referential truth predicates are stratified.
+P47,Godel incompleteness,Logic,veridical (theorem),C1;M7,RESOLVED,"No consistent r.e. formal index decides every arithmetic truth; unbounded CTCs reach Delta_2, still below full arithmetic truth."
+P48,Halting problem,Logic,veridical (theorem),C1;M2;M7,RESOLVED,Undecidable on standard Turing machines; polynomial D-CTCs stay in PSPACE while unbounded-width CTCs reach Delta_2.
+P49,Banach-Tarski,Infinity,veridical (per source),C1;C3,RESOLVED,Non-measurable Choice decompositions enforce explicit Lebesgue/Borel measurability requirements on physical observables.
+P50,Skolem's paradox,Logic,veridical,C1,RESOLVED,"Countable models of first-order ZFC lack internal bijections to N, showing cardinality/continuum claims are model-relative."
+P51,Zeno: Achilles and dichotomy,Infinity,falsidical,C1;M1,RESOLVED,Countably many geometric sub-intervals sum to finite duration 1 (zeno_dichotomy).
+P52,Zeno: arrow,Infinity,falsidical,C1;C3,RESOLVED,Single instants have measure zero (instant_measure_zero); velocity is a neighbourhood derivative / conjugate momentum.
+P53,Sorites,Vagueness,antinomy,H3,PARTIAL,Coarse categorical thresholds on continuous variables require probabilistic or supervaluationist boundary accounting.
+P54,Unexpected hanging,Self-reference,antinomy,C1;C4,PARTIAL,Backward induction over self-referential epistemic announcements fails because future surprise depends on current belief state.
+P55,Newcomb's paradox,Prediction,antinomy (decision theory),C4;M2;M7,PARTIAL,Evidential vs causal decision theory diverge when predictor accuracy exceeds 1001/2000 = 0.5005; physical predictor tested by F4/F11.
+P56,Two envelopes,Probability,falsidical,C3,RESOLVED,"Improper uniform prior on (0, inf) invalidates expectation; under any proper integrable prior, net unconditional switching gain is 0."
+P57,St Petersburg paradox,Probability,veridical,C3,RESOLVED,Unbounded expected dollar payoff collapses to finite certainty equivalent (4 under log utility) or finite bankroll cap.
+P58,Simpson's paradox,Probability,veridical,C1;H3,RESOLVED,Aggregating over a confounding stratum reverses marginal rates; queries must declare causal conditioning variables (H3).
+P59,Bertrand paradox,Probability,veridical,C1;C3,RESOLVED,"'Random chord' yields 1/3, 1/2, or 1/4 depending on symmetry group; continuous queries require an explicit measure."
+P60,Galileo's paradox,Infinity,veridical,C1,RESOLVED,"n -> n^2 is injective without surjectivity on infinite N (galileo_squares), separating Dedekind-infinite from finite state conservation."
+P61,Hilbert's hotel,Infinity,veridical (per source),C1;M5,RESOLVED,Nat.succ creates room 0 from thin air only on infinite state spaces (hilbert_hotel); finite Bekenstein systems forbid free slots.
+P62,Thomson's lamp,Supertasks,antinomy (supertask),C1;C3;M6,PARTIAL,Infinite bit-toggling before t = 1 has no limit state and violates Gabor/Margolus-Levitin finite-energy switching bounds.
+P63,Ross-Littlewood paradox,Supertasks,veridical (model-dependent),C1,PARTIAL,Labelled balls leave 0 in the urn while unlabelled count diverges; supertasks lack physical continuity at the limit instant.
+P64,Monty Hall,Probability,veridical (per source),C4;H3,RESOLVED,Host's informed door opening carries 1 bit of past-cone selection structure; switching wins 2/3 (monty_hall).
+P65,Parrondo's paradox,Probability,veridical,M5;M6,RESOLVED,Alternating two losing Markov chains (+1.18 over 100 rounds vs -0.93 and -1.33) acts as a Brownian flashing ratchet paid by switching.
+P66,Kolmogorov / Berry uncomputability,Information,veridical (theorem),M1;M7,RESOLVED,Fewer than 2^(1-k) of n-bit strings compress by k bits (incompressible); exact K(x) is uncomputable.
+P67,Chaitin's Omega,Information,veridical (theorem),M2;M7,RESOLVED,Halting probability bits are algorithmically random; unbounded CTCs (Delta_2) decide halting bits but cannot compress random strings.
+P68,Free information vs conservation,Information,antinomy (if C2 holds),C2;M2;M5,PARTIAL,Unitary conservation (C2) forbids ex nihilo bit creation; Deutsch CTC nonlinearity breaks unitarity on the CR subsystem.
+P69,Bekenstein bound,Information,veridical (bound),C1;C3;M8,RESOLVED,"S <= 2*pi*k_B*R*E/(hbar*c) caps a 1 m, 1 kg region at 2.58e43 bits, forcing discrete finite index capacity."
+P70,Holographic principle,Information,conjecture,C1;C3,PARTIAL,"Boundary area caps bulk degrees of freedom at c^3/(4*G*hbar*ln 2) = 1.38e69 bits/m^2, forbidding infinite spatial/temporal density."
+P71,Jevons paradox,Networks,veridical (empirical),M5;M6,PARTIAL,"Cheaper lookup per query expands aggregate query volume when demand is elastic, raising total joule dissipation."
+P72,Braess's paradox,Networks,veridical,M1,RESOLVED,Adding an unpriced shortcut shifts Nash routing from 65 to 80 minutes; local greedy shortcuts can degrade global latency.
+P73,Landauer's principle (as resolution),Information,veridical (principle),M5;M6,RESOLVED,Irreversible 2-to-1 state reset exports >= k_B T ln 2 = 2.87e-21 J/bit at 300 K while reversible bijections have zero floor.
+P74,Ultraviolet catastrophe,Quantum,falsidical (classical premise),C3;M6,RESOLVED,"Discrete oscillator quanta E = h*nu suppress high-frequency thermal modes exponentially, keeping cavity energy finite."
