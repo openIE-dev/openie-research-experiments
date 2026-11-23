@@ -1,0 +1,78 @@
+{
+  "study_id": "communication-avalanche",
+  "title": "The Communication Tool Avalanche: Thresholded Signal Externalization, Event-Driven Orchestration, and Coherence per Joule",
+  "preregistration_version": "1.0.0",
+  "locked_at_utc": "2026-11-23T09:04:00Z",
+  "fixed_seed": 20261123,
+  "execution_host_target": "djc-asus-rog (Linux x86_64, /tmp/wave5_cta_models)",
+  "board_metered": false,
+  "models": {
+    "CA-M1": {
+      "name": "Bacterial Cooperative Quorum Switch vs. Constitutive Expression",
+      "genome_genes_total": 5000,
+      "quorum_regulated_genes": 600,
+      "hill_exponents": [1, 2, 4],
+      "density_ratio_grid": [0.05, 0.1, 0.2, 0.25, 0.4, 0.6, 0.8, 1.0, 1.25, 1.5, 2.0, 3.0, 4.0],
+      "diffusivity_loss_rates": [0.1, 0.5, 2.0],
+      "noise_sigma_over_K": 0.25,
+      "monte_carlo_trials": 2000,
+      "pass_criteria": {
+        "low_density_quorum_regulon_energy_saving_min_frac": 0.70,
+        "cooperative_n2_vs_n1_false_fire_reduction_min_ratio": 2.0
+      }
+    },
+    "CA-M2": {
+      "name": "Cyanobacterial 20-Cell Filament with Ca2+-Gated SepJ Nanopores",
+      "filament_cells": 20,
+      "dt_sec": 0.002,
+      "horizon_sec": 20.0,
+      "pore_exchange_rate_per_sec": 4.0,
+      "closure_latencies_sec": [0.05, 0.15, 0.30, 0.60, 1.20, 2.50, 5.00],
+      "viability_metabolite_threshold": 0.50,
+      "pass_criteria": {
+        "fast_sepj_surviving_fraction_min": 0.90,
+        "ungated_surviving_fraction_max": 0.10
+      }
+    },
+    "CA-M3": {
+      "name": "3D Topological k-Neighbor vs. Metric-Radius Flock Under Predator Strike and 4x Expansion",
+      "flock_sizes": [64, 128, 256, 512],
+      "topological_k": 7,
+      "expansion_factor_linear": 4.0,
+      "trials_per_size": 8,
+      "pass_criteria": {
+        "topological_connected_cohesion_min_frac": 0.98,
+        "topological_xi_over_L_band": [0.25, 0.45],
+        "metric_post_expansion_largest_component_max_frac": 0.40
+      }
+    },
+    "CA-M4": {
+      "name": "Physarum Adaptive Poiseuille Tube Network Convergence and Cost-Fault-Tolerance Tradeoff",
+      "node_counts": [8, 16],
+      "mu_exponents_8node": [0.6, 1.0, 1.3, 1.8],
+      "mu_exponents_16node": [0.8, 1.0, 1.2, 1.4, 1.6, 2.0],
+      "pass_criteria": {
+        "superlinear_shortest_path_flux_share_min": 0.99,
+        "pareto_biological_regime_cost_below_2_5x_mst": true
+      }
+    },
+    "CA-M5": {
+      "name": "20-Generation Cultural/Machine Ratchet After Synthetic Demonstrator Removal at Generation 5",
+      "agents_per_generation": 32,
+      "generations": 20,
+      "machine_demonstrator_count": 4,
+      "machine_removal_generation": 5,
+      "independent_lineages": 30,
+      "regimes": [
+        "no_machine_baseline",
+        "unverified_imitation",
+        "prestige_biased_imitation",
+        "attested_externalized_library"
+      ],
+      "pass_criteria": {
+        "attested_gen20_skill_retention_min": 0.99,
+        "attested_exceeds_unverified_at_gen20": true
+      }
+    }
+  }
+}

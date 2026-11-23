@@ -1,0 +1,241 @@
+{
+  "experiment": "CTA-E5-Calibration-LUT",
+  "calibration_probes_total": 15,
+  "zero_test_overlap": true,
+  "intel_i9_13900h_rapl_reported_j": {
+    "host_id": "intel_i9_13900h",
+    "board_metered": false,
+    "calibration_probes_total": 15,
+    "zero_test_overlap": true,
+    "camp_profiles": [
+      {
+        "camp_id": "C1_Autoregressive_LLM_Solo",
+        "calibration_probes": 15,
+        "cal_pass_count": 9,
+        "cal_false_commits": 6,
+        "cal_mean_latency_ms": 0.0521,
+        "cal_vdd_cpu_soc_measured_mj_per_probe": null,
+        "cal_pkg_reported_mj_per_probe": 2.7018,
+        "cal_cloud_usd_per_probe": 0.000275,
+        "ssp_cost_weight_uj": 43932
+      },
+      {
+        "camp_id": "C2_Symbolic_Constraint_Solo",
+        "calibration_probes": 15,
+        "cal_pass_count": 4,
+        "cal_false_commits": 0,
+        "cal_mean_latency_ms": 0.0096,
+        "cal_vdd_cpu_soc_measured_mj_per_probe": null,
+        "cal_pkg_reported_mj_per_probe": 0.2661,
+        "cal_cloud_usd_per_probe": 0.0,
+        "ssp_cost_weight_uj": 266
+      },
+      {
+        "camp_id": "C3_Latent_EBM_Scorer_Solo",
+        "calibration_probes": 15,
+        "cal_pass_count": 6,
+        "cal_false_commits": 9,
+        "cal_mean_latency_ms": 1.3591,
+        "cal_vdd_cpu_soc_measured_mj_per_probe": null,
+        "cal_pkg_reported_mj_per_probe": 34.6613,
+        "cal_cloud_usd_per_probe": 0.0,
+        "ssp_cost_weight_uj": 34661
+      },
+      {
+        "camp_id": "C4_MCTS_Rollout_Search_Solo",
+        "calibration_probes": 15,
+        "cal_pass_count": 1,
+        "cal_false_commits": 3,
+        "cal_mean_latency_ms": 0.1488,
+        "cal_vdd_cpu_soc_measured_mj_per_probe": null,
+        "cal_pkg_reported_mj_per_probe": 3.6239,
+        "cal_cloud_usd_per_probe": 0.0,
+        "ssp_cost_weight_uj": 3624
+      },
+      {
+        "camp_id": "C5_Episodic_Case_Store_Solo",
+        "calibration_probes": 15,
+        "cal_pass_count": 3,
+        "cal_false_commits": 0,
+        "cal_mean_latency_ms": 0.0022,
+        "cal_vdd_cpu_soc_measured_mj_per_probe": null,
+        "cal_pkg_reported_mj_per_probe": 0.0583,
+        "cal_cloud_usd_per_probe": 0.0,
+        "ssp_cost_weight_uj": 58
+      },
+      {
+        "camp_id": "C6_Evolutionary_Program_Mutator_Solo",
+        "calibration_probes": 15,
+        "cal_pass_count": 0,
+        "cal_false_commits": 4,
+        "cal_mean_latency_ms": 1.6684,
+        "cal_vdd_cpu_soc_measured_mj_per_probe": null,
+        "cal_pkg_reported_mj_per_probe": 40.5235,
+        "cal_cloud_usd_per_probe": 0.0,
+        "ssp_cost_weight_uj": 40523
+      },
+      {
+        "camp_id": "C7_Causal_Bayesian_DoCalc_Solo",
+        "calibration_probes": 15,
+        "cal_pass_count": 2,
+        "cal_false_commits": 0,
+        "cal_mean_latency_ms": 0.0018,
+        "cal_vdd_cpu_soc_measured_mj_per_probe": null,
+        "cal_pkg_reported_mj_per_probe": 0.0465,
+        "cal_cloud_usd_per_probe": 0.0,
+        "ssp_cost_weight_uj": 46
+      },
+      {
+        "camp_id": "C8_SubSymbolic_LUT_Automaton_Solo",
+        "calibration_probes": 15,
+        "cal_pass_count": 3,
+        "cal_false_commits": 0,
+        "cal_mean_latency_ms": 0.0046,
+        "cal_vdd_cpu_soc_measured_mj_per_probe": null,
+        "cal_pkg_reported_mj_per_probe": 0.1201,
+        "cal_cloud_usd_per_probe": 0.0,
+        "ssp_cost_weight_uj": 120
+      },
+      {
+        "camp_id": "C9_MultiAgent_NL_Debate_Solo",
+        "calibration_probes": 15,
+        "cal_pass_count": 8,
+        "cal_false_commits": 7,
+        "cal_mean_latency_ms": 0.0591,
+        "cal_vdd_cpu_soc_measured_mj_per_probe": null,
+        "cal_pkg_reported_mj_per_probe": 1.6072,
+        "cal_cloud_usd_per_probe": 0.001125,
+        "ssp_cost_weight_uj": 170427
+      },
+      {
+        "camp_id": "C10_Embodied_Sandbox_Perturb_Solo",
+        "calibration_probes": 15,
+        "cal_pass_count": 0,
+        "cal_false_commits": 5,
+        "cal_mean_latency_ms": 0.994,
+        "cal_vdd_cpu_soc_measured_mj_per_probe": null,
+        "cal_pkg_reported_mj_per_probe": 24.7987,
+        "cal_cloud_usd_per_probe": 0.0,
+        "ssp_cost_weight_uj": 24799
+      }
+    ]
+  },
+  "jetson_agx_thor_ina_shunt_measured_j": {
+    "host_id": "jetson_agx_thor",
+    "board_metered": true,
+    "calibration_probes_total": 15,
+    "zero_test_overlap": true,
+    "camp_profiles": [
+      {
+        "camp_id": "C1_Autoregressive_LLM_Solo",
+        "calibration_probes": 15,
+        "cal_pass_count": 9,
+        "cal_false_commits": 6,
+        "cal_mean_latency_ms": 0.0795,
+        "cal_vdd_cpu_soc_measured_mj_per_probe": 1.0065,
+        "cal_pkg_reported_mj_per_probe": null,
+        "cal_cloud_usd_per_probe": 0.000275,
+        "ssp_cost_weight_uj": 42236
+      },
+      {
+        "camp_id": "C2_Symbolic_Constraint_Solo",
+        "calibration_probes": 15,
+        "cal_pass_count": 4,
+        "cal_false_commits": 0,
+        "cal_mean_latency_ms": 0.0167,
+        "cal_vdd_cpu_soc_measured_mj_per_probe": 0.223,
+        "cal_pkg_reported_mj_per_probe": null,
+        "cal_cloud_usd_per_probe": 0.0,
+        "ssp_cost_weight_uj": 223
+      },
+      {
+        "camp_id": "C3_Latent_EBM_Scorer_Solo",
+        "calibration_probes": 15,
+        "cal_pass_count": 6,
+        "cal_false_commits": 9,
+        "cal_mean_latency_ms": 2.2639,
+        "cal_vdd_cpu_soc_measured_mj_per_probe": 32.5124,
+        "cal_pkg_reported_mj_per_probe": null,
+        "cal_cloud_usd_per_probe": 0.0,
+        "ssp_cost_weight_uj": 32512
+      },
+      {
+        "camp_id": "C4_MCTS_Rollout_Search_Solo",
+        "calibration_probes": 15,
+        "cal_pass_count": 1,
+        "cal_false_commits": 3,
+        "cal_mean_latency_ms": 0.2819,
+        "cal_vdd_cpu_soc_measured_mj_per_probe": 4.2966,
+        "cal_pkg_reported_mj_per_probe": null,
+        "cal_cloud_usd_per_probe": 0.0,
+        "ssp_cost_weight_uj": 4297
+      },
+      {
+        "camp_id": "C5_Episodic_Case_Store_Solo",
+        "calibration_probes": 15,
+        "cal_pass_count": 3,
+        "cal_false_commits": 0,
+        "cal_mean_latency_ms": 0.0011,
+        "cal_vdd_cpu_soc_measured_mj_per_probe": 0.0178,
+        "cal_pkg_reported_mj_per_probe": null,
+        "cal_cloud_usd_per_probe": 0.0,
+        "ssp_cost_weight_uj": 18
+      },
+      {
+        "camp_id": "C6_Evolutionary_Program_Mutator_Solo",
+        "calibration_probes": 15,
+        "cal_pass_count": 1,
+        "cal_false_commits": 3,
+        "cal_mean_latency_ms": 2.6088,
+        "cal_vdd_cpu_soc_measured_mj_per_probe": 45.1689,
+        "cal_pkg_reported_mj_per_probe": null,
+        "cal_cloud_usd_per_probe": 0.0,
+        "ssp_cost_weight_uj": 45169
+      },
+      {
+        "camp_id": "C7_Causal_Bayesian_DoCalc_Solo",
+        "calibration_probes": 15,
+        "cal_pass_count": 2,
+        "cal_false_commits": 0,
+        "cal_mean_latency_ms": 0.0005,
+        "cal_vdd_cpu_soc_measured_mj_per_probe": 0.0098,
+        "cal_pkg_reported_mj_per_probe": null,
+        "cal_cloud_usd_per_probe": 0.0,
+        "ssp_cost_weight_uj": 10
+      },
+      {
+        "camp_id": "C8_SubSymbolic_LUT_Automaton_Solo",
+        "calibration_probes": 15,
+        "cal_pass_count": 3,
+        "cal_false_commits": 0,
+        "cal_mean_latency_ms": 0.0049,
+        "cal_vdd_cpu_soc_measured_mj_per_probe": 0.0873,
+        "cal_pkg_reported_mj_per_probe": null,
+        "cal_cloud_usd_per_probe": 0.0,
+        "ssp_cost_weight_uj": 87
+      },
+      {
+        "camp_id": "C9_MultiAgent_NL_Debate_Solo",
+        "calibration_probes": 15,
+        "cal_pass_count": 8,
+        "cal_false_commits": 7,
+        "cal_mean_latency_ms": 0.2952,
+        "cal_vdd_cpu_soc_measured_mj_per_probe": 5.1389,
+        "cal_pkg_reported_mj_per_probe": null,
+        "cal_cloud_usd_per_probe": 0.001125,
+        "ssp_cost_weight_uj": 173959
+      },
+      {
+        "camp_id": "C10_Embodied_Sandbox_Perturb_Solo",
+        "calibration_probes": 15,
+        "cal_pass_count": 0,
+        "cal_false_commits": 5,
+        "cal_mean_latency_ms": 1.4966,
+        "cal_vdd_cpu_soc_measured_mj_per_probe": 24.6728,
+        "cal_pkg_reported_mj_per_probe": null,
+        "cal_cloud_usd_per_probe": 0.0,
+        "ssp_cost_weight_uj": 24673
+      }
+    ]
+  }
+}

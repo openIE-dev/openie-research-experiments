@@ -1,0 +1,2084 @@
+{
+  "schema": "openie.rce_compile.e4_rlib_prelude.v1",
+  "prereg_id": "rce-compile-wave5-e4-prelude-rlib-2026-11-23",
+  "prereg_sha256": "1ba4f28abfaa3783079da01b61cf9bbdff9ff9e441ca0bcbcdfdf5d546735998",
+  "wave4_prereg_sha256": "165a12cda4d9c3043ab8803362fe83aa3e17ad7ea5dea505d3c9dc78105b3c4b",
+  "recorded_utc": "2026-11-23T11:09:47Z",
+  "bench_root": "$BENCH_ROOT",
+  "machine": {
+    "os": "Linux 7.0.0-43-generic x86_64",
+    "cpu_model": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S",
+    "logical_cpus": 32,
+    "pinned_cpu": 0,
+    "loadavg_pre": [
+      6.56,
+      6.67,
+      8.35
+    ],
+    "loadavg_post": [
+      8.12,
+      7.84,
+      8.46
+    ]
+  },
+  "provenance": {
+    "basis": "reported",
+    "regime": "B",
+    "board_metered": false,
+    "measured_j": null,
+    "core_counter": "/sys/class/powercap/intel-rapl:0:0/energy_uj",
+    "package_counter": "/sys/class/powercap/intel-rapl:0/energy_uj",
+    "idle_core_pre_w": 1.328,
+    "idle_core_post_w": 1.878,
+    "idle_core_drift_pct": 41.44,
+    "idle_pkg_pre_w": 49.825,
+    "idle_pkg_post_w": 51.517,
+    "idle_pkg_drift_pct": 3.4,
+    "pkg_wraps": 0,
+    "core_wraps": 0
+  },
+  "toolchains": {
+    "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+    "rce": "rce commit 1762fb4bb65a (RCE specification draft 0.9; one language, release label 0.9)",
+    "node": "v22.22.1"
+  },
+  "one_time_rlib_build": {
+    "rce_rt_lines": 2286,
+    "rce_rt_bytes": 143427,
+    "rce_rt_sha256": "949fdae513fb57744fe0c5c0b7602a6dd4a50dfbe715e6e6c47f7d8d9639086e",
+    "rlib_bytes": 5409636,
+    "rlib_sha256": "ecfdc64c8d5f141e15ea8135e14f38d30ccd13c4aa3ac6ce1d2c42c205e9053b",
+    "rlib_reproducible_across_trials": true,
+    "trials": 5,
+    "core_reported_j": 66.034381,
+    "core_iqr_j": [
+      63.614569,
+      67.875076
+    ],
+    "pkg_reported_j": 575.647874,
+    "core_net_reported_j": 19.194316,
+    "wall_s": 7.103779,
+    "wall_ms": 7103.779
+  },
+  "summary_15th_tier": {
+    "tier_name": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+    "kernels_count": 20,
+    "checksum_mismatches": 0,
+    "median_compile_core_j": 2.805298,
+    "median_compile_pkg_j": 27.045392,
+    "median_compile_wall_s": 0.304103,
+    "median_compile_wall_ms": 304.103,
+    "median_artifact_bytes": 5303456,
+    "median_artifact_stripped_bytes": 944544,
+    "median_run_core_uj": 1212.0345,
+    "median_run_pkg_uj": 8864.8217,
+    "median_run_ns": 94571.74,
+    "wave4_monolithic_median_compile_core_j": 56.292484,
+    "wave4_monolithic_median_compile_wall_s": 7.473833,
+    "samesession_monolithic_median_compile_core_j": 44.45133,
+    "samesession_monolithic_median_compile_wall_s": 4.996607,
+    "compile_core_reduction_vs_wave4_x": 20.07,
+    "compile_wall_speedup_vs_wave4_x": 24.58,
+    "compile_core_reduction_vs_samesession_x": 15.85,
+    "compile_wall_speedup_vs_samesession_x": 16.43,
+    "total_20kernel_suite_monolithic_wave4_core_j": 1108.0123,
+    "total_20kernel_suite_rlib_incl_onetime_core_j": 128.1678
+  },
+  "payback_horizon_summary": {
+    "marginal_vs_wave4_js": {
+      "finite_count": 17,
+      "immediate_dominance_count": 0,
+      "never_pays_back_count": 3,
+      "median_finite_n_star": 1079,
+      "median_paying_n_star_incl_zero": 1079,
+      "min_paying_n_star": 404,
+      "max_paying_n_star": 5650
+    },
+    "amortized20_vs_wave4_js": {
+      "finite_count": 17,
+      "immediate_dominance_count": 0,
+      "never_pays_back_count": 3,
+      "median_finite_n_star": 3110,
+      "median_paying_n_star_incl_zero": 3110,
+      "min_paying_n_star": 1294,
+      "max_paying_n_star": 9326
+    },
+    "cold1kernel_vs_wave4_js": {
+      "finite_count": 17,
+      "immediate_dominance_count": 0,
+      "never_pays_back_count": 3,
+      "median_finite_n_star": 37744,
+      "median_paying_n_star_incl_zero": 37744,
+      "min_paying_n_star": 18198,
+      "max_paying_n_star": 79159
+    },
+    "marginal_vs_samesession_js": {
+      "finite_count": 18,
+      "immediate_dominance_count": 0,
+      "never_pays_back_count": 2,
+      "median_finite_n_star": 1974,
+      "median_paying_n_star_incl_zero": 1974,
+      "min_paying_n_star": 732,
+      "max_paying_n_star": 56133
+    },
+    "amortized20_vs_samesession_js": {
+      "finite_count": 18,
+      "immediate_dominance_count": 0,
+      "never_pays_back_count": 2,
+      "median_finite_n_star": 4908,
+      "median_paying_n_star_incl_zero": 4908,
+      "min_paying_n_star": 2166,
+      "max_paying_n_star": 91474
+    }
+  },
+  "falsifiers_check": {
+    "F1_checksum_mismatch_triggered": false,
+    "F2_less_than_10x_compile_reduction_triggered": false,
+    "F6_idle_pkg_drift_gt_10pct_flag": false,
+    "F6_idle_core_drift_gt_10pct_flag": true
+  },
+  "kernels": [
+    {
+      "kernel_id": "k01_sha256_block",
+      "domain": "crypto",
+      "description": "Integer SHA-256 64-round compression schedule & state fold",
+      "verified_checksum_2000": 1914950740,
+      "checksum_matches_wave4": true,
+      "wave4_monolithic_compile_core_j": 60.274807,
+      "wave4_monolithic_compile_wall_s": 8.202307,
+      "wave4_monolithic_run_core_j": 0.0033404335,
+      "wave4_js_compile_core_j": 1.001184,
+      "wave4_js_run_core_j": 0.006237539,
+      "shared_rlib_tier": {
+        "compile_wall_s": 0.586521,
+        "compile_wall_ms": 586.521,
+        "compile_core_reported_j": 5.436273,
+        "compile_core_iqr_j": [
+          5.383587,
+          5.492956
+        ],
+        "compile_pkg_reported_j": 49.431831,
+        "compile_core_net_reported_j": 2.067694,
+        "thin_rs_lines": 255,
+        "thin_rs_bytes": 13798,
+        "artifact_bytes": 5342160,
+        "artifact_stripped_bytes": 983432,
+        "run_wall_s": 0.00030644266550370957,
+        "run_core_reported_j": 0.004043576,
+        "run_core_iqr_j": [
+          0.0039790575,
+          0.0041834155
+        ],
+        "run_pkg_reported_j": 0.026087037499999997,
+        "batch_iters": 2000,
+        "verify_checksum_2000": 1914950740
+      },
+      "samesession_monolithic": {
+        "compile_wall_s": 5.251407,
+        "compile_core_reported_j": 46.014253,
+        "compile_pkg_reported_j": 503.626116
+      },
+      "samesession_node_js": {
+        "compile_wall_s": 0.071399,
+        "compile_core_reported_j": 0.852215,
+        "compile_pkg_reported_j": 7.226514,
+        "run_wall_s": 0.0004775787969992962,
+        "run_core_reported_j": 0.005566850999999999,
+        "run_pkg_reported_j": 0.04194637799999999
+      },
+      "compile_core_energy_reduction_vs_wave4_x": 11.09,
+      "compile_core_energy_reduction_vs_samesession_x": 8.46,
+      "payback_horizons": {
+        "marginal_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 4.435089,
+          "delta_run_core_j": 0.002193963,
+          "n_star_invocations": 2022,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 7.736808,
+          "delta_run_core_j": 0.002193963,
+          "n_star_invocations": 3527,
+          "status": "finite_payback"
+        },
+        "cold1kernel_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+full .rlib]",
+          "delta_compile_core_j": 70.46947,
+          "delta_run_core_j": 0.002193963,
+          "n_star_invocations": 32120,
+          "status": "finite_payback"
+        },
+        "marginal_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 4.584058,
+          "delta_run_core_j": 0.001523275,
+          "n_star_invocations": 3010,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 7.885777,
+          "delta_run_core_j": 0.001523275,
+          "n_star_invocations": 5177,
+          "status": "finite_payback"
+        }
+      }
+    },
+    {
+      "kernel_id": "k02_chacha20_block",
+      "domain": "crypto",
+      "description": "ChaCha20 20-round ARX quarter-round stream block",
+      "verified_checksum_2000": 3448615395,
+      "checksum_matches_wave4": true,
+      "wave4_monolithic_compile_core_j": 63.166777,
+      "wave4_monolithic_compile_wall_s": 8.393962,
+      "wave4_monolithic_run_core_j": 0.0035550679999999998,
+      "wave4_js_compile_core_j": 0.955166,
+      "wave4_js_run_core_j": 0.004404320999999999,
+      "shared_rlib_tier": {
+        "compile_wall_s": 0.648681,
+        "compile_wall_ms": 648.681,
+        "compile_core_reported_j": 6.030237,
+        "compile_core_iqr_j": [
+          5.252429,
+          8.426276
+        ],
+        "compile_pkg_reported_j": 62.200519,
+        "compile_core_net_reported_j": 1.615155,
+        "thin_rs_lines": 269,
+        "thin_rs_bytes": 13636,
+        "artifact_bytes": 5330560,
+        "artifact_stripped_bytes": 971832,
+        "run_wall_s": 0.0002895495619959547,
+        "run_core_reported_j": 0.003506006,
+        "run_core_iqr_j": [
+          0.003462208,
+          0.0035325549999999997
+        ],
+        "run_pkg_reported_j": 0.027230411,
+        "batch_iters": 2000,
+        "verify_checksum_2000": 3448615395
+      },
+      "samesession_monolithic": {
+        "compile_wall_s": 5.306159,
+        "compile_core_reported_j": 46.502081,
+        "compile_pkg_reported_j": 482.919972
+      },
+      "samesession_node_js": {
+        "compile_wall_s": 0.063487,
+        "compile_core_reported_j": 0.786016,
+        "compile_pkg_reported_j": 3.574695,
+        "run_wall_s": 0.0003068816849990981,
+        "run_core_reported_j": 0.003599431,
+        "run_pkg_reported_j": 0.0205439815
+      },
+      "compile_core_energy_reduction_vs_wave4_x": 10.48,
+      "compile_core_energy_reduction_vs_samesession_x": 7.71,
+      "payback_horizons": {
+        "marginal_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 5.075071,
+          "delta_run_core_j": 0.000898315,
+          "n_star_invocations": 5650,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 8.37679,
+          "delta_run_core_j": 0.000898315,
+          "n_star_invocations": 9326,
+          "status": "finite_payback"
+        },
+        "cold1kernel_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+full .rlib]",
+          "delta_compile_core_j": 71.109452,
+          "delta_run_core_j": 0.000898315,
+          "n_star_invocations": 79159,
+          "status": "finite_payback"
+        },
+        "marginal_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 5.244221,
+          "delta_run_core_j": 9.3425e-05,
+          "n_star_invocations": 56133,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 8.54594,
+          "delta_run_core_j": 9.3425e-05,
+          "n_star_invocations": 91474,
+          "status": "finite_payback"
+        }
+      }
+    },
+    {
+      "kernel_id": "k03_q32_orbital",
+      "domain": "physics",
+      "description": "Fixed-point Q16.16/Q32 symplectic 2-body orbital step",
+      "verified_checksum_2000": 2745811975,
+      "checksum_matches_wave4": true,
+      "wave4_monolithic_compile_core_j": 54.114389,
+      "wave4_monolithic_compile_wall_s": 7.528981,
+      "wave4_monolithic_run_core_j": 0.0004139035,
+      "wave4_js_compile_core_j": 0.906829,
+      "wave4_js_run_core_j": 0.0019007805,
+      "shared_rlib_tier": {
+        "compile_wall_s": 0.296235,
+        "compile_wall_ms": 296.235,
+        "compile_core_reported_j": 2.902056,
+        "compile_core_iqr_j": [
+          2.897707,
+          2.948395
+        ],
+        "compile_pkg_reported_j": 16.687934,
+        "compile_core_net_reported_j": 2.656023,
+        "thin_rs_lines": 192,
+        "thin_rs_bytes": 7870,
+        "artifact_bytes": 5296048,
+        "artifact_stripped_bytes": 938016,
+        "run_wall_s": 3.068529449956259e-05,
+        "run_core_reported_j": 0.0004523385,
+        "run_core_iqr_j": [
+          0.00044821149999999996,
+          0.0004572365
+        ],
+        "run_pkg_reported_j": 0.0017420665,
+        "batch_iters": 2000,
+        "verify_checksum_2000": 2745811975
+      },
+      "samesession_monolithic": {
+        "compile_wall_s": 4.686296,
+        "compile_core_reported_j": 44.904645,
+        "compile_pkg_reported_j": 285.39706
+      },
+      "samesession_node_js": {
+        "compile_wall_s": 0.056496,
+        "compile_core_reported_j": 0.720173,
+        "compile_pkg_reported_j": 3.035101,
+        "run_wall_s": 0.00013057395349460422,
+        "run_core_reported_j": 0.001477409,
+        "run_pkg_reported_j": 0.006547841
+      },
+      "compile_core_energy_reduction_vs_wave4_x": 18.65,
+      "compile_core_energy_reduction_vs_samesession_x": 15.47,
+      "payback_horizons": {
+        "marginal_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 1.995227,
+          "delta_run_core_j": 0.001448442,
+          "n_star_invocations": 1378,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 5.296946,
+          "delta_run_core_j": 0.001448442,
+          "n_star_invocations": 3657,
+          "status": "finite_payback"
+        },
+        "cold1kernel_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+full .rlib]",
+          "delta_compile_core_j": 68.029608,
+          "delta_run_core_j": 0.001448442,
+          "n_star_invocations": 46968,
+          "status": "finite_payback"
+        },
+        "marginal_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 2.181883,
+          "delta_run_core_j": 0.001025071,
+          "n_star_invocations": 2129,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 5.483602,
+          "delta_run_core_j": 0.001025071,
+          "n_star_invocations": 5350,
+          "status": "finite_payback"
+        }
+      }
+    },
+    {
+      "kernel_id": "k04_crc32_ieee",
+      "domain": "checksum",
+      "description": "Bitwise IEEE 802.3 CRC-32 (0xEDB88320) over 64-byte frame",
+      "verified_checksum_2000": 2171189930,
+      "checksum_matches_wave4": true,
+      "wave4_monolithic_compile_core_j": 55.217695,
+      "wave4_monolithic_compile_wall_s": 7.343109,
+      "wave4_monolithic_run_core_j": 0.000992014,
+      "wave4_js_compile_core_j": 0.843359,
+      "wave4_js_run_core_j": 0.0032720249999999996,
+      "shared_rlib_tier": {
+        "compile_wall_s": 0.230152,
+        "compile_wall_ms": 230.152,
+        "compile_core_reported_j": 2.286808,
+        "compile_core_iqr_j": [
+          2.273198,
+          2.302234
+        ],
+        "compile_pkg_reported_j": 11.234359,
+        "compile_core_net_reported_j": 2.088598,
+        "thin_rs_lines": 188,
+        "thin_rs_bytes": 6376,
+        "artifact_bytes": 5284992,
+        "artifact_stripped_bytes": 926904,
+        "run_wall_s": 7.841522750095464e-05,
+        "run_core_reported_j": 0.001155908,
+        "run_core_iqr_j": [
+          0.0011544505,
+          0.0011588375
+        ],
+        "run_pkg_reported_j": 0.0040561795,
+        "batch_iters": 2000,
+        "verify_checksum_2000": 2171189930
+      },
+      "samesession_monolithic": {
+        "compile_wall_s": 4.37136,
+        "compile_core_reported_j": 44.114265,
+        "compile_pkg_reported_j": 217.798109
+      },
+      "samesession_node_js": {
+        "compile_wall_s": 0.047343,
+        "compile_core_reported_j": 0.607157,
+        "compile_pkg_reported_j": 2.445318,
+        "run_wall_s": 0.00021288032250595278,
+        "run_core_reported_j": 0.002632066,
+        "run_pkg_reported_j": 0.0115599875
+      },
+      "compile_core_energy_reduction_vs_wave4_x": 24.15,
+      "compile_core_energy_reduction_vs_samesession_x": 19.29,
+      "payback_horizons": {
+        "marginal_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 1.443449,
+          "delta_run_core_j": 0.002116117,
+          "n_star_invocations": 683,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 4.745168,
+          "delta_run_core_j": 0.002116117,
+          "n_star_invocations": 2243,
+          "status": "finite_payback"
+        },
+        "cold1kernel_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+full .rlib]",
+          "delta_compile_core_j": 67.47783,
+          "delta_run_core_j": 0.002116117,
+          "n_star_invocations": 31888,
+          "status": "finite_payback"
+        },
+        "marginal_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 1.679651,
+          "delta_run_core_j": 0.001476158,
+          "n_star_invocations": 1138,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 4.98137,
+          "delta_run_core_j": 0.001476158,
+          "n_star_invocations": 3375,
+          "status": "finite_payback"
+        }
+      }
+    },
+    {
+      "kernel_id": "k05_lz77_match",
+      "domain": "compression",
+      "description": "Sliding-window LZ77 longest-match finder over 64-symbol buffer",
+      "verified_checksum_2000": 1044367376,
+      "checksum_matches_wave4": true,
+      "wave4_monolithic_compile_core_j": 56.774697,
+      "wave4_monolithic_compile_wall_s": 7.452561,
+      "wave4_monolithic_run_core_j": 0.008586264,
+      "wave4_js_compile_core_j": 0.918791,
+      "wave4_js_run_core_j": 0.0117279015,
+      "shared_rlib_tier": {
+        "compile_wall_s": 0.28189,
+        "compile_wall_ms": 281.89,
+        "compile_core_reported_j": 2.779596,
+        "compile_core_iqr_j": [
+          2.763407,
+          3.313671
+        ],
+        "compile_pkg_reported_j": 15.920685,
+        "compile_core_net_reported_j": 2.548679,
+        "thin_rs_lines": 212,
+        "thin_rs_bytes": 7749,
+        "artifact_bytes": 5303416,
+        "artifact_stripped_bytes": 944504,
+        "run_wall_s": 0.0006424898434997886,
+        "run_core_reported_j": 0.008065775499999999,
+        "run_core_iqr_j": [
+          0.007940683,
+          0.0082567145
+        ],
+        "run_pkg_reported_j": 0.0464483805,
+        "batch_iters": 2000,
+        "verify_checksum_2000": 1044367376
+      },
+      "samesession_monolithic": {
+        "compile_wall_s": 4.908558,
+        "compile_core_reported_j": 42.994191,
+        "compile_pkg_reported_j": 525.183305
+      },
+      "samesession_node_js": {
+        "compile_wall_s": 0.056399,
+        "compile_core_reported_j": 0.665747,
+        "compile_pkg_reported_j": 6.512018,
+        "run_wall_s": 0.0006718521430011606,
+        "run_core_reported_j": 0.008294142,
+        "run_pkg_reported_j": 0.07842383149999999
+      },
+      "compile_core_energy_reduction_vs_wave4_x": 20.43,
+      "compile_core_energy_reduction_vs_samesession_x": 15.47,
+      "payback_horizons": {
+        "marginal_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 1.860805,
+          "delta_run_core_j": 0.003662126,
+          "n_star_invocations": 509,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 5.162524,
+          "delta_run_core_j": 0.003662126,
+          "n_star_invocations": 1410,
+          "status": "finite_payback"
+        },
+        "cold1kernel_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+full .rlib]",
+          "delta_compile_core_j": 67.895186,
+          "delta_run_core_j": 0.003662126,
+          "n_star_invocations": 18540,
+          "status": "finite_payback"
+        },
+        "marginal_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 2.113849,
+          "delta_run_core_j": 0.000228367,
+          "n_star_invocations": 9257,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 5.415568,
+          "delta_run_core_j": 0.000228367,
+          "n_star_invocations": 23715,
+          "status": "finite_payback"
+        }
+      }
+    },
+    {
+      "kernel_id": "k06_dijkstra_grid",
+      "domain": "graph",
+      "description": "Dijkstra shortest-path relaxation over 16-node weighted graph",
+      "verified_checksum_2000": 2148166170,
+      "checksum_matches_wave4": true,
+      "wave4_monolithic_compile_core_j": 53.160977,
+      "wave4_monolithic_compile_wall_s": 7.357024,
+      "wave4_monolithic_run_core_j": 0.0029880885,
+      "wave4_js_compile_core_j": 0.859218,
+      "wave4_js_run_core_j": 0.0052640715,
+      "shared_rlib_tier": {
+        "compile_wall_s": 0.363469,
+        "compile_wall_ms": 363.469,
+        "compile_core_reported_j": 3.210192,
+        "compile_core_iqr_j": [
+          3.090462,
+          3.268584
+        ],
+        "compile_pkg_reported_j": 34.905116,
+        "compile_core_net_reported_j": 1.197914,
+        "thin_rs_lines": 223,
+        "thin_rs_bytes": 8524,
+        "artifact_bytes": 5306752,
+        "artifact_stripped_bytes": 947856,
+        "run_wall_s": 0.00024268137599574402,
+        "run_core_reported_j": 0.0030849465,
+        "run_core_iqr_j": [
+          0.0029245695,
+          0.0031364495
+        ],
+        "run_pkg_reported_j": 0.022723648,
+        "batch_iters": 2000,
+        "verify_checksum_2000": 2148166170
+      },
+      "samesession_monolithic": {
+        "compile_wall_s": 4.982204,
+        "compile_core_reported_j": 43.732327,
+        "compile_pkg_reported_j": 438.007775
+      },
+      "samesession_node_js": {
+        "compile_wall_s": 0.055721,
+        "compile_core_reported_j": 0.651476,
+        "compile_pkg_reported_j": 3.980151,
+        "run_wall_s": 0.000338813233502151,
+        "run_core_reported_j": 0.0038467249999999996,
+        "run_pkg_reported_j": 0.0289797635
+      },
+      "compile_core_energy_reduction_vs_wave4_x": 16.56,
+      "compile_core_energy_reduction_vs_samesession_x": 13.62,
+      "payback_horizons": {
+        "marginal_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 2.350974,
+          "delta_run_core_j": 0.002179125,
+          "n_star_invocations": 1079,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 5.652693,
+          "delta_run_core_j": 0.002179125,
+          "n_star_invocations": 2595,
+          "status": "finite_payback"
+        },
+        "cold1kernel_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+full .rlib]",
+          "delta_compile_core_j": 68.385355,
+          "delta_run_core_j": 0.002179125,
+          "n_star_invocations": 31383,
+          "status": "finite_payback"
+        },
+        "marginal_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 2.558716,
+          "delta_run_core_j": 0.000761778,
+          "n_star_invocations": 3359,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 5.860435,
+          "delta_run_core_j": 0.000761778,
+          "n_star_invocations": 7694,
+          "status": "finite_payback"
+        }
+      }
+    },
+    {
+      "kernel_id": "k07_ntt_butterfly",
+      "domain": "algebra",
+      "description": "Number-Theoretic Transform radix-2 butterfly mod 998244353 (N=16)",
+      "verified_checksum_2000": 2176078408,
+      "checksum_matches_wave4": true,
+      "wave4_monolithic_compile_core_j": 57.417593,
+      "wave4_monolithic_compile_wall_s": 7.65181,
+      "wave4_monolithic_run_core_j": 0.0007475124999999999,
+      "wave4_js_compile_core_j": 0.981062,
+      "wave4_js_run_core_j": 0.0023327269999999997,
+      "shared_rlib_tier": {
+        "compile_wall_s": 0.330572,
+        "compile_wall_ms": 330.572,
+        "compile_core_reported_j": 3.326168,
+        "compile_core_iqr_j": [
+          3.283217,
+          3.569777
+        ],
+        "compile_pkg_reported_j": 18.526935,
+        "compile_core_net_reported_j": 2.897615,
+        "thin_rs_lines": 240,
+        "thin_rs_bytes": 9429,
+        "artifact_bytes": 5310960,
+        "artifact_stripped_bytes": 951984,
+        "run_wall_s": 5.1765256997896356e-05,
+        "run_core_reported_j": 0.0006885475,
+        "run_core_iqr_j": [
+          0.0006654089999999999,
+          0.0006925225
+        ],
+        "run_pkg_reported_j": 0.0029844115,
+        "batch_iters": 2000,
+        "verify_checksum_2000": 2176078408
+      },
+      "samesession_monolithic": {
+        "compile_wall_s": 5.053616,
+        "compile_core_reported_j": 44.496722,
+        "compile_pkg_reported_j": 441.363466
+      },
+      "samesession_node_js": {
+        "compile_wall_s": 0.061043,
+        "compile_core_reported_j": 0.71292,
+        "compile_pkg_reported_j": 5.358447,
+        "run_wall_s": 0.0001657823925052071,
+        "run_core_reported_j": 0.0015897919999999998,
+        "run_pkg_reported_j": 0.014478689999999999
+      },
+      "compile_core_energy_reduction_vs_wave4_x": 17.26,
+      "compile_core_energy_reduction_vs_samesession_x": 13.38,
+      "payback_horizons": {
+        "marginal_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 2.345106,
+          "delta_run_core_j": 0.001644179,
+          "n_star_invocations": 1427,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 5.646825,
+          "delta_run_core_j": 0.001644179,
+          "n_star_invocations": 3435,
+          "status": "finite_payback"
+        },
+        "cold1kernel_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+full .rlib]",
+          "delta_compile_core_j": 68.379487,
+          "delta_run_core_j": 0.001644179,
+          "n_star_invocations": 41589,
+          "status": "finite_payback"
+        },
+        "marginal_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 2.613248,
+          "delta_run_core_j": 0.000901244,
+          "n_star_invocations": 2900,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 5.914967,
+          "delta_run_core_j": 0.000901244,
+          "n_star_invocations": 6564,
+          "status": "finite_payback"
+        }
+      }
+    },
+    {
+      "kernel_id": "k08_matmul_i32",
+      "domain": "linalg",
+      "description": "Dense 4x4 wrapping 32-bit integer matrix multiplication",
+      "verified_checksum_2000": 1659791360,
+      "checksum_matches_wave4": true,
+      "wave4_monolithic_compile_core_j": 55.920326,
+      "wave4_monolithic_compile_wall_s": 7.379426,
+      "wave4_monolithic_run_core_j": 0.002436695,
+      "wave4_js_compile_core_j": 0.781667,
+      "wave4_js_run_core_j": 0.004165373,
+      "shared_rlib_tier": {
+        "compile_wall_s": 0.35768,
+        "compile_wall_ms": 357.68,
+        "compile_core_reported_j": 3.138677,
+        "compile_core_iqr_j": [
+          3.095421,
+          3.151082
+        ],
+        "compile_pkg_reported_j": 32.843821,
+        "compile_core_net_reported_j": -0.037254,
+        "thin_rs_lines": 234,
+        "thin_rs_bytes": 9383,
+        "artifact_bytes": 5312272,
+        "artifact_stripped_bytes": 953544,
+        "run_wall_s": 0.00019006929400347872,
+        "run_core_reported_j": 0.0023516925,
+        "run_core_iqr_j": [
+          0.0023253345,
+          0.0023682474999999997
+        ],
+        "run_pkg_reported_j": 0.0174939455,
+        "batch_iters": 2000,
+        "verify_checksum_2000": 1659791360
+      },
+      "samesession_monolithic": {
+        "compile_wall_s": 5.076517,
+        "compile_core_reported_j": 43.363618,
+        "compile_pkg_reported_j": 507.278697
+      },
+      "samesession_node_js": {
+        "compile_wall_s": 0.058357,
+        "compile_core_reported_j": 0.664364,
+        "compile_pkg_reported_j": 6.047508,
+        "run_wall_s": 0.0002694429274997674,
+        "run_core_reported_j": 0.0029525449999999996,
+        "run_pkg_reported_j": 0.028807385999999997
+      },
+      "compile_core_energy_reduction_vs_wave4_x": 17.82,
+      "compile_core_energy_reduction_vs_samesession_x": 13.82,
+      "payback_horizons": {
+        "marginal_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 2.35701,
+          "delta_run_core_j": 0.00181368,
+          "n_star_invocations": 1300,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 5.658729,
+          "delta_run_core_j": 0.00181368,
+          "n_star_invocations": 3121,
+          "status": "finite_payback"
+        },
+        "cold1kernel_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+full .rlib]",
+          "delta_compile_core_j": 68.391391,
+          "delta_run_core_j": 0.00181368,
+          "n_star_invocations": 37709,
+          "status": "finite_payback"
+        },
+        "marginal_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 2.474313,
+          "delta_run_core_j": 0.000600852,
+          "n_star_invocations": 4119,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 5.776032,
+          "delta_run_core_j": 0.000600852,
+          "n_star_invocations": 9614,
+          "status": "finite_payback"
+        }
+      }
+    },
+    {
+      "kernel_id": "k09_bst_probe",
+      "domain": "datastruct",
+      "description": "Array-backed Binary Search Tree 16-key insert & depth walk",
+      "verified_checksum_2000": 2437342065,
+      "checksum_matches_wave4": true,
+      "wave4_monolithic_compile_core_j": 59.069745,
+      "wave4_monolithic_compile_wall_s": 7.435885,
+      "wave4_monolithic_run_core_j": 0.000639333,
+      "wave4_js_compile_core_j": 0.953692,
+      "wave4_js_run_core_j": 0.0025101855,
+      "shared_rlib_tier": {
+        "compile_wall_s": 0.369002,
+        "compile_wall_ms": 369.002,
+        "compile_core_reported_j": 3.183337,
+        "compile_core_iqr_j": [
+          3.171421,
+          3.346919
+        ],
+        "compile_pkg_reported_j": 34.928476,
+        "compile_core_net_reported_j": 1.103249,
+        "thin_rs_lines": 242,
+        "thin_rs_bytes": 9857,
+        "artifact_bytes": 5312072,
+        "artifact_stripped_bytes": 953048,
+        "run_wall_s": 4.7093917499296364e-05,
+        "run_core_reported_j": 0.0005632874999999999,
+        "run_core_iqr_j": [
+          0.0005606704999999999,
+          0.0005679865
+        ],
+        "run_pkg_reported_j": 0.0045807339999999995,
+        "batch_iters": 2000,
+        "verify_checksum_2000": 2437342065
+      },
+      "samesession_monolithic": {
+        "compile_wall_s": 5.811121,
+        "compile_core_reported_j": 59.086711,
+        "compile_pkg_reported_j": 519.728494
+      },
+      "samesession_node_js": {
+        "compile_wall_s": 0.086218,
+        "compile_core_reported_j": 0.940366,
+        "compile_pkg_reported_j": 9.321768,
+        "run_wall_s": 0.0001951829094978166,
+        "run_core_reported_j": 0.0018431819999999999,
+        "run_pkg_reported_j": 0.019211042499999997
+      },
+      "compile_core_energy_reduction_vs_wave4_x": 18.56,
+      "compile_core_energy_reduction_vs_samesession_x": 18.56,
+      "payback_horizons": {
+        "marginal_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 2.229645,
+          "delta_run_core_j": 0.001946898,
+          "n_star_invocations": 1146,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 5.531364,
+          "delta_run_core_j": 0.001946898,
+          "n_star_invocations": 2842,
+          "status": "finite_payback"
+        },
+        "cold1kernel_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+full .rlib]",
+          "delta_compile_core_j": 68.264026,
+          "delta_run_core_j": 0.001946898,
+          "n_star_invocations": 35063,
+          "status": "finite_payback"
+        },
+        "marginal_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 2.242971,
+          "delta_run_core_j": 0.001279894,
+          "n_star_invocations": 1753,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 5.54469,
+          "delta_run_core_j": 0.001279894,
+          "n_star_invocations": 4333,
+          "status": "finite_payback"
+        }
+      }
+    },
+    {
+      "kernel_id": "k10_sortnet_16",
+      "domain": "sorting",
+      "description": "Odd-even transposition/merge 16-element comparator network",
+      "verified_checksum_2000": 45342208,
+      "checksum_matches_wave4": true,
+      "wave4_monolithic_compile_core_j": 57.067041,
+      "wave4_monolithic_compile_wall_s": 7.495106,
+      "wave4_monolithic_run_core_j": 0.0014834364999999998,
+      "wave4_js_compile_core_j": 0.827554,
+      "wave4_js_run_core_j": 0.0025276329999999996,
+      "shared_rlib_tier": {
+        "compile_wall_s": 0.318518,
+        "compile_wall_ms": 318.518,
+        "compile_core_reported_j": 2.702894,
+        "compile_core_iqr_j": [
+          2.663436,
+          2.775918
+        ],
+        "compile_pkg_reported_j": 27.754592,
+        "compile_core_net_reported_j": 0.362725,
+        "thin_rs_lines": 222,
+        "thin_rs_bytes": 8225,
+        "artifact_bytes": 5304112,
+        "artifact_stripped_bytes": 945136,
+        "run_wall_s": 0.00010476225150341634,
+        "run_core_reported_j": 0.00125272,
+        "run_core_iqr_j": [
+          0.001249668,
+          0.0012630805000000001
+        ],
+        "run_pkg_reported_j": 0.009642728,
+        "batch_iters": 2000,
+        "verify_checksum_2000": 45342208
+      },
+      "samesession_monolithic": {
+        "compile_wall_s": 5.011009,
+        "compile_core_reported_j": 43.210717,
+        "compile_pkg_reported_j": 417.251127
+      },
+      "samesession_node_js": {
+        "compile_wall_s": 0.05243,
+        "compile_core_reported_j": 0.62302,
+        "compile_pkg_reported_j": 4.149769,
+        "run_wall_s": 0.00017310037249990273,
+        "run_core_reported_j": 0.0017668764999999999,
+        "run_pkg_reported_j": 0.014591598999999999
+      },
+      "compile_core_energy_reduction_vs_wave4_x": 21.11,
+      "compile_core_energy_reduction_vs_samesession_x": 15.99,
+      "payback_horizons": {
+        "marginal_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 1.87534,
+          "delta_run_core_j": 0.001274913,
+          "n_star_invocations": 1471,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 5.177059,
+          "delta_run_core_j": 0.001274913,
+          "n_star_invocations": 4061,
+          "status": "finite_payback"
+        },
+        "cold1kernel_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+full .rlib]",
+          "delta_compile_core_j": 67.909721,
+          "delta_run_core_j": 0.001274913,
+          "n_star_invocations": 53267,
+          "status": "finite_payback"
+        },
+        "marginal_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 2.079874,
+          "delta_run_core_j": 0.000514156,
+          "n_star_invocations": 4046,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 5.381593,
+          "delta_run_core_j": 0.000514156,
+          "n_star_invocations": 10467,
+          "status": "finite_payback"
+        }
+      }
+    },
+    {
+      "kernel_id": "k11_ringbuf_sim",
+      "domain": "systems",
+      "description": "Bounded 16-slot circular ring buffer enqueue/dequeue state machine",
+      "verified_checksum_2000": 3414877696,
+      "checksum_matches_wave4": true,
+      "wave4_monolithic_compile_core_j": 57.685524,
+      "wave4_monolithic_compile_wall_s": 7.557036,
+      "wave4_monolithic_run_core_j": 0.000536311,
+      "wave4_js_compile_core_j": 0.885272,
+      "wave4_js_run_core_j": 0.0023628769999999998,
+      "shared_rlib_tier": {
+        "compile_wall_s": 0.311971,
+        "compile_wall_ms": 311.971,
+        "compile_core_reported_j": 2.647324,
+        "compile_core_iqr_j": [
+          2.588062,
+          2.696241
+        ],
+        "compile_pkg_reported_j": 30.090851,
+        "compile_core_net_reported_j": -0.00631,
+        "thin_rs_lines": 210,
+        "thin_rs_bytes": 7988,
+        "artifact_bytes": 5303496,
+        "artifact_stripped_bytes": 944584,
+        "run_wall_s": 4.2863851005677134e-05,
+        "run_core_reported_j": 0.0005666209999999999,
+        "run_core_iqr_j": [
+          0.000563295,
+          0.0006093434999999999
+        ],
+        "run_pkg_reported_j": 0.0041288225000000005,
+        "batch_iters": 2000,
+        "verify_checksum_2000": 3414877696
+      },
+      "samesession_monolithic": {
+        "compile_wall_s": 5.067965,
+        "compile_core_reported_j": 43.303409,
+        "compile_pkg_reported_j": 575.068558
+      },
+      "samesession_node_js": {
+        "compile_wall_s": 0.057366,
+        "compile_core_reported_j": 0.683253,
+        "compile_pkg_reported_j": 5.463707,
+        "run_wall_s": 0.0001691203435038915,
+        "run_core_reported_j": 0.001732401,
+        "run_pkg_reported_j": 0.0171800045
+      },
+      "compile_core_energy_reduction_vs_wave4_x": 21.79,
+      "compile_core_energy_reduction_vs_samesession_x": 16.36,
+      "payback_horizons": {
+        "marginal_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 1.762052,
+          "delta_run_core_j": 0.001796256,
+          "n_star_invocations": 981,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 5.063771,
+          "delta_run_core_j": 0.001796256,
+          "n_star_invocations": 2820,
+          "status": "finite_payback"
+        },
+        "cold1kernel_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+full .rlib]",
+          "delta_compile_core_j": 67.796433,
+          "delta_run_core_j": 0.001796256,
+          "n_star_invocations": 37744,
+          "status": "finite_payback"
+        },
+        "marginal_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 1.964071,
+          "delta_run_core_j": 0.00116578,
+          "n_star_invocations": 1685,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 5.26579,
+          "delta_run_core_j": 0.00116578,
+          "n_star_invocations": 4517,
+          "status": "finite_payback"
+        }
+      }
+    },
+    {
+      "kernel_id": "k12_token_bucket",
+      "domain": "networking",
+      "description": "Deterministic rate-limiter token bucket admit/refuse simulation",
+      "verified_checksum_2000": 2339070833,
+      "checksum_matches_wave4": true,
+      "wave4_monolithic_compile_core_j": 56.792397,
+      "wave4_monolithic_compile_wall_s": 7.738147,
+      "wave4_monolithic_run_core_j": 0.000714555,
+      "wave4_js_compile_core_j": 0.860487,
+      "wave4_js_run_core_j": 0.002556295,
+      "shared_rlib_tier": {
+        "compile_wall_s": 0.290725,
+        "compile_wall_ms": 290.725,
+        "compile_core_reported_j": 2.529837,
+        "compile_core_iqr_j": [
+          2.475961,
+          3.239548
+        ],
+        "compile_pkg_reported_j": 33.737956,
+        "compile_core_net_reported_j": 0.092463,
+        "thin_rs_lines": 201,
+        "thin_rs_bytes": 7103,
+        "artifact_bytes": 5289896,
+        "artifact_stripped_bytes": 931680,
+        "run_wall_s": 5.777986499742838e-05,
+        "run_core_reported_j": 0.0007734964999999999,
+        "run_core_iqr_j": [
+          0.0007332765,
+          0.0007903494999999999
+        ],
+        "run_pkg_reported_j": 0.0068470045,
+        "batch_iters": 2000,
+        "verify_checksum_2000": 2339070833
+      },
+      "samesession_monolithic": {
+        "compile_wall_s": 4.975496,
+        "compile_core_reported_j": 43.463832,
+        "compile_pkg_reported_j": 444.68141
+      },
+      "samesession_node_js": {
+        "compile_wall_s": 0.055804,
+        "compile_core_reported_j": 0.651186,
+        "compile_pkg_reported_j": 4.778231,
+        "run_wall_s": 0.0001772847024985822,
+        "run_core_reported_j": 0.0019116825,
+        "run_pkg_reported_j": 0.014595092999999998
+      },
+      "compile_core_energy_reduction_vs_wave4_x": 22.45,
+      "compile_core_energy_reduction_vs_samesession_x": 17.18,
+      "payback_horizons": {
+        "marginal_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 1.66935,
+          "delta_run_core_j": 0.001782799,
+          "n_star_invocations": 937,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 4.971069,
+          "delta_run_core_j": 0.001782799,
+          "n_star_invocations": 2789,
+          "status": "finite_payback"
+        },
+        "cold1kernel_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+full .rlib]",
+          "delta_compile_core_j": 67.703731,
+          "delta_run_core_j": 0.001782799,
+          "n_star_invocations": 37977,
+          "status": "finite_payback"
+        },
+        "marginal_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 1.878651,
+          "delta_run_core_j": 0.001138186,
+          "n_star_invocations": 1651,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 5.18037,
+          "delta_run_core_j": 0.001138186,
+          "n_star_invocations": 4552,
+          "status": "finite_payback"
+        }
+      }
+    },
+    {
+      "kernel_id": "k13_fnv1a_sip",
+      "domain": "hashing",
+      "description": "FNV-1a + ARX SipRound-style 32-bit word mixer over 64 rounds",
+      "verified_checksum_2000": 3470269281,
+      "checksum_matches_wave4": true,
+      "wave4_monolithic_compile_core_j": 55.282618,
+      "wave4_monolithic_compile_wall_s": 7.552335,
+      "wave4_monolithic_run_core_j": 0.0005256915,
+      "wave4_js_compile_core_j": 0.7369,
+      "wave4_js_run_core_j": 0.002507927,
+      "shared_rlib_tier": {
+        "compile_wall_s": 0.248525,
+        "compile_wall_ms": 248.525,
+        "compile_core_reported_j": 2.445766,
+        "compile_core_iqr_j": [
+          2.427212,
+          2.459406
+        ],
+        "compile_pkg_reported_j": 13.445487,
+        "compile_core_net_reported_j": 2.232993,
+        "thin_rs_lines": 185,
+        "thin_rs_bytes": 6802,
+        "artifact_bytes": 5287984,
+        "artifact_stripped_bytes": 929952,
+        "run_wall_s": 3.729126849793829e-05,
+        "run_core_reported_j": 0.0005469385,
+        "run_core_iqr_j": [
+          0.0005412319999999999,
+          0.0005526295
+        ],
+        "run_pkg_reported_j": 0.002153766,
+        "batch_iters": 2000,
+        "verify_checksum_2000": 3470269281
+      },
+      "samesession_monolithic": {
+        "compile_wall_s": 4.537529,
+        "compile_core_reported_j": 44.458623,
+        "compile_pkg_reported_j": 250.075813
+      },
+      "samesession_node_js": {
+        "compile_wall_s": 0.04947,
+        "compile_core_reported_j": 0.619287,
+        "compile_pkg_reported_j": 2.816632,
+        "run_wall_s": 0.00015337966699735262,
+        "run_core_reported_j": 0.001716563,
+        "run_pkg_reported_j": 0.008462635999999999
+      },
+      "compile_core_energy_reduction_vs_wave4_x": 22.6,
+      "compile_core_energy_reduction_vs_samesession_x": 18.18,
+      "payback_horizons": {
+        "marginal_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 1.708866,
+          "delta_run_core_j": 0.001960989,
+          "n_star_invocations": 872,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 5.010585,
+          "delta_run_core_j": 0.001960989,
+          "n_star_invocations": 2556,
+          "status": "finite_payback"
+        },
+        "cold1kernel_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+full .rlib]",
+          "delta_compile_core_j": 67.743247,
+          "delta_run_core_j": 0.001960989,
+          "n_star_invocations": 34546,
+          "status": "finite_payback"
+        },
+        "marginal_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 1.826479,
+          "delta_run_core_j": 0.001169624,
+          "n_star_invocations": 1562,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 5.128198,
+          "delta_run_core_j": 0.001169624,
+          "n_star_invocations": 4385,
+          "status": "finite_payback"
+        }
+      }
+    },
+    {
+      "kernel_id": "k14_sieve_primes",
+      "domain": "number_theory",
+      "description": "Sieve of Eratosthenes prime marker & weighted prime sum (N=128)",
+      "verified_checksum_2000": 3525742560,
+      "checksum_matches_wave4": true,
+      "wave4_monolithic_compile_core_j": 57.318203,
+      "wave4_monolithic_compile_wall_s": 7.954928,
+      "wave4_monolithic_run_core_j": 0.0039685065,
+      "wave4_js_compile_core_j": 1.014379,
+      "wave4_js_run_core_j": 0.0023588335,
+      "shared_rlib_tier": {
+        "compile_wall_s": 0.269188,
+        "compile_wall_ms": 269.188,
+        "compile_core_reported_j": 2.657486,
+        "compile_core_iqr_j": [
+          2.645463,
+          2.686964
+        ],
+        "compile_pkg_reported_j": 15.061721,
+        "compile_core_net_reported_j": 2.490042,
+        "thin_rs_lines": 216,
+        "thin_rs_bytes": 7696,
+        "artifact_bytes": 5302160,
+        "artifact_stripped_bytes": 942960,
+        "run_wall_s": 0.00032444498949917033,
+        "run_core_reported_j": 0.0037479295,
+        "run_core_iqr_j": [
+          0.00374397,
+          0.0038078325
+        ],
+        "run_pkg_reported_j": 0.018206181499999998,
+        "batch_iters": 2000,
+        "verify_checksum_2000": 3525742560
+      },
+      "samesession_monolithic": {
+        "compile_wall_s": 4.571811,
+        "compile_core_reported_j": 45.124208,
+        "compile_pkg_reported_j": 247.514834
+      },
+      "samesession_node_js": {
+        "compile_wall_s": 0.049846,
+        "compile_core_reported_j": 0.639091,
+        "compile_pkg_reported_j": 2.775389,
+        "run_wall_s": 0.00016344500700506614,
+        "run_core_reported_j": 0.0017877874999999998,
+        "run_pkg_reported_j": 0.009495312499999999
+      },
+      "compile_core_energy_reduction_vs_wave4_x": 21.57,
+      "compile_core_energy_reduction_vs_samesession_x": 16.98,
+      "payback_horizons": {
+        "marginal_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 1.643107,
+          "delta_run_core_j": -0.001389096,
+          "n_star_invocations": "never",
+          "status": "never_pays_back"
+        },
+        "amortized20_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 4.944826,
+          "delta_run_core_j": -0.001389096,
+          "n_star_invocations": "never",
+          "status": "never_pays_back"
+        },
+        "cold1kernel_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+full .rlib]",
+          "delta_compile_core_j": 67.677488,
+          "delta_run_core_j": -0.001389096,
+          "n_star_invocations": "never",
+          "status": "never_pays_back"
+        },
+        "marginal_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 2.018395,
+          "delta_run_core_j": -0.001960142,
+          "n_star_invocations": "never",
+          "status": "never_pays_back"
+        },
+        "amortized20_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 5.320114,
+          "delta_run_core_j": -0.001960142,
+          "n_star_invocations": "never",
+          "status": "never_pays_back"
+        }
+      }
+    },
+    {
+      "kernel_id": "k15_collatz_bounded",
+      "domain": "iteration",
+      "description": "Bounded Collatz stopping-time accumulator over 32 trajectories",
+      "verified_checksum_2000": 17314686,
+      "checksum_matches_wave4": true,
+      "wave4_monolithic_compile_core_j": 51.469232,
+      "wave4_monolithic_compile_wall_s": 7.329029,
+      "wave4_monolithic_run_core_j": 0.0023149435,
+      "wave4_js_compile_core_j": 0.780544,
+      "wave4_js_run_core_j": 0.006052131499999999,
+      "shared_rlib_tier": {
+        "compile_wall_s": 0.25079,
+        "compile_wall_ms": 250.79,
+        "compile_core_reported_j": 2.277394,
+        "compile_core_iqr_j": [
+          2.24375,
+          2.31148
+        ],
+        "compile_pkg_reported_j": 17.708419,
+        "compile_core_net_reported_j": 0.683067,
+        "thin_rs_lines": 192,
+        "thin_rs_bytes": 6349,
+        "artifact_bytes": 5285784,
+        "artifact_stripped_bytes": 927568,
+        "run_wall_s": 0.000167786903999513,
+        "run_core_reported_j": 0.002341073,
+        "run_core_iqr_j": [
+          0.0023356035,
+          0.0023626324999999997
+        ],
+        "run_pkg_reported_j": 0.015109845,
+        "batch_iters": 2000,
+        "verify_checksum_2000": 17314686
+      },
+      "samesession_monolithic": {
+        "compile_wall_s": 5.105741,
+        "compile_core_reported_j": 46.480155,
+        "compile_pkg_reported_j": 428.426147
+      },
+      "samesession_node_js": {
+        "compile_wall_s": 0.049602,
+        "compile_core_reported_j": 0.592321,
+        "compile_pkg_reported_j": 4.199678,
+        "run_wall_s": 0.0003955071015006979,
+        "run_core_reported_j": 0.0046443295,
+        "run_pkg_reported_j": 0.038227728499999995
+      },
+      "compile_core_energy_reduction_vs_wave4_x": 22.6,
+      "compile_core_energy_reduction_vs_samesession_x": 20.41,
+      "payback_horizons": {
+        "marginal_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 1.49685,
+          "delta_run_core_j": 0.003711058,
+          "n_star_invocations": 404,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 4.798569,
+          "delta_run_core_j": 0.003711058,
+          "n_star_invocations": 1294,
+          "status": "finite_payback"
+        },
+        "cold1kernel_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+full .rlib]",
+          "delta_compile_core_j": 67.531231,
+          "delta_run_core_j": 0.003711058,
+          "n_star_invocations": 18198,
+          "status": "finite_payback"
+        },
+        "marginal_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 1.685073,
+          "delta_run_core_j": 0.002303256,
+          "n_star_invocations": 732,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 4.986792,
+          "delta_run_core_j": 0.002303256,
+          "n_star_invocations": 2166,
+          "status": "finite_payback"
+        }
+      }
+    },
+    {
+      "kernel_id": "k16_popcount_swar",
+      "domain": "bitops",
+      "description": "SWAR 32-bit Hamming weight & parity fold over 64 words",
+      "verified_checksum_2000": 2580886748,
+      "checksum_matches_wave4": true,
+      "wave4_monolithic_compile_core_j": 56.664642,
+      "wave4_monolithic_compile_wall_s": 7.499759,
+      "wave4_monolithic_run_core_j": 0.0006509899999999999,
+      "wave4_js_compile_core_j": 0.779806,
+      "wave4_js_run_core_j": 0.002126683,
+      "shared_rlib_tier": {
+        "compile_wall_s": 0.261374,
+        "compile_wall_ms": 261.374,
+        "compile_core_reported_j": 2.307498,
+        "compile_core_iqr_j": [
+          2.232795,
+          2.327791
+        ],
+        "compile_pkg_reported_j": 23.861605,
+        "compile_core_net_reported_j": 0.681899,
+        "thin_rs_lines": 182,
+        "thin_rs_bytes": 6519,
+        "artifact_bytes": 5286128,
+        "artifact_stripped_bytes": 928096,
+        "run_wall_s": 4.0689904504688457e-05,
+        "run_core_reported_j": 0.000575036,
+        "run_core_iqr_j": [
+          0.000568391,
+          0.0005849535
+        ],
+        "run_pkg_reported_j": 0.003204409,
+        "batch_iters": 2000,
+        "verify_checksum_2000": 2580886748
+      },
+      "samesession_monolithic": {
+        "compile_wall_s": 4.851698,
+        "compile_core_reported_j": 42.449221,
+        "compile_pkg_reported_j": 490.161099
+      },
+      "samesession_node_js": {
+        "compile_wall_s": 0.059511,
+        "compile_core_reported_j": 0.680817,
+        "compile_pkg_reported_j": 6.388769,
+        "run_wall_s": 0.00016713208250439493,
+        "run_core_reported_j": 0.0016979255,
+        "run_pkg_reported_j": 0.018742469499999997
+      },
+      "compile_core_energy_reduction_vs_wave4_x": 24.56,
+      "compile_core_energy_reduction_vs_samesession_x": 18.4,
+      "payback_horizons": {
+        "marginal_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 1.527692,
+          "delta_run_core_j": 0.001551647,
+          "n_star_invocations": 985,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 4.829411,
+          "delta_run_core_j": 0.001551647,
+          "n_star_invocations": 3113,
+          "status": "finite_payback"
+        },
+        "cold1kernel_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+full .rlib]",
+          "delta_compile_core_j": 67.562073,
+          "delta_run_core_j": 0.001551647,
+          "n_star_invocations": 43543,
+          "status": "finite_payback"
+        },
+        "marginal_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 1.626681,
+          "delta_run_core_j": 0.001122889,
+          "n_star_invocations": 1449,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 4.9284,
+          "delta_run_core_j": 0.001122889,
+          "n_star_invocations": 4390,
+          "status": "finite_payback"
+        }
+      }
+    },
+    {
+      "kernel_id": "k17_edit_levenshtein",
+      "domain": "dp",
+      "description": "Dynamic-programming Levenshtein edit distance over 12x12 strings",
+      "verified_checksum_2000": 128341351,
+      "checksum_matches_wave4": true,
+      "wave4_monolithic_compile_core_j": 46.241337,
+      "wave4_monolithic_compile_wall_s": 5.453816,
+      "wave4_monolithic_run_core_j": 0.0024112755,
+      "wave4_js_compile_core_j": 0.796919,
+      "wave4_js_run_core_j": 0.0025123439999999997,
+      "shared_rlib_tier": {
+        "compile_wall_s": 0.408879,
+        "compile_wall_ms": 408.879,
+        "compile_core_reported_j": 3.56166,
+        "compile_core_iqr_j": [
+          3.502123,
+          3.657313
+        ],
+        "compile_pkg_reported_j": 42.923791,
+        "compile_core_net_reported_j": 0.787957,
+        "thin_rs_lines": 259,
+        "thin_rs_bytes": 10676,
+        "artifact_bytes": 5317784,
+        "artifact_stripped_bytes": 958880,
+        "run_wall_s": 0.000210163570001896,
+        "run_core_reported_j": 0.0025718194999999997,
+        "run_core_iqr_j": [
+          0.002563062,
+          0.0026401989999999998
+        ],
+        "run_pkg_reported_j": 0.0214848815,
+        "batch_iters": 2000,
+        "verify_checksum_2000": 128341351
+      },
+      "samesession_monolithic": {
+        "compile_wall_s": 5.247457,
+        "compile_core_reported_j": 44.88658,
+        "compile_pkg_reported_j": 507.407842
+      },
+      "samesession_node_js": {
+        "compile_wall_s": 0.05961,
+        "compile_core_reported_j": 0.687068,
+        "compile_pkg_reported_j": 6.502619,
+        "run_wall_s": 0.0002693020565056941,
+        "run_core_reported_j": 0.0029531939999999997,
+        "run_pkg_reported_j": 0.0282006905
+      },
+      "compile_core_energy_reduction_vs_wave4_x": 12.98,
+      "compile_core_energy_reduction_vs_samesession_x": 12.6,
+      "payback_horizons": {
+        "marginal_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 2.764741,
+          "delta_run_core_j": -5.9475e-05,
+          "n_star_invocations": "never",
+          "status": "never_pays_back"
+        },
+        "amortized20_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 6.06646,
+          "delta_run_core_j": -5.9475e-05,
+          "n_star_invocations": "never",
+          "status": "never_pays_back"
+        },
+        "cold1kernel_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+full .rlib]",
+          "delta_compile_core_j": 68.799122,
+          "delta_run_core_j": -5.9475e-05,
+          "n_star_invocations": "never",
+          "status": "never_pays_back"
+        },
+        "marginal_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 2.874592,
+          "delta_run_core_j": 0.000381375,
+          "n_star_invocations": 7538,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 6.176311,
+          "delta_run_core_j": 0.000381375,
+          "n_star_invocations": 16195,
+          "status": "finite_payback"
+        }
+      }
+    },
+    {
+      "kernel_id": "k18_rle_codec",
+      "domain": "codec",
+      "description": "Run-length encode + decode round-trip accumulator over 64 symbols",
+      "verified_checksum_2000": 147365455,
+      "checksum_matches_wave4": true,
+      "wave4_monolithic_compile_core_j": 48.768978,
+      "wave4_monolithic_compile_wall_s": 5.617966,
+      "wave4_monolithic_run_core_j": 0.0032340324999999997,
+      "wave4_js_compile_core_j": 0.626094,
+      "wave4_js_run_core_j": 0.0017167234999999998,
+      "shared_rlib_tier": {
+        "compile_wall_s": 0.386238,
+        "compile_wall_ms": 386.238,
+        "compile_core_reported_j": 3.334483,
+        "compile_core_iqr_j": [
+          3.254684,
+          5.634703
+        ],
+        "compile_pkg_reported_j": 38.864735,
+        "compile_core_net_reported_j": 0.971149,
+        "thin_rs_lines": 242,
+        "thin_rs_bytes": 10075,
+        "artifact_bytes": 5315744,
+        "artifact_stripped_bytes": 956712,
+        "run_wall_s": 0.0002266977709950879,
+        "run_core_reported_j": 0.0025973235,
+        "run_core_iqr_j": [
+          0.0025305849999999997,
+          0.0026256425000000003
+        ],
+        "run_pkg_reported_j": 0.0201179705,
+        "batch_iters": 2000,
+        "verify_checksum_2000": 147365455
+      },
+      "samesession_monolithic": {
+        "compile_wall_s": 5.011559,
+        "compile_core_reported_j": 46.113704,
+        "compile_pkg_reported_j": 390.028185
+      },
+      "samesession_node_js": {
+        "compile_wall_s": 0.05744,
+        "compile_core_reported_j": 0.685349,
+        "compile_pkg_reported_j": 5.430444,
+        "run_wall_s": 0.00017241700150043472,
+        "run_core_reported_j": 0.001777771,
+        "run_pkg_reported_j": 0.0183698465
+      },
+      "compile_core_energy_reduction_vs_wave4_x": 14.63,
+      "compile_core_energy_reduction_vs_samesession_x": 13.83,
+      "payback_horizons": {
+        "marginal_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 2.708389,
+          "delta_run_core_j": -0.0008806,
+          "n_star_invocations": "never",
+          "status": "never_pays_back"
+        },
+        "amortized20_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 6.010108,
+          "delta_run_core_j": -0.0008806,
+          "n_star_invocations": "never",
+          "status": "never_pays_back"
+        },
+        "cold1kernel_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+full .rlib]",
+          "delta_compile_core_j": 68.74277,
+          "delta_run_core_j": -0.0008806,
+          "n_star_invocations": "never",
+          "status": "never_pays_back"
+        },
+        "marginal_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 2.649134,
+          "delta_run_core_j": -0.000819553,
+          "n_star_invocations": "never",
+          "status": "never_pays_back"
+        },
+        "amortized20_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 5.950853,
+          "delta_run_core_j": -0.000819553,
+          "n_star_invocations": "never",
+          "status": "never_pays_back"
+        }
+      }
+    },
+    {
+      "kernel_id": "k19_modexp_mont",
+      "domain": "crypto_math",
+      "description": "Repeated binary modular exponentiation mod 1000000007 (16 bases)",
+      "verified_checksum_2000": 139578601,
+      "checksum_matches_wave4": true,
+      "wave4_monolithic_compile_core_j": 51.774285,
+      "wave4_monolithic_compile_wall_s": 5.225341,
+      "wave4_monolithic_run_core_j": 0.001130473,
+      "wave4_js_compile_core_j": 0.802513,
+      "wave4_js_run_core_j": 0.002793328,
+      "shared_rlib_tier": {
+        "compile_wall_s": 0.281037,
+        "compile_wall_ms": 281.037,
+        "compile_core_reported_j": 2.544775,
+        "compile_core_iqr_j": [
+          2.389525,
+          3.071237
+        ],
+        "compile_pkg_reported_j": 26.336193,
+        "compile_core_net_reported_j": 1.380344,
+        "thin_rs_lines": 192,
+        "thin_rs_bytes": 6827,
+        "artifact_bytes": 5288032,
+        "artifact_stripped_bytes": 929944,
+        "run_wall_s": 8.43812339953729e-05,
+        "run_core_reported_j": 0.001171349,
+        "run_core_iqr_j": [
+          0.0011627665000000001,
+          0.0012800015
+        ],
+        "run_pkg_reported_j": 0.0080869155,
+        "batch_iters": 2000,
+        "verify_checksum_2000": 139578601
+      },
+      "samesession_monolithic": {
+        "compile_wall_s": 4.58867,
+        "compile_core_reported_j": 43.081894,
+        "compile_pkg_reported_j": 329.934567
+      },
+      "samesession_node_js": {
+        "compile_wall_s": 0.051002,
+        "compile_core_reported_j": 0.620655,
+        "compile_pkg_reported_j": 3.960789,
+        "run_wall_s": 0.00020294902549358084,
+        "run_core_reported_j": 0.002468836,
+        "run_pkg_reported_j": 0.0121863585
+      },
+      "compile_core_energy_reduction_vs_wave4_x": 20.35,
+      "compile_core_energy_reduction_vs_samesession_x": 16.93,
+      "payback_horizons": {
+        "marginal_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 1.742262,
+          "delta_run_core_j": 0.001621979,
+          "n_star_invocations": 1075,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 5.043981,
+          "delta_run_core_j": 0.001621979,
+          "n_star_invocations": 3110,
+          "status": "finite_payback"
+        },
+        "cold1kernel_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+full .rlib]",
+          "delta_compile_core_j": 67.776643,
+          "delta_run_core_j": 0.001621979,
+          "n_star_invocations": 41787,
+          "status": "finite_payback"
+        },
+        "marginal_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 1.92412,
+          "delta_run_core_j": 0.001297487,
+          "n_star_invocations": 1483,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 5.225839,
+          "delta_run_core_j": 0.001297487,
+          "n_star_invocations": 4028,
+          "status": "finite_payback"
+        }
+      }
+    },
+    {
+      "kernel_id": "k20_kalman_q16",
+      "domain": "control",
+      "description": "1D fixed-point Q16.16 Alpha-Beta filter over 64 observations",
+      "verified_checksum_2000": 1354029858,
+      "checksum_matches_wave4": true,
+      "wave4_monolithic_compile_core_j": 53.831048,
+      "wave4_monolithic_compile_wall_s": 5.739009,
+      "wave4_monolithic_run_core_j": 0.0006003645,
+      "wave4_js_compile_core_j": 0.707669,
+      "wave4_js_run_core_j": 0.0017055165,
+      "shared_rlib_tier": {
+        "compile_wall_s": 0.285031,
+        "compile_wall_ms": 285.031,
+        "compile_core_reported_j": 2.831,
+        "compile_core_iqr_j": [
+          2.795281,
+          2.840735
+        ],
+        "compile_pkg_reported_j": 16.25363,
+        "compile_core_net_reported_j": 1.968252,
+        "thin_rs_lines": 207,
+        "thin_rs_bytes": 8138,
+        "artifact_bytes": 5295784,
+        "artifact_stripped_bytes": 937568,
+        "run_wall_s": 4.488403249706607e-05,
+        "run_core_reported_j": 0.000648976,
+        "run_core_iqr_j": [
+          0.000641454,
+          0.0006535765
+        ],
+        "run_pkg_reported_j": 0.0027213479999999997,
+        "batch_iters": 2000,
+        "verify_checksum_2000": 1354029858
+      },
+      "samesession_monolithic": {
+        "compile_wall_s": 4.536843,
+        "compile_core_reported_j": 44.444037,
+        "compile_pkg_reported_j": 281.358329
+      },
+      "samesession_node_js": {
+        "compile_wall_s": 0.055078,
+        "compile_core_reported_j": 0.700652,
+        "compile_pkg_reported_j": 3.151896,
+        "run_wall_s": 0.00016153137199580669,
+        "run_core_reported_j": 0.0018198675,
+        "run_pkg_reported_j": 0.009882522999999999
+      },
+      "compile_core_energy_reduction_vs_wave4_x": 19.01,
+      "compile_core_energy_reduction_vs_samesession_x": 15.7,
+      "payback_horizons": {
+        "marginal_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 2.123331,
+          "delta_run_core_j": 0.001056541,
+          "n_star_invocations": 2010,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 5.42505,
+          "delta_run_core_j": 0.001056541,
+          "n_star_invocations": 5135,
+          "status": "finite_payback"
+        },
+        "cold1kernel_vs_wave4_js": {
+          "low_tier": "rce check + 5-target emit (node js)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+full .rlib]",
+          "delta_compile_core_j": 68.157712,
+          "delta_run_core_j": 0.001056541,
+          "n_star_invocations": 64511,
+          "status": "finite_payback"
+        },
+        "marginal_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+          "delta_compile_core_j": 2.130348,
+          "delta_run_core_j": 0.001170892,
+          "n_star_invocations": 1820,
+          "status": "finite_payback"
+        },
+        "amortized20_vs_samesession_js": {
+          "low_tier": "rce check + 5-target emit (node js) (same-session)",
+          "high_tier": "rce check + emit rust -> rustc -O3 (shared .rlib) [+1/20 .rlib]",
+          "delta_compile_core_j": 5.432067,
+          "delta_run_core_j": 0.001170892,
+          "n_star_invocations": 4640,
+          "status": "finite_payback"
+        }
+      }
+    }
+  ],
+  "quiet_host_crosscheck": {
+    "machine": {
+      "os": "Linux 7.0.0-43-generic x86_64",
+      "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900H",
+      "logical_cpus": 20,
+      "pinned_cpu": 0,
+      "loadavg_pre": [
+        2.35,
+        1.23,
+        0.7
+      ],
+      "loadavg_post": [
+        1.19,
+        1.22,
+        0.81
+      ]
+    },
+    "provenance": {
+      "basis": "reported",
+      "regime": "B",
+      "board_metered": false,
+      "measured_j": null,
+      "core_counter": "/sys/class/powercap/intel-rapl:0:0/energy_uj",
+      "package_counter": "/sys/class/powercap/intel-rapl:0/energy_uj",
+      "idle_core_pre_w": 0.385,
+      "idle_core_post_w": 0.77,
+      "idle_core_drift_pct": 100.11,
+      "idle_pkg_pre_w": 4.461,
+      "idle_pkg_post_w": 4.756,
+      "idle_pkg_drift_pct": 6.62,
+      "pkg_wraps": 0,
+      "core_wraps": 0
+    },
+    "toolchains": {
+      "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+      "rce": "rce commit 1762fb4bb65a (RCE specification draft 0.9; one language, release label 0.9)",
+      "node": "not_installed_on_crosscheck_host"
+    },
+    "one_time_rlib_build": {
+      "rce_rt_lines": 2286,
+      "rce_rt_bytes": 143427,
+      "rce_rt_sha256": "949fdae513fb57744fe0c5c0b7602a6dd4a50dfbe715e6e6c47f7d8d9639086e",
+      "rlib_bytes": 5409796,
+      "rlib_sha256": "da7118e13d3950ba53ef486b05272b9a77cdc595506f7d18068901af3cd58c45",
+      "rlib_reproducible_across_trials": true,
+      "trials": 5,
+      "core_reported_j": 111.819843,
+      "core_iqr_j": [
+        109.271632,
+        114.337414
+      ],
+      "pkg_reported_j": 142.62964,
+      "core_net_reported_j": 108.929609,
+      "wall_s": 6.58175,
+      "wall_ms": 6581.75
+    },
+    "summary_15th_tier": {
+      "tier_name": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+      "kernels_count": 20,
+      "checksum_mismatches": 0,
+      "median_compile_core_pp0_j": 5.466112,
+      "median_compile_pkg_j": 6.851392,
+      "median_compile_wall_s": 0.277466,
+      "median_compile_wall_ms": 277.466,
+      "median_artifact_bytes": 5303512,
+      "median_run_core_pp0_uj": 1717.3265,
+      "median_run_pkg_uj": 2099.6952,
+      "median_run_ns": 97086.55,
+      "samesession_monolithic_median_compile_core_pp0_j": 84.402433,
+      "samesession_monolithic_median_compile_wall_s": 4.39744,
+      "compile_core_reduction_vs_samesession_x": 15.44,
+      "compile_wall_speedup_vs_samesession_x": 15.85,
+      "compile_pkg_reduction_vs_samesession_x": 15.26
+    },
+    "falsifiers_check": {
+      "F1_checksum_mismatch_triggered": false,
+      "F2_less_than_10x_compile_reduction_triggered": false,
+      "F6_idle_pkg_drift_gt_10pct_flag": false,
+      "F6_idle_core_drift_gt_10pct_flag": true,
+      "F2_less_than_10x_same_cpu_compile_reduction_triggered": false
+    }
+  }
+}

@@ -1,0 +1,26 @@
+module ge_h9.t09_roguelike_dungeon_floor_rng
+intent "seeded room encounter resolver and stair descent"
+    example EnterRoom -> rooms_seen == 1 and gold > 0
+state DungeonRun
+    floor_no: i64 = 1
+    rooms_seen: i64 = 0
+    gold: i64 = 10
+    hp: i64 = 60
+    seed: i64 = 1337
+event EnterRoom
+event DescendStairs
+step DungeonRun on EnterRoom if hp > 0
+    seed = (seed * 1103515245 + 12345) % 2147483648
+    rooms_seen += 1
+    let roll = seed % 3
+    if roll == 0
+        gold += 5 + floor_no * 2
+    elif roll == 1
+        let loss = 3 + floor_no
+        hp = if hp > loss then hp - loss else 1
+        gold += 4
+    else
+        hp = if hp + 6 > 60 then 60 else hp + 6
+step DungeonRun on DescendStairs if rooms_seen >= 3
+    floor_no += 1
+    rooms_seen = 0

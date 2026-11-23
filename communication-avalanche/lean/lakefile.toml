@@ -1,0 +1,6 @@
+name = "Avalanche"
+version = "0.1.0"
+defaultTargets = ["Avalanche"]
+
+[[lean_lib]]
+name = "Avalanche"

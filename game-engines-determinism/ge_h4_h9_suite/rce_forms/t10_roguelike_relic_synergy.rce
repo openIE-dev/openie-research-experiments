@@ -1,0 +1,20 @@
+module ge_h9.t10_roguelike_relic_synergy
+intent "stacking relic multipliers and crit counter trigger"
+    example AddRelic(kind_id: 1), StrikeRoll(base: 10) -> sparks == 1 and dealt == 14
+state RelicBuild
+    sparks: i64 = 0
+    crits: i64 = 0
+    hit_idx: i64 = 0
+    dealt: i64 = 0
+event AddRelic(kind_id: i64)
+event StrikeRoll(base: i64)
+step RelicBuild on AddRelic(kind_id: k)
+    if k == 1
+        sparks += 1
+    else
+        crits += 1
+step RelicBuild on StrikeRoll(base: b)
+    hit_idx += 1
+    let bonus = sparks * 4
+    let mult = if crits > 0 and (hit_idx % 3 == 0) then 2 else 1
+    dealt += (b + bonus) * mult

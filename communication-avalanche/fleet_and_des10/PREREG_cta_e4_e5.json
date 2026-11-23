@@ -1,0 +1,62 @@
+{
+  "id": "communication-avalanche-cta-e4-e5-2026-11-23",
+  "study_number": 21,
+  "study_slug": "communication-avalanche",
+  "title": "CTA-E4 5-Host Cross-Silicon Fleet Energy Audit & CTA-E5 10 Siloed AI Camps vs. Immediate Digital Enzymatic Synthesis (DES-10)",
+  "registered": "2026-11-23, locked with SHA-256 sidecar strictly prior to executing CTA-E4 and CTA-E5 hardware runs across all 5 fleet hosts",
+  "pinned_artifacts": {
+    "corpus_100_test_15_cal_sha256": "79b7f7512c3a5e18eb8a13ed5323d7803a9538decf665a213ced6abdf87eb8d2",
+    "cta_fleet_rust_cargo_toml_sha256": "5f92b4d707edacea6c7052ac074fa075490a79640656a849d09f5d4b0a8a8722",
+    "cta_fleet_rust_src_main_rs_sha256": "1b5a3dc242858de5ac6b96d98056b56779fc895314eeb6e7d6bf84c827852d8c",
+    "cta_fleet_rust_src_telemetry_rs_sha256": "ab6dbaa8e9196549fb1c98d36d121ef926eb7f69acc5c192b792e4930350011c",
+    "run_cta_e4_fleet_energy_py_sha256": "29de4bbfb22350c13c4a19de3a17301764b15ef3dfce4f5eb71f2b22d2b7b744",
+    "cta_e5_corpus_py_sha256": "01c2ca1a14fe7de86224766424fc44babcab3ada85f3f7e05c61037669913a37",
+    "cta_e5_camps_impl_py_sha256": "1d33214b96cf415c4a400f44b7defedd64299e66195d34088cc4822524ff4a8b",
+    "run_cta_e5_ten_camps_enzymatic_py_sha256": "c78bf71e5bc2767c59904520cf00c10f0dec2533bdbd257b70092a53844b7a8f"
+  },
+  "measurement_separation_policy": {
+    "measured_j": "Populated ONLY on NVIDIA Jetson AGX Thor (`board_metered = true`) via Texas Instruments INA238 whole-board VIN (`L1`) and INA3221 ch2 VDD_CPU_SOC_MSS (`L2`) physical DC shunt sensors (`export CUDA_VISIBLE_DEVICES=\"\"` CPU-only respecting active GPU co-tenant lock).",
+    "reported_j": "Populated on Intel Core i9-13900H (`intel-rapl:0` package-0 & `intel-rapl:0:0` core), AMD Ryzen AI Max+ 395 (`intel-rapl:0` APU package, `intel-rapl:0:0` core, `amdgpu` PPT), Apple M3 Ultra (`proc_pid_rusage(RUSAGE_INFO_V6).ri_energy_nj` `L3` per-process under `memguard`), and Windows 11 Pro + RTX 2060 (`nvml.dll` cumulative mJ `L2` + `QueryProcessCycleTime` `L3`).",
+    "cloud_api_accounting": "Remote Claude Sonnet 5.5 server energy is `not_available`; exact API call counts, input/output tokens, and USD ($3.00 / $15.00 per 1M tokens) are reported in separate columns and NEVER summed with `measured_j` or `reported_j`."
+  },
+  "experiments": {
+    "CTA-E4": {
+      "description": "5-Host Cross-Silicon & Cross-OS Fleet Energy Audit",
+      "hosts": [
+        "NVIDIA Jetson AGX Thor (aarch64 Tegra Linux, CPU-only, TI INA238 VIN L1 + INA3221 VDD_CPU_SOC_MSS L2 measured_j)",
+        "13th Gen Intel Core i9-13900H (20t Raptor Lake Linux, intel-rapl package-0 & core reported_j)",
+        "AMD Ryzen AI Max+ 395 (32t Zen 5 Strix Halo + Radeon 8060S Linux, intel-rapl APU & core + amdgpu PPT reported_j)",
+        "Apple M3 Ultra (arm64 macOS Darwin XNU under memguard, Darwin ri_energy_nj L3 reported_j)",
+        "Windows 11 Pro x86-64 Bare-Metal + RTX 2060 (Win32 Event vs 1 kHz HighRes Timer, rootless nvml.dll mJ L2 + QueryProcessCycleTime L3)"
+      ],
+      "workloads": [
+        "BLAKE3 (256-bit) + Ed25519 (64-byte RFC 8032) Channel Attestation at 64 B, 1 KiB, 16 KiB, and 64 KiB (50,000 iterations/bucket)",
+        "16-Node DAG Zero-Clock OS-Event Threshold (Linux eventfd / Darwin kqueue+pipe / Win32 Event) vs. 1,000 Hz Clocked Polling across 4 counterbalanced AB/BA 5.0 s interleaved pairs at 1% bursty duty"
+      ]
+    },
+    "CTA-E5": {
+      "description": "100-Task, 5-Regime Benchmark (20 tasks/regime: R1 Episodic Alpha-Renamed Recurrence, R2 Boolean Gate/FSM Bitvector, R3 Exact FD/SAT Constraint Satisfaction, R4 Structural Causal do(X=x) & 6-Step Deceptive-Valley Horizon MDP, R5 Open-World Spec-to-Program Synthesis) + 15 Held-Out Calibration Probes (0 overlap) across All 10 Siloed AI Camps Solo (C1-C10) vs. Arm 11 DES-10 (Digital Enzymatic Composite) on both Intel i9-13900H (RAPL reported_j) and NVIDIA Jetson AGX Thor (TI INA3221/INA238 measured_j, CPU-only)",
+      "arms": [
+        "C1_Autoregressive_LLM_Solo (Claude Sonnet 5.5 single-shot without symbolic/sandbox gate)",
+        "C2_Symbolic_Constraint_Solo (Exact FD/SAT backtracking & combinational algebraic solver, 0 neural calls)",
+        "C3_Latent_EBM_Scorer_Solo (Calibrated 24-dim bilinear compatibility energy scorer without symbolic gate)",
+        "C4_MCTS_Rollout_Search_Solo (UCB1 Monte Carlo Tree Search, 256 rollouts/task)",
+        "C5_Episodic_Case_Store_Solo (Shape D / De Bruijn alpha-invariant hash + O(1) prior case store)",
+        "C6_Evolutionary_Program_Mutator_Solo (MAP-Elites / FunSearch AST & chromosome mutator, 300 evals/task)",
+        "C7_Causal_Bayesian_DoCalc_Solo (Pearl backdoor truncation & Bayes posterior engine)",
+        "C8_SubSymbolic_LUT_Automaton_Solo (Compiled boolean LUT6 & Mealy FSM bit-parallel kernel)",
+        "C9_MultiAgent_NL_Debate_Solo (Unattested 3-agent Proposer -> Critic -> Judge natural-language debate)",
+        "C10_Embodied_Sandbox_Perturb_Solo (Closed-loop black-box sandbox perturbation hill-climber, 200 probes/task)",
+        "DES10_Digital_Enzymatic_Composite (Digital Enzymes E_{a->b} = (Phi_IR, BLAKE3+Ed25519, V_gate, theta_b) + calibrated SSP min-cost flow + online downward crystallization R3-R5 -> C5)"
+      ]
+    }
+  },
+  "falsifiers": {
+    "F1_cross_fleet_zero_clock": "Zero-clock OS-event threshold firing (eventfd / kqueue+pipe / Win32 Event) fails to eliminate empty polling wakeups or fails to lower CPU/rail energy (including physical INA3221 VDD_CPU_SOC_MSS measured_j on Jetson AGX Thor) relative to 1,000 Hz clocked polling at 1% bursty duty.",
+    "F2_cross_fleet_attestation": "Compiled Rust BLAKE3 (256-bit) + Ed25519 (64-byte RFC 8032) verification at 1 KiB and 16 KiB exceeds 100 us or 5 mJ per edge on any of the 5 fleet hosts.",
+    "F3_oracle_and_calibration_isolation": "Any camp, enzyme V_gate, or calibration profiler accesses the 100 test tasks' held-out oracles prior to post-commit scoring, or the 15 calibration probes overlap the 100 test tasks.",
+    "F4_siloed_camp_ceiling_vs_des10": "Any single siloed paradigm camp solo (C1-C10) matches DES-10 simultaneously on 100-task verified pass rate, 0% false-commit rate, and Coherence per Joule across both i9-13900H (reported_j) and Jetson Thor (measured_j).",
+    "F5_enzymatic_activation_barrier": "Digital Enzyme binary IR + Rust BLAKE3+Ed25519 handoff fails to achieve >10,000x reduction in handoff latency and local host energy relative to Camp 9 natural-language prose serialization + live LLM re-parse.",
+    "F6_shared_host_and_drift_disclosure": "Whenever a shared-host co-tenant lock is active (Jetson Thor GPU_ACTIVE) or 5.0 s pre/post quiet idle power drifts by >10.0%, single-window A2 net idle subtraction MUST be withheld while raw rail readings and counterbalanced paired deltas are preserved."
+  }
+}

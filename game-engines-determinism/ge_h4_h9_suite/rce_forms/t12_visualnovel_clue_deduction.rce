@@ -1,0 +1,16 @@
+module ge_h9.t12_visualnovel_clue_deduction
+intent "evidence bitmask collection and contradiction check"
+    example InspectClue(bit: 1), InspectClue(bit: 2), PresentPair(req: 3) -> solved == 1
+state CourtRecord
+    clues_mask: i64 = 0
+    credibility: i64 = 5
+    solved: i64 = 0
+event InspectClue(bit: i64)
+event PresentPair(req: i64)
+step CourtRecord on InspectClue(bit: b)
+    clues_mask = clues_mask | b
+step CourtRecord on PresentPair(req: r) if credibility > 0
+    if (clues_mask & r) == r
+        solved += 1
+    else
+        credibility -= 1

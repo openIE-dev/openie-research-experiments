@@ -1,0 +1,29 @@
+module ge_h9.t29_sports_rally_volley_score
+intent "table-tennis rally speed escalation and 11-point win-by-2 scoring"
+    example Volley(return_ok: 1), Volley(return_ok: 0) -> pts_a == 0 and pts_b == 1 and ball_spd == 10
+state RallyMatch
+    ball_spd: i64 = 10
+    server: i64 = 0
+    pts_a: i64 = 0
+    pts_b: i64 = 0
+    sets_a: i64 = 0
+    sets_b: i64 = 0
+event Volley(return_ok: i64)
+step RallyMatch on Volley(return_ok: ok)
+    if ok == 1
+        ball_spd = if ball_spd + 3 > 40 then 40 else ball_spd + 3
+        server = 1 - server
+    else
+        if server == 0
+            pts_a += 1
+        else
+            pts_b += 1
+        ball_spd = 10
+        if pts_a >= 11 and (pts_a - pts_b) >= 2
+            sets_a += 1
+            pts_a = 0
+            pts_b = 0
+        elif pts_b >= 11 and (pts_b - pts_a) >= 2
+            sets_b += 1
+            pts_a = 0
+            pts_b = 0

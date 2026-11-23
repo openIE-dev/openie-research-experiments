@@ -1,0 +1,22 @@
+module haunted_jaunt.observer_los
+
+intent "cone dot-product and wall-occlusion line-of-sight confirmation"
+    example CheckLos(dx: 8, dy: 2, look_x: 10, look_y: 0, wall_blocked: 0) -> visible == 1 and streak == 1
+    example CheckLos(dx: 8, dy: 2, look_x: 10, look_y: 0, wall_blocked: 1) -> visible == 0 and streak == 0
+
+state ObserverLineOfSight
+    visible: i64 = 0
+    streak: i64 = 0
+    spotted_count: i64 = 0
+
+event CheckLos(dx: i64, dy: i64, look_x: i64, look_y: i64, wall_blocked: i64)
+
+step ObserverLineOfSight on CheckLos(dx: dx, dy: dy, look_x: lx, look_y: ly, wall_blocked: wb)
+    if wb == 0 and (dx * dx + dy * dy) <= 400 and (dx * lx + dy * ly) > 0
+        visible = 1
+        streak += 1
+        if streak == 3
+            spotted_count += 1
+    else
+        visible = 0
+        streak = 0

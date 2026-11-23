@@ -1,0 +1,22 @@
+module ge_h9.t13_puzzle_sokoban_crate_row
+intent "1D corridor crate push with wall stop and goal plate"
+    example PushMove(dir: 1) -> worker == 2 and crate == 3 and pushes == 1
+state SokobanRow
+    worker: i64 = 1
+    crate: i64 = 2
+    goal: i64 = 5
+    pushes: i64 = 0
+    on_goal: i64 = 0
+event PushMove(dir: i64)
+step SokobanRow on PushMove(dir: d)
+    let nw = worker + d
+    if nw >= 0 and nw <= 7
+        if nw == crate
+            let nc = crate + d
+            if nc >= 0 and nc <= 7
+                worker = nw
+                crate = nc
+                pushes += 1
+        else
+            worker = nw
+    on_goal = if crate == goal then 1 else 0

@@ -1,0 +1,19 @@
+module ge_h9.t06_tycoon_price_demand_ledger
+intent "elastic demand curve and daily shop cashflow"
+    example MarketDay(price: 12, restock: 10) -> stock == 24 and cash == 122
+state ShopLedger
+    stock: i64 = 20
+    cash: i64 = 100
+    sold_total: i64 = 0
+event MarketDay(price: i64, restock: i64)
+step ShopLedger on MarketDay(price: pr, restock: rs)
+    let cost = rs * 5
+    if cash >= cost
+        cash -= cost
+        stock += rs
+    let raw_dem = 30 - pr
+    let dem = if raw_dem > 0 then raw_dem / 3 else 0
+    let sold = if dem < stock then dem else stock
+    stock -= sold
+    cash += sold * pr
+    sold_total += sold

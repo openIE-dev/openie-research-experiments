@@ -1,0 +1,15 @@
+module ge_h9.t03_strategy_turn_ap_grid
+intent "turn-based action point spend and end-turn replenishment"
+    example SpendAp(cost: 3), SpendAp(cost: 4) -> ap == 3 and turn_no == 1
+state TacticsTurn
+    ap: i64 = 6
+    turn_no: i64 = 1
+    moves_made: i64 = 0
+event SpendAp(cost: i64)
+event EndTurn
+step TacticsTurn on SpendAp(cost: c) if c > 0 and ap >= c
+    ap -= c
+    moves_made += 1
+step TacticsTurn on EndTurn
+    turn_no += 1
+    ap = if ap + 6 > 10 then 10 else ap + 6

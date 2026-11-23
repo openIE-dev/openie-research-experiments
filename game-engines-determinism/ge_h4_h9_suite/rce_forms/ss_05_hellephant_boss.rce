@@ -1,0 +1,36 @@
+module survival_shooter.hellephant_boss
+
+intent "four-phase boss state machine cycling march, telegraph, stomp, and summon"
+    example BossTick, BossTick, BossTick -> phase == 1 and timer == 0
+    example BossDamage(dmg: 320), BossTick -> hp == 0 and phase == 0
+
+state HellephantBoss
+    hp: i64 = 300
+    phase: i64 = 0
+    timer: i64 = 0
+    stomps: i64 = 0
+    summons: i64 = 0
+
+event BossTick
+event BossDamage(dmg: i64)
+
+step HellephantBoss on BossTick if hp > 0
+    timer += 1
+    if phase == 0 and timer >= 3
+        phase = 1
+        timer = 0
+    elif phase == 1 and timer >= 2
+        phase = 2
+        timer = 0
+        stomps += 1
+    elif phase == 2 and timer >= 2
+        phase = if hp <= 180 then 3 else 0
+        timer = 0
+        if phase == 3
+            summons += 2
+    elif phase == 3 and timer >= 2
+        phase = 0
+        timer = 0
+
+step HellephantBoss on BossDamage(dmg: d)
+    hp = if hp > d then hp - d else 0

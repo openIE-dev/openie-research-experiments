@@ -1,0 +1,19 @@
+module ge_h9.t36_sys_lockstep_4p_arena
+intent "deterministic 4-player lockstep input bitmask frame step"
+    example LockstepFrame(mask: 15) -> p0 == 3 and p1 == 3 and p2 == 3 and p3 == 3 and frame_id == 1
+state LockstepRoom
+    p0: i64 = 0
+    p1: i64 = 0
+    p2: i64 = 0
+    p3: i64 = 0
+    tag_holder: i64 = 0
+    frame_id: i64 = 0
+event LockstepFrame(mask: i64)
+step LockstepRoom on LockstepFrame(mask: m)
+    frame_id += 1
+    p0 += if (m & 1) != 0 then 3 else -1
+    p1 += if (m & 2) != 0 then 3 else -1
+    p2 += if (m & 4) != 0 then 3 else -1
+    p3 += if (m & 8) != 0 then 3 else -1
+    if (frame_id % 10) == 0
+        tag_holder = (tag_holder + 1) % 4

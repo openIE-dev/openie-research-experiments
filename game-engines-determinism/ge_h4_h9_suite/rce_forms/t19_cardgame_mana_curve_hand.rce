@@ -1,0 +1,18 @@
+module ge_h9.t19_cardgame_mana_curve_hand
+intent "hearthstone-style max-mana ramp, hand size cap, and card cast"
+    example StartCardTurn, PlayCard(cost: 2, power: 5) -> max_mana == 2 and mana == 0 and board_pow == 5
+state DeckDuel
+    max_mana: i64 = 1
+    mana: i64 = 1
+    hand: i64 = 4
+    board_pow: i64 = 0
+event StartCardTurn
+event PlayCard(cost: i64, power: i64)
+step DeckDuel on StartCardTurn
+    max_mana = if max_mana < 10 then max_mana + 1 else 10
+    mana = max_mana
+    hand = if hand < 7 then hand + 1 else 7
+step DeckDuel on PlayCard(cost: c, power: p) if hand > 0 and mana >= c
+    mana -= c
+    hand -= 1
+    board_pow += p

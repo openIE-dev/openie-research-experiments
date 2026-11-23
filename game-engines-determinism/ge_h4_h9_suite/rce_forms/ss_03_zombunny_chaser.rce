@@ -1,0 +1,32 @@
+module survival_shooter.zombunny_chaser
+
+intent "fast melee chaser approach, strike cooldown, and despawn sink timer"
+    example ChaserStep(step_in: 8), ChaserStep(step_in: 8) -> dist == 44 and hp == 40
+    example TakeHit(dmg: 50), ChaserStep(step_in: 8) -> hp == 0 and sink_timer == 2
+
+state ZombunnyChaser
+    dist: i64 = 60
+    hp: i64 = 40
+    cd: i64 = 0
+    strikes: i64 = 0
+    sink_timer: i64 = 0
+
+event ChaserStep(step_in: i64)
+event TakeHit(dmg: i64)
+
+step ZombunnyChaser on ChaserStep(step_in: si)
+    if hp <= 0
+        sink_timer = if sink_timer > 0 then sink_timer - 1 else 0
+    else
+        cd = if cd > 0 then cd - 1 else 0
+        dist = if dist > si + 6 then dist - si else 6
+        if dist <= 8 and cd == 0
+            strikes += 1
+            cd = 5
+
+step ZombunnyChaser on TakeHit(dmg: d) if hp > 0
+    if hp > d
+        hp -= d
+    else
+        hp = 0
+        sink_timer = 3

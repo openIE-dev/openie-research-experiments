@@ -1,0 +1,33 @@
+module tanks.shell_ballistics_q32
+
+intent "Q32-scaled integer ballistic arc with wind drift and ground contact"
+    example Launch(vx0: 40, vz0: 18), StepArc(wind: 2) -> active == 1 and sx == 42 and sz == 12
+    example Launch(vx0: 20, vz0: 4), StepArc(wind: 0), StepArc(wind: 0) -> active == 0 and impacts == 1
+
+state ShellBallisticsQ32
+    sx: i64 = 0
+    sz: i64 = 0
+    vx: i64 = 0
+    vz: i64 = 0
+    active: i64 = 0
+    impacts: i64 = 0
+
+event Launch(vx0: i64, vz0: i64)
+event StepArc(wind: i64)
+
+step ShellBallisticsQ32 on Launch(vx0: ix, vz0: iz) if active == 0
+    sx = 0
+    sz = 0
+    vx = ix
+    vz = iz
+    active = 1
+
+step ShellBallisticsQ32 on StepArc(wind: w) if active == 1
+    vx += w
+    vz -= 6
+    sx += vx
+    sz += vz
+    if sz <= 0
+        sz = 0
+        active = 0
+        impacts += 1

@@ -1,0 +1,29 @@
+module haunted_jaunt.player_stealth
+
+intent "stealth avatar velocity, footstep noise accumulation, and caught latch"
+    example Move(dx: 1, dy: 0, crouch: 0) -> x == 6 and noise == 4
+    example Spotted, Move(dx: 1, dy: 1, crouch: 0) -> x == 0 and caught == 1
+
+fn clamp_i(v: i64, lo: i64, hi: i64) -> i64 = if v < lo then lo else (if v > hi then hi else v)
+
+state PlayerStealth
+    x: i64 = 0
+    y: i64 = 0
+    noise: i64 = 0
+    crouching: i64 = 0
+    caught: i64 = 0
+
+event Move(dx: i64, dy: i64, crouch: i64)
+event Spotted
+
+step PlayerStealth on Move(dx: dx, dy: dy, crouch: cr) if caught == 0
+    crouching = cr
+    let spd = if cr == 1 then 3 else 6
+    x = clamp_i(x + dx * spd, -200, 200)
+    y = clamp_i(y + dy * spd, -200, 200)
+    let delta_n = if dx != 0 or dy != 0 then (if cr == 1 then 1 else 4) else -3
+    noise = clamp_i(noise + delta_n, 0, 100)
+
+step PlayerStealth on Spotted
+    caught = 1
+    noise = 0

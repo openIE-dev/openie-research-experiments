@@ -1,0 +1,23 @@
+module ge_h9.t30_sports_stamina_pass_clock
+intent "24-second shot clock possession, pass chain, and goal attempt"
+    example PassBall, ShootAttempt(open_look: 1) -> goals == 1 and shot_clock == 24
+state CourtClock
+    shot_clock: i64 = 24
+    passes: i64 = 0
+    goals: i64 = 0
+    turnovers: i64 = 0
+event PassBall
+event ShootAttempt(open_look: i64)
+step CourtClock on PassBall
+    if shot_clock <= 3
+        turnovers += 1
+        shot_clock = 24
+        passes = 0
+    else
+        shot_clock -= 3
+        passes += 1
+step CourtClock on ShootAttempt(open_look: ol)
+    if passes >= 2 or ol == 1
+        goals += 1
+    shot_clock = 24
+    passes = 0

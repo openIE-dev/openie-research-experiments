@@ -1,0 +1,22 @@
+module ge_h9.t18_simulation_power_grid_balance
+intent "solar + battery storage dispatch against town load"
+    example GridStep(solar_kw: 40, load_kw: 30) -> batt_kwh == 60 and brownouts == 0
+state MicroGrid
+    batt_kwh: i64 = 50
+    brownouts: i64 = 0
+    served_kwh: i64 = 0
+event GridStep(solar_kw: i64, load_kw: i64)
+step MicroGrid on GridStep(solar_kw: sol, load_kw: ld)
+    if sol >= ld
+        served_kwh += ld
+        let surplus = sol - ld
+        batt_kwh = if batt_kwh + surplus > 100 then 100 else batt_kwh + surplus
+    else
+        let deficit = ld - sol
+        if batt_kwh >= deficit
+            batt_kwh -= deficit
+            served_kwh += ld
+        else
+            served_kwh += sol + batt_kwh
+            batt_kwh = 0
+            brownouts += 1

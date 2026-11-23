@@ -1,0 +1,21 @@
+module ge_h9.t23_rhythm_beat_window_judge
+intent "millisecond timing offset judgment (perfect, good, miss) and combo"
+    example NoteTap(offset_ms: 12), NoteTap(offset_ms: -18) -> perfects == 2 and streak == 2
+state RhythmJudge
+    score: i64 = 0
+    streak: i64 = 0
+    perfects: i64 = 0
+    misses: i64 = 0
+event NoteTap(offset_ms: i64)
+step RhythmJudge on NoteTap(offset_ms: off)
+    let err = if off < 0 then -off else off
+    if err <= 25
+        streak += 1
+        perfects += 1
+        score += 300 + streak * 10
+    elif err <= 60
+        streak += 1
+        score += 100 + streak * 5
+    else
+        streak = 0
+        misses += 1

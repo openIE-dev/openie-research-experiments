@@ -1,0 +1,21 @@
+module ge_h9.t24_rhythm_fever_groove_meter
+intent "groove gauge charge and 2x fever burst countdown"
+    example BeatPulse(hit_ok: 1) -> gauge == 25 and points == 50
+state GrooveMeter
+    gauge: i64 = 0
+    fever_ticks: i64 = 0
+    points: i64 = 0
+event BeatPulse(hit_ok: i64)
+step GrooveMeter on BeatPulse(hit_ok: ok)
+    let mult = if fever_ticks > 0 then 2 else 1
+    if fever_ticks > 0
+        fever_ticks -= 1
+    if ok == 1
+        points += 50 * mult
+        if fever_ticks == 0
+            gauge += 25
+            if gauge >= 100
+                gauge = 0
+                fever_ticks = 6
+    else
+        gauge = if gauge >= 15 then gauge - 15 else 0

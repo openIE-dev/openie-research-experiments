@@ -1,0 +1,114 @@
+module ge_h5_actor_arena
+
+intent "Q32.32 deterministic arena actor FSM with patrol, chase, spatial-cell avoidance, and pulse cooldown"
+    example InitActor(x0: 0, y0: 0), StepActor(cell_pop: 1, near_dx: 0, near_dy: 0, target_dx: 8589934592, target_dy: 0) -> fsm == 1 and ticks == 1
+    example InitActor(x0: 0, y0: 0), StepActor(cell_pop: 4, near_dx: 4294967296, near_dy: 0, target_dx: 171798691840, target_dy: 0) -> fsm == 2 and cooldown > 0
+    check clamp_q(500, -100, 100) == 100 and clamp_q(-500, -100, 100) == -100 and sign_q(-5) == -1 and abs_q(-42) == 42
+
+const ONE: i64 = 4294967296
+const BOUND: i64 = 257698037760
+const CHASE_DIST: i64 = 68719476736
+const AVOID_SPEED: i64 = 67108864
+const CHASE_SPEED: i64 = 100663296
+const PATROL_SPEED: i64 = 50331648
+const DRAG_NUM: i64 = 984
+const DRAG_DEN: i64 = 1024
+
+fn clamp_q(v: i64, lo: i64, hi: i64) -> i64
+    if v < lo
+        return lo
+    if v > hi
+        return hi
+    return v
+
+fn sign_q(v: i64) -> i64
+    if v > 0
+        return 1
+    if v < 0
+        return -1
+    return 0
+
+fn abs_q(v: i64) -> i64
+    if v < 0
+        return -v
+    return v
+
+state Actor
+    x: i64 = 0
+    y: i64 = 0
+    vx: i64 = 33554432
+    vy: i64 = 33554432
+    fsm: i64 = 0
+    cooldown: i64 = 0
+    pulses: i64 = 0
+    energy: i64 = 1000
+    ticks: i64 = 0
+
+event InitActor(x0: i64, y0: i64)
+event StepActor(cell_pop: i64, near_dx: i64, near_dy: i64, target_dx: i64, target_dy: i64)
+
+step Actor on InitActor(x0: ix, y0: iy)
+    x = clamp_q(ix, -BOUND, BOUND)
+    y = clamp_q(iy, -BOUND, BOUND)
+
+step Actor on StepActor(cell_pop: cp, near_dx: ndx, near_dy: ndy, target_dx: tdx, target_dy: tdy)
+    ticks += 1
+    if cooldown > 0
+        cooldown -= 1
+
+    let manhattan_tgt = abs_q(tdx) + abs_q(tdy)
+    var ax: i64 = 0
+    var ay: i64 = 0
+
+    if cp >= 3
+        fsm = 2
+        ax = -sign_q(ndx) * AVOID_SPEED
+        ay = -sign_q(ndy) * AVOID_SPEED
+        if cooldown == 0 and energy >= 10
+            cooldown = 12
+            pulses += 1
+            energy -= 10
+    elif manhattan_tgt < CHASE_DIST
+        fsm = 1
+        ax = sign_q(tdx) * CHASE_SPEED
+        ay = sign_q(tdy) * CHASE_SPEED
+        if manhattan_tgt < (CHASE_DIST / 4) and cooldown == 0 and energy >= 15
+            cooldown = 16
+            pulses += 1
+            energy -= 15
+    else
+        fsm = 0
+        let phase = ticks % 64
+        if phase < 16
+            ax = PATROL_SPEED
+        elif phase < 32
+            ay = PATROL_SPEED
+        elif phase < 48
+            ax = -PATROL_SPEED
+        else
+            ay = -PATROL_SPEED
+        if energy < 1000
+            energy += 1
+
+    vx = ((vx + ax) * DRAG_NUM) / DRAG_DEN
+    vy = ((vy + ay) * DRAG_NUM) / DRAG_DEN
+    let nx = x + vx
+    let ny = y + vy
+
+    if nx > BOUND
+        x = (2 * BOUND) - nx
+        vx = -vx
+    elif nx < -BOUND
+        x = (-2 * BOUND) - nx
+        vx = -vx
+    else
+        x = clamp_q(nx, -BOUND, BOUND)
+
+    if ny > BOUND
+        y = (2 * BOUND) - ny
+        vy = -vy
+    elif ny < -BOUND
+        y = (-2 * BOUND) - ny
+        vy = -vy
+    else
+        y = clamp_q(ny, -BOUND, BOUND)

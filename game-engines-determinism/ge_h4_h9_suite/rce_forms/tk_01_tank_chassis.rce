@@ -1,0 +1,25 @@
+module tanks.tank_chassis
+
+intent "differential tank throttle, heading wrap, drag, and fuel consumption"
+    example DriveStep(throttle: 2, turn: 15) -> heading == 15 and speed == 7 and fuel == 198
+    example DriveStep(throttle: 0, turn: -10) -> heading == 350 and speed == 0 and fuel == 200
+
+fn clamp_t(v: i64, lo: i64, hi: i64) -> i64 = if v < lo then lo else (if v > hi then hi else v)
+
+state TankChassis
+    pos: i64 = 0
+    heading: i64 = 0
+    speed: i64 = 0
+    fuel: i64 = 200
+
+event DriveStep(throttle: i64, turn: i64)
+
+step TankChassis on DriveStep(throttle: th, turn: tr)
+    let raw_h = (heading + tr) % 360
+    heading = if raw_h < 0 then raw_h + 360 else raw_h
+    if fuel > 0 and th != 0
+        let cost = if th > 0 then th else -th
+        fuel = if fuel > cost then fuel - cost else 0
+        speed = clamp_t(speed + th * 4, -24, 24)
+    speed = (speed * 7) / 8
+    pos = clamp_t(pos + speed, -500, 500)

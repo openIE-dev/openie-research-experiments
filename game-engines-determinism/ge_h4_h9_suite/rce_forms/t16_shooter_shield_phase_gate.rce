@@ -1,0 +1,16 @@
+module ge_h9.t16_shooter_shield_phase_gate
+intent "polarity-switching absorption shield (Ikaruga-style)"
+    example FlipPolarity, AbsorbOrb(orb_pol: 1, energy_val: 10) -> polarity == 1 and charge == 10
+state PolarityShip
+    polarity: i64 = 0
+    charge: i64 = 0
+    integrity: i64 = 50
+event FlipPolarity
+event AbsorbOrb(orb_pol: i64, energy_val: i64)
+step PolarityShip on FlipPolarity
+    polarity = 1 - polarity
+step PolarityShip on AbsorbOrb(orb_pol: op, energy_val: ev)
+    if op == polarity
+        charge = if charge + ev > 100 then 100 else charge + ev
+    else
+        integrity = if integrity > ev then integrity - ev else 0

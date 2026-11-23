@@ -1,0 +1,78 @@
+{
+  "AnalyticalModel": {
+    "bram_36k_sdp_read_pj_per_enabled_cycle": {
+      "high": 5.0,
+      "low": 2.8,
+      "nominal": 3.8,
+      "source_basis": "AMD UG573 / DS925 / XPE 16nm FinFET+ UltraScale+ -2LV (VCCINT = 0.72 V, VCCBRAM = 0.85 V) 64-bit SDP RAMB36E2 active read energy per cycle (~0.95 mW / 250 MHz = 3.80 pJ); idle clock-enabled constant-address precharge factor = 0.65 (2.47 pJ), EN=0 clock-pin-only = 0.15 pJ"
+    },
+    "bram_36k_sdp_write_pj_per_enabled_cycle": {
+      "high": 6.0,
+      "low": 3.4,
+      "nominal": 4.6
+    },
+    "capacitance_ff": {
+      "carry8_stage_and_local_net_ff": 8.0,
+      "clock_leaf_per_ff_per_cycle_ff": 2.2,
+      "fdre_q_and_routing_net_ff": {
+        "high": 17.0,
+        "low": 8.5,
+        "nominal": 12.0
+      },
+      "lut6_output_and_routing_net_ff": {
+        "high": 20.0,
+        "low": 10.0,
+        "nominal": 14.0
+      },
+      "muxf7_muxf8_stage_ff": 6.5
+    },
+    "dynamic_switching_formula": "E_dyn_logic_cycle = sum_i (alpha_transitions_per_cycle_i * 0.5 * C_eff_i * VCCINT^2) + N_FDRE * C_clk_leaf * VCCINT^2 + E_RAMB36E2_cycle; P_dyn_est_mW = E_dyn_cycle_pJ * f_MHz * 1e-3",
+    "nominal_clock_mhz": 250.0,
+    "nominal_clock_period_ns": 4.0,
+    "target_part": "xck26-sfvc784-2LV-c",
+    "timing_delay_budget_ds925_2lv_ns": {
+      "carry8_per_bit_ns": 0.015,
+      "fdre_setup_plus_uncertainty_ns": 0.115,
+      "fdre_t_cko_ns": 0.148,
+      "interconnect_net_per_level_ns": {
+        "congested_wide_bus": 0.22,
+        "nominal": 0.145,
+        "short_local": 0.11
+      },
+      "lut_t_ilo_ns": 0.068,
+      "ramb36e2_t_rcko_do_noreg_ns": 1.39,
+      "ramb36e2_t_rcko_do_reg_ns": 0.61
+    },
+    "vccbram_v": 0.85,
+    "vccint_v": 0.72
+  },
+  "experiment": "LUT-Adapt Section 4.16: Verilator VCD Activity-Factor & Yosys xcup Primitive Datasheet Dynamic Power/Energy Audit (est_j)",
+  "falsifiers": {
+    "F1_functional_cosim_error": "Any mismatch (> 0 errors) in cycle-accurate Verilator output verification across either clai_benes_paged_hotswap_core or clai_kv260_axi_top.",
+    "F2_quiescent_data_toggle_leak": "Non-clock internal data/combinational logic toggle rate exceeds 0.001 transitions/bit/cycle during idle_quiescent after pipeline drain.",
+    "F3_provenance_conflation": "Any analytical est_j / est_mW figure is labeled measured_j, reported_j, board_metered = true, or Vivado post-PAR timing closure."
+  },
+  "id": "lut-adapt-wave5-xck26-vcd-est-audit-2026-11-23",
+  "modules": [
+    "clai_benes_paged_hotswap_core (hw/kv260/rtl/clai_benes_hotswap_core.sv, PAGE_ADDR_BITS=9, 512 pages, 81 RAMB36E2)",
+    "clai_kv260_axi_top (hw/kv260/rtl/clai_kv260_axi_top.sv + clai_engram_streamer.sv + clai_rung0_hotswap_core.sv + artifacts/clai_rung0_kv260.v, 4 RAMB36E2)"
+  ],
+  "phases": [
+    "idle_quiescent (256 cycles: clock toggling, valid/write strobes deasserted after pipeline drain)",
+    "steady_lut6_eval_2048_cycles (2,048 cycles: sustained CPI=1.0 CodeBitBus / AXI4-Stream packet LUT6 evaluation)",
+    "single_cycle_page_switch_512_burst (512 cycles: back-to-back 1-cycle context page switching across all 512 RAMB36E2 slots / active-shadow bank churn)",
+    "shadow_page_stream_write (512 cycles: continuous online SleepCrystallizer RAMB36E2 page_prog_we / AXI4-Lite shadow LUT6 & Engram BRAM writes)"
+  ],
+  "provenance": {
+    "basis": "est_j (activity-calibrated analytical CMOS + BRAM datasheet model from exact Verilator 5.054 VCD signal toggle counts and Yosys 0.71+ synth_xilinx -family xcup primitive inventory)",
+    "board_metered": false,
+    "measured_j": null,
+    "not_claimed": [
+      "Physical Kria KV260 INA260 SOM rail power (measured_j = null, board_metered = false)",
+      "Placed-and-routed Vivado 2026.1 WNS or vector-annotated post-PAR report_power (requires AMD Standard .lic license file)"
+    ],
+    "source_commit": "af152ba2e63b5c55bcfad9b2fa41e675e8e3946c",
+    "source_repository": "https://github.com/openIE-dev/lut-adapt-ai"
+  },
+  "registered": "2026-11-23, locked with SHA-256 sidecar prior to 4-phase VCD toggle simulation and est_j calculation"
+}

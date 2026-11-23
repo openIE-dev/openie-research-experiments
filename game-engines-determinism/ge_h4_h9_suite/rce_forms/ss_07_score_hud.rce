@@ -1,0 +1,25 @@
+module survival_shooter.score_hud
+
+intent "combo multiplier, streak decay timer, and high-score watermark"
+    example ScoreEvent(base_pts: 20), ScoreEvent(base_pts: 30) -> score == 80 and combo == 3 and high_score == 80
+    example HudTick -> combo == 1 and score == 0
+
+state ScoreHUD
+    score: i64 = 0
+    combo: i64 = 1
+    decay_ticks: i64 = 0
+    high_score: i64 = 50
+
+event ScoreEvent(base_pts: i64)
+event HudTick
+
+step ScoreHUD on ScoreEvent(base_pts: bp)
+    score += bp * combo
+    combo = if combo < 8 then combo + 1 else 8
+    decay_ticks = 4
+    high_score = if score > high_score then score else high_score
+
+step ScoreHUD on HudTick if decay_ticks > 0
+    decay_ticks -= 1
+    if decay_ticks == 0
+        combo = 1

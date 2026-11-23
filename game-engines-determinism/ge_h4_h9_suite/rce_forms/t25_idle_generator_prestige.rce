@@ -1,0 +1,21 @@
+module ge_h9.t25_idle_generator_prestige
+intent "cookie-style generator purchase scaling and prestige reset"
+    example IdleTick, IdleTick -> coins == 2 and gens == 1
+state IdleEngine
+    coins: i64 = 0
+    gens: i64 = 1
+    prestige_mult: i64 = 1
+event IdleTick
+event BuyGen
+event PrestigeReset
+step IdleEngine on IdleTick
+    coins += gens * prestige_mult
+step IdleEngine on BuyGen
+    let cost = 10 + gens * 5
+    if coins >= cost
+        coins -= cost
+        gens += 1
+step IdleEngine on PrestigeReset if coins >= 200
+    prestige_mult += 1
+    coins = 0
+    gens = 1

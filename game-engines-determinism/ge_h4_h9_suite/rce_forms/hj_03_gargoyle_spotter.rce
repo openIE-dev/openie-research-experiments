@@ -1,0 +1,30 @@
+module haunted_jaunt.gargoyle_spotter
+
+intent "oscillating spotlight cone and detection meter accumulator"
+    example ScanStep(target_angle: 6, dist: 12, crouched: 0) -> angle == 5 and meter == 8
+    example ScanStep(target_angle: 40, dist: 50, crouched: 1) -> angle == 5 and meter == 0
+
+fn abs_i(v: i64) -> i64 = if v < 0 then -v else v
+
+state GargoyleSpotter
+    angle: i64 = 0
+    dir: i64 = 1
+    meter: i64 = 0
+    alarm: i64 = 0
+
+event ScanStep(target_angle: i64, dist: i64, crouched: i64)
+
+step GargoyleSpotter on ScanStep(target_angle: ta, dist: d, crouched: cr)
+    angle += dir * 5
+    if angle >= 45
+        angle = 45
+        dir = -1
+    elif angle <= -45
+        angle = -45
+        dir = 1
+    if d <= (if cr == 1 then 18 else 30) and abs_i(ta - angle) <= 12
+        meter = if meter + 8 >= 24 then 24 else meter + 8
+        if meter == 24
+            alarm = 1
+    else
+        meter = if meter >= 3 then meter - 3 else 0

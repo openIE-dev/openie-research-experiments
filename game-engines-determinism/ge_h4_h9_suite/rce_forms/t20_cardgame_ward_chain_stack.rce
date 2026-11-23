@@ -1,0 +1,24 @@
+module ge_h9.t20_cardgame_ward_chain_stack
+intent "spire-style block ward + vulnerable status turn decay"
+    example GainBlock(amt: 12), EnemySwing(dmg: 9) -> block == 3 and hp == 80
+state SpireCombat
+    hp: i64 = 80
+    block: i64 = 0
+    vuln_turns: i64 = 0
+event GainBlock(amt: i64)
+event ApplyVuln(turns: i64)
+event EnemySwing(dmg: i64)
+step SpireCombat on GainBlock(amt: a)
+    block += a
+step SpireCombat on ApplyVuln(turns: t)
+    vuln_turns += t
+step SpireCombat on EnemySwing(dmg: d)
+    let scaled = if vuln_turns > 0 then (d * 3) / 2 else d
+    if block >= scaled
+        block -= scaled
+    else
+        let rem = scaled - block
+        block = 0
+        hp = if hp > rem then hp - rem else 0
+    if vuln_turns > 0
+        vuln_turns -= 1

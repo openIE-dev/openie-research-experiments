@@ -1,0 +1,832 @@
+{
+  "hypothesis": "GE-H4",
+  "total_modules": 17,
+  "languages": 4,
+  "total_implementations": 68,
+  "traces_per_module": 10,
+  "events_per_trace": 20,
+  "total_trace_executions": 680,
+  "cross_language_trace_mismatches": 0,
+  "totals": {
+    "rce_behavior_sloc": 326,
+    "rce_total_sloc_with_intent": 377,
+    "unity_csharp_sloc": 1371,
+    "godot4_gdscript_sloc": 679,
+    "bevy_rust_ecs_sloc": 846,
+    "three_engine_combined_sloc": 2896,
+    "rce_behavior_tokens": 2348,
+    "unity_csharp_tokens": 6937,
+    "godot4_gdscript_tokens": 4501,
+    "bevy_rust_ecs_tokens": 4836,
+    "rce_glue_lines": 61,
+    "unity_csharp_glue_lines": 814,
+    "godot4_gdscript_glue_lines": 192,
+    "bevy_rust_ecs_glue_lines": 391,
+    "sloc_reduction_vs_unity_csharp_pct": 76.22,
+    "sloc_with_intent_reduction_vs_unity_csharp_pct": 72.5,
+    "sloc_reduction_vs_bevy_rust_ecs_pct": 61.47,
+    "sloc_reduction_vs_godot4_gdscript_pct": 51.99,
+    "sloc_reduction_vs_3engine_sum_pct": 88.74,
+    "token_reduction_vs_unity_csharp_pct": 66.15,
+    "token_reduction_vs_bevy_rust_ecs_pct": 51.45,
+    "glue_reduction_vs_unity_csharp_pct": 92.51,
+    "gamerule_reference_reduction_pct": 81.3,
+    "kill_threshold_pct": 50.0,
+    "passes_50pct_threshold_vs_csharp": true
+  },
+  "by_game": {
+    "Haunted Jaunt": {
+      "modules": 5,
+      "rce_behavior_sloc": 90,
+      "rce_total_sloc_with_intent": 105,
+      "csharp_sloc": 391,
+      "gdscript_sloc": 190,
+      "rust_ecs_sloc": 238,
+      "rce_tokens": 770,
+      "csharp_tokens": 2094,
+      "gdscript_tokens": 1382,
+      "rust_ecs_tokens": 1468,
+      "rce_glue": 17,
+      "csharp_glue": 230,
+      "gdscript_glue": 54,
+      "rust_ecs_glue": 112,
+      "reduction_vs_csharp_pct": 76.98,
+      "reduction_with_intent_vs_csharp_pct": 73.15,
+      "reduction_vs_rust_ecs_pct": 62.18,
+      "reduction_vs_gdscript_pct": 52.63
+    },
+    "Survival Shooter": {
+      "modules": 7,
+      "rce_behavior_sloc": 148,
+      "rce_total_sloc_with_intent": 169,
+      "csharp_sloc": 590,
+      "gdscript_sloc": 288,
+      "rust_ecs_sloc": 367,
+      "rce_tokens": 929,
+      "csharp_tokens": 2896,
+      "gdscript_tokens": 1819,
+      "rust_ecs_tokens": 2016,
+      "rce_glue": 27,
+      "csharp_glue": 351,
+      "gdscript_glue": 81,
+      "rust_ecs_glue": 168,
+      "reduction_vs_csharp_pct": 74.92,
+      "reduction_with_intent_vs_csharp_pct": 71.36,
+      "reduction_vs_rust_ecs_pct": 59.67,
+      "reduction_vs_gdscript_pct": 48.61
+    },
+    "Tanks": {
+      "modules": 5,
+      "rce_behavior_sloc": 88,
+      "rce_total_sloc_with_intent": 103,
+      "csharp_sloc": 390,
+      "gdscript_sloc": 201,
+      "rust_ecs_sloc": 241,
+      "rce_tokens": 649,
+      "csharp_tokens": 1947,
+      "gdscript_tokens": 1300,
+      "rust_ecs_tokens": 1352,
+      "rce_glue": 17,
+      "csharp_glue": 233,
+      "gdscript_glue": 57,
+      "rust_ecs_glue": 111,
+      "reduction_vs_csharp_pct": 77.44,
+      "reduction_with_intent_vs_csharp_pct": 73.59,
+      "reduction_vs_rust_ecs_pct": 63.49,
+      "reduction_vs_gdscript_pct": 56.22
+    }
+  },
+  "modules": [
+    {
+      "id": "hj_01_player_stealth",
+      "game": "Haunted Jaunt",
+      "name": "PlayerStealth",
+      "rce": {
+        "behavior_sloc": 20,
+        "total_sloc_with_intent": 23,
+        "intent_sloc": 3,
+        "behavior_tokens": 195,
+        "total_tokens": 255,
+        "glue_lines": 4
+      },
+      "unity_csharp": {
+        "behavior_sloc": 88,
+        "total_sloc_with_intent": 88,
+        "intent_sloc": 0,
+        "behavior_tokens": 489,
+        "total_tokens": 489,
+        "glue_lines": 49
+      },
+      "godot4_gdscript": {
+        "behavior_sloc": 44,
+        "total_sloc_with_intent": 44,
+        "intent_sloc": 0,
+        "behavior_tokens": 333,
+        "total_tokens": 333,
+        "glue_lines": 12
+      },
+      "bevy_rust_ecs": {
+        "behavior_sloc": 53,
+        "total_sloc_with_intent": 53,
+        "intent_sloc": 0,
+        "behavior_tokens": 340,
+        "total_tokens": 340,
+        "glue_lines": 22
+      },
+      "sloc_reduction_vs_csharp_pct": 77.27,
+      "sloc_with_intent_reduction_vs_csharp_pct": 73.86,
+      "sloc_reduction_vs_rust_ecs_pct": 62.26,
+      "sloc_reduction_vs_gdscript_pct": 54.55,
+      "traces_verified": 10,
+      "cross_language_mismatches": 0
+    },
+    {
+      "id": "hj_02_ghost_patrol",
+      "game": "Haunted Jaunt",
+      "name": "GhostPatrol",
+      "rce": {
+        "behavior_sloc": 20,
+        "total_sloc_with_intent": 23,
+        "intent_sloc": 3,
+        "behavior_tokens": 216,
+        "total_tokens": 274,
+        "glue_lines": 3
+      },
+      "unity_csharp": {
+        "behavior_sloc": 82,
+        "total_sloc_with_intent": 82,
+        "intent_sloc": 0,
+        "behavior_tokens": 470,
+        "total_tokens": 470,
+        "glue_lines": 47
+      },
+      "godot4_gdscript": {
+        "behavior_sloc": 43,
+        "total_sloc_with_intent": 43,
+        "intent_sloc": 0,
+        "behavior_tokens": 336,
+        "total_tokens": 336,
+        "glue_lines": 11
+      },
+      "bevy_rust_ecs": {
+        "behavior_sloc": 51,
+        "total_sloc_with_intent": 51,
+        "intent_sloc": 0,
+        "behavior_tokens": 376,
+        "total_tokens": 376,
+        "glue_lines": 23
+      },
+      "sloc_reduction_vs_csharp_pct": 75.61,
+      "sloc_with_intent_reduction_vs_csharp_pct": 71.95,
+      "sloc_reduction_vs_rust_ecs_pct": 60.78,
+      "sloc_reduction_vs_gdscript_pct": 53.49,
+      "traces_verified": 10,
+      "cross_language_mismatches": 0
+    },
+    {
+      "id": "hj_03_gargoyle_spotter",
+      "game": "Haunted Jaunt",
+      "name": "GargoyleSpotter",
+      "rce": {
+        "behavior_sloc": 22,
+        "total_sloc_with_intent": 25,
+        "intent_sloc": 3,
+        "behavior_tokens": 161,
+        "total_tokens": 215,
+        "glue_lines": 3
+      },
+      "unity_csharp": {
+        "behavior_sloc": 74,
+        "total_sloc_with_intent": 74,
+        "intent_sloc": 0,
+        "behavior_tokens": 412,
+        "total_tokens": 412,
+        "glue_lines": 45
+      },
+      "godot4_gdscript": {
+        "behavior_sloc": 37,
+        "total_sloc_with_intent": 37,
+        "intent_sloc": 0,
+        "behavior_tokens": 270,
+        "total_tokens": 270,
+        "glue_lines": 11
+      },
+      "bevy_rust_ecs": {
+        "behavior_sloc": 48,
+        "total_sloc_with_intent": 48,
+        "intent_sloc": 0,
+        "behavior_tokens": 308,
+        "total_tokens": 308,
+        "glue_lines": 22
+      },
+      "sloc_reduction_vs_csharp_pct": 70.27,
+      "sloc_with_intent_reduction_vs_csharp_pct": 66.22,
+      "sloc_reduction_vs_rust_ecs_pct": 54.17,
+      "sloc_reduction_vs_gdscript_pct": 40.54,
+      "traces_verified": 10,
+      "cross_language_mismatches": 0
+    },
+    {
+      "id": "hj_04_observer_los",
+      "game": "Haunted Jaunt",
+      "name": "ObserverLineOfSight",
+      "rce": {
+        "behavior_sloc": 15,
+        "total_sloc_with_intent": 18,
+        "intent_sloc": 3,
+        "behavior_tokens": 117,
+        "total_tokens": 194,
+        "glue_lines": 3
+      },
+      "unity_csharp": {
+        "behavior_sloc": 74,
+        "total_sloc_with_intent": 74,
+        "intent_sloc": 0,
+        "behavior_tokens": 384,
+        "total_tokens": 384,
+        "glue_lines": 44
+      },
+      "godot4_gdscript": {
+        "behavior_sloc": 31,
+        "total_sloc_with_intent": 31,
+        "intent_sloc": 0,
+        "behavior_tokens": 246,
+        "total_tokens": 246,
+        "glue_lines": 10
+      },
+      "bevy_rust_ecs": {
+        "behavior_sloc": 41,
+        "total_sloc_with_intent": 41,
+        "intent_sloc": 0,
+        "behavior_tokens": 236,
+        "total_tokens": 236,
+        "glue_lines": 21
+      },
+      "sloc_reduction_vs_csharp_pct": 79.73,
+      "sloc_with_intent_reduction_vs_csharp_pct": 75.68,
+      "sloc_reduction_vs_rust_ecs_pct": 63.41,
+      "sloc_reduction_vs_gdscript_pct": 51.61,
+      "traces_verified": 10,
+      "cross_language_mismatches": 0
+    },
+    {
+      "id": "hj_05_exit_trigger",
+      "game": "Haunted Jaunt",
+      "name": "ExitTrigger",
+      "rce": {
+        "behavior_sloc": 13,
+        "total_sloc_with_intent": 16,
+        "intent_sloc": 3,
+        "behavior_tokens": 81,
+        "total_tokens": 123,
+        "glue_lines": 4
+      },
+      "unity_csharp": {
+        "behavior_sloc": 73,
+        "total_sloc_with_intent": 73,
+        "intent_sloc": 0,
+        "behavior_tokens": 339,
+        "total_tokens": 339,
+        "glue_lines": 45
+      },
+      "godot4_gdscript": {
+        "behavior_sloc": 35,
+        "total_sloc_with_intent": 35,
+        "intent_sloc": 0,
+        "behavior_tokens": 197,
+        "total_tokens": 197,
+        "glue_lines": 10
+      },
+      "bevy_rust_ecs": {
+        "behavior_sloc": 45,
+        "total_sloc_with_intent": 45,
+        "intent_sloc": 0,
+        "behavior_tokens": 208,
+        "total_tokens": 208,
+        "glue_lines": 24
+      },
+      "sloc_reduction_vs_csharp_pct": 82.19,
+      "sloc_with_intent_reduction_vs_csharp_pct": 78.08,
+      "sloc_reduction_vs_rust_ecs_pct": 71.11,
+      "sloc_reduction_vs_gdscript_pct": 62.86,
+      "traces_verified": 10,
+      "cross_language_mismatches": 0
+    },
+    {
+      "id": "ss_01_player_avatar",
+      "game": "Survival Shooter",
+      "name": "PlayerAvatar",
+      "rce": {
+        "behavior_sloc": 21,
+        "total_sloc_with_intent": 24,
+        "intent_sloc": 3,
+        "behavior_tokens": 216,
+        "total_tokens": 273,
+        "glue_lines": 4
+      },
+      "unity_csharp": {
+        "behavior_sloc": 99,
+        "total_sloc_with_intent": 99,
+        "intent_sloc": 0,
+        "behavior_tokens": 518,
+        "total_tokens": 518,
+        "glue_lines": 55
+      },
+      "godot4_gdscript": {
+        "behavior_sloc": 49,
+        "total_sloc_with_intent": 49,
+        "intent_sloc": 0,
+        "behavior_tokens": 344,
+        "total_tokens": 344,
+        "glue_lines": 12
+      },
+      "bevy_rust_ecs": {
+        "behavior_sloc": 59,
+        "total_sloc_with_intent": 59,
+        "intent_sloc": 0,
+        "behavior_tokens": 360,
+        "total_tokens": 360,
+        "glue_lines": 25
+      },
+      "sloc_reduction_vs_csharp_pct": 78.79,
+      "sloc_with_intent_reduction_vs_csharp_pct": 75.76,
+      "sloc_reduction_vs_rust_ecs_pct": 64.41,
+      "sloc_reduction_vs_gdscript_pct": 57.14,
+      "traces_verified": 10,
+      "cross_language_mismatches": 0
+    },
+    {
+      "id": "ss_02_gun_raycaster",
+      "game": "Survival Shooter",
+      "name": "GunRaycaster",
+      "rce": {
+        "behavior_sloc": 23,
+        "total_sloc_with_intent": 26,
+        "intent_sloc": 3,
+        "behavior_tokens": 113,
+        "total_tokens": 178,
+        "glue_lines": 3
+      },
+      "unity_csharp": {
+        "behavior_sloc": 81,
+        "total_sloc_with_intent": 81,
+        "intent_sloc": 0,
+        "behavior_tokens": 377,
+        "total_tokens": 377,
+        "glue_lines": 49
+      },
+      "godot4_gdscript": {
+        "behavior_sloc": 38,
+        "total_sloc_with_intent": 38,
+        "intent_sloc": 0,
+        "behavior_tokens": 236,
+        "total_tokens": 236,
+        "glue_lines": 11
+      },
+      "bevy_rust_ecs": {
+        "behavior_sloc": 52,
+        "total_sloc_with_intent": 52,
+        "intent_sloc": 0,
+        "behavior_tokens": 258,
+        "total_tokens": 258,
+        "glue_lines": 25
+      },
+      "sloc_reduction_vs_csharp_pct": 71.6,
+      "sloc_with_intent_reduction_vs_csharp_pct": 67.9,
+      "sloc_reduction_vs_rust_ecs_pct": 55.77,
+      "sloc_reduction_vs_gdscript_pct": 39.47,
+      "traces_verified": 10,
+      "cross_language_mismatches": 0
+    },
+    {
+      "id": "ss_03_zombunny_chaser",
+      "game": "Survival Shooter",
+      "name": "ZombunnyChaser",
+      "rce": {
+        "behavior_sloc": 24,
+        "total_sloc_with_intent": 27,
+        "intent_sloc": 3,
+        "behavior_tokens": 138,
+        "total_tokens": 195,
+        "glue_lines": 4
+      },
+      "unity_csharp": {
+        "behavior_sloc": 87,
+        "total_sloc_with_intent": 87,
+        "intent_sloc": 0,
+        "behavior_tokens": 424,
+        "total_tokens": 424,
+        "glue_lines": 51
+      },
+      "godot4_gdscript": {
+        "behavior_sloc": 45,
+        "total_sloc_with_intent": 45,
+        "intent_sloc": 0,
+        "behavior_tokens": 265,
+        "total_tokens": 265,
+        "glue_lines": 12
+      },
+      "bevy_rust_ecs": {
+        "behavior_sloc": 58,
+        "total_sloc_with_intent": 58,
+        "intent_sloc": 0,
+        "behavior_tokens": 296,
+        "total_tokens": 296,
+        "glue_lines": 26
+      },
+      "sloc_reduction_vs_csharp_pct": 72.41,
+      "sloc_with_intent_reduction_vs_csharp_pct": 68.97,
+      "sloc_reduction_vs_rust_ecs_pct": 58.62,
+      "sloc_reduction_vs_gdscript_pct": 46.67,
+      "traces_verified": 10,
+      "cross_language_mismatches": 0
+    },
+    {
+      "id": "ss_04_zombear_bruiser",
+      "game": "Survival Shooter",
+      "name": "ZomBearBruiser",
+      "rce": {
+        "behavior_sloc": 15,
+        "total_sloc_with_intent": 18,
+        "intent_sloc": 3,
+        "behavior_tokens": 116,
+        "total_tokens": 171,
+        "glue_lines": 4
+      },
+      "unity_csharp": {
+        "behavior_sloc": 78,
+        "total_sloc_with_intent": 78,
+        "intent_sloc": 0,
+        "behavior_tokens": 391,
+        "total_tokens": 391,
+        "glue_lines": 48
+      },
+      "godot4_gdscript": {
+        "behavior_sloc": 34,
+        "total_sloc_with_intent": 34,
+        "intent_sloc": 0,
+        "behavior_tokens": 243,
+        "total_tokens": 243,
+        "glue_lines": 11
+      },
+      "bevy_rust_ecs": {
+        "behavior_sloc": 44,
+        "total_sloc_with_intent": 44,
+        "intent_sloc": 0,
+        "behavior_tokens": 262,
+        "total_tokens": 262,
+        "glue_lines": 23
+      },
+      "sloc_reduction_vs_csharp_pct": 80.77,
+      "sloc_with_intent_reduction_vs_csharp_pct": 76.92,
+      "sloc_reduction_vs_rust_ecs_pct": 65.91,
+      "sloc_reduction_vs_gdscript_pct": 55.88,
+      "traces_verified": 10,
+      "cross_language_mismatches": 0
+    },
+    {
+      "id": "ss_05_hellephant_boss",
+      "game": "Survival Shooter",
+      "name": "HellephantBoss",
+      "rce": {
+        "behavior_sloc": 28,
+        "total_sloc_with_intent": 31,
+        "intent_sloc": 3,
+        "behavior_tokens": 145,
+        "total_tokens": 192,
+        "glue_lines": 4
+      },
+      "unity_csharp": {
+        "behavior_sloc": 83,
+        "total_sloc_with_intent": 83,
+        "intent_sloc": 0,
+        "behavior_tokens": 444,
+        "total_tokens": 444,
+        "glue_lines": 49
+      },
+      "godot4_gdscript": {
+        "behavior_sloc": 47,
+        "total_sloc_with_intent": 47,
+        "intent_sloc": 0,
+        "behavior_tokens": 278,
+        "total_tokens": 278,
+        "glue_lines": 12
+      },
+      "bevy_rust_ecs": {
+        "behavior_sloc": 57,
+        "total_sloc_with_intent": 57,
+        "intent_sloc": 0,
+        "behavior_tokens": 337,
+        "total_tokens": 337,
+        "glue_lines": 23
+      },
+      "sloc_reduction_vs_csharp_pct": 66.27,
+      "sloc_with_intent_reduction_vs_csharp_pct": 62.65,
+      "sloc_reduction_vs_rust_ecs_pct": 50.88,
+      "sloc_reduction_vs_gdscript_pct": 40.43,
+      "traces_verified": 10,
+      "cross_language_mismatches": 0
+    },
+    {
+      "id": "ss_06_wave_spawner",
+      "game": "Survival Shooter",
+      "name": "WaveSpawner",
+      "rce": {
+        "behavior_sloc": 20,
+        "total_sloc_with_intent": 23,
+        "intent_sloc": 3,
+        "behavior_tokens": 109,
+        "total_tokens": 146,
+        "glue_lines": 4
+      },
+      "unity_csharp": {
+        "behavior_sloc": 84,
+        "total_sloc_with_intent": 84,
+        "intent_sloc": 0,
+        "behavior_tokens": 390,
+        "total_tokens": 390,
+        "glue_lines": 51
+      },
+      "godot4_gdscript": {
+        "behavior_sloc": 39,
+        "total_sloc_with_intent": 39,
+        "intent_sloc": 0,
+        "behavior_tokens": 245,
+        "total_tokens": 245,
+        "glue_lines": 12
+      },
+      "bevy_rust_ecs": {
+        "behavior_sloc": 49,
+        "total_sloc_with_intent": 49,
+        "intent_sloc": 0,
+        "behavior_tokens": 274,
+        "total_tokens": 274,
+        "glue_lines": 22
+      },
+      "sloc_reduction_vs_csharp_pct": 76.19,
+      "sloc_with_intent_reduction_vs_csharp_pct": 72.62,
+      "sloc_reduction_vs_rust_ecs_pct": 59.18,
+      "sloc_reduction_vs_gdscript_pct": 48.72,
+      "traces_verified": 10,
+      "cross_language_mismatches": 0
+    },
+    {
+      "id": "ss_07_score_hud",
+      "game": "Survival Shooter",
+      "name": "ScoreHUD",
+      "rce": {
+        "behavior_sloc": 17,
+        "total_sloc_with_intent": 20,
+        "intent_sloc": 3,
+        "behavior_tokens": 92,
+        "total_tokens": 141,
+        "glue_lines": 4
+      },
+      "unity_csharp": {
+        "behavior_sloc": 78,
+        "total_sloc_with_intent": 78,
+        "intent_sloc": 0,
+        "behavior_tokens": 352,
+        "total_tokens": 352,
+        "glue_lines": 48
+      },
+      "godot4_gdscript": {
+        "behavior_sloc": 36,
+        "total_sloc_with_intent": 36,
+        "intent_sloc": 0,
+        "behavior_tokens": 208,
+        "total_tokens": 208,
+        "glue_lines": 11
+      },
+      "bevy_rust_ecs": {
+        "behavior_sloc": 48,
+        "total_sloc_with_intent": 48,
+        "intent_sloc": 0,
+        "behavior_tokens": 229,
+        "total_tokens": 229,
+        "glue_lines": 24
+      },
+      "sloc_reduction_vs_csharp_pct": 78.21,
+      "sloc_with_intent_reduction_vs_csharp_pct": 74.36,
+      "sloc_reduction_vs_rust_ecs_pct": 64.58,
+      "sloc_reduction_vs_gdscript_pct": 52.78,
+      "traces_verified": 10,
+      "cross_language_mismatches": 0
+    },
+    {
+      "id": "tk_01_tank_chassis",
+      "game": "Tanks",
+      "name": "TankChassis",
+      "rce": {
+        "behavior_sloc": 17,
+        "total_sloc_with_intent": 20,
+        "intent_sloc": 3,
+        "behavior_tokens": 176,
+        "total_tokens": 236,
+        "glue_lines": 3
+      },
+      "unity_csharp": {
+        "behavior_sloc": 76,
+        "total_sloc_with_intent": 76,
+        "intent_sloc": 0,
+        "behavior_tokens": 416,
+        "total_tokens": 416,
+        "glue_lines": 45
+      },
+      "godot4_gdscript": {
+        "behavior_sloc": 40,
+        "total_sloc_with_intent": 40,
+        "intent_sloc": 0,
+        "behavior_tokens": 313,
+        "total_tokens": 313,
+        "glue_lines": 11
+      },
+      "bevy_rust_ecs": {
+        "behavior_sloc": 43,
+        "total_sloc_with_intent": 43,
+        "intent_sloc": 0,
+        "behavior_tokens": 316,
+        "total_tokens": 316,
+        "glue_lines": 21
+      },
+      "sloc_reduction_vs_csharp_pct": 77.63,
+      "sloc_with_intent_reduction_vs_csharp_pct": 73.68,
+      "sloc_reduction_vs_rust_ecs_pct": 60.47,
+      "sloc_reduction_vs_gdscript_pct": 57.5,
+      "traces_verified": 10,
+      "cross_language_mismatches": 0
+    },
+    {
+      "id": "tk_02_shell_ballistics_q32",
+      "game": "Tanks",
+      "name": "ShellBallisticsQ32",
+      "rce": {
+        "behavior_sloc": 25,
+        "total_sloc_with_intent": 28,
+        "intent_sloc": 3,
+        "behavior_tokens": 124,
+        "total_tokens": 200,
+        "glue_lines": 4
+      },
+      "unity_csharp": {
+        "behavior_sloc": 88,
+        "total_sloc_with_intent": 88,
+        "intent_sloc": 0,
+        "behavior_tokens": 431,
+        "total_tokens": 431,
+        "glue_lines": 52
+      },
+      "godot4_gdscript": {
+        "behavior_sloc": 46,
+        "total_sloc_with_intent": 46,
+        "intent_sloc": 0,
+        "behavior_tokens": 264,
+        "total_tokens": 264,
+        "glue_lines": 13
+      },
+      "bevy_rust_ecs": {
+        "behavior_sloc": 56,
+        "total_sloc_with_intent": 56,
+        "intent_sloc": 0,
+        "behavior_tokens": 285,
+        "total_tokens": 285,
+        "glue_lines": 23
+      },
+      "sloc_reduction_vs_csharp_pct": 71.59,
+      "sloc_with_intent_reduction_vs_csharp_pct": 68.18,
+      "sloc_reduction_vs_rust_ecs_pct": 55.36,
+      "sloc_reduction_vs_gdscript_pct": 45.65,
+      "traces_verified": 10,
+      "cross_language_mismatches": 0
+    },
+    {
+      "id": "tk_03_explosion_falloff",
+      "game": "Tanks",
+      "name": "ExplosionFalloff",
+      "rce": {
+        "behavior_sloc": 11,
+        "total_sloc_with_intent": 14,
+        "intent_sloc": 3,
+        "behavior_tokens": 106,
+        "total_tokens": 163,
+        "glue_lines": 3
+      },
+      "unity_csharp": {
+        "behavior_sloc": 72,
+        "total_sloc_with_intent": 72,
+        "intent_sloc": 0,
+        "behavior_tokens": 346,
+        "total_tokens": 346,
+        "glue_lines": 44
+      },
+      "godot4_gdscript": {
+        "behavior_sloc": 33,
+        "total_sloc_with_intent": 33,
+        "intent_sloc": 0,
+        "behavior_tokens": 247,
+        "total_tokens": 247,
+        "glue_lines": 10
+      },
+      "bevy_rust_ecs": {
+        "behavior_sloc": 39,
+        "total_sloc_with_intent": 39,
+        "intent_sloc": 0,
+        "behavior_tokens": 222,
+        "total_tokens": 222,
+        "glue_lines": 20
+      },
+      "sloc_reduction_vs_csharp_pct": 84.72,
+      "sloc_with_intent_reduction_vs_csharp_pct": 80.56,
+      "sloc_reduction_vs_rust_ecs_pct": 71.79,
+      "sloc_reduction_vs_gdscript_pct": 66.67,
+      "traces_verified": 10,
+      "cross_language_mismatches": 0
+    },
+    {
+      "id": "tk_04_tank_health_shield",
+      "game": "Tanks",
+      "name": "TankHealthShield",
+      "rce": {
+        "behavior_sloc": 20,
+        "total_sloc_with_intent": 23,
+        "intent_sloc": 3,
+        "behavior_tokens": 128,
+        "total_tokens": 179,
+        "glue_lines": 4
+      },
+      "unity_csharp": {
+        "behavior_sloc": 85,
+        "total_sloc_with_intent": 85,
+        "intent_sloc": 0,
+        "behavior_tokens": 405,
+        "total_tokens": 405,
+        "glue_lines": 50
+      },
+      "godot4_gdscript": {
+        "behavior_sloc": 43,
+        "total_sloc_with_intent": 43,
+        "intent_sloc": 0,
+        "behavior_tokens": 255,
+        "total_tokens": 255,
+        "glue_lines": 11
+      },
+      "bevy_rust_ecs": {
+        "behavior_sloc": 54,
+        "total_sloc_with_intent": 54,
+        "intent_sloc": 0,
+        "behavior_tokens": 290,
+        "total_tokens": 290,
+        "glue_lines": 25
+      },
+      "sloc_reduction_vs_csharp_pct": 76.47,
+      "sloc_with_intent_reduction_vs_csharp_pct": 72.94,
+      "sloc_reduction_vs_rust_ecs_pct": 62.96,
+      "sloc_reduction_vs_gdscript_pct": 53.49,
+      "traces_verified": 10,
+      "cross_language_mismatches": 0
+    },
+    {
+      "id": "tk_05_round_director",
+      "game": "Tanks",
+      "name": "RoundDirector",
+      "rce": {
+        "behavior_sloc": 15,
+        "total_sloc_with_intent": 18,
+        "intent_sloc": 3,
+        "behavior_tokens": 115,
+        "total_tokens": 193,
+        "glue_lines": 3
+      },
+      "unity_csharp": {
+        "behavior_sloc": 69,
+        "total_sloc_with_intent": 69,
+        "intent_sloc": 0,
+        "behavior_tokens": 349,
+        "total_tokens": 349,
+        "glue_lines": 42
+      },
+      "godot4_gdscript": {
+        "behavior_sloc": 39,
+        "total_sloc_with_intent": 39,
+        "intent_sloc": 0,
+        "behavior_tokens": 221,
+        "total_tokens": 221,
+        "glue_lines": 12
+      },
+      "bevy_rust_ecs": {
+        "behavior_sloc": 49,
+        "total_sloc_with_intent": 49,
+        "intent_sloc": 0,
+        "behavior_tokens": 239,
+        "total_tokens": 239,
+        "glue_lines": 22
+      },
+      "sloc_reduction_vs_csharp_pct": 78.26,
+      "sloc_with_intent_reduction_vs_csharp_pct": 73.91,
+      "sloc_reduction_vs_rust_ecs_pct": 69.39,
+      "sloc_reduction_vs_gdscript_pct": 61.54,
+      "traces_verified": 10,
+      "cross_language_mismatches": 0
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+module ge_h9.t27_racing_boost_drift_lap
+intent "kart drift charge release and 1000-unit lap counter"
+    example KartStep(accel: 1, drift: 1, release_boost: 0) -> drift_charge == 15 and speed > 0
+state KartRacer
+    dist: i64 = 0
+    speed: i64 = 0
+    drift_charge: i64 = 0
+    boost_ticks: i64 = 0
+    laps: i64 = 0
+event KartStep(accel: i64, drift: i64, release_boost: i64)
+step KartRacer on KartStep(accel: ac, drift: dr, release_boost: rb)
+    if rb == 1 and drift_charge >= 30
+        boost_ticks = 5
+        drift_charge = 0
+    elif dr == 1 and ac == 1
+        drift_charge = if drift_charge + 15 > 60 then 60 else drift_charge + 15
+    let top = if boost_ticks > 0 then 60 else 36
+    if boost_ticks > 0
+        boost_ticks -= 1
+    speed = if ac == 1 then (if speed + 8 > top then top else speed + 8) else (speed * 3) / 4
+    dist += speed
+    if dist >= 1000
+        dist -= 1000
+        laps += 1

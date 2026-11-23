@@ -1,0 +1,22 @@
+module tanks.round_director
+
+intent "best-of-five match director with draw tracking and champion lock"
+    example RoundEnd(hp_a: 40, hp_b: 0), RoundEnd(hp_a: 10, hp_b: 0), RoundEnd(hp_a: 5, hp_b: 0) -> wins_a == 3 and champion == 1
+    example RoundEnd(hp_a: 0, hp_b: 0) -> draws == 1 and round_no == 2 and champion == 0
+
+state RoundDirector
+    round_no: i64 = 1
+    wins_a: i64 = 0
+    wins_b: i64 = 0
+    draws: i64 = 0
+    champion: i64 = 0
+
+event RoundEnd(hp_a: i64, hp_b: i64)
+
+step RoundDirector on RoundEnd(hp_a: a, hp_b: b) if champion == 0
+    wins_a += if a > b then 1 else 0
+    wins_b += if b > a then 1 else 0
+    draws += if a == b then 1 else 0
+    champion = if wins_a >= 3 then 1 else (if wins_b >= 3 then 2 else 0)
+    if champion == 0
+        round_no += 1

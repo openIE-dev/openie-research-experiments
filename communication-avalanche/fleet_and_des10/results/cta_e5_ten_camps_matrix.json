@@ -1,0 +1,1418 @@
+{
+  "experiment": "CTA-E5",
+  "title": "The 10 Siloed AI Paradigm Camps vs. Immediate Digital Enzymatic Synthesis (DES-10)",
+  "generated_at_utc": "2026-11-23T12:12:07.224658+00:00",
+  "prereg_sha256": "3efe68407530d203d7e8a6a1f13d9943713f763fe24034301f85e5330bb2a65b",
+  "corpus_100_test_15_cal_sha256": "79b7f7512c3a5e18eb8a13ed5323d7803a9538decf665a213ced6abdf87eb8d2",
+  "strict_separation_policy": "Intel i9-13900H RAPL reported_j, NVIDIA Jetson AGX Thor TI INA3221/INA238 physical shunt measured_j (CPU-only, GPU_ACTIVE respected), and remote Claude Sonnet 5.5 tokens/USD are reported in strictly separate columns and never summed.",
+  "hosts": {
+    "intel_i9_13900h_rapl_reported_j": {
+      "host_id": "intel_i9_13900h",
+      "board_metered": false,
+      "gpu_cotenant_lock_active": false,
+      "falsifier_6_audit": {
+        "pre_idle_5s_w": 5.7818,
+        "post_idle_5s_w": 4.2905,
+        "idle_drift_pct": 25.79,
+        "withhold_net_idle_subtraction": true
+      },
+      "handoff_activation_barrier": {
+        "board_metered": false,
+        "digital_enzyme_inproc_rust_1kib": {
+          "verify_p50_us": 22.999,
+          "energy_mj_per_handoff": 0.68877,
+          "vin_measured_mj_per_handoff": null
+        },
+        "digital_enzyme_stdio_pipe_sign_and_verify": {
+          "trials": 4000,
+          "mean_us_per_handoff": 44.43,
+          "energy_mj_per_handoff": 1.1396
+        },
+        "camp9_natural_language_live_llm_handoff": {
+          "live_trials": 5,
+          "mean_ms_per_handoff": 3577.58,
+          "local_energy_j_per_handoff": 36.377,
+          "vin_measured_j_per_handoff": null,
+          "mean_tokens_per_handoff": 2548.2,
+          "mean_usd_per_handoff": 0.000971
+        },
+        "activation_barrier_reduction_ratios": {
+          "latency_speedup_inproc_vs_nl": 155553.7,
+          "latency_speedup_pipe_vs_nl": 80522.2,
+          "local_energy_ratio_inproc_vs_nl": 52814.7,
+          "local_energy_ratio_pipe_vs_nl": 31920.9
+        }
+      },
+      "arms": {
+        "C1_Autoregressive_LLM_Solo": {
+          "verified_pass_count": 48,
+          "verified_pass_pct": 48,
+          "false_commit_count": 52,
+          "false_commit_pct": 52,
+          "refused_count": 0,
+          "local_wall_s": 0.00388,
+          "per_regime": {
+            "R1": {
+              "pass": 17,
+              "false_commit": 3,
+              "refused": 0,
+              "llm_calls": 20
+            },
+            "R2": {
+              "pass": 1,
+              "false_commit": 19,
+              "refused": 0,
+              "llm_calls": 20
+            },
+            "R3": {
+              "pass": 1,
+              "false_commit": 19,
+              "refused": 0,
+              "llm_calls": 20
+            },
+            "R4": {
+              "pass": 11,
+              "false_commit": 9,
+              "refused": 0,
+              "llm_calls": 20
+            },
+            "R5": {
+              "pass": 18,
+              "false_commit": 2,
+              "refused": 0,
+              "llm_calls": 20
+            }
+          },
+          "llm_calls": 100,
+          "input_tokens": 32732,
+          "output_tokens": 34414,
+          "total_tokens": 67146,
+          "cloud_cost_usd": 0.0359,
+          "c9_mean_hop_input_tokens": null,
+          "des10_crystallized_schemas": 0,
+          "des10_enzyme_receipts": 0,
+          "des10_ssp_epoch0_ns": null,
+          "hardware_energy": {
+            "board_metered": false,
+            "local_compute_vdd_cpu_soc_measured_j": null,
+            "local_compute_vin_ina238_measured_j": null,
+            "pkg_reported_j": 0.11009,
+            "core_reported_j": 0.09126,
+            "psys_reported_j": 0.00078,
+            "end_to_end_pkg_reported_j": 3637.8101,
+            "cpj_local_compute_tasks_per_j": 436.0109,
+            "cpj_end_to_end_tasks_per_j": 0.0132
+          }
+        },
+        "C2_Symbolic_Constraint_Solo": {
+          "verified_pass_count": 30,
+          "verified_pass_pct": 30,
+          "false_commit_count": 0,
+          "false_commit_pct": 0,
+          "refused_count": 70,
+          "local_wall_s": 0.00239,
+          "per_regime": {
+            "R1": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R2": {
+              "pass": 10,
+              "false_commit": 0,
+              "refused": 10,
+              "llm_calls": 0
+            },
+            "R3": {
+              "pass": 20,
+              "false_commit": 0,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R4": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R5": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            }
+          },
+          "llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "cloud_cost_usd": 0.0,
+          "c9_mean_hop_input_tokens": null,
+          "des10_crystallized_schemas": 0,
+          "des10_enzyme_receipts": 0,
+          "des10_ssp_epoch0_ns": null,
+          "hardware_energy": {
+            "board_metered": false,
+            "local_compute_vdd_cpu_soc_measured_j": null,
+            "local_compute_vin_ina238_measured_j": null,
+            "pkg_reported_j": 0.08653,
+            "core_reported_j": 0.07451,
+            "psys_reported_j": 0.00048,
+            "end_to_end_pkg_reported_j": 0.0865,
+            "cpj_local_compute_tasks_per_j": 346.6885,
+            "cpj_end_to_end_tasks_per_j": 346.6885
+          }
+        },
+        "C3_Latent_EBM_Scorer_Solo": {
+          "verified_pass_count": 0,
+          "verified_pass_pct": 0,
+          "false_commit_count": 100,
+          "false_commit_pct": 100,
+          "refused_count": 0,
+          "local_wall_s": 0.13486,
+          "per_regime": {
+            "R1": {
+              "pass": 0,
+              "false_commit": 20,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R2": {
+              "pass": 0,
+              "false_commit": 20,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R3": {
+              "pass": 0,
+              "false_commit": 20,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R4": {
+              "pass": 0,
+              "false_commit": 20,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R5": {
+              "pass": 0,
+              "false_commit": 20,
+              "refused": 0,
+              "llm_calls": 0
+            }
+          },
+          "llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "cloud_cost_usd": 0.0,
+          "c9_mean_hop_input_tokens": null,
+          "des10_crystallized_schemas": 0,
+          "des10_enzyme_receipts": 0,
+          "des10_ssp_epoch0_ns": null,
+          "hardware_energy": {
+            "board_metered": false,
+            "local_compute_vdd_cpu_soc_measured_j": null,
+            "local_compute_vin_ina238_measured_j": null,
+            "pkg_reported_j": 5.15598,
+            "core_reported_j": 4.41545,
+            "psys_reported_j": 0.02705,
+            "end_to_end_pkg_reported_j": 5.156,
+            "cpj_local_compute_tasks_per_j": 0.0,
+            "cpj_end_to_end_tasks_per_j": 0.0
+          }
+        },
+        "C4_MCTS_Rollout_Search_Solo": {
+          "verified_pass_count": 11,
+          "verified_pass_pct": 11,
+          "false_commit_count": 19,
+          "false_commit_pct": 19,
+          "refused_count": 70,
+          "local_wall_s": 0.01841,
+          "per_regime": {
+            "R1": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R2": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R3": {
+              "pass": 1,
+              "false_commit": 19,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R4": {
+              "pass": 10,
+              "false_commit": 0,
+              "refused": 10,
+              "llm_calls": 0
+            },
+            "R5": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            }
+          },
+          "llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "cloud_cost_usd": 0.0,
+          "c9_mean_hop_input_tokens": null,
+          "des10_crystallized_schemas": 0,
+          "des10_enzyme_receipts": 0,
+          "des10_ssp_epoch0_ns": null,
+          "hardware_energy": {
+            "board_metered": false,
+            "local_compute_vdd_cpu_soc_measured_j": null,
+            "local_compute_vin_ina238_measured_j": null,
+            "pkg_reported_j": 0.78461,
+            "core_reported_j": 0.67816,
+            "psys_reported_j": 0.00367,
+            "end_to_end_pkg_reported_j": 0.7846,
+            "cpj_local_compute_tasks_per_j": 14.0197,
+            "cpj_end_to_end_tasks_per_j": 14.0197
+          }
+        },
+        "C5_Episodic_Case_Store_Solo": {
+          "verified_pass_count": 16,
+          "verified_pass_pct": 16,
+          "false_commit_count": 0,
+          "false_commit_pct": 0,
+          "refused_count": 84,
+          "local_wall_s": 0.00013,
+          "per_regime": {
+            "R1": {
+              "pass": 16,
+              "false_commit": 0,
+              "refused": 4,
+              "llm_calls": 0
+            },
+            "R2": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R3": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R4": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R5": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            }
+          },
+          "llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "cloud_cost_usd": 0.0,
+          "c9_mean_hop_input_tokens": null,
+          "des10_crystallized_schemas": 0,
+          "des10_enzyme_receipts": 0,
+          "des10_ssp_epoch0_ns": null,
+          "hardware_energy": {
+            "board_metered": false,
+            "local_compute_vdd_cpu_soc_measured_j": null,
+            "local_compute_vin_ina238_measured_j": null,
+            "pkg_reported_j": 0.00476,
+            "core_reported_j": 0.00403,
+            "psys_reported_j": 3e-05,
+            "end_to_end_pkg_reported_j": 0.0048,
+            "cpj_local_compute_tasks_per_j": 3363.4644,
+            "cpj_end_to_end_tasks_per_j": 3363.4644
+          }
+        },
+        "C6_Evolutionary_Program_Mutator_Solo": {
+          "verified_pass_count": 4,
+          "verified_pass_pct": 4,
+          "false_commit_count": 20,
+          "false_commit_pct": 20,
+          "refused_count": 76,
+          "local_wall_s": 0.18757,
+          "per_regime": {
+            "R1": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R2": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R3": {
+              "pass": 0,
+              "false_commit": 20,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R4": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R5": {
+              "pass": 4,
+              "false_commit": 0,
+              "refused": 16,
+              "llm_calls": 0
+            }
+          },
+          "llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "cloud_cost_usd": 0.0,
+          "c9_mean_hop_input_tokens": null,
+          "des10_crystallized_schemas": 0,
+          "des10_enzyme_receipts": 0,
+          "des10_ssp_epoch0_ns": null,
+          "hardware_energy": {
+            "board_metered": false,
+            "local_compute_vdd_cpu_soc_measured_j": null,
+            "local_compute_vin_ina238_measured_j": null,
+            "pkg_reported_j": 5.95897,
+            "core_reported_j": 5.08676,
+            "psys_reported_j": 0.03767,
+            "end_to_end_pkg_reported_j": 5.959,
+            "cpj_local_compute_tasks_per_j": 0.6713,
+            "cpj_end_to_end_tasks_per_j": 0.6713
+          }
+        },
+        "C7_Causal_Bayesian_DoCalc_Solo": {
+          "verified_pass_count": 10,
+          "verified_pass_pct": 10,
+          "false_commit_count": 0,
+          "false_commit_pct": 0,
+          "refused_count": 90,
+          "local_wall_s": 8e-05,
+          "per_regime": {
+            "R1": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R2": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R3": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R4": {
+              "pass": 10,
+              "false_commit": 0,
+              "refused": 10,
+              "llm_calls": 0
+            },
+            "R5": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            }
+          },
+          "llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "cloud_cost_usd": 0.0,
+          "c9_mean_hop_input_tokens": null,
+          "des10_crystallized_schemas": 0,
+          "des10_enzyme_receipts": 0,
+          "des10_ssp_epoch0_ns": null,
+          "hardware_energy": {
+            "board_metered": false,
+            "local_compute_vdd_cpu_soc_measured_j": null,
+            "local_compute_vin_ina238_measured_j": null,
+            "pkg_reported_j": 0.00251,
+            "core_reported_j": 0.00218,
+            "psys_reported_j": 2e-05,
+            "end_to_end_pkg_reported_j": 0.0025,
+            "cpj_local_compute_tasks_per_j": 3980.8917,
+            "cpj_end_to_end_tasks_per_j": 3980.8917
+          }
+        },
+        "C8_SubSymbolic_LUT_Automaton_Solo": {
+          "verified_pass_count": 20,
+          "verified_pass_pct": 20,
+          "false_commit_count": 0,
+          "false_commit_pct": 0,
+          "refused_count": 80,
+          "local_wall_s": 0.00037,
+          "per_regime": {
+            "R1": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R2": {
+              "pass": 20,
+              "false_commit": 0,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R3": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R4": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R5": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            }
+          },
+          "llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "cloud_cost_usd": 0.0,
+          "c9_mean_hop_input_tokens": null,
+          "des10_crystallized_schemas": 0,
+          "des10_enzyme_receipts": 0,
+          "des10_ssp_epoch0_ns": null,
+          "hardware_energy": {
+            "board_metered": false,
+            "local_compute_vdd_cpu_soc_measured_j": null,
+            "local_compute_vin_ina238_measured_j": null,
+            "pkg_reported_j": 0.01013,
+            "core_reported_j": 0.00871,
+            "psys_reported_j": 7e-05,
+            "end_to_end_pkg_reported_j": 0.0101,
+            "cpj_local_compute_tasks_per_j": 1974.7235,
+            "cpj_end_to_end_tasks_per_j": 1974.7235
+          }
+        },
+        "C9_MultiAgent_NL_Debate_Solo": {
+          "verified_pass_count": 49,
+          "verified_pass_pct": 49,
+          "false_commit_count": 51,
+          "false_commit_pct": 51,
+          "refused_count": 0,
+          "local_wall_s": 0.00441,
+          "per_regime": {
+            "R1": {
+              "pass": 19,
+              "false_commit": 1,
+              "refused": 0,
+              "llm_calls": 60
+            },
+            "R2": {
+              "pass": 1,
+              "false_commit": 19,
+              "refused": 0,
+              "llm_calls": 60
+            },
+            "R3": {
+              "pass": 0,
+              "false_commit": 20,
+              "refused": 0,
+              "llm_calls": 60
+            },
+            "R4": {
+              "pass": 12,
+              "false_commit": 8,
+              "refused": 0,
+              "llm_calls": 60
+            },
+            "R5": {
+              "pass": 17,
+              "false_commit": 3,
+              "refused": 0,
+              "llm_calls": 60
+            }
+          },
+          "llm_calls": 300,
+          "input_tokens": 147013,
+          "output_tokens": 106955,
+          "total_tokens": 253968,
+          "cloud_cost_usd": 0.1282,
+          "c9_mean_hop_input_tokens": [
+            328.3,
+            415.0,
+            726.8
+          ],
+          "des10_crystallized_schemas": 0,
+          "des10_enzyme_receipts": 0,
+          "des10_ssp_epoch0_ns": null,
+          "hardware_energy": {
+            "board_metered": false,
+            "local_compute_vdd_cpu_soc_measured_j": null,
+            "local_compute_vin_ina238_measured_j": null,
+            "pkg_reported_j": 0.11567,
+            "core_reported_j": 0.0987,
+            "psys_reported_j": 0.00088,
+            "end_to_end_pkg_reported_j": 10913.2157,
+            "cpj_local_compute_tasks_per_j": 423.6153,
+            "cpj_end_to_end_tasks_per_j": 0.0045
+          }
+        },
+        "C10_Embodied_Sandbox_Perturb_Solo": {
+          "verified_pass_count": 4,
+          "verified_pass_pct": 4,
+          "false_commit_count": 30,
+          "false_commit_pct": 30,
+          "refused_count": 66,
+          "local_wall_s": 0.11086,
+          "per_regime": {
+            "R1": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R2": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R3": {
+              "pass": 0,
+              "false_commit": 20,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R4": {
+              "pass": 0,
+              "false_commit": 10,
+              "refused": 10,
+              "llm_calls": 0
+            },
+            "R5": {
+              "pass": 4,
+              "false_commit": 0,
+              "refused": 16,
+              "llm_calls": 0
+            }
+          },
+          "llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "cloud_cost_usd": 0.0,
+          "c9_mean_hop_input_tokens": null,
+          "des10_crystallized_schemas": 0,
+          "des10_enzyme_receipts": 0,
+          "des10_ssp_epoch0_ns": null,
+          "hardware_energy": {
+            "board_metered": false,
+            "local_compute_vdd_cpu_soc_measured_j": null,
+            "local_compute_vin_ina238_measured_j": null,
+            "pkg_reported_j": 3.24302,
+            "core_reported_j": 2.80564,
+            "psys_reported_j": 0.02226,
+            "end_to_end_pkg_reported_j": 3.243,
+            "cpj_local_compute_tasks_per_j": 1.2334,
+            "cpj_end_to_end_tasks_per_j": 1.2334
+          }
+        },
+        "DES10_Digital_Enzymatic_Composite": {
+          "verified_pass_count": 98,
+          "verified_pass_pct": 98,
+          "false_commit_count": 1,
+          "false_commit_pct": 1,
+          "refused_count": 1,
+          "local_wall_s": 0.08532,
+          "per_regime": {
+            "R1": {
+              "pass": 20,
+              "false_commit": 0,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R2": {
+              "pass": 20,
+              "false_commit": 0,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R3": {
+              "pass": 20,
+              "false_commit": 0,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R4": {
+              "pass": 20,
+              "false_commit": 0,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R5": {
+              "pass": 18,
+              "false_commit": 1,
+              "refused": 1,
+              "llm_calls": 22
+            }
+          },
+          "llm_calls": 22,
+          "input_tokens": 5707,
+          "output_tokens": 7038,
+          "total_tokens": 12745,
+          "cloud_cost_usd": 0.0067,
+          "c9_mean_hop_input_tokens": null,
+          "des10_crystallized_schemas": 4,
+          "des10_enzyme_receipts": 225,
+          "des10_ssp_epoch0_ns": 3236,
+          "hardware_energy": {
+            "board_metered": false,
+            "local_compute_vdd_cpu_soc_measured_j": null,
+            "local_compute_vin_ina238_measured_j": null,
+            "pkg_reported_j": 2.15466,
+            "core_reported_j": 1.82919,
+            "psys_reported_j": 0.01718,
+            "end_to_end_pkg_reported_j": 802.4487,
+            "cpj_local_compute_tasks_per_j": 45.4829,
+            "cpj_end_to_end_tasks_per_j": 0.1221
+          }
+        }
+      }
+    },
+    "jetson_agx_thor_ina_shunt_measured_j": {
+      "host_id": "jetson_agx_thor",
+      "board_metered": true,
+      "gpu_cotenant_lock_active": true,
+      "falsifier_6_audit": {
+        "pre_idle_5s_w": 15.5549,
+        "post_idle_5s_w": 13.5007,
+        "idle_drift_pct": 13.21,
+        "withhold_net_idle_subtraction": true
+      },
+      "handoff_activation_barrier": {
+        "board_metered": true,
+        "digital_enzyme_inproc_rust_1kib": {
+          "verify_p50_us": 49.946,
+          "energy_mj_per_handoff": 0.73151,
+          "vin_measured_mj_per_handoff": 3.59104
+        },
+        "digital_enzyme_stdio_pipe_sign_and_verify": {
+          "trials": 4000,
+          "mean_us_per_handoff": 186.977,
+          "energy_mj_per_handoff": 3.40589
+        },
+        "camp9_natural_language_live_llm_handoff": {
+          "live_trials": 5,
+          "mean_ms_per_handoff": 3938.49,
+          "local_energy_j_per_handoff": 55.1369,
+          "vin_measured_j_per_handoff": 281.6111,
+          "mean_tokens_per_handoff": 2470.2,
+          "mean_usd_per_handoff": 0.001205
+        },
+        "activation_barrier_reduction_ratios": {
+          "latency_speedup_inproc_vs_nl": 78855.0,
+          "latency_speedup_pipe_vs_nl": 21064.0,
+          "local_energy_ratio_inproc_vs_nl": 75374.0,
+          "local_energy_ratio_pipe_vs_nl": 16188.7
+        }
+      },
+      "arms": {
+        "C1_Autoregressive_LLM_Solo": {
+          "verified_pass_count": 48,
+          "verified_pass_pct": 48,
+          "false_commit_count": 52,
+          "false_commit_pct": 52,
+          "refused_count": 0,
+          "local_wall_s": 0.00566,
+          "per_regime": {
+            "R1": {
+              "pass": 17,
+              "false_commit": 3,
+              "refused": 0,
+              "llm_calls": 20
+            },
+            "R2": {
+              "pass": 1,
+              "false_commit": 19,
+              "refused": 0,
+              "llm_calls": 20
+            },
+            "R3": {
+              "pass": 1,
+              "false_commit": 19,
+              "refused": 0,
+              "llm_calls": 20
+            },
+            "R4": {
+              "pass": 11,
+              "false_commit": 9,
+              "refused": 0,
+              "llm_calls": 20
+            },
+            "R5": {
+              "pass": 18,
+              "false_commit": 2,
+              "refused": 0,
+              "llm_calls": 20
+            }
+          },
+          "llm_calls": 100,
+          "input_tokens": 32732,
+          "output_tokens": 34414,
+          "total_tokens": 67146,
+          "cloud_cost_usd": 0.0359,
+          "c9_mean_hop_input_tokens": null,
+          "des10_crystallized_schemas": 0,
+          "des10_enzyme_receipts": 0,
+          "des10_ssp_epoch0_ns": null,
+          "hardware_energy": {
+            "board_metered": true,
+            "local_compute_vdd_cpu_soc_measured_j": 0.07873,
+            "local_compute_vin_ina238_measured_j": 0.41893,
+            "end_to_end_vdd_cpu_soc_measured_j": 5513.7687,
+            "end_to_end_vin_ina238_measured_j": 28161.5289,
+            "pkg_reported_j": null,
+            "core_reported_j": null,
+            "cpj_local_compute_tasks_per_j": 609.6399,
+            "cpj_end_to_end_tasks_per_j": 0.0087
+          }
+        },
+        "C2_Symbolic_Constraint_Solo": {
+          "verified_pass_count": 30,
+          "verified_pass_pct": 30,
+          "false_commit_count": 0,
+          "false_commit_pct": 0,
+          "refused_count": 70,
+          "local_wall_s": 0.00459,
+          "per_regime": {
+            "R1": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R2": {
+              "pass": 10,
+              "false_commit": 0,
+              "refused": 10,
+              "llm_calls": 0
+            },
+            "R3": {
+              "pass": 20,
+              "false_commit": 0,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R4": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R5": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            }
+          },
+          "llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "cloud_cost_usd": 0.0,
+          "c9_mean_hop_input_tokens": null,
+          "des10_crystallized_schemas": 0,
+          "des10_enzyme_receipts": 0,
+          "des10_ssp_epoch0_ns": null,
+          "hardware_energy": {
+            "board_metered": true,
+            "local_compute_vdd_cpu_soc_measured_j": 0.06983,
+            "local_compute_vin_ina238_measured_j": 0.33144,
+            "end_to_end_vdd_cpu_soc_measured_j": 0.0698,
+            "end_to_end_vin_ina238_measured_j": 0.3314,
+            "pkg_reported_j": null,
+            "core_reported_j": null,
+            "cpj_local_compute_tasks_per_j": 429.5963,
+            "cpj_end_to_end_tasks_per_j": 429.5963
+          }
+        },
+        "C3_Latent_EBM_Scorer_Solo": {
+          "verified_pass_count": 0,
+          "verified_pass_pct": 0,
+          "false_commit_count": 100,
+          "false_commit_pct": 100,
+          "refused_count": 0,
+          "local_wall_s": 0.23028,
+          "per_regime": {
+            "R1": {
+              "pass": 0,
+              "false_commit": 20,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R2": {
+              "pass": 0,
+              "false_commit": 20,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R3": {
+              "pass": 0,
+              "false_commit": 20,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R4": {
+              "pass": 0,
+              "false_commit": 20,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R5": {
+              "pass": 0,
+              "false_commit": 20,
+              "refused": 0,
+              "llm_calls": 0
+            }
+          },
+          "llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "cloud_cost_usd": 0.0,
+          "c9_mean_hop_input_tokens": null,
+          "des10_crystallized_schemas": 0,
+          "des10_enzyme_receipts": 0,
+          "des10_ssp_epoch0_ns": null,
+          "hardware_energy": {
+            "board_metered": true,
+            "local_compute_vdd_cpu_soc_measured_j": 3.99052,
+            "local_compute_vin_ina238_measured_j": 17.60803,
+            "end_to_end_vdd_cpu_soc_measured_j": 3.9905,
+            "end_to_end_vin_ina238_measured_j": 17.608,
+            "pkg_reported_j": null,
+            "core_reported_j": null,
+            "cpj_local_compute_tasks_per_j": 0.0,
+            "cpj_end_to_end_tasks_per_j": 0.0
+          }
+        },
+        "C4_MCTS_Rollout_Search_Solo": {
+          "verified_pass_count": 10,
+          "verified_pass_pct": 10,
+          "false_commit_count": 20,
+          "false_commit_pct": 20,
+          "refused_count": 70,
+          "local_wall_s": 0.03559,
+          "per_regime": {
+            "R1": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R2": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R3": {
+              "pass": 0,
+              "false_commit": 20,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R4": {
+              "pass": 10,
+              "false_commit": 0,
+              "refused": 10,
+              "llm_calls": 0
+            },
+            "R5": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            }
+          },
+          "llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "cloud_cost_usd": 0.0,
+          "c9_mean_hop_input_tokens": null,
+          "des10_crystallized_schemas": 0,
+          "des10_enzyme_receipts": 0,
+          "des10_ssp_epoch0_ns": null,
+          "hardware_energy": {
+            "board_metered": true,
+            "local_compute_vdd_cpu_soc_measured_j": 0.61653,
+            "local_compute_vin_ina238_measured_j": 2.4287,
+            "end_to_end_vdd_cpu_soc_measured_j": 0.6165,
+            "end_to_end_vin_ina238_measured_j": 2.4287,
+            "pkg_reported_j": null,
+            "core_reported_j": null,
+            "cpj_local_compute_tasks_per_j": 16.2199,
+            "cpj_end_to_end_tasks_per_j": 16.2199
+          }
+        },
+        "C5_Episodic_Case_Store_Solo": {
+          "verified_pass_count": 16,
+          "verified_pass_pct": 16,
+          "false_commit_count": 0,
+          "false_commit_pct": 0,
+          "refused_count": 84,
+          "local_wall_s": 0.00016,
+          "per_regime": {
+            "R1": {
+              "pass": 16,
+              "false_commit": 0,
+              "refused": 4,
+              "llm_calls": 0
+            },
+            "R2": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R3": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R4": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R5": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            }
+          },
+          "llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "cloud_cost_usd": 0.0,
+          "c9_mean_hop_input_tokens": null,
+          "des10_crystallized_schemas": 0,
+          "des10_enzyme_receipts": 0,
+          "des10_ssp_epoch0_ns": null,
+          "hardware_energy": {
+            "board_metered": true,
+            "local_compute_vdd_cpu_soc_measured_j": 0.00256,
+            "local_compute_vin_ina238_measured_j": 0.01181,
+            "end_to_end_vdd_cpu_soc_measured_j": 0.0026,
+            "end_to_end_vin_ina238_measured_j": 0.0118,
+            "pkg_reported_j": null,
+            "core_reported_j": null,
+            "cpj_local_compute_tasks_per_j": 6254.8866,
+            "cpj_end_to_end_tasks_per_j": 6254.8866
+          }
+        },
+        "C6_Evolutionary_Program_Mutator_Solo": {
+          "verified_pass_count": 4,
+          "verified_pass_pct": 4,
+          "false_commit_count": 20,
+          "false_commit_pct": 20,
+          "refused_count": 76,
+          "local_wall_s": 0.32689,
+          "per_regime": {
+            "R1": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R2": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R3": {
+              "pass": 0,
+              "false_commit": 20,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R4": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R5": {
+              "pass": 4,
+              "false_commit": 0,
+              "refused": 16,
+              "llm_calls": 0
+            }
+          },
+          "llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "cloud_cost_usd": 0.0,
+          "c9_mean_hop_input_tokens": null,
+          "des10_crystallized_schemas": 0,
+          "des10_enzyme_receipts": 0,
+          "des10_ssp_epoch0_ns": null,
+          "hardware_energy": {
+            "board_metered": true,
+            "local_compute_vdd_cpu_soc_measured_j": 4.93603,
+            "local_compute_vin_ina238_measured_j": 22.12727,
+            "end_to_end_vdd_cpu_soc_measured_j": 4.936,
+            "end_to_end_vin_ina238_measured_j": 22.1273,
+            "pkg_reported_j": null,
+            "core_reported_j": null,
+            "cpj_local_compute_tasks_per_j": 0.8104,
+            "cpj_end_to_end_tasks_per_j": 0.8104
+          }
+        },
+        "C7_Causal_Bayesian_DoCalc_Solo": {
+          "verified_pass_count": 10,
+          "verified_pass_pct": 10,
+          "false_commit_count": 0,
+          "false_commit_pct": 0,
+          "refused_count": 90,
+          "local_wall_s": 0.0001,
+          "per_regime": {
+            "R1": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R2": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R3": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R4": {
+              "pass": 10,
+              "false_commit": 0,
+              "refused": 10,
+              "llm_calls": 0
+            },
+            "R5": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            }
+          },
+          "llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "cloud_cost_usd": 0.0,
+          "c9_mean_hop_input_tokens": null,
+          "des10_crystallized_schemas": 0,
+          "des10_enzyme_receipts": 0,
+          "des10_ssp_epoch0_ns": null,
+          "hardware_energy": {
+            "board_metered": true,
+            "local_compute_vdd_cpu_soc_measured_j": 0.00154,
+            "local_compute_vin_ina238_measured_j": 0.00724,
+            "end_to_end_vdd_cpu_soc_measured_j": 0.0015,
+            "end_to_end_vin_ina238_measured_j": 0.0072,
+            "pkg_reported_j": null,
+            "core_reported_j": null,
+            "cpj_local_compute_tasks_per_j": 6506.1809,
+            "cpj_end_to_end_tasks_per_j": 6506.1809
+          }
+        },
+        "C8_SubSymbolic_LUT_Automaton_Solo": {
+          "verified_pass_count": 20,
+          "verified_pass_pct": 20,
+          "false_commit_count": 0,
+          "false_commit_pct": 0,
+          "refused_count": 80,
+          "local_wall_s": 0.00054,
+          "per_regime": {
+            "R1": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R2": {
+              "pass": 20,
+              "false_commit": 0,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R3": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R4": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R5": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            }
+          },
+          "llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "cloud_cost_usd": 0.0,
+          "c9_mean_hop_input_tokens": null,
+          "des10_crystallized_schemas": 0,
+          "des10_enzyme_receipts": 0,
+          "des10_ssp_epoch0_ns": null,
+          "hardware_energy": {
+            "board_metered": true,
+            "local_compute_vdd_cpu_soc_measured_j": 0.00902,
+            "local_compute_vin_ina238_measured_j": 0.04059,
+            "end_to_end_vdd_cpu_soc_measured_j": 0.009,
+            "end_to_end_vin_ina238_measured_j": 0.0406,
+            "pkg_reported_j": null,
+            "core_reported_j": null,
+            "cpj_local_compute_tasks_per_j": 2218.5247,
+            "cpj_end_to_end_tasks_per_j": 2218.5247
+          }
+        },
+        "C9_MultiAgent_NL_Debate_Solo": {
+          "verified_pass_count": 49,
+          "verified_pass_pct": 49,
+          "false_commit_count": 51,
+          "false_commit_pct": 51,
+          "refused_count": 0,
+          "local_wall_s": 0.00674,
+          "per_regime": {
+            "R1": {
+              "pass": 19,
+              "false_commit": 1,
+              "refused": 0,
+              "llm_calls": 60
+            },
+            "R2": {
+              "pass": 1,
+              "false_commit": 19,
+              "refused": 0,
+              "llm_calls": 60
+            },
+            "R3": {
+              "pass": 0,
+              "false_commit": 20,
+              "refused": 0,
+              "llm_calls": 60
+            },
+            "R4": {
+              "pass": 12,
+              "false_commit": 8,
+              "refused": 0,
+              "llm_calls": 60
+            },
+            "R5": {
+              "pass": 17,
+              "false_commit": 3,
+              "refused": 0,
+              "llm_calls": 60
+            }
+          },
+          "llm_calls": 300,
+          "input_tokens": 147013,
+          "output_tokens": 106955,
+          "total_tokens": 253968,
+          "cloud_cost_usd": 0.1282,
+          "c9_mean_hop_input_tokens": [
+            328.3,
+            415.0,
+            726.8
+          ],
+          "des10_crystallized_schemas": 0,
+          "des10_enzyme_receipts": 0,
+          "des10_ssp_epoch0_ns": null,
+          "hardware_energy": {
+            "board_metered": true,
+            "local_compute_vdd_cpu_soc_measured_j": 0.11998,
+            "local_compute_vin_ina238_measured_j": 0.46548,
+            "end_to_end_vdd_cpu_soc_measured_j": 16541.19,
+            "end_to_end_vin_ina238_measured_j": 84483.7955,
+            "pkg_reported_j": null,
+            "core_reported_j": null,
+            "cpj_local_compute_tasks_per_j": 408.3844,
+            "cpj_end_to_end_tasks_per_j": 0.003
+          }
+        },
+        "C10_Embodied_Sandbox_Perturb_Solo": {
+          "verified_pass_count": 4,
+          "verified_pass_pct": 4,
+          "false_commit_count": 30,
+          "false_commit_pct": 30,
+          "refused_count": 66,
+          "local_wall_s": 0.1886,
+          "per_regime": {
+            "R1": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R2": {
+              "pass": 0,
+              "false_commit": 0,
+              "refused": 20,
+              "llm_calls": 0
+            },
+            "R3": {
+              "pass": 0,
+              "false_commit": 20,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R4": {
+              "pass": 0,
+              "false_commit": 10,
+              "refused": 10,
+              "llm_calls": 0
+            },
+            "R5": {
+              "pass": 4,
+              "false_commit": 0,
+              "refused": 16,
+              "llm_calls": 0
+            }
+          },
+          "llm_calls": 0,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "total_tokens": 0,
+          "cloud_cost_usd": 0.0,
+          "c9_mean_hop_input_tokens": null,
+          "des10_crystallized_schemas": 0,
+          "des10_enzyme_receipts": 0,
+          "des10_ssp_epoch0_ns": null,
+          "hardware_energy": {
+            "board_metered": true,
+            "local_compute_vdd_cpu_soc_measured_j": 3.04527,
+            "local_compute_vin_ina238_measured_j": 13.39014,
+            "end_to_end_vdd_cpu_soc_measured_j": 3.0453,
+            "end_to_end_vin_ina238_measured_j": 13.3901,
+            "pkg_reported_j": null,
+            "core_reported_j": null,
+            "cpj_local_compute_tasks_per_j": 1.3135,
+            "cpj_end_to_end_tasks_per_j": 1.3135
+          }
+        },
+        "DES10_Digital_Enzymatic_Composite": {
+          "verified_pass_count": 98,
+          "verified_pass_pct": 98,
+          "false_commit_count": 1,
+          "false_commit_pct": 1,
+          "refused_count": 1,
+          "local_wall_s": 0.18777,
+          "per_regime": {
+            "R1": {
+              "pass": 20,
+              "false_commit": 0,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R2": {
+              "pass": 20,
+              "false_commit": 0,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R3": {
+              "pass": 20,
+              "false_commit": 0,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R4": {
+              "pass": 20,
+              "false_commit": 0,
+              "refused": 0,
+              "llm_calls": 0
+            },
+            "R5": {
+              "pass": 18,
+              "false_commit": 1,
+              "refused": 1,
+              "llm_calls": 22
+            }
+          },
+          "llm_calls": 22,
+          "input_tokens": 5707,
+          "output_tokens": 7038,
+          "total_tokens": 12745,
+          "cloud_cost_usd": 0.0067,
+          "c9_mean_hop_input_tokens": null,
+          "des10_crystallized_schemas": 4,
+          "des10_enzyme_receipts": 225,
+          "des10_ssp_epoch0_ns": 14203,
+          "hardware_energy": {
+            "board_metered": true,
+            "local_compute_vdd_cpu_soc_measured_j": 2.75999,
+            "local_compute_vin_ina238_measured_j": 13.42627,
+            "end_to_end_vdd_cpu_soc_measured_j": 1215.7718,
+            "end_to_end_vin_ina238_measured_j": 6208.8705,
+            "pkg_reported_j": null,
+            "core_reported_j": null,
+            "cpj_local_compute_tasks_per_j": 35.5074,
+            "cpj_end_to_end_tasks_per_j": 0.0806
+          }
+        }
+      }
+    }
+  }
+}

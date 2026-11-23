@@ -1,0 +1,17 @@
+module ge_h9.t04_strategy_territory_supply
+intent "hex territory upkeep vs harvest supply balance"
+    example SupplyStep(captured: 2, garrison: 3) -> nodes == 5 and grain == 26
+state SupplyLine
+    nodes: i64 = 3
+    grain: i64 = 20
+    morale: i64 = 100
+event SupplyStep(captured: i64, garrison: i64)
+step SupplyLine on SupplyStep(captured: cap, garrison: gar)
+    nodes = if nodes + cap < 1 then 1 else nodes + cap
+    let net = nodes * 3 - gar * 3
+    if grain + net >= 0
+        grain += net
+        morale = if morale + 2 > 100 then 100 else morale + 2
+    else
+        grain = 0
+        morale = if morale >= 10 then morale - 10 else 0

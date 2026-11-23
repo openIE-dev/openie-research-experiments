@@ -1,0 +1,162 @@
+[
+  {
+    "arxiv": "2201.11903v6",
+    "year": "2022",
+    "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+    "authors": [
+      "Jason Wei",
+      "Xuezhi Wang",
+      "Dale Schuurmans",
+      "Maarten Bosma"
+    ]
+  },
+  {
+    "arxiv": "1706.03762v7",
+    "year": "2017",
+    "title": "Attention Is All You Need",
+    "authors": [
+      "Ashish Vaswani",
+      "Noam Shazeer",
+      "Niki Parmar",
+      "Jakob Uszkoreit"
+    ]
+  },
+  {
+    "arxiv": "2005.14165v4",
+    "year": "2020",
+    "title": "Language Models are Few-Shot Learners",
+    "authors": [
+      "Tom B. Brown",
+      "Benjamin Mann",
+      "Nick Ryder",
+      "Melanie Subbiah"
+    ]
+  },
+  {
+    "arxiv": "2210.03629v3",
+    "year": "2022",
+    "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+    "authors": [
+      "Shunyu Yao",
+      "Jeffrey Zhao",
+      "Dian Yu",
+      "Nan Du"
+    ]
+  },
+  {
+    "arxiv": "1704.01212v2",
+    "year": "2017",
+    "title": "Neural Message Passing for Quantum Chemistry",
+    "authors": [
+      "Justin Gilmer",
+      "Samuel S. Schoenholz",
+      "Patrick F. Riley",
+      "Oriol Vinyals"
+    ]
+  },
+  {
+    "arxiv": "2101.03961v3",
+    "year": "2021",
+    "title": "Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity",
+    "authors": [
+      "William Fedus",
+      "Barret Zoph",
+      "Noam Shazeer"
+    ]
+  },
+  {
+    "arxiv": "2301.08243v3",
+    "year": "2023",
+    "title": "Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture",
+    "authors": [
+      "Mahmoud Assran",
+      "Quentin Duval",
+      "Ishan Misra",
+      "Piotr Bojanowski"
+    ]
+  },
+  {
+    "arxiv": "2507.21166v3",
+    "year": "2025",
+    "title": "The Ratchet Effect in Silico: How Interaction Drives Cumulative Intelligence in Large Language Models",
+    "authors": [
+      "Ren Zhuang"
+    ]
+  },
+  {
+    "arxiv": "2501.12948v2",
+    "year": "2025",
+    "title": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
+    "authors": [
+      " DeepSeek-AI",
+      "Daya Guo",
+      "Dejian Yang",
+      "Haowei Zhang"
+    ]
+  },
+  {
+    "arxiv": "1406.2661v1",
+    "year": "2014",
+    "title": "Generative Adversarial Networks",
+    "authors": [
+      "Ian J. Goodfellow",
+      "Jean Pouget-Abadie",
+      "Mehdi Mirza",
+      "Bing Xu"
+    ]
+  },
+  {
+    "arxiv": "2005.11401v4",
+    "year": "2020",
+    "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+    "authors": [
+      "Patrick Lewis",
+      "Ethan Perez",
+      "Aleksandra Piktus",
+      "Fabio Petroni"
+    ]
+  },
+  {
+    "arxiv": "1310.4546v1",
+    "year": "2013",
+    "title": "Distributed Representations of Words and Phrases and their Compositionality",
+    "authors": [
+      "Tomas Mikolov",
+      "Ilya Sutskever",
+      "Kai Chen",
+      "Greg Corrado"
+    ]
+  },
+  {
+    "arxiv": "2203.02155v1",
+    "year": "2022",
+    "title": "Training language models to follow instructions with human feedback",
+    "authors": [
+      "Long Ouyang",
+      "Jeff Wu",
+      "Xu Jiang",
+      "Diogo Almeida"
+    ]
+  },
+  {
+    "arxiv": "1409.0473v7",
+    "year": "2014",
+    "title": "Neural Machine Translation by Jointly Learning to Align and Translate",
+    "authors": [
+      "Dzmitry Bahdanau",
+      "Kyunghyun Cho",
+      "Yoshua Bengio"
+    ]
+  },
+  {
+    "arxiv": "1701.06538v1",
+    "year": "2017",
+    "title": "Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer",
+    "authors": [
+      "Noam Shazeer",
+      "Azalia Mirhoseini",
+      "Krzysztof Maziarz",
+      "Andy Davis"
+    ]
+  }
+]

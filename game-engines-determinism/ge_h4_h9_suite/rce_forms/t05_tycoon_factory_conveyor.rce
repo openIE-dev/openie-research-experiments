@@ -1,0 +1,17 @@
+module ge_h9.t05_tycoon_factory_conveyor
+intent "ore buffer smelting into ingots with machine capacity"
+    example FactoryTick(ore_in: 6, smelters: 2) -> ore_buf == 2 and ingots == 2
+state Smeltery
+    ore_buf: i64 = 0
+    ingots: i64 = 0
+    revenue: i64 = 0
+event FactoryTick(ore_in: i64, smelters: i64)
+event ShipBatch
+step Smeltery on FactoryTick(ore_in: oi, smelters: sm)
+    ore_buf = if ore_buf + oi > 50 then 50 else ore_buf + oi
+    let batches = if ore_buf / 2 < sm then ore_buf / 2 else sm
+    ore_buf -= batches * 2
+    ingots += batches
+step Smeltery on ShipBatch
+    revenue += ingots * 15
+    ingots = 0

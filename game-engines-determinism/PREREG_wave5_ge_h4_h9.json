@@ -1,0 +1,222 @@
+{
+  "study": "game-engines",
+  "wave": "wave5_lane3_ge_h4_h9_full_closure",
+  "preregistered_utc": "2026-11-23T08:55:00Z",
+  "parent_preregs": [
+    "PREREG.json (arena16_q32_32_v1, seed 0x2026112200474531)",
+    "PREREG_wave3_multi_isa_wgpu.json (SHA-256: 1721e5bdffaf...)"
+  ],
+  "rce_compiler_pin": {
+    "repository": "openIE-dev/rce",
+    "commit": "1762fb4bb65a58de07ab00f0d1bfdf4969d0358c",
+    "spec_draft": "0.9"
+  },
+  "godot_engine_pin": {
+    "binary": "Godot Engine v4.7.2.stable.official.ed1daf0bf (Linux x86_64 --headless)"
+  },
+  "energy_discipline": {
+    "measured_j": null,
+    "board_metered": false,
+    "est_j": "Analytical Landauer (k_B T ln 2) and Hellman lookahead design model in /living/game-engines/ only; never mixed with hardware counters.",
+    "reported_j_channels": {
+      "linux_x86_64_intel_rapl": "SATB L2 socket/core RAPL /sys/class/powercap/intel-rapl:0/energy_uj and intel-rapl:0:0/energy_uj on Intel Core i9-13900H (djc-asus-rog) and AMD Ryzen AI Max+ 395 (framework-128gb-0000); socket scope disclosed and never conflated with per-process L3.",
+      "macos_arm64": "SATB L3 per-PID proc_pid_rusage(RUSAGE_INFO_V6).ri_energy_nj (used in GE-H1; GE-H8 runs single lightweight hash check).",
+      "windows_11_x86_64": "Win32 QueryProcessCycleTime / GetProcessTimes activity accounting; unprivileged CPU RAPL MSR blocked in user mode."
+    }
+  },
+  "hypotheses": [
+    {
+      "id": "GE-H4",
+      "title": "Form-Encoded Rules Cut Behavior Code >= 50%",
+      "corpus": {
+        "games": [
+          {
+            "game": "Haunted Jaunt",
+            "modules": [
+              "PlayerStealth",
+              "GhostPatrol",
+              "GargoyleSpotter",
+              "ObserverLineOfSight",
+              "ExitTrigger"
+            ]
+          },
+          {
+            "game": "Survival Shooter",
+            "modules": [
+              "PlayerAvatar",
+              "GunRaycaster",
+              "ZombunnyChaser",
+              "ZomBearBruiser",
+              "HellephantBoss",
+              "WaveSpawner",
+              "ScoreHUD"
+            ]
+          },
+          {
+            "game": "Tanks",
+            "modules": [
+              "TankChassis",
+              "ShellBallisticsQ32",
+              "ExplosionFalloff",
+              "TankHealthShield",
+              "RoundDirector"
+            ]
+          }
+        ],
+        "total_modules": 17,
+        "languages": [
+          "RCE Form (.rce, checked & tested via openIE-dev/rce 1762fb4b)",
+          "Unity-style C# (MonoBehaviour-equivalent, compiled & executed via Microsoft C# on Windows 11)",
+          "Godot 4 GDScript (extends RefCounted/Node, executed via Godot 4.7.2 --headless)",
+          "Bevy-style Rust ECS (Component + Event + System, compiled & executed via rustc 1.100)"
+        ],
+        "traces_per_module": 10,
+        "total_trace_verifications_per_language": 170
+      },
+      "measures": [
+        "behavior_sloc_non_comment_non_blank (excluding embedded intent/example test assertions for pure behavior rule comparison, plus total_sloc_with_intent reported alongside)",
+        "lexical_tokens",
+        "boilerplate_glue_lines",
+        "cross_language_trace_mismatches"
+      ],
+      "kill_criterion": "Behavior SLOC reduction of .rce Forms relative to Unity-style C# < 50.0% (GameRule reference: 81.3%), or > 0 state-transition mismatches across the 4 language implementations on shared deterministic traces."
+    },
+    {
+      "id": "GE-H5",
+      "title": "Form Runtime Exceeds the GameRule 300-Actor / 20 ms Ceiling",
+      "corpus": {
+        "workload": "Multi-actor Q32.32 2D spatial-grid (16x16 cells in [-64, +64]^2) patrol/chase/projectile arena Form",
+        "actor_counts_N": [64, 128, 256, 300, 350, 500, 1000, 2500, 5000, 10000],
+        "ticks_per_N": 500,
+        "projection_tiers": [
+          "rce_python3 (rce emit python on CPython 3)",
+          "rce_nodejs_v22 (rce emit js on Node.js v22)",
+          "form_wasm32_v8 (Form-projected Rust wasm32-unknown-unknown -O3 on Node V8)",
+          "form_cpp20_o3 (Form-projected C++20 clang++ -O3)",
+          "form_rust_o3 (Form-projected native Rust rustc -C opt-level=3)"
+        ]
+      },
+      "measures": [
+        "p50_ms_per_tick",
+        "p99_ms_per_tick",
+        "mean_ms_per_tick",
+        "rapl_pkg_reported_mj_per_tick",
+        "rapl_core_reported_mj_per_tick",
+        "actor_ceiling_N_20ms",
+        "cross_tier_sha256_mismatches"
+      ],
+      "kill_criterion": "Compiled Form projections (Wasm32, C++20 -O3, or native Rust -O3) exceed 20.0 ms p50/mean step time below N = 350, or > 0 SHA-256 state mismatches across projection tiers."
+    },
+    {
+      "id": "GE-H6",
+      "title": "Interface Checks Catch >= 90% of Injected Binding & Schema Faults, Mechanism F1 >> 0.12",
+      "corpus": {
+        "defect_patterns": 26,
+        "faulty_modules_per_pattern": 5,
+        "valid_controls_per_pattern": 5,
+        "total_faulty_modules": 130,
+        "total_valid_modules": 130,
+        "total_modules": 260,
+        "arms": [
+          "static_form_plus_manifest_checker (rce check + rce test/law + 4-edge static scene/shader/input/network manifest verifier, 0 engine runtime ticks)",
+          "untyped_string_dynamic_baseline (Godot 4 / Unity-style string get_node / emit_signal / Dictionary parse-only check via godot --headless --check-only without IR)"
+        ]
+      },
+      "measures": [
+        "TP",
+        "FP",
+        "FN",
+        "TN",
+        "fault_detection_rate_pct",
+        "precision_pct",
+        "fault_f1",
+        "admitted_mechanism_f1"
+      ],
+      "kill_criterion": "Static Form + Manifest Checker fault detection rate < 90.0% of the 130 injected faults, or Mechanism F1 <= 0.12 (Mage no-IR baseline)."
+    },
+    {
+      "id": "GE-H7",
+      "title": "Full ln(Delta / delta_0) Lyapunov Slope Sweep Across 3 Physics-Heavy Templates",
+      "corpus": {
+        "templates": [
+          "GE-T1: 16-Body Chaotic Bumper Arena (f64 elastic rigid-body + central bumpers)",
+          "GE-T2: 12-Peg Galton/Pinball Elastic Lattice (f64 multi-peg pinball scatter)",
+          "GE-T3: 8-Node Coupled Spring-Pendulum Bridge (f64 nonlinear stiff coupled oscillators)"
+        ],
+        "delta_0_powers_of_two": [-52, -44, -36, -28, -23, -16, -10],
+        "seeds_per_cell": 40,
+        "total_paired_trajectories": 840,
+        "max_ticks": 50000,
+        "tick_hz": 60.0,
+        "macro_threshold_Delta": 1.0
+      },
+      "measures": [
+        "ols_slope_beta_hat_s_per_nat",
+        "implied_lyapunov_lambda_hat_per_s",
+        "r_squared_trajectories",
+        "r_squared_cell_means",
+        "bootstrap_95_ci_beta",
+        "bootstrap_95_ci_lambda",
+        "two_sided_p_value"
+      ],
+      "kill_criterion": "OLS slope beta_hat of t* against ln(Delta / delta_0) not statistically distinguishable from zero (two-sided p >= 0.01 or 95% CI spanning <= 0) on any template."
+    },
+    {
+      "id": "GE-H8",
+      "title": "Complete Replay of One-Hour (216,000-Tick) Sessions from Input Stream D Alone Across 3 OSs",
+      "corpus": {
+        "sessions": [
+          "HauntedJaunt_1h (216,000 ticks @ 60 Hz)",
+          "SurvivalShooter_1h (216,000 ticks @ 60 Hz)",
+          "TanksQ32_1h (216,000 ticks @ 60 Hz)"
+        ],
+        "checkpoints_per_session": 2160,
+        "checkpoint_stride_ticks": 100,
+        "hosts": [
+          "macOS 27.2.1 arm64 (Apple M5 Max)",
+          "Linux 7.0 x86_64 (AMD Ryzen AI Max+ 395 & Intel Core i9-13900H)",
+          "Windows 11 Pro 26300 x86_64 (Intel Core i7-1165G7)"
+        ],
+        "positive_falsifier_leaks": [
+          "L1_wall_clock_ns",
+          "L2_os_thread_rng",
+          "L3_hash_seed_order",
+          "L4_host_libm_sin_f64"
+        ]
+      },
+      "measures": [
+        "cross_os_checkpoint_sha256_mismatches",
+        "final_216000_sha256_mismatches",
+        "raw_log_D_bytes",
+        "gzip_log_D_bytes",
+        "raw_state_snapshot_stream_bytes",
+        "gzip_state_snapshot_stream_bytes",
+        "leak_control_t_div"
+      ],
+      "kill_criterion": "Any SHA-256 mismatch (> 0) across macOS arm64, Linux x86_64, and Windows 11 x86_64 when replaying 216,000 ticks from D alone, or any hidden state outside D required for replay, or failure of the 4-leak positive falsifier control to diverge."
+    },
+    {
+      "id": "GE-H9",
+      "title": "Form-to-Godot 4 Headless GDScript Emitter & 36-Task Behavior Parity Suite (+ GameCraft-Bench Archive Audit)",
+      "corpus": {
+        "external_archive_audit": "Verify FreedomIntelligence/gamecraft-bench 140-task GitHub archive structure and document VLM/Xvfb/ffmpeg scoring requirements candidly.",
+        "parity_suite_tasks": 36,
+        "task_families": "30 tasks across all 15 GameCraft-Bench families (2 per family: Platformer, Strategy, Tycoon, Open-world, Roguelike, Visual novel, Puzzle, Shooter, Simulation, Card game, Horror, Rhythm, Idle, Racing, Sports) + 6 reference/systems tasks (Haunted Jaunt, Survival Shooter, Tanks, Inventory/Crafting, Quest DAG, Lockstep 4P Arena)",
+        "ticks_per_task": 500,
+        "engine_runtime": "Godot Engine v4.7.2.stable.official.ed1daf0bf --headless",
+        "arms": [
+          "form_emitted_gdscript (rce check -> rce emit form -> form_to_gdscript.py -> godot --headless)",
+          "hand_written_native_gdscript (idiomatic hand-authored Godot 4 GDScript -> godot --headless)"
+        ]
+      },
+      "measures": [
+        "form_admitted_count",
+        "godot_emitted_pass_count",
+        "godot_native_pass_count",
+        "exact_trace_hash_parity_count",
+        "total_tick_comparisons"
+      ],
+      "kill_criterion": "Form-emitted GDScript pass rate below native GDScript (< 36/36) or > 0 observable state-trace SHA-256 mismatches across the 36 tasks (18,000 ticks)."
+    }
+  ]
+}

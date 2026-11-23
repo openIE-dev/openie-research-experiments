@@ -1,0 +1,28 @@
+module survival_shooter.wave_spawner
+
+intent "deterministic LCG wave spawner with active cap and wave escalation"
+    example SpawnerTick -> quota == 5 and alive == 1 and spawned_total == 1
+    example SpawnerTick, UnitCleared -> quota == 5 and alive == 0
+
+state WaveSpawner
+    wave: i64 = 1
+    quota: i64 = 6
+    alive: i64 = 0
+    rng: i64 = 7
+    spawned_total: i64 = 0
+
+event SpawnerTick
+event UnitCleared
+
+step WaveSpawner on SpawnerTick
+    if quota > 0 and alive < 8
+        rng = (rng * 1103515245 + 12345) % 2147483648
+        quota -= if rng % 5 == 0 and quota >= 2 then 2 else 1
+        alive += 1
+        spawned_total += 1
+    elif quota == 0 and alive == 0
+        wave += 1
+        quota = 4 + wave * 2
+
+step WaveSpawner on UnitCleared if alive > 0
+    alive -= 1

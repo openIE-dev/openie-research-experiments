@@ -1,0 +1,291 @@
+{
+  "elapsed_ms": 6.958,
+  "total_paired_trajectories": 840,
+  "templates": [
+    {
+      "template_id": "GE-T1",
+      "name": "16-Body Chaotic Bumper Arena",
+      "n_trajectories": 280,
+      "censored_trajectories": 0,
+      "ols_intercept_s": -0.05071,
+      "ols_slope_beta_s_per_nat": 0.40247,
+      "ols_se_beta": 0.00986,
+      "implied_lyapunov_lambda_per_s": 2.4846,
+      "r_squared_trajectories": 0.85694,
+      "r_squared_cell_means": 0.99953,
+      "bootstrap_95_ci_beta_s_per_nat": [
+        0.38231,
+        0.42456
+      ],
+      "bootstrap_95_ci_lambda_per_s": [
+        2.3554,
+        2.6157
+      ],
+      "t_statistic_df278": 40.81,
+      "two_sided_log10_p_value": -118.67,
+      "two_sided_p_value_str": "10^(-118.7)",
+      "cells": [
+        {
+          "pow2": -52,
+          "delta0": 2.220446049250313e-16,
+          "ln_delta_over_delta0": 36.043653,
+          "n_seeds": 40,
+          "censored_count": 0,
+          "mean_t_star_s": 14.4867,
+          "sd_t_star_s": 2.4253,
+          "mean_ticks": 869.2
+        },
+        {
+          "pow2": -44,
+          "delta0": 5.684341886080802e-14,
+          "ln_delta_over_delta0": 30.498476,
+          "n_seeds": 40,
+          "censored_count": 0,
+          "mean_t_star_s": 12.2204,
+          "sd_t_star_s": 1.9049,
+          "mean_ticks": 733.23
+        },
+        {
+          "pow2": -36,
+          "delta0": 1.4551915228366852e-11,
+          "ln_delta_over_delta0": 24.953299,
+          "n_seeds": 40,
+          "censored_count": 0,
+          "mean_t_star_s": 9.9537,
+          "sd_t_star_s": 1.5941,
+          "mean_ticks": 597.23
+        },
+        {
+          "pow2": -28,
+          "delta0": 3.725290298461914e-09,
+          "ln_delta_over_delta0": 19.408121,
+          "n_seeds": 40,
+          "censored_count": 0,
+          "mean_t_star_s": 7.6804,
+          "sd_t_star_s": 1.5005,
+          "mean_ticks": 460.82
+        },
+        {
+          "pow2": -23,
+          "delta0": 1.1920928955078125e-07,
+          "ln_delta_over_delta0": 15.942385,
+          "n_seeds": 40,
+          "censored_count": 0,
+          "mean_t_star_s": 6.5192,
+          "sd_t_star_s": 1.381,
+          "mean_ticks": 391.15
+        },
+        {
+          "pow2": -16,
+          "delta0": 1.52587890625e-05,
+          "ln_delta_over_delta0": 11.090355,
+          "n_seeds": 40,
+          "censored_count": 0,
+          "mean_t_star_s": 4.2933,
+          "sd_t_star_s": 1.0429,
+          "mean_ticks": 257.6
+        },
+        {
+          "pow2": -10,
+          "delta0": 0.0009765625,
+          "ln_delta_over_delta0": 6.931472,
+          "n_seeds": 40,
+          "censored_count": 0,
+          "mean_t_star_s": 2.7967,
+          "sd_t_star_s": 0.9152,
+          "mean_ticks": 167.8
+        }
+      ]
+    },
+    {
+      "template_id": "GE-T2",
+      "name": "12-Peg Galton/Pinball Elastic Lattice",
+      "n_trajectories": 280,
+      "censored_trajectories": 0,
+      "ols_intercept_s": 0.63191,
+      "ols_slope_beta_s_per_nat": 0.19735,
+      "ols_se_beta": 0.00742,
+      "implied_lyapunov_lambda_per_s": 5.0671,
+      "r_squared_trajectories": 0.71762,
+      "r_squared_cell_means": 0.99629,
+      "bootstrap_95_ci_beta_s_per_nat": [
+        0.18039,
+        0.21454
+      ],
+      "bootstrap_95_ci_lambda_per_s": [
+        4.6611,
+        5.5436
+      ],
+      "t_statistic_df278": 26.58,
+      "two_sided_log10_p_value": -77.58,
+      "two_sided_p_value_str": "10^(-77.6)",
+      "cells": [
+        {
+          "pow2": -52,
+          "delta0": 2.220446049250313e-16,
+          "ln_delta_over_delta0": 36.043653,
+          "n_seeds": 40,
+          "censored_count": 0,
+          "mean_t_star_s": 7.565,
+          "sd_t_star_s": 1.6371,
+          "mean_ticks": 453.9
+        },
+        {
+          "pow2": -44,
+          "delta0": 5.684341886080802e-14,
+          "ln_delta_over_delta0": 30.498476,
+          "n_seeds": 40,
+          "censored_count": 0,
+          "mean_t_star_s": 6.7117,
+          "sd_t_star_s": 1.5195,
+          "mean_ticks": 402.7
+        },
+        {
+          "pow2": -36,
+          "delta0": 1.4551915228366852e-11,
+          "ln_delta_over_delta0": 24.953299,
+          "n_seeds": 40,
+          "censored_count": 0,
+          "mean_t_star_s": 5.6342,
+          "sd_t_star_s": 1.3894,
+          "mean_ticks": 338.05
+        },
+        {
+          "pow2": -28,
+          "delta0": 3.725290298461914e-09,
+          "ln_delta_over_delta0": 19.408121,
+          "n_seeds": 40,
+          "censored_count": 0,
+          "mean_t_star_s": 4.5975,
+          "sd_t_star_s": 1.1662,
+          "mean_ticks": 275.85
+        },
+        {
+          "pow2": -23,
+          "delta0": 1.1920928955078125e-07,
+          "ln_delta_over_delta0": 15.942385,
+          "n_seeds": 40,
+          "censored_count": 0,
+          "mean_t_star_s": 3.875,
+          "sd_t_star_s": 0.9757,
+          "mean_ticks": 232.5
+        },
+        {
+          "pow2": -16,
+          "delta0": 1.52587890625e-05,
+          "ln_delta_over_delta0": 11.090355,
+          "n_seeds": 40,
+          "censored_count": 0,
+          "mean_t_star_s": 2.785,
+          "sd_t_star_s": 0.7769,
+          "mean_ticks": 167.1
+        },
+        {
+          "pow2": -10,
+          "delta0": 0.0009765625,
+          "ln_delta_over_delta0": 6.931472,
+          "n_seeds": 40,
+          "censored_count": 0,
+          "mean_t_star_s": 1.845,
+          "sd_t_star_s": 0.6124,
+          "mean_ticks": 110.7
+        }
+      ]
+    },
+    {
+      "template_id": "GE-T3",
+      "name": "8-Node Coupled Spring-Pendulum Bridge",
+      "n_trajectories": 280,
+      "censored_trajectories": 0,
+      "ols_intercept_s": -0.47404,
+      "ols_slope_beta_s_per_nat": 0.51209,
+      "ols_se_beta": 0.01454,
+      "implied_lyapunov_lambda_per_s": 1.9528,
+      "r_squared_trajectories": 0.81685,
+      "r_squared_cell_means": 0.99395,
+      "bootstrap_95_ci_beta_s_per_nat": [
+        0.48024,
+        0.544
+      ],
+      "bootstrap_95_ci_lambda_per_s": [
+        1.8382,
+        2.0823
+      ],
+      "t_statistic_df278": 35.21,
+      "two_sided_log10_p_value": -103.75,
+      "two_sided_p_value_str": "10^(-103.7)",
+      "cells": [
+        {
+          "pow2": -52,
+          "delta0": 2.220446049250313e-16,
+          "ln_delta_over_delta0": 36.043653,
+          "n_seeds": 40,
+          "censored_count": 0,
+          "mean_t_star_s": 17.3587,
+          "sd_t_star_s": 3.1617,
+          "mean_ticks": 1041.53
+        },
+        {
+          "pow2": -44,
+          "delta0": 5.684341886080802e-14,
+          "ln_delta_over_delta0": 30.498476,
+          "n_seeds": 40,
+          "censored_count": 0,
+          "mean_t_star_s": 15.4646,
+          "sd_t_star_s": 2.9179,
+          "mean_ticks": 927.88
+        },
+        {
+          "pow2": -36,
+          "delta0": 1.4551915228366852e-11,
+          "ln_delta_over_delta0": 24.953299,
+          "n_seeds": 40,
+          "censored_count": 0,
+          "mean_t_star_s": 12.6937,
+          "sd_t_star_s": 2.6864,
+          "mean_ticks": 761.62
+        },
+        {
+          "pow2": -28,
+          "delta0": 3.725290298461914e-09,
+          "ln_delta_over_delta0": 19.408121,
+          "n_seeds": 40,
+          "censored_count": 0,
+          "mean_t_star_s": 9.7038,
+          "sd_t_star_s": 2.2616,
+          "mean_ticks": 582.23
+        },
+        {
+          "pow2": -23,
+          "delta0": 1.1920928955078125e-07,
+          "ln_delta_over_delta0": 15.942385,
+          "n_seeds": 40,
+          "censored_count": 0,
+          "mean_t_star_s": 7.9867,
+          "sd_t_star_s": 2.0173,
+          "mean_ticks": 479.2
+        },
+        {
+          "pow2": -16,
+          "delta0": 1.52587890625e-05,
+          "ln_delta_over_delta0": 11.090355,
+          "n_seeds": 40,
+          "censored_count": 0,
+          "mean_t_star_s": 4.7158,
+          "sd_t_star_s": 1.5039,
+          "mean_ticks": 282.95
+        },
+        {
+          "pow2": -10,
+          "delta0": 0.0009765625,
+          "ln_delta_over_delta0": 6.931472,
+          "n_seeds": 40,
+          "censored_count": 0,
+          "mean_t_star_s": 2.9442,
+          "sd_t_star_s": 1.139,
+          "mean_ticks": 176.65
+        }
+      ]
+    }
+  ]
+}

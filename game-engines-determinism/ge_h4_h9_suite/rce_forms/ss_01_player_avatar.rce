@@ -1,0 +1,30 @@
+module survival_shooter.player_avatar
+
+intent "arena avatar locomotion, dash burst cooldown, and invulnerability frames"
+    example AvatarTick(dx: 1, dy: 0, dash: 1) -> px == 14 and dash_cd == 10
+    example ContactDamage(amount: 25), ContactDamage(amount: 25) -> hp == 75 and iframes == 6
+
+fn clamp_a(v: i64, lo: i64, hi: i64) -> i64 = if v < lo then lo else (if v > hi then hi else v)
+
+state PlayerAvatar
+    px: i64 = 0
+    py: i64 = 0
+    hp: i64 = 100
+    dash_cd: i64 = 0
+    iframes: i64 = 0
+
+event AvatarTick(dx: i64, dy: i64, dash: i64)
+event ContactDamage(amount: i64)
+
+step PlayerAvatar on AvatarTick(dx: dx, dy: dy, dash: dsh) if hp > 0
+    if iframes > 0
+        iframes -= 1
+    let burst = dsh == 1 and dash_cd == 0
+    let spd = if burst then 14 else 5
+    dash_cd = if burst then 10 else (if dash_cd > 0 then dash_cd - 1 else 0)
+    px = clamp_a(px + dx * spd, -240, 240)
+    py = clamp_a(py + dy * spd, -240, 240)
+
+step PlayerAvatar on ContactDamage(amount: amt) if hp > 0 and iframes == 0
+    hp = clamp_a(hp - amt, 0, 100)
+    iframes = 6

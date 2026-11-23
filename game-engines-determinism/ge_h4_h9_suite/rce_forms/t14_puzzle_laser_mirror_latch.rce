@@ -1,0 +1,19 @@
+module ge_h9.t14_puzzle_laser_mirror_latch
+intent "three rotary mirrors aligning modulo-4 beam angles"
+    example RotateMirror(slot: 0), RotateMirror(slot: 1) -> m0 == 1 and m1 == 1
+state MirrorGrid
+    m0: i64 = 0
+    m1: i64 = 0
+    m2: i64 = 0
+    door_open: i64 = 0
+    moves: i64 = 0
+event RotateMirror(slot: i64)
+step MirrorGrid on RotateMirror(slot: s)
+    moves += 1
+    if s == 0
+        m0 = (m0 + 1) % 4
+    elif s == 1
+        m1 = (m1 + 1) % 4
+    else
+        m2 = (m2 + 1) % 4
+    door_open = if m0 == 2 and m1 == 1 and m2 == 3 then 1 else 0

@@ -1,0 +1,14 @@
+module ge_h9.t26_idle_offline_tick_bank
+intent "capped offline seconds bank converted into boosted ticks"
+    example BankOffline(secs: 120), ClaimBoosted(rate: 4) -> bank == 90 and gold == 240
+state OfflineVault
+    bank: i64 = 0
+    gold: i64 = 0
+event BankOffline(secs: i64)
+event ClaimBoosted(rate: i64)
+step OfflineVault on BankOffline(secs: s)
+    bank = if bank + s > 600 then 600 else bank + s
+step OfflineVault on ClaimBoosted(rate: r)
+    let use_s = if bank >= 30 then 30 else bank
+    bank -= use_s
+    gold += use_s * r * 2

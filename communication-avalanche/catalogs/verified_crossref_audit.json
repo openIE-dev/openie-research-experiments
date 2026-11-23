@@ -1,0 +1,468 @@
+[
+  {
+    "doi": "10.1093/mind/LIX.236.433",
+    "ok": true,
+    "year": 1950,
+    "title": "I.\u2014COMPUTING MACHINERY AND INTELLIGENCE",
+    "venue": "Mind",
+    "vol": "LIX",
+    "issue": "236",
+    "page": "433-460",
+    "authors": [
+      "TURING, A."
+    ]
+  },
+  {
+    "doi": "10.1109/TIT.1956.1056797",
+    "ok": true,
+    "year": 1956,
+    "title": "The logic theory machine--A complex information processing system",
+    "venue": "IEEE Transactions on Information Theory",
+    "vol": "2",
+    "issue": "3",
+    "page": "61-79",
+    "authors": [
+      "Newell, A.",
+      "Simon, H."
+    ]
+  },
+  {
+    "doi": "10.1037/h0042519",
+    "ok": true,
+    "year": 1958,
+    "title": "The perceptron: A probabilistic model for information storage and organization in the brain.",
+    "venue": "Psychological Review",
+    "vol": "65",
+    "issue": "6",
+    "page": "386-408",
+    "authors": [
+      "Rosenblatt, F."
+    ]
+  },
+  {
+    "doi": "10.1145/367177.367199",
+    "ok": true,
+    "year": 1960,
+    "title": "Recursive functions of symbolic expressions and their computation by machine, Part I",
+    "venue": "Communications of the ACM",
+    "vol": "3",
+    "issue": "4",
+    "page": "184-195",
+    "authors": [
+      "McCarthy, J."
+    ]
+  },
+  {
+    "doi": "10.1145/321250.321253",
+    "ok": true,
+    "year": 1965,
+    "title": "A Machine-Oriented Logic Based on the Resolution Principle",
+    "venue": "Journal of the ACM",
+    "vol": "12",
+    "issue": "1",
+    "page": "23-41",
+    "authors": [
+      "Robinson, J."
+    ]
+  },
+  {
+    "doi": "10.7551/mitpress/11301.001.0001",
+    "ok": true,
+    "year": 2017,
+    "title": "Perceptrons",
+    "venue": "",
+    "vol": "",
+    "issue": "",
+    "page": "",
+    "authors": [
+      "Minsky, M.",
+      "Papert, S."
+    ]
+  },
+  {
+    "doi": "10.1016/0025-5564(75)90047-4",
+    "ok": true,
+    "year": 1975,
+    "title": "A model of inexact reasoning in medicine",
+    "venue": "Mathematical Biosciences",
+    "vol": "23",
+    "issue": "3-4",
+    "page": "351-379",
+    "authors": [
+      "Shortliffe, E.",
+      "Buchanan, B."
+    ]
+  },
+  {
+    "doi": "10.1016/0004-3702(78)90010-3",
+    "ok": true,
+    "year": 1978,
+    "title": "Dendral and meta-dendral: Their applications dimension",
+    "venue": "Artificial Intelligence",
+    "vol": "11",
+    "issue": "1-2",
+    "page": "5-24",
+    "authors": [
+      "Buchanan, B.",
+      "Feigenbaum, E."
+    ]
+  },
+  {
+    "doi": "10.1145/356810.356816",
+    "ok": true,
+    "year": 1980,
+    "title": "The Hearsay-II Speech-Understanding System: Integrating Knowledge to Resolve Uncertainty",
+    "venue": "ACM Computing Surveys",
+    "vol": "12",
+    "issue": "2",
+    "page": "213-253",
+    "authors": [
+      "Erman, L.",
+      "Hayes-Roth, F.",
+      "Lesser, V.",
+      "Reddy, D."
+    ]
+  },
+  {
+    "doi": "10.1073/pnas.79.8.2554",
+    "ok": true,
+    "year": 1982,
+    "title": "Neural networks and physical systems with emergent collective computational abilities.",
+    "venue": "Proceedings of the National Academy of Sciences",
+    "vol": "79",
+    "issue": "8",
+    "page": "2554-2558",
+    "authors": [
+      "Hopfield, J."
+    ]
+  },
+  {
+    "doi": "10.1038/323533a0",
+    "ok": true,
+    "year": 1986,
+    "title": "Learning representations by back-propagating errors",
+    "venue": "Nature",
+    "vol": "323",
+    "issue": "6088",
+    "page": "533-536",
+    "authors": [
+      "Rumelhart, D.",
+      "Hinton, G.",
+      "Williams, R."
+    ]
+  },
+  {
+    "doi": "10.1016/C2009-0-27609-4",
+    "ok": true,
+    "year": 1988,
+    "title": "Probabilistic Reasoning in Intelligent Systems",
+    "venue": "",
+    "vol": "",
+    "issue": "",
+    "page": "",
+    "authors": []
+  },
+  {
+    "doi": "10.1007/BF00992698",
+    "ok": true,
+    "year": 1992,
+    "title": "Q-learning",
+    "venue": "Machine Learning",
+    "vol": "8",
+    "issue": "3-4",
+    "page": "279-292",
+    "authors": [
+      "Watkins, C.",
+      "Dayan, P."
+    ]
+  },
+  {
+    "doi": "10.1162/neco.1989.1.4.541",
+    "ok": true,
+    "year": 1989,
+    "title": "Backpropagation Applied to Handwritten Zip Code Recognition",
+    "venue": "Neural Computation",
+    "vol": "1",
+    "issue": "4",
+    "page": "541-551",
+    "authors": [
+      "LeCun, Y.",
+      "Boser, B.",
+      "Denker, J.",
+      "Henderson, D.",
+      "Howard, R."
+    ]
+  },
+  {
+    "doi": "10.1109/5.726791",
+    "ok": true,
+    "year": 1998,
+    "title": "Gradient-based learning applied to document recognition",
+    "venue": "Proceedings of the IEEE",
+    "vol": "86",
+    "issue": "11",
+    "page": "2278-2324",
+    "authors": [
+      "Lecun, Y.",
+      "Bottou, L.",
+      "Bengio, Y.",
+      "Haffner, P."
+    ]
+  },
+  {
+    "doi": "10.1007/BF00994018",
+    "ok": true,
+    "year": 1995,
+    "title": "Support-vector networks",
+    "venue": "Machine Learning",
+    "vol": "20",
+    "issue": "3",
+    "page": "273-297",
+    "authors": [
+      "Cortes, C.",
+      "Vapnik, V."
+    ]
+  },
+  {
+    "doi": "10.1162/neco.1997.9.8.1735",
+    "ok": true,
+    "year": 1997,
+    "title": "Long Short-Term Memory",
+    "venue": "Neural Computation",
+    "vol": "9",
+    "issue": "8",
+    "page": "1735-1780",
+    "authors": [
+      "Hochreiter, S.",
+      "Schmidhuber, J."
+    ]
+  },
+  {
+    "doi": "10.1007/978-3-540-75538-8_7",
+    "ok": true,
+    "year": 2007,
+    "title": "Efficient Selectivity and Backup Operators in Monte-Carlo Tree Search",
+    "venue": "Lecture Notes in Computer Science",
+    "vol": "",
+    "issue": "",
+    "page": "72-83",
+    "authors": [
+      "Coulom, R."
+    ]
+  },
+  {
+    "doi": "10.1007/11871842_29",
+    "ok": true,
+    "year": 2006,
+    "title": "Bandit Based Monte-Carlo Planning",
+    "venue": "Lecture Notes in Computer Science",
+    "vol": "",
+    "issue": "",
+    "page": "282-293",
+    "authors": [
+      "Kocsis, L.",
+      "Szepesv\u00e1ri, C."
+    ]
+  },
+  {
+    "doi": "10.1109/CVPR.2009.5206848",
+    "ok": true,
+    "year": 2009,
+    "title": "ImageNet: A large-scale hierarchical image database",
+    "venue": "2009 IEEE Conference on Computer Vision and Pattern Recognition",
+    "vol": "",
+    "issue": "",
+    "page": "248-255",
+    "authors": [
+      "Deng, J.",
+      "Dong, W.",
+      "Socher, R.",
+      "Li, L.",
+      "Kai Li"
+    ]
+  },
+  {
+    "doi": "10.1145/3065386",
+    "ok": true,
+    "year": 2017,
+    "title": "ImageNet classification with deep convolutional neural networks",
+    "venue": "Communications of the ACM",
+    "vol": "60",
+    "issue": "6",
+    "page": "84-90",
+    "authors": [
+      "Krizhevsky, A.",
+      "Sutskever, I.",
+      "Hinton, G."
+    ]
+  },
+  {
+    "doi": "10.1038/nature14236",
+    "ok": true,
+    "year": 2015,
+    "title": "Human-level control through deep reinforcement learning",
+    "venue": "Nature",
+    "vol": "518",
+    "issue": "7540",
+    "page": "529-533",
+    "authors": [
+      "Mnih, V.",
+      "Kavukcuoglu, K.",
+      "Silver, D.",
+      "Rusu, A.",
+      "Veness, J."
+    ]
+  },
+  {
+    "doi": "10.1145/3422622",
+    "ok": true,
+    "year": 2020,
+    "title": "Generative adversarial networks",
+    "venue": "Communications of the ACM",
+    "vol": "63",
+    "issue": "11",
+    "page": "139-144",
+    "authors": [
+      "Goodfellow, I.",
+      "Pouget-Abadie, J.",
+      "Mirza, M.",
+      "Xu, B.",
+      "Warde-Farley, D."
+    ]
+  },
+  {
+    "doi": "10.1109/CVPR.2016.90",
+    "ok": true,
+    "year": 2016,
+    "title": "Deep Residual Learning for Image Recognition",
+    "venue": "2016 IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+    "vol": "",
+    "issue": "",
+    "page": "770-778",
+    "authors": [
+      "He, K.",
+      "Zhang, X.",
+      "Ren, S.",
+      "Sun, J."
+    ]
+  },
+  {
+    "doi": "10.1038/nature16961",
+    "ok": true,
+    "year": 2016,
+    "title": "Mastering the game of Go with deep neural networks and tree search",
+    "venue": "Nature",
+    "vol": "529",
+    "issue": "7587",
+    "page": "484-489",
+    "authors": [
+      "Silver, D.",
+      "Huang, A.",
+      "Maddison, C.",
+      "Guez, A.",
+      "Sifre, L."
+    ]
+  },
+  {
+    "doi": "10.1038/nature24270",
+    "ok": true,
+    "year": 2017,
+    "title": "Mastering the game of Go without human knowledge",
+    "venue": "Nature",
+    "vol": "550",
+    "issue": "7676",
+    "page": "354-359",
+    "authors": [
+      "Silver, D.",
+      "Schrittwieser, J.",
+      "Simonyan, K.",
+      "Antonoglou, I.",
+      "Huang, A."
+    ]
+  },
+  {
+    "doi": "10.1038/s41586-021-03819-2",
+    "ok": true,
+    "year": 2021,
+    "title": "Highly accurate protein structure prediction with AlphaFold",
+    "venue": "Nature",
+    "vol": "596",
+    "issue": "7873",
+    "page": "583-589",
+    "authors": [
+      "Jumper, J.",
+      "Evans, R.",
+      "Pritzel, A.",
+      "Green, T.",
+      "Figurnov, M."
+    ]
+  },
+  {
+    "doi": "10.1109/CVPR52729.2023.01499",
+    "ok": true,
+    "year": 2023,
+    "title": "Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture",
+    "venue": "2023 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)",
+    "vol": "",
+    "issue": "",
+    "page": "15619-15629",
+    "authors": [
+      "Assran, M.",
+      "Duval, Q.",
+      "Misra, I.",
+      "Bojanowski, P.",
+      "Vincent, P."
+    ]
+  },
+  {
+    "doi": "10.1038/s41586-023-06924-6",
+    "ok": true,
+    "year": 2024,
+    "title": "Mathematical discoveries from program search with large language models",
+    "venue": "Nature",
+    "vol": "625",
+    "issue": "7995",
+    "page": "468-475",
+    "authors": [
+      "Romera-Paredes, B.",
+      "Barekatain, M.",
+      "Novikov, A.",
+      "Balog, M.",
+      "Kumar, M."
+    ]
+  },
+  {
+    "doi": "10.1038/s41586-023-06747-5",
+    "ok": true,
+    "year": 2024,
+    "title": "Solving olympiad geometry without human demonstrations",
+    "venue": "Nature",
+    "vol": "625",
+    "issue": "7995",
+    "page": "476-482",
+    "authors": [
+      "Trinh, T.",
+      "Wu, Y.",
+      "Le, Q.",
+      "He, H.",
+      "Luong, T."
+    ]
+  },
+  {
+    "doi": "10.1038/s41586-025-09422-z",
+    "ok": true,
+    "year": 2025,
+    "title": "DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning",
+    "venue": "Nature",
+    "vol": "645",
+    "issue": "8081",
+    "page": "633-638",
+    "authors": [
+      "Guo, D.",
+      "Yang, D.",
+      "Zhang, H.",
+      "Song, J.",
+      "Wang, P."
+    ]
+  }
+]

@@ -1,0 +1,23 @@
+module ge_h9.t11_visualnovel_affection_branch
+intent "dialogue choice affinity meters and chapter ending route lock"
+    example DialogueChoice(tone: 1), ResolveChapter -> trust == 8 and chapter == 2
+state VnState
+    chapter: i64 = 1
+    trust: i64 = 5
+    courage: i64 = 5
+    ending: i64 = 0
+event DialogueChoice(tone: i64)
+event ResolveChapter
+step VnState on DialogueChoice(tone: t) if ending == 0
+    if t == 1
+        trust += 3
+    elif t == 2
+        courage += 3
+    else
+        trust += 1
+        courage += 1
+step VnState on ResolveChapter if ending == 0
+    if chapter >= 5
+        ending = if trust >= 18 and courage >= 18 then 3 else (if trust >= courage then 1 else 2)
+    else
+        chapter += 1

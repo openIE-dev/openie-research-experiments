@@ -1,0 +1,72 @@
+info: Avalanche: no previous manifest, creating one from scratch
+info: toolchain not updated; already up-to-date
+✔ [0/10] Ran job computation
+✔ [1/10] Ran Avalanche:extraDep
+ℹ [2/10] Built Avalanche.QuorumRatchet (643ms)
+trace: .> LEAN_PATH=/Volumes/macos_4TB_external_1/tmp_wave5b_lean/.lake/build/lib/lean <ELAN_HOME>/.elan/toolchains/leanprover--lean4---v4.36.0/bin/lean /Volumes/macos_4TB_external_1/tmp_wave5b_lean/Avalanche/QuorumRatchet.lean -o /Volumes/macos_4TB_external_1/tmp_wave5b_lean/.lake/build/lib/lean/Avalanche/QuorumRatchet.olean -i /Volumes/macos_4TB_external_1/tmp_wave5b_lean/.lake/build/lib/lean/Avalanche/QuorumRatchet.ilean -c /Volumes/macos_4TB_external_1/tmp_wave5b_lean/.lake/build/ir/Avalanche/QuorumRatchet.c --setup /Volumes/macos_4TB_external_1/tmp_wave5b_lean/.lake/build/ir/Avalanche/QuorumRatchet.setup.json --json
+✔ [3/10] Ran Avalanche.QuorumRatchet:irArts
+ℹ [4/10] Built Avalanche.OrchestrationFlow (571ms)
+trace: .> LEAN_PATH=/Volumes/macos_4TB_external_1/tmp_wave5b_lean/.lake/build/lib/lean <ELAN_HOME>/.elan/toolchains/leanprover--lean4---v4.36.0/bin/lean /Volumes/macos_4TB_external_1/tmp_wave5b_lean/Avalanche/OrchestrationFlow.lean -o /Volumes/macos_4TB_external_1/tmp_wave5b_lean/.lake/build/lib/lean/Avalanche/OrchestrationFlow.olean -i /Volumes/macos_4TB_external_1/tmp_wave5b_lean/.lake/build/lib/lean/Avalanche/OrchestrationFlow.ilean -c /Volumes/macos_4TB_external_1/tmp_wave5b_lean/.lake/build/ir/Avalanche/OrchestrationFlow.c --setup /Volumes/macos_4TB_external_1/tmp_wave5b_lean/.lake/build/ir/Avalanche/OrchestrationFlow.setup.json --json
+✔ [5/10] Ran Avalanche.OrchestrationFlow:irArts
+ℹ [6/10] Built Avalanche.EnzymaticSynthesis (1.4s)
+trace: .> LEAN_PATH=/Volumes/macos_4TB_external_1/tmp_wave5b_lean/.lake/build/lib/lean <ELAN_HOME>/.elan/toolchains/leanprover--lean4---v4.36.0/bin/lean /Volumes/macos_4TB_external_1/tmp_wave5b_lean/Avalanche/EnzymaticSynthesis.lean -o /Volumes/macos_4TB_external_1/tmp_wave5b_lean/.lake/build/lib/lean/Avalanche/EnzymaticSynthesis.olean -i /Volumes/macos_4TB_external_1/tmp_wave5b_lean/.lake/build/lib/lean/Avalanche/EnzymaticSynthesis.ilean -c /Volumes/macos_4TB_external_1/tmp_wave5b_lean/.lake/build/ir/Avalanche/EnzymaticSynthesis.c --setup /Volumes/macos_4TB_external_1/tmp_wave5b_lean/.lake/build/ir/Avalanche/EnzymaticSynthesis.setup.json --json
+✔ [7/10] Ran Avalanche.EnzymaticSynthesis:irArts
+ℹ [8/10] Built Avalanche (283ms)
+trace: .> LEAN_PATH=/Volumes/macos_4TB_external_1/tmp_wave5b_lean/.lake/build/lib/lean <ELAN_HOME>/.elan/toolchains/leanprover--lean4---v4.36.0/bin/lean /Volumes/macos_4TB_external_1/tmp_wave5b_lean/Avalanche.lean -o /Volumes/macos_4TB_external_1/tmp_wave5b_lean/.lake/build/lib/lean/Avalanche.olean -i /Volumes/macos_4TB_external_1/tmp_wave5b_lean/.lake/build/lib/lean/Avalanche.ilean -c /Volumes/macos_4TB_external_1/tmp_wave5b_lean/.lake/build/ir/Avalanche.c --setup /Volumes/macos_4TB_external_1/tmp_wave5b_lean/.lake/build/ir/Avalanche.setup.json --json
+info: Avalanche.lean:12:0: 'Avalanche.QuorumRatchet.unverified_error_closed_form_and_growth' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:13:0: 'Avalanche.QuorumRatchet.unverified_retention_strict_decay' depends on axioms: [propext]
+info: Avalanche.lean:14:0: 'Avalanche.QuorumRatchet.ratchet_gate_soundness' depends on axioms: [propext]
+info: Avalanche.lean:15:0: 'Avalanche.QuorumRatchet.ratchet_non_regression_step' depends on axioms: [propext]
+info: Avalanche.lean:16:0: 'Avalanche.QuorumRatchet.ratchet_non_regression_chain' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:17:0: 'Avalanche.QuorumRatchet.ratchet_strict_advance_and_lock_in' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:18:0: 'Avalanche.QuorumRatchet.subthreshold_step_quiescent' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:19:0: 'Avalanche.QuorumRatchet.subthreshold_trace_zero_firings' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:20:0: 'Avalanche.QuorumRatchet.clocked_vs_event_quiescent_checks' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:21:0: 'Avalanche.QuorumRatchet.zero_clock_idle_energy_dominance' does not depend on any axioms
+info: Avalanche.lean:22:0: 'Avalanche.QuorumRatchet.hill_half_maximal_at_threshold' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:23:0: 'Avalanche.QuorumRatchet.hill_monotone_concentration' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:24:0: 'Avalanche.QuorumRatchet.hill_cooperative_subthreshold_suppression' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:25:0: 'Avalanche.QuorumRatchet.hill_cooperative_superthreshold_sharpening' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:26:0: 'Avalanche.QuorumRatchet.sepj_gated_containment_vs_collapse' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:29:0: 'Avalanche.OrchestrationFlow.attested_edge_accept_iff' depends on axioms: [propext]
+info: Avalanche.lean:30:0: 'Avalanche.OrchestrationFlow.tampered_digest_zero_activation' depends on axioms: [propext]
+info: Avalanche.lean:31:0: 'Avalanche.OrchestrationFlow.invalid_signature_zero_activation' depends on axioms: [propext]
+info: Avalanche.lean:32:0: 'Avalanche.OrchestrationFlow.cascade_joule_dominance_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Avalanche.lean:33:0: 'Avalanche.OrchestrationFlow.cascade_exact_joule_savings' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:34:0: 'Avalanche.OrchestrationFlow.upstream_gate_reduces_pipeline_energy' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:35:0: 'Avalanche.OrchestrationFlow.cpj_strict_improvement_from_gating' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:36:0: 'Avalanche.OrchestrationFlow.cpj_crystallized_skill_amortization' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:37:0: 'Avalanche.OrchestrationFlow.reduced_cost_walk_telescoping' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:38:0: 'Avalanche.OrchestrationFlow.reduced_cost_cycle_invariance' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:39:0: 'Avalanche.OrchestrationFlow.nonneg_reduced_cost_no_negative_cycles' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Avalanche.lean:40:0: 'Avalanche.OrchestrationFlow.ssp_tight_path_shortest_certificate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Avalanche.lean:41:0: 'Avalanche.OrchestrationFlow.ssp_augmentation_preserves_flow_conservation' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:42:0: 'Avalanche.OrchestrationFlow.agency_preserving_single_step' does not depend on any axioms
+info: Avalanche.lean:43:0: 'Avalanche.OrchestrationFlow.agency_preserving_n_mind_sequence' does not depend on any axioms
+info: Avalanche.lean:44:0: 'Avalanche.OrchestrationFlow.forced_assimilation_violates_invariant' depends on axioms: [propext]
+info: Avalanche.lean:47:0: 'Avalanche.EnzymaticSynthesis.digital_enzyme_barrier_lowering_and_invariance' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:48:0: 'Avalanche.EnzymaticSynthesis.digital_enzyme_linear_cumulative_savings' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:49:0: 'Avalanche.EnzymaticSynthesis.digital_enzyme_zero_unverified_drift' depends on axioms: [propext]
+info: Avalanche.lean:50:0: 'Avalanche.EnzymaticSynthesis.digital_enzyme_sequential_composition' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:51:0: 'Avalanche.EnzymaticSynthesis.des_coverage_union_dominates_solo' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:52:0: 'Avalanche.EnzymaticSynthesis.des_strict_global_pass_superiority' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:53:0: 'Avalanche.EnzymaticSynthesis.des_strict_total_joule_dominance' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:54:0: 'Avalanche.EnzymaticSynthesis.des_strict_cpj_dominance' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:55:0: 'Avalanche.EnzymaticSynthesis.des_one_pass_calibration_identifies_niche_router' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:56:0: 'Avalanche.EnzymaticSynthesis.downward_step_amortization_dominance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+info: Avalanche.lean:57:0: 'Avalanche.EnzymaticSynthesis.four_tier_downward_convergence_to_c0' depends on axioms: [propext, Quot.sound]
+info: Avalanche.lean:58:0: 'Avalanche.EnzymaticSynthesis.horizon_cpj_monotonicity_month_quarter_year_decade' depends on axioms: [propext,
+ Quot.sound]
+info: Avalanche.lean:59:0: 'Avalanche.EnzymaticSynthesis.downward_compilation_preserves_soundness_all_tiers' does not depend on any axioms
+info: Avalanche.lean:60:0: 'Avalanche.EnzymaticSynthesis.downward_compilation_falsifier_hit_rate_iff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+✔ [9/10] Ran Avalanche:irArts
+✔ [10/10] Ran Avalanche/Avalanche:default
+Build completed successfully (10 jobs).

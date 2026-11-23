@@ -1,0 +1,28 @@
+module haunted_jaunt.ghost_patrol
+
+intent "cyclic waypoint patrol with noise-triggered pursuit diversion"
+    example PatrolTick(px: 10, py: 0, noise: 60) -> alert_ticks == 8 and gx == -35
+    example PatrolTick(px: 0, py: 0, noise: 10) -> alert_ticks == 0 and gx == -36
+
+fn toward(c: i64, t: i64, s: i64) -> i64 = if c + s < t then c + s else (if c - s > t then c - s else t)
+
+state GhostPatrol
+    gx: i64 = -40
+    gy: i64 = 0
+    wp: i64 = 0
+    alert_ticks: i64 = 0
+
+event PatrolTick(px: i64, py: i64, noise: i64)
+
+step GhostPatrol on PatrolTick(px: px, py: py, noise: ns)
+    alert_ticks = if ns >= 50 then 8 else (if alert_ticks > 0 then alert_ticks - 1 else 0)
+    if alert_ticks > 0
+        gx = toward(gx, px, 5)
+        gy = toward(gy, py, 5)
+    else
+        let tx = if wp == 0 or wp == 1 then 40 else -40
+        let ty = if wp == 1 or wp == 2 then 30 else 0
+        gx = toward(gx, tx, 4)
+        gy = toward(gy, ty, 4)
+        if gx == tx and gy == ty
+            wp = (wp + 1) % 4

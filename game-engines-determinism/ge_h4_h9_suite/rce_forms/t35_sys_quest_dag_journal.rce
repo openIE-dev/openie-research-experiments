@@ -1,0 +1,20 @@
+module ge_h9.t35_sys_quest_dag_journal
+intent "prerequisite DAG quest progression (talk -> relic -> shrine -> reward)"
+    example QuestEvent(node_id: 1), QuestEvent(node_id: 2), QuestEvent(node_id: 3) -> stage == 3 and xp == 150
+state QuestJournal
+    stage: i64 = 0
+    side_flag: i64 = 0
+    xp: i64 = 0
+event QuestEvent(node_id: i64)
+step QuestJournal on QuestEvent(node_id: n)
+    if n == 1 and stage == 0
+        stage = 1
+        xp += 20
+    elif n == 9
+        side_flag = 1
+    elif n == 2 and stage == 1
+        stage = 2
+        xp += 50
+    elif n == 3 and stage == 2
+        stage = 3
+        xp += if side_flag == 1 then 120 else 80

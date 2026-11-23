@@ -1,0 +1,45 @@
+module ge_h9.t33_ref_tanks_q32_artillery
+intent "Q32.32 fixed-point ballistic step with radial shield/hull resolution"
+    example TankStep(vx_q: 4294967296, vz_q: 8589934592, target_x_q: 8589934592) -> ticks == 1
+const ONE: i64 = 4294967296
+state TankMatch
+    sx_q: i64 = 0
+    sz_q: i64 = 0
+    vx_q: i64 = 0
+    vz_q: i64 = 0
+    in_flight: i64 = 0
+    shield: i64 = 40
+    hull: i64 = 100
+    rounds_won: i64 = 0
+    ticks: i64 = 0
+event TankStep(vx_q: i64, vz_q: i64, target_x_q: i64)
+step TankMatch on TankStep(vx_q: ivx, vz_q: ivz, target_x_q: tx)
+    ticks += 1
+    if in_flight == 0
+        sx_q = 0
+        sz_q = ONE
+        vx_q = ivx
+        vz_q = ivz
+        in_flight = 1
+    else
+        vz_q -= ONE / 2
+        sx_q += vx_q
+        sz_q += vz_q
+        if sz_q <= 0
+            sz_q = 0
+            in_flight = 0
+            let dx_u = (sx_q - tx) / ONE
+            let adx = if dx_u < 0 then -dx_u else dx_u
+            if adx < 10
+                let imp = (10 - adx) * 4
+                if shield >= imp
+                    shield -= imp
+                else
+                    let rem = imp - shield
+                    shield = 0
+                    if hull > rem
+                        hull -= rem
+                    else
+                        rounds_won += 1
+                        hull = 100
+                        shield = 40

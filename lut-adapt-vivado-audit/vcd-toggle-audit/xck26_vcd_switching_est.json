@@ -1,0 +1,531 @@
+{
+  "schema": "openie.lut_adapt.xck26_vcd_switching_est.v1",
+  "prereg_id": "lut-adapt-wave5-xck26-vcd-est-audit-2026-11-23",
+  "prereg_sha256": "c64505d177515c47770965ef3ef9fb100b73384d164c6149607f1d39aa138f71",
+  "recorded_utc": "2026-11-23T12:20:14Z",
+  "target_part": "xck26-sfvc784-2LV-c",
+  "target_board": "AMD Kria KV260 Vision AI Starter Kit (K26 SOM, -2LV, VCCINT = 0.72 V, VCCBRAM = 0.85 V)",
+  "source_repository": "https://github.com/openIE-dev/lut-adapt-ai",
+  "source_commit": "af152ba2e63b5c55bcfad9b2fa41e675e8e3946c",
+  "nominal_clock_mhz": 250.0,
+  "nominal_clock_period_ns": 4.0,
+  "evidence_separation": {
+    "basis": "est_j",
+    "board_metered": false,
+    "measured_j": null,
+    "reported_j": null,
+    "vivado_post_route_power_w": null,
+    "vivado_post_route_wns_ns": null,
+    "note": "Activity-calibrated analytical dynamic switching energy (est_pJ/cycle) and power (est_mW @ 250 MHz) derived from exact Verilator 5.054 VCD bit transitions and Yosys 0.71+ synth_xilinx -family xcup primitive counts using AMD DS925/UG573 -2LV 0.72 V capacitance & BRAM parameters. Excludes static silicon leakage and is never merged with measured_j or Vivado post-PAR timing closure."
+  },
+  "eda_toolchains": {
+    "yosys": "Yosys 0.71+ (git sha1 b4c586fd3, Release, GNU /usr/bin/c++ 13.3.0)",
+    "verilator": "Verilator 5.054 2026-11-01 rev vUNKNOWN-built20261112",
+    "host_os": "Linux 7.0.0-43-generic x86_64"
+  },
+  "analytical_model_parameters": {
+    "bram_36k_sdp_read_pj_per_enabled_cycle": {
+      "high": 5.0,
+      "low": 2.8,
+      "nominal": 3.8,
+      "source_basis": "AMD UG573 / DS925 / XPE 16nm FinFET+ UltraScale+ -2LV (VCCINT = 0.72 V, VCCBRAM = 0.85 V) 64-bit SDP RAMB36E2 active read energy per cycle (~0.95 mW / 250 MHz = 3.80 pJ); idle clock-enabled constant-address precharge factor = 0.65 (2.47 pJ), EN=0 clock-pin-only = 0.15 pJ"
+    },
+    "bram_36k_sdp_write_pj_per_enabled_cycle": {
+      "high": 6.0,
+      "low": 3.4,
+      "nominal": 4.6
+    },
+    "capacitance_ff": {
+      "carry8_stage_and_local_net_ff": 8.0,
+      "clock_leaf_per_ff_per_cycle_ff": 2.2,
+      "fdre_q_and_routing_net_ff": {
+        "high": 17.0,
+        "low": 8.5,
+        "nominal": 12.0
+      },
+      "lut6_output_and_routing_net_ff": {
+        "high": 20.0,
+        "low": 10.0,
+        "nominal": 14.0
+      },
+      "muxf7_muxf8_stage_ff": 6.5
+    },
+    "dynamic_switching_formula": "E_dyn_logic_cycle = sum_i (alpha_transitions_per_cycle_i * 0.5 * C_eff_i * VCCINT^2) + N_FDRE * C_clk_leaf * VCCINT^2 + E_RAMB36E2_cycle; P_dyn_est_mW = E_dyn_cycle_pJ * f_MHz * 1e-3",
+    "nominal_clock_mhz": 250.0,
+    "nominal_clock_period_ns": 4.0,
+    "target_part": "xck26-sfvc784-2LV-c",
+    "timing_delay_budget_ds925_2lv_ns": {
+      "carry8_per_bit_ns": 0.015,
+      "fdre_setup_plus_uncertainty_ns": 0.115,
+      "fdre_t_cko_ns": 0.148,
+      "interconnect_net_per_level_ns": {
+        "congested_wide_bus": 0.22,
+        "nominal": 0.145,
+        "short_local": 0.11
+      },
+      "lut_t_ilo_ns": 0.068,
+      "ramb36e2_t_rcko_do_noreg_ns": 1.39,
+      "ramb36e2_t_rcko_do_reg_ns": 0.61
+    },
+    "vccbram_v": 0.85,
+    "vccint_v": 0.72
+  },
+  "modules": {
+    "clai_benes_paged_hotswap_core": {
+      "yosys_xcup_primitives": {
+        "top_module": "clai_benes_paged_hotswap_core",
+        "synth_wall_s": 73.33,
+        "clb_luts_total": 41623,
+        "clb_lut_pct_xck26": 35.54,
+        "lut_primitives": {
+          "LUT2": 2462,
+          "LUT3": 20512,
+          "LUT4": 3343,
+          "LUT5": 7629,
+          "LUT6": 7677
+        },
+        "muxf7": 32,
+        "muxf8": 16,
+        "carry4_yosys_cells": 45,
+        "carry8_ultrascale_equiv": 23,
+        "clb_registers_total": 36464,
+        "clb_register_pct_xck26": 15.57,
+        "fdre": 36464,
+        "fdse": 0,
+        "ramb36e2": 81,
+        "ramb36e2_pct_xck26": 56.25,
+        "ramb18e2": 0,
+        "dsp48e2": 0,
+        "inferred_ibuf_obuf": [
+          1379,
+          220
+        ],
+        "longest_combinational_topological_levels": 81
+      },
+      "vcd_trace_coverage": {
+        "unique_vcd_net_codes_in_dut": 27157,
+        "traced_bits_by_category": {
+          "clock": 1,
+          "seq": 20735,
+          "comb": 64204,
+          "bram_data": 5184
+        }
+      },
+      "phases": {
+        "idle_quiescent": {
+          "cycles": 256,
+          "raw_seq_transitions_per_cycle": 0.0,
+          "raw_comb_transitions_per_cycle": 0.0,
+          "raw_bram_data_transitions_per_cycle": 0.0,
+          "alpha_seq_transitions_per_bit_cycle": 0.0,
+          "alpha_comb_transitions_per_bit_cycle": 0.0,
+          "bram_valid_read_duty": 0.0,
+          "bram_write_duty": 0.0,
+          "est_nominal": {
+            "clock_leaf_est_pj_per_cycle": 41.586,
+            "fdre_seq_est_pj_per_cycle": 0.0,
+            "lut_mux_carry_comb_est_pj_per_cycle": 0.0,
+            "ramb36e2_est_pj_per_cycle": 200.07,
+            "ramb36e2_if_ce_gated_est_pj_per_cycle": 12.15,
+            "total_dynamic_est_pj_per_cycle": 241.656,
+            "total_dynamic_est_mw_at_250mhz": 60.414,
+            "total_dynamic_if_bram_ce_gated_est_mw_at_250mhz": 13.434
+          },
+          "est_sensitivity_range": {
+            "low": {
+              "clock_leaf_est_pj_per_cycle": 41.586,
+              "fdre_seq_est_pj_per_cycle": 0.0,
+              "lut_mux_carry_comb_est_pj_per_cycle": 0.0,
+              "ramb36e2_est_pj_per_cycle": 147.42,
+              "ramb36e2_if_ce_gated_est_pj_per_cycle": 12.15,
+              "total_dynamic_est_pj_per_cycle": 189.006,
+              "total_dynamic_est_mw_at_250mhz": 47.252,
+              "total_dynamic_if_bram_ce_gated_est_mw_at_250mhz": 13.434
+            },
+            "high": {
+              "clock_leaf_est_pj_per_cycle": 41.586,
+              "fdre_seq_est_pj_per_cycle": 0.0,
+              "lut_mux_carry_comb_est_pj_per_cycle": 0.0,
+              "ramb36e2_est_pj_per_cycle": 263.25,
+              "ramb36e2_if_ce_gated_est_pj_per_cycle": 12.15,
+              "total_dynamic_est_pj_per_cycle": 304.836,
+              "total_dynamic_est_mw_at_250mhz": 76.209,
+              "total_dynamic_if_bram_ce_gated_est_mw_at_250mhz": 13.434
+            }
+          }
+        },
+        "steady_lut6_eval_2048_cycles": {
+          "cycles": 2048,
+          "raw_seq_transitions_per_cycle": 90.967,
+          "raw_comb_transitions_per_cycle": 5010.17,
+          "raw_bram_data_transitions_per_cycle": 95.244,
+          "alpha_seq_transitions_per_bit_cycle": 0.004387,
+          "alpha_comb_transitions_per_bit_cycle": 0.078035,
+          "bram_valid_read_duty": 1.0,
+          "bram_write_duty": 0.0,
+          "est_nominal": {
+            "clock_leaf_est_pj_per_cycle": 41.586,
+            "fdre_seq_est_pj_per_cycle": 0.498,
+            "lut_mux_carry_comb_est_pj_per_cycle": 11.797,
+            "ramb36e2_est_pj_per_cycle": 307.8,
+            "ramb36e2_if_ce_gated_est_pj_per_cycle": 307.8,
+            "total_dynamic_est_pj_per_cycle": 361.681,
+            "total_dynamic_est_mw_at_250mhz": 90.42,
+            "total_dynamic_if_bram_ce_gated_est_mw_at_250mhz": 90.42
+          },
+          "est_sensitivity_range": {
+            "low": {
+              "clock_leaf_est_pj_per_cycle": 41.586,
+              "fdre_seq_est_pj_per_cycle": 0.352,
+              "lut_mux_carry_comb_est_pj_per_cycle": 8.429,
+              "ramb36e2_est_pj_per_cycle": 226.8,
+              "ramb36e2_if_ce_gated_est_pj_per_cycle": 226.8,
+              "total_dynamic_est_pj_per_cycle": 277.168,
+              "total_dynamic_est_mw_at_250mhz": 69.292,
+              "total_dynamic_if_bram_ce_gated_est_mw_at_250mhz": 69.292
+            },
+            "high": {
+              "clock_leaf_est_pj_per_cycle": 41.586,
+              "fdre_seq_est_pj_per_cycle": 0.705,
+              "lut_mux_carry_comb_est_pj_per_cycle": 16.848,
+              "ramb36e2_est_pj_per_cycle": 405.0,
+              "ramb36e2_if_ce_gated_est_pj_per_cycle": 405.0,
+              "total_dynamic_est_pj_per_cycle": 464.139,
+              "total_dynamic_est_mw_at_250mhz": 116.035,
+              "total_dynamic_if_bram_ce_gated_est_mw_at_250mhz": 116.035
+            }
+          }
+        },
+        "single_cycle_page_switch_512_burst": {
+          "cycles": 512,
+          "raw_seq_transitions_per_cycle": 269.463,
+          "raw_comb_transitions_per_cycle": 12406.828,
+          "raw_bram_data_transitions_per_cycle": 582.879,
+          "alpha_seq_transitions_per_bit_cycle": 0.012996,
+          "alpha_comb_transitions_per_bit_cycle": 0.193241,
+          "bram_valid_read_duty": 1.0,
+          "bram_write_duty": 0.0,
+          "est_nominal": {
+            "clock_leaf_est_pj_per_cycle": 41.586,
+            "fdre_seq_est_pj_per_cycle": 1.474,
+            "lut_mux_carry_comb_est_pj_per_cycle": 29.212,
+            "ramb36e2_est_pj_per_cycle": 307.8,
+            "ramb36e2_if_ce_gated_est_pj_per_cycle": 307.8,
+            "total_dynamic_est_pj_per_cycle": 380.073,
+            "total_dynamic_est_mw_at_250mhz": 95.018,
+            "total_dynamic_if_bram_ce_gated_est_mw_at_250mhz": 95.018
+          },
+          "est_sensitivity_range": {
+            "low": {
+              "clock_leaf_est_pj_per_cycle": 41.586,
+              "fdre_seq_est_pj_per_cycle": 1.044,
+              "lut_mux_carry_comb_est_pj_per_cycle": 20.873,
+              "ramb36e2_est_pj_per_cycle": 226.8,
+              "ramb36e2_if_ce_gated_est_pj_per_cycle": 226.8,
+              "total_dynamic_est_pj_per_cycle": 290.303,
+              "total_dynamic_est_mw_at_250mhz": 72.576,
+              "total_dynamic_if_bram_ce_gated_est_mw_at_250mhz": 72.576
+            },
+            "high": {
+              "clock_leaf_est_pj_per_cycle": 41.586,
+              "fdre_seq_est_pj_per_cycle": 2.088,
+              "lut_mux_carry_comb_est_pj_per_cycle": 41.721,
+              "ramb36e2_est_pj_per_cycle": 405.0,
+              "ramb36e2_if_ce_gated_est_pj_per_cycle": 405.0,
+              "total_dynamic_est_pj_per_cycle": 490.396,
+              "total_dynamic_est_mw_at_250mhz": 122.599,
+              "total_dynamic_if_bram_ce_gated_est_mw_at_250mhz": 122.599
+            }
+          }
+        },
+        "shadow_page_stream_write": {
+          "cycles": 512,
+          "raw_seq_transitions_per_cycle": 35.979,
+          "raw_comb_transitions_per_cycle": 1987.328,
+          "raw_bram_data_transitions_per_cycle": 0.059,
+          "alpha_seq_transitions_per_bit_cycle": 0.001735,
+          "alpha_comb_transitions_per_bit_cycle": 0.030953,
+          "bram_valid_read_duty": 1.0,
+          "bram_write_duty": 1.0,
+          "est_nominal": {
+            "clock_leaf_est_pj_per_cycle": 41.586,
+            "fdre_seq_est_pj_per_cycle": 0.197,
+            "lut_mux_carry_comb_est_pj_per_cycle": 4.679,
+            "ramb36e2_est_pj_per_cycle": 312.4,
+            "ramb36e2_if_ce_gated_est_pj_per_cycle": 312.4,
+            "total_dynamic_est_pj_per_cycle": 358.862,
+            "total_dynamic_est_mw_at_250mhz": 89.716,
+            "total_dynamic_if_bram_ce_gated_est_mw_at_250mhz": 89.716
+          },
+          "est_sensitivity_range": {
+            "low": {
+              "clock_leaf_est_pj_per_cycle": 41.586,
+              "fdre_seq_est_pj_per_cycle": 0.139,
+              "lut_mux_carry_comb_est_pj_per_cycle": 3.343,
+              "ramb36e2_est_pj_per_cycle": 230.2,
+              "ramb36e2_if_ce_gated_est_pj_per_cycle": 230.2,
+              "total_dynamic_est_pj_per_cycle": 275.269,
+              "total_dynamic_est_mw_at_250mhz": 68.817,
+              "total_dynamic_if_bram_ce_gated_est_mw_at_250mhz": 68.817
+            },
+            "high": {
+              "clock_leaf_est_pj_per_cycle": 41.586,
+              "fdre_seq_est_pj_per_cycle": 0.279,
+              "lut_mux_carry_comb_est_pj_per_cycle": 6.683,
+              "ramb36e2_est_pj_per_cycle": 411.0,
+              "ramb36e2_if_ce_gated_est_pj_per_cycle": 411.0,
+              "total_dynamic_est_pj_per_cycle": 459.548,
+              "total_dynamic_est_mw_at_250mhz": 114.887,
+              "total_dynamic_if_bram_ce_gated_est_mw_at_250mhz": 114.887
+            }
+          }
+        }
+      },
+      "analytical_ds925_2lv_timing_budget": {
+        "basis": "analytical_ds925_2lv_logic_stage_model_not_vivado_post_par",
+        "combinational_levels_ltp": 81,
+        "unpipelined_est_path_delay_nominal_ns": 18.758,
+        "unpipelined_est_path_delay_wide_bus_ns": 24.833,
+        "unpipelined_est_fmax_mhz_range": [
+          40.3,
+          53.3
+        ],
+        "unpipelined_est_slack_vs_4ns_nominal_ns": -14.758,
+        "pipelined_4stage_levels_per_stage": 21,
+        "pipelined_4stage_with_bram_doreg_est_delay_ns": 4.001,
+        "pipelined_4stage_meets_250mhz_4ns_budget_est": false
+      }
+    },
+    "clai_kv260_axi_top": {
+      "yosys_xcup_primitives": {
+        "top_module": "clai_kv260_axi_top",
+        "synth_wall_s": 135.707,
+        "clb_luts_total": 66881,
+        "clb_lut_pct_xck26": 57.1,
+        "lut_primitives": {
+          "LUT1": 3,
+          "LUT2": 770,
+          "LUT3": 7763,
+          "LUT4": 7075,
+          "LUT5": 25880,
+          "LUT6": 25390
+        },
+        "muxf7": 18,
+        "muxf8": 3,
+        "carry4_yosys_cells": 569,
+        "carry8_ultrascale_equiv": 285,
+        "clb_registers_total": 16619,
+        "clb_register_pct_xck26": 7.09,
+        "fdre": 12905,
+        "fdse": 3714,
+        "ramb36e2": 4,
+        "ramb36e2_pct_xck26": 2.78,
+        "ramb18e2": 0,
+        "dsp48e2": 0,
+        "inferred_ibuf_obuf": [
+          83,
+          43
+        ],
+        "longest_combinational_topological_levels": 162
+      },
+      "vcd_trace_coverage": {
+        "unique_vcd_net_codes_in_dut": 3825,
+        "traced_bits_by_category": {
+          "clock": 1,
+          "seq": 19762,
+          "comb": 108595,
+          "bram_data": 128
+        }
+      },
+      "phases": {
+        "idle_quiescent": {
+          "cycles": 256,
+          "raw_seq_transitions_per_cycle": 0.0,
+          "raw_comb_transitions_per_cycle": 0.0,
+          "raw_bram_data_transitions_per_cycle": 0.0,
+          "alpha_seq_transitions_per_bit_cycle": 0.0,
+          "alpha_comb_transitions_per_bit_cycle": 0.0,
+          "bram_valid_read_duty": 0.0,
+          "bram_write_duty": 0.0,
+          "est_nominal": {
+            "clock_leaf_est_pj_per_cycle": 18.954,
+            "fdre_seq_est_pj_per_cycle": 0.0,
+            "lut_mux_carry_comb_est_pj_per_cycle": 0.0,
+            "ramb36e2_est_pj_per_cycle": 0.6,
+            "ramb36e2_if_ce_gated_est_pj_per_cycle": 0.6,
+            "total_dynamic_est_pj_per_cycle": 19.554,
+            "total_dynamic_est_mw_at_250mhz": 4.888,
+            "total_dynamic_if_bram_ce_gated_est_mw_at_250mhz": 4.888
+          },
+          "est_sensitivity_range": {
+            "low": {
+              "clock_leaf_est_pj_per_cycle": 18.954,
+              "fdre_seq_est_pj_per_cycle": 0.0,
+              "lut_mux_carry_comb_est_pj_per_cycle": 0.0,
+              "ramb36e2_est_pj_per_cycle": 0.6,
+              "ramb36e2_if_ce_gated_est_pj_per_cycle": 0.6,
+              "total_dynamic_est_pj_per_cycle": 19.554,
+              "total_dynamic_est_mw_at_250mhz": 4.888,
+              "total_dynamic_if_bram_ce_gated_est_mw_at_250mhz": 4.888
+            },
+            "high": {
+              "clock_leaf_est_pj_per_cycle": 18.954,
+              "fdre_seq_est_pj_per_cycle": 0.0,
+              "lut_mux_carry_comb_est_pj_per_cycle": 0.0,
+              "ramb36e2_est_pj_per_cycle": 0.6,
+              "ramb36e2_if_ce_gated_est_pj_per_cycle": 0.6,
+              "total_dynamic_est_pj_per_cycle": 19.554,
+              "total_dynamic_est_mw_at_250mhz": 4.888,
+              "total_dynamic_if_bram_ce_gated_est_mw_at_250mhz": 4.888
+            }
+          }
+        },
+        "steady_lut6_eval_2048_cycles": {
+          "cycles": 2048,
+          "raw_seq_transitions_per_cycle": 44.62,
+          "raw_comb_transitions_per_cycle": 120.31,
+          "raw_bram_data_transitions_per_cycle": 0.365,
+          "alpha_seq_transitions_per_bit_cycle": 0.002258,
+          "alpha_comb_transitions_per_bit_cycle": 0.001108,
+          "bram_valid_read_duty": 0.0312,
+          "bram_write_duty": 0.0,
+          "est_nominal": {
+            "clock_leaf_est_pj_per_cycle": 18.954,
+            "fdre_seq_est_pj_per_cycle": 0.117,
+            "lut_mux_carry_comb_est_pj_per_cycle": 0.27,
+            "ramb36e2_est_pj_per_cycle": 1.056,
+            "ramb36e2_if_ce_gated_est_pj_per_cycle": 1.056,
+            "total_dynamic_est_pj_per_cycle": 20.396,
+            "total_dynamic_est_mw_at_250mhz": 5.099,
+            "total_dynamic_if_bram_ce_gated_est_mw_at_250mhz": 5.099
+          },
+          "est_sensitivity_range": {
+            "low": {
+              "clock_leaf_est_pj_per_cycle": 18.954,
+              "fdre_seq_est_pj_per_cycle": 0.083,
+              "lut_mux_carry_comb_est_pj_per_cycle": 0.193,
+              "ramb36e2_est_pj_per_cycle": 0.931,
+              "ramb36e2_if_ce_gated_est_pj_per_cycle": 0.931,
+              "total_dynamic_est_pj_per_cycle": 20.16,
+              "total_dynamic_est_mw_at_250mhz": 5.04,
+              "total_dynamic_if_bram_ce_gated_est_mw_at_250mhz": 5.04
+            },
+            "high": {
+              "clock_leaf_est_pj_per_cycle": 18.954,
+              "fdre_seq_est_pj_per_cycle": 0.165,
+              "lut_mux_carry_comb_est_pj_per_cycle": 0.385,
+              "ramb36e2_est_pj_per_cycle": 1.206,
+              "ramb36e2_if_ce_gated_est_pj_per_cycle": 1.206,
+              "total_dynamic_est_pj_per_cycle": 20.71,
+              "total_dynamic_est_mw_at_250mhz": 5.178,
+              "total_dynamic_if_bram_ce_gated_est_mw_at_250mhz": 5.178
+            }
+          }
+        },
+        "single_cycle_page_switch_512_burst": {
+          "cycles": 512,
+          "raw_seq_transitions_per_cycle": 60.658,
+          "raw_comb_transitions_per_cycle": 325.211,
+          "raw_bram_data_transitions_per_cycle": 1.123,
+          "alpha_seq_transitions_per_bit_cycle": 0.003069,
+          "alpha_comb_transitions_per_bit_cycle": 0.002995,
+          "bram_valid_read_duty": 0.1113,
+          "bram_write_duty": 0.0,
+          "est_nominal": {
+            "clock_leaf_est_pj_per_cycle": 18.954,
+            "fdre_seq_est_pj_per_cycle": 0.159,
+            "lut_mux_carry_comb_est_pj_per_cycle": 0.729,
+            "ramb36e2_est_pj_per_cycle": 2.225,
+            "ramb36e2_if_ce_gated_est_pj_per_cycle": 2.225,
+            "total_dynamic_est_pj_per_cycle": 22.066,
+            "total_dynamic_est_mw_at_250mhz": 5.517,
+            "total_dynamic_if_bram_ce_gated_est_mw_at_250mhz": 5.517
+          },
+          "est_sensitivity_range": {
+            "low": {
+              "clock_leaf_est_pj_per_cycle": 18.954,
+              "fdre_seq_est_pj_per_cycle": 0.112,
+              "lut_mux_carry_comb_est_pj_per_cycle": 0.521,
+              "ramb36e2_est_pj_per_cycle": 1.78,
+              "ramb36e2_if_ce_gated_est_pj_per_cycle": 1.78,
+              "total_dynamic_est_pj_per_cycle": 21.367,
+              "total_dynamic_est_mw_at_250mhz": 5.342,
+              "total_dynamic_if_bram_ce_gated_est_mw_at_250mhz": 5.342
+            },
+            "high": {
+              "clock_leaf_est_pj_per_cycle": 18.954,
+              "fdre_seq_est_pj_per_cycle": 0.225,
+              "lut_mux_carry_comb_est_pj_per_cycle": 1.04,
+              "ramb36e2_est_pj_per_cycle": 2.76,
+              "ramb36e2_if_ce_gated_est_pj_per_cycle": 2.76,
+              "total_dynamic_est_pj_per_cycle": 22.978,
+              "total_dynamic_est_mw_at_250mhz": 5.745,
+              "total_dynamic_if_bram_ce_gated_est_mw_at_250mhz": 5.745
+            }
+          }
+        },
+        "shadow_page_stream_write": {
+          "cycles": 512,
+          "raw_seq_transitions_per_cycle": 71.918,
+          "raw_comb_transitions_per_cycle": 198.844,
+          "raw_bram_data_transitions_per_cycle": 0.574,
+          "alpha_seq_transitions_per_bit_cycle": 0.003639,
+          "alpha_comb_transitions_per_bit_cycle": 0.001831,
+          "bram_valid_read_duty": 0.0586,
+          "bram_write_duty": 0.082,
+          "est_nominal": {
+            "clock_leaf_est_pj_per_cycle": 18.954,
+            "fdre_seq_est_pj_per_cycle": 0.188,
+            "lut_mux_carry_comb_est_pj_per_cycle": 0.446,
+            "ramb36e2_est_pj_per_cycle": 2.21,
+            "ramb36e2_if_ce_gated_est_pj_per_cycle": 2.21,
+            "total_dynamic_est_pj_per_cycle": 21.797,
+            "total_dynamic_est_mw_at_250mhz": 5.449,
+            "total_dynamic_if_bram_ce_gated_est_mw_at_250mhz": 5.449
+          },
+          "est_sensitivity_range": {
+            "low": {
+              "clock_leaf_est_pj_per_cycle": 18.954,
+              "fdre_seq_est_pj_per_cycle": 0.133,
+              "lut_mux_carry_comb_est_pj_per_cycle": 0.319,
+              "ramb36e2_est_pj_per_cycle": 1.779,
+              "ramb36e2_if_ce_gated_est_pj_per_cycle": 1.779,
+              "total_dynamic_est_pj_per_cycle": 21.184,
+              "total_dynamic_est_mw_at_250mhz": 5.296,
+              "total_dynamic_if_bram_ce_gated_est_mw_at_250mhz": 5.296
+            },
+            "high": {
+              "clock_leaf_est_pj_per_cycle": 18.954,
+              "fdre_seq_est_pj_per_cycle": 0.266,
+              "lut_mux_carry_comb_est_pj_per_cycle": 0.636,
+              "ramb36e2_est_pj_per_cycle": 2.721,
+              "ramb36e2_if_ce_gated_est_pj_per_cycle": 2.721,
+              "total_dynamic_est_pj_per_cycle": 22.577,
+              "total_dynamic_est_mw_at_250mhz": 5.644,
+              "total_dynamic_if_bram_ce_gated_est_mw_at_250mhz": 5.644
+            }
+          }
+        }
+      },
+      "analytical_ds925_2lv_timing_budget": {
+        "basis": "analytical_ds925_2lv_logic_stage_model_not_vivado_post_par",
+        "combinational_levels_ltp": 162,
+        "unpipelined_est_path_delay_nominal_ns": 34.769,
+        "unpipelined_est_path_delay_wide_bus_ns": 46.919,
+        "unpipelined_est_fmax_mhz_range": [
+          21.3,
+          28.8
+        ],
+        "unpipelined_est_slack_vs_4ns_nominal_ns": -30.769,
+        "pipelined_4stage_levels_per_stage": 41,
+        "pipelined_4stage_with_bram_doreg_est_delay_ns": 7.561,
+        "pipelined_4stage_meets_250mhz_4ns_budget_est": false
+      }
+    }
+  },
+  "falsifiers_check": {
+    "F1_functional_cosim_error_triggered": false,
+    "F2_quiescent_data_toggle_leak_triggered": false,
+    "F3_provenance_conflation_triggered": false
+  }
+}

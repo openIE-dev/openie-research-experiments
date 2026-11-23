@@ -1,0 +1,16 @@
+module ge_h9.t22_horror_lantern_sanity_ward
+intent "lantern oil burn vs darkness composure recovery"
+    example CorridorStep(lit: 1, oil_pickup: 0) -> oil == 47 and composure == 100
+state LanternState
+    oil: i64 = 50
+    composure: i64 = 100
+    steps: i64 = 0
+event CorridorStep(lit: i64, oil_pickup: i64)
+step LanternState on CorridorStep(lit: lt, oil_pickup: op)
+    steps += 1
+    oil = if oil + op > 100 then 100 else oil + op
+    if lt == 1 and oil >= 3
+        oil -= 3
+        composure = if composure + 2 > 100 then 100 else composure + 2
+    else
+        composure = if composure >= 6 then composure - 6 else 0

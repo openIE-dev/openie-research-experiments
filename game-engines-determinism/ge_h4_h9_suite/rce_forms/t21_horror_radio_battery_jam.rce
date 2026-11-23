@@ -1,0 +1,24 @@
+module ge_h9.t21_horror_radio_battery_jam
+intent "radio dial frequency triangulation, battery drain, and jamming retune"
+    example TuneDial(freq: 42, target: 44, jam: 0) -> pins == 1 and battery == 98
+state RadioDesk
+    battery: i64 = 100
+    pins: i64 = 0
+    signals_solved: i64 = 0
+    corruption: i64 = 0
+event TuneDial(freq: i64, target: i64, jam: i64)
+step RadioDesk on TuneDial(freq: f, target: tg, jam: jm) if battery > 0
+    battery = if battery >= 2 then battery - 2 else 0
+    let diff = if f > tg then f - tg else tg - f
+    if jm == 1
+        if diff > 15
+            corruption = if corruption >= 2 then corruption - 2 else 0
+        else
+            corruption += 5
+            battery = if battery >= 4 then battery - 4 else 0
+    elif diff <= 3
+        pins += 1
+        if pins >= 3
+            pins = 0
+            signals_solved += 1
+            battery = if battery + 15 > 100 then 100 else battery + 15

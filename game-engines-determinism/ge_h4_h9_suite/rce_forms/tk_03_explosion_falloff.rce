@@ -1,0 +1,18 @@
+module tanks.explosion_falloff
+
+intent "quadratic integer radial damage and impulse falloff within radius 10"
+    example RadialPulse(dx: 0, dy: 0, peak: 80) -> last_dmg == 80 and last_push == 40
+    example RadialPulse(dx: 10, dy: 0, peak: 80) -> last_dmg == 0 and last_push == 0
+
+state ExplosionFalloff
+    last_dmg: i64 = 0
+    last_push: i64 = 0
+    total_dmg: i64 = 0
+
+event RadialPulse(dx: i64, dy: i64, peak: i64)
+
+step ExplosionFalloff on RadialPulse(dx: dx, dy: dy, peak: pk)
+    let rem = 100 - (dx * dx + dy * dy)
+    last_dmg = if rem > 0 then (pk * rem) / 100 else 0
+    last_push = if rem > 0 then ((pk / 2) * rem) / 100 else 0
+    total_dmg += last_dmg

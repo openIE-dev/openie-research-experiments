@@ -1,0 +1,88 @@
+{
+  "os": "linux",
+  "arch": "x86_64",
+  "sessions": [
+    {
+      "session_id": 0,
+      "name": "HauntedJaunt_1h",
+      "ticks": 216000,
+      "checkpoints": 2160,
+      "log_D_bytes": 432024,
+      "log_D_sha256": "5e1e5219840e9b04db956bbe4d07b497eb9cd6bfd8e50c43d5409dc683b695d9",
+      "state_bytes": 169,
+      "wall_ms": 21.654,
+      "ckpt_tick_100_sha256": "1c8a732087b42f68c36882a99783de2db1029375d105283f1cf0beece2f15743",
+      "ckpt_tick_108000_sha256": "8db087e8be54e448db98910c5164be3b796bd45911ae49be9d4a3f8b45618c25",
+      "ckpt_tick_216000_sha256": "b4120d81a8fb5b6916ef443b2e3ebc59905b8ba201dd3b50c123edbf32f5f06c",
+      "final_sha256": "b4120d81a8fb5b6916ef443b2e3ebc59905b8ba201dd3b50c123edbf32f5f06c",
+      "all_2160_checkpoints_chain_sha256": "fef21e981c597a9050258707773add47e23bb452e9690b41419a05d776c50044",
+      "log_D_gzip_bytes": 44603,
+      "snap_stream_raw_bytes": 36504000,
+      "snap_stream_gzip_bytes": 5186323,
+      "raw_compression_ratio_snap_over_D": 84.5,
+      "gzip_compression_ratio_snap_over_D": 116.28
+    },
+    {
+      "session_id": 1,
+      "name": "SurvivalShooter_1h",
+      "ticks": 216000,
+      "checkpoints": 2160,
+      "log_D_bytes": 432024,
+      "log_D_sha256": "373b2888a8d3a680cd63d2c894e4482f593e8e770abb76f188235b3d160aca0d",
+      "state_bytes": 365,
+      "wall_ms": 32.42,
+      "ckpt_tick_100_sha256": "2ef997e540b19b67224599cf5aa4b3090eee45c9a40bf173d8920f79ef815946",
+      "ckpt_tick_108000_sha256": "9c541f29f89b88b42e34bef99e074db234b5dab40623b04a2ee04583064d34b3",
+      "ckpt_tick_216000_sha256": "6cce1282304dfdc5b623ad5be42357dec970ee4a8125f583557cd88b20edff73",
+      "final_sha256": "6cce1282304dfdc5b623ad5be42357dec970ee4a8125f583557cd88b20edff73",
+      "all_2160_checkpoints_chain_sha256": "00e401351614ad0b3345a2fefdcafa3f26175ded850f633085b1dda1c6fcde0b",
+      "log_D_gzip_bytes": 44596,
+      "snap_stream_raw_bytes": 78840000,
+      "snap_stream_gzip_bytes": 7000277,
+      "raw_compression_ratio_snap_over_D": 182.49,
+      "gzip_compression_ratio_snap_over_D": 156.97
+    },
+    {
+      "session_id": 2,
+      "name": "TanksQ32_1h",
+      "ticks": 216000,
+      "checkpoints": 2160,
+      "log_D_bytes": 432024,
+      "log_D_sha256": "c04014be9e21e8b3ead3d67e59157cb00a44780b6d96e0b56460bc74e3ec2f23",
+      "state_bytes": 222,
+      "wall_ms": 16.342,
+      "ckpt_tick_100_sha256": "31e213639f0bb7481a9ce8fde747b393663331295ca051a42309c1737650f99c",
+      "ckpt_tick_108000_sha256": "ae50efccd8caf78e14460fc5f9e4f9d624830fe4187c0ae19d74d8a11237c65c",
+      "ckpt_tick_216000_sha256": "ca627edaf8cb56532a33ee83997a8487aed9e1f4066f5d3c832fd04e38fe58ea",
+      "final_sha256": "ca627edaf8cb56532a33ee83997a8487aed9e1f4066f5d3c832fd04e38fe58ea",
+      "all_2160_checkpoints_chain_sha256": "bf233e2e2f3254d28338a2a20a7c3fb3f63a5f54ef0fa7057a2842646fb4e30a",
+      "log_D_gzip_bytes": 44583,
+      "snap_stream_raw_bytes": 47952000,
+      "snap_stream_gzip_bytes": 13030308,
+      "raw_compression_ratio_snap_over_D": 110.99,
+      "gzip_compression_ratio_snap_over_D": 292.27
+    }
+  ],
+  "ambient_leak_controls": [
+    {
+      "leak_id": "L1_wall_clock_ns",
+      "t_div_vs_pure": 1,
+      "leaked_final_sha256": "c03b379e305b1e12bdb0d481a39f611b7203aa42c16a08a2ccc02cd5bcfbcb90"
+    },
+    {
+      "leak_id": "L2_stack_addr_rng",
+      "t_div_vs_pure": 1,
+      "leaked_final_sha256": "a90e2663c8da5523f7e10661bf793cee0480a07462ea445fb6f83619ade62d98"
+    },
+    {
+      "leak_id": "L3_hash_seed_order",
+      "t_div_vs_pure": 1,
+      "leaked_final_sha256": "180e6ee851ec2d4d191e559aa26ae86947beeeb9811cc8a1dd68fd1b568a8d7c"
+    },
+    {
+      "leak_id": "L4_host_libm_sin_f64",
+      "t_div_vs_pure": 1,
+      "leaked_final_sha256": "50f9ff25b882515fde8a67443948e07d620259f4c7c819ad61cba90a425e29cc"
+    }
+  ]
+}

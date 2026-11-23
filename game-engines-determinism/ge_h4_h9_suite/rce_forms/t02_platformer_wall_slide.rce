@@ -1,0 +1,22 @@
+module ge_h9.t02_platformer_wall_slide
+intent "wall-cling friction clamp and opposite wall kick"
+    example WallStep(on_wall: 1, kick: 1) -> vx == -12 and vy == 15 and kicks == 1
+state WallClimber
+    vx: i64 = 6
+    vy: i64 = -10
+    stamina: i64 = 50
+    kicks: i64 = 0
+event WallStep(on_wall: i64, kick: i64)
+step WallClimber on WallStep(on_wall: ow, kick: kk)
+    if ow == 1 and stamina > 0
+        if kk == 1
+            vx = if vx >= 0 then -12 else 12
+            vy = 15
+            stamina = if stamina >= 8 then stamina - 8 else 0
+            kicks += 1
+        else
+            vy = if vy < -4 then -4 else vy - 1
+            stamina -= 1
+    else
+        vy = if vy - 3 < -20 then -20 else vy - 3
+        stamina = if stamina + 2 > 50 then 50 else stamina + 2

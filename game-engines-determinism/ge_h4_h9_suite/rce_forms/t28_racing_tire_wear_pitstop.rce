@@ -1,0 +1,17 @@
+module ge_h9.t28_racing_tire_wear_pitstop
+intent "tire grip degradation vs pit-lane fresh compound swap"
+    example SectorStep(push_hard: 1) -> tire_grip == 92 and progress == 26
+state PitStrategy
+    tire_grip: i64 = 100
+    progress: i64 = 0
+    pits: i64 = 0
+event SectorStep(push_hard: i64)
+event EnterPit
+step PitStrategy on SectorStep(push_hard: ph)
+    let wear = if ph == 1 then 8 else 3
+    tire_grip = if tire_grip > wear + 10 then tire_grip - wear else 10
+    let pace = (tire_grip / 5) + (if ph == 1 then 8 else 2)
+    progress += pace
+step PitStrategy on EnterPit
+    tire_grip = 100
+    pits += 1

@@ -1,0 +1,21 @@
+module ge_h9.t15_shooter_twin_stick_heat
+intent "blaster heat buildup, overheat lockout, and vent cooling"
+    example BlasterTick(trig: 1) -> heat == 18 and shots == 1
+state BlasterHeat
+    heat: i64 = 0
+    overheated: i64 = 0
+    shots: i64 = 0
+event BlasterTick(trig: i64)
+step BlasterHeat on BlasterTick(trig: tr)
+    if overheated == 1
+        heat = if heat >= 10 then heat - 10 else 0
+        if heat == 0
+            overheated = 0
+    elif tr == 1
+        shots += 1
+        heat += 18
+        if heat >= 100
+            heat = 100
+            overheated = 1
+    else
+        heat = if heat >= 6 then heat - 6 else 0

@@ -1,0 +1,28 @@
+module tanks.tank_health_shield
+
+intent "reactive overshield absorption, recharge delay, and hull knockout"
+    example Impact(dmg: 25), RegenStep -> shield == 15 and hull == 100 and regen_delay == 2
+    example Impact(dmg: 60) -> shield == 0 and hull == 80 and regen_delay == 3
+
+state TankHealthShield
+    hull: i64 = 100
+    shield: i64 = 40
+    regen_delay: i64 = 0
+    knocked_out: i64 = 0
+
+event Impact(dmg: i64)
+event RegenStep
+
+step TankHealthShield on Impact(dmg: d) if knocked_out == 0
+    regen_delay = 3
+    let rem = if d > shield then d - shield else 0
+    shield = if shield >= d then shield - d else 0
+    hull = if hull > rem then hull - rem else 0
+    if hull == 0
+        knocked_out = 1
+
+step TankHealthShield on RegenStep if knocked_out == 0
+    if regen_delay > 0
+        regen_delay -= 1
+    elif shield < 40
+        shield = if shield + 5 > 40 then 40 else shield + 5

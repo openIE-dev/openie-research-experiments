@@ -1,0 +1,18 @@
+module ge_h9.t01_platformer_coyote_jump
+intent "coyote-time ledge grace window and jump impulse"
+    example StepPlat(grounded: 1, jump_btn: 0), StepPlat(grounded: 0, jump_btn: 1) -> vy == 18 and coyote == 0
+state Plat
+    y: i64 = 0
+    vy: i64 = 0
+    coyote: i64 = 0
+    jumps: i64 = 0
+event StepPlat(grounded: i64, jump_btn: i64)
+step Plat on StepPlat(grounded: g, jump_btn: jb)
+    coyote = if g == 1 then 4 else (if coyote > 0 then coyote - 1 else 0)
+    if jb == 1 and coyote > 0
+        vy = 18
+        coyote = 0
+        jumps += 1
+    else
+        vy = if g == 1 then 0 else (if vy - 3 < -24 then -24 else vy - 3)
+    y = if g == 1 and vy <= 0 then 0 else y + vy

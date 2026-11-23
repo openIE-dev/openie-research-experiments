@@ -1,0 +1,80 @@
+{
+  "id": "communication-avalanche-cta-orchestration-2026-11-23",
+  "study_number": 21,
+  "study_slug": "communication-avalanche",
+  "title": "The Communication Tool Avalanche: Thresholded Signal Externalization, Event-Driven Orchestration, and Coherence per Joule",
+  "registered": "2026-11-23, locked with SHA-256 sidecar strictly prior to executing CTA-E1, CTA-E2, and CTA-E3 hardware runs",
+  "pinned_artifacts": {
+    "corpus_60_tasks_sha256": "b4ea0228270b8e6ae06f935fe8b92ed45cf2da4d9aa0d4868d0a42d4e6e9e802",
+    "cta_tasks_60_py_sha256": "cc959f425b64734325710fb64d714b28ce08615c1e1671dd99a6d6453ab83660",
+    "run_cta_orchestration_bench_py_sha256": "44732866ae1b3ee4a0d7e8177cf3c5fdaa195c888bb270a22926bc7e8fbefc04",
+    "cta_attest_rust_src_main_rs_sha256": "6cb27e6d7cf1191a5b749ee61832f66325306c3cc7813b11bffd41da76d17a1c",
+    "cta_attest_rust_linux_x86_64_sha256": "eaaabab489f6cd1be4e3ed493ce89ab6b2384bdc00ec87d2abc750c0d0b3f36a"
+  },
+  "hardware_and_telemetry": {
+    "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900H (20 logical threads, Linux x86_64)",
+    "rustc_version": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+    "python_version": "Python 3.14.4",
+    "rapl_domains": {
+      "pkg_reported_j": "sysfs powercap intel-rapl:0 (package-0 MSR PKG_ENERGY_STATUS, wrap-safe 262.143 J range)",
+      "core_reported_j": "sysfs powercap intel-rapl:0:0 (core MSR PP0_ENERGY_STATUS, wrap-safe 262.143 J range)",
+      "psys_reported_j": "sysfs powercap intel-rapl:1 (psys MSR PLATFORM_ENERGY_COUNTER; OEM EC firmware reports fixed ~0.20 W quiescent stub on this host, logged verbatim alongside dynamic package-0 and core rails)"
+    },
+    "board_metered": false,
+    "measured_j": null,
+    "remote_cloud_server_energy": "not_available (kept strictly separate from local RAPL reported_j; token counts and USD reported explicitly)"
+  },
+  "experiments": {
+    "CTA-E1": {
+      "description": "16-node heterogeneous attested orchestration DAG under bursty arrivals across 1%, 5%, and 20% duty cycles (10.0 s windows x 5 replicates)",
+      "regimes": [
+        "event_threshold (Linux eventfd blocking wakeup strictly when weighted potential V_u >= theta_u)",
+        "poll_10hz (100 ms periodic clock tick across 16 node threads)",
+        "poll_100hz (10 ms periodic clock tick across 16 node threads)",
+        "poll_1000hz (1 ms periodic clock tick across 16 node threads)"
+      ],
+      "metrics": [
+        "pkg_reported_j",
+        "core_reported_j",
+        "psys_reported_j",
+        "node_wakeups",
+        "empty_polling_wakeups",
+        "total_ctxt_switches",
+        "latency_p50_ms",
+        "latency_p99_ms"
+      ]
+    },
+    "CTA-E2": {
+      "description": "60-task multi-category Python code-repair benchmark (20 syntax/import, 20 scope/type/API, 20 algorithmic/state-machine logic; >= 8 held-out test vectors + repeat state-isolation check per task) across 4 arms (240 episodes)",
+      "model_id": "claude-sonnet-5-5",
+      "pricing_per_1m_tokens_usd": {
+        "input": 3.0,
+        "output": 15.0
+      },
+      "arms": {
+        "arm_a_det_only": "5 deterministic kernels (parse, static_type_scope, test_gen, det_patch, diff_verifier) with 0 model calls",
+        "arm_b_monolithic_llm": "Direct single-shot Claude Sonnet 5.5 on all 60 tasks without deterministic pre-filter or verifier commit gate",
+        "arm_c_unattested_4agent": "Unverified 4-agent natural-language chain (Planner -> Coder -> Reviewer -> Summarizer) on all 60 tasks without BLAKE3+Ed25519 channel attestation or verifier commit gate",
+        "arm_d_cta_orchestrator": "SSP min-cost flow + thresholded integrate-and-fire heterogeneous pool + Rust BLAKE3+Ed25519 edge receipts + targeted Claude Sonnet 5.5 escalation (<= 2 bounded turns) + Differential Verifier Commit Gate"
+      },
+      "primary_metric": "Coherence per Joule (CpJ = verified_correct_tasks / pkg_reported_j), reported alongside pass_rate_pct, false_commit_rate_pct, core_reported_j, psys_reported_j, total_tokens, and api_cost_usd"
+    },
+    "CTA-E3": {
+      "description": "200 Byzantine/corrupted channel injections (50 payload bit-flips, 50 spoofed sender IDs, 50 truncated JSON/AST frames, 50 semantic regression patches) + 20 mid-stream node dropouts forcing SSP min-cost flow topology recomputation",
+      "metrics": [
+        "corrupt_commits_downstream (target 0 / 200)",
+        "reject_latency_us (mean, p50, p99)",
+        "unattested_chain_corrupt_cascades",
+        "ssp_reroute_latency_us (mean, p50, p99, max)"
+      ]
+    }
+  },
+  "falsifiers": {
+    "F1_polling_energy_tax": "Event-driven threshold firing fails to lower both OS thread wakeups and package-0 reported_j relative to 100 Hz and 1,000 Hz clocked polling at 1% and 5% duty cycles, or suffers worse p50/p99 latency than 10 Hz and 100 Hz polling.",
+    "F2_attestation_overhead": "Compiled Rust BLAKE3 (256-bit) + Ed25519 (64-byte RFC 8032) channel verification exceeds 100 us or 5 mJ per edge up to 64 KiB payloads.",
+    "F3_oracle_leakage": "Any arm or internal kernel accesses HOLD_OUT_ORACLES or reference solutions prior to final post-commit scoring.",
+    "F4_coherence_per_joule": "CTA-Orchestrator (Arm D) fails to match or exceed Monolithic-LLM (Arm B) and Unattested-4-Agent (Arm C) verified pass rate, or fails to improve Coherence per Joule and false-commit rate.",
+    "F5_byzantine_containment": "Any of the 200 corrupted channel events produces a downstream corrupt commit in CTA-Orchestrator, or SSP topology re-routing across 20 node dropouts exceeds 1,000 us.",
+    "F6_idle_baseline_drift": "Pre- vs. post-experiment 5.0 s quiet idle package-0 power drifts by > 10.0%; if triggered, derived idle-subtracted net joules are flagged and withheld while raw reported_j values are preserved."
+  }
+}

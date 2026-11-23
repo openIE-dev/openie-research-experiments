@@ -1,0 +1,16 @@
+module ge_h9.t08_openworld_beacon_discovery
+intent "bitmask region tower unlock and fast-travel energy"
+    example VisitTower(mask_bit: 4), FastTravel(mask_bit: 4) -> unlocked_mask == 5 and pos_region == 4
+state WorldMap
+    unlocked_mask: i64 = 1
+    pos_region: i64 = 1
+    charges: i64 = 5
+event VisitTower(mask_bit: i64)
+event FastTravel(mask_bit: i64)
+step WorldMap on VisitTower(mask_bit: mb)
+    unlocked_mask = unlocked_mask | mb
+    pos_region = mb
+    charges = if charges + 1 > 10 then 10 else charges + 1
+step WorldMap on FastTravel(mask_bit: mb) if charges > 0 and (unlocked_mask & mb) != 0
+    charges -= 1
+    pos_region = mb

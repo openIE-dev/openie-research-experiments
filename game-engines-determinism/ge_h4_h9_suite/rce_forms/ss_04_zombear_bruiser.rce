@@ -1,0 +1,23 @@
+module survival_shooter.zombear_bruiser
+
+intent "armored bruiser reduction, enrage threshold under 40 hp, and cleave counter"
+    example BruiserHit(raw_dmg: 35) -> hp == 69 and enraged == 0
+    example BruiserHit(raw_dmg: 70), BruiserTick(in_range: 1) -> hp == 34 and enraged == 1 and cleaves == 2
+
+state ZomBearBruiser
+    hp: i64 = 100
+    armor: i64 = 4
+    enraged: i64 = 0
+    cleaves: i64 = 0
+
+event BruiserHit(raw_dmg: i64)
+event BruiserTick(in_range: i64)
+
+step ZomBearBruiser on BruiserHit(raw_dmg: rd) if hp > 0
+    let eff = if rd > armor then rd - armor else 1
+    hp = if hp > eff then hp - eff else 0
+    if hp > 0 and hp < 40
+        enraged = 1
+
+step ZomBearBruiser on BruiserTick(in_range: ir) if hp > 0 and ir == 1
+    cleaves += if enraged == 1 then 2 else 1

@@ -1,0 +1,16 @@
+module ge_h9.t34_sys_inventory_recipe_craft
+intent "herb + vial potion crafting with slot limit"
+    example Gather(herbs_in: 3, vials_in: 2), CraftPotion -> herbs == 1 and vials == 1 and potions == 1
+state AlchemyBag
+    herbs: i64 = 0
+    vials: i64 = 0
+    potions: i64 = 0
+event Gather(herbs_in: i64, vials_in: i64)
+event CraftPotion
+step AlchemyBag on Gather(herbs_in: h, vials_in: v)
+    herbs = if herbs + h > 20 then 20 else herbs + h
+    vials = if vials + v > 20 then 20 else vials + v
+step AlchemyBag on CraftPotion if herbs >= 2 and vials >= 1 and potions < 10
+    herbs -= 2
+    vials -= 1
+    potions += 1

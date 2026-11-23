@@ -1,0 +1,16 @@
+{
+  "study_id": "communication-avalanche",
+  "executed_at_utc": "2026-11-23T09:18:54Z",
+  "hostname": "djc-asus-rog",
+  "os_kernel": "Linux 7.0.0-43-generic",
+  "arch": "x86_64",
+  "python_version": "3.14.6",
+  "numpy_version": "2.5.5",
+  "fixed_seed": 20261123,
+  "prereg_sha256": "475a89e3fe6157238560ac5876b52791b22a67a9d3260c68111a1b76b89ac9fa",
+  "script_sha256": "30a15e702c45ba56636aac2cebf98b64cb04146efb4c345eaa8ff963e5e77df3",
+  "results_sha256": "54a7b2c177bc063e2536ae487cdb44b372f0ba6281514d8154c34b115b0b7914",
+  "elapsed_seconds": 11.3308,
+  "all_models_passed": true,
+  "board_metered": false
+}

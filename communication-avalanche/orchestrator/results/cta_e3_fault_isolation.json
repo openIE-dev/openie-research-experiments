@@ -1,0 +1,314 @@
+{
+  "experiment": "CTA-E3",
+  "board_metered": false,
+  "measured_j": null,
+  "total_corrupted_events": 200,
+  "cta_orchestrator_corrupt_commits": 0,
+  "cta_orchestrator_corrupt_rate_pct": 0.0,
+  "unattested_chain_corrupt_cascades": 169,
+  "unattested_chain_corrupt_rate_pct": 84.5,
+  "fault_classes": {
+    "payload_bitflip_50": {
+      "corrupt_commits": 0,
+      "injected": 50,
+      "reject_mean_us": 0.1885,
+      "reject_p50_us": 0.186,
+      "reject_p99_us": 0.23,
+      "rejected": 50,
+      "defense_layer": "BLAKE3 256-bit constant-time digest check",
+      "unattested_cascades": 43
+    },
+    "spoofed_sender_50": {
+      "corrupt_commits": 0,
+      "injected": 50,
+      "reject_mean_us": 27.694580000000002,
+      "reject_p50_us": 27.561,
+      "reject_p99_us": 32.443,
+      "rejected": 50,
+      "defense_layer": "Ed25519 RFC 8032 strict signature verification",
+      "unattested_cascades": 50
+    },
+    "truncated_frame_50": {
+      "corrupt_commits": 0,
+      "injected": 50,
+      "reject_mean_us": 27.628220000000002,
+      "reject_p50_us": 27.551,
+      "reject_p99_us": 30.956,
+      "rejected": 50,
+      "defense_layer": "Typed channel JSON/AST envelope schema guard",
+      "unattested_cascades": 26
+    },
+    "semantic_regression_50": {
+      "injected": 50,
+      "rejected": 50,
+      "corrupt_commits": 0,
+      "reject_mean_us": 375.37,
+      "reject_p50_us": 332.43,
+      "reject_p99_us": 1941.25,
+      "pkg_reported_mj_per_gate": 21.1169,
+      "defense_layer": "Differential Verifier Commit Gate (doctest + repeat + property)",
+      "unattested_cascades": 50
+    }
+  },
+  "control_valid_200": {
+    "accepted": 200,
+    "total": 200,
+    "verify_mean_us": 31.800915,
+    "verify_p50_us": 27.513,
+    "verify_p99_us": 78.087
+  },
+  "ssp_topology_rerouting_20": {
+    "all_demands_satisfied": true,
+    "baseline_cost_uj_scaled": 93000,
+    "baseline_flow": 8,
+    "baseline_solve_us": 7.214,
+    "dropouts_tested": 20,
+    "events": [
+      {
+        "active_edge_count": 9,
+        "demand": 8,
+        "disabled_nodes": [
+          "parse_primary"
+        ],
+        "dropout_idx": 0,
+        "min_cost_uj_scaled": 97800,
+        "reroute_latency_us": 3.583,
+        "satisfied_flow": 8
+      },
+      {
+        "active_edge_count": 9,
+        "demand": 8,
+        "disabled_nodes": [
+          "static_primary"
+        ],
+        "dropout_idx": 1,
+        "min_cost_uj_scaled": 97400,
+        "reroute_latency_us": 2.958,
+        "satisfied_flow": 8
+      },
+      {
+        "active_edge_count": 9,
+        "demand": 8,
+        "disabled_nodes": [
+          "testgen_primary"
+        ],
+        "dropout_idx": 2,
+        "min_cost_uj_scaled": 98500,
+        "reroute_latency_us": 2.579,
+        "satisfied_flow": 8
+      },
+      {
+        "active_edge_count": 9,
+        "demand": 8,
+        "disabled_nodes": [
+          "detpatch_primary"
+        ],
+        "dropout_idx": 3,
+        "min_cost_uj_scaled": 192600,
+        "reroute_latency_us": 2.637,
+        "satisfied_flow": 8
+      },
+      {
+        "active_edge_count": 9,
+        "demand": 8,
+        "disabled_nodes": [
+          "proposer_primary"
+        ],
+        "dropout_idx": 4,
+        "min_cost_uj_scaled": 93000,
+        "reroute_latency_us": 2.622,
+        "satisfied_flow": 8
+      },
+      {
+        "active_edge_count": 9,
+        "demand": 8,
+        "disabled_nodes": [
+          "verifier_primary"
+        ],
+        "dropout_idx": 5,
+        "min_cost_uj_scaled": 189700,
+        "reroute_latency_us": 2.53,
+        "satisfied_flow": 8
+      },
+      {
+        "active_edge_count": 9,
+        "demand": 8,
+        "disabled_nodes": [
+          "parse_primary",
+          "static_primary"
+        ],
+        "dropout_idx": 6,
+        "min_cost_uj_scaled": 101800,
+        "reroute_latency_us": 2.398,
+        "satisfied_flow": 8
+      },
+      {
+        "active_edge_count": 9,
+        "demand": 8,
+        "disabled_nodes": [
+          "static_primary",
+          "testgen_primary"
+        ],
+        "dropout_idx": 7,
+        "min_cost_uj_scaled": 102500,
+        "reroute_latency_us": 2.307,
+        "satisfied_flow": 8
+      },
+      {
+        "active_edge_count": 9,
+        "demand": 8,
+        "disabled_nodes": [
+          "testgen_primary",
+          "detpatch_primary"
+        ],
+        "dropout_idx": 8,
+        "min_cost_uj_scaled": 197800,
+        "reroute_latency_us": 2.123,
+        "satisfied_flow": 8
+      },
+      {
+        "active_edge_count": 9,
+        "demand": 8,
+        "disabled_nodes": [
+          "detpatch_primary",
+          "proposer_primary"
+        ],
+        "dropout_idx": 9,
+        "min_cost_uj_scaled": 205900,
+        "reroute_latency_us": 2.274,
+        "satisfied_flow": 8
+      },
+      {
+        "active_edge_count": 9,
+        "demand": 8,
+        "disabled_nodes": [
+          "proposer_primary",
+          "verifier_primary"
+        ],
+        "dropout_idx": 10,
+        "min_cost_uj_scaled": 203900,
+        "reroute_latency_us": 2.126,
+        "satisfied_flow": 8
+      },
+      {
+        "active_edge_count": 9,
+        "demand": 8,
+        "disabled_nodes": [
+          "parse_primary",
+          "detpatch_primary"
+        ],
+        "dropout_idx": 11,
+        "min_cost_uj_scaled": 197400,
+        "reroute_latency_us": 2.185,
+        "satisfied_flow": 8
+      },
+      {
+        "active_edge_count": 9,
+        "demand": 8,
+        "disabled_nodes": [
+          "static_primary",
+          "verifier_primary"
+        ],
+        "dropout_idx": 12,
+        "min_cost_uj_scaled": 194100,
+        "reroute_latency_us": 2.403,
+        "satisfied_flow": 8
+      },
+      {
+        "active_edge_count": 9,
+        "demand": 8,
+        "disabled_nodes": [
+          "parse_standby",
+          "testgen_primary"
+        ],
+        "dropout_idx": 13,
+        "min_cost_uj_scaled": 98500,
+        "reroute_latency_us": 2.416,
+        "satisfied_flow": 8
+      },
+      {
+        "active_edge_count": 9,
+        "demand": 8,
+        "disabled_nodes": [
+          "static_standby",
+          "detpatch_primary"
+        ],
+        "dropout_idx": 14,
+        "min_cost_uj_scaled": 192600,
+        "reroute_latency_us": 2.582,
+        "satisfied_flow": 8
+      },
+      {
+        "active_edge_count": 9,
+        "demand": 8,
+        "disabled_nodes": [
+          "parse_primary",
+          "static_primary",
+          "testgen_primary"
+        ],
+        "dropout_idx": 15,
+        "min_cost_uj_scaled": 106900,
+        "reroute_latency_us": 2.027,
+        "satisfied_flow": 8
+      },
+      {
+        "active_edge_count": 8,
+        "demand": 8,
+        "disabled_nodes": [
+          "testgen_primary",
+          "detpatch_primary",
+          "verifier_primary"
+        ],
+        "dropout_idx": 16,
+        "min_cost_uj_scaled": 199100,
+        "reroute_latency_us": 2.247,
+        "satisfied_flow": 8
+      },
+      {
+        "active_edge_count": 9,
+        "demand": 8,
+        "disabled_nodes": [
+          "parse_primary",
+          "proposer_primary",
+          "verifier_primary"
+        ],
+        "dropout_idx": 17,
+        "min_cost_uj_scaled": 208700,
+        "reroute_latency_us": 2.336,
+        "satisfied_flow": 8
+      },
+      {
+        "active_edge_count": 9,
+        "demand": 8,
+        "disabled_nodes": [
+          "static_primary",
+          "detpatch_primary",
+          "proposer_primary"
+        ],
+        "dropout_idx": 18,
+        "min_cost_uj_scaled": 210300,
+        "reroute_latency_us": 1.923,
+        "satisfied_flow": 8
+      },
+      {
+        "active_edge_count": 8,
+        "demand": 8,
+        "disabled_nodes": [
+          "parse_primary",
+          "static_primary",
+          "detpatch_primary",
+          "verifier_primary"
+        ],
+        "dropout_idx": 19,
+        "min_cost_uj_scaled": 202700,
+        "reroute_latency_us": 1.917,
+        "satisfied_flow": 8
+      }
+    ],
+    "reroute_max_us": 3.583,
+    "reroute_mean_us": 2.40865,
+    "reroute_p50_us": 2.398,
+    "reroute_p99_us": 3.583
+  },
+  "prereg_sha256": "5739bcdd6c35662833a470bc56bd64f991774c2d920a5a9c059c0acebdf55e7f"
+}

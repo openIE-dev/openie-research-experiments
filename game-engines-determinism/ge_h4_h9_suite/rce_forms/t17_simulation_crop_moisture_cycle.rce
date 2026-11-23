@@ -1,0 +1,16 @@
+module ge_h9.t17_simulation_crop_moisture_cycle
+intent "soil moisture band growth and harvest yield"
+    example FarmDay(rain: 20, sun: 1) -> moisture == 60 and growth == 25 and harvests == 0
+state CropPlot
+    moisture: i64 = 50
+    growth: i64 = 0
+    harvests: i64 = 0
+event FarmDay(rain: i64, sun: i64)
+step CropPlot on FarmDay(rain: rn, sun: sn)
+    let next_m = moisture + rn - (if sn == 1 then 10 else 4)
+    moisture = if next_m < 0 then 0 else (if next_m > 100 then 100 else next_m)
+    if moisture >= 30 and moisture <= 80
+        growth += if sn == 1 then 25 else 12
+    if growth >= 100
+        harvests += 1
+        growth = 0

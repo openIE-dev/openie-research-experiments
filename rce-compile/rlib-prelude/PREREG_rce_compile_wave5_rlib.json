@@ -1,0 +1,45 @@
+{
+  "baseline_wave4": {
+    "monolithic_prelude_tier": "rce check + emit rust -> rustc -O3",
+    "monolithic_prelude_zen5_median_artifact_bytes": 5190208,
+    "monolithic_prelude_zen5_median_compile_core_j": 56.292484,
+    "monolithic_prelude_zen5_median_compile_pkg_j": 896.930429,
+    "monolithic_prelude_zen5_median_compile_wall_s": 7.473833,
+    "monolithic_prelude_zen5_payback_vs_node_js_median_n_star": 31080,
+    "node_js_tier": "rce check + 5-target emit (node js)",
+    "wave4_prereg_sha256": "165a12cda4d9c3043ab8803362fe83aa3e17ad7ea5dea505d3c9dc78105b3c4b"
+  },
+  "corpus": {
+    "batch_seed_count": 2000,
+    "kernels_count": 20,
+    "rce_commit": "1762fb4bb65a58de07ab00f0d1bfdf4969d0358c",
+    "source_parity": "Identical 20 deterministic exact-integer and fixed-point RCE kernels (k01_sha256_block through k20_kalman_q16) as Wave 4 E4-Energy."
+  },
+  "experiment": "E4-Prelude: Pre-Compiled librce_rt.rlib Shared Runtime Crate vs Monolithic Embedded Prelude",
+  "falsifiers": {
+    "F1_checksum_mismatch": "Any of the 20 kernels linked against librce_rt.rlib diverges by >= 1 bit on the 2,000-seed unsigned batch checksum from Wave 4's verified reference checksums.",
+    "F2_no_compile_energy_reduction": "Per-kernel compile_core_reported_j of rce check + emit rust -> rustc -O3 (shared librce_rt.rlib) fails to improve by at least 10x over the monolithic prelude build on the same CPU core.",
+    "F6_idle_drift": "Pre- vs post-run idle power drift > 10% invalidates derived marginal package energy (gross core and package reported_j are always reported alongside the Falsifier 6 flag)."
+  },
+  "id": "rce-compile-wave5-e4-prelude-rlib-2026-11-23",
+  "method": {
+    "new_15th_tier_name": "rce check + emit rust -> rustc -O3 (shared .rlib)",
+    "one_time_prelude_build": "Extract RCE's 2,232-line value/task runtime prelude (src/emit/rt.rs + DISPLAY_ESCAPE table + RceProgramHooks dispatch vtable) once into rce_rt.rs and compile librce_rt.rlib once via rustc --edition 2024 --crate-type=rlib -C opt-level=3 rce_rt.rs, recording its one-time amortizable core_reported_j, pkg_reported_j, wall_s, and .rlib byte size.",
+    "per_kernel_build": "For each of the 20 RCE Forms (k01..k20), run rce check + rce emit rust, strip the shared prelude in favor of `extern crate rce_rt; use rce_rt::*;` + RceProgramHooks registration, and compile via rustc --edition 2024 -C opt-level=3 --extern rce_rt=librce_rt.rlib, measuring per-kernel compile_core_reported_j, compile_pkg_reported_j, compile_wall_s, artifact_bytes, and per-invocation run_core_reported_j, run_pkg_reported_j, run_wall_s.",
+    "payback_metrics": [
+      "Per-kernel marginal payback N* (assuming pre-built toolchain librce_rt.rlib) for `rce check + 5-target emit (node js)` -> `rce check + emit rust -> rustc -O3 (shared .rlib)`",
+      "Cold-toolchain payback N*_cold_1kernel (charging the full one-time librce_rt.rlib build energy to a single kernel) and 20-kernel amortized payback N*_amortized_20"
+    ]
+  },
+  "provenance": {
+    "basis": "reported",
+    "board_metered": false,
+    "energy_separation_rule": "est_j, reported_j, and measured_j are strictly separated and never summed.",
+    "hosts": [
+      "Primary tier-comparable host: AMD Ryzen AI Max+ 395 (Zen 5, pinned CPU 0, /sys/class/powercap/intel-rapl:0:0/energy_uj core + /sys/class/powercap/intel-rapl:0/energy_uj package)",
+      "Quiet dedicated cross-check host: Intel Core i9-13900H (pinned CPU 0, /sys/class/powercap/intel-rapl:0:0/energy_uj core + /sys/class/powercap/intel-rapl:0/energy_uj package, load < 1.0)"
+    ],
+    "measured_j": null
+  },
+  "registered": "2026-11-23, locked with SHA-256 sidecar prior to librce_rt.rlib extraction and RAPL benchmarking"
+}

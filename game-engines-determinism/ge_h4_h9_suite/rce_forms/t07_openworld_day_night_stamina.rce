@@ -1,0 +1,19 @@
+module ge_h9.t07_openworld_day_night_stamina
+intent "24-hour world clock, night chill drain, and campfire rest"
+    example WorldHour(sprint: 1, campfire: 0) -> hour == 7 and stamina == 92
+state Explorer
+    hour: i64 = 6
+    day: i64 = 1
+    stamina: i64 = 100
+event WorldHour(sprint: i64, campfire: i64)
+step Explorer on WorldHour(sprint: sp, campfire: cf)
+    hour += 1
+    if hour >= 24
+        hour = 0
+        day += 1
+    let night_pen = if hour >= 20 or hour < 5 then 4 else 0
+    if cf == 1
+        stamina = if stamina + 15 > 100 then 100 else stamina + 15
+    else
+        let drain = (if sp == 1 then 8 else 2) + night_pen
+        stamina = if stamina > drain then stamina - drain else 0

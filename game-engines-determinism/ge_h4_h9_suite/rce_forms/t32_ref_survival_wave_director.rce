@@ -1,0 +1,27 @@
+module ge_h9.t32_ref_survival_wave_director
+intent "integrated Survival Shooter ammo, wave spawn, combo, and score"
+    example ArenaStep(trig: 1, hit_foe: 1, took_hit: 0) -> ammo == 9 and score == 20 and combo == 2
+state SurvivalRun
+    hp: i64 = 100
+    ammo: i64 = 10
+    foes: i64 = 4
+    wave: i64 = 1
+    combo: i64 = 1
+    score: i64 = 0
+event ArenaStep(trig: i64, hit_foe: i64, took_hit: i64)
+step SurvivalRun on ArenaStep(trig: tr, hit_foe: hf, took_hit: th)
+    if tr == 1
+        if ammo == 0
+            ammo = 10
+        else
+            ammo -= 1
+            if hf == 1 and foes > 0
+                foes -= 1
+                score += 20 * combo
+                combo = if combo < 8 then combo + 1 else 8
+    if th == 1
+        combo = 1
+        hp = if hp > 10 then hp - 10 else 100
+    if foes == 0
+        wave += 1
+        foes = 3 + wave

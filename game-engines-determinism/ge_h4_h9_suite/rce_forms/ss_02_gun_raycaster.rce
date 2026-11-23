@@ -1,0 +1,30 @@
+module survival_shooter.gun_raycaster
+
+intent "ammo clip management, reload timer, and integer ray-circle hit check"
+    example RayStep(trigger: 1, target_dist: 40, aligned: 1) -> ammo == 11 and hits == 1 and cooldown == 3
+    example RayStep(trigger: 1, target_dist: 180, aligned: 1) -> ammo == 11 and hits == 0
+
+state GunRaycaster
+    ammo: i64 = 12
+    cooldown: i64 = 0
+    reload_ticks: i64 = 0
+    hits: i64 = 0
+
+event RayStep(trigger: i64, target_dist: i64, aligned: i64)
+
+step GunRaycaster on RayStep(trigger: tr, target_dist: td, aligned: al)
+    if reload_ticks > 0
+        reload_ticks -= 1
+        if reload_ticks == 0
+            ammo = 12
+    else
+        if cooldown > 0
+            cooldown -= 1
+        if tr == 1 and cooldown == 0
+            if ammo == 0
+                reload_ticks = 8
+            else
+                ammo -= 1
+                cooldown = 3
+                if al == 1 and td <= 120
+                    hits += 1
