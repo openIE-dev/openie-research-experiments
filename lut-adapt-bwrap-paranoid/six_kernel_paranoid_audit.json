@@ -1,0 +1,394 @@
+{
+  "package_name": "LutAdapt",
+  "lean_version": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "host_platform": "Linux-7.0-x86_64",
+  "cpu_model": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S",
+  "paranoid_sandbox_mode": "bwrap_linux_namespace",
+  "inadvisably_no_sandbox_used": false,
+  "bwrap_version": "bubblewrap 0.11.1",
+  "total_cataloged_theorems": 27,
+  "total_file_theorem_declarations": 27,
+  "module_theorem_counts": {
+    "Cascade": 7,
+    "BenesCopy": 7,
+    "JointMinterm": 7,
+    "ConformalProvenance": 6
+  },
+  "purely_constructive_zero_axiom_theorems": 5,
+  "choice_free_theorems": 23,
+  "allowed_standard_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "static_soundness_vectors": {
+    "sorry_count": 0,
+    "custom_axiom_count": 0,
+    "opaque_declaration_count": 0,
+    "nested_inductive_count": 0,
+    "flat_non_nested_inductive_count": 1,
+    "prop_structure_non_prop_field_count": 0,
+    "ofReduceBool_native_decide_count": 0,
+    "ffi_override_implemented_by_extern_count": 0,
+    "skipKernelTC_count": 0
+  },
+  "cve_and_nov2026_disclosures_hardened": {
+    "cve_2026_72844_14576_nested_inductive_proj": true,
+    "cve_2026_72711_14484_add_opaque_fvar": true,
+    "pr_14977_prop_structure_data_proj": true,
+    "nov_2026_olean_replay_16489_16648_16649_16674_16675_16677_16688": true,
+    "pr_16693_native_decide_ofReduceBool": true
+  },
+  "independent_kernels_passed": 6,
+  "independent_kernel_ids": [
+    "con-leche --verified",
+    "con-ron --verified",
+    "lean4lean",
+    "nanoda",
+    "leanchecker --paranoid",
+    "Lean v4.36.0 (default)"
+  ],
+  "con_leche_verified_declarations": 58683,
+  "con_ron_verified_declarations": 58683,
+  "lean4lean_verified_declarations": 58685,
+  "nanoda_verified_declarations": 58685,
+  "leanchecker_paranoid_verified_declarations": 58685,
+  "lean_default_verified_declarations": 58685,
+  "nanoda_sorryAx_unpermitted_confirmed": true,
+  "clean_lake_build_ms": 432.23,
+  "clean_lake_build_reported_j": 26.2103,
+  "clean_lake_build_rapl_core_reported_j": 1.3778,
+  "paranoid_6kernel_check_ms": 237823.64,
+  "paranoid_6kernel_check_reported_j": 22371.4782,
+  "paranoid_6kernel_check_rapl_core_reported_j": 1461.6169,
+  "reported_j": 22371.4782,
+  "rapl_sensor": "/sys/class/powercap/intel-rapl:0/energy_uj",
+  "rapl_scope_note": "Linux powercap intel-rapl:0 package-0 counter (50ms wraparound-accumulated); socket-scope reported_j, never summed with measured_j.",
+  "measured_j": null,
+  "board_metered": false,
+  "kernels": [
+    {
+      "kernel_id": "con-leche --verified",
+      "implementation": "Minimal Lean/Haskell reference kernel (Joachim Breitner)",
+      "soundness_basis": "Formally proved consistent in ZFC set theory (cannot accept False)",
+      "verified_declarations": 58683,
+      "verdict": "ACCEPTS",
+      "sandbox_mode": "bwrap_linux_namespace",
+      "mitigates_vectors": "CVE-2026-72844 (#14576 nested inductive .proj); CVE-2026-72711 (#14484 add_opaque fvar); #14977 Prop-struct proj; Nov 2026 .olean/replay (#16489..#16688)"
+    },
+    {
+      "kernel_id": "con-ron --verified",
+      "implementation": "Aeneas-verified Rust refinement of con-leche",
+      "soundness_basis": "Machine-verified Rust memory/refinement equivalence to con-leche",
+      "verified_declarations": 58683,
+      "verdict": "ACCEPTS",
+      "sandbox_mode": "bwrap_linux_namespace",
+      "mitigates_vectors": "CVE-2026-72844; CVE-2026-72711; C++ memory/GMP bignum bugs (#14833); Nov 2026 forged .inductInfo (#16688)"
+    },
+    {
+      "kernel_id": "lean4lean",
+      "implementation": "Lean-in-Lean CIC typechecker (Mario Carneiro)",
+      "soundness_basis": "Independent pure-Lean reimplementation of CIC typechecking",
+      "verified_declarations": 58685,
+      "verdict": "ACCEPTS",
+      "sandbox_mode": "bwrap_linux_namespace",
+      "mitigates_vectors": "C++ kernel implementation divergence & #14977 structure projection soundness"
+    },
+    {
+      "kernel_id": "nanoda",
+      "implementation": "Independent standalone Rust export verifier",
+      "soundness_basis": "Zero-Lean-runtime Rust NDJSON checker (sorryAx blocked=True)",
+      "verified_declarations": 58685,
+      "verdict": "ACCEPTS",
+      "sandbox_mode": "bwrap_linux_namespace",
+      "mitigates_vectors": ".olean serialization tampering (#16489..#16688), #16693 ofReduceBool, & unpermitted sorryAx"
+    },
+    {
+      "kernel_id": "leanchecker --paranoid",
+      "implementation": "Fresh-environment Lean C++ kernel replay (--paranoid)",
+      "soundness_basis": "Replays exported declarations from scratch without default-mode .inductInfo trust (#16688)",
+      "verified_declarations": 58685,
+      "verdict": "ACCEPTS",
+      "sandbox_mode": "bwrap_linux_namespace",
+      "mitigates_vectors": "Elaborator metaprogramming mutation, skipKernelTC, & default-mode leanchecker bypass (#16688)"
+    },
+    {
+      "kernel_id": "Lean v4.36.0 (default)",
+      "implementation": "Post-CVE Lean 4.36.0 C++ kernel (commit 611c117bfaf7, Nov 2026)",
+      "soundness_basis": "Includes #14498, #14577, #14613, #14806, #14807, #14833, #14977 patches inside bwrap",
+      "verified_declarations": 58685,
+      "verdict": "ACCEPTS",
+      "sandbox_mode": "bwrap_linux_namespace",
+      "mitigates_vectors": "All Summer/Autumn 2026 CVEs patched; #print axioms standard-axiom gate enforced"
+    }
+  ],
+  "theorem_axiom_audit": [
+    {
+      "module": "Cascade",
+      "theorem": "LutAdapt.Cascade.simon_kadane_two_gear_diff",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "Cascade",
+      "theorem": "LutAdapt.Cascade.simon_kadane_adjacent_swap_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": false
+    },
+    {
+      "module": "Cascade",
+      "theorem": "LutAdapt.Cascade.simon_kadane_strict_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": false
+    },
+    {
+      "module": "Cascade",
+      "theorem": "LutAdapt.Cascade.cascade_head_swap_diff",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "Cascade",
+      "theorem": "LutAdapt.Cascade.proposition1_downward_compile_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": false
+    },
+    {
+      "module": "Cascade",
+      "theorem": "LutAdapt.Cascade.rung0_precedes_wake_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": false
+    },
+    {
+      "module": "Cascade",
+      "theorem": "LutAdapt.Cascade.zero_hit_churn_refusal",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "BenesCopy",
+      "theorem": "LutAdapt.BenesCopy.benes_copy_benes_depth_formula",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "BenesCopy",
+      "theorem": "LutAdapt.BenesCopy.kv260_benes_512_exact_counts",
+      "axioms": [],
+      "zero_axioms": true,
+      "choice_free": true
+    },
+    {
+      "module": "BenesCopy",
+      "theorem": "LutAdapt.BenesCopy.kv260_pipelined_4stage_partition",
+      "axioms": [],
+      "zero_axioms": true,
+      "choice_free": true
+    },
+    {
+      "module": "BenesCopy",
+      "theorem": "LutAdapt.BenesCopy.prefixSum_mono_step",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "BenesCopy",
+      "theorem": "LutAdapt.BenesCopy.prefixSum_mono",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "BenesCopy",
+      "theorem": "LutAdapt.BenesCopy.monotonic_copy_intervals_disjoint",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "BenesCopy",
+      "theorem": "LutAdapt.BenesCopy.lee_butterfly_modulo_collision_free",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "JointMinterm",
+      "theorem": "LutAdapt.JointMinterm.joint_mode_dominates_all",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "JointMinterm",
+      "theorem": "LutAdapt.JointMinterm.joint_mode_in_support",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "JointMinterm",
+      "theorem": "LutAdapt.JointMinterm.marginal_chimera_witness",
+      "axioms": [
+        "propext"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "JointMinterm",
+      "theorem": "LutAdapt.JointMinterm.packTokens_bound",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "JointMinterm",
+      "theorem": "LutAdapt.JointMinterm.unpack_pack_roundtrip",
+      "axioms": [
+        "propext"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "JointMinterm",
+      "theorem": "LutAdapt.JointMinterm.packTokens_fits_uint64",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "JointMinterm",
+      "theorem": "LutAdapt.JointMinterm.hf_2026_vocab_uint64_packing_bounds",
+      "axioms": [],
+      "zero_axioms": true,
+      "choice_free": true
+    },
+    {
+      "module": "ConformalProvenance",
+      "theorem": "LutAdapt.ConformalProvenance.off_manifold_ray_forces_abstention",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "ConformalProvenance",
+      "theorem": "LutAdapt.ConformalProvenance.split_conformal_rank_miscoverage_bound",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "ConformalProvenance",
+      "theorem": "LutAdapt.ConformalProvenance.aci_stationary_iff_target_miscoverage",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "ConformalProvenance",
+      "theorem": "LutAdapt.ConformalProvenance.downward_crystallize_never_deterministic",
+      "axioms": [],
+      "zero_axioms": true,
+      "choice_free": true
+    },
+    {
+      "module": "ConformalProvenance",
+      "theorem": "LutAdapt.ConformalProvenance.conformal_crystallize_rank_strictly_bounded",
+      "axioms": [],
+      "zero_axioms": true,
+      "choice_free": true
+    },
+    {
+      "module": "ConformalProvenance",
+      "theorem": "LutAdapt.ConformalProvenance.speculativeSweep_matches_greedy",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    }
+  ],
+  "source_sha256": {
+    "LutAdapt/BenesCopy.lean": "be951544bddaa2ea1dc639bc735044e2b62848c7f377014650846e593ce92694",
+    "LutAdapt/Cascade.lean": "f8fb9baa8142a4ea8c7ffa4d33b49e72f69e6fdea6e27dbe4d140426e19c5200",
+    "LutAdapt/ConformalProvenance.lean": "10121fea7e6b26c5fa9d7751b8dc418478c8f9a193ebeca549f90e051ff47055",
+    "LutAdapt/JointMinterm.lean": "2c0bd9eeb52e9d5ed3aea0dfe7e73379e3ee9fda8b2f78dcc64c6387be4919b1",
+    "LutAdapt.lean": "708edb50188305345ba229e84462e65652fba76ca3bf1604c47d16d5d1d7d72a",
+    "lakefile.toml": "f9319d3f8e7a3924ebfbdb4ca18faf3cb823b487dd8ad257e57ba6f9856ce0fa",
+    "lake-manifest.json": "703895cb4fa5cc81b485f86ebbacfc402c0dd21108243d2d8af216f2e7198dbd",
+    "lean-toolchain": "582a63f8f9c5128067b688778c1051cf1464c3ca9d57b9325025c051c29b774a"
+  }
+}

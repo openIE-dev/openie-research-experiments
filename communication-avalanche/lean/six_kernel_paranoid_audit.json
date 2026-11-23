@@ -1,0 +1,570 @@
+{
+  "package_name": "Avalanche",
+  "lean_version": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "host_platform": "Linux-7.0-x86_64",
+  "cpu_model": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S",
+  "paranoid_sandbox_mode": "bwrap_linux_namespace",
+  "inadvisably_no_sandbox_used": false,
+  "bwrap_version": "bubblewrap 0.11.1",
+  "total_cataloged_theorems": 45,
+  "total_file_theorem_declarations": 53,
+  "module_theorem_counts": {
+    "QuorumRatchet": 15,
+    "OrchestrationFlow": 16,
+    "EnzymaticSynthesis": 14
+  },
+  "purely_constructive_zero_axiom_theorems": 4,
+  "choice_free_theorems": 40,
+  "allowed_standard_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "static_soundness_vectors": {
+    "sorry_count": 0,
+    "custom_axiom_count": 0,
+    "opaque_declaration_count": 0,
+    "nested_inductive_count": 0,
+    "flat_non_nested_inductive_count": 0,
+    "prop_structure_non_prop_field_count": 0,
+    "ofReduceBool_native_decide_count": 0,
+    "ffi_override_implemented_by_extern_count": 0,
+    "skipKernelTC_count": 0
+  },
+  "cve_and_nov2026_disclosures_hardened": {
+    "cve_2026_72844_14576_nested_inductive_proj": true,
+    "cve_2026_72711_14484_add_opaque_fvar": true,
+    "pr_14977_prop_structure_data_proj": true,
+    "nov_2026_olean_replay_16489_16648_16649_16674_16675_16677_16688": true,
+    "pr_16693_native_decide_ofReduceBool": true
+  },
+  "independent_kernels_passed": 6,
+  "independent_kernel_ids": [
+    "con-leche --verified",
+    "con-ron --verified",
+    "lean4lean",
+    "nanoda",
+    "leanchecker --paranoid",
+    "Lean v4.36.0 (default)"
+  ],
+  "con_leche_verified_declarations": 58928,
+  "con_ron_verified_declarations": 58928,
+  "lean4lean_verified_declarations": 58930,
+  "nanoda_verified_declarations": 58930,
+  "leanchecker_paranoid_verified_declarations": 58930,
+  "lean_default_verified_declarations": 58930,
+  "nanoda_sorryAx_unpermitted_confirmed": true,
+  "clean_lake_build_ms": 1346.19,
+  "clean_lake_build_reported_j": 135.9818,
+  "clean_lake_build_rapl_core_reported_j": 8.8561,
+  "paranoid_6kernel_check_ms": 237264.86,
+  "paranoid_6kernel_check_reported_j": 18368.9562,
+  "paranoid_6kernel_check_rapl_core_reported_j": 874.9755,
+  "reported_j": 18368.9562,
+  "rapl_sensor": "/sys/class/powercap/intel-rapl:0/energy_uj",
+  "rapl_scope_note": "Linux powercap intel-rapl:0 package-0 counter (50ms wraparound-accumulated); socket-scope reported_j, never summed with measured_j.",
+  "measured_j": null,
+  "board_metered": false,
+  "kernels": [
+    {
+      "kernel_id": "con-leche --verified",
+      "implementation": "Minimal Lean/Haskell reference kernel (Joachim Breitner)",
+      "soundness_basis": "Formally proved consistent in ZFC set theory (cannot accept False)",
+      "verified_declarations": 58928,
+      "verdict": "ACCEPTS",
+      "sandbox_mode": "bwrap_linux_namespace",
+      "mitigates_vectors": "CVE-2026-72844 (#14576 nested inductive .proj); CVE-2026-72711 (#14484 add_opaque fvar); #14977 Prop-struct proj; Nov 2026 .olean/replay (#16489..#16688)"
+    },
+    {
+      "kernel_id": "con-ron --verified",
+      "implementation": "Aeneas-verified Rust refinement of con-leche",
+      "soundness_basis": "Machine-verified Rust memory/refinement equivalence to con-leche",
+      "verified_declarations": 58928,
+      "verdict": "ACCEPTS",
+      "sandbox_mode": "bwrap_linux_namespace",
+      "mitigates_vectors": "CVE-2026-72844; CVE-2026-72711; C++ memory/GMP bignum bugs (#14833); Nov 2026 forged .inductInfo (#16688)"
+    },
+    {
+      "kernel_id": "lean4lean",
+      "implementation": "Lean-in-Lean CIC typechecker (Mario Carneiro)",
+      "soundness_basis": "Independent pure-Lean reimplementation of CIC typechecking",
+      "verified_declarations": 58930,
+      "verdict": "ACCEPTS",
+      "sandbox_mode": "bwrap_linux_namespace",
+      "mitigates_vectors": "C++ kernel implementation divergence & #14977 structure projection soundness"
+    },
+    {
+      "kernel_id": "nanoda",
+      "implementation": "Independent standalone Rust export verifier",
+      "soundness_basis": "Zero-Lean-runtime Rust NDJSON checker (sorryAx blocked=True)",
+      "verified_declarations": 58930,
+      "verdict": "ACCEPTS",
+      "sandbox_mode": "bwrap_linux_namespace",
+      "mitigates_vectors": ".olean serialization tampering (#16489..#16688), #16693 ofReduceBool, & unpermitted sorryAx"
+    },
+    {
+      "kernel_id": "leanchecker --paranoid",
+      "implementation": "Fresh-environment Lean C++ kernel replay (--paranoid)",
+      "soundness_basis": "Replays exported declarations from scratch without default-mode .inductInfo trust (#16688)",
+      "verified_declarations": 58930,
+      "verdict": "ACCEPTS",
+      "sandbox_mode": "bwrap_linux_namespace",
+      "mitigates_vectors": "Elaborator metaprogramming mutation, skipKernelTC, & default-mode leanchecker bypass (#16688)"
+    },
+    {
+      "kernel_id": "Lean v4.36.0 (default)",
+      "implementation": "Post-CVE Lean 4.36.0 C++ kernel (commit 611c117bfaf7, Nov 2026)",
+      "soundness_basis": "Includes #14498, #14577, #14613, #14806, #14807, #14833, #14977 patches inside bwrap",
+      "verified_declarations": 58930,
+      "verdict": "ACCEPTS",
+      "sandbox_mode": "bwrap_linux_namespace",
+      "mitigates_vectors": "All Summer/Autumn 2026 CVEs patched; #print axioms standard-axiom gate enforced"
+    }
+  ],
+  "theorem_axiom_audit": [
+    {
+      "module": "QuorumRatchet",
+      "theorem": "Avalanche.QuorumRatchet.unverified_error_closed_form_and_growth",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "QuorumRatchet",
+      "theorem": "Avalanche.QuorumRatchet.unverified_retention_strict_decay",
+      "axioms": [
+        "propext"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "QuorumRatchet",
+      "theorem": "Avalanche.QuorumRatchet.ratchet_gate_soundness",
+      "axioms": [
+        "propext"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "QuorumRatchet",
+      "theorem": "Avalanche.QuorumRatchet.ratchet_non_regression_step",
+      "axioms": [
+        "propext"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "QuorumRatchet",
+      "theorem": "Avalanche.QuorumRatchet.ratchet_non_regression_chain",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "QuorumRatchet",
+      "theorem": "Avalanche.QuorumRatchet.ratchet_strict_advance_and_lock_in",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "QuorumRatchet",
+      "theorem": "Avalanche.QuorumRatchet.subthreshold_step_quiescent",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "QuorumRatchet",
+      "theorem": "Avalanche.QuorumRatchet.subthreshold_trace_zero_firings",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "QuorumRatchet",
+      "theorem": "Avalanche.QuorumRatchet.clocked_vs_event_quiescent_checks",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "QuorumRatchet",
+      "theorem": "Avalanche.QuorumRatchet.zero_clock_idle_energy_dominance",
+      "axioms": [],
+      "zero_axioms": true,
+      "choice_free": true
+    },
+    {
+      "module": "QuorumRatchet",
+      "theorem": "Avalanche.QuorumRatchet.hill_half_maximal_at_threshold",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "QuorumRatchet",
+      "theorem": "Avalanche.QuorumRatchet.hill_monotone_concentration",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "QuorumRatchet",
+      "theorem": "Avalanche.QuorumRatchet.hill_cooperative_subthreshold_suppression",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "QuorumRatchet",
+      "theorem": "Avalanche.QuorumRatchet.hill_cooperative_superthreshold_sharpening",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "QuorumRatchet",
+      "theorem": "Avalanche.QuorumRatchet.sepj_gated_containment_vs_collapse",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "OrchestrationFlow",
+      "theorem": "Avalanche.OrchestrationFlow.attested_edge_accept_iff",
+      "axioms": [
+        "propext"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "OrchestrationFlow",
+      "theorem": "Avalanche.OrchestrationFlow.tampered_digest_zero_activation",
+      "axioms": [
+        "propext"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "OrchestrationFlow",
+      "theorem": "Avalanche.OrchestrationFlow.invalid_signature_zero_activation",
+      "axioms": [
+        "propext"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "OrchestrationFlow",
+      "theorem": "Avalanche.OrchestrationFlow.cascade_joule_dominance_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": false
+    },
+    {
+      "module": "OrchestrationFlow",
+      "theorem": "Avalanche.OrchestrationFlow.cascade_exact_joule_savings",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "OrchestrationFlow",
+      "theorem": "Avalanche.OrchestrationFlow.upstream_gate_reduces_pipeline_energy",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "OrchestrationFlow",
+      "theorem": "Avalanche.OrchestrationFlow.cpj_strict_improvement_from_gating",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "OrchestrationFlow",
+      "theorem": "Avalanche.OrchestrationFlow.cpj_crystallized_skill_amortization",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "OrchestrationFlow",
+      "theorem": "Avalanche.OrchestrationFlow.reduced_cost_walk_telescoping",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "OrchestrationFlow",
+      "theorem": "Avalanche.OrchestrationFlow.reduced_cost_cycle_invariance",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "OrchestrationFlow",
+      "theorem": "Avalanche.OrchestrationFlow.nonneg_reduced_cost_no_negative_cycles",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": false
+    },
+    {
+      "module": "OrchestrationFlow",
+      "theorem": "Avalanche.OrchestrationFlow.ssp_tight_path_shortest_certificate",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": false
+    },
+    {
+      "module": "OrchestrationFlow",
+      "theorem": "Avalanche.OrchestrationFlow.ssp_augmentation_preserves_flow_conservation",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "OrchestrationFlow",
+      "theorem": "Avalanche.OrchestrationFlow.agency_preserving_single_step",
+      "axioms": [],
+      "zero_axioms": true,
+      "choice_free": true
+    },
+    {
+      "module": "OrchestrationFlow",
+      "theorem": "Avalanche.OrchestrationFlow.agency_preserving_n_mind_sequence",
+      "axioms": [],
+      "zero_axioms": true,
+      "choice_free": true
+    },
+    {
+      "module": "OrchestrationFlow",
+      "theorem": "Avalanche.OrchestrationFlow.forced_assimilation_violates_invariant",
+      "axioms": [
+        "propext"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "EnzymaticSynthesis",
+      "theorem": "Avalanche.EnzymaticSynthesis.digital_enzyme_barrier_lowering_and_invariance",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "EnzymaticSynthesis",
+      "theorem": "Avalanche.EnzymaticSynthesis.digital_enzyme_linear_cumulative_savings",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "EnzymaticSynthesis",
+      "theorem": "Avalanche.EnzymaticSynthesis.digital_enzyme_zero_unverified_drift",
+      "axioms": [
+        "propext"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "EnzymaticSynthesis",
+      "theorem": "Avalanche.EnzymaticSynthesis.digital_enzyme_sequential_composition",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "EnzymaticSynthesis",
+      "theorem": "Avalanche.EnzymaticSynthesis.des_coverage_union_dominates_solo",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "EnzymaticSynthesis",
+      "theorem": "Avalanche.EnzymaticSynthesis.des_strict_global_pass_superiority",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "EnzymaticSynthesis",
+      "theorem": "Avalanche.EnzymaticSynthesis.des_strict_total_joule_dominance",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "EnzymaticSynthesis",
+      "theorem": "Avalanche.EnzymaticSynthesis.des_strict_cpj_dominance",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "EnzymaticSynthesis",
+      "theorem": "Avalanche.EnzymaticSynthesis.des_one_pass_calibration_identifies_niche_router",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "EnzymaticSynthesis",
+      "theorem": "Avalanche.EnzymaticSynthesis.downward_step_amortization_dominance",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": false
+    },
+    {
+      "module": "EnzymaticSynthesis",
+      "theorem": "Avalanche.EnzymaticSynthesis.four_tier_downward_convergence_to_c0",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "EnzymaticSynthesis",
+      "theorem": "Avalanche.EnzymaticSynthesis.horizon_cpj_monotonicity_month_quarter_year_decade",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "EnzymaticSynthesis",
+      "theorem": "Avalanche.EnzymaticSynthesis.downward_compilation_preserves_soundness_all_tiers",
+      "axioms": [],
+      "zero_axioms": true,
+      "choice_free": true
+    },
+    {
+      "module": "EnzymaticSynthesis",
+      "theorem": "Avalanche.EnzymaticSynthesis.downward_compilation_falsifier_hit_rate_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": false
+    }
+  ],
+  "source_sha256": {
+    "Avalanche/EnzymaticSynthesis.lean": "56d54b46df67e0b3fa6d84111c1bbe04f13c7f2ef484156b621e6a23ba971b0c",
+    "Avalanche/OrchestrationFlow.lean": "9903b5f1de0a87ba502d6d21834dbf315e502798180fc5ca4c5e5085ff67ec16",
+    "Avalanche/QuorumRatchet.lean": "9466dc2abd685de3f4d6cc9306bdc51ff75e9340763f6138c9ac5171a33d3756",
+    "Avalanche.lean": "d98ed8050aae39ab62630ef31fb114e1142b965e415db1d2fed96f1cc0afe953",
+    "lakefile.toml": "d3cb686836ddc79b5fc54e2e6b87c53377ed2a357a58c5c39957bb71e8e7ebba",
+    "lake-manifest.json": "109eee564485a63645d320b7bb357a2d5f452fee21a31939da1ed516e9e0aa43",
+    "lean-toolchain": "582a63f8f9c5128067b688778c1051cf1464c3ca9d57b9325025c051c29b774a"
+  }
+}

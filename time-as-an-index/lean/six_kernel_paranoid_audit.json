@@ -1,0 +1,420 @@
+{
+  "package_name": "TimeAsAnIndex",
+  "lean_version": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "host_platform": "Linux-7.0-x86_64",
+  "cpu_model": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S",
+  "paranoid_sandbox_mode": "bwrap_linux_namespace",
+  "inadvisably_no_sandbox_used": false,
+  "bwrap_version": "bubblewrap 0.11.1",
+  "total_cataloged_theorems": 31,
+  "total_file_theorem_declarations": 50,
+  "module_theorem_counts": {
+    "Horizon": 17,
+    "Paradox": 14
+  },
+  "purely_constructive_zero_axiom_theorems": 10,
+  "choice_free_theorems": 23,
+  "allowed_standard_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "static_soundness_vectors": {
+    "sorry_count": 0,
+    "custom_axiom_count": 0,
+    "opaque_declaration_count": 0,
+    "nested_inductive_count": 0,
+    "flat_non_nested_inductive_count": 1,
+    "prop_structure_non_prop_field_count": 0,
+    "ofReduceBool_native_decide_count": 0,
+    "ffi_override_implemented_by_extern_count": 0,
+    "skipKernelTC_count": 0
+  },
+  "cve_and_nov2026_disclosures_hardened": {
+    "cve_2026_72844_14576_nested_inductive_proj": true,
+    "cve_2026_72711_14484_add_opaque_fvar": true,
+    "pr_14977_prop_structure_data_proj": true,
+    "nov_2026_olean_replay_16489_16648_16649_16674_16675_16677_16688": true,
+    "pr_16693_native_decide_ofReduceBool": true
+  },
+  "independent_kernels_passed": 6,
+  "independent_kernel_ids": [
+    "con-leche --verified",
+    "con-ron --verified",
+    "lean4lean",
+    "nanoda",
+    "leanchecker --paranoid",
+    "Lean v4.36.0 (default)"
+  ],
+  "con_leche_verified_declarations": 58796,
+  "con_ron_verified_declarations": 58796,
+  "lean4lean_verified_declarations": 58798,
+  "nanoda_verified_declarations": 58798,
+  "leanchecker_paranoid_verified_declarations": 58798,
+  "lean_default_verified_declarations": 58798,
+  "nanoda_sorryAx_unpermitted_confirmed": true,
+  "clean_lake_build_ms": 1129.83,
+  "clean_lake_build_reported_j": 61.6649,
+  "clean_lake_build_rapl_core_reported_j": 2.6584,
+  "paranoid_6kernel_check_ms": 283210.0,
+  "paranoid_6kernel_check_reported_j": 27217.1753,
+  "paranoid_6kernel_check_rapl_core_reported_j": 1632.0815,
+  "reported_j": 27217.1753,
+  "rapl_sensor": "/sys/class/powercap/intel-rapl:0/energy_uj",
+  "rapl_scope_note": "Linux powercap intel-rapl:0 package-0 counter (50ms wraparound-accumulated); socket-scope reported_j, never summed with measured_j.",
+  "measured_j": null,
+  "board_metered": false,
+  "kernels": [
+    {
+      "kernel_id": "con-leche --verified",
+      "implementation": "Minimal Lean/Haskell reference kernel (Joachim Breitner)",
+      "soundness_basis": "Formally proved consistent in ZFC set theory (cannot accept False)",
+      "verified_declarations": 58796,
+      "verdict": "ACCEPTS",
+      "sandbox_mode": "bwrap_linux_namespace",
+      "mitigates_vectors": "CVE-2026-72844 (#14576 nested inductive .proj); CVE-2026-72711 (#14484 add_opaque fvar); #14977 Prop-struct proj; Nov 2026 .olean/replay (#16489..#16688)"
+    },
+    {
+      "kernel_id": "con-ron --verified",
+      "implementation": "Aeneas-verified Rust refinement of con-leche",
+      "soundness_basis": "Machine-verified Rust memory/refinement equivalence to con-leche",
+      "verified_declarations": 58796,
+      "verdict": "ACCEPTS",
+      "sandbox_mode": "bwrap_linux_namespace",
+      "mitigates_vectors": "CVE-2026-72844; CVE-2026-72711; C++ memory/GMP bignum bugs (#14833); Nov 2026 forged .inductInfo (#16688)"
+    },
+    {
+      "kernel_id": "lean4lean",
+      "implementation": "Lean-in-Lean CIC typechecker (Mario Carneiro)",
+      "soundness_basis": "Independent pure-Lean reimplementation of CIC typechecking",
+      "verified_declarations": 58798,
+      "verdict": "ACCEPTS",
+      "sandbox_mode": "bwrap_linux_namespace",
+      "mitigates_vectors": "C++ kernel implementation divergence & #14977 structure projection soundness"
+    },
+    {
+      "kernel_id": "nanoda",
+      "implementation": "Independent standalone Rust export verifier",
+      "soundness_basis": "Zero-Lean-runtime Rust NDJSON checker (sorryAx blocked=True)",
+      "verified_declarations": 58798,
+      "verdict": "ACCEPTS",
+      "sandbox_mode": "bwrap_linux_namespace",
+      "mitigates_vectors": ".olean serialization tampering (#16489..#16688), #16693 ofReduceBool, & unpermitted sorryAx"
+    },
+    {
+      "kernel_id": "leanchecker --paranoid",
+      "implementation": "Fresh-environment Lean C++ kernel replay (--paranoid)",
+      "soundness_basis": "Replays exported declarations from scratch without default-mode .inductInfo trust (#16688)",
+      "verified_declarations": 58798,
+      "verdict": "ACCEPTS",
+      "sandbox_mode": "bwrap_linux_namespace",
+      "mitigates_vectors": "Elaborator metaprogramming mutation, skipKernelTC, & default-mode leanchecker bypass (#16688)"
+    },
+    {
+      "kernel_id": "Lean v4.36.0 (default)",
+      "implementation": "Post-CVE Lean 4.36.0 C++ kernel (commit 611c117bfaf7, Nov 2026)",
+      "soundness_basis": "Includes #14498, #14577, #14613, #14806, #14807, #14833, #14977 patches inside bwrap",
+      "verified_declarations": 58798,
+      "verdict": "ACCEPTS",
+      "sandbox_mode": "bwrap_linux_namespace",
+      "mitigates_vectors": "All Summer/Autumn 2026 CVEs patched; #print axioms standard-axiom gate enforced"
+    }
+  ],
+  "theorem_axiom_audit": [
+    {
+      "module": "Horizon",
+      "theorem": "TQ.M1.exists_time_index",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "Horizon",
+      "theorem": "TQ.M1.coarse_record_horizon",
+      "axioms": [],
+      "zero_axioms": true,
+      "choice_free": true
+    },
+    {
+      "module": "Horizon",
+      "theorem": "TQ.M1.mean_not_injective",
+      "axioms": [],
+      "zero_axioms": true,
+      "choice_free": true
+    },
+    {
+      "module": "Horizon",
+      "theorem": "TQ.future_determined",
+      "axioms": [],
+      "zero_axioms": true,
+      "choice_free": true
+    },
+    {
+      "module": "Horizon",
+      "theorem": "TQ.iterate_injective",
+      "axioms": [],
+      "zero_axioms": true,
+      "choice_free": true
+    },
+    {
+      "module": "Horizon",
+      "theorem": "TQ.past_recovered",
+      "axioms": [
+        "propext"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "Horizon",
+      "theorem": "TQ.M5.erase_not_injective",
+      "axioms": [],
+      "zero_axioms": true,
+      "choice_free": true
+    },
+    {
+      "module": "Horizon",
+      "theorem": "TQ.M5.restoring_cycle_zero_net_count",
+      "axioms": [],
+      "zero_axioms": true,
+      "choice_free": true
+    },
+    {
+      "module": "Horizon",
+      "theorem": "TQ.M3.plancherel_z4",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "Horizon",
+      "theorem": "TQ.M3.future_from_past_samples",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": false
+    },
+    {
+      "module": "Horizon",
+      "theorem": "TQ.M4.interval_lightcone",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "Horizon",
+      "theorem": "TQ.M4.future_timelike",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "Horizon",
+      "theorem": "TQ.M4.future_irrefl",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "Horizon",
+      "theorem": "TQ.M4.future_trans",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": false
+    },
+    {
+      "module": "Horizon",
+      "theorem": "TQ.M4.past_cone_no_future_access",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "Horizon",
+      "theorem": "TQ.M6.ground_state_passive_two_level",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "Horizon",
+      "theorem": "TQ.horizon_conditions_consistent",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "Paradox",
+      "theorem": "TQ.Paradox.no_total_self_oracle",
+      "axioms": [],
+      "zero_axioms": true,
+      "choice_free": true
+    },
+    {
+      "module": "Paradox",
+      "theorem": "TQ.Paradox.no_universal_answer_table",
+      "axioms": [],
+      "zero_axioms": true,
+      "choice_free": true
+    },
+    {
+      "module": "Paradox",
+      "theorem": "TQ.Paradox.mixed_answer_unique",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": false
+    },
+    {
+      "module": "Paradox",
+      "theorem": "TQ.Paradox.grandfather_no_pure",
+      "axioms": [],
+      "zero_axioms": true,
+      "choice_free": true
+    },
+    {
+      "module": "Paradox",
+      "theorem": "TQ.Paradox.polchinski_multiplicity",
+      "axioms": [],
+      "zero_axioms": true,
+      "choice_free": true
+    },
+    {
+      "module": "Paradox",
+      "theorem": "TQ.Paradox.no_injection_gt",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "Paradox",
+      "theorem": "TQ.Paradox.incompressible",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": false
+    },
+    {
+      "module": "Paradox",
+      "theorem": "TQ.Paradox.recurrence",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": false
+    },
+    {
+      "module": "Paradox",
+      "theorem": "TQ.Paradox.zeno_dichotomy",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "Paradox",
+      "theorem": "TQ.Paradox.instant_measure_zero",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": false
+    },
+    {
+      "module": "Paradox",
+      "theorem": "TQ.Paradox.countable_instants_null",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": false
+    },
+    {
+      "module": "Paradox",
+      "theorem": "TQ.Paradox.hilbert_hotel",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "Paradox",
+      "theorem": "TQ.Paradox.galileo_squares",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "module": "Paradox",
+      "theorem": "TQ.Paradox.monty_hall",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": false
+    }
+  ],
+  "source_sha256": {
+    "Horizon.lean": "499b56e8810469f4b6a9fa50674239b895a8db913ce53e999748ce11daa5ecb2",
+    "Paradox.lean": "0a7bcc538810509eebf022af7b092219041bd68a5f737c7be5233ee468fd95c1",
+    "TimeAsAnIndex.lean": "f3fad9c039a68d8c64587627b797a34bbd58fd717c43d1f44286c5091d63f701",
+    "lakefile.toml": "816bb64bfb0f74c2b700540cbe2fce20ea53778e5633840b8347f33063105fd2",
+    "lake-manifest.json": "04943799b8b019eb7eff98b95dccfcee5eb362ffae5995463b70299a79d3c911",
+    "lean-toolchain": "582a63f8f9c5128067b688778c1051cf1464c3ca9d57b9325025c051c29b774a"
+  }
+}

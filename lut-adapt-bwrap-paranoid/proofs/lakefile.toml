@@ -1,0 +1,6 @@
+name = "lut_adapt"
+version = "0.1.0"
+defaultTargets = ["LutAdapt"]
+
+[[lean_lib]]
+name = "LutAdapt"
