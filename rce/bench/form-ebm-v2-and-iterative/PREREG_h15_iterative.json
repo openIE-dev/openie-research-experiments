@@ -1,0 +1,90 @@
+{
+  "arms": {
+    "iter_claude_opus_5_5": {
+      "max_tokens_per_turn": 8192,
+      "max_turns": 5,
+      "model": "claude-opus-5-5",
+      "pricing_per_1m_usd_in_out": [
+        5.0,
+        25.0
+      ],
+      "provider": "anthropic"
+    },
+    "iter_claude_sonnet_5_5": {
+      "max_tokens_per_turn": 8192,
+      "max_turns": 5,
+      "model": "claude-sonnet-5-5",
+      "pricing_per_1m_usd_in_out": [
+        3.0,
+        15.0
+      ],
+      "provider": "anthropic"
+    },
+    "iter_xai_grok_4_20_reasoning": {
+      "max_tokens_per_turn": 8192,
+      "max_turns": 5,
+      "model": "grok-4.20-0309-reasoning",
+      "pricing_per_1m_usd_in_out": [
+        2.0,
+        10.0
+      ],
+      "provider": "xai"
+    }
+  },
+  "baseline_single_shot_wave1": {
+    "claude_opus_5_5_k1_admitted": 34,
+    "claude_sonnet_5_5_k1_admitted": 32,
+    "prereg_sha256": "b64c4c671ae85755109c9b5b75b34cda3929a6138dcd525e4640db2085d58f49",
+    "tasks": 40,
+    "unsolved_6_tasks_at_k1": [
+      "programs/ecosystem/pqxdh.rce@a828e934",
+      "programs/multi/washer.rce@2cc82de7",
+      "spec/examples/57_float_vectors.rce@b2b932da",
+      "stdlib/lib/hpke.rce@a828e934",
+      "stdlib/lib/mls.rce@a828e934",
+      "stdlib/lib/pq.rce@a828e934"
+    ],
+    "xai_grok_4_20_reasoning_k1_admitted": 31
+  },
+  "corpus_and_gate": {
+    "gate_C_z_eq_1": [
+      "1. Deterministic rce check (openIE-dev/rce commit 1762fb4b) exits with code 0, enforcing full parsing, stdlib linking, type-checking, example/check evaluation, W-UI-1, and W-MUT-1 mutation non-vacuity.",
+      "2. Strict obligation preservation against original task MUTANT: candidate preserves all declared state, event, error, struct, kind, fn, extern, and step headers of MUTANT, keeps count_examples >= count_examples(MUTANT) and count_checks >= count_checks(MUTANT), and preserves >= max(1, count_examples - 1) exact example LHS event traces (permitting W-MUT-1 non-vacuous strengthening of a vacuous example without deleting any obligation).",
+      "3. Post-hoc behavioural audit against ORIGINAL (never shown to any model during turns 1..5): rce hash (restored) and rce equiv fuel 2000 (behaviour-equal vs contradicts/examples-only/undecided)."
+    ],
+    "h15_residual_40_sha256": "3ca3a32769145e9b502b9b7b9d2c0402e97ce6a860203668a35a35535d46b25b",
+    "openie_research_experiments_commit": "1d73cb38330d62439a9d77f05507113d78690200",
+    "rce_commit": "1762fb4bb65a58de07ab00f0d1bfdf4969d0358c",
+    "rce_linux_x86_64_binary_sha256": "331464496009d98ad8f55095aa4c26f7266ae49ce602d3cba2c74f185e766df9",
+    "tasks_N": 40
+  },
+  "energy_and_telemetry": {
+    "board_metered": false,
+    "closed_api_server_energy": "not_available (SATB attribution label N; never estimated from fleet medians)",
+    "measured_j": null
+  },
+  "falsifiers": {
+    "F1_original_leakage": "Any prompt or feedback turn contains any text, hash, or diff derived from task['original'] or includes the stdlib file's own declaration header when task['path'] is under stdlib/lib/.",
+    "F2_contradiction": "Any repair admitted under C(z) = 1 and crystallized into DNULLMM1 Gear-0 contradicts task['original'] under rce equiv fuel 2000.",
+    "F3_obligation_erosion": "Any multi-turn candidate is judged against an intermediate turn's obligations rather than the original task['mutant'] obligations."
+  },
+  "gear0_crystallization": {
+    "key_rule": "Canonical DNULLMM1 key over rce fmt nameless (when parsing) or normalized comment-stripped surface fallback + contract signature hash",
+    "replay_test": "Verify 0-model-call warm DNULLMM1 lookup + rce check re-verification across all 40 H15 residual tasks and update 200-arrival Zipf(s=0.85) 3-Gear Cascade simulation",
+    "store_format": "DNULLMM1 (64-byte header + 48-byte open-addressed slots)"
+  },
+  "id": "rce-jepa-h15-iterative-2026-11-23",
+  "information_boundary": {
+    "allowed_inputs_per_turn": [
+      "1. Broken task source (task['mutant'] on turn 1, and latest proposed candidate on turns 2..5).",
+      "2. Public declaration signatures only (pub const, pub struct, pub kind, pub fn header without implementation body) of any built-in stdlib/lib/*.rce modules imported or referenced by the broken file in openIE-dev/rce at 1762fb4b, strictly excluding task['path'] itself.",
+      "3. Verbatim deterministic output of rce check (including W-MUT-1 diagnostics) and obligation-preservation check after each turn."
+    ],
+    "forbidden_inputs": [
+      "ZERO access to task['original'] at any point before or during proposal turns 1..5.",
+      "ZERO access to stdlib implementation bodies or to the target file's own stdlib header when repairing stdlib/lib/*.rce."
+    ],
+    "max_turns": 5
+  },
+  "registered": "2026-11-23, locked with SHA-256 sidecar before executing any H15-Iterative LLM call or checker turn"
+}

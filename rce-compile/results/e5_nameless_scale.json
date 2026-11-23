@@ -1,0 +1,145 @@
+{
+  "schema": "openie.rce_compile.e5_nameless_scale.v1",
+  "prereg_id": "rce-compile-wave4-e4-energy-e5-scale-2026-11-23",
+  "prereg_sha256": "165a12cda4d9c3043ab8803362fe83aa3e17ad7ea5dea505d3c9dc78105b3c4b",
+  "recorded_utc": "2026-11-23T05:30:48Z",
+  "bench_root": "$BENCH_ROOT",
+  "provenance": {
+    "basis": "reported",
+    "board_metered": false,
+    "measured_j": null,
+    "rce_commit": "1762fb4b",
+    "w1_corpus_total_rows": 192,
+    "w1_emitted_forms_evaluated": 185,
+    "c_rust_python_kernels_evaluated": 60,
+    "total_base_programs": 245
+  },
+  "equivalence_hit_rates": {
+    "w1_rce_forms_185": {
+      "fmt_shift": {
+        "total": 185,
+        "raw": 0,
+        "ws_strip": 185,
+        "naive_ast": 185,
+        "debruijn_nameless": 0
+      },
+      "alpha_rename": {
+        "total": 185,
+        "raw": 0,
+        "ws_strip": 50,
+        "naive_ast": 185,
+        "debruijn_nameless": 128
+      },
+      "decl_reorder": {
+        "total": 23,
+        "raw": 0,
+        "ws_strip": 0,
+        "naive_ast": 8,
+        "debruijn_nameless": 0
+      }
+    },
+    "c_rust_python_kernels_60": {
+      "fmt_shift": {
+        "total": 60,
+        "raw": 0,
+        "ws_strip": 60,
+        "naive_ast": 60,
+        "debruijn_nameless": 60
+      },
+      "alpha_rename": {
+        "total": 60,
+        "raw": 0,
+        "ws_strip": 0,
+        "naive_ast": 60,
+        "debruijn_nameless": 40
+      },
+      "decl_reorder": {
+        "total": 60,
+        "raw": 0,
+        "ws_strip": 0,
+        "naive_ast": 0,
+        "debruijn_nameless": 60
+      }
+    }
+  },
+  "semantic_mutant_soundness_500": {
+    "binding_swap": {
+      "total": 150,
+      "raw_collisions": 0,
+      "ws_strip_collisions": 0,
+      "naive_ast_collisions": 150,
+      "debruijn_collisions": 0
+    },
+    "operator": {
+      "total": 150,
+      "raw_collisions": 0,
+      "ws_strip_collisions": 0,
+      "naive_ast_collisions": 0,
+      "debruijn_collisions": 0
+    },
+    "literal": {
+      "total": 125,
+      "raw_collisions": 0,
+      "ws_strip_collisions": 0,
+      "naive_ast_collisions": 0,
+      "debruijn_collisions": 0
+    },
+    "guard": {
+      "total": 75,
+      "raw_collisions": 0,
+      "ws_strip_collisions": 0,
+      "naive_ast_collisions": 0,
+      "debruijn_collisions": 0
+    },
+    "all_500": {
+      "total": 500,
+      "raw_collisions": 0,
+      "ws_strip_collisions": 0,
+      "naive_ast_collisions": 150,
+      "debruijn_collisions": 0
+    }
+  },
+  "cross_program_soundness": {
+    "distinct_base_programs": 245,
+    "unordered_pairs_checked": 29890,
+    "debruijn_cross_collisions": 0
+  },
+  "avoided_compilation_energy": {
+    "clang_O3_per_kernel": {
+      "cold_compile_core_j": 0.682278,
+      "cold_compile_pkg_j": 9.607126,
+      "cold_wall_s": 0.082033,
+      "warm_debruijn_lookup_core_uj": 4066.302,
+      "warm_debruijn_lookup_pkg_uj": 39618.923,
+      "warm_lookup_us": 342.039,
+      "avoided_core_j_per_hit": 0.678212,
+      "energy_reduction_factor_core": 167.8
+    },
+    "rustc_O3_per_kernel": {
+      "cold_compile_core_j": 1.166029,
+      "cold_compile_pkg_j": 17.946797,
+      "cold_wall_s": 0.143811,
+      "warm_debruijn_lookup_core_uj": 2599.658,
+      "warm_debruijn_lookup_pkg_uj": 34852.476,
+      "warm_lookup_us": 288.134,
+      "avoided_core_j_per_hit": 1.163429,
+      "energy_reduction_factor_core": 448.5
+    },
+    "rce_check_plus_5emit_per_form": {
+      "cold_compile_core_j": 0.07871,
+      "cold_compile_pkg_j": 1.200728,
+      "cold_wall_s": 0.009849,
+      "warm_rce_fmt_nameless_core_j": 0.004591,
+      "warm_rce_fmt_nameless_wall_s": 0.00074,
+      "warm_hits_of_40": 34,
+      "avoided_core_j_per_hit": 0.07412,
+      "energy_reduction_factor_core": 17.15
+    }
+  },
+  "verdict": {
+    "h5_scale_supported": true,
+    "debruijn_false_positive_rate": "0 / 500 (0.00%)",
+    "naive_ast_binding_swap_collision_rate": "150 / 150 (100.0%)",
+    "naive_ast_total_false_positive_rate": "150 / 500 (30.0%)"
+  }
+}

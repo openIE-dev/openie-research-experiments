@@ -1,0 +1,385 @@
+{
+  "arms": {
+    "iter_claude_opus_5_5": {
+      "behaves_the_same": 39,
+      "behaviour_equal": 5,
+      "closed_api_server_energy": "not_available",
+      "contradicts": 0,
+      "iterative_admitted": 40,
+      "iterative_admitted_share": 1.0,
+      "max_turns": 5,
+      "measured_j": null,
+      "model": "claude-opus-5-5",
+      "not_compared_or_undecided": 1,
+      "restored": 34,
+      "tasks": 40,
+      "total_cost_usd": 1.81041,
+      "total_input_tokens": 133527,
+      "total_output_tokens": 45711,
+      "total_thinking_tokens": 16572,
+      "total_turns_called": 42,
+      "total_wall_s": 382.53,
+      "turn1_admitted_with_stdlib_headers": 38,
+      "winning_turn_distribution": {
+        "1": 38,
+        "2": 2
+      }
+    },
+    "iter_claude_sonnet_5_5": {
+      "behaves_the_same": 39,
+      "behaviour_equal": 4,
+      "closed_api_server_energy": "not_available",
+      "contradicts": 0,
+      "iterative_admitted": 40,
+      "iterative_admitted_share": 1.0,
+      "max_turns": 5,
+      "measured_j": null,
+      "model": "claude-sonnet-5-5",
+      "not_compared_or_undecided": 1,
+      "restored": 35,
+      "tasks": 40,
+      "total_cost_usd": 1.11217,
+      "total_input_tokens": 137385,
+      "total_output_tokens": 46668,
+      "total_thinking_tokens": 17846,
+      "total_turns_called": 43,
+      "total_wall_s": 329.378,
+      "turn1_admitted_with_stdlib_headers": 38,
+      "winning_turn_distribution": {
+        "1": 38,
+        "2": 1,
+        "3": 1
+      }
+    },
+    "iter_xai_grok_4_20_reasoning": {
+      "behaves_the_same": 37,
+      "behaviour_equal": 7,
+      "closed_api_server_energy": "not_available",
+      "contradicts": 0,
+      "iterative_admitted": 39,
+      "iterative_admitted_share": 0.975,
+      "max_turns": 5,
+      "measured_j": null,
+      "model": "xai:grok-4.20-0309-reasoning",
+      "not_compared_or_undecided": 2,
+      "restored": 30,
+      "tasks": 40,
+      "total_cost_usd": 4.05554,
+      "total_input_tokens": 269930,
+      "total_output_tokens": 28903,
+      "total_thinking_tokens": 341027,
+      "total_turns_called": 50,
+      "total_wall_s": 3422.259,
+      "turn1_admitted_with_stdlib_headers": 35,
+      "winning_turn_distribution": {
+        "1": 35,
+        "2": 2,
+        "3": 2
+      }
+    }
+  },
+  "cascade_3_gear_zipf_0p85_m200_with_opus_5_5_iterative": {
+    "admitted_arrivals": 200,
+    "arrivals": 200,
+    "episode_reduction_vs_stateless_200": 16.67,
+    "gear0_dnullmm1_hits": 163,
+    "gear1_form_jepa_v1_admissions": 25,
+    "gear1_form_jepa_v1_calls": 37,
+    "gear2_opus_iterative_admissions": 12,
+    "gear2_opus_iterative_api_turns": 14,
+    "gear2_opus_iterative_cost_usd": 0.9822,
+    "gear2_opus_iterative_episodes": 12
+  },
+  "completed_utc": "2026-11-23T06:17:36Z",
+  "engine": {
+    "openie_research_experiments_commit": "1d73cb38330d62439a9d77f05507113d78690200",
+    "rce_commit": "1762fb4bb65a58de07ab00f0d1bfdf4969d0358c",
+    "rce_linux_x86_64_binary_sha256": "331464496009d98ad8f55095aa4c26f7266ae49ce602d3cba2c74f185e766df9",
+    "rce_rules_sha256": "7a8bdcbe7525fe25b285ddd03eadcbb91e6854f19daa7853bd2d49c39a12c247",
+    "residual_40_sha256": "3ca3a32769145e9b502b9b7b9d2c0402e97ce6a860203668a35a35535d46b25b"
+  },
+  "prereg_id": "rce-jepa-h15-iterative-2026-11-23",
+  "prereg_sha256": "a7774d3bd03ae4507a0a2c4856cb5ad1f29f15791ecd96e55b2f3207b290bc8b",
+  "previously_unsolved_6_breakdown": {
+    "programs/ecosystem/pqxdh.rce@a828e934": {
+      "iter_claude_opus_5_5": {
+        "admitted": true,
+        "cost_usd": 0.06885,
+        "equivalence": "restored",
+        "final_diagnostic": "ok",
+        "input_tokens": 5240,
+        "output_tokens": 1706,
+        "stdlib_headers_provided": [
+          "pq",
+          "crypto",
+          "core.bytes"
+        ],
+        "thinking_tokens": 356,
+        "turns_used": 1,
+        "winning_turn": 1
+      },
+      "iter_claude_sonnet_5_5": {
+        "admitted": true,
+        "cost_usd": 0.041685,
+        "equivalence": "restored",
+        "final_diagnostic": "ok",
+        "input_tokens": 5240,
+        "output_tokens": 1731,
+        "stdlib_headers_provided": [
+          "pq",
+          "crypto",
+          "core.bytes"
+        ],
+        "thinking_tokens": 385,
+        "turns_used": 1,
+        "winning_turn": 1
+      },
+      "iter_xai_grok_4_20_reasoning": {
+        "admitted": true,
+        "cost_usd": 0.289411,
+        "equivalence": "restored",
+        "final_diagnostic": "ok",
+        "input_tokens": 52859,
+        "output_tokens": 2520,
+        "stdlib_headers_provided": [
+          "pq",
+          "crypto",
+          "core.bytes"
+        ],
+        "thinking_tokens": 20273,
+        "turns_used": 3,
+        "winning_turn": 3
+      }
+    },
+    "programs/multi/washer.rce@2cc82de7": {
+      "iter_claude_opus_5_5": {
+        "admitted": true,
+        "cost_usd": 0.135925,
+        "equivalence": "behaviour-equal",
+        "final_diagnostic": "ok",
+        "input_tokens": 4815,
+        "output_tokens": 4474,
+        "stdlib_headers_provided": [],
+        "thinking_tokens": 3688,
+        "turns_used": 2,
+        "winning_turn": 2
+      },
+      "iter_claude_sonnet_5_5": {
+        "admitted": true,
+        "cost_usd": 0.169614,
+        "equivalence": "behaviour-equal",
+        "final_diagnostic": "ok",
+        "input_tokens": 8673,
+        "output_tokens": 9573,
+        "stdlib_headers_provided": [],
+        "thinking_tokens": 8411,
+        "turns_used": 3,
+        "winning_turn": 3
+      },
+      "iter_xai_grok_4_20_reasoning": {
+        "admitted": false,
+        "cost_usd": 0.571814,
+        "equivalence": "",
+        "final_diagnostic": "requires change prog.rce: line 6: W-MUT-1 `example Start, Tick, Tick, Tick, Start, Tick, Open, Start -> kept: Running` holds on each of the 6 mutants at the expressions its run evaluates and on every ",
+        "input_tokens": 61525,
+        "output_tokens": 1213,
+        "stdlib_headers_provided": [],
+        "thinking_tokens": 49216,
+        "turns_used": 5,
+        "winning_turn": null
+      }
+    },
+    "spec/examples/57_float_vectors.rce@b2b932da": {
+      "iter_claude_opus_5_5": {
+        "admitted": true,
+        "cost_usd": 0.141075,
+        "equivalence": "behaviour-equal",
+        "final_diagnostic": "ok",
+        "input_tokens": 7540,
+        "output_tokens": 4135,
+        "stdlib_headers_provided": [],
+        "thinking_tokens": 2006,
+        "turns_used": 2,
+        "winning_turn": 2
+      },
+      "iter_claude_sonnet_5_5": {
+        "admitted": true,
+        "cost_usd": 0.065865,
+        "equivalence": "behaviour-equal",
+        "final_diagnostic": "ok",
+        "input_tokens": 7540,
+        "output_tokens": 2883,
+        "stdlib_headers_provided": [],
+        "thinking_tokens": 754,
+        "turns_used": 2,
+        "winning_turn": 2
+      },
+      "iter_xai_grok_4_20_reasoning": {
+        "admitted": true,
+        "cost_usd": 0.15208,
+        "equivalence": "behaviour-equal",
+        "final_diagnostic": "ok",
+        "input_tokens": 2020,
+        "output_tokens": 844,
+        "stdlib_headers_provided": [],
+        "thinking_tokens": 13983,
+        "turns_used": 1,
+        "winning_turn": 1
+      }
+    },
+    "stdlib/lib/hpke.rce@a828e934": {
+      "iter_claude_opus_5_5": {
+        "admitted": true,
+        "cost_usd": 0.16274,
+        "equivalence": "restored",
+        "final_diagnostic": "ok",
+        "input_tokens": 10948,
+        "output_tokens": 4320,
+        "stdlib_headers_provided": [
+          "crypto",
+          "core.bytes"
+        ],
+        "thinking_tokens": 400,
+        "turns_used": 1,
+        "winning_turn": 1
+      },
+      "iter_claude_sonnet_5_5": {
+        "admitted": true,
+        "cost_usd": 0.094119,
+        "equivalence": "restored",
+        "final_diagnostic": "ok",
+        "input_tokens": 10948,
+        "output_tokens": 4085,
+        "stdlib_headers_provided": [
+          "crypto",
+          "core.bytes"
+        ],
+        "thinking_tokens": 463,
+        "turns_used": 1,
+        "winning_turn": 1
+      },
+      "iter_xai_grok_4_20_reasoning": {
+        "admitted": true,
+        "cost_usd": 0.17642,
+        "equivalence": "restored",
+        "final_diagnostic": "ok",
+        "input_tokens": 8055,
+        "output_tokens": 4291,
+        "stdlib_headers_provided": [
+          "crypto",
+          "core.bytes"
+        ],
+        "thinking_tokens": 11763,
+        "turns_used": 1,
+        "winning_turn": 1
+      }
+    },
+    "stdlib/lib/mls.rce@a828e934": {
+      "iter_claude_opus_5_5": {
+        "admitted": true,
+        "cost_usd": 0.11714,
+        "equivalence": "restored",
+        "final_diagnostic": "ok",
+        "input_tokens": 7988,
+        "output_tokens": 3088,
+        "stdlib_headers_provided": [
+          "crypto",
+          "core.bytes"
+        ],
+        "thinking_tokens": 212,
+        "turns_used": 1,
+        "winning_turn": 1
+      },
+      "iter_claude_sonnet_5_5": {
+        "admitted": true,
+        "cost_usd": 0.066729,
+        "equivalence": "restored",
+        "final_diagnostic": "ok",
+        "input_tokens": 7988,
+        "output_tokens": 2851,
+        "stdlib_headers_provided": [
+          "crypto",
+          "core.bytes"
+        ],
+        "thinking_tokens": 517,
+        "turns_used": 1,
+        "winning_turn": 1
+      },
+      "iter_xai_grok_4_20_reasoning": {
+        "admitted": true,
+        "cost_usd": 0.149327,
+        "equivalence": "restored",
+        "final_diagnostic": "ok",
+        "input_tokens": 5785,
+        "output_tokens": 2142,
+        "stdlib_headers_provided": [
+          "crypto",
+          "core.bytes"
+        ],
+        "thinking_tokens": 11818,
+        "turns_used": 1,
+        "winning_turn": 1
+      }
+    },
+    "stdlib/lib/pq.rce@a828e934": {
+      "iter_claude_opus_5_5": {
+        "admitted": true,
+        "cost_usd": 0.226145,
+        "equivalence": "restored",
+        "final_diagnostic": "ok",
+        "input_tokens": 17184,
+        "output_tokens": 5609,
+        "stdlib_headers_provided": [
+          "crypto",
+          "core.bytes"
+        ],
+        "thinking_tokens": 471,
+        "turns_used": 1,
+        "winning_turn": 1
+      },
+      "iter_claude_sonnet_5_5": {
+        "admitted": true,
+        "cost_usd": 0.143637,
+        "equivalence": "restored",
+        "final_diagnostic": "ok",
+        "input_tokens": 17184,
+        "output_tokens": 6139,
+        "stdlib_headers_provided": [
+          "crypto",
+          "core.bytes"
+        ],
+        "thinking_tokens": 961,
+        "turns_used": 1,
+        "winning_turn": 1
+      },
+      "iter_xai_grok_4_20_reasoning": {
+        "admitted": true,
+        "cost_usd": 0.307961,
+        "equivalence": "restored",
+        "final_diagnostic": "ok",
+        "input_tokens": 41131,
+        "output_tokens": 7726,
+        "stdlib_headers_provided": [
+          "crypto",
+          "core.bytes"
+        ],
+        "thinking_tokens": 17217,
+        "turns_used": 2,
+        "winning_turn": 2
+      }
+    }
+  },
+  "schema": "openie-rce-jepa-h15-iterative-summary/1",
+  "union_admitted_across_3_arms": 40,
+  "warm_dnullmm1_gear0_v2": {
+    "apple_m5_max_probe_reference_uj": 1.771,
+    "apple_m5_max_probe_reference_us": 0.3246,
+    "crystallized_records": 40,
+    "store_format": "DNULLMM1 (64B header + 48B slots)",
+    "store_jsonl_sha256": "80cf265038bcd5ebd74a2e02c1d71e7185e7ce8475c586bcdaeb417987704046",
+    "t2_model_calls": 0,
+    "t2_replay_wall_s_with_remote_rce_check": 4.7291,
+    "t2_zero_call_rce_re_admitted": 40,
+    "t2_zero_call_replay_hits": 40
+  }
+}

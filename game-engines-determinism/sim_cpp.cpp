@@ -1,14 +1,11 @@
-// C++20 target for `game-engines` (`GE-H1` Q32.32 & `GE-H2` strict f64 / fast-math FMA / f32).
+// Cross-OS C++20 target (`MSVC cl.exe` on Windows 11 x86_64, `clang++` / `g++` on macOS & Linux)
+// for `game-engines` (`GE-H1` Q32.32 & `GE-H2` strict f64 / AVX2 FMA / fast-math / f32).
 // Compiled via:
-//   Strict:    clang++ -std=c++20 -O3 -ffp-contract=off -fno-fast-math sim_cpp.cpp -ldl -o sim_cpp_strict
-//   FMA:       clang++ -std=c++20 -O3 -ffp-contract=fast [-mavx2 -mfma] sim_cpp.cpp -ldl -o sim_cpp_fma
-//   Fast-math: clang++ -std=c++20 -O3 -ffast-math -ffp-contract=fast sim_cpp.cpp -ldl -o sim_cpp_fastmath
+//   Windows MSVC strict: cl /nologo /std:c++20 /O2 /fp:strict /EHsc sim_cpp.cpp /Fe:sim_cpp_msvc_strict.exe
+//   Windows MSVC AVX2:   cl /nologo /std:c++20 /O2 /arch:AVX2 /fp:precise /EHsc sim_cpp.cpp /Fe:sim_cpp_msvc_fma.exe
+//   Windows MSVC fast:   cl /nologo /std:c++20 /O2 /arch:AVX2 /fp:fast /EHsc sim_cpp.cpp /Fe:sim_cpp_msvc_fast.exe
+//   POSIX Clang/GCC:     clang++ -std=c++20 -O3 -ffp-contract=off -fno-fast-math sim_cpp.cpp -o sim_cpp_strict
 
-#ifdef __APPLE__
-#include <CommonCrypto/CommonDigest.h>
-#else
-#include <dlfcn.h>
-#endif
 #include <algorithm>
 #include <array>
 #include <chrono>
@@ -21,24 +18,75 @@
 #include <string>
 #include <vector>
 
-static std::string sha256_hex(const uint8_t* data, size_t len) {
-    uint8_t md[32];
-#ifdef __APPLE__
-    CC_SHA256(data, static_cast<CC_LONG>(len), md);
+#ifdef _MSC_VER
+#include <__msvc_int128.hpp>
+using i128_t = std::_Signed128;
+using u128_t = std::_Unsigned128;
 #else
-    using Sha256Fn = uint8_t* (*)(const uint8_t*, size_t, uint8_t*);
-    static Sha256Fn fn = []() -> Sha256Fn {
-        void* h = dlopen("libcrypto.so.3", RTLD_LAZY);
-        if (!h) std::abort();
-        auto sym = reinterpret_cast<Sha256Fn>(dlsym(h, "SHA256"));
-        if (!sym) std::abort();
-        return sym;
-    }();
-    fn(data, len, md);
+using i128_t = __int128;
+using u128_t = unsigned __int128;
 #endif
+
+static inline uint32_t rotr32(uint32_t x, int n) {
+    return (x >> n) | (x << (32 - n));
+}
+
+static constexpr std::array<uint32_t, 64> K256 = {
+    0x428a2f98u, 0x71374491u, 0xb5c0fbcfu, 0xe9b5dba5u, 0x3956c25bu, 0x59f111f1u, 0x923f82a4u, 0xab1c5ed5u,
+    0xd807aa98u, 0x12835b01u, 0x243185beu, 0x550c7dc3u, 0x72be5d74u, 0x80deb1feu, 0x9bdc06a7u, 0xc19bf174u,
+    0xe49b69c1u, 0xefbe4786u, 0x0fc19dc6u, 0x240ca1ccu, 0x2de92c6fu, 0x4a7484aau, 0x5cb0a9dcu, 0x76f988dau,
+    0x983e5152u, 0xa831c66du, 0xb00327c8u, 0xbf597fc7u, 0xc6e00bf3u, 0xd5a79147u, 0x06ca6351u, 0x14292967u,
+    0x27b70a85u, 0x2e1b2138u, 0x4d2c6dfcu, 0x53380d13u, 0x650a7354u, 0x766a0abbu, 0x81c2c92eu, 0x92722c85u,
+    0xa2bfe8a1u, 0xa81a664bu, 0xc24b8b70u, 0xc76c51a3u, 0xd192e819u, 0xd6990624u, 0xf40e3585u, 0x106aa070u,
+    0x19a4c116u, 0x1e376c08u, 0x2748774cu, 0x34b0bcb5u, 0x391c0cb3u, 0x4ed8aa4au, 0x5b9cca4fu, 0x682e6ff3u,
+    0x748f82eeu, 0x78a5636fu, 0x84c87814u, 0x8cc70208u, 0x90befffau, 0xa4506cebu, 0xbef9a3f7u, 0xc67178f2u
+};
+
+static std::string sha256_hex(const uint8_t* data, size_t len) {
+    uint32_t h[8] = {
+        0x6a09e667u, 0xbb67ae85u, 0x3c6ef372u, 0xa54ff53au,
+        0x510e527fu, 0x9b05688cu, 0x1f83d9abu, 0x5be0cd19u
+    };
+    uint64_t bit_len = static_cast<uint64_t>(len) * 8ULL;
+    size_t pad_len = (len + 9 + 63) & ~size_t(63);
+    std::vector<uint8_t> msg(pad_len, 0);
+    std::memcpy(msg.data(), data, len);
+    msg[len] = 0x80u;
+    for (int b = 0; b < 8; ++b) {
+        msg[pad_len - 8 + b] = static_cast<uint8_t>(bit_len >> (56 - 8 * b));
+    }
+
+    uint32_t w[64];
+    for (size_t off = 0; off < pad_len; off += 64) {
+        for (int i = 0; i < 16; ++i) {
+            w[i] = (static_cast<uint32_t>(msg[off + 4 * i]) << 24) |
+                   (static_cast<uint32_t>(msg[off + 4 * i + 1]) << 16) |
+                   (static_cast<uint32_t>(msg[off + 4 * i + 2]) << 8) |
+                   static_cast<uint32_t>(msg[off + 4 * i + 3]);
+        }
+        for (int i = 16; i < 64; ++i) {
+            uint32_t s0 = rotr32(w[i - 15], 7) ^ rotr32(w[i - 15], 18) ^ (w[i - 15] >> 3);
+            uint32_t s1 = rotr32(w[i - 2], 17) ^ rotr32(w[i - 2], 19) ^ (w[i - 2] >> 10);
+            w[i] = w[i - 16] + s0 + w[i - 7] + s1;
+        }
+        uint32_t a = h[0], b = h[1], c = h[2], d = h[3];
+        uint32_t e = h[4], f = h[5], g = h[6], hh = h[7];
+        for (int i = 0; i < 64; ++i) {
+            uint32_t s1 = rotr32(e, 6) ^ rotr32(e, 11) ^ rotr32(e, 25);
+            uint32_t ch = (e & f) ^ ((~e) & g);
+            uint32_t t1 = hh + s1 + ch + K256[i] + w[i];
+            uint32_t s0 = rotr32(a, 2) ^ rotr32(a, 13) ^ rotr32(a, 22);
+            uint32_t maj = (a & b) ^ (a & c) ^ (b & c);
+            uint32_t t2 = s0 + maj;
+            hh = g; g = f; f = e; e = d + t1; d = c; c = b; b = a; a = t1 + t2;
+        }
+        h[0] += a; h[1] += b; h[2] += c; h[3] += d;
+        h[4] += e; h[5] += f; h[6] += g; h[7] += hh;
+    }
+
     char hex[65];
-    for (int i = 0; i < 32; ++i) {
-        std::snprintf(hex + i * 2, 3, "%02x", md[i]);
+    for (int i = 0; i < 8; ++i) {
+        std::snprintf(hex + i * 8, 9, "%08x", h[i]);
     }
     hex[64] = '\0';
     return std::string(hex);
@@ -55,9 +103,7 @@ static constexpr int64_t DRAG_DASH = 4286377361LL;
 static constexpr int64_t REST_WALL = 3865470566LL;
 static constexpr int64_t ONE_PLUS_E = 7945689498LL;
 static constexpr int64_t MIN_DIST = 4 * ONE;
-static constexpr __int128 MIN_DIST_SQ = static_cast<__int128>(MIN_DIST) * static_cast<__int128>(MIN_DIST);
 static constexpr int64_t PICKUP_DIST = 5 * ONE;
-static constexpr __int128 PICKUP_DIST_SQ = static_cast<__int128>(PICKUP_DIST) * static_cast<__int128>(PICKUP_DIST);
 static constexpr int64_t DIAG = 3037000500LL;
 
 static constexpr std::array<int64_t, 8> DIR_X = {ONE, DIAG, 0, -DIAG, -ONE, -DIAG, 0, DIAG};
@@ -78,29 +124,29 @@ static inline std::pair<uint64_t, uint64_t> splitmix64_next(uint64_t state) {
 }
 
 static inline int64_t qmul(int64_t a, int64_t b) {
-    return static_cast<int64_t>((static_cast<__int128>(a) * static_cast<__int128>(b)) >> 32);
+    return static_cast<int64_t>((i128_t(a) * i128_t(b)) >> 32);
 }
 
-static inline int64_t trunc_div128(__int128 num, __int128 den) {
-    unsigned __int128 d = static_cast<unsigned __int128>(den);
-    if (num >= 0) {
-        return static_cast<int64_t>(static_cast<unsigned __int128>(num) / d);
+static inline int64_t trunc_div128(i128_t num, i128_t den) {
+    u128_t d = static_cast<u128_t>(den);
+    if (num >= i128_t(0)) {
+        return static_cast<int64_t>(static_cast<u128_t>(num) / d);
     }
-    unsigned __int128 mag = static_cast<unsigned __int128>(-num);
+    u128_t mag = static_cast<u128_t>(-num);
     return -static_cast<int64_t>(mag / d);
 }
 
-static inline int64_t isqrt_u128(unsigned __int128 n) {
-    if (n == 0) return 0;
+static inline int64_t isqrt_u128(u128_t n) {
+    if (n == u128_t(0)) return 0;
     uint32_t bits = 0;
-    unsigned __int128 tmp = n;
-    while (tmp > 0) {
+    u128_t tmp = n;
+    while (tmp > u128_t(0)) {
         ++bits;
         tmp >>= 1;
     }
-    unsigned __int128 x = static_cast<unsigned __int128>(1) << ((bits + 1) >> 1);
+    u128_t x = u128_t(1) << ((bits + 1) >> 1);
     while (true) {
-        unsigned __int128 y = (x + n / x) >> 1;
+        u128_t y = (x + n / x) >> 1;
         if (y >= x) return static_cast<int64_t>(x);
         x = y;
     }
@@ -113,6 +159,9 @@ static inline void put_le(uint8_t* dst, size_t& off, T val) {
 }
 
 static std::vector<std::pair<uint32_t, std::string>> run_q32_sim(uint32_t ticks, uint32_t stride) {
+    const i128_t min_dist_sq = i128_t(MIN_DIST) * i128_t(MIN_DIST);
+    const i128_t pickup_dist_sq = i128_t(PICKUP_DIST) * i128_t(PICKUP_DIST);
+
     uint64_t rng = INITIAL_SEED;
     std::array<int64_t, N_BODIES> bx{}, by{}, bvx{}, bvy{}, bmass{};
     std::array<uint8_t, N_BODIES> bfsm{};
@@ -206,12 +255,11 @@ static std::vector<std::pair<uint32_t, std::string>> run_q32_sim(uint32_t ticks,
             for (size_t j = i + 1; j < N_BODIES; ++j) {
                 int64_t dx = bx[j] - bx[i];
                 int64_t dy = by[j] - by[i];
-                __int128 dist_sq = static_cast<__int128>(dx) * static_cast<__int128>(dx) +
-                                   static_cast<__int128>(dy) * static_cast<__int128>(dy);
-                if (dist_sq > 0 && dist_sq < MIN_DIST_SQ) {
-                    int64_t dist = isqrt_u128(static_cast<unsigned __int128>(dist_sq));
-                    int64_t nx = trunc_div128(static_cast<__int128>(dx) * static_cast<__int128>(ONE), dist);
-                    int64_t ny = trunc_div128(static_cast<__int128>(dy) * static_cast<__int128>(ONE), dist);
+                i128_t dist_sq = i128_t(dx) * i128_t(dx) + i128_t(dy) * i128_t(dy);
+                if (dist_sq > i128_t(0) && dist_sq < min_dist_sq) {
+                    int64_t dist = isqrt_u128(static_cast<u128_t>(dist_sq));
+                    int64_t nx = trunc_div128(i128_t(dx) * i128_t(ONE), i128_t(dist));
+                    int64_t ny = trunc_div128(i128_t(dy) * i128_t(ONE), i128_t(dist));
                     int64_t sep = (MIN_DIST - dist) >> 1;
                     int64_t cx = qmul(sep, nx);
                     int64_t cy = qmul(sep, ny);
@@ -226,8 +274,8 @@ static std::vector<std::pair<uint32_t, std::string>> run_q32_sim(uint32_t ticks,
                     if (vn < 0) {
                         int64_t j_base = qmul(-vn, ONE_PLUS_E);
                         int64_t msum = bmass[i] + bmass[j];
-                        int64_t dvi = trunc_div128(static_cast<__int128>(j_base) * static_cast<__int128>(bmass[j]), msum);
-                        int64_t dvj = trunc_div128(static_cast<__int128>(j_base) * static_cast<__int128>(bmass[i]), msum);
+                        int64_t dvi = trunc_div128(i128_t(j_base) * i128_t(bmass[j]), i128_t(msum));
+                        int64_t dvj = trunc_div128(i128_t(j_base) * i128_t(bmass[i]), i128_t(msum));
                         bvx[i] -= qmul(dvi, nx);
                         bvy[i] -= qmul(dvi, ny);
                         bvx[j] += qmul(dvj, nx);
@@ -243,8 +291,7 @@ static std::vector<std::pair<uint32_t, std::string>> run_q32_sim(uint32_t ticks,
                 for (size_t i = 0; i < N_BODIES; ++i) {
                     int64_t pdx = bx[i] - px[p];
                     int64_t pdy = by[i] - py[p];
-                    if (static_cast<__int128>(pdx) * static_cast<__int128>(pdx) +
-                        static_cast<__int128>(pdy) * static_cast<__int128>(pdy) <= PICKUP_DIST_SQ) {
+                    if (i128_t(pdx) * i128_t(pdx) + i128_t(pdy) * i128_t(pdy) <= pickup_dist_sq) {
                         bscore[i] += 1;
                         deact[p] = 1;
                         break;
@@ -300,7 +347,7 @@ static std::vector<std::pair<uint32_t, std::string>> run_q32_sim(uint32_t ticks,
 static inline uint64_t canon_f64_bits(double v) {
     uint64_t bits = 0;
     std::memcpy(&bits, &v, 8);
-    if ((bits & 0x7FFFFFFFFFFFFFFFULL) == 0ULL) return 0ULL; // -0.0 -> +0.0 without fast-math folding
+    if ((bits & 0x7FFFFFFFFFFFFFFFULL) == 0ULL) return 0ULL;
     return bits;
 }
 

@@ -3,7 +3,7 @@ name = "ge_h3_wgpu_bench"
 version = "0.1.0"
 edition = "2021"
 license = "Apache-2.0"
-description = "Headless cross-GPU wgpu (Metal / Vulkan) rendering tolerance benchmark for OpenIE game-engines (GE-H3)"
+description = "Headless cross-OS & cross-API wgpu (DirectX 12 / Metal / Vulkan) rendering tolerance benchmark for OpenIE game-engines (GE-H3)"
 
 [dependencies]
 bytemuck = { version = "1.18", features = ["derive"] }

@@ -979,7 +979,8 @@ fn render_on_adapter(
         write_gz(&out_dir.join(&gz_name), &bytes);
 
         println!(
-            "  [GPU] {:38} tick={:5} render={:6.2}ms fb_sha256={}...",
+            "  [GPU:{:6}] {:38} tick={:5} render={:6.2}ms fb_sha256={}...",
+            backend_str,
             info.name,
             tick,
             render_ms,
@@ -1038,11 +1039,19 @@ struct FramePairMetrics {
 struct AdapterPairSummary {
     adapter_a: String,
     adapter_b: String,
+    adapter_key_a: String,
+    adapter_key_b: String,
+    host_a: String,
+    host_b: String,
+    backend_a: String,
+    backend_b: String,
     category: String,
     any_bitwise_divergence: bool,
     all_4_frames_pass_ge_h3_gate: bool,
     worst_max_abs_channel_diff_u8: u8,
     mean_differing_pixels_pct: f64,
+    mean_mae_u8: f64,
+    mean_rmse_u8: f64,
     min_psnr_db: Option<f64>,
     min_ssim: f64,
     max_outlier_fraction_gt_eps8: f64,
@@ -1255,8 +1264,8 @@ fn run_render_cmd(host_id: &str, out_dir: &Path) {
         frames: cpu_frames,
     }];
 
-    // 2. Enumerate all wgpu Vulkan / Metal adapters on host
-    let backends = wgpu::Backends::VULKAN | wgpu::Backends::METAL;
+    // 2. Enumerate all wgpu DirectX 12 / Vulkan / Metal adapters on host
+    let backends = wgpu::Backends::DX12 | wgpu::Backends::VULKAN | wgpu::Backends::METAL;
     let instance = wgpu::Instance::new(wgpu::InstanceDescriptor {
         backends,
         ..Default::default()
@@ -1265,7 +1274,7 @@ fn run_render_cmd(host_id: &str, out_dir: &Path) {
     let mut seen_keys = HashSet::new();
     for adapter in adapters {
         let info = adapter.get_info();
-        let dedup = format!("{:?}:{}:{}", info.backend, info.name, info.driver);
+        let dedup = format!("{:?}:{}:{}:{}", info.backend, info.name, info.driver, info.device);
         if !seen_keys.insert(dedup) {
             continue;
         }
@@ -1317,6 +1326,7 @@ fn run_compare_cmd(in_dir: &Path, out_json: &Path) {
     let mut cpu_refs: Vec<AdapterReceipt> = Vec::new();
     let mut hw_gpus: Vec<AdapterReceipt> = Vec::new();
     let mut sw_vulkans: Vec<AdapterReceipt> = Vec::new();
+    let mut sw_dx12_warp: Vec<AdapterReceipt> = Vec::new();
 
     for m in &manifests {
         for a in &m.adapters {
@@ -1324,6 +1334,8 @@ fn run_compare_cmd(in_dir: &Path, out_json: &Path) {
                 cpu_refs.push(a.clone());
             } else if a.is_hardware_gpu {
                 hw_gpus.push(a.clone());
+            } else if a.backend == "Dx12" {
+                sw_dx12_warp.push(a.clone());
             } else {
                 sw_vulkans.push(a.clone());
             }
@@ -1342,6 +1354,9 @@ fn run_compare_cmd(in_dir: &Path, out_json: &Path) {
     // Load all needed framebuffers into memory cache
     let mut all_selected: Vec<AdapterReceipt> = Vec::new();
     all_selected.extend(hw_gpus.iter().cloned());
+    if let Some(warp) = sw_dx12_warp.first() {
+        all_selected.push(warp.clone());
+    }
     if let Some(sw) = sw_vulkans.first() {
         all_selected.push(sw.clone());
     }
@@ -1355,15 +1370,35 @@ fn run_compare_cmd(in_dir: &Path, out_json: &Path) {
         }
     }
 
+    let os_tag = |hid: &str| -> &'static str {
+        if hid.contains("win11") || hid.contains("windows") {
+            "Win11"
+        } else if hid.contains("macos") || hid.contains("apple") {
+            "macOS"
+        } else {
+            "Linux"
+        }
+    };
+
     let mut pair_summaries: Vec<AdapterPairSummary> = Vec::new();
     for i in 0..all_selected.len() {
         for j in (i + 1)..all_selected.len() {
             let aa = &all_selected[i];
             let ab = &all_selected[j];
             let cat = if aa.is_hardware_gpu && ab.is_hardware_gpu {
-                "physical_gpu_vs_physical_gpu"
+                if aa.host_id == ab.host_id && aa.name == ab.name && aa.backend != ab.backend {
+                    "same_physical_gpu_dx12_vs_vulkan"
+                } else {
+                    "physical_gpu_vs_physical_gpu"
+                }
             } else if aa.backend == "CpuQ16FixedPoint" || ab.backend == "CpuQ16FixedPoint" {
                 "gpu_vs_cpu_q16_software_ref"
+            } else if !aa.is_hardware_gpu && !ab.is_hardware_gpu {
+                "software_dx12_warp_vs_software_vulkan_llvmpipe"
+            } else if (!aa.is_hardware_gpu && aa.backend == "Dx12")
+                || (!ab.is_hardware_gpu && ab.backend == "Dx12")
+            {
+                "physical_gpu_vs_software_dx12_warp"
             } else {
                 "physical_gpu_vs_software_vulkan_llvmpipe"
             };
@@ -1388,6 +1423,10 @@ fn run_compare_cmd(in_dir: &Path, out_json: &Path) {
             let worst_max = fmetrics.iter().map(|m| m.max_abs_channel_diff_u8).max().unwrap_or(0);
             let mean_diff_pct =
                 fmetrics.iter().map(|m| m.differing_pixels_pct).sum::<f64>() / (fmetrics.len() as f64);
+            let mean_mae =
+                fmetrics.iter().map(|m| m.mae_u8).sum::<f64>() / (fmetrics.len() as f64);
+            let mean_rmse =
+                fmetrics.iter().map(|m| m.rmse_u8).sum::<f64>() / (fmetrics.len() as f64);
             let min_psnr = fmetrics
                 .iter()
                 .filter_map(|m| m.psnr_db)
@@ -1401,21 +1440,37 @@ fn run_compare_cmd(in_dir: &Path, out_json: &Path) {
                 .map(|m| m.outlier_fraction_gt_eps8)
                 .fold(0.0f64, |a, b| a.max(b));
 
-            let label_a = format!("{} ({})", aa.name, aa.backend);
-            let label_b = format!("{} ({})", ab.name, ab.backend);
+            let fmt_label = |ad: &AdapterReceipt| -> String {
+                if ad.backend == "CpuQ16FixedPoint" {
+                    format!("{}", ad.name)
+                } else {
+                    let b_disp = if ad.backend == "Dx12" { "DirectX 12" } else { ad.backend.as_str() };
+                    format!("{} ({} {})", ad.name, os_tag(&ad.host_id), b_disp)
+                }
+            };
+            let label_a = fmt_label(aa);
+            let label_b = fmt_label(ab);
             println!(
-                "  [PAIR] {:42} vs {:42} | diff={:6.2}% max_d={:2} min_PSNR={:?}dB min_SSIM={:.6} gate={}",
+                "  [PAIR] {:48} vs {:48} | diff={:6.2}% max_d={:2} min_PSNR={:?}dB min_SSIM={:.6} gate={}",
                 label_a, label_b, mean_diff_pct, worst_max, min_psnr, min_ssim, all_pass
             );
 
             pair_summaries.push(AdapterPairSummary {
                 adapter_a: label_a,
                 adapter_b: label_b,
+                adapter_key_a: aa.adapter_key.clone(),
+                adapter_key_b: ab.adapter_key.clone(),
+                host_a: aa.host_id.clone(),
+                host_b: ab.host_id.clone(),
+                backend_a: aa.backend.clone(),
+                backend_b: ab.backend.clone(),
                 category: cat.to_string(),
                 any_bitwise_divergence: any_div,
                 all_4_frames_pass_ge_h3_gate: all_pass,
                 worst_max_abs_channel_diff_u8: worst_max,
                 mean_differing_pixels_pct: (mean_diff_pct * 10000.0).round() / 10000.0,
+                mean_mae_u8: (mean_mae * 1_000_000.0).round() / 1_000_000.0,
+                mean_rmse_u8: (mean_rmse * 1_000_000.0).round() / 1_000_000.0,
                 min_psnr_db: min_psnr,
                 min_ssim,
                 max_outlier_fraction_gt_eps8: max_out,
@@ -1437,7 +1492,15 @@ fn run_compare_cmd(in_dir: &Path, out_json: &Path) {
 
     let hw_pairs: Vec<&AdapterPairSummary> = pair_summaries
         .iter()
+        .filter(|p| p.category == "physical_gpu_vs_physical_gpu" || p.category == "same_physical_gpu_dx12_vs_vulkan")
+        .collect();
+    let cross_gpu_pairs: Vec<&AdapterPairSummary> = pair_summaries
+        .iter()
         .filter(|p| p.category == "physical_gpu_vs_physical_gpu")
+        .collect();
+    let same_gpu_api_pairs: Vec<&AdapterPairSummary> = pair_summaries
+        .iter()
+        .filter(|p| p.category == "same_physical_gpu_dx12_vs_vulkan")
         .collect();
     let all_hw_diverged_bitwise = hw_pairs.iter().all(|p| p.any_bitwise_divergence);
     let all_hw_pass_gate = hw_pairs.iter().all(|p| p.all_4_frames_pass_ge_h3_gate);
@@ -1445,9 +1508,12 @@ fn run_compare_cmd(in_dir: &Path, out_json: &Path) {
     let out_doc = serde_json::json!({
         "study": "game-engines",
         "hypothesis_id": "GE-H3",
+        "wave": "wave4_cross_os_3api_dx12_metal_vulkan",
         "bench_root": "$BENCH_ROOT",
         "measured_j": null,
         "board_metered": false,
+        "graphics_apis_tested": ["DirectX 12 (HLSL / DXIL)", "Metal (MSL)", "Vulkan (SPIR-V)"],
+        "operating_systems_tested": ["macOS 27.2.1 (arm64)", "Ubuntu Linux 7.0 (x86_64)", "Windows 11 NT 10.0.26300 (x86_64)"],
         "resolution": [WIDTH, HEIGHT],
         "pixel_format": "RGBA8Unorm (512x512x4 = 1,048,576 bytes/frame)",
         "canonical_ticks": CANONICAL_TICKS,
@@ -1459,15 +1525,18 @@ fn run_compare_cmd(in_dir: &Path, out_json: &Path) {
             "min_ssim": 0.999
         },
         "summary": {
-            "physical_gpus_tested": hw_gpus.len(),
+            "hardware_gpu_api_endpoints_tested": hw_gpus.len(),
+            "software_dx12_warp_adapters_tested": sw_dx12_warp.len(),
             "software_vulkan_adapters_tested": sw_vulkans.len(),
             "cpu_q16_hosts_verified": cpu_refs.len(),
             "upstream_q32_state_hash_mismatches": upstream_mismatches,
-            "cpu_q16_cross_isa_framebuffer_mismatches": cpu_q16_cross_host_mismatches,
+            "cpu_q16_cross_isa_cross_os_framebuffer_mismatches": cpu_q16_cross_host_mismatches,
             "llvmpipe_amd_vs_intel_x86_64_bitwise_identical": llvmpipe_cross_x86_identical,
-            "physical_gpu_pairs": hw_pairs.len(),
-            "all_physical_gpu_pairs_exhibit_lsb_bit_divergence": all_hw_diverged_bitwise,
-            "all_physical_gpu_pairs_pass_tolerance_gate": all_hw_pass_gate,
+            "total_hardware_endpoint_pairs": hw_pairs.len(),
+            "cross_gpu_or_cross_os_pairs": cross_gpu_pairs.len(),
+            "same_physical_gpu_dx12_vs_vulkan_pairs": same_gpu_api_pairs.len(),
+            "all_hardware_pairs_exhibit_lsb_bit_divergence": all_hw_diverged_bitwise,
+            "all_hardware_pairs_pass_tolerance_gate": all_hw_pass_gate,
             "verdict": if upstream_mismatches == 0 && cpu_q16_cross_host_mismatches == 0 && all_hw_pass_gate {
                 "PASS_BOUNDED_TOLERANCE_CONFIRMED"
             } else {
@@ -1478,6 +1547,7 @@ fn run_compare_cmd(in_dir: &Path, out_json: &Path) {
         "hardware_gpu_adapters": hw_gpus,
         "software_reference_adapters": {
             "cpu_q16_fixed_point": &cpu_refs[0],
+            "microsoft_dx12_warp": sw_dx12_warp,
             "mesa_llvmpipe_vulkan": sw_vulkans
         },
         "pairwise_comparisons": pair_summaries

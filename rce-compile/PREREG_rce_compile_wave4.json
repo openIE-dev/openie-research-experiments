@@ -1,0 +1,107 @@
+{
+  "id": "rce-compile-wave4-e4-energy-e5-scale-2026-11-23",
+  "study": "rce-compile",
+  "registered_utc": "2026-11-23T04:21:00Z",
+  "locked_before_execution": true,
+  "bench_root": "$BENCH_ROOT",
+  "engine": {
+    "repository": "https://github.com/openIE-dev/rce",
+    "commit": "1762fb4b",
+    "commit_full": "1762fb4bb65a58de07ab00f0d1bfdf4969d0358c",
+    "w1_corpus": "openie-research-experiments/rce/bench/form-space/results/forms.jsonl"
+  },
+  "energy_provenance": {
+    "hardware_class": "AMD Ryzen AI Max+ 395 (Zen 5, 32 logical CPUs, Linux x86_64)",
+    "regime": "B",
+    "basis": "reported",
+    "board_metered": false,
+    "measured_j": null,
+    "counters": {
+      "core_reported_j": "/sys/class/powercap/intel-rapl:0:0/energy_uj (core domain MSR_CORE_ENERGY_STAT, process and children pinned to domain lead CPU 0 via sched_setaffinity)",
+      "package_reported_j": "/sys/class/powercap/intel-rapl:0/energy_uj (package-0 APU socket domain MSR_PKG_ENERGY_STAT)",
+      "wraparound_rule": "wrap_delta(prev, now, max_energy_range_uj)"
+    },
+    "primary_energy_metric": "core_reported_j (median across M=5 independent batch trials on pinned CPU 0; package_reported_j and paired local-sleep-subtracted core_net_reported_j logged alongside)"
+  },
+  "experiments": {
+    "E4_Energy": {
+      "objective": "Measure compilation energy E_compile (reported_j), wall time, artifact byte length |bin|, per-invocation execution energy E_run (reported_j), and empirical optimization payback horizon N* = ceil(Delta E_compile / Delta E_run) across 20 deterministic integer/fixed-point kernels in C, Rust, WebAssembly, Python, and RCE; additionally evaluate H4 Regime-B variance explained (bootstrap adjusted R^2 over 2,000 whole-kernel resamples).",
+      "kernels_count": 20,
+      "kernels": [
+        "k01_sha256_block",
+        "k02_chacha20_block",
+        "k03_q32_orbital",
+        "k04_crc32_ieee",
+        "k05_lz77_match",
+        "k06_dijkstra_grid",
+        "k07_ntt_butterfly",
+        "k08_matmul_i32",
+        "k09_bst_probe",
+        "k10_sortnet_16",
+        "k11_ringbuf_sim",
+        "k12_token_bucket",
+        "k13_fnv1a_sip",
+        "k14_sieve_primes",
+        "k15_collatz_bounded",
+        "k16_popcount_swar",
+        "k17_edit_levenshtein",
+        "k18_rle_codec",
+        "k19_modexp_mont",
+        "k20_kalman_q16"
+      ],
+      "compiler_tiers": [
+        "gcc -O0",
+        "gcc -O2",
+        "gcc -O3",
+        "clang -O0",
+        "clang -O2",
+        "clang -O3",
+        "clang -Os",
+        "rustc -C opt-level=0",
+        "rustc -C opt-level=2",
+        "rustc -C opt-level=3",
+        "rustc --target wasm32-unknown-unknown -C opt-level=3 (node)",
+        "python3 py_compile + run",
+        "rce check + 5-target emit (core, rust, python, js, scala) -> node js",
+        "rce check + emit rust -> rustc -C opt-level=3"
+      ],
+      "equivalence_gate": "Exact 64-bit unsigned batch checksum equality across all compiler tiers and languages for every kernel over identical seed ranges; any mismatch voids the cell.",
+      "payback_horizon_formula": "N* = 0 if Delta E_compile <= 0 and Delta E_run > 0; ceil(Delta E_compile / Delta E_run) if Delta E_compile > 0 and Delta E_run > 0; infinity ('never') if Delta E_run <= 0.",
+      "h4_regime_b_analysis": "Across Clang and Rust optimization tiers with WebAssembly IR description length lambda (ir_nodes, wasm_bytes) and dynamic instruction count, compute OLS adjusted R^2 for (dynamic_ops + lambda) vs Regime-B baseline (wall_s * mean_power_w) with 2,000 whole-kernel bootstrap resamples."
+    },
+    "E5_Scale": {
+      "objective": "Test name-free De Bruijn / positional reuse hashing (H5) at >10x scale across all 185 emitted Forms of the W1 RCE corpus plus 60 C/Rust/Python kernel programs (245 base programs) under equivalence-preserving renamings/formatting/declaration shifts and 500 test-vector-verified non-equivalent semantic mutations, and measure avoided compilation reported_j.",
+      "base_corpus": {
+        "w1_rce_forms": 185,
+        "c_kernels": 20,
+        "rust_kernels": 20,
+        "python_kernels": 20,
+        "total_base_programs": 245
+      },
+      "equivalence_transforms": [
+        "whitespace_and_comment_shift",
+        "systematic_alpha_renaming",
+        "benign_declaration_reordering"
+      ],
+      "hash_functions_compared": [
+        "raw_sha256",
+        "ws_comment_strip_sha256",
+        "naive_ast_token_kind_sha256",
+        "debruijn_nameless_sha256"
+      ],
+      "semantic_mutants": {
+        "total_verified_non_equivalent": 500,
+        "binding_swap_mutants": 150,
+        "operator_mutants": 150,
+        "literal_constant_mutants": 125,
+        "guard_branch_mutants": 75
+      },
+      "hypotheses_and_falsifiers": {
+        "H5_Scale_Support": "debruijn_nameless_sha256 achieves strictly higher hit rate on alpha-renamed pairs than raw_sha256 and ws_comment_strip_sha256 across both the 185 W1 Forms and the 60 C/Rust/Python kernels, AND achieves 0 / 500 (0.00%) false-positive hash collisions on verified semantic mutants.",
+        "H5_Scale_Falsifier": "Any false-positive collision (> 0 / 500) on debruijn_nameless_sha256, or no hit-rate gain over raw/whitespace-stripped hashes on alpha-renamed pairs.",
+        "Binding_Swap_Contrast": "naive_ast_token_kind_sha256 (identifier-stripping without De Bruijn binding indices) is predicted to suffer false-positive collisions on binding-swap mutants (e.g. x - y -> y - x), demonstrating empirically why De Bruijn positional binding indices are necessary for soundness."
+      },
+      "cache_energy_measurement": "Measure RAPL core_reported_j and package_reported_j of cold compilation vs warm De Bruijn nameless hash cache hit across rce check + 5-target emit, clang -O3, and rustc -C opt-level=3."
+    }
+  }
+}

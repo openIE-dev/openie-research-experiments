@@ -1,0 +1,126 @@
+{
+  "architecture": {
+    "anti_collapse": {
+      "logged_metrics": [
+        "effective_rank_z_ref",
+        "effective_rank_z_cand",
+        "mean_coord_std_z_ref",
+        "mean_coord_std_z_cand"
+      ],
+      "vicreg_cov_weight": 0.01,
+      "vicreg_std_target_gamma": 1.0,
+      "vicreg_var_weight": 0.25
+    },
+    "cross_difference_block": {
+      "d_model": 256,
+      "dim_feedforward": 512,
+      "input": "Candidate token states H_cand cross-attending to reference token states H_ref + per-token structural diff/hygiene tags",
+      "nhead": 8,
+      "num_layers": 1
+    },
+    "energy_head_E_omega": {
+      "activation": "GELU + final Softplus so E_omega(x, y_cand) >= 0",
+      "features": "[z_ref, z_cand, z_cand - z_ref, |z_cand - z_ref|, z_ref * z_cand, delta_h_mean, delta_h_max, rule_emb(r_ref)]",
+      "hidden_dims": [
+        384,
+        192,
+        1
+      ],
+      "input_dim": 1856,
+      "rule_embed_dim": 64
+    },
+    "name": "FormEBM-v2",
+    "shared_siamese_encoder_Phi_omega": {
+      "d_model": 256,
+      "dim_feedforward": 1024,
+      "dropout": 0.1,
+      "input": "Pair-aligned Form AST S-expression tokens (preserving _-prefixed unused-hygiene distinction, reference-anchored local identifier slots, newly introduced symbol slots, and low-bit numeric literal residues) up to max_seq_len=256",
+      "max_seq_len": 256,
+      "nhead": 8,
+      "num_layers": 5,
+      "vocab_capacity": 2048
+    },
+    "target_param_range": "4,000,000 to 6,000,000 trainable parameters"
+  },
+  "baseline_comparison": {
+    "wave3_form_jepa_v1": {
+      "H11_5step_strict_monotone_share": 0.36,
+      "H5_auroc_neg_latent_l2": 0.618,
+      "prereg_sha256": "22682e6e936ec1205ca6b4285cfb8459aaf392a2ff656e3ef0b3393de9abc77e"
+    }
+  },
+  "data_and_leakage_controls": {
+    "disjoint_filter_rules": [
+      "1. Exact 4-layer exclusion from FormJEPA-v1: exclude all 65 unique file paths in the 151-task ladder and all 40 paths in the H15 residual set.",
+      "2. Exclude any Form sharing a filename stem or numeric-stripped program slug (87 forbidden slugs) or conformance provenance with any evaluation task.",
+      "3. Exclude any Form sharing a primary state, actor, or module declaration identifier (62 forbidden identifiers) with any evaluation task.",
+      "4. Exclude any Form whose rce fmt nameless SHA-256 (shape_hash), canonical rce fmt SHA-256, or raw UTF-8 SHA-256 matches any original, mutant, or HEAD file of the 151 ladder or 40 H15 tasks (458 forbidden digests)."
+    ],
+    "forbidden_corpora": {
+      "h15_residual_40_sha256": "3ca3a32769145e9b502b9b7b9d2c0402e97ce6a860203668a35a35535d46b25b",
+      "ladder_151_sha256": "6ae255a32211f620364ef713b1a36f7daac6ab46f22ac318b45acb2a6da9af50"
+    },
+    "inference_zero_checker_leakage": "FormEBM-v2 computes E_omega(x, y_cand) purely from neural forward passes over (x, diag_of_x, y_cand) without invoking rce check on y_cand; rce check + W-MUT-1 is used strictly as the training-split label oracle and post-scoring evaluation oracle.",
+    "split_rule": "Exact deterministic FormJEPA-v1 split of the 1,387 disjoint valid Form shapes by int(shape_hash[:16], 16) % 10: 0..7 -> 1,106 train Forms, 8 -> 144 validation Forms, 9 -> 137 unseen held-out test Forms.",
+    "upstream_repositories": {
+      "openie_research_experiments_commit": "1d73cb38330d62439a9d77f05507113d78690200",
+      "rce_commit": "1762fb4bb65a58de07ab00f0d1bfdf4969d0358c",
+      "rce_linux_x86_64_binary_sha256": "331464496009d98ad8f55095aa4c26f7266ae49ce602d3cba2c74f185e766df9"
+    }
+  },
+  "energy_and_telemetry": {
+    "board_metered": false,
+    "energy_separation_rule": "est_j, reported_j, and measured_j are strictly separated and never summed.",
+    "host": "AMD Ryzen AI Max+ 395 (32 logical CPUs, OMP_NUM_THREADS=10), Linux powercap intel-rapl:0 (package-0) and intel-rapl:0:0 (core) reported_j with pre/post idle drift Falsifier 6 audit",
+    "measured_j": null
+  },
+  "evaluation_protocol": {
+    "H11_unseen_test_5step_chains": {
+      "chains_N": 100,
+      "metrics": [
+        "strict_5step_monotonicity_rate_E0_lt_E1_lt_E2_lt_E3_lt_E4_lt_E5",
+        "nondecreasing_5step_monotonicity_rate",
+        "mean_and_median_spearman_rho_d0_to_5",
+        "mean_energy_by_edit_distance_0_to_5"
+      ],
+      "source_forms": "137 unseen held-out test Form shapes (0 train/val/H14/H15 overlap)",
+      "support_threshold_ge": 0.8
+    },
+    "H15_residual_40_candidate_pool": {
+      "metrics": [
+        "auroc_neg_energy_typed_edit_pool",
+        "auroc_neg_energy_multi_proposer_pool",
+        "top1_k1_admitted_without_beam_checks",
+        "mean_rce_check_calls_to_first_admission"
+      ],
+      "tasks_N": 40
+    },
+    "H5_unseen_test_candidate_beams": {
+      "beam_sets_N": 200,
+      "disproof_threshold_le": 0.6,
+      "metrics": [
+        "auroc_neg_energy_form_ebm_v2",
+        "auroc_neg_siamese_l2_uncalibrated",
+        "top1_valid_rate_k1_without_beam_checks",
+        "mean_rce_check_calls_to_first_valid_repair"
+      ],
+      "source_forms": "137 unseen held-out test Form shapes (0 train/val/H14/H15 overlap)",
+      "support_threshold_auroc_ge": 0.85,
+      "support_threshold_top1_valid_ge": 0.8
+    }
+  },
+  "falsifiers": {
+    "F1_collapse": "Post-training effective rank of z_ref or z_cand on validation pairs drops below 16 (of d=256) or mean coordinate std drops below 0.25.",
+    "F2_leakage": "Any training or validation example shares a path, slug, primary declaration identifier, or shape_hash with the 137 test Forms, 151 ladder tasks, or 40 H15 residual tasks, or invokes rce check on candidate y_cand inside E_omega.",
+    "F3_h5_disproved": "Held-out H5 AUROC of -E_omega(x, y_cand) across the N=200 unseen test candidate beams is <= 0.60.",
+    "F4_h11_not_supported": "Strict 5-step edit-distance monotonicity rate on the N=100 unseen test corruption chains is < 80.0%."
+  },
+  "id": "rce-jepa-form-ebm-v2-2026-11-23",
+  "objectives": {
+    "anchor_zero_regularizer": "lambda_0 * E_omega(y^(0), y^(0))^2 with lambda_0 = 0.10",
+    "contrastive_validity_margin_loss": "max(0, m_val + E_omega(x, y^+) - E_omega(x, y^-)) with m_val = 1.0 over checker-verified train candidate beams",
+    "pairwise_edit_depth_ranking_loss": "mean_{0 <= i < j <= 5} max(0, gamma * (j - i) + E_omega(y^(0), y^(i)) - E_omega(y^(0), y^(j))) with gamma = 0.50 over 5-step train corruption chains"
+  },
+  "registered": "2026-11-23, locked with SHA-256 sidecar prior to dataset construction, weight initialization, training, and evaluation",
+  "seed": 20261123
+}

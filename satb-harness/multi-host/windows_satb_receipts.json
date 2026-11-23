@@ -1,0 +1,226 @@
+{
+  "profile_id": "windows_11_tiger_lake_rtx2060",
+  "generated_at_utc": "2026-11-23T04:45:19.502867+00:00",
+  "bench_root": "$BENCH_ROOT",
+  "host_envelope": {
+    "cpu_or_board_model": "11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz + NVIDIA GeForce RTX 2060",
+    "cpu_model": "11th Gen Intel(R) Core(TM) i7-1165G7 @ 2.80GHz",
+    "dgpu_model": "NVIDIA GeForce RTX 2060",
+    "igpu_model": "Intel(R) Iris(R) Xe Graphics",
+    "arch": "x86_64",
+    "logical_cpus": 8,
+    "physical_cores": 4,
+    "ram_gib": 63.7,
+    "os_kernel": "Microsoft Windows 11 Pro (Windows NT 10.0.26300)",
+    "ucrt_version": "Windows Universal C Runtime (ucrtbase.dll 10.0.26100.9711)",
+    "python_version": "3.10.11",
+    "dedicated_host": false,
+    "cotenant_ci_runner_present": true,
+    "rootless_collection": true
+  },
+  "evidence_separation": {
+    "board_metered": false,
+    "a2_whole_sut_net_attributable": false,
+    "a2_withheld_reason": "shared_host_cotenant_active_and_cpu_rapl_unavailable (act_runner daemon resident; CPU package RAPL inaccessible without ring-0 driver; RTX 2060 NVML L2 reported_j preserved)",
+    "measured_j_populated": false,
+    "reported_j_populated": true,
+    "reported_j_scope": "L2 discrete GPU only (NVML nvmlDeviceGetTotalEnergyConsumption mJ on NVIDIA GeForce RTX 2060); CPU package L2 is literally 'not_available' (Label N) in rootless Windows user mode",
+    "est_j": null
+  },
+  "windows_rootless_telemetry_and_msr_audit": {
+    "intel_rapl_msr_0x611_user_mode": "blocked_by_os_privilege_boundary (Windows NT provides no built-in unprivileged user-mode RDMSR interface; loading third-party ring-0 MSR drivers violates SATB OQ-5 rootless collection and triggers Windows HVCI / Vulnerable Driver Blocklist)",
+    "windows_emi_dev_energymeter": "FileNotFoundError (no ACPI PMET / EMI hardware meter exposed)",
+    "wmi_perf_power_meter_instances": 0,
+    "nvml_dgpu_l2_counter": {
+      "library": "nvml.dll (System32)",
+      "gpu_name": "NVIDIA GeForce RTX 2060",
+      "driver_version": "591.74",
+      "rootless_power_mw_readable": true,
+      "rootless_cumulative_energy_mj_readable": true,
+      "satb_boundary": "L2 discrete GPU (A1 when GPU inference is exclusive; never summed with CPU)"
+    },
+    "win32_process_l3_accounting": "GetProcessTimes (100 ns kernel+user) + QueryProcessCycleTime (CPU cycles) + GetProcessIoCounters (Label C)"
+  },
+  "shape_d_dnullmm1_conformance": {
+    "passed": true,
+    "win32_mapping_api": "CreateFileMappingA + MapViewOfFile (NT Section Object)",
+    "records": 1000000,
+    "mmap_bytes": 100663360,
+    "queries": 10000,
+    "expected_checksum": 15027705736,
+    "msvc_o2_build_ms": 797.43,
+    "msvc_o2_mount_us": 9215.0,
+    "msvc_o2_probe_ns": 1474.22,
+    "msvc_o2_checksum": 15027705736,
+    "python_mmap_mount_us": 148.3,
+    "python_mmap_probe_ns": 2885.63,
+    "python_mmap_checksum": 15027705736,
+    "episode_vector_conformance": {
+      "task": "test.setpoint",
+      "fill_episodes": 200,
+      "fill_successes": 147,
+      "fill_writes": 58,
+      "fill_probes": 210,
+      "frozen_store_digest": "0da4df8d9ccbce1e49b8863490e6ef44b4f803bdb31414e4e19b881e04485781",
+      "matches_reference_digest": true,
+      "expected_prefix_suffix": "0da4df8d9ccbce1e...4485781",
+      "eval_episodes": 100,
+      "eval_successes": 100,
+      "eval_writes": 0,
+      "eval_trace_digest": "3a3207d2d74c99e4f922e1bec507b64ff7ae28c6340d1671ea34dc7070c290a2"
+    }
+  },
+  "satb_conformance_windows": {
+    "c9_deterministic_replay": {
+      "passed": true,
+      "turns_replayed": 14,
+      "window_tokens": 48000,
+      "truncated_tool_outputs": 14,
+      "elided_tool_outputs_by_context_rule_v0": 5,
+      "extra_model_calls_for_compaction": 0,
+      "tight_window_16k_triggers_context_ceiling": true,
+      "transcript_bytes": 149747,
+      "transcript_sha256": "d697ed147612993952aec0b695cebfc3177534584d742d92d4a17e87831460dc",
+      "matches_macos_and_linux_sha256": true,
+      "ntfs_crlf_drift_bytes": 0
+    },
+    "c10_process_tree_kill": {
+      "passed": true,
+      "spec_ceiling_ms": 2000.0,
+      "trials_per_mechanism": 5,
+      "processes_per_tree": 4,
+      "win32_terminate_job_object": {
+        "cleanup_ms_trials": [
+          2.617,
+          2.42,
+          2.449,
+          2.419,
+          2.383
+        ],
+        "cleanup_ms_min": 2.383,
+        "cleanup_ms_mean": 2.458,
+        "cleanup_ms_max": 2.617,
+        "surviving_pids_after_kill": 0
+      },
+      "cli_taskkill_f_t": {
+        "cleanup_ms_trials": [
+          125.982,
+          124.201,
+          124.548,
+          115.635,
+          123.717
+        ],
+        "cleanup_ms_min": 115.635,
+        "cleanup_ms_mean": 122.817,
+        "cleanup_ms_max": 125.982,
+        "surviving_pids_after_kill": 0
+      },
+      "outcome_recorded": "killed(wall_ceiling)"
+    },
+    "c11_rootless_l3_handshake": {
+      "passed": true,
+      "kernel_driver_or_elevation_invoked": false,
+      "de_elevated_basic_trustlevel_probe": {
+        "is_user_an_admin": false,
+        "nvml_energy_rc": 0,
+        "nvml_energy_mj": 1822264445,
+        "nvml_power_mw": 7439,
+        "l3_cycles_readable": true,
+        "job_object_creatable": true,
+        "trustlevel": "0x20000 (Basic User / Standard Non-Elevated Token)",
+        "verified": true
+      },
+      "wall_minus_monotonic_offset_ns": 1795178013802134800,
+      "win32_l3_counters": {
+        "cpu_ns": 359375000,
+        "kernel_ms": 156.25,
+        "user_ms": 203.125,
+        "cpu_cycles": 1038223359,
+        "io_read_bytes": 1762590,
+        "io_write_bytes": 454345,
+        "peak_working_set_kb": 73940
+      },
+      "windows_per_pid_hardware_joule_counter": "not_available (Win32 GetProcessTimes + QueryProcessCycleTime expose CPU time/cycles Label C; Windows E3/SRUM is coarse background estimation, not a synchronous per-PID hardware counter)"
+    }
+  },
+  "falsifier_5_observer_cadence": {
+    "nvml_plus_win32_l3_single_read_latency_us": {
+      "median_us": 1174.15,
+      "mean_us": 1159.75,
+      "p95_us": 1586.9
+    },
+    "nvidia_smi_subprocess_single_call_ms": 43.88,
+    "windows_nt_timer_quantum_note": "Standard unprivileged Windows NT timer tick (~15.625 ms without timeBeginPeriod(1)) caps naive 10 ms sleep loops near ~64 Hz while keeping 100 ms (10 Hz) SATB reference ticks exact.",
+    "window_target_s": 1.05,
+    "cadences": {
+      "boundary_0hz": {
+        "nominal_hz": 0.0,
+        "window_s": 1.0645,
+        "samples": 2,
+        "achieved_hz": 1.88,
+        "sampler_cpu_ms_in_window": 0.0,
+        "sampler_cpu_ms_per_10s_equiv": 0.0,
+        "rtx2060_nvml_l2_reported_j": 7.927
+      },
+      "tick_1hz_1000ms": {
+        "nominal_hz": 1.0,
+        "window_s": 1.0627,
+        "samples": 2,
+        "achieved_hz": 1.88,
+        "sampler_cpu_ms_in_window": 15.625,
+        "sampler_cpu_ms_per_10s_equiv": 147.026,
+        "rtx2060_nvml_l2_reported_j": 7.717
+      },
+      "tick_10hz_100ms_ref": {
+        "nominal_hz": 10.0,
+        "window_s": 1.0582,
+        "samples": 10,
+        "achieved_hz": 9.45,
+        "sampler_cpu_ms_in_window": 109.375,
+        "sampler_cpu_ms_per_10s_equiv": 1033.643,
+        "rtx2060_nvml_l2_reported_j": 4.483
+      },
+      "tick_100hz_10ms": {
+        "nominal_hz": 100.0,
+        "window_s": 1.052,
+        "samples": 68,
+        "achieved_hz": 64.64,
+        "sampler_cpu_ms_in_window": 359.375,
+        "sampler_cpu_ms_per_10s_equiv": 3416.253,
+        "rtx2060_nvml_l2_reported_j": 1.703
+      }
+    }
+  },
+  "falsifier_3_step7_and_falsifier_6_nvml": {
+    "phase1_compute_wall_s": 1.202,
+    "phase2_dram_flushfilebuffers_wall_s": 1.2003,
+    "phase1_sut_cpu_ms_getprocesstimes": 1171.88,
+    "phase2_sut_cpu_ms_getprocesstimes": 62.5,
+    "windows_clock_interrupt_aliasing_note": "Win32 GetProcessTimes updates on 15.625 ms clock ticks and can alias short 8 ms sleep+I/O bursts to 0.0 ms; QueryProcessCycleTime (RDTSC per context switch) captures exact sub-tick CPU cycles.",
+    "phase1_sut_cpu_cycles": 3341609639,
+    "phase2_sut_cpu_cycles": 433492617,
+    "kepler_c_getprocesstimes_share_phase1": 0.9494,
+    "kepler_c_getprocesstimes_share_phase2": 0.0506,
+    "kepler_c_rdtsc_cycle_share_phase1": 0.8852,
+    "kepler_c_rdtsc_cycle_share_phase2": 0.1148,
+    "cpu_package_l2_reported_j": "not_available (Windows 11 blocks unprivileged Intel RAPL MSR 0x611 reads without a ring-0 driver; 0 WMI EMI PowerMeter instances)",
+    "rtx2060_nvml_l2_cumulative_energy_audit": {
+      "pre_baseline_mean_w": 6.95,
+      "phase1_mean_w": 7.295,
+      "phase2_mean_w": 7.345,
+      "post_baseline_mean_w": 6.742,
+      "pre_post_drift_pct": 3.0,
+      "falsifier6_within_5pct": true,
+      "b_temporal_phase1_reported_j": 8.769,
+      "b_temporal_phase2_reported_j": 8.816,
+      "b_temporal_total_reported_j": 17.585,
+      "step7_sum_check_residual_mj": 0,
+      "step7_sum_check_passed": true,
+      "naive_cpu_kepler_c_getprocesstimes_phase2_err_pct": 89.9,
+      "naive_cpu_kepler_c_rdtsc_cycles_phase2_err_pct": 77.1,
+      "falsifier_3_triggered_gt_20pct": true
+    }
+  },
+  "elapsed_wall_s": 11.39
+}
+
