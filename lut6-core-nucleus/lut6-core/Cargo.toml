@@ -1,0 +1,32 @@
+[package]
+name = "lut6-core"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.100.0"
+license = "Apache-2.0"
+description = "Zero-allocation #![no_std] 4 KB LUT6 Knowledge Crystal, 64-Codon Operon ABI, Walsh-Hadamard Wobble Filter, and 16 KB 3-Part Self-Hosting Bootstrap Nucleus"
+
+[features]
+default = []
+std = []
+
+[[bin]]
+name = "ratchet_demo"
+path = "src/bin/ratchet_demo.rs"
+required-features = ["std"]
+
+[[bin]]
+name = "verify_lut6"
+path = "src/bin/verify_lut6.rs"
+required-features = ["std"]
+
+[[bin]]
+name = "three_wave_bench"
+path = "src/bin/three_wave_bench.rs"
+required-features = ["std"]
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"

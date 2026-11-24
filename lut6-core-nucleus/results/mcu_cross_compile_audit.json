@@ -1,0 +1,113 @@
+{
+  "rustc_version": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+  "edition": "2024",
+  "nightly_features_used": 0,
+  "targets": {
+    "alif_e3_e4_cortex_m55": {
+      "crate": "alif-lut6-bench",
+      "target_triple": "thumbv8m.main-none-eabihf",
+      "mcu_platform": "Alif Ensemble E3/E4 Cortex-M55 HE (MRAM @ 0x8000_0000 + Zero-Wait DTCM @ 0x2000_0000)",
+      "elf_total_file_bytes": 149600,
+      "elf_sha256": "0b2128dc53245623df9feadebfc1e850b2c2c9951041d1ddc6b5121bc95b0098",
+      "board_metered": false,
+      "measured_j": null,
+      "reported_j": null,
+      "provenance_note": "Cross-compiled bare-metal release ELF static section & Thumb disassembly audit (board_metered=false until physical MCU bench attachment).",
+      "sections": {
+        ".vector_table": {
+          "bytes": 8,
+          "vma_hex": "0x80000000"
+        },
+        ".text": {
+          "bytes": 12260,
+          "vma_hex": "0x80000008"
+        },
+        ".rodata": {
+          "bytes": 0,
+          "vma_hex": "0x80002ff0"
+        },
+        ".lut6_dtcm": {
+          "bytes": 16400,
+          "vma_hex": "0x20000000"
+        },
+        ".data": {
+          "bytes": 24,
+          "vma_hex": "0x20004010"
+        },
+        ".bss": {
+          "bytes": 0,
+          "vma_hex": "0x20004028"
+        }
+      },
+      "summary_bytes": {
+        "code_and_vectors_bytes": 12268,
+        "rodata_bytes": 0,
+        "lut6_nucleus_section_bytes": 16400,
+        "sram_rw_metadata_bytes": 24,
+        "total_nvm_lma_image_bytes": 28692,
+        "total_tcm_or_sram_runtime_bytes": 16424
+      },
+      "disassembly_audit": {
+        "total_instructions": 4259,
+        "floating_point_instructions": 0,
+        "zero_float_verified": true,
+        "wfi_sleep_instructions": 2,
+        "dsb_barrier_instructions": 1,
+        "bitwise_and_shift_instructions": 668
+      }
+    },
+    "rp2040_cortex_m0plus": {
+      "crate": "pico-lut6-bench",
+      "target_triple": "thumbv6m-none-eabi",
+      "mcu_platform": "Raspberry Pi Pico RP2040 Cortex-M0+ (Flash @ 0x1000_0000 + Striped SRAM @ 0x2000_0000)",
+      "elf_total_file_bytes": 151436,
+      "elf_sha256": "5545fc3083eeba545bbb18175c939f2104073586ca87967eed6d7e52cbc0060e",
+      "board_metered": false,
+      "measured_j": null,
+      "reported_j": null,
+      "provenance_note": "Cross-compiled bare-metal release ELF static section & Thumb disassembly audit (board_metered=false until physical MCU bench attachment).",
+      "sections": {
+        ".vector_table": {
+          "bytes": 8,
+          "vma_hex": "0x10000000"
+        },
+        ".text": {
+          "bytes": 11040,
+          "vma_hex": "0x10000008"
+        },
+        ".rodata": {
+          "bytes": 0,
+          "vma_hex": "0x10002b28"
+        },
+        ".lut6": {
+          "bytes": 16400,
+          "vma_hex": "0x20000000"
+        },
+        ".data": {
+          "bytes": 32,
+          "vma_hex": "0x20004010"
+        },
+        ".bss": {
+          "bytes": 0,
+          "vma_hex": "0x20004030"
+        }
+      },
+      "summary_bytes": {
+        "code_and_vectors_bytes": 11048,
+        "rodata_bytes": 0,
+        "lut6_nucleus_section_bytes": 16400,
+        "sram_rw_metadata_bytes": 32,
+        "total_nvm_lma_image_bytes": 27480,
+        "total_tcm_or_sram_runtime_bytes": 16432
+      },
+      "disassembly_audit": {
+        "total_instructions": 5248,
+        "floating_point_instructions": 0,
+        "zero_float_verified": true,
+        "wfi_sleep_instructions": 2,
+        "dsb_barrier_instructions": 1,
+        "bitwise_and_shift_instructions": 946
+      }
+    }
+  }
+}

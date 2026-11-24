@@ -1,0 +1,13 @@
+{
+  "demo": "lut6_3part_bootstrap_nucleus_ratchet",
+  "crystal_arena_bytes": 16384,
+  "page_bytes": 4096,
+  "rejected_1hot_harmonic_energy": 448,
+  "admitted_overlay_harmonic_energy": 0,
+  "anchors_verified": 4,
+  "wobble_variants_verified": 4,
+  "apoptosis_triggered_at_rejects": 3,
+  "immutable_roots_intact": true,
+  "knowledge_root_crc32": "0xed3391bb",
+  "agency_root_crc32": "0x67b72018"
+}

@@ -1,0 +1,45 @@
+{
+  "verilog_source": "verified_skill.v",
+  "verilog_sha256": "18c372d87be65ccd0ca90547019bbc512a5de1abe9f159fae653b9ff86df7cf4",
+  "yosys_version": "Yosys 0.71+ (git sha1 b4c586fd3, Release, GNU /usr/bin/c++ 15.2.0)",
+  "yosys_command": "synth -top verified_skill -noalumacc -nordff; abc -lut 6; clean -purge; write_json",
+  "yosys_synth_ms": 110.65,
+  "abc_lut6_cell_count": 27,
+  "packed_num_layers": 4,
+  "packed_gates_per_layer": 21,
+  "layer_active_gate_counts": [
+    14,
+    21,
+    19,
+    13
+  ],
+  "total_packed_lut6_slots": 84,
+  "walsh_hadamard_spectral_audit": {
+    "boolean_degree_histogram": {
+      "0": 22,
+      "1": 35,
+      "2": 1,
+      "3": 6,
+      "4": 5,
+      "5": 9,
+      "6": 6
+    },
+    "max_gate_high_harmonic_energy": 640,
+    "gates_with_deg_ge5_energy": 15,
+    "lsb_2bit_wobble_invariant": true
+  },
+  "exhaustive_equivalence_miter": {
+    "active_input_bits": 14,
+    "exhaustive_vectors_checked": 16384,
+    "miter_mismatches": 0,
+    "wobble_perturbation_mismatches": 0,
+    "miter_check_ms": 1131.14
+  },
+  "emitted_crystal": {
+    "file": "verified_skill.lut6",
+    "size_bytes": 4096,
+    "crc32_hex": "0x16ce2bcf",
+    "sha256": "e5b3510fd9edc2d121d449e32fef91543552dd12c2d8c27c01391b15e1cad6ac",
+    "embedded_anchors": 32
+  }
+}

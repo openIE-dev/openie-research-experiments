@@ -1,0 +1,5 @@
+phase,cycles,seq_transitions_per_cycle,comb_transitions_per_cycle,bram_data_transitions_per_cycle,alpha_seq_per_bit_cycle,alpha_comb_per_bit_cycle,benes_81bram_rd_duty_pct,benes_81bram_wr_duty_pct,cl6_2bram_rd_duty_pct,cl6_2bram_wr_duty_pct,xc7a200t_gateware_dyn_est_pj_per_cyc,xc7a200t_gateware_dyn_est_mw_at_250mhz,xc7a200t_gateware_dyn_est_mw_250mhz_low,xc7a200t_gateware_dyn_est_mw_250mhz_high,xc7_vs_xck26_equivalence_pct,board_metered
+ce_gated_idle,1499,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,202.62,50.65,36.37,66.93,100.0,False
+certified_lut6_fast_path_hit,4000,418.611,1962.893,0.0,0.007314,0.01731,2.48,0.0,0.0,0.0,236.27,59.07,42.89,77.85,100.0,False
+shadow_page_hotswap_pcie_axi,3504,466.989,2259.34,0.0,0.00816,0.019924,3.14,0.0,0.91,14.61,245.24,61.31,44.65,80.71,100.0,False
+conformal_wake_gate_escalation,3008,129.991,186.485,0.0,0.002271,0.001645,0.0,0.0,0.0,0.0,204.8,51.2,36.77,67.68,100.0,False

@@ -1,0 +1,4 @@
+device_part,board,process_node,slice_or_clb_luts,flip_flops,ramb36_blocks,ramb36_raw_kb_incl_parity,ramb36_usable_4kb_data_kb,max_single_bank_4kb_crystals_in_bram,max_dual_bank_pingpong_crystal_pairs_in_bram,remaining_4kb_crystals_with_81bram_benes_core,uram288_blocks,optional_uram288_4kb_crystals,ddr3_required_for_active_crystals
+XC7A200T-2FBG484C,Numato Aller A7 M.2 2280 M-Key (Particle Tachyon PCIe Scale-Out Track),28nm HPL,134600,269200,365,1642.5,1460,365,182,284,0,0,False
+XCK26-SFVC784-2LV-C,AMD Kria KV260 Vision AI Starter Kit (K26 SOM Validation Track),16nm FinFET+,117120,234240,144,648.0,576,144,72,63,64,576,False
+XCZU9EG-FFVB1156-2-E,AMD Zynq UltraScale+ ZCU102 Evaluation Kit (Flagship Scale Reference),16nm FinFET+,274080,548160,912,4104.0,3648,912,456,831,0,0,False

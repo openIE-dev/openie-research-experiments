@@ -1,0 +1,6 @@
+name = "nucleus_wobble"
+version = "0.1.0"
+defaultTargets = ["NucleusWobble"]
+
+[[lean_lib]]
+name = "NucleusWobble"

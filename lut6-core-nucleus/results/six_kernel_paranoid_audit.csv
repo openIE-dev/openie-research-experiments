@@ -1,0 +1,7 @@
+kernel_id,implementation,soundness_basis,verified_declarations,verdict,sandbox_mode
+con-leche --verified,Minimal Lean/Haskell reference kernel (Joachim Breitner),Formally proved consistent in ZFC set theory (cannot accept False),58748,ACCEPTS,bwrap_linux_namespace
+con-ron --verified,Aeneas-verified Rust refinement of con-leche,Machine-verified Rust memory/refinement equivalence to con-leche,58748,ACCEPTS,bwrap_linux_namespace
+lean4lean,Lean-in-Lean CIC typechecker (Mario Carneiro),Independent pure-Lean reimplementation of CIC typechecking,58750,ACCEPTS,bwrap_linux_namespace
+nanoda,Independent standalone Rust export verifier,Zero-Lean-runtime Rust NDJSON checker (sorryAx blocked=True),58750,ACCEPTS,bwrap_linux_namespace
+leanchecker --paranoid,Fresh-environment Lean C++ kernel replay (--paranoid),Replays exported declarations from scratch without default-mode .inductInfo trust (#16688),58750,ACCEPTS,bwrap_linux_namespace
+Lean v4.36.0 (default),"Post-CVE Lean 4.36.0 C++ kernel (commit 611c117bfaf7, Nov 2026)",Includes 2026 kernel soundness patches inside bwrap,58750,ACCEPTS,bwrap_linux_namespace

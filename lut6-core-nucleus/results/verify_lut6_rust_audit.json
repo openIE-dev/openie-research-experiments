@@ -1,0 +1,14 @@
+{
+  "crystal_file": "verified_skill.lut6",
+  "crystal_bytes": 4096,
+  "crc32": "0x16ce2bcf",
+  "num_layers": 4,
+  "gates_per_layer": 21,
+  "active_lut6_slots": 84,
+  "exhaustive_vectors_tested": 16384,
+  "scalar_mismatches": 0,
+  "bitsliced_mismatches": 0,
+  "wobble_lsb_mismatches": 0,
+  "max_gate_high_harmonic_energy": 640,
+  "gates_with_deg_ge5_energy": 15
+}

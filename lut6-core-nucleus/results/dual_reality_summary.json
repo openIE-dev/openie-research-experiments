@@ -1,0 +1,141 @@
+{
+  "study": "lut6-core-nucleus",
+  "title": "Zero-Allocation #![no_std] 4 KB LUT6 Knowledge Crystal, 64-Codon Operon ABI, 2-Bit Wobble Walsh Filter, 16 KB 3-Part Bootstrap Nucleus, 6-Kernel Lean 4.36.0 Proof, 4-ISA Cross-Compilation, and Dual-Reality Three-Wave Metered Benchmark",
+  "strict_epistemic_separation": {
+    "rule": "measured_j (NVIDIA Jetson AGX Thor TI INA3221 VDD_CPU_SOC_MSS L2 & INA238 VIN L1 physical DC shunts), reported_j (AMD Ryzen AI Max+ 395 Linux powercap intel-rapl package-0 & core counters), and cross-compiled bare-metal MCU ELF footprints (Alif E3/E4 Cortex-M55 & RP2040 Cortex-M0+, board_metered = false) are strictly separated and never summed.",
+    "hosts_with_physical_shunt_measured_j": [
+      "nvidia_jetson_agx_thor_armv9"
+    ],
+    "hosts_with_onchip_counter_reported_j": [
+      "amd_ryzen_ai_max_395_zen5"
+    ],
+    "cross_compiled_bare_metal_mcu_targets": [
+      "thumbv8m.main-none-eabihf (Alif Ensemble E3/E4 Cortex-M55 HE)",
+      "thumbv6m-none-eabi (Raspberry Pi Pico RP2040 Cortex-M0+)"
+    ]
+  },
+  "toolchain_and_abi_invariants": {
+    "rustc_version": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+    "rust_edition": "2024",
+    "nightly_feature_flags": 0,
+    "stable_never_type_result_ok": true,
+    "compact_lut6_page_bytes": 4096,
+    "compact_lut6_page_align_bytes": 8,
+    "crystal_arena_3part_bytes": 16384,
+    "wobble_codon_deg_ge5_energy": 0,
+    "onehot_mask_deg_ge5_energy": 448,
+    "parseval_normalized_total": 4096,
+    "seed_agency_opcodes_verified_at_compile_time": [
+      "STOP_HALT (0x00)",
+      "SPLICE_PAGE (0x10)",
+      "FOLD_STATE (0x18)",
+      "BUS_PIO_SPI (0x20)",
+      "BUS_UART_MCP (0x24)",
+      "WAKE_LOCAL_NPU (0x28)",
+      "VERIFY_CHECK (0x2C)",
+      "TRANSCRIBE_FRONTIER (0x30)",
+      "APOPTOSIS_ROLLBACK (0x3C)"
+    ]
+  },
+  "lean_4_36_0_six_kernel_bwrap_proof": {
+    "lean_version": "Lean 4.36.0 (commit 611c117bfaf7, Release)",
+    "sandbox": "bwrap_linux_namespace (bubblewrap 0.11.1, --unshare-net via lake check --paranoid)",
+    "cataloged_theorems": 20,
+    "total_file_theorem_declarations": 28,
+    "sorry_count": 0,
+    "custom_axiom_count": 0,
+    "opaque_count": 0,
+    "ofReduceBool_native_decide_count": 0,
+    "kernels_accepting": "6/6",
+    "con_leche_verified_declarations": 58748,
+    "con_ron_verified_declarations": 58748,
+    "lean4lean_verified_declarations": 58750,
+    "nanoda_verified_declarations": 58750,
+    "leanchecker_paranoid_verified_declarations": 58750,
+    "lean_default_verified_declarations": 58750
+  },
+  "yosys_lut6_packer": {
+    "yosys_version": "Yosys 0.71+ (git sha1 b4c586fd3)",
+    "abc_lut6_cells": 27,
+    "packed_layers": 4,
+    "packed_gates_per_layer": 21,
+    "emitted_crystal_bytes": 4096,
+    "exhaustive_miter_vectors": 16384,
+    "scalar_mismatches": 0,
+    "bitsliced_mismatches": 0,
+    "wobble_lsb_mismatches": 0
+  },
+  "mcu_bare_metal_footprints": {
+    "alif_e3_e4_cortex_m55": {
+      "target": "thumbv8m.main-none-eabihf",
+      "board_metered": false,
+      "vector_plus_text_bytes": 12268,
+      "rodata_bytes": 0,
+      "lut6_dtcm_bytes": 16400,
+      "data_bytes": 24,
+      "bss_bytes": 0,
+      "float_instructions": 0,
+      "wfi_instructions": 2
+    },
+    "rp2040_cortex_m0plus": {
+      "target": "thumbv6m-none-eabi",
+      "board_metered": false,
+      "vector_plus_text_bytes": 11048,
+      "rodata_bytes": 0,
+      "lut6_striped_sram_bytes": 16400,
+      "data_bytes": 32,
+      "bss_bytes": 0,
+      "float_instructions": 0,
+      "wfi_instructions": 2
+    }
+  },
+  "dual_reality_three_wave_100k_summary": {
+    "wake_suppression_pct": 87.0,
+    "wake_suppression_target_min_pct": 85.0,
+    "discretization_parity_pct": 100.0,
+    "silent_corruption_pct": 0.0,
+    "brittle_1hot_ablation_silent_corruptions_per_100k": 39373,
+    "amd_ryzen_ai_max_395_zen5_rapl_reported_j": {
+      "board_metered": false,
+      "falsifier_6_idle_drift_pct": 12.584,
+      "withhold_single_window_net_subtraction": true,
+      "standalone_int8_ns_per_eval": 5057.368,
+      "standalone_int8_cpj_pkg_reported": 3038.9,
+      "standalone_int8_cpj_core_reported": 35379.4,
+      "scalar_lut6_hybrid_ns_per_eval": 674.301,
+      "scalar_lut6_hybrid_cpj_pkg_reported": 21926.1,
+      "scalar_lut6_hybrid_cpj_core_reported": 303087.7,
+      "bitsliced_lut6_hybrid_ns_per_eval": 663.291,
+      "bitsliced_lut6_hybrid_cpj_pkg_reported": 26136.3,
+      "bitsliced_lut6_hybrid_cpj_core_reported": 535266.1,
+      "scalar_lut6_pure_crystal_ns_per_eval": 13.668,
+      "scalar_lut6_pure_crystal_cpj_pkg_reported": 927881.8,
+      "scalar_lut6_pure_crystal_cpj_core_reported": 6286817.2,
+      "bitsliced_lut6_pure_crystal_ns_per_eval": 2.267,
+      "bitsliced_lut6_pure_crystal_cpj_pkg_reported": 5188718.3,
+      "bitsliced_lut6_pure_crystal_cpj_core_reported": 55346126.3
+    },
+    "nvidia_jetson_agx_thor_dc_shunt_measured_j": {
+      "board_metered": true,
+      "cuda_visible_devices": "",
+      "falsifier_6_idle_drift_pct": 1.034,
+      "gpu_cotenant_lock_active": true,
+      "withhold_single_window_net_subtraction": true,
+      "standalone_int8_ns_per_eval": 6199.436,
+      "standalone_int8_cpj_vdd_cpu_soc_mss_measured": 4607.5,
+      "standalone_int8_cpj_vin_ina238_measured": 1860.5,
+      "scalar_lut6_hybrid_ns_per_eval": 822.306,
+      "scalar_lut6_hybrid_cpj_vdd_cpu_soc_mss_measured": 35292.3,
+      "scalar_lut6_hybrid_cpj_vin_ina238_measured": 14403.9,
+      "bitsliced_lut6_hybrid_ns_per_eval": 807.514,
+      "bitsliced_lut6_hybrid_cpj_vdd_cpu_soc_mss_measured": 35389.2,
+      "bitsliced_lut6_hybrid_cpj_vin_ina238_measured": 13913.2,
+      "scalar_lut6_pure_crystal_ns_per_eval": 20.601,
+      "scalar_lut6_pure_crystal_cpj_vdd_cpu_soc_mss_measured": 1328826.0,
+      "scalar_lut6_pure_crystal_cpj_vin_ina238_measured": 545453.7,
+      "bitsliced_lut6_pure_crystal_ns_per_eval": 4.912,
+      "bitsliced_lut6_pure_crystal_cpj_vdd_cpu_soc_mss_measured": 5696804.8,
+      "bitsliced_lut6_pure_crystal_cpj_vin_ina238_measured": 2427337.5
+    }
+  }
+}

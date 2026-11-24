@@ -1,0 +1,312 @@
+{
+  "package_name": "NucleusWobble",
+  "lean_version": "Lean (version 4.36.0, x86_64-unknown-linux-gnu, commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9, Release)",
+  "host_platform": "Linux-7.0-x86_64",
+  "cpu_model": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S",
+  "paranoid_sandbox_mode": "bwrap_linux_namespace",
+  "inadvisably_no_sandbox_used": false,
+  "bwrap_version": "bubblewrap 0.11.1",
+  "total_cataloged_theorems": 20,
+  "total_file_theorem_declarations": 28,
+  "section_theorem_counts": {
+    "ParsevalAndOneHot": 6,
+    "WobbleImmunity": 5,
+    "NucleusRetentionApoptosis": 5,
+    "ThermodynamicMeansTest": 4
+  },
+  "purely_constructive_zero_axiom_theorems": 1,
+  "choice_free_theorems": 17,
+  "allowed_standard_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "static_soundness_vectors": {
+    "sorry_count": 0,
+    "custom_axiom_count": 0,
+    "opaque_declaration_count": 0,
+    "nested_inductive_count": 0,
+    "flat_non_nested_inductive_count": 1,
+    "prop_structure_non_prop_field_count": 0,
+    "ofReduceBool_native_decide_count": 0,
+    "ffi_override_implemented_by_extern_count": 0,
+    "skipKernelTC_count": 0
+  },
+  "independent_kernels_passed": 6,
+  "independent_kernel_ids": [
+    "con-leche --verified",
+    "con-ron --verified",
+    "lean4lean",
+    "nanoda",
+    "leanchecker --paranoid",
+    "Lean v4.36.0 (default)"
+  ],
+  "con_leche_verified_declarations": 58748,
+  "con_ron_verified_declarations": 58748,
+  "lean4lean_verified_declarations": 58750,
+  "nanoda_verified_declarations": 58750,
+  "leanchecker_paranoid_verified_declarations": 58750,
+  "lean_default_verified_declarations": 58750,
+  "nanoda_sorryAx_unpermitted_confirmed": true,
+  "clean_lake_build_ms": 14871.72,
+  "clean_lake_build_reported_j": 1026.4009,
+  "clean_lake_build_rapl_core_reported_j": 98.0754,
+  "paranoid_6kernel_check_ms": 305515.47,
+  "paranoid_6kernel_check_reported_j": 22587.3221,
+  "paranoid_6kernel_check_rapl_core_reported_j": 1808.528,
+  "reported_j": 22587.3221,
+  "rapl_sensor": "/sys/class/powercap/intel-rapl:0/energy_uj",
+  "measured_j": null,
+  "board_metered": false,
+  "kernels": [
+    {
+      "kernel_id": "con-leche --verified",
+      "implementation": "Minimal Lean/Haskell reference kernel (Joachim Breitner)",
+      "soundness_basis": "Formally proved consistent in ZFC set theory (cannot accept False)",
+      "verified_declarations": 58748,
+      "verdict": "ACCEPTS",
+      "sandbox_mode": "bwrap_linux_namespace"
+    },
+    {
+      "kernel_id": "con-ron --verified",
+      "implementation": "Aeneas-verified Rust refinement of con-leche",
+      "soundness_basis": "Machine-verified Rust memory/refinement equivalence to con-leche",
+      "verified_declarations": 58748,
+      "verdict": "ACCEPTS",
+      "sandbox_mode": "bwrap_linux_namespace"
+    },
+    {
+      "kernel_id": "lean4lean",
+      "implementation": "Lean-in-Lean CIC typechecker (Mario Carneiro)",
+      "soundness_basis": "Independent pure-Lean reimplementation of CIC typechecking",
+      "verified_declarations": 58750,
+      "verdict": "ACCEPTS",
+      "sandbox_mode": "bwrap_linux_namespace"
+    },
+    {
+      "kernel_id": "nanoda",
+      "implementation": "Independent standalone Rust export verifier",
+      "soundness_basis": "Zero-Lean-runtime Rust NDJSON checker (sorryAx blocked=True)",
+      "verified_declarations": 58750,
+      "verdict": "ACCEPTS",
+      "sandbox_mode": "bwrap_linux_namespace"
+    },
+    {
+      "kernel_id": "leanchecker --paranoid",
+      "implementation": "Fresh-environment Lean C++ kernel replay (--paranoid)",
+      "soundness_basis": "Replays exported declarations from scratch without default-mode .inductInfo trust (#16688)",
+      "verified_declarations": 58750,
+      "verdict": "ACCEPTS",
+      "sandbox_mode": "bwrap_linux_namespace"
+    },
+    {
+      "kernel_id": "Lean v4.36.0 (default)",
+      "implementation": "Post-CVE Lean 4.36.0 C++ kernel (commit 611c117bfaf7, Nov 2026)",
+      "soundness_basis": "Includes 2026 kernel soundness patches inside bwrap",
+      "verified_declarations": 58750,
+      "verdict": "ACCEPTS",
+      "sandbox_mode": "bwrap_linux_namespace"
+    }
+  ],
+  "theorem_axiom_audit": [
+    {
+      "section": "ParsevalAndOneHot",
+      "theorem": "NucleusWobble.butterfly_parseval_1d",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "section": "ParsevalAndOneHot",
+      "theorem": "NucleusWobble.cubeSumSq_add_sub",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "section": "ParsevalAndOneHot",
+      "theorem": "NucleusWobble.fwht6_parseval_identity",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "section": "ParsevalAndOneHot",
+      "theorem": "NucleusWobble.bipolar_lut6_parseval_4096",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "section": "ParsevalAndOneHot",
+      "theorem": "NucleusWobble.deg_ge5_mode_count_eq_7",
+      "axioms": [],
+      "zero_axioms": true,
+      "choice_free": true
+    },
+    {
+      "section": "ParsevalAndOneHot",
+      "theorem": "NucleusWobble.onehot_harmonic_leakage_448_of_4096",
+      "axioms": [
+        "propext"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "section": "WobbleImmunity",
+      "theorem": "NucleusWobble.wobble_codon_zero_harmonic_energy",
+      "axioms": [
+        "propext"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "section": "WobbleImmunity",
+      "theorem": "NucleusWobble.wobble_codon_lsb_flip_invariance",
+      "axioms": [
+        "propext"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "section": "WobbleImmunity",
+      "theorem": "NucleusWobble.wobble_codon_matches_own_wobble_box",
+      "axioms": [
+        "propext"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "section": "WobbleImmunity",
+      "theorem": "NucleusWobble.wobble_codon_disjoint_stems",
+      "axioms": [
+        "propext"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "section": "WobbleImmunity",
+      "theorem": "NucleusWobble.universal_wobble_invariant_cube_zero_deg5",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "section": "NucleusRetentionApoptosis",
+      "theorem": "NucleusWobble.passesRetentionGate_preserves_all_anchors",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": false
+    },
+    {
+      "section": "NucleusRetentionApoptosis",
+      "theorem": "NucleusWobble.high_harmonic_candidate_rejected",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "section": "NucleusRetentionApoptosis",
+      "theorem": "NucleusWobble.nucleus_roots_immutable_under_refinement_and_apoptosis",
+      "axioms": [
+        "propext"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "section": "NucleusRetentionApoptosis",
+      "theorem": "NucleusWobble.apoptosis_reject_ceiling_reverts_to_killed_root",
+      "axioms": [
+        "propext"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "section": "NucleusRetentionApoptosis",
+      "theorem": "NucleusWobble.apoptosis_opcode_0x3C_rolls_back_to_root",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "section": "ThermodynamicMeansTest",
+      "theorem": "NucleusWobble.means_test_amortization_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": false
+    },
+    {
+      "section": "ThermodynamicMeansTest",
+      "theorem": "NucleusWobble.means_test_nonpositive_margin_refusal",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "section": "ThermodynamicMeansTest",
+      "theorem": "NucleusWobble.means_test_post_payback_monotonicity",
+      "axioms": [
+        "propext",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": true
+    },
+    {
+      "section": "ThermodynamicMeansTest",
+      "theorem": "NucleusWobble.means_test_three_wave_conformal_hybrid_iff",
+      "axioms": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "zero_axioms": false,
+      "choice_free": false
+    }
+  ],
+  "source_sha256": {
+    "NucleusWobble.lean": "2d94330d71418ea5022cd15dffbeaba63151b50c8b2fa9c074688ad3e7094aa0",
+    "lakefile.toml": "757379fd1c466e2cd0a11f612975cd6208081fd878e5a728811e1141ac6c5d28",
+    "lake-manifest.json": "40cb465ea8eb485634a68dd39ea6676b5863408c37dc695f82a04818b60f03a3",
+    "lean-toolchain": "582a63f8f9c5128067b688778c1051cf1464c3ca9d57b9325025c051c29b774a"
+  }
+}
