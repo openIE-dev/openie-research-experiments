@@ -1,0 +1,57 @@
+{
+  "schema": "openie-cta-e6-hq02-prereg/1",
+  "id": "cta-e6-hq02-formebm-v3-live-gate-2026-11-23",
+  "milestone_id": "HQ02",
+  "experiment_id": "CTA-E6",
+  "locked_utc": "2026-11-24T00:38:00Z",
+  "title": "FormEBM-v3 Span-Normalized Latent Pre-Filter Gating MCTS, Evolutionary Island Search, and Lean 4.36.0-Verified RCE + Sandbox Gate Across Dual Hardware Substrates",
+  "bridged_camps": [
+    "C3 (FormEBM-v3 6.05M span-normalized decomposed latent energy model)",
+    "C4 (UCB1 Monte Carlo Tree Search typed Form rollout proposer)",
+    "C6 (FunSearch-style multi-island evolutionary AST/Form mutator & multi-span rewriter)",
+    "C2 (Lean 4.36.0-verified RCE checker receipt + canonical Form layout check + obligation preservation)",
+    "C10 (Isolated RCE test runner + 2x repeat-call core VM determinism gate)",
+    "Loop 1 (Rust BLAKE3 + Ed25519 DE10 binary Phi_IR Digital Enzyme envelopes)"
+  ],
+  "lean_theorem_anchors": [
+    "CTA-T21 (upstream_gate_reduces_pipeline_energy: E_gate < F * E_down)",
+    "CTA-T22 (cpj_strict_improvement_from_gating)",
+    "CTA-T34 (digital_enzyme_zero_unverified_drift)",
+    "CTA-T35 (digital_enzyme_sequential_composition)"
+  ],
+  "corpus_and_zero_leakage_protocol": {
+    "rce_commit": "f87d6af289df5f406535ed1bf9abaf88fc94ff7a",
+    "model_seed": 20261123,
+    "corpus_seed": 20261123,
+    "disjoint_split_rule": "Exact 4-layer SHA-256 disjoint 1,387-Form split (0 overlap with 151-task ladder or 40-task H15 residual): 1,106 train_forms (shape_hash[:16]%10 < 8), 144 val_forms (==8), 137 unseen held-out test_forms (==9).",
+    "unseen_tasks_min": 120,
+    "unseen_tasks_target": 140,
+    "candidates_per_task": 16,
+    "total_candidates_min": 960,
+    "total_candidates_target": 2240,
+    "generator_composition_per_task": "8 unique candidates from Camp C4 UCB1 MCTS rollouts + 8 unique candidates from Camp C6 2-island evolutionary single/multi-span Form mutations, interleaved and permuted deterministically without checker access."
+  },
+  "fleet_hosts_and_telemetry_separation": {
+    "host_1_linux_x86_64": {
+      "public_label": "Linux x86-64 (AMD Ryzen AI Max+ 395, 32t Zen 5)",
+      "evidence_class": "reported_j",
+      "board_metered": false,
+      "rails": ["pkg_reported_j", "core_reported_j"]
+    },
+    "host_2_jetson_thor": {
+      "public_label": "NVIDIA Jetson AGX Thor (ARMv9 Tegra Linux, CPU-Only)",
+      "evidence_class": "measured_j",
+      "board_metered": true,
+      "gpu_isolation": "CUDA_VISIBLE_DEVICES=\"\" (respecting shared-host GPU lock)",
+      "rails": ["l2_vdd_cpu_soc_mss_measured_j", "l1_vin_ina238_measured_j", "l1_vin_sys_5v0_measured_j"]
+    },
+    "falsifier_6_idle_drift_rule": "Measure 5.0s quiet idle before and after benchmark; if idle drift > 10.0% or shared-host co-tenant lock is active, withhold single-window A2 net idle subtraction and report gross rail joules + drift % transparently; never mix measured_j and reported_j."
+  },
+  "kill_criteria": {
+    "K1_unseen_auroc_min": 0.85,
+    "K2_max_terminal_solve_rate_drop_pct": 1.0,
+    "K3_min_rce_checker_call_reduction_factor": 2.39,
+    "K4_cta_t21_energy_dominance": "E_gate < F * E_down and total gated pipeline joules strictly below unfiltered baseline on both hosts",
+    "K5_zero_corrupt_commits": 0
+  }
+}

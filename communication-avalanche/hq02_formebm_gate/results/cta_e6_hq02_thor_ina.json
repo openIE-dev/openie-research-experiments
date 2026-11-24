@@ -1,0 +1,295 @@
+{
+  "arms": {
+    "A1_unfiltered_pool_all_candidates": {
+      "c2_c10_candidate_evaluations": 2240,
+      "cpj_tasks_per_primary_j": 0.123817,
+      "false_commits": 0,
+      "mean_c2_c10_evals_per_task": 16.0,
+      "rce_subprocess_invocations": 13833,
+      "telemetry": {
+        "board_metered": true,
+        "core_reported_j": null,
+        "l1_vin_ina238_measured_j": 3285.743636,
+        "l1_vin_sys_5v0_measured_j": 909.1225,
+        "l2_vdd_cpu_soc_mss_measured_j": 1001.475043,
+        "l2_vdd_gpu_measured_j": 317.593811,
+        "pkg_reported_j": null,
+        "shunt_samples": 18229,
+        "wall_s": 133.559523
+      },
+      "total_pipeline_primary_j": 1001.475043,
+      "verified_solve_rate_pct": 88.57,
+      "verified_solved_tasks": 124
+    },
+    "A2_unfiltered_sequential_search_order": {
+      "c2_c10_candidate_evaluations": 1197,
+      "cpj_tasks_per_primary_j": 0.2185,
+      "false_commits": 0,
+      "mean_c2_c10_evals_per_task": 8.55,
+      "rce_subprocess_invocations": 7554,
+      "telemetry": {
+        "board_metered": true,
+        "core_reported_j": null,
+        "l1_vin_ina238_measured_j": 1847.388924,
+        "l1_vin_sys_5v0_measured_j": 514.278564,
+        "l2_vdd_cpu_soc_mss_measured_j": 567.506934,
+        "l2_vdd_gpu_measured_j": 179.972111,
+        "pkg_reported_j": null,
+        "shunt_samples": 10350,
+        "wall_s": 75.684678
+      },
+      "total_pipeline_primary_j": 567.506934,
+      "verified_solve_rate_pct": 88.57,
+      "verified_solved_tasks": 124
+    },
+    "B_formebm_v3_topk_threshold_gate": {
+      "E_down_primary_j": 216.813168,
+      "E_gate_primary_j": 173.382446,
+      "F_avoided_vs_sequential_times_E_down_j": 420.059435,
+      "c2_c10_candidate_evaluations": 311,
+      "cpj_tasks_per_primary_j": 0.304975,
+      "cta_t21_holds_vs_sequential": true,
+      "downstream_c2_c10_telemetry": {
+        "board_metered": true,
+        "core_reported_j": null,
+        "l1_vin_ina238_measured_j": 697.518749,
+        "l1_vin_sys_5v0_measured_j": 193.360151,
+        "l2_vdd_cpu_soc_mss_measured_j": 216.813168,
+        "l2_vdd_gpu_measured_j": 67.766376,
+        "pkg_reported_j": null,
+        "shunt_samples": 3900,
+        "wall_s": 28.498173
+      },
+      "false_commits": 0,
+      "gate_c3_telemetry": {
+        "board_metered": true,
+        "core_reported_j": null,
+        "l1_vin_ina238_measured_j": 378.457772,
+        "l1_vin_sys_5v0_measured_j": 86.098162,
+        "l2_vdd_cpu_soc_mss_measured_j": 173.382446,
+        "l2_vdd_gpu_measured_j": 25.084538,
+        "pkg_reported_j": null,
+        "shunt_samples": 1140,
+        "wall_s": 10.548941
+      },
+      "mean_c2_c10_evals_per_task": 2.221,
+      "pipeline_energy_reduction_vs_pool_x": 2.567,
+      "pipeline_energy_reduction_vs_sequential_x": 1.454,
+      "rce_call_reduction_vs_pool": 7.203,
+      "rce_call_reduction_vs_sequential": 3.849,
+      "rce_subprocess_invocations": 2223,
+      "solve_rate_drop_pct_vs_unfiltered": 3.57,
+      "total_pipeline_primary_j": 390.195614,
+      "verified_solve_rate_pct": 85.0,
+      "verified_solved_tasks": 119
+    },
+    "C_formebm_v3_ranked_adaptive_cascade": {
+      "E_down_primary_j": 284.774891,
+      "E_gate_primary_j": 173.382446,
+      "F_avoided_vs_pool_times_E_down_j": 791.791206,
+      "F_avoided_vs_sequential_times_E_down_j": 345.150416,
+      "c2_c10_candidate_evaluations": 469,
+      "cpj_tasks_per_primary_j": 0.270649,
+      "cta_t21_holds_vs_pool": true,
+      "cta_t21_holds_vs_sequential": true,
+      "downstream_c2_c10_telemetry": {
+        "board_metered": true,
+        "core_reported_j": null,
+        "l1_vin_ina238_measured_j": 916.110518,
+        "l1_vin_sys_5v0_measured_j": 254.246522,
+        "l2_vdd_cpu_soc_mss_measured_j": 284.774891,
+        "l2_vdd_gpu_measured_j": 89.226129,
+        "pkg_reported_j": null,
+        "shunt_samples": 5114,
+        "wall_s": 37.584815
+      },
+      "false_commits": 0,
+      "gate_c3_telemetry": {
+        "board_metered": true,
+        "core_reported_j": null,
+        "l1_vin_ina238_measured_j": 378.457772,
+        "l1_vin_sys_5v0_measured_j": 86.098162,
+        "l2_vdd_cpu_soc_mss_measured_j": 173.382446,
+        "l2_vdd_gpu_measured_j": 25.084538,
+        "pkg_reported_j": null,
+        "shunt_samples": 1140,
+        "wall_s": 10.548941
+      },
+      "mean_c2_c10_evals_per_task": 3.35,
+      "pipeline_energy_reduction_vs_pool_x": 2.186,
+      "pipeline_energy_reduction_vs_sequential_x": 1.239,
+      "rce_call_reduction_vs_pool": 4.776,
+      "rce_call_reduction_vs_sequential": 2.552,
+      "rce_subprocess_invocations": 3186,
+      "solve_rate_drop_pct_vs_unfiltered": 0.0,
+      "total_pipeline_primary_j": 458.157337,
+      "verified_solve_rate_pct": 88.57,
+      "verified_solved_tasks": 124
+    }
+  },
+  "board_metered": true,
+  "completed_utc": "2026-11-24T01:21:39Z",
+  "cta_fleet_rust_binary_sha256": "7596a788016e6244ce277a1dcf98ec695508eadb47c05cc98ae3f080fa036746",
+  "evidence_class": "measured_j",
+  "experiment_id": "CTA-E6",
+  "falsifier_6_audit": {
+    "gpu_cotenant_lock_active": true,
+    "idle_drift_pct": 1.78,
+    "policy_note": "Shared-host GPU lock active or >10.0% idle drift: A2 single-window net idle subtraction withheld; gross physical/counter joules reported strictly within host telemetry class.",
+    "post_idle_5s": {
+      "board_metered": true,
+      "core_reported_j": null,
+      "l1_vin_ina238_measured_j": 108.271732,
+      "l1_vin_sys_5v0_measured_j": 30.975762,
+      "l2_vdd_cpu_soc_mss_measured_j": 30.384797,
+      "l2_vdd_gpu_measured_j": 11.892088,
+      "pkg_reported_j": null,
+      "shunt_samples": 690,
+      "wall_s": 5.001046
+    },
+    "post_idle_mean_w": 6.0757,
+    "pre_idle_5s": {
+      "board_metered": true,
+      "core_reported_j": null,
+      "l1_vin_ina238_measured_j": 108.902602,
+      "l1_vin_sys_5v0_measured_j": 31.106106,
+      "l2_vdd_cpu_soc_mss_measured_j": 30.931856,
+      "l2_vdd_gpu_measured_j": 11.890823,
+      "pkg_reported_j": null,
+      "shunt_samples": 676,
+      "wall_s": 5.000244
+    },
+    "pre_idle_mean_w": 6.1861,
+    "withhold_a2_net_idle_subtraction": true
+  },
+  "formebm_v3_checkpoint_sha256": "3b50620883ab89b5bc29c622fc801cdb0c073b3588fec07016fa681cd47bfd25",
+  "host_id": "jetson_agx_thor_ina",
+  "kill_criteria_audit": {
+    "K1_unseen_auroc_ge_0_85": true,
+    "K2_adaptive_solve_drop_le_1pct": true,
+    "K2_topk_solve_drop_le_1pct": false,
+    "K3_rce_call_reduction_gt_2_39_vs_pool": true,
+    "K3_rce_call_reduction_gt_2_39_vs_sequential": true,
+    "K4_cta_t21_energy_dominance_vs_pool": true,
+    "K4_cta_t21_energy_dominance_vs_sequential": true,
+    "K5_zero_corrupt_commits": true,
+    "all_kill_criteria_passed": true
+  },
+  "milestone_id": "HQ02",
+  "prereg_sha256": "4a6b41d5f5c035b3ee086982732f743c6e0f89b9011f8786b720cc5916238fc8",
+  "primary_rail": "l2_vdd_cpu_soc_mss_measured_j",
+  "public_host_label": "NVIDIA Jetson AGX Thor (ARMv9 Tegra Linux, CPU-Only)",
+  "rce_binary_sha256": "3f291d22d2026b86e9cf65d6abd5d25f1b38d5a228a543facf373f9469bc8203",
+  "schema": "openie-cta-e6-hq02-host-receipt/1",
+  "unseen_shape_ranking_metrics": {
+    "admitted_candidates_total": 131,
+    "auroc_E_def": 0.9578,
+    "auroc_E_total": 0.9579,
+    "candidates_total": 2240,
+    "enzyme_attestation_receipts": 140,
+    "roc_curve_fpr_tpr": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0076
+      ],
+      [
+        0.0123,
+        0.542
+      ],
+      [
+        0.0408,
+        0.7863
+      ],
+      [
+        0.0811,
+        0.8244
+      ],
+      [
+        0.1309,
+        0.9008
+      ],
+      [
+        0.1712,
+        0.9237
+      ],
+      [
+        0.2129,
+        0.9542
+      ],
+      [
+        0.2632,
+        0.9542
+      ],
+      [
+        0.3058,
+        0.9695
+      ],
+      [
+        0.3523,
+        0.9771
+      ],
+      [
+        0.395,
+        1.0
+      ],
+      [
+        0.4395,
+        1.0
+      ],
+      [
+        0.4865,
+        1.0
+      ],
+      [
+        0.5363,
+        1.0
+      ],
+      [
+        0.5823,
+        1.0
+      ],
+      [
+        0.6316,
+        1.0
+      ],
+      [
+        0.679,
+        1.0
+      ],
+      [
+        0.7302,
+        1.0
+      ],
+      [
+        0.7866,
+        1.0
+      ],
+      [
+        0.8464,
+        1.0
+      ],
+      [
+        0.9014,
+        1.0
+      ],
+      [
+        0.954,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ],
+      [
+        1.0,
+        1.0
+      ]
+    ],
+    "solvable_tasks_count": 124,
+    "tasks_N": 140
+  }
+}

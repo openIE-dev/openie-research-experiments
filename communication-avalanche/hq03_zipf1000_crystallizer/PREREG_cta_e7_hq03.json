@@ -1,0 +1,61 @@
+{
+  "schema": "openie-cta-e7-hq03-prereg/1",
+  "id": "cta-e7-hq03-zipf1000-crystallizer-2026-11-23",
+  "milestone_id": "HQ03",
+  "experiment_id": "CTA-E7",
+  "locked_utc": "2026-11-23T23:47:00Z",
+  "title": "Live 1,000-Task Zipf(0.85) Automated Tier 3 -> Tier 2 -> Tier 1 (DNULLMM1 POSIX mmap) Skill Crystallizer and Loop 5 CTA-T45 Hit-Rate Auto-Eviction Across Dual Hardware Substrates",
+  "bridged_camps": [
+    "Loop 1 (Rust BLAKE3 + Ed25519 DE10 binary Phi_IR channel attestation)",
+    "Loop 2 (Calibrated cost_lut.json + Rust Bellman-Ford/Johnson SSP min-cost flow niche router)",
+    "Loop 3 (OS eventfd thresholded wakeup -> Tier 3 C3+C4+C6 FormEBM-v3 + MCTS + Evolutionary synthesis)",
+    "Loop 4 (C2 RCE/symbolic + C10 8-vector repeat-call gate -> recurrence promotion >= tau_j from Tier 3 -> Tier 2 deterministic AST/RCE/causal rule -> Tier 1 DNULLMM1 zero-copy POSIX mmap store)",
+    "Loop 5 (Hash-chained hardware joule ledger + sliding-window CTA-T45 h <= h_min automatic rule eviction)"
+  ],
+  "lean_theorem_anchors": [
+    "CTA-T41 (downward_step_amortization_dominance)",
+    "CTA-T42 (four_tier_downward_convergence_to_c0)",
+    "CTA-T44 (downward_compilation_preserves_soundness_all_tiers: 0 axioms)",
+    "CTA-T45 (downward_compilation_falsifier_hit_rate_iff: h_min = E_comp / (N_win * (c_high - c_low)))"
+  ],
+  "stream_and_shift_protocol": {
+    "seed": 20261123,
+    "total_arrivals_N": 1000,
+    "zipf_exponent_s": 0.85,
+    "recurring_structural_classes_K": 24,
+    "injected_transient_shift_classes": 6,
+    "total_structural_classes": 30,
+    "warmup_arrivals": 100,
+    "midstream_shift_window": [400, 419],
+    "promotion_thresholds": {
+      "tau_3_to_2_verified_hits": 1,
+      "tau_2_to_1_dnullmm1_verified_hits": 4,
+      "loop5_audit_window_arrivals": 200
+    },
+    "alpha_renaming_and_instance_freshness": "Every arrival carries unique alpha-renamed identifiers and fresh numerical/structural parameters so raw text caches miss 100%; Tier 2 and Tier 1 operate strictly over canonical De Bruijn / structural skeletons + extracted argument tuples."
+  },
+  "fleet_hosts_and_telemetry_separation": {
+    "host_1_linux_x86_64": {
+      "public_label": "Linux x86-64 (AMD Ryzen AI Max+ 395, 32t Zen 5)",
+      "evidence_class": "reported_j",
+      "board_metered": false,
+      "rails": ["pkg_reported_j", "core_reported_j"]
+    },
+    "host_2_jetson_thor": {
+      "public_label": "NVIDIA Jetson AGX Thor (ARMv9 Tegra Linux, CPU-Only)",
+      "evidence_class": "measured_j",
+      "board_metered": true,
+      "gpu_isolation": "CUDA_VISIBLE_DEVICES=\"\" (respecting shared-host GPU lock)",
+      "rails": ["l2_vdd_cpu_soc_mss_measured_j", "l1_vin_ina238_measured_j", "l1_vin_sys_5v0_measured_j"]
+    },
+    "falsifier_6_idle_drift_rule": "Measure 5.0s quiet idle before and after benchmark; if idle drift > 10.0% or shared-host co-tenant lock is active, withhold single-window A2 net idle subtraction and report gross rail joules + drift % transparently; never mix measured_j and reported_j."
+  },
+  "kill_criteria": {
+    "K1_max_regressions_or_corrupt_commits": 0,
+    "K2_required_oracle_parity_pct": 100.0,
+    "K3_min_post_warmup_share_le_16mJ_pct": 80.0,
+    "K4_min_tier3_wake_reduction_factor": 15.0,
+    "K5_cpj_improvement_range": [25.0, 60.0],
+    "K6_loop5_eviction_soundness": "100% of injected unamortized transient rules with h <= h_min evicted while recurring Zipf head classes pay back E_comp well before N = 1,000"
+  }
+}

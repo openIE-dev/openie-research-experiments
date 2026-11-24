@@ -1,0 +1,489 @@
+{
+  "arms": {
+    "crystallizing_loops1_to_5_cascade": {
+      "cpj_improvement_over_baseline_x": 25.96,
+      "cpj_tasks_per_primary_j": 48.633458,
+      "false_commits": 0,
+      "oracle_parity_pct": 100.0,
+      "parity_mismatches_vs_tier3_oracle": 0,
+      "per_tier_mean_energy": {
+        "tier1_dnullmm1_mean_mj": 4.4073,
+        "tier2_rule_mean_mj": 7.415,
+        "tier3_synthesis_mean_j": 0.5343
+      },
+      "post_warmup_900_arrivals": {
+        "closed_at_tier1_or_tier2_count": 894,
+        "closed_at_tier1_or_tier2_pct": 99.33,
+        "closed_le_16mJ_count": 892,
+        "closed_le_16mJ_pct": 99.11
+      },
+      "telemetry": {
+        "board_metered": true,
+        "core_reported_j": null,
+        "l1_vin_ina238_measured_j": 40.365009,
+        "l1_vin_sys_5v0_measured_j": 9.20211,
+        "l2_vdd_cpu_soc_mss_measured_j": 20.561976,
+        "l2_vdd_gpu_measured_j": 3.010562,
+        "pkg_reported_j": null,
+        "shunt_samples": 176,
+        "wall_s": 1.266146
+      },
+      "tier3_wake_reduction_factor_x": 33.33,
+      "tier_breakdown": {
+        "tier1_dnullmm1_hits": 884,
+        "tier2_rule_hits": 86,
+        "tier3_synthesis_wakes": 30
+      },
+      "total_primary_j": 20.561976,
+      "verified_solves": 1000
+    },
+    "non_crystallizing_tier3_baseline": {
+      "cpj_tasks_per_primary_j": 1.873361,
+      "false_commits": 0,
+      "mean_primary_j_per_task": 0.5338,
+      "telemetry": {
+        "board_metered": true,
+        "core_reported_j": null,
+        "l1_vin_ina238_measured_j": 1087.956933,
+        "l1_vin_sys_5v0_measured_j": 221.742946,
+        "l2_vdd_cpu_soc_mss_measured_j": 533.799862,
+        "l2_vdd_gpu_measured_j": 71.85675,
+        "pkg_reported_j": null,
+        "shunt_samples": 4241,
+        "wall_s": 30.218889
+      },
+      "tier3_wakes": 1000,
+      "total_primary_j": 533.799862,
+      "verified_solves": 1000
+    }
+  },
+  "board_metered": true,
+  "completed_utc": "2026-11-24T01:23:24Z",
+  "cta_fleet_rust_binary_sha256": "7596a788016e6244ce277a1dcf98ec695508eadb47c05cc98ae3f080fa036746",
+  "evidence_class": "measured_j",
+  "experiment_id": "CTA-E7",
+  "falsifier_6_audit": {
+    "gpu_cotenant_lock_active": true,
+    "idle_drift_pct": 2.98,
+    "policy_note": "Shared-host GPU lock active or >10.0% idle drift: A2 single-window net idle subtraction withheld; gross physical/counter joules reported strictly within host telemetry class.",
+    "post_idle_5s": {
+      "board_metered": true,
+      "core_reported_j": null,
+      "l1_vin_ina238_measured_j": 108.600139,
+      "l1_vin_sys_5v0_measured_j": 31.059117,
+      "l2_vdd_cpu_soc_mss_measured_j": 32.132109,
+      "l2_vdd_gpu_measured_j": 11.889996,
+      "pkg_reported_j": null,
+      "shunt_samples": 688,
+      "wall_s": 5.000248
+    },
+    "post_idle_mean_w": 6.4261,
+    "pre_idle_5s": {
+      "board_metered": true,
+      "core_reported_j": null,
+      "l1_vin_ina238_measured_j": 108.51783,
+      "l1_vin_sys_5v0_measured_j": 31.056526,
+      "l2_vdd_cpu_soc_mss_measured_j": 31.202563,
+      "l2_vdd_gpu_measured_j": 11.6985,
+      "pkg_reported_j": null,
+      "shunt_samples": 693,
+      "wall_s": 5.000262
+    },
+    "pre_idle_mean_w": 6.2402,
+    "withhold_a2_net_idle_subtraction": true
+  },
+  "formebm_v3_checkpoint_sha256": "3b50620883ab89b5bc29c622fc801cdb0c073b3588fec07016fa681cd47bfd25",
+  "host_id": "jetson_agx_thor_ina",
+  "kill_criteria_audit": {
+    "K1_zero_regressions_and_zero_corrupt_commits": true,
+    "K2_100pct_tier3_oracle_parity": true,
+    "K3_post_warmup_le_16mJ_ge_80pct": true,
+    "K4_tier3_wake_reduction_ge_15x": true,
+    "K5_cpj_improvement_in_25x_to_60x_band": true,
+    "K6_loop5_evicts_all_6_unamortized_shift_rules": true,
+    "K6_zipf_head_retained_and_amortized": true,
+    "all_kill_criteria_passed": true
+  },
+  "loop5_cta_t45_auto_eviction_audit": {
+    "evicted_recurring_zipf_count": 0,
+    "evicted_transient_shift_count": 6,
+    "evicted_transient_shift_ids": [
+      "SHIFT_01_TRANSIENT",
+      "SHIFT_02_TRANSIENT",
+      "SHIFT_03_TRANSIENT",
+      "SHIFT_04_TRANSIENT",
+      "SHIFT_05_TRANSIENT",
+      "SHIFT_06_TRANSIENT"
+    ],
+    "eviction_receipts": [
+      {
+        "action": "demote_Tier1_to_Tier2",
+        "audit_arrival_idx": 428,
+        "class_id": "PYALGO_01_RUNLEN_CHUNK",
+        "condition_h_le_h_min": true,
+        "cta_t45_h_min": 0.008571,
+        "empirical_hit_rate_h": 0.0,
+        "evicted_from_tier": 1,
+        "is_transient_shift": false,
+        "window_N": 200,
+        "window_hits_H": 0
+      },
+      {
+        "action": "demote_Tier1_to_Tier2",
+        "audit_arrival_idx": 468,
+        "class_id": "FDSAT_01_MOD5",
+        "condition_h_le_h_min": true,
+        "cta_t45_h_min": 0.008571,
+        "empirical_hit_rate_h": 0.005,
+        "evicted_from_tier": 1,
+        "is_transient_shift": false,
+        "window_N": 200,
+        "window_hits_H": 1
+      },
+      {
+        "action": "evict_Tier2_rule",
+        "audit_arrival_idx": 600,
+        "class_id": "SHIFT_01_TRANSIENT",
+        "condition_h_le_h_min": true,
+        "cta_t45_h_min": 0.000332,
+        "empirical_hit_rate_h": 0.0,
+        "evicted_from_tier": 2,
+        "is_transient_shift": true,
+        "window_N": 200,
+        "window_hits_H": 0
+      },
+      {
+        "action": "evict_Tier2_rule",
+        "audit_arrival_idx": 601,
+        "class_id": "SHIFT_02_TRANSIENT",
+        "condition_h_le_h_min": true,
+        "cta_t45_h_min": 0.000332,
+        "empirical_hit_rate_h": 0.0,
+        "evicted_from_tier": 2,
+        "is_transient_shift": true,
+        "window_N": 200,
+        "window_hits_H": 0
+      },
+      {
+        "action": "evict_Tier2_rule",
+        "audit_arrival_idx": 602,
+        "class_id": "SHIFT_03_TRANSIENT",
+        "condition_h_le_h_min": true,
+        "cta_t45_h_min": 0.000332,
+        "empirical_hit_rate_h": 0.0,
+        "evicted_from_tier": 2,
+        "is_transient_shift": true,
+        "window_N": 200,
+        "window_hits_H": 0
+      },
+      {
+        "action": "evict_Tier2_rule",
+        "audit_arrival_idx": 603,
+        "class_id": "SHIFT_04_TRANSIENT",
+        "condition_h_le_h_min": true,
+        "cta_t45_h_min": 0.000332,
+        "empirical_hit_rate_h": 0.0,
+        "evicted_from_tier": 2,
+        "is_transient_shift": true,
+        "window_N": 200,
+        "window_hits_H": 0
+      },
+      {
+        "action": "demote_Tier1_to_Tier2",
+        "audit_arrival_idx": 610,
+        "class_id": "SHIFT_05_TRANSIENT",
+        "condition_h_le_h_min": true,
+        "cta_t45_h_min": 0.008571,
+        "empirical_hit_rate_h": 0.005,
+        "evicted_from_tier": 1,
+        "is_transient_shift": true,
+        "window_N": 200,
+        "window_hits_H": 1
+      },
+      {
+        "action": "demote_Tier1_to_Tier2",
+        "audit_arrival_idx": 611,
+        "class_id": "SHIFT_06_TRANSIENT",
+        "condition_h_le_h_min": true,
+        "cta_t45_h_min": 0.034514,
+        "empirical_hit_rate_h": 0.005,
+        "evicted_from_tier": 1,
+        "is_transient_shift": true,
+        "window_N": 200,
+        "window_hits_H": 1
+      },
+      {
+        "action": "evict_Tier2_rule",
+        "audit_arrival_idx": 810,
+        "class_id": "SHIFT_05_TRANSIENT",
+        "condition_h_le_h_min": true,
+        "cta_t45_h_min": 0.000332,
+        "empirical_hit_rate_h": 0.0,
+        "evicted_from_tier": 2,
+        "is_transient_shift": true,
+        "window_N": 200,
+        "window_hits_H": 0
+      },
+      {
+        "action": "evict_Tier2_rule",
+        "audit_arrival_idx": 811,
+        "class_id": "SHIFT_06_TRANSIENT",
+        "condition_h_le_h_min": true,
+        "cta_t45_h_min": 0.000332,
+        "empirical_hit_rate_h": 0.0,
+        "evicted_from_tier": 2,
+        "is_transient_shift": true,
+        "window_N": 200,
+        "window_hits_H": 0
+      },
+      {
+        "action": "demote_Tier1_to_Tier2",
+        "audit_arrival_idx": 885,
+        "class_id": "PYALGO_01_RUNLEN_CHUNK",
+        "condition_h_le_h_min": true,
+        "cta_t45_h_min": 0.008571,
+        "empirical_hit_rate_h": 0.005,
+        "evicted_from_tier": 1,
+        "is_transient_shift": false,
+        "window_N": 200,
+        "window_hits_H": 1
+      }
+    ],
+    "recurring_zipf_amortized_count": 24,
+    "recurring_zipf_payback_ledger": [
+      {
+        "amortized_before_N1000": true,
+        "class_id": "CAUSAL_01_DO_BACKDOOR_4Z",
+        "e_comp_cumulative_j": 0.041,
+        "evicted": false,
+        "final_tier": 1,
+        "gross_saved_j": 12.7174,
+        "post_t3_hits": 24
+      },
+      {
+        "amortized_before_N1000": true,
+        "class_id": "CAUSAL_02_DO_BACKDOOR_4Z",
+        "e_comp_cumulative_j": 0.041,
+        "evicted": false,
+        "final_tier": 1,
+        "gross_saved_j": 18.5462,
+        "post_t3_hits": 35
+      },
+      {
+        "amortized_before_N1000": true,
+        "class_id": "CAUSAL_03_DO_BACKDOOR_4Z",
+        "e_comp_cumulative_j": 0.041,
+        "evicted": false,
+        "final_tier": 1,
+        "gross_saved_j": 14.3071,
+        "post_t3_hits": 27
+      },
+      {
+        "amortized_before_N1000": true,
+        "class_id": "CAUSAL_04_DO_BACKDOOR_5Z",
+        "e_comp_cumulative_j": 0.041,
+        "evicted": false,
+        "final_tier": 1,
+        "gross_saved_j": 15.3669,
+        "post_t3_hits": 29
+      },
+      {
+        "amortized_before_N1000": true,
+        "class_id": "CAUSAL_05_DO_BACKDOOR_5Z",
+        "e_comp_cumulative_j": 0.041,
+        "evicted": false,
+        "final_tier": 1,
+        "gross_saved_j": 12.1875,
+        "post_t3_hits": 23
+      },
+      {
+        "amortized_before_N1000": true,
+        "class_id": "CAUSAL_06_DO_BACKDOOR_5Z",
+        "e_comp_cumulative_j": 0.041,
+        "evicted": false,
+        "final_tier": 1,
+        "gross_saved_j": 12.7174,
+        "post_t3_hits": 24
+      },
+      {
+        "amortized_before_N1000": true,
+        "class_id": "FDSAT_01_MOD5",
+        "e_comp_cumulative_j": 0.047,
+        "evicted": false,
+        "final_tier": 1,
+        "gross_saved_j": 9.0082,
+        "post_t3_hits": 17
+      },
+      {
+        "amortized_before_N1000": true,
+        "class_id": "FDSAT_02_MOD7",
+        "e_comp_cumulative_j": 0.041,
+        "evicted": false,
+        "final_tier": 1,
+        "gross_saved_j": 10.5979,
+        "post_t3_hits": 20
+      },
+      {
+        "amortized_before_N1000": true,
+        "class_id": "FDSAT_03_MOD5",
+        "e_comp_cumulative_j": 0.041,
+        "evicted": false,
+        "final_tier": 1,
+        "gross_saved_j": 10.5979,
+        "post_t3_hits": 20
+      },
+      {
+        "amortized_before_N1000": true,
+        "class_id": "FDSAT_04_MOD7",
+        "e_comp_cumulative_j": 0.041,
+        "evicted": false,
+        "final_tier": 1,
+        "gross_saved_j": 8.4783,
+        "post_t3_hits": 16
+      },
+      {
+        "amortized_before_N1000": true,
+        "class_id": "FDSAT_05_MOD6",
+        "e_comp_cumulative_j": 0.041,
+        "evicted": false,
+        "final_tier": 1,
+        "gross_saved_j": 9.5381,
+        "post_t3_hits": 18
+      },
+      {
+        "amortized_before_N1000": true,
+        "class_id": "FDSAT_06_MOD8",
+        "e_comp_cumulative_j": 0.041,
+        "evicted": false,
+        "final_tier": 1,
+        "gross_saved_j": 8.4783,
+        "post_t3_hits": 16
+      },
+      {
+        "amortized_before_N1000": true,
+        "class_id": "PYALGO_01_RUNLEN_CHUNK",
+        "e_comp_cumulative_j": 0.047,
+        "evicted": false,
+        "final_tier": 2,
+        "gross_saved_j": 4.769,
+        "post_t3_hits": 9
+      },
+      {
+        "amortized_before_N1000": true,
+        "class_id": "PYALGO_02_PREFIX_MERGE",
+        "e_comp_cumulative_j": 0.041,
+        "evicted": false,
+        "final_tier": 1,
+        "gross_saved_j": 8.4783,
+        "post_t3_hits": 16
+      },
+      {
+        "amortized_before_N1000": true,
+        "class_id": "PYALGO_03_MOD_HORNER",
+        "e_comp_cumulative_j": 0.041,
+        "evicted": false,
+        "final_tier": 1,
+        "gross_saved_j": 9.0082,
+        "post_t3_hits": 17
+      },
+      {
+        "amortized_before_N1000": true,
+        "class_id": "PYALGO_04_INTERVAL_DP",
+        "e_comp_cumulative_j": 0.041,
+        "evicted": false,
+        "final_tier": 1,
+        "gross_saved_j": 6.3587,
+        "post_t3_hits": 12
+      },
+      {
+        "amortized_before_N1000": true,
+        "class_id": "RCE_01_QUORUM_GATE",
+        "e_comp_cumulative_j": 0.041,
+        "evicted": false,
+        "final_tier": 1,
+        "gross_saved_j": 116.5764,
+        "post_t3_hits": 220
+      },
+      {
+        "amortized_before_N1000": true,
+        "class_id": "RCE_02_CLAMP_FLOOR",
+        "e_comp_cumulative_j": 0.041,
+        "evicted": false,
+        "final_tier": 1,
+        "gross_saved_j": 62.5273,
+        "post_t3_hits": 118
+      },
+      {
+        "amortized_before_N1000": true,
+        "class_id": "RCE_03_DELTA_GUARD",
+        "e_comp_cumulative_j": 0.041,
+        "evicted": false,
+        "final_tier": 1,
+        "gross_saved_j": 35.5028,
+        "post_t3_hits": 67
+      },
+      {
+        "amortized_before_N1000": true,
+        "class_id": "RCE_04_PARITY_LATCH",
+        "e_comp_cumulative_j": 0.041,
+        "evicted": false,
+        "final_tier": 1,
+        "gross_saved_j": 36.0327,
+        "post_t3_hits": 68
+      },
+      {
+        "amortized_before_N1000": true,
+        "class_id": "RCE_05_WINDOW_BUDGET",
+        "e_comp_cumulative_j": 0.041,
+        "evicted": false,
+        "final_tier": 1,
+        "gross_saved_j": 28.0843,
+        "post_t3_hits": 53
+      },
+      {
+        "amortized_before_N1000": true,
+        "class_id": "RCE_06_STEP_ACCUM",
+        "e_comp_cumulative_j": 0.041,
+        "evicted": false,
+        "final_tier": 1,
+        "gross_saved_j": 22.2555,
+        "post_t3_hits": 42
+      },
+      {
+        "amortized_before_N1000": true,
+        "class_id": "RCE_07_RATE_VALVE",
+        "e_comp_cumulative_j": 0.041,
+        "evicted": false,
+        "final_tier": 1,
+        "gross_saved_j": 25.4348,
+        "post_t3_hits": 48
+      },
+      {
+        "amortized_before_N1000": true,
+        "class_id": "RCE_08_COMMIT_FENCE",
+        "e_comp_cumulative_j": 0.041,
+        "evicted": false,
+        "final_tier": 1,
+        "gross_saved_j": 12.1875,
+        "post_t3_hits": 23
+      }
+    ]
+  },
+  "milestone_id": "HQ03",
+  "prereg_sha256": "f5a1af2b5479aa207eb86d78d6a894c0b96c154427b0e6537fe94aa71f1e5b1c",
+  "primary_rail": "l2_vdd_cpu_soc_mss_measured_j",
+  "public_host_label": "NVIDIA Jetson AGX Thor (ARMv9 Tegra Linux, CPU-Only)",
+  "rce_binary_sha256": "3f291d22d2026b86e9cf65d6abd5d25f1b38d5a228a543facf373f9469bc8203",
+  "schema": "openie-cta-e7-hq03-host-receipt/1",
+  "stream_configuration": {
+    "arrivals_total": 1000,
+    "dnullmm1_store_sha256_snapshots": 34,
+    "final_dnullmm1_sha256": "91a96847d29a023deae4affb663c89153ea680aea075eec823d57743b175fd86",
+    "linux_eventfd_escalations": 30,
+    "mean_ssp_route_us": 1.369,
+    "recurring_classes_K": 24,
+    "total_classes": 30,
+    "transient_shift_classes": 6,
+    "zipf_s": 0.85
+  }
+}
