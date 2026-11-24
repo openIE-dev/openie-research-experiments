@@ -1,0 +1,16 @@
+[package]
+name = "nrf52832-lut6-bench"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.100.0"
+license = "Apache-2.0"
+description = "Bare-metal Nordic nRF52832-QFAA Cortex-M4F (thumbv7em-none-eabihf) 64 KB SRAM LUT6 Nucleus benchmark firmware"
+
+[dependencies]
+lut6-core = { path = "../lut6-core", default-features = false }
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"

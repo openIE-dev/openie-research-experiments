@@ -5,7 +5,7 @@
 All telemetry in this directory enforces strict separation across measurement classes:
 - **`measured_j`** (`board_metered = true`): Physical DC shunt rail integration on **NVIDIA Jetson AGX Thor Developer Kit** (`aarch64` Linux `6.8-tegra`, strictly CPU-only with `CUDA_VISIBLE_DEVICES=""`) via Texas Instruments **`INA3221`** (`VDD_CPU_SOC_MSS` `L2` rail) and **`INA238`** (`VIN` `L1` board input rail) polled at `200 Hz` (`5 ms`) with `5.0 s` pre/post quiet idle drift checks (`1.034%` `VDD_CPU_SOC_MSS` drift; single-window net idle subtraction withheld per `Falsifier 6` due to active shared-host GPU co-tenant lock).
 - **`reported_j`** (`board_metered = false`): Linux `powercap` on-chip energy counters on **AMD Ryzen AI Max+ 395** (`x86_64` Zen 5 Linux `7.0`) via `/sys/class/powercap/intel-rapl:0/energy_uj` (`package-0`) and `/sys/class/powercap/intel-rapl:0:0/energy_uj` (`core`) with `5.0 s` pre/post quiet idle drift checks (`12.584%` package drift -> single-window net idle subtraction withheld per `Falsifier 6`).
-- **Cross-Compiled Bare-Metal MCU ELFs** (`board_metered = false`, `measured_j = null`, `reported_j = null`): Static section byte footprints and `llvm-objdump` Thumb-2 / ARMv6-M instruction audits for **Alif Ensemble E3/E4 Cortex-M55 HE** (`thumbv8m.main-none-eabihf`) and **Raspberry Pi Pico RP2040 Cortex-M0+** (`thumbv6m-none-eabi`).
+- **Cross-Compiled Bare-Metal MCU ELFs** (`board_metered = false`, `measured_j = null`, `reported_j = null`): Static section byte footprints and `llvm-objdump` Thumb-2 / ARMv6-M / ARMv7E-M / RV32IMAC instruction audits for **Alif Ensemble E3/E4 Cortex-M55 HE** (`thumbv8m.main-none-eabihf`), **Raspberry Pi Pico RP2040 Cortex-M0+** (`thumbv6m-none-eabi`), **Nordic nRF52832-QFAA Cortex-M4F** (`thumbv7em-none-eabihf`, `64 KB` SRAM), and **Bare-Metal RV32IMAC MCU** (`riscv32imac-unknown-none-elf`, `64 KB` SRAM).
 
 `measured_j` and `reported_j` are never summed or mixed.
 
@@ -55,10 +55,12 @@ Verified on Linux (`bubblewrap 0.11.1` network-isolated namespace, zero `--inadv
 
 ### 4.1 Bare-Metal Release ELF Footprints (`results/mcu_cross_compile_audit.json`, `board_metered = false`)
 
-| Target MCU & ISA | `.vector_table` | `.text` | `.rodata` | `.lut6_dtcm` / `.lut6` | `.data` | `.bss` | Total Instructions | Float Insns | `WFI` Insns |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| **Alif Ensemble E3/E4 Cortex-M55 HE** (`thumbv8m.main-none-eabihf`, MRAM `@ 0x8000_0000` + DTCM `@ 0x2000_0000`) | `8 B` | `12,260 B` | `0 B` | `16,400 B` | `24 B` | `0 B` | `4,259` | **`0`** | `2` |
-| **Raspberry Pi Pico RP2040 Cortex-M0+** (`thumbv6m-none-eabi`, Flash `@ 0x1000_0000` + Striped SRAM `@ 0x2000_0000`) | `8 B` | `11,040 B` | `0 B` | `16,400 B` | `32 B` | `0 B` | `5,248` | **`0`** | `2` |
+| Target MCU & ISA | Boot / Vec | `.text` | `.rodata` | `.lut6*` Nucleus | `.data` | `.bss` | SRAM Used (`% Cap`) | Total Insns | Float Insns | `WFI` Insns |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| **Alif Ensemble E3/E4 Cortex-M55 HE** (`thumbv8m.main-none-eabihf`, MRAM `@ 0x8000_0000` + `256 KB` DTCM `@ 0x2000_0000`) | `8 B` | `12,260 B` | `0 B` | `16,400 B` | `24 B` | `0 B` | `16,424 B` (`6.27%`) | `4,259` | **`0`** | `2` |
+| **Raspberry Pi Pico RP2040 Cortex-M0+** (`thumbv6m-none-eabi`, Flash `@ 0x1000_0000` + `264 KB` Striped SRAM `@ 0x2000_0000`) | `8 B` | `11,040 B` | `0 B` | `16,400 B` | `32 B` | `0 B` | `16,432 B` (`6.08%`) | `5,248` | **`0`** | `2` |
+| **Nordic nRF52832-QFAA Cortex-M4F** (`thumbv7em-none-eabihf`, `512 KB` Flash `@ 0x0000_0000` + `64 KB` SRAM `@ 0x2000_0000`) | `8 B` | `12,300 B` | `104 B` | `16,400 B` | `24 B` | `0 B` | **`16,424 B` (`25.06%`, `49,112 B` free)** | `4,185` | **`0`** | `2` |
+| **Bare-Metal RV32IMAC MCU** (`riscv32imac-unknown-none-elf`, `512 KB` Flash `@ 0x2000_0000` + `64 KB` SRAM `@ 0x8000_0000`) | `12 B` | `11,244 B` | `0 B` | `16,400 B` | `24 B` | `0 B` | **`16,424 B` (`25.06%`, `49,112 B` free)** | `3,480` | **`0`** | `2` |
 
 ### 4.2 Yosys `0.71+` `-lut 6` -> `.lut6` Crystal Packer (`packer/compile_and_pack.py`)
 - Synthesized `packer/verified_skill.v` via `Yosys 0.71+` (`synth -top verified_skill -noalumacc -nordff; abc -lut 6; clean -purge; write_json`) in `110.65 ms` into `27` `$lut` cells, levelized across `4` layers (`[14, 21, 19, 13]` active gates, `84` packed slots) into `packer/verified_skill.lut6` (`4,096` bytes, CRC-32 `0x16ce2bcf`).
