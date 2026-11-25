@@ -6,6 +6,7 @@ Reproducible material for the papers at https://research.openie.dev. The page ht
 
 | Path | Paper | Contents |
 |---|---|---|
+| `replicate/` | Standalone 1-Command External Replication Kit (`Apache-2.0`) | `./replicate/run_replication.sh` (`python3 >= 3.10` stdlib-only + optional `cc`/`rustc`) and `replicate/Dockerfile` auditing `CHECKSUMS.sha256` and running live multi-trial benchmarks for `deterministic-null`, `rce-compile` (de Bruijn 1972 + `N*` payback), and `ai-reads-human` (23-byte binary vs UTF-8 JSON), plus sanitized `reference-linux-x86_64-report.md` |
 | `agency-run/` | Thermodynamic Bounds and an Optimal Tempo for Goal-Holding Agents, §8.11 | Preregistrations (v1, v2, v2 second machine), agent and meter code, task generator, analysis scripts, episode and receipt results, pilots |
 | `rce/bench/track-a/` | Development material (not reported in the paper) | Corpus20 task directories (each registration), preregistrations with SHA-256, solver patches and reports |
 | `rce/bench/track-b/` | Development material (not reported in the paper) | RAPL energy runs: `results.jsonl` with raw and idle-subtracted joules, method and report |
@@ -32,9 +33,25 @@ Reproducible material for the papers at https://research.openie.dev. The page ht
 
 Standalone companion repositories under `openIE-dev`: `openIE-dev/deterministic-null` (`Shape D` 5-language engine + `exp-001..exp-003` receipts), `openIE-dev/lut-adapt-ai` (`xck26` LUT6 RTL + AirMoL NVMe logs), `openIE-dev/rce`, and `openIE-dev/rce-vc`.
 
-## Energy labels
+## Energy labels (`measured_j ⊥ reported_j ⊥ est_j ⊥ unmetered`)
 
-`est_j` is an analytical estimate. `reported_j` is an operating-system or on-chip counter (`RAPL`, `IOReport`, `NVML`, or macOS `proc_pid_rusage`). `measured_j` is a wall or physical shunt meter on a named rail: it is populated in `satb-harness/multi-host/multi_host_satb_receipts.json` and `communication-avalanche/fleet_and_des10/results/` for the Texas Instruments `INA238` (`VIN` `L1`) and 3-channel `INA3221` (`VDD_GPU`, `VDD_CPU_SOC_MSS`, `VIN_SYS_5V0` `L2`) rails on `NVIDIA Jetson AGX Thor` (shared host, `A2` single-window net attribution withheld per `Falsifier 6`), and is empty in all other runs here. Labels are never summed.
+`unmetered` (`joules: null`) records exact wall-clock time, CPU time, and byte counts when no hardware counter is readable without root. `est_j` is an analytical estimate. `reported_j` is an operating-system or on-chip counter (`RAPL`, `IOReport`, `NVML`, or macOS `proc_pid_rusage`). `measured_j` is a wall or physical shunt meter on a named rail: it is populated in `satb-harness/multi-host/multi_host_satb_receipts.json` and `communication-avalanche/fleet_and_des10/results/` for the Texas Instruments `INA238` (`VIN` `L1`) and 3-channel `INA3221` (`VDD_GPU`, `VDD_CPU_SOC_MSS`, `VIN_SYS_5V0` `L2`) rails on `NVIDIA Jetson AGX Thor` (shared host, `A2` single-window net attribution withheld per `Falsifier 6`), and is empty in all other runs here. Labels are never summed.
+
+## 1-Command External Replication (`replicate/`)
+
+To audit `CHECKSUMS.sha256` across the repository and run the standalone external replication harness (`deterministic-null`, `rce-compile`, and `ai-reads-human`) with zero third-party Python packages (`python3 >= 3.10` stdlib-only; optional `cc`/`rustc` auto-detected):
+
+```bash
+./replicate/run_replication.sh
+```
+
+Or in a clean, unprivileged Debian Bookworm container:
+
+```bash
+docker build -t openie-replicate -f replicate/Dockerfile . && docker run --rm openie-replicate
+```
+
+Sanitized local receipts are written to `replicate/out/replication-report.json` and `replicate/out/replication-report.md` (comparing your hardware against OpenIE's self-checked reference artifacts; see [`replicate/README.md`](replicate/README.md) and [`replicate/reference-linux-x86_64-report.md`](replicate/reference-linux-x86_64-report.md)).
 
 ## Reproducing
 
