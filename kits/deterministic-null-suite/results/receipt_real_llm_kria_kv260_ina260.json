@@ -3,21 +3,24 @@
     "schema": "openie.signed_provenance_receipt.v1",
     "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
     "self_attested_not_third_party_verified": true,
-    "kit_id": "kits/deterministic-null-suite/real-llm-crystallization",
-    "domain_context": "openie.kit.dnull_real_llm.receipt.v1",
-    "issued_utc": "2026-11-26T13:47:14Z",
+    "kit_id": "kits/deterministic-null-suite/oct-nov-2026-sota-llm-crystallization",
+    "domain_context": "openie.kit.dnull_sota_panel.receipt.v2",
+    "issued_utc": "2026-11-26T18:24:59Z",
     "payload": {
       "substrate_id": "amd_kria_kv260_ina260",
-      "hf_model": "Qwen/Qwen2.5-0.5B-Instruct-GGUF/qwen2.5-0.5b-instruct-q4_k_m.gguf",
-      "gguf_sha256": "74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db",
-      "subset90_sha256": "e9115baa0110448ce273ef951eeab4b3d927ad526087e75f00fae94092f27844",
-      "cold_llm_accuracy": 0.3667,
-      "zipf085_stream_accuracy": 0.8933,
+      "models_evaluated": [
+        "lfm3_1_7b",
+        "d1_2b_systemone"
+      ],
+      "stage3_teacher_key": "lfm3_1_7b",
+      "subset90_sha256": "35e38c69607fd73924d93eb56659b845b19a506fe9238a431d5680344b911251",
       "energy_evidence_class": "measured_j",
-      "results_blake3": "ae63ac8e02d0ef11f04ad806da69371a10df2afea626c6745c953961b0c9d58c"
+      "pooled_spot_check_runs": 6,
+      "pooled_spot_check_divergences": 0,
+      "results_blake3": "2b0a4afe3101ae66fe59a44e7c23b775df03565464bf3077269fc872f3458a07"
     }
   },
-  "body_blake3": "c5689f48bacbcc45f0fc327905b5a32d6f320f2ac46f3b6d686797db2a9b7166",
-  "ed25519_public_key_hex": "71535b0c6babb7e81a163ef6ffa537b47f62ecef175b5596f1c0e670c3aae2d8",
-  "ed25519_signature_hex": "2cd679f1c3f82f3bbec7e426bce3335bab6e55fe6b28e891c3e6d20bf3f8f95ac22f95979301eb2d6cf7b5583c1a35631e4a4eda8ab6616e828ab743c7e5280d"
+  "body_blake3": "da2dd18bbbe61da9909b0379e12d5fe74754c74fa782c6fdeeb9d3f9f9f7d0ee",
+  "ed25519_public_key_hex": "de255d17275e0985c05c6a24cafc16eead7cc8047b4582dfc3e55c36f1313355",
+  "ed25519_signature_hex": "b541cb24f0b5dab0974eb23981024a26a2bee3978e58308897cf1bab10d1eebad4bf458fdecf5a623a7ff4a7d9e9f1f60c4320dc6a0fc36e4420d8ba9dddb901"
 }

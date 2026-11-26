@@ -41,15 +41,24 @@ python3 kits/deterministic-null-suite/dnull_suite/suite_runner.py   --openai-com
 
 ---
 
-## 4. Real Pretrained Open-Weight Transformer (`Qwen2.5-0.5B-Instruct`) + Verified Crystallization
+## 4. Oct 12 – Nov 26, 2026 Open-Weight SOTA LLM Panel + Verified Crystallization (`real_llm_eval.py`)
 
-To evaluate a real pretrained 24-layer Transformer LLM (`Qwen/Qwen2.5-0.5B-Instruct-GGUF` `Q4_K_M`, `494M` parameters, `SHA-256 = 74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db`, greedy `temperature = 0.0`, `top_k = 1`, `seed = 20261126`, `cache_prompt = false`) head-to-head against all 5 classical control arms AND a 3-stage **Verified Downward Crystallization (`t = 1 -> t = 2` & `300`-query `Zipf(0.85)` live stream)** on the `SHA-256`-pinned confirmatory subset (`N = 90`, `30` per stratum, `SHA-256 = e9115baa0110448ce273ef951eeab4b3d927ad526087e75f00fae94092f27844`):
+Benchmarks a **6-model open-weight SOTA panel released strictly within `2026-10-23` – `2026-11-24` (`2` to `34` days old at the `2026-11-26` freeze)** head-to-head against all 5 classical control arms AND a 3-stage **Verified Downward Crystallization (`t = 1 -> t = 2` & `300`-query `Zipf(0.85)` live stream)** via mainline `llama.cpp` (`commit 436d7e8`, CPU-only `-ngl 0`, `temperature = 0.0`, `seed = 20261126`, `cache_prompt = false`):
+
+1. **`LiquidAI/LFM3-1.7B-GGUF`** (`LFM3-1.7B-Q4_K_M.gguf`, `2026-10-24`, `1.10 GB`, `gguf_arch = lfm3`)
+2. **`LiquidAI/d1-2B-GGUF`** (`d1-2B-Q4_K_M.gguf`, `2026-10-27`, `1.10 GB`, `gguf_arch = lfm3`, `/v1/systemone` non-autoregressive System-1 decision head)
+3. **`ggml-org/Qwen3.5-4B-GGUF`** (`Qwen3.5-4B-Q4_K_M.gguf`, `2026-11-12`, `3.03 GB`, `Apache-2.0`, `gguf_arch = qwen35`)
+4. **`unsloth/NVIDIA-Nemotron-3.5-Bolt-E4B-GGUF`** (`NVIDIA-Nemotron-3.5-Bolt-E4B-UD-Q4_K_XL.gguf`, `2026-10-23`, `5.06 GB`, `gguf_arch = gemma4`)
+5. **`unsloth/Inkling-2-Mini-GGUF`** (`Inkling-2-Mini-UD-IQ4_XS.gguf`, `2026-11-20`, `15.73 GB`, `Apache-2.0`, `gguf_arch = inkling2_loop`, Thinking Machines Lab `26.4B` total / `3.4B` active Looped Transformer MoE)
+6. **`prism-ml/Ternary-Bonsai-2.5-27B-GGUF`** (`Ternary-Bonsai-2.5-27B-Q2_0.gguf`, `2026-11-24`, `7.67 GB`, `Apache-2.0`, `gguf_arch = qwen35`, native ternary `27B` in `Q2_0`)
 
 ```bash
 python3 kits/deterministic-null-suite/real_llm_eval.py \
   --llama-server-bin /path/to/llama-server \
-  --auto-download-gguf
+  --models-dir /path/to/gguf-models \
+  --k-per-stratum 30 --k-overrides ternary_bonsai_2_5_27b=15 \
+  --stream-teacher inkling_2_mini
 ```
 
-- **Scope Note (per 25 Nov 2026 Review):** Stage-1 `<= 4 KiB` crystallized LUT hits measure exact content-addressed recall on recurring verified inputs (`C(x, z) == 1`), **not** unseen cold generalization; unseen structured/constraint arrivals route to Stage-2 classical rules/DPLL and unseen open compositional arrivals escalate to the live Transformer.
+- **Scope Note (per 25 Nov 2026 Review):** Stage-1 `<= 4 KiB` crystallized LUT hits measure exact content-addressed recall on recurring verified inputs (`C(x, z) == 1`), **not** unseen cold generalization; unseen structured/constraint arrivals route to Stage-2 classical rules/`DPLL` and unseen open compositional arrivals escalate to the live Stage-3 teacher.
 - **Committed Multi-Substrate Hardware Receipts (`measured_j` & `reported_j`):** [`results/real_llm_multi_substrate_receipts.json`](./results/real_llm_multi_substrate_receipts.json) and [`results/receipt_real_llm_crystallization.json`](./results/receipt_real_llm_crystallization.json) (see [`RESULTS.md`](./RESULTS.md) §4).

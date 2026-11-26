@@ -3,13 +3,24 @@
     "schema": "openie.signed_provenance_receipt.v1",
     "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
     "self_attested_not_third_party_verified": true,
-    "kit_id": "kits/deterministic-null-suite/real-llm-crystallization-multi-substrate",
-    "domain_context": "openie.kit.dnull_real_llm.multi_substrate_receipt.v1",
-    "issued_utc": "2026-11-26T13:51:06Z",
+    "kit_id": "kits/deterministic-null-suite/oct-nov-2026-sota-llm-crystallization-multi-substrate",
+    "domain_context": "openie.kit.dnull_sota_panel.multi_substrate_receipt.v2",
+    "issued_utc": "2026-11-26T18:28:26Z",
     "payload": {
-      "gguf_sha256": "74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db",
-      "confirmatory_subset90_sha256": "e9115baa0110448ce273ef951eeab4b3d927ad526087e75f00fae94092f27844",
-      "confirmatory_subset90_blake3": "e4c459518ef21e58da31fc09f91f13bd0d52e914125ba8e9f6a4a530e7aaeb5d",
+      "panel_models": [
+        "lfm3_1_7b",
+        "d1_2b_systemone",
+        "qwen3_5_4b",
+        "nemotron_3_5_bolt_e4b",
+        "inkling_2_mini",
+        "ternary_bonsai_2_5_27b"
+      ],
+      "panel_release_span_utc": [
+        "2026-10-23",
+        "2026-11-24"
+      ],
+      "confirmatory_subset90_sha256": "35e38c69607fd73924d93eb56659b845b19a506fe9238a431d5680344b911251",
+      "confirmatory_subset90_blake3": "7929e14b3921136323af8710655f7d7018e00ce6cc1c9a9664f37301209e8efd",
       "substrates_count": 3,
       "measured_j_boards": [
         "amd_kria_kv260_ina260",
@@ -18,12 +29,12 @@
       "reported_j_hosts": [
         "amd_ryzen_ai_max_395_rapl"
       ],
-      "pooled_spot_check_runs": 30,
+      "pooled_spot_check_runs": 42,
       "pooled_spot_check_divergences": 0,
-      "bundle_blake3": "b78360ddc3f49dbfad3fe649faf5b7d9fb2ac5a68da62ff47f7cd2161f415701"
+      "bundle_blake3": "9cef2c24ad1e284efafc1640e009d28f1b2147b00b3161423fccf505cbffec19"
     }
   },
-  "body_blake3": "b8271399c051379477351e3c518ba8891d1d16b4bc97de062d7e1ffa8174ef19",
-  "ed25519_public_key_hex": "05692166d0dc0485b371cf33b2b45b7f54e28f5cd19900bb1de56042da65613a",
-  "ed25519_signature_hex": "7ddd8267021c2b9b0c61e22fd6664ac4e10e828869471f49894ea83ce2c3fe455848ed9b707c2da9ef1b1ed6bfffc615904eda431929d69de0bbd05c5382eb04"
+  "body_blake3": "84dd1c1a3c7fc60884546a67c3e833160cc6a26f97deb7514a413e4508fb43bb",
+  "ed25519_public_key_hex": "c905ad9cbc17b0fc984313ec7556b508b20941c892f3528918e9531a43609917",
+  "ed25519_signature_hex": "8ab9972442365ddb96fa642e37d76949c07c32d6a0ff4cadcc3b978f52cc54d77ebd128838135dd13fdf0a78cf84ce405787a8f08941ba7a8648d0c77a95750e"
 }

@@ -3,21 +3,28 @@
     "schema": "openie.signed_provenance_receipt.v1",
     "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
     "self_attested_not_third_party_verified": true,
-    "kit_id": "kits/deterministic-null-suite/real-llm-crystallization",
-    "domain_context": "openie.kit.dnull_real_llm.receipt.v1",
-    "issued_utc": "2026-11-26T13:51:06Z",
+    "kit_id": "kits/deterministic-null-suite/oct-nov-2026-sota-llm-crystallization",
+    "domain_context": "openie.kit.dnull_sota_panel.receipt.v2",
+    "issued_utc": "2026-11-26T16:31:02Z",
     "payload": {
       "substrate_id": "x86_rapl",
-      "hf_model": "Qwen/Qwen2.5-0.5B-Instruct-GGUF/qwen2.5-0.5b-instruct-q4_k_m.gguf",
-      "gguf_sha256": "74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db",
-      "subset90_sha256": "e9115baa0110448ce273ef951eeab4b3d927ad526087e75f00fae94092f27844",
-      "cold_llm_accuracy": 0.3667,
-      "zipf085_stream_accuracy": 0.8933,
+      "models_evaluated": [
+        "lfm3_1_7b",
+        "d1_2b_systemone",
+        "qwen3_5_4b",
+        "nemotron_3_5_bolt_e4b",
+        "inkling_2_mini",
+        "ternary_bonsai_2_5_27b"
+      ],
+      "stage3_teacher_key": "inkling_2_mini",
+      "subset90_sha256": "35e38c69607fd73924d93eb56659b845b19a506fe9238a431d5680344b911251",
       "energy_evidence_class": "reported_j",
-      "results_blake3": "1a6a5361efe6b2d6cf0cc635e435a3f08f163b3f1e8c14034dca58a7eb5a188d"
+      "pooled_spot_check_runs": 18,
+      "pooled_spot_check_divergences": 0,
+      "results_blake3": "2b8dc77ebda742a1d42ed7ffa4097c7376248fee99fec8889fb7eb84256b79be"
     }
   },
-  "body_blake3": "b44cff65bee5910e401210840974695dfb32645aa17a9f15e65642cc345faf8d",
-  "ed25519_public_key_hex": "b89ae3793cb4d5e42275256b5c24690fd71eabae03b1b7e6a27a2c4755fae170",
-  "ed25519_signature_hex": "07722b44a1c8d692f6c15d887abc438f6d3b86e107c86d2a082ae6b9890ca8ee6a94ca376528e75b576ddf9d6fe4282b664f62fc926dc955ba808181b86f0e0c"
+  "body_blake3": "85dfb7e2e8f5f0c43dd063bf4c63d6be6dae6f799db2b5a1114e57e5914ff9a0",
+  "ed25519_public_key_hex": "36acbef1d3db160327268849b76ad56bc8ebfae24629cb49ac7978db724e9ff4",
+  "ed25519_signature_hex": "a7d7f597a35ceb761849b89589cae89a9c708db9a6e67c071e10172949d705bdb4cb289671e84753de3aeb4c11911cfe882fca4abe1162b5698a1fb35d788d00"
 }

@@ -3,21 +3,28 @@
     "schema": "openie.signed_provenance_receipt.v1",
     "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
     "self_attested_not_third_party_verified": true,
-    "kit_id": "kits/deterministic-null-suite/real-llm-crystallization",
-    "domain_context": "openie.kit.dnull_real_llm.receipt.v1",
-    "issued_utc": "2026-11-26T13:04:31Z",
+    "kit_id": "kits/deterministic-null-suite/oct-nov-2026-sota-llm-crystallization",
+    "domain_context": "openie.kit.dnull_sota_panel.receipt.v2",
+    "issued_utc": "2026-11-26T16:56:46Z",
     "payload": {
       "substrate_id": "jetson_agx_thor_ina3221",
-      "hf_model": "Qwen/Qwen2.5-0.5B-Instruct-GGUF/qwen2.5-0.5b-instruct-q4_k_m.gguf",
-      "gguf_sha256": "74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db",
-      "subset90_sha256": "e9115baa0110448ce273ef951eeab4b3d927ad526087e75f00fae94092f27844",
-      "cold_llm_accuracy": 0.3667,
-      "zipf085_stream_accuracy": 0.8933,
+      "models_evaluated": [
+        "lfm3_1_7b",
+        "d1_2b_systemone",
+        "qwen3_5_4b",
+        "nemotron_3_5_bolt_e4b",
+        "inkling_2_mini",
+        "ternary_bonsai_2_5_27b"
+      ],
+      "stage3_teacher_key": "inkling_2_mini",
+      "subset90_sha256": "35e38c69607fd73924d93eb56659b845b19a506fe9238a431d5680344b911251",
       "energy_evidence_class": "measured_j",
-      "results_blake3": "2b4c9e804e9e1d979e267bbb681ebf15e95b13162eeed0be050def24abad3fa1"
+      "pooled_spot_check_runs": 18,
+      "pooled_spot_check_divergences": 0,
+      "results_blake3": "0b5d6156ff971abc34dfd2e9f2b2c53d6090cc69f0a72d407dbb0ccb25c19da9"
     }
   },
-  "body_blake3": "ffdbfafc79fc6d63e9aade989383c53889742b8d3bf937430547f2aa9c17d738",
-  "ed25519_public_key_hex": "a551ebbd52f6064aec4070b5525b29c524ff7cc03241cf1cb1bb4c96ea2e6792",
-  "ed25519_signature_hex": "9119b7105765b07bebe58f41a1dff353a1db62349215c364506f1fc34c8816ea1a04b88ffb4791e05b6eeb065775a33b6e7af7aa6b49c6b909eaf9042e3a6307"
+  "body_blake3": "e317498d8ac6220ae3feb43e9fc5c09cc7d204617ca944f64576487fe34b1e1c",
+  "ed25519_public_key_hex": "6e55002cfc460ac1ed9c60f61f96d3f897fa1bbdacfa0fe30d3f7f145a3e0e26",
+  "ed25519_signature_hex": "1a606626341a7db875d751c702698dabc3db124c7a6ed10203e7b30e1599732253f4233b5967be73b8c2b78bfbddd36d8e0ad7f43f25b7fa7f1c0380c3d15309"
 }
