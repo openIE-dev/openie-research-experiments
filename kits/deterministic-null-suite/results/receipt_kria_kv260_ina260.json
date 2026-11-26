@@ -1,0 +1,22 @@
+{
+  "body": {
+    "schema": "openie.signed_provenance_receipt.v1",
+    "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+    "self_attested_not_third_party_verified": true,
+    "kit_id": "kits/deterministic-null-suite",
+    "domain_context": "openie.kit.deterministic_null_suite.receipt.v1",
+    "issued_utc": "2026-11-26T08:18:19Z",
+    "payload": {
+      "substrate_id": "amd_kria_kv260_ina260",
+      "canonical_dataset_sha256": "6d70b5818237405c37f34b5bc4fbdff8bd210ea2b70f6313d8d1c5235c22e08e",
+      "canonical_dataset_blake3": "9f89b28cdecc2a8c7018c26bb1b548a22043d1a5f0a3dda44912df50a8e06d73",
+      "held_out_instances_total": 1500,
+      "divergent_runs": 0,
+      "energy_evidence_class": "measured_j",
+      "results_blake3": "a5d3f412f4ca31b543f92ab4f861a80417a4467583f989ba7e5fb4b231f68501"
+    }
+  },
+  "body_blake3": "bf8b3203dff6e0346be17eddb1f8cb3d39d5a92f9f37c4915760068eb6e4a6df",
+  "ed25519_public_key_hex": "1081015998526463321ffee41b3eb631571c5e6414b4af5bd3959bd54666c708",
+  "ed25519_signature_hex": "c00a05f5df0dd2faa054b4f53d34be48ed1c54c6966736c8c2d0c44f503e10609b191da7957d47e8763df08857ab4d371fa23ba3eeff90f05fafc341ec72b402"
+}

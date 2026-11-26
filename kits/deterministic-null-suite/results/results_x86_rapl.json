@@ -1,0 +1,581 @@
+{
+  "schema": "openie.deterministic_null_suite.v1",
+  "kit_id": "kits/deterministic-null-suite",
+  "shot_on_goal": "Shot #1 \u2014 Standardized Deterministic Null Benchmark Suite (5 Classical Automation Baselines + Pluggable Candidate Adapter)",
+  "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+  "license": "Apache-2.0",
+  "mode": "standard",
+  "trials_per_arm": 20,
+  "host": {
+    "cpu_model": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S",
+    "logical_cpus": 32,
+    "ram_gib": 122.83,
+    "os_kernel": "Linux 7.0.0-43-generic x86_64",
+    "python_version": "3.15.0",
+    "cc_version": "GCC 15.2.0",
+    "recorded_utc": "2026-11-26T08:16:34Z"
+  },
+  "energy_telemetry": {
+    "evidence_class": "reported_j",
+    "board_metered": false,
+    "substrate_id": "x86_rapl",
+    "measured_j": null,
+    "reported_j_available": true,
+    "est_j_mixed": false,
+    "package_counter": "/sys/class/powercap/intel-rapl:0/energy_uj",
+    "package_domain": "package-0",
+    "core_counter": "/sys/class/powercap/intel-rapl:0:0/energy_uj",
+    "core_domain": "core",
+    "idle_pkg_w_pre": 92.6326,
+    "idle_pkg_w_post": 86.5356,
+    "idle_drift_pct": 6.81
+  },
+  "dataset_precommitment": {
+    "held_out_instances_total": 1500,
+    "instances_per_stratum": 500,
+    "lut_memory_cap_bytes_per_stratum": 4096,
+    "canonical_dataset_sha256": "cdfd2668e2b2c422f8e2086c280b0a6118225b8c43f48edf27d5c35e307efb12",
+    "canonical_dataset_blake3": "277dcd968d2c67a8dd10f95586175d3ba167236e8f99d75a406833b1f3079bec",
+    "strata": [
+      {
+        "id": 0,
+        "key": "bounded_api_dispatch",
+        "n": 500,
+        "classes": 8
+      },
+      {
+        "id": 1,
+        "key": "combinatorial_constraint_3sat",
+        "n": 500,
+        "classes": 2
+      },
+      {
+        "id": 2,
+        "key": "open_compositional_patch_triage",
+        "n": 500,
+        "classes": 8
+      }
+    ]
+  },
+  "determinism_gate": {
+    "total_arm_runs": 140,
+    "divergent_runs": 0,
+    "clopper_pearson_95_upper_bound_divergence": 0.021171
+  },
+  "arms": {
+    "arm1_lookup_table": {
+      "label": "Arm 1 \u2014 O(1) Content-Addressed Lookup Table (<= 4 KiB per stratum)",
+      "category": "classical_automation",
+      "reps_per_trial": 500,
+      "total_instances": 1500,
+      "total_correct": 901,
+      "overall_accuracy": 0.600667,
+      "stratum_accuracy": {
+        "bounded_api_dispatch": 0.774,
+        "combinatorial_constraint_3sat": 0.64,
+        "open_compositional_patch_triage": 0.388
+      },
+      "stratum_correct": {
+        "bounded_api_dispatch": 387,
+        "combinatorial_constraint_3sat": 320,
+        "open_compositional_patch_triage": 194
+      },
+      "prediction_fnv1a64": "57631b4f96691328",
+      "wall_ns_per_operation": {
+        "n": 20,
+        "median": 43.7,
+        "p25": 43.37,
+        "p75": 43.9,
+        "iqr": 0.53,
+        "min": 43.06,
+        "max": 45.82
+      },
+      "wall_ns_per_correct_operation": {
+        "n": 20,
+        "median": 72.75,
+        "p25": 72.2,
+        "p75": 73.09,
+        "iqr": 0.89,
+        "min": 71.68,
+        "max": 76.28
+      },
+      "evidence_class": "reported_j",
+      "gross_rail_measured_uj_per_correct_operation": null,
+      "net_above_idle_a1_a2_measured_uj_per_correct_operation": null,
+      "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+      "paired_round_net_above_idle_measured_uj_per_correct_operation": null,
+      "secondary_carrier_measured_uj_per_correct_operation": null,
+      "shunt_samples_per_trial": null,
+      "pkg_reported_uj_per_correct_operation": {
+        "n": 20,
+        "median": 6.8188,
+        "p25": 6.4254,
+        "p75": 7.3283,
+        "iqr": 0.9029,
+        "min": 3.6221,
+        "max": 8.2793
+      },
+      "core_reported_uj_per_correct_operation": {
+        "n": 20,
+        "median": 0.4847,
+        "p25": 0.4621,
+        "p75": 0.6549,
+        "iqr": 0.1928,
+        "min": 0.0768,
+        "max": 0.7719
+      }
+    },
+    "arm2_if_else_guards": {
+      "label": "Arm 2 \u2014 Explicit Deterministic if/else Predicate Guard Chain",
+      "category": "classical_automation",
+      "reps_per_trial": 500,
+      "total_instances": 1500,
+      "total_correct": 917,
+      "overall_accuracy": 0.611333,
+      "stratum_accuracy": {
+        "bounded_api_dispatch": 1.0,
+        "combinatorial_constraint_3sat": 0.556,
+        "open_compositional_patch_triage": 0.278
+      },
+      "stratum_correct": {
+        "bounded_api_dispatch": 500,
+        "combinatorial_constraint_3sat": 278,
+        "open_compositional_patch_triage": 139
+      },
+      "prediction_fnv1a64": "be36743bf561ee91",
+      "wall_ns_per_operation": {
+        "n": 20,
+        "median": 1.33,
+        "p25": 1.32,
+        "p75": 1.34,
+        "iqr": 0.02,
+        "min": 1.31,
+        "max": 1.62
+      },
+      "wall_ns_per_correct_operation": {
+        "n": 20,
+        "median": 2.18,
+        "p25": 2.17,
+        "p75": 2.2,
+        "iqr": 0.03,
+        "min": 2.15,
+        "max": 2.64
+      },
+      "evidence_class": "reported_j",
+      "gross_rail_measured_uj_per_correct_operation": null,
+      "net_above_idle_a1_a2_measured_uj_per_correct_operation": null,
+      "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+      "paired_round_net_above_idle_measured_uj_per_correct_operation": null,
+      "secondary_carrier_measured_uj_per_correct_operation": null,
+      "shunt_samples_per_trial": null,
+      "pkg_reported_uj_per_correct_operation": {
+        "n": 20,
+        "median": 0.2044,
+        "p25": 0.1881,
+        "p75": 0.2237,
+        "iqr": 0.0356,
+        "min": 0.1099,
+        "max": 0.4265
+      },
+      "core_reported_uj_per_correct_operation": {
+        "n": 20,
+        "median": 0.0153,
+        "p25": 0.0137,
+        "p75": 0.0201,
+        "iqr": 0.0064,
+        "min": 0.0018,
+        "max": 0.0324
+      }
+    },
+    "arm3_bounded_for_loop": {
+      "label": "Arm 3 \u2014 Bounded for-Loop Scan (Rule Table / WalkSAT / Centroid Scan)",
+      "category": "classical_automation",
+      "reps_per_trial": 140,
+      "total_instances": 1500,
+      "total_correct": 1106,
+      "overall_accuracy": 0.737333,
+      "stratum_accuracy": {
+        "bounded_api_dispatch": 1.0,
+        "combinatorial_constraint_3sat": 0.716,
+        "open_compositional_patch_triage": 0.496
+      },
+      "stratum_correct": {
+        "bounded_api_dispatch": 500,
+        "combinatorial_constraint_3sat": 358,
+        "open_compositional_patch_triage": 248
+      },
+      "prediction_fnv1a64": "9557e9dd921fdeea",
+      "wall_ns_per_operation": {
+        "n": 20,
+        "median": 1051.33,
+        "p25": 1040.68,
+        "p75": 1057.32,
+        "iqr": 16.65,
+        "min": 1024.25,
+        "max": 1102.19
+      },
+      "wall_ns_per_correct_operation": {
+        "n": 20,
+        "median": 1425.85,
+        "p25": 1411.41,
+        "p75": 1433.99,
+        "iqr": 22.58,
+        "min": 1389.13,
+        "max": 1494.84
+      },
+      "evidence_class": "reported_j",
+      "gross_rail_measured_uj_per_correct_operation": null,
+      "net_above_idle_a1_a2_measured_uj_per_correct_operation": null,
+      "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+      "paired_round_net_above_idle_measured_uj_per_correct_operation": null,
+      "secondary_carrier_measured_uj_per_correct_operation": null,
+      "shunt_samples_per_trial": null,
+      "pkg_reported_uj_per_correct_operation": {
+        "n": 20,
+        "median": 140.4637,
+        "p25": 132.5044,
+        "p75": 151.4562,
+        "iqr": 18.9518,
+        "min": 102.9206,
+        "max": 175.2125
+      },
+      "core_reported_uj_per_correct_operation": {
+        "n": 20,
+        "median": 10.3889,
+        "p25": 8.9514,
+        "p75": 12.7811,
+        "iqr": 3.8296,
+        "min": 3.8297,
+        "max": 13.7168
+      }
+    },
+    "arm4_decision_tree": {
+      "label": "Arm 4 \u2014 Depth-6 Integer CART Decision Tree (Calibrated)",
+      "category": "classical_automation",
+      "reps_per_trial": 400,
+      "total_instances": 1500,
+      "total_correct": 1088,
+      "overall_accuracy": 0.725333,
+      "stratum_accuracy": {
+        "bounded_api_dispatch": 0.918,
+        "combinatorial_constraint_3sat": 0.824,
+        "open_compositional_patch_triage": 0.434
+      },
+      "stratum_correct": {
+        "bounded_api_dispatch": 459,
+        "combinatorial_constraint_3sat": 412,
+        "open_compositional_patch_triage": 217
+      },
+      "prediction_fnv1a64": "8ab29741cb4c3b08",
+      "wall_ns_per_operation": {
+        "n": 20,
+        "median": 5.86,
+        "p25": 5.83,
+        "p75": 5.89,
+        "iqr": 0.07,
+        "min": 5.75,
+        "max": 6.21
+      },
+      "wall_ns_per_correct_operation": {
+        "n": 20,
+        "median": 8.08,
+        "p25": 8.03,
+        "p75": 8.12,
+        "iqr": 0.09,
+        "min": 7.93,
+        "max": 8.57
+      },
+      "evidence_class": "reported_j",
+      "gross_rail_measured_uj_per_correct_operation": null,
+      "net_above_idle_a1_a2_measured_uj_per_correct_operation": null,
+      "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+      "paired_round_net_above_idle_measured_uj_per_correct_operation": null,
+      "secondary_carrier_measured_uj_per_correct_operation": null,
+      "shunt_samples_per_trial": null,
+      "pkg_reported_uj_per_correct_operation": {
+        "n": 20,
+        "median": 0.723,
+        "p25": 0.6351,
+        "p75": 0.8909,
+        "iqr": 0.2558,
+        "min": 0.5121,
+        "max": 1.0265
+      },
+      "core_reported_uj_per_correct_operation": {
+        "n": 20,
+        "median": 0.0605,
+        "p25": 0.0502,
+        "p75": 0.0659,
+        "iqr": 0.0157,
+        "min": 0.0164,
+        "max": 0.0874
+      }
+    },
+    "arm5_compiled_solver_rules": {
+      "label": "Arm 5 \u2014 Exact DPLL Unit-Propagation Solver & Compiled Rule Verifier",
+      "category": "classical_automation",
+      "reps_per_trial": 140,
+      "total_instances": 1500,
+      "total_correct": 1287,
+      "overall_accuracy": 0.858,
+      "stratum_accuracy": {
+        "bounded_api_dispatch": 1.0,
+        "combinatorial_constraint_3sat": 1.0,
+        "open_compositional_patch_triage": 0.574
+      },
+      "stratum_correct": {
+        "bounded_api_dispatch": 500,
+        "combinatorial_constraint_3sat": 500,
+        "open_compositional_patch_triage": 287
+      },
+      "prediction_fnv1a64": "18a453531794f160",
+      "wall_ns_per_operation": {
+        "n": 20,
+        "median": 1870.95,
+        "p25": 1864.56,
+        "p75": 1878.61,
+        "iqr": 14.06,
+        "min": 1828.9,
+        "max": 1983.88
+      },
+      "wall_ns_per_correct_operation": {
+        "n": 20,
+        "median": 2180.6,
+        "p25": 2173.14,
+        "p75": 2189.53,
+        "iqr": 16.38,
+        "min": 2131.59,
+        "max": 2312.22
+      },
+      "evidence_class": "reported_j",
+      "gross_rail_measured_uj_per_correct_operation": null,
+      "net_above_idle_a1_a2_measured_uj_per_correct_operation": null,
+      "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+      "paired_round_net_above_idle_measured_uj_per_correct_operation": null,
+      "secondary_carrier_measured_uj_per_correct_operation": null,
+      "shunt_samples_per_trial": null,
+      "pkg_reported_uj_per_correct_operation": {
+        "n": 20,
+        "median": 212.7944,
+        "p25": 201.6476,
+        "p75": 223.6961,
+        "iqr": 22.0485,
+        "min": 155.9321,
+        "max": 274.3248
+      },
+      "core_reported_uj_per_correct_operation": {
+        "n": 20,
+        "median": 16.902,
+        "p25": 14.3834,
+        "p75": 19.6093,
+        "iqr": 5.226,
+        "min": 12.1038,
+        "max": 20.8198
+      }
+    },
+    "shape_d_classical_best": {
+      "label": "Shape D \u2014 Lookup-First + Exact Solver/Guard Union (0 Neural FLOPs)",
+      "category": "classical_automation_composite",
+      "reps_per_trial": 160,
+      "total_instances": 1500,
+      "total_correct": 1287,
+      "overall_accuracy": 0.858,
+      "stratum_accuracy": {
+        "bounded_api_dispatch": 1.0,
+        "combinatorial_constraint_3sat": 1.0,
+        "open_compositional_patch_triage": 0.574
+      },
+      "stratum_correct": {
+        "bounded_api_dispatch": 500,
+        "combinatorial_constraint_3sat": 500,
+        "open_compositional_patch_triage": 287
+      },
+      "prediction_fnv1a64": "18a453531794f160",
+      "wall_ns_per_operation": {
+        "n": 20,
+        "median": 1221.98,
+        "p25": 1215.26,
+        "p75": 1230.39,
+        "iqr": 15.13,
+        "min": 1194.28,
+        "max": 1307.96
+      },
+      "wall_ns_per_correct_operation": {
+        "n": 20,
+        "median": 1424.22,
+        "p25": 1416.39,
+        "p75": 1434.02,
+        "iqr": 17.63,
+        "min": 1391.93,
+        "max": 1524.43
+      },
+      "evidence_class": "reported_j",
+      "gross_rail_measured_uj_per_correct_operation": null,
+      "net_above_idle_a1_a2_measured_uj_per_correct_operation": null,
+      "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+      "paired_round_net_above_idle_measured_uj_per_correct_operation": null,
+      "secondary_carrier_measured_uj_per_correct_operation": null,
+      "shunt_samples_per_trial": null,
+      "pkg_reported_uj_per_correct_operation": {
+        "n": 20,
+        "median": 136.8865,
+        "p25": 126.081,
+        "p75": 149.1449,
+        "iqr": 23.0639,
+        "min": 85.3271,
+        "max": 163.7013
+      },
+      "core_reported_uj_per_correct_operation": {
+        "n": 20,
+        "median": 10.4642,
+        "p25": 9.002,
+        "p75": 12.4225,
+        "iqr": 3.4206,
+        "min": 6.096,
+        "max": 13.2627
+      }
+    },
+    "candidate_dense_mlp_int16": {
+      "label": "Candidate \u2014 2-Layer 128-Wide ReLU Neural Comparator (Calibrated)",
+      "category": "neural_candidate",
+      "reps_per_trial": 18,
+      "total_instances": 1500,
+      "total_correct": 938,
+      "overall_accuracy": 0.625333,
+      "stratum_accuracy": {
+        "bounded_api_dispatch": 0.384,
+        "combinatorial_constraint_3sat": 0.79,
+        "open_compositional_patch_triage": 0.702
+      },
+      "stratum_correct": {
+        "bounded_api_dispatch": 192,
+        "combinatorial_constraint_3sat": 395,
+        "open_compositional_patch_triage": 351
+      },
+      "prediction_fnv1a64": "490777252035061e",
+      "wall_ns_per_operation": {
+        "n": 20,
+        "median": 4326.11,
+        "p25": 4304.97,
+        "p75": 4344.25,
+        "iqr": 39.28,
+        "min": 4258.69,
+        "max": 4592.03
+      },
+      "wall_ns_per_correct_operation": {
+        "n": 20,
+        "median": 6918.09,
+        "p25": 6884.28,
+        "p75": 6947.09,
+        "iqr": 62.81,
+        "min": 6810.27,
+        "max": 7343.34
+      },
+      "evidence_class": "reported_j",
+      "gross_rail_measured_uj_per_correct_operation": null,
+      "net_above_idle_a1_a2_measured_uj_per_correct_operation": null,
+      "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+      "paired_round_net_above_idle_measured_uj_per_correct_operation": null,
+      "secondary_carrier_measured_uj_per_correct_operation": null,
+      "shunt_samples_per_trial": null,
+      "pkg_reported_uj_per_correct_operation": {
+        "n": 20,
+        "median": 665.0108,
+        "p25": 617.8394,
+        "p75": 720.3827,
+        "iqr": 102.5433,
+        "min": 421.7096,
+        "max": 825.2848
+      },
+      "core_reported_uj_per_correct_operation": {
+        "n": 20,
+        "median": 51.6015,
+        "p25": 44.4078,
+        "p75": 63.8036,
+        "iqr": 19.3958,
+        "min": 38.0158,
+        "max": 71.9242
+      }
+    }
+  },
+  "paired_neural_candidate_vs_classical_null": {
+    "overall_1500": {
+      "n_instances": 1500,
+      "candidate_accuracy": 0.625333,
+      "null_accuracy": 0.858,
+      "delta_accuracy_cand_minus_null": -0.232667,
+      "delta_accuracy_95ci": [
+        -0.259882,
+        -0.205452
+      ],
+      "mcnemar_contingency": {
+        "both_correct": 855,
+        "candidate_only_correct": 83,
+        "null_only_correct": 432,
+        "both_wrong": 130
+      },
+      "mcnemar_exact_two_sided_p": 0.0
+    },
+    "by_stratum": {
+      "bounded_api_dispatch": {
+        "n_instances": 500,
+        "candidate_accuracy": 0.384,
+        "null_accuracy": 1.0,
+        "delta_accuracy_cand_minus_null": -0.616,
+        "delta_accuracy_95ci": [
+          -0.658631,
+          -0.573369
+        ],
+        "mcnemar_contingency": {
+          "both_correct": 192,
+          "candidate_only_correct": 0,
+          "null_only_correct": 308,
+          "both_wrong": 0
+        },
+        "mcnemar_exact_two_sided_p": 0.0
+      },
+      "combinatorial_constraint_3sat": {
+        "n_instances": 500,
+        "candidate_accuracy": 0.79,
+        "null_accuracy": 1.0,
+        "delta_accuracy_cand_minus_null": -0.21,
+        "delta_accuracy_95ci": [
+          -0.245702,
+          -0.174298
+        ],
+        "mcnemar_contingency": {
+          "both_correct": 395,
+          "candidate_only_correct": 0,
+          "null_only_correct": 105,
+          "both_wrong": 0
+        },
+        "mcnemar_exact_two_sided_p": 0.0
+      },
+      "open_compositional_patch_triage": {
+        "n_instances": 500,
+        "candidate_accuracy": 0.702,
+        "null_accuracy": 0.574,
+        "delta_accuracy_cand_minus_null": 0.128,
+        "delta_accuracy_95ci": [
+          0.090033,
+          0.165967
+        ],
+        "mcnemar_contingency": {
+          "both_correct": 268,
+          "candidate_only_correct": 83,
+          "null_only_correct": 19,
+          "both_wrong": 130
+        },
+        "mcnemar_exact_two_sided_p": 0.0
+      }
+    },
+    "same_meter_energy_and_latency_ratios": {
+      "evidence_class": "reported_j",
+      "wall_speedup_lookup_over_mlp_x": 95.09,
+      "wall_speedup_shape_d_over_mlp_x": 4.86,
+      "reported_j_ratio_mlp_over_lookup_x": 97.53,
+      "reported_j_ratio_mlp_over_shape_d_x": 4.86
+    }
+  },
+  "external_candidate_adapter_result": null
+}

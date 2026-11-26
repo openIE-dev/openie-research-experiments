@@ -5,7 +5,7 @@
     "self_attested_not_third_party_verified": true,
     "kit_id": "kits/waios-mosaic-cascade",
     "domain_context": "openie.kit.waios_mosaic_cascade.receipt.v2",
-    "issued_utc": "2026-11-26T05:31:08Z",
+    "issued_utc": "2026-11-26T08:17:51Z",
     "payload": {
       "substrate_id": "x86_rapl",
       "waios_reference_digest": "a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0",
@@ -20,10 +20,10 @@
       },
       "grid_cells_evaluated": 75,
       "energy_evidence_class": "reported_j",
-      "results_blake3": "0a8235b87e703769a4c08579cb993809b58e01242d362b694bca4ebf5e989f17"
+      "results_blake3": "f7ba5e0010e7d39a0fb1d281b60fbad40bc1a3d932bd81d491a24d45b24bd6e3"
     }
   },
-  "body_blake3": "67117ec6707dade809db484912d79a139e2dd89b7f950e2367cbe616dbed8005",
-  "ed25519_public_key_hex": "9404951ee8960810e81b91bd640b230550be0941071723480e1546c4c596e2b7",
-  "ed25519_signature_hex": "dd037f18bb33988f53bacd13af376effbcee6c869ec9517b214763477cc045e193bc216cf2933714d455205e5cfc402ed9dabf1fadbe5cbf1dc7322ead12920b"
+  "body_blake3": "ad495513086a253272fc6ce79243fdb7f061dc45587d4a48bb8d96fda402a78d",
+  "ed25519_public_key_hex": "742213c317a5c1c9d5c00a546af23093ff46f63921cafa52172007bf0e874ad3",
+  "ed25519_signature_hex": "4cf255a342c44544720aa6db71086e4b45de33166210fee33ec4ebb50427baaa0d156485ac6fca4fca68d057caa909fd5bf0dd06daab76f1551c793073fe3c0c"
 }

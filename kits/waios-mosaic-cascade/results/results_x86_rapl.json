@@ -16,7 +16,7 @@
     "os_kernel": "Linux 7.0.0-43-generic x86_64",
     "python_version": "3.15.0",
     "cc_version": "GCC 15.2.0",
-    "recorded_utc": "2026-11-26T05:30:13Z"
+    "recorded_utc": "2026-11-26T08:16:56Z"
   },
   "energy_telemetry": {
     "evidence_class": "reported_j",
@@ -29,9 +29,9 @@
     "package_domain": "package-0",
     "core_counter": "/sys/class/powercap/intel-rapl:0:0/energy_uj",
     "core_domain": "core",
-    "idle_pkg_w_pre": 84.3645,
-    "idle_pkg_w_post": 93.7987,
-    "idle_drift_pct": 10.59
+    "idle_pkg_w_pre": 84.1635,
+    "idle_pkg_w_post": 47.171,
+    "idle_drift_pct": 56.33
   },
   "waios_conformance_and_fault_halt": {
     "canonical_shape": [
@@ -68,6 +68,56 @@
       "observed_tampered_digest": "4ac7c4fbc2f2a031ac4f3c0e485867fb689d24d4872bdb1b0a6bc80cf88b69dc",
       "disagreement_halt_triggered": true,
       "receipt_sealed": false
+    },
+    "cross_fabric_lanes": {
+      "verified_optional_fabric_count": 5,
+      "disagreed_fabrics": [],
+      "fabrics": {
+        "gpu_vulkan_compute": {
+          "status": "verified_equal",
+          "device_name": "Radeon 8060S Graphics (RADV STRIX_HALO)",
+          "observed_digest": "a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0",
+          "matches_reference": true,
+          "tamper_row77_digest": "4ac7c4fbc2f2a031ac4f3c0e485867fb689d24d4872bdb1b0a6bc80cf88b69dc",
+          "tamper_halt_triggered": true
+        },
+        "hetero_cpu_gpu_split": {
+          "status": "verified_equal",
+          "gpu_device": "Radeon 8060S Graphics (RADV STRIX_HALO)",
+          "cpu_workers": "2x pthreads (T-MAC pair LUT + 2-bit bit-sliced popcount)",
+          "schedule_cuts_tested": 20,
+          "disagreements": 0,
+          "observed_digest": "a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0",
+          "matches_reference": true,
+          "tamper_row77_digest": "4ac7c4fbc2f2a031ac4f3c0e485867fb689d24d4872bdb1b0a6bc80cf88b69dc",
+          "tamper_halt_triggered": true
+        },
+        "wasm32_simd128": {
+          "status": "verified_equal",
+          "wasm_bytes": 1041,
+          "observed_digest": "a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0",
+          "matches_reference": true,
+          "tamper_row77_digest": "4ac7c4fbc2f2a031ac4f3c0e485867fb689d24d4872bdb1b0a6bc80cf88b69dc",
+          "tamper_halt_triggered": true
+        },
+        "verilog_rtl_sim": {
+          "status": "verified_equal",
+          "rtl_architecture": "16x parallel clocked waios_ternary_pe (0 multipliers, 2048 cycles)",
+          "observed_digest": "a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0",
+          "matches_reference": true,
+          "tamper_row77_digest": "4ac7c4fbc2f2a031ac4f3c0e485867fb689d24d4872bdb1b0a6bc80cf88b69dc",
+          "tamper_halt_triggered": true
+        },
+        "rv32imac_baremetal_mcu_elf": {
+          "status": "verified_equal",
+          "isa": "riscv32imac-unknown-none-elf (#![no_std], 0 hardware FPU instructions)",
+          "elf_bytes": 1444,
+          "observed_digest": "a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0",
+          "matches_reference": true,
+          "tamper_row77_digest": "4ac7c4fbc2f2a031ac4f3c0e485867fb689d24d4872bdb1b0a6bc80cf88b69dc",
+          "tamper_halt_triggered": true
+        }
+      }
     }
   },
   "spellcheck_lookup_first_cascade": {
@@ -93,12 +143,12 @@
         "reps_per_trial": 35,
         "wall_us_per_correct_completion": {
           "n": 20,
-          "median": 10.67,
-          "p25": 10.619,
-          "p75": 10.796,
-          "iqr": 0.177,
-          "min": 10.421,
-          "max": 11.616
+          "median": 10.79,
+          "p25": 10.723,
+          "p75": 10.866,
+          "iqr": 0.143,
+          "min": 10.681,
+          "max": 11.944
         },
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct_completion": null,
@@ -109,21 +159,21 @@
         "shunt_samples_per_trial": null,
         "pkg_reported_uj_per_correct_completion": {
           "n": 20,
-          "median": 793.56,
-          "p25": 606.97,
-          "p75": 893.49,
-          "iqr": 286.52,
-          "min": 461.27,
-          "max": 1335.34
+          "median": 1072.23,
+          "p25": 987.04,
+          "p75": 1125.45,
+          "iqr": 138.41,
+          "min": 913.81,
+          "max": 1270.32
         },
         "core_reported_uj_per_correct_completion": {
           "n": 20,
-          "median": 29.47,
-          "p25": 12.5,
-          "p75": 67.06,
-          "iqr": 54.56,
-          "min": 0.51,
-          "max": 98.82
+          "median": 82.91,
+          "p25": 67.6,
+          "p75": 91.08,
+          "iqr": 23.48,
+          "min": 59.18,
+          "max": 99.02
         }
       },
       "always_stage3_mosaic_plus_gate": {
@@ -133,12 +183,12 @@
         "reps_per_trial": 20,
         "wall_us_per_correct_completion": {
           "n": 20,
-          "median": 29.753,
-          "p25": 29.47,
-          "p75": 30.181,
-          "iqr": 0.711,
-          "min": 29.174,
-          "max": 32.275
+          "median": 29.87,
+          "p25": 29.81,
+          "p75": 30.122,
+          "iqr": 0.312,
+          "min": 29.388,
+          "max": 32.516
         },
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct_completion": null,
@@ -149,21 +199,21 @@
         "shunt_samples_per_trial": null,
         "pkg_reported_uj_per_correct_completion": {
           "n": 20,
-          "median": 2553.79,
-          "p25": 2066.15,
-          "p75": 3009.56,
-          "iqr": 943.41,
-          "min": 1575.66,
-          "max": 3829.03
+          "median": 2951.23,
+          "p25": 2826.27,
+          "p75": 3123.23,
+          "iqr": 296.96,
+          "min": 1887.23,
+          "max": 3512.49
         },
         "core_reported_uj_per_correct_completion": {
           "n": 20,
-          "median": 148.47,
-          "p25": 66.28,
-          "p75": 250.33,
-          "iqr": 184.06,
-          "min": 23.15,
-          "max": 364.58
+          "median": 192.22,
+          "p25": 172.68,
+          "p75": 246.51,
+          "iqr": 73.83,
+          "min": 55.29,
+          "max": 310.24
         }
       },
       "always_dense_teacher_baseline": {
@@ -173,12 +223,12 @@
         "reps_per_trial": 2,
         "wall_us_per_correct_completion": {
           "n": 20,
-          "median": 213.508,
-          "p25": 212.889,
-          "p75": 214.289,
-          "iqr": 1.4,
-          "min": 208.032,
-          "max": 232.914
+          "median": 214.143,
+          "p25": 213.638,
+          "p75": 214.882,
+          "iqr": 1.244,
+          "min": 212.41,
+          "max": 225.458
         },
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct_completion": null,
@@ -189,21 +239,21 @@
         "shunt_samples_per_trial": null,
         "pkg_reported_uj_per_correct_completion": {
           "n": 20,
-          "median": 16493.2,
-          "p25": 14342.0,
-          "p75": 20794.15,
-          "iqr": 6452.14,
-          "min": 9101.26,
-          "max": 27937.15
+          "median": 20077.05,
+          "p25": 19386.49,
+          "p75": 22666.31,
+          "iqr": 3279.82,
+          "min": 17282.49,
+          "max": 24673.69
         },
         "core_reported_uj_per_correct_completion": {
           "n": 20,
-          "median": 1077.33,
-          "p25": 495.24,
-          "p75": 1404.36,
-          "iqr": 909.12,
-          "min": 9.94,
-          "max": 2724.21
+          "median": 1540.81,
+          "p25": 1349.84,
+          "p75": 1768.91,
+          "iqr": 419.08,
+          "min": 1101.89,
+          "max": 1863.22
         }
       }
     },
@@ -215,12 +265,12 @@
         "reps_per_trial": 35,
         "wall_us_per_correct_completion": {
           "n": 20,
-          "median": 10.67,
-          "p25": 10.619,
-          "p75": 10.796,
-          "iqr": 0.177,
-          "min": 10.421,
-          "max": 11.616
+          "median": 10.79,
+          "p25": 10.723,
+          "p75": 10.866,
+          "iqr": 0.143,
+          "min": 10.681,
+          "max": 11.944
         },
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct_completion": null,
@@ -231,21 +281,21 @@
         "shunt_samples_per_trial": null,
         "pkg_reported_uj_per_correct_completion": {
           "n": 20,
-          "median": 793.56,
-          "p25": 606.97,
-          "p75": 893.49,
-          "iqr": 286.52,
-          "min": 461.27,
-          "max": 1335.34
+          "median": 1072.23,
+          "p25": 987.04,
+          "p75": 1125.45,
+          "iqr": 138.41,
+          "min": 913.81,
+          "max": 1270.32
         },
         "core_reported_uj_per_correct_completion": {
           "n": 20,
-          "median": 29.47,
-          "p25": 12.5,
-          "p75": 67.06,
-          "iqr": 54.56,
-          "min": 0.51,
-          "max": 98.82
+          "median": 82.91,
+          "p25": 67.6,
+          "p75": 91.08,
+          "iqr": 23.48,
+          "min": 59.18,
+          "max": 99.02
         }
       },
       "always_stage3_mosaic_plus_gate": {
@@ -255,12 +305,12 @@
         "reps_per_trial": 20,
         "wall_us_per_correct_completion": {
           "n": 20,
-          "median": 29.753,
-          "p25": 29.47,
-          "p75": 30.181,
-          "iqr": 0.711,
-          "min": 29.174,
-          "max": 32.275
+          "median": 29.87,
+          "p25": 29.81,
+          "p75": 30.122,
+          "iqr": 0.312,
+          "min": 29.388,
+          "max": 32.516
         },
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct_completion": null,
@@ -271,21 +321,21 @@
         "shunt_samples_per_trial": null,
         "pkg_reported_uj_per_correct_completion": {
           "n": 20,
-          "median": 2553.79,
-          "p25": 2066.15,
-          "p75": 3009.56,
-          "iqr": 943.41,
-          "min": 1575.66,
-          "max": 3829.03
+          "median": 2951.23,
+          "p25": 2826.27,
+          "p75": 3123.23,
+          "iqr": 296.96,
+          "min": 1887.23,
+          "max": 3512.49
         },
         "core_reported_uj_per_correct_completion": {
           "n": 20,
-          "median": 148.47,
-          "p25": 66.28,
-          "p75": 250.33,
-          "iqr": 184.06,
-          "min": 23.15,
-          "max": 364.58
+          "median": 192.22,
+          "p25": 172.68,
+          "p75": 246.51,
+          "iqr": 73.83,
+          "min": 55.29,
+          "max": 310.24
         }
       },
       "always_dense_teacher_baseline": {
@@ -295,12 +345,12 @@
         "reps_per_trial": 2,
         "wall_us_per_correct_completion": {
           "n": 20,
-          "median": 213.508,
-          "p25": 212.889,
-          "p75": 214.289,
-          "iqr": 1.4,
-          "min": 208.032,
-          "max": 232.914
+          "median": 214.143,
+          "p25": 213.638,
+          "p75": 214.882,
+          "iqr": 1.244,
+          "min": 212.41,
+          "max": 225.458
         },
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct_completion": null,
@@ -311,30 +361,30 @@
         "shunt_samples_per_trial": null,
         "pkg_reported_uj_per_correct_completion": {
           "n": 20,
-          "median": 16493.2,
-          "p25": 14342.0,
-          "p75": 20794.15,
-          "iqr": 6452.14,
-          "min": 9101.26,
-          "max": 27937.15
+          "median": 20077.05,
+          "p25": 19386.49,
+          "p75": 22666.31,
+          "iqr": 3279.82,
+          "min": 17282.49,
+          "max": 24673.69
         },
         "core_reported_uj_per_correct_completion": {
           "n": 20,
-          "median": 1077.33,
-          "p25": 495.24,
-          "p75": 1404.36,
-          "iqr": 909.12,
-          "min": 9.94,
-          "max": 2724.21
+          "median": 1540.81,
+          "p25": 1349.84,
+          "p75": 1768.91,
+          "iqr": 419.08,
+          "min": 1101.89,
+          "max": 1863.22
         }
       }
     },
     "same_meter_comparisons": {
       "evidence_class": "reported_j",
-      "wall_speedup_cascade_over_always_dense_x": 20.01,
-      "wall_speedup_cascade_over_always_mosaic_x": 2.79,
-      "reported_j_improvement_cascade_over_always_dense_x": 20.78,
-      "reported_j_improvement_cascade_over_always_mosaic_x": 3.22
+      "wall_speedup_cascade_over_always_dense_x": 19.85,
+      "wall_speedup_cascade_over_always_mosaic_x": 2.77,
+      "reported_j_improvement_cascade_over_always_dense_x": 18.72,
+      "reported_j_improvement_cascade_over_always_mosaic_x": 2.75
     },
     "analytical_frontier_est_j_reference_strictly_separate": {
       "evidence_class": "est_j",
@@ -361,13 +411,13 @@
           "stage3_mosaic": 0.852,
           "stage4_escalated": 0.048
         },
-        "local_wall_us_per_correct": 32.39,
+        "local_wall_us_per_correct": 32.429,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 2076.698,
+        "pkg_reported_uj_per_correct": 2945.97,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -388,13 +438,13 @@
           "stage3_mosaic": 0.808,
           "stage4_escalated": 0.092
         },
-        "local_wall_us_per_correct": 41.859,
+        "local_wall_us_per_correct": 42.127,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 3143.037,
+        "pkg_reported_uj_per_correct": 3966.065,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -415,13 +465,13 @@
           "stage3_mosaic": 0.77,
           "stage4_escalated": 0.13
         },
-        "local_wall_us_per_correct": 49.958,
+        "local_wall_us_per_correct": 50.343,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 3163.954,
+        "pkg_reported_uj_per_correct": 4558.516,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -442,13 +492,13 @@
           "stage3_mosaic": 0.76,
           "stage4_escalated": 0.14
         },
-        "local_wall_us_per_correct": 52.818,
+        "local_wall_us_per_correct": 52.529,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 3004.209,
+        "pkg_reported_uj_per_correct": 4806.504,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -469,13 +519,13 @@
           "stage3_mosaic": 0.76,
           "stage4_escalated": 0.14
         },
-        "local_wall_us_per_correct": 52.56,
+        "local_wall_us_per_correct": 52.621,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 2502.639,
+        "pkg_reported_uj_per_correct": 4971.277,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -496,13 +546,13 @@
           "stage3_mosaic": 0.761,
           "stage4_escalated": 0.048
         },
-        "local_wall_us_per_correct": 29.949,
+        "local_wall_us_per_correct": 31.86,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1423.151,
+        "pkg_reported_uj_per_correct": 3228.719,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -523,13 +573,13 @@
           "stage3_mosaic": 0.717,
           "stage4_escalated": 0.092
         },
-        "local_wall_us_per_correct": 40.455,
+        "local_wall_us_per_correct": 40.442,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1919.979,
+        "pkg_reported_uj_per_correct": 3972.384,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -550,13 +600,13 @@
           "stage3_mosaic": 0.679,
           "stage4_escalated": 0.13
         },
-        "local_wall_us_per_correct": 48.48,
+        "local_wall_us_per_correct": 48.472,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 2288.373,
+        "pkg_reported_uj_per_correct": 4641.808,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -577,13 +627,13 @@
           "stage3_mosaic": 0.669,
           "stage4_escalated": 0.14
         },
-        "local_wall_us_per_correct": 49.663,
+        "local_wall_us_per_correct": 50.637,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 2331.167,
+        "pkg_reported_uj_per_correct": 4833.585,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -604,13 +654,13 @@
           "stage3_mosaic": 0.669,
           "stage4_escalated": 0.14
         },
-        "local_wall_us_per_correct": 49.522,
+        "local_wall_us_per_correct": 50.722,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 2324.179,
+        "pkg_reported_uj_per_correct": 4885.308,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -631,13 +681,13 @@
           "stage3_mosaic": 0.671,
           "stage4_escalated": 0.048
         },
-        "local_wall_us_per_correct": 27.663,
+        "local_wall_us_per_correct": 28.361,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1335.621,
+        "pkg_reported_uj_per_correct": 2838.027,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -658,13 +708,13 @@
           "stage3_mosaic": 0.627,
           "stage4_escalated": 0.092
         },
-        "local_wall_us_per_correct": 37.092,
+        "local_wall_us_per_correct": 37.997,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 2106.544,
+        "pkg_reported_uj_per_correct": 3811.223,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -685,13 +735,13 @@
           "stage3_mosaic": 0.589,
           "stage4_escalated": 0.13
         },
-        "local_wall_us_per_correct": 45.091,
+        "local_wall_us_per_correct": 46.297,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 2526.996,
+        "pkg_reported_uj_per_correct": 4813.041,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -712,13 +762,13 @@
           "stage3_mosaic": 0.579,
           "stage4_escalated": 0.14
         },
-        "local_wall_us_per_correct": 47.455,
+        "local_wall_us_per_correct": 48.417,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 2772.119,
+        "pkg_reported_uj_per_correct": 5209.046,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -739,13 +789,13 @@
           "stage3_mosaic": 0.579,
           "stage4_escalated": 0.14
         },
-        "local_wall_us_per_correct": 49.154,
+        "local_wall_us_per_correct": 48.553,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 4432.199,
+        "pkg_reported_uj_per_correct": 5598.207,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -766,13 +816,13 @@
           "stage3_mosaic": 0.679,
           "stage4_escalated": 0.041
         },
-        "local_wall_us_per_correct": 26.347,
+        "local_wall_us_per_correct": 27.695,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1605.495,
+        "pkg_reported_uj_per_correct": 3159.028,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -793,13 +843,13 @@
           "stage3_mosaic": 0.63,
           "stage4_escalated": 0.09
         },
-        "local_wall_us_per_correct": 36.391,
+        "local_wall_us_per_correct": 40.674,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 2066.544,
+        "pkg_reported_uj_per_correct": 4697.829,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -820,13 +870,13 @@
           "stage3_mosaic": 0.615,
           "stage4_escalated": 0.105
         },
-        "local_wall_us_per_correct": 39.453,
+        "local_wall_us_per_correct": 42.771,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 2126.14,
+        "pkg_reported_uj_per_correct": 4559.291,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -847,13 +897,13 @@
           "stage3_mosaic": 0.61,
           "stage4_escalated": 0.11
         },
-        "local_wall_us_per_correct": 40.646,
+        "local_wall_us_per_correct": 42.98,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 2303.18,
+        "pkg_reported_uj_per_correct": 4845.012,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -874,13 +924,13 @@
           "stage3_mosaic": 0.61,
           "stage4_escalated": 0.11
         },
-        "local_wall_us_per_correct": 40.663,
+        "local_wall_us_per_correct": 43.123,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 2268.982,
+        "pkg_reported_uj_per_correct": 4786.261,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -901,13 +951,13 @@
           "stage3_mosaic": 0.574,
           "stage4_escalated": 0.041
         },
-        "local_wall_us_per_correct": 23.657,
+        "local_wall_us_per_correct": 24.292,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1344.319,
+        "pkg_reported_uj_per_correct": 2801.399,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -928,13 +978,13 @@
           "stage3_mosaic": 0.525,
           "stage4_escalated": 0.09
         },
-        "local_wall_us_per_correct": 34.134,
+        "local_wall_us_per_correct": 34.863,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1931.434,
+        "pkg_reported_uj_per_correct": 4061.102,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -955,13 +1005,13 @@
           "stage3_mosaic": 0.51,
           "stage4_escalated": 0.105
         },
-        "local_wall_us_per_correct": 37.416,
+        "local_wall_us_per_correct": 38.045,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 2132.95,
+        "pkg_reported_uj_per_correct": 4014.244,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -982,13 +1032,13 @@
           "stage3_mosaic": 0.505,
           "stage4_escalated": 0.11
         },
-        "local_wall_us_per_correct": 38.667,
+        "local_wall_us_per_correct": 39.213,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 2470.643,
+        "pkg_reported_uj_per_correct": 4284.385,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1009,13 +1059,13 @@
           "stage3_mosaic": 0.505,
           "stage4_escalated": 0.11
         },
-        "local_wall_us_per_correct": 39.135,
+        "local_wall_us_per_correct": 39.245,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 2224.6,
+        "pkg_reported_uj_per_correct": 4252.4,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1036,13 +1086,13 @@
           "stage3_mosaic": 0.469,
           "stage4_escalated": 0.041
         },
-        "local_wall_us_per_correct": 21.406,
+        "local_wall_us_per_correct": 21.521,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1210.703,
+        "pkg_reported_uj_per_correct": 2266.283,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1063,13 +1113,13 @@
           "stage3_mosaic": 0.42,
           "stage4_escalated": 0.09
         },
-        "local_wall_us_per_correct": 31.729,
+        "local_wall_us_per_correct": 32.392,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1854.788,
+        "pkg_reported_uj_per_correct": 3509.068,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1090,13 +1140,13 @@
           "stage3_mosaic": 0.405,
           "stage4_escalated": 0.105
         },
-        "local_wall_us_per_correct": 34.906,
+        "local_wall_us_per_correct": 35.777,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1981.695,
+        "pkg_reported_uj_per_correct": 3591.214,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1117,13 +1167,13 @@
           "stage3_mosaic": 0.4,
           "stage4_escalated": 0.11
         },
-        "local_wall_us_per_correct": 35.993,
+        "local_wall_us_per_correct": 37.037,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1973.268,
+        "pkg_reported_uj_per_correct": 3499.359,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1144,13 +1194,13 @@
           "stage3_mosaic": 0.4,
           "stage4_escalated": 0.11
         },
-        "local_wall_us_per_correct": 35.98,
+        "local_wall_us_per_correct": 36.632,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1963.903,
+        "pkg_reported_uj_per_correct": 3648.818,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1171,13 +1221,13 @@
           "stage3_mosaic": 0.526,
           "stage4_escalated": 0.041
         },
-        "local_wall_us_per_correct": 22.284,
+        "local_wall_us_per_correct": 22.701,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1228.613,
+        "pkg_reported_uj_per_correct": 2548.086,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1198,13 +1248,13 @@
           "stage3_mosaic": 0.492,
           "stage4_escalated": 0.075
         },
-        "local_wall_us_per_correct": 29.477,
+        "local_wall_us_per_correct": 30.505,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1564.627,
+        "pkg_reported_uj_per_correct": 3267.536,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1225,13 +1275,13 @@
           "stage3_mosaic": 0.481,
           "stage4_escalated": 0.086
         },
-        "local_wall_us_per_correct": 31.763,
+        "local_wall_us_per_correct": 33.82,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1743.193,
+        "pkg_reported_uj_per_correct": 3767.14,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1252,13 +1302,13 @@
           "stage3_mosaic": 0.479,
           "stage4_escalated": 0.088
         },
-        "local_wall_us_per_correct": 32.111,
+        "local_wall_us_per_correct": 33.069,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1501.589,
+        "pkg_reported_uj_per_correct": 3677.104,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1279,13 +1329,13 @@
           "stage3_mosaic": 0.479,
           "stage4_escalated": 0.088
         },
-        "local_wall_us_per_correct": 32.087,
+        "local_wall_us_per_correct": 32.838,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1487.83,
+        "pkg_reported_uj_per_correct": 3481.77,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1306,13 +1356,13 @@
           "stage3_mosaic": 0.411,
           "stage4_escalated": 0.041
         },
-        "local_wall_us_per_correct": 19.666,
+        "local_wall_us_per_correct": 20.092,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 925.6,
+        "pkg_reported_uj_per_correct": 1953.142,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1333,13 +1383,13 @@
           "stage3_mosaic": 0.377,
           "stage4_escalated": 0.075
         },
-        "local_wall_us_per_correct": 26.87,
+        "local_wall_us_per_correct": 27.606,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1234.936,
+        "pkg_reported_uj_per_correct": 2778.088,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1360,13 +1410,13 @@
           "stage3_mosaic": 0.366,
           "stage4_escalated": 0.086
         },
-        "local_wall_us_per_correct": 29.202,
+        "local_wall_us_per_correct": 29.985,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1364.314,
+        "pkg_reported_uj_per_correct": 3293.474,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1387,13 +1437,13 @@
           "stage3_mosaic": 0.364,
           "stage4_escalated": 0.088
         },
-        "local_wall_us_per_correct": 29.631,
+        "local_wall_us_per_correct": 30.419,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1377.258,
+        "pkg_reported_uj_per_correct": 3227.342,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1414,13 +1464,13 @@
           "stage3_mosaic": 0.364,
           "stage4_escalated": 0.088
         },
-        "local_wall_us_per_correct": 29.631,
+        "local_wall_us_per_correct": 30.488,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1367.691,
+        "pkg_reported_uj_per_correct": 3695.318,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1441,13 +1491,13 @@
           "stage3_mosaic": 0.296,
           "stage4_escalated": 0.041
         },
-        "local_wall_us_per_correct": 17.15,
+        "local_wall_us_per_correct": 17.345,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 810.138,
+        "pkg_reported_uj_per_correct": 1883.182,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1468,13 +1518,13 @@
           "stage3_mosaic": 0.262,
           "stage4_escalated": 0.075
         },
-        "local_wall_us_per_correct": 29.317,
+        "local_wall_us_per_correct": 24.784,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 3945.576,
+        "pkg_reported_uj_per_correct": 2589.835,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1495,13 +1545,13 @@
           "stage3_mosaic": 0.251,
           "stage4_escalated": 0.086
         },
-        "local_wall_us_per_correct": 34.154,
+        "local_wall_us_per_correct": 27.936,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 5465.758,
+        "pkg_reported_uj_per_correct": 3134.221,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1522,13 +1572,13 @@
           "stage3_mosaic": 0.249,
           "stage4_escalated": 0.088
         },
-        "local_wall_us_per_correct": 34.348,
+        "local_wall_us_per_correct": 28.841,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 5493.01,
+        "pkg_reported_uj_per_correct": 3003.43,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1549,13 +1599,13 @@
           "stage3_mosaic": 0.249,
           "stage4_escalated": 0.088
         },
-        "local_wall_us_per_correct": 31.638,
+        "local_wall_us_per_correct": 28.956,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 5062.51,
+        "pkg_reported_uj_per_correct": 3042.049,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1576,13 +1626,13 @@
           "stage3_mosaic": 0.382,
           "stage4_escalated": 0.035
         },
-        "local_wall_us_per_correct": 18.616,
+        "local_wall_us_per_correct": 17.727,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 2980.532,
+        "pkg_reported_uj_per_correct": 1864.312,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1603,13 +1653,13 @@
           "stage3_mosaic": 0.356,
           "stage4_escalated": 0.061
         },
-        "local_wall_us_per_correct": 24.54,
+        "local_wall_us_per_correct": 23.289,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 3863.272,
+        "pkg_reported_uj_per_correct": 2363.821,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1630,13 +1680,13 @@
           "stage3_mosaic": 0.347,
           "stage4_escalated": 0.07
         },
-        "local_wall_us_per_correct": 26.49,
+        "local_wall_us_per_correct": 25.376,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 3634.391,
+        "pkg_reported_uj_per_correct": 2485.77,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1657,13 +1707,13 @@
           "stage3_mosaic": 0.347,
           "stage4_escalated": 0.07
         },
-        "local_wall_us_per_correct": 26.548,
+        "local_wall_us_per_correct": 25.507,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 3111.894,
+        "pkg_reported_uj_per_correct": 2805.125,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1684,13 +1734,13 @@
           "stage3_mosaic": 0.347,
           "stage4_escalated": 0.07
         },
-        "local_wall_us_per_correct": 26.076,
+        "local_wall_us_per_correct": 25.398,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 2919.872,
+        "pkg_reported_uj_per_correct": 2805.262,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1711,13 +1761,13 @@
           "stage3_mosaic": 0.276,
           "stage4_escalated": 0.035
         },
-        "local_wall_us_per_correct": 15.888,
+        "local_wall_us_per_correct": 15.436,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1705.953,
+        "pkg_reported_uj_per_correct": 1716.063,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1738,13 +1788,13 @@
           "stage3_mosaic": 0.25,
           "stage4_escalated": 0.061
         },
-        "local_wall_us_per_correct": 21.738,
+        "local_wall_us_per_correct": 21.041,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 2114.367,
+        "pkg_reported_uj_per_correct": 2232.448,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1765,13 +1815,13 @@
           "stage3_mosaic": 0.241,
           "stage4_escalated": 0.07
         },
-        "local_wall_us_per_correct": 23.806,
+        "local_wall_us_per_correct": 23.018,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 2339.552,
+        "pkg_reported_uj_per_correct": 2362.018,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1792,13 +1842,13 @@
           "stage3_mosaic": 0.241,
           "stage4_escalated": 0.07
         },
-        "local_wall_us_per_correct": 23.992,
+        "local_wall_us_per_correct": 23.068,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 2407.812,
+        "pkg_reported_uj_per_correct": 2233.821,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1819,13 +1869,13 @@
           "stage3_mosaic": 0.241,
           "stage4_escalated": 0.07
         },
-        "local_wall_us_per_correct": 23.911,
+        "local_wall_us_per_correct": 23.018,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 2416.613,
+        "pkg_reported_uj_per_correct": 2025.14,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1846,13 +1896,13 @@
           "stage3_mosaic": 0.169,
           "stage4_escalated": 0.035
         },
-        "local_wall_us_per_correct": 13.402,
+        "local_wall_us_per_correct": 12.775,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1355.822,
+        "pkg_reported_uj_per_correct": 1150.908,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1873,13 +1923,13 @@
           "stage3_mosaic": 0.143,
           "stage4_escalated": 0.061
         },
-        "local_wall_us_per_correct": 19.178,
+        "local_wall_us_per_correct": 18.451,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1918.713,
+        "pkg_reported_uj_per_correct": 1714.692,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1900,13 +1950,13 @@
           "stage3_mosaic": 0.134,
           "stage4_escalated": 0.07
         },
-        "local_wall_us_per_correct": 21.187,
+        "local_wall_us_per_correct": 20.678,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 2130.177,
+        "pkg_reported_uj_per_correct": 1917.251,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1927,13 +1977,13 @@
           "stage3_mosaic": 0.134,
           "stage4_escalated": 0.07
         },
-        "local_wall_us_per_correct": 20.946,
+        "local_wall_us_per_correct": 20.689,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1861.876,
+        "pkg_reported_uj_per_correct": 1914.392,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1954,13 +2004,13 @@
           "stage3_mosaic": 0.134,
           "stage4_escalated": 0.07
         },
-        "local_wall_us_per_correct": 20.817,
+        "local_wall_us_per_correct": 20.756,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1825.869,
+        "pkg_reported_uj_per_correct": 1984.285,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -1981,13 +2031,13 @@
           "stage3_mosaic": 0.256,
           "stage4_escalated": 0.024
         },
-        "local_wall_us_per_correct": 12.284,
+        "local_wall_us_per_correct": 13.0,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1092.598,
+        "pkg_reported_uj_per_correct": 1391.795,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -2008,13 +2058,13 @@
           "stage3_mosaic": 0.229,
           "stage4_escalated": 0.051
         },
-        "local_wall_us_per_correct": 18.209,
+        "local_wall_us_per_correct": 17.835,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1599.207,
+        "pkg_reported_uj_per_correct": 1433.78,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -2035,13 +2085,13 @@
           "stage3_mosaic": 0.225,
           "stage4_escalated": 0.055
         },
-        "local_wall_us_per_correct": 19.284,
+        "local_wall_us_per_correct": 18.672,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1774.497,
+        "pkg_reported_uj_per_correct": 1429.572,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -2062,13 +2112,13 @@
           "stage3_mosaic": 0.225,
           "stage4_escalated": 0.055
         },
-        "local_wall_us_per_correct": 19.255,
+        "local_wall_us_per_correct": 18.63,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1799.722,
+        "pkg_reported_uj_per_correct": 1337.447,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -2089,13 +2139,13 @@
           "stage3_mosaic": 0.225,
           "stage4_escalated": 0.055
         },
-        "local_wall_us_per_correct": 19.289,
+        "local_wall_us_per_correct": 18.551,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1832.91,
+        "pkg_reported_uj_per_correct": 1239.453,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -2116,13 +2166,13 @@
           "stage3_mosaic": 0.156,
           "stage4_escalated": 0.024
         },
-        "local_wall_us_per_correct": 10.138,
+        "local_wall_us_per_correct": 9.653,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 974.085,
+        "pkg_reported_uj_per_correct": 610.188,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -2143,13 +2193,13 @@
           "stage3_mosaic": 0.129,
           "stage4_escalated": 0.051
         },
-        "local_wall_us_per_correct": 16.137,
+        "local_wall_us_per_correct": 15.463,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1674.538,
+        "pkg_reported_uj_per_correct": 940.727,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -2170,13 +2220,13 @@
           "stage3_mosaic": 0.125,
           "stage4_escalated": 0.055
         },
-        "local_wall_us_per_correct": 16.938,
+        "local_wall_us_per_correct": 16.345,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1797.837,
+        "pkg_reported_uj_per_correct": 953.63,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -2197,13 +2247,13 @@
           "stage3_mosaic": 0.125,
           "stage4_escalated": 0.055
         },
-        "local_wall_us_per_correct": 16.913,
+        "local_wall_us_per_correct": 16.363,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1867.92,
+        "pkg_reported_uj_per_correct": 948.973,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -2224,13 +2274,13 @@
           "stage3_mosaic": 0.125,
           "stage4_escalated": 0.055
         },
-        "local_wall_us_per_correct": 17.32,
+        "local_wall_us_per_correct": 16.3,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1948.67,
+        "pkg_reported_uj_per_correct": 901.469,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -2251,13 +2301,13 @@
           "stage3_mosaic": 0.057,
           "stage4_escalated": 0.024
         },
-        "local_wall_us_per_correct": 7.771,
+        "local_wall_us_per_correct": 7.249,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 863.229,
+        "pkg_reported_uj_per_correct": 390.933,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -2278,13 +2328,13 @@
           "stage3_mosaic": 0.03,
           "stage4_escalated": 0.051
         },
-        "local_wall_us_per_correct": 13.549,
+        "local_wall_us_per_correct": 12.959,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1493.45,
+        "pkg_reported_uj_per_correct": 704.72,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -2305,13 +2355,13 @@
           "stage3_mosaic": 0.026,
           "stage4_escalated": 0.055
         },
-        "local_wall_us_per_correct": 14.489,
+        "local_wall_us_per_correct": 13.832,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1642.977,
+        "pkg_reported_uj_per_correct": 767.175,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -2332,13 +2382,13 @@
           "stage3_mosaic": 0.026,
           "stage4_escalated": 0.055
         },
-        "local_wall_us_per_correct": 14.42,
+        "local_wall_us_per_correct": 13.798,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1603.028,
+        "pkg_reported_uj_per_correct": 755.622,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,
@@ -2359,13 +2409,13 @@
           "stage3_mosaic": 0.026,
           "stage4_escalated": 0.055
         },
-        "local_wall_us_per_correct": 14.564,
+        "local_wall_us_per_correct": 13.804,
         "evidence_class": "reported_j",
         "gross_rail_measured_uj_per_correct": null,
         "paired_net_above_idle_measured_uj_per_correct": null,
         "secondary_carrier_measured_uj_per_correct": null,
         "shunt_samples": 0,
-        "pkg_reported_uj_per_correct": 1561.112,
+        "pkg_reported_uj_per_correct": 756.676,
         "isolated_analytical_cloud_est_j": {
           "evidence_class": "est_j",
           "mixed_or_summed": false,

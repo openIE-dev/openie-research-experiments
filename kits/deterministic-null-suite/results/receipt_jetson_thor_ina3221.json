@@ -1,0 +1,22 @@
+{
+  "body": {
+    "schema": "openie.signed_provenance_receipt.v1",
+    "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+    "self_attested_not_third_party_verified": true,
+    "kit_id": "kits/deterministic-null-suite",
+    "domain_context": "openie.kit.deterministic_null_suite.receipt.v1",
+    "issued_utc": "2026-11-26T08:17:28Z",
+    "payload": {
+      "substrate_id": "jetson_agx_thor_ina3221",
+      "canonical_dataset_sha256": "09b000b2cf2650b2cbce4234396ef8300c8c16fb9eb2f0b820adbcaad07efcd6",
+      "canonical_dataset_blake3": "4d30065a9804fd28b0e31b60c4a2b3f71ab8c0b12bda9bb6e38d073715059dcc",
+      "held_out_instances_total": 1500,
+      "divergent_runs": 0,
+      "energy_evidence_class": "measured_j",
+      "results_blake3": "441763d1f94378d16882ba9f781c7d86167222da645afe3354b96ea5c8dc2516"
+    }
+  },
+  "body_blake3": "842c3fc3edeffb4133f5c2286b1f28f55c12c9f72a830804dcc24cbf91ffd20b",
+  "ed25519_public_key_hex": "c451c8956ffcbd49beb14ccd622e6120d6f9683ab1d23a4579550dd2f42609a7",
+  "ed25519_signature_hex": "89280655d444ca4f93fbdd8a3f6d34c581e47e3f66788ef6a53166ddf8c7595890c72f1d759bf13070acc3875f441308502f646929c2e4e7e21779bc1328f008"
+}

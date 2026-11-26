@@ -7,6 +7,20 @@
 
 ---
 
+## Cross-Fabric `waiOS` Conformance Ring (`CPU + GPU + CPU+GPU + WASM + Verilog RTL + Bare-Metal RV32IMAC MCU`)
+
+| Execution Fabric / Runtime | Target Hardware / ISA | Observed `BLAKE3` (`waios.tmac.v1`) | Row-`77` Tamper (`4ac7c4fb...`) | Receipt Action |
+|---|---|---|---|---|
+| `python_scalar_i32` & `c_scalar_i32` | `x86_64` (`Zen 5`, `Raptor Lake`), `ARMv9` (`Jetson AGX Thor`), `Cortex-A53` (`AMD Kria KV260`) | `a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0` | Halted & Refused | **Sealed** |
+| `c_packed_2bit_bitsliced` & `c_tmac_pair_lut` | `x86_64`, `ARMv9`, `ARMv8 Cortex-A53` (`0` multiplies) | `a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0` | Halted & Refused | **Sealed** |
+| `c_hetero_mosaic_4worker_pthreads` | `4`-worker heterogeneous CPU tile partition (`0/400` pooled disagreements across 4 hosts) | `a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0` | Halted & Refused | **Sealed** |
+| **`gpu_vulkan_compute`** | **`Radeon 8060S Graphics (RADV STRIX_HALO)`** (Vulkan 1.4 SPIR-V Compute Shader) | `a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0` | Halted & Refused | **Sealed** |
+| **`hetero_cpu_gpu_split`** | Co-scheduled **`Radeon 8060S Graphics (RADV STRIX_HALO)`** (`[0..cut)`) + **Zen 5 CPU `pthreads`** (`[cut..256)`, `0/20` cut disagreements) | `a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0` | Halted & Refused | **Sealed** |
+| **`wasm32_simd128`** | Clang `wasm32-simd128` (`1041 B` `.wasm`) in `Node.js v22` `WebAssembly` | `a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0` | Halted & Refused | **Sealed** |
+| **`verilog_rtl_sim`** | `16x parallel clocked waios_ternary_pe (0 multipliers, 2048 cycles)` (`Icarus Verilog` `vvp`) | `a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0` | Halted & Refused | **Sealed** |
+| **`rv32imac_baremetal_mcu_elf`** | `riscv32imac-unknown-none-elf (#![no_std], 0 hardware FPU instructions)` (`1444 B` static ELF in `qemu-riscv32`) | `a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0` | Halted & Refused | **Sealed** |
+
+---
 ## Table A — Physical DC Board-Rail Metering (`evidence_class = measured_j`)
 
 | Board | Primary Rail | Pipeline (`1,000` Queries, `100%` Correct) | Wall `µs / correct` (`IQR`) | Gross Rail `measured_j` `µJ / correct` (`IQR`) | Net-Above-Idle `measured_j` `µJ / correct` | Carrier `VIN` `measured_j` `µJ / correct` | Shunt Samples / Trial |
@@ -30,11 +44,11 @@
 | `Intel Core i9-13900H` | `spellcheck_4stage_cascade` | `10.672` (`10.533–10.791`) | **`267.45`** (`250.03–290.7`) | `209.21` |
 | `Intel Core i9-13900H` | `always_stage3_mosaic_plus_gate` | `32.07` (`31.783–32.289`) | **`759.77`** (`686.33–891.56`) | `570.66` |
 | `Intel Core i9-13900H` | `always_dense_teacher_baseline` | `182.355` (`181.4–185.59`) | **`4902.29`** (`4513.06–6584.36`) | `3889.88` |
-| `AMD Ryzen AI Max+ 395` | `spellcheck_4stage_cascade` | `10.67` (`10.619–10.796`) | **`793.56`** (`606.97–893.49`) | `29.47` |
-| `AMD Ryzen AI Max+ 395` | `always_stage3_mosaic_plus_gate` | `29.753` (`29.47–30.181`) | **`2553.79`** (`2066.15–3009.56`) | `148.47` |
-| `AMD Ryzen AI Max+ 395` | `always_dense_teacher_baseline` | `213.508` (`212.889–214.289`) | **`16493.2`** (`14342.0–20794.15`) | `1077.33` |
+| `AMD Ryzen AI Max+ 395` | `spellcheck_4stage_cascade` | `10.79` (`10.723–10.866`) | **`1072.23`** (`987.04–1125.45`) | `82.91` |
+| `AMD Ryzen AI Max+ 395` | `always_stage3_mosaic_plus_gate` | `29.87` (`29.81–30.122`) | **`2951.23`** (`2826.27–3123.23`) | `192.22` |
+| `AMD Ryzen AI Max+ 395` | `always_dense_teacher_baseline` | `214.143` (`213.638–214.882`) | **`20077.05`** (`19386.49–22666.31`) | `1540.81` |
 
-- **Same-Meter `reported_j` Gains:** **`18.33x` (`i9-13900H`)** and **`20.78x` (`Ryzen AI Max+ 395`)** lower package `reported_j` vs. Always-Dense.
+- **Same-Meter `reported_j` Gains:** **`18.33x` (`i9-13900H`)** and **`18.72x` (`Ryzen AI Max+ 395`)** lower package `reported_j` vs. Always-Dense.
 
 ---
 
@@ -55,13 +69,13 @@
 
 | Zipf `s` | `d_max` | `tau` | Accuracy | Stage `1 / 2 / 3 / 4` Fractions | Thor `INA3221` Gross `measured_j` (`µJ/correct`) | KV260 `INA260` Gross `measured_j` (`µJ/correct`) | Ryzen `RAPL` `reported_j` (`µJ/correct`) | Isolated Stage-4 `est_j` |
 |---:|---:|---:|---:|---|---:|---:|---:|---:|
-| `0.00` | `0` | `4500` | **`98.50%`** | `0.10 / 0.00 / 0.77 / 0.13` | `2700.451` | `3337.661` | `3163.954` | `195.0 est_j` (`130` calls) |
-| `0.00` | `2` | `4500` | **`98.50%`** | `0.10 / 0.18 / 0.59 / 0.13` | `1760.138` | `3149.982` | `2526.996` | `195.0 est_j` (`130` calls) |
-| `0.50` | `2` | `4500` | **`99.10%`** | `0.28 / 0.21 / 0.41 / 0.10` | `1239.936` | `2478.395` | `1981.695` | `157.5 est_j` (`105` calls) |
-| `0.85` | `2` | `4500` | **`99.50%`** | `0.43 / 0.23 / 0.25 / 0.09` | `1366.639` | `1931.433` | `5465.758` | `129.0 est_j` (`86` calls) |
-| `1.15` | `0` | `4500` | **`99.70%`** | `0.58 / 0.00 / 0.35 / 0.07` | `928.969` | `1702.125` | `3634.391` | `105.0 est_j` (`70` calls) |
-| `1.15` | `1` | `4500` | **`99.70%`** | `0.58 / 0.11 / 0.24 / 0.07` | `893.626` | `1603.771` | `2339.552` | `105.0 est_j` (`70` calls) |
-| `1.15` | `2` | `1500` | **`99.70%`** | `0.58 / 0.21 / 0.17 / 0.04` | `503.366` | `856.016` | `1355.822` | `52.5 est_j` (`35` calls) |
-| `1.15` | `2` | `4500` | **`99.70%`** | `0.58 / 0.21 / 0.13 / 0.07` | `749.216` | `1498.9` | `2130.177` | `105.0 est_j` (`70` calls) |
-| `1.15` | `2` | `9000` | **`99.70%`** | `0.58 / 0.21 / 0.13 / 0.07` | `762.025` | `1501.485` | `1825.869` | `105.0 est_j` (`70` calls) |
-| `1.40` | `2` | `4500` | **`99.90%`** | `0.72 / 0.20 / 0.03 / 0.06` | `480.321` | `1098.204` | `1642.977` | `82.5 est_j` (`55` calls) |
+| `0.00` | `0` | `4500` | **`98.50%`** | `0.10 / 0.00 / 0.77 / 0.13` | `2700.451` | `3337.661` | `4558.516` | `195.0 est_j` (`130` calls) |
+| `0.00` | `2` | `4500` | **`98.50%`** | `0.10 / 0.18 / 0.59 / 0.13` | `1760.138` | `3149.982` | `4813.041` | `195.0 est_j` (`130` calls) |
+| `0.50` | `2` | `4500` | **`99.10%`** | `0.28 / 0.21 / 0.41 / 0.10` | `1239.936` | `2478.395` | `3591.214` | `157.5 est_j` (`105` calls) |
+| `0.85` | `2` | `4500` | **`99.50%`** | `0.43 / 0.23 / 0.25 / 0.09` | `1366.639` | `1931.433` | `3134.221` | `129.0 est_j` (`86` calls) |
+| `1.15` | `0` | `4500` | **`99.70%`** | `0.58 / 0.00 / 0.35 / 0.07` | `928.969` | `1702.125` | `2485.77` | `105.0 est_j` (`70` calls) |
+| `1.15` | `1` | `4500` | **`99.70%`** | `0.58 / 0.11 / 0.24 / 0.07` | `893.626` | `1603.771` | `2362.018` | `105.0 est_j` (`70` calls) |
+| `1.15` | `2` | `1500` | **`99.70%`** | `0.58 / 0.21 / 0.17 / 0.04` | `503.366` | `856.016` | `1150.908` | `52.5 est_j` (`35` calls) |
+| `1.15` | `2` | `4500` | **`99.70%`** | `0.58 / 0.21 / 0.13 / 0.07` | `749.216` | `1498.9` | `1917.251` | `105.0 est_j` (`70` calls) |
+| `1.15` | `2` | `9000` | **`99.70%`** | `0.58 / 0.21 / 0.13 / 0.07` | `762.025` | `1501.485` | `1984.285` | `105.0 est_j` (`70` calls) |
+| `1.40` | `2` | `4500` | **`99.90%`** | `0.72 / 0.20 / 0.03 / 0.06` | `480.321` | `1098.204` | `767.175` | `82.5 est_j` (`55` calls) |

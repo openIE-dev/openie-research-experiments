@@ -28,6 +28,7 @@ KIT_ROOT = HERE.parent
 if str(KIT_ROOT) not in sys.path:
     sys.path.insert(0, str(KIT_ROOT))
 
+from waios_mosaic.cross_fabric import run_cross_fabric_conformance  # noqa: E402
 from waios_mosaic.crypto_receipt import (  # noqa: E402
     EnergyMeter,
     assert_sanitized,
@@ -684,6 +685,22 @@ def run_full_kit(quick: bool = False) -> tuple[dict[str, Any], dict[str, Any], s
         tamper_receipt_emitted = False
     assert tamper_caught and tamper_observed_digest == WAIOS_CHANGED_DIGEST and not tamper_receipt_emitted
 
+    cross_fabric = run_cross_fabric_conformance(
+        weights=w_base,
+        acts=a_base,
+        tampered_weights=w_tamper,
+        digest_fn=digest_of_i32_output,
+        expected_digest=WAIOS_REFERENCE_DIGEST,
+        expected_tamper_digest=WAIOS_CHANGED_DIGEST,
+        quick=quick,
+    )
+    if cross_fabric["disagreed_fabrics"]:
+        raise WaiosDisagreementHaltError(
+            f"Cross-fabric disagreement on {cross_fabric['disagreed_fabrics']}",
+            observed_digest="cross_fabric_mismatch",
+            expected_digest=WAIOS_REFERENCE_DIGEST,
+        )
+
     cascade = SpellcheckCascadeSystem(lib)
     try:
         queries = cascade.generate_workload_1000(n_queries=1000)
@@ -963,6 +980,7 @@ def run_full_kit(quick: bool = False) -> tuple[dict[str, Any], dict[str, Any], s
                 "disagreement_halt_triggered": tamper_caught,
                 "receipt_sealed": tamper_receipt_emitted,
             },
+            "cross_fabric_lanes": cross_fabric,
         },
         "spellcheck_lookup_first_cascade": {
             "workload_queries": n_q,
@@ -1048,6 +1066,10 @@ def _render_markdown(res: dict[str, Any], receipt: dict[str, Any]) -> str:
     )
     for lname, ldig in conf["lane_digests"].items():
         lines.append(f"| `{lname}` | `{ldig}` | **`YES`** | Sealed |")
+    cf_fabrics = conf.get("cross_fabric_lanes", {}).get("fabrics", {})
+    for fname, fmeta in cf_fabrics.items():
+        if fmeta.get("matches_reference"):
+            lines.append(f"| `{fname}` | `{fmeta['observed_digest']}` | **`YES`** | Sealed |")
     ft = conf["fault_injection_tamper_test"]
     lines.append(
         f"| `fault_injection_row77` (`w[77,{ft['mutation']['col']}]: {ft['mutation']['from']} -> {ft['mutation']['to']}`) | "

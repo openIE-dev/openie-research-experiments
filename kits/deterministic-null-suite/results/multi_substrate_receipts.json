@@ -1,0 +1,2193 @@
+{
+  "schema": "openie.deterministic_null_suite_multi_substrate.v1",
+  "kit_id": "kits/deterministic-null-suite",
+  "shot_on_goal": "Shot #1 \u2014 Standardized 5-Arm Classical Automation Control Suite + Pluggable Candidate Adapter",
+  "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+  "license": "Apache-2.0",
+  "energy_orthogonality_invariant": "measured_j \u22a5 reported_j \u22a5 est_j \u22a5 unmetered (never summed or cross-ratioed)",
+  "recorded_utc": "2026-11-26T08:27:14Z",
+  "substrates_measured_j_physical_dc_shunt": {
+    "jetson_agx_thor_ina3221": {
+      "results": {
+        "schema": "openie.deterministic_null_suite.v1",
+        "kit_id": "kits/deterministic-null-suite",
+        "shot_on_goal": "Shot #1 \u2014 Standardized Deterministic Null Benchmark Suite (5 Classical Automation Baselines + Pluggable Candidate Adapter)",
+        "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+        "license": "Apache-2.0",
+        "mode": "standard",
+        "trials_per_arm": 8,
+        "host": {
+          "cpu_model": "NVIDIA Jetson AGX Thor Developer Kit (14-core aarch64)",
+          "logical_cpus": 14,
+          "ram_gib": 122.86,
+          "os_kernel": "Linux 6.8.12-1021-tegra aarch64",
+          "python_version": "3.12.3",
+          "cc_version": "GCC 13.3.0",
+          "recorded_utc": "2026-11-26T08:16:52Z"
+        },
+        "energy_telemetry": {
+          "evidence_class": "measured_j",
+          "board_metered": true,
+          "substrate_id": "jetson_agx_thor_ina3221",
+          "primary_sensor": "TI INA3221",
+          "primary_rail": "VDD_CPU_SOC_MSS",
+          "primary_sysfs_paths": [
+            "/sys/class/hwmon/hwmon6/in2_input",
+            "/sys/class/hwmon/hwmon6/curr2_input"
+          ],
+          "secondary_sensor": "TI INA238",
+          "secondary_rail": "VIN_CARRIER",
+          "secondary_sysfs_path": "/sys/class/hwmon/hwmon5/power1_input",
+          "reported_j_available": false,
+          "est_j_mixed": false,
+          "idle_a1_pre": {
+            "window_s": 1.0,
+            "raw_mean_w": 6.9495,
+            "trimmed_mean_w": 6.9124,
+            "secondary_raw_mean_w": 20.114,
+            "secondary_trimmed_mean_w": 20.0803,
+            "shunt_samples": 206,
+            "sample_rate_hz": 204.7,
+            "rail_breakdown_w": {
+              "VDD_CPU_SOC_MSS": 6.7102,
+              "VIN_CARRIER": 22.33,
+              "VDD_GPU": 0.0,
+              "VIN_SYS_5V0": 5.6717
+            }
+          },
+          "idle_a2_post": {
+            "window_s": 1.0,
+            "raw_mean_w": 7.0786,
+            "trimmed_mean_w": 7.0293,
+            "secondary_raw_mean_w": 20.1604,
+            "secondary_trimmed_mean_w": 20.1202,
+            "shunt_samples": 207,
+            "sample_rate_hz": 205.7,
+            "rail_breakdown_w": {
+              "VDD_CPU_SOC_MSS": 6.7102,
+              "VIN_CARRIER": 19.866,
+              "VDD_GPU": 0.0,
+              "VIN_SYS_5V0": 5.6717
+            }
+          },
+          "idle_trimmed_mean_w": 6.9709,
+          "idle_drift_pct": 1.68,
+          "falsifier_6_idle_drift_threshold_pct": 5.0,
+          "falsifier_6_idle_drift_flag": false
+        },
+        "dataset_precommitment": {
+          "held_out_instances_total": 1500,
+          "instances_per_stratum": 500,
+          "lut_memory_cap_bytes_per_stratum": 4096,
+          "canonical_dataset_sha256": "09b000b2cf2650b2cbce4234396ef8300c8c16fb9eb2f0b820adbcaad07efcd6",
+          "canonical_dataset_blake3": "4d30065a9804fd28b0e31b60c4a2b3f71ab8c0b12bda9bb6e38d073715059dcc",
+          "strata": [
+            {
+              "id": 0,
+              "key": "bounded_api_dispatch",
+              "n": 500,
+              "classes": 8
+            },
+            {
+              "id": 1,
+              "key": "combinatorial_constraint_3sat",
+              "n": 500,
+              "classes": 2
+            },
+            {
+              "id": 2,
+              "key": "open_compositional_patch_triage",
+              "n": 500,
+              "classes": 8
+            }
+          ]
+        },
+        "determinism_gate": {
+          "total_arm_runs": 56,
+          "divergent_runs": 0,
+          "clopper_pearson_95_upper_bound_divergence": 0.05209
+        },
+        "arms": {
+          "arm1_lookup_table": {
+            "label": "Arm 1 \u2014 O(1) Content-Addressed Lookup Table (<= 4 KiB per stratum)",
+            "category": "classical_automation",
+            "reps_per_trial": 5094,
+            "total_instances": 1500,
+            "total_correct": 901,
+            "overall_accuracy": 0.600667,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 0.774,
+              "combinatorial_constraint_3sat": 0.64,
+              "open_compositional_patch_triage": 0.388
+            },
+            "stratum_correct": {
+              "bounded_api_dispatch": 387,
+              "combinatorial_constraint_3sat": 320,
+              "open_compositional_patch_triage": 194
+            },
+            "prediction_fnv1a64": "57631b4f96691328",
+            "wall_ns_per_operation": {
+              "n": 8,
+              "median": 62.7,
+              "p25": 62.65,
+              "p75": 64.0,
+              "iqr": 1.35,
+              "min": 62.64,
+              "max": 69.17
+            },
+            "wall_ns_per_correct_operation": {
+              "n": 8,
+              "median": 104.39,
+              "p25": 104.31,
+              "p75": 106.55,
+              "iqr": 2.25,
+              "min": 104.29,
+              "max": 115.15
+            },
+            "evidence_class": "measured_j",
+            "gross_rail_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 0.8252,
+              "p25": 0.8043,
+              "p75": 0.8439,
+              "iqr": 0.0396,
+              "min": 0.7945,
+              "max": 0.8657
+            },
+            "net_above_idle_a1_a2_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 0.077,
+              "p25": 0.0667,
+              "p75": 0.0965,
+              "iqr": 0.0298,
+              "min": 0.0629,
+              "max": 0.1139
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+            "paired_round_net_above_idle_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 0.0,
+              "p25": 0.0,
+              "p75": 0.023,
+              "iqr": 0.023,
+              "min": 0.0,
+              "max": 0.0469
+            },
+            "secondary_carrier_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 2.2428,
+              "p25": 2.2217,
+              "p75": 2.3124,
+              "iqr": 0.0907,
+              "min": 2.2074,
+              "max": 2.4637
+            },
+            "shunt_samples_per_trial": {
+              "n": 8,
+              "median": 100.0,
+              "p25": 100.0,
+              "p75": 102.0,
+              "iqr": 2.0,
+              "min": 99.0,
+              "max": 110.0
+            },
+            "pkg_reported_uj_per_correct_operation": null,
+            "core_reported_uj_per_correct_operation": null
+          },
+          "arm2_if_else_guards": {
+            "label": "Arm 2 \u2014 Explicit Deterministic if/else Predicate Guard Chain",
+            "category": "classical_automation",
+            "reps_per_trial": 25000,
+            "total_instances": 1500,
+            "total_correct": 917,
+            "overall_accuracy": 0.611333,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 0.556,
+              "open_compositional_patch_triage": 0.278
+            },
+            "stratum_correct": {
+              "bounded_api_dispatch": 500,
+              "combinatorial_constraint_3sat": 278,
+              "open_compositional_patch_triage": 139
+            },
+            "prediction_fnv1a64": "be36743bf561ee91",
+            "wall_ns_per_operation": {
+              "n": 8,
+              "median": 2.86,
+              "p25": 2.86,
+              "p75": 2.87,
+              "iqr": 0.0,
+              "min": 2.85,
+              "max": 3.9
+            },
+            "wall_ns_per_correct_operation": {
+              "n": 8,
+              "median": 4.69,
+              "p25": 4.68,
+              "p75": 4.69,
+              "iqr": 0.01,
+              "min": 4.66,
+              "max": 6.38
+            },
+            "evidence_class": "measured_j",
+            "gross_rail_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 0.0373,
+              "p25": 0.036,
+              "p75": 0.0374,
+              "iqr": 0.0014,
+              "min": 0.0354,
+              "max": 0.0483
+            },
+            "net_above_idle_a1_a2_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 0.0042,
+              "p25": 0.0034,
+              "p75": 0.0047,
+              "iqr": 0.0012,
+              "min": 0.0028,
+              "max": 0.0048
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+            "paired_round_net_above_idle_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 0.0007,
+              "p25": 0.0,
+              "p75": 0.0013,
+              "iqr": 0.0013,
+              "min": 0.0,
+              "max": 0.0019
+            },
+            "secondary_carrier_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 0.1038,
+              "p25": 0.1035,
+              "p75": 0.1043,
+              "iqr": 0.0009,
+              "min": 0.1026,
+              "max": 0.1374
+            },
+            "shunt_samples_per_trial": {
+              "n": 8,
+              "median": 24.0,
+              "p25": 24.0,
+              "p75": 24.0,
+              "iqr": 0.0,
+              "min": 23.0,
+              "max": 32.0
+            },
+            "pkg_reported_uj_per_correct_operation": null,
+            "core_reported_uj_per_correct_operation": null
+          },
+          "arm3_bounded_for_loop": {
+            "label": "Arm 3 \u2014 Bounded for-Loop Scan (Rule Table / WalkSAT / Centroid Scan)",
+            "category": "classical_automation",
+            "reps_per_trial": 328,
+            "total_instances": 1500,
+            "total_correct": 1106,
+            "overall_accuracy": 0.737333,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 0.716,
+              "open_compositional_patch_triage": 0.496
+            },
+            "stratum_correct": {
+              "bounded_api_dispatch": 500,
+              "combinatorial_constraint_3sat": 358,
+              "open_compositional_patch_triage": 248
+            },
+            "prediction_fnv1a64": "9557e9dd921fdeea",
+            "wall_ns_per_operation": {
+              "n": 8,
+              "median": 1412.88,
+              "p25": 1412.71,
+              "p75": 1418.17,
+              "iqr": 5.46,
+              "min": 1412.31,
+              "max": 1514.1
+            },
+            "wall_ns_per_correct_operation": {
+              "n": 8,
+              "median": 1916.2,
+              "p25": 1915.98,
+              "p75": 1923.38,
+              "iqr": 7.4,
+              "min": 1915.42,
+              "max": 2053.48
+            },
+            "evidence_class": "measured_j",
+            "gross_rail_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 15.2013,
+              "p25": 15.1464,
+              "p75": 15.456,
+              "iqr": 0.3096,
+              "min": 15.1265,
+              "max": 15.7155
+            },
+            "net_above_idle_a1_a2_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 1.8048,
+              "p25": 1.7857,
+              "p75": 1.8341,
+              "iqr": 0.0483,
+              "min": 1.3988,
+              "max": 2.3468
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+            "paired_round_net_above_idle_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 0.4078,
+              "p25": 0.1807,
+              "p75": 0.596,
+              "iqr": 0.4153,
+              "min": 0.0,
+              "max": 1.0525
+            },
+            "secondary_carrier_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 42.0668,
+              "p25": 41.8287,
+              "p75": 42.5564,
+              "iqr": 0.7277,
+              "min": 41.5007,
+              "max": 44.411
+            },
+            "shunt_samples_per_trial": {
+              "n": 8,
+              "median": 144.5,
+              "p25": 144.0,
+              "p75": 145.5,
+              "iqr": 1.5,
+              "min": 144.0,
+              "max": 154.0
+            },
+            "pkg_reported_uj_per_correct_operation": null,
+            "core_reported_uj_per_correct_operation": null
+          },
+          "arm4_decision_tree": {
+            "label": "Arm 4 \u2014 Depth-6 Integer CART Decision Tree (Calibrated)",
+            "category": "classical_automation",
+            "reps_per_trial": 25000,
+            "total_instances": 1500,
+            "total_correct": 1088,
+            "overall_accuracy": 0.725333,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 0.918,
+              "combinatorial_constraint_3sat": 0.824,
+              "open_compositional_patch_triage": 0.434
+            },
+            "stratum_correct": {
+              "bounded_api_dispatch": 459,
+              "combinatorial_constraint_3sat": 412,
+              "open_compositional_patch_triage": 217
+            },
+            "prediction_fnv1a64": "8ab29741cb4c3b08",
+            "wall_ns_per_operation": {
+              "n": 8,
+              "median": 15.91,
+              "p25": 15.9,
+              "p75": 15.92,
+              "iqr": 0.03,
+              "min": 15.89,
+              "max": 17.33
+            },
+            "wall_ns_per_correct_operation": {
+              "n": 8,
+              "median": 21.93,
+              "p25": 21.91,
+              "p75": 21.95,
+              "iqr": 0.04,
+              "min": 21.91,
+              "max": 23.89
+            },
+            "evidence_class": "measured_j",
+            "gross_rail_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 0.1749,
+              "p25": 0.1739,
+              "p75": 0.1774,
+              "iqr": 0.0034,
+              "min": 0.1735,
+              "max": 0.1785
+            },
+            "net_above_idle_a1_a2_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 0.0216,
+              "p25": 0.0206,
+              "p75": 0.0228,
+              "iqr": 0.0022,
+              "min": 0.0108,
+              "max": 0.0258
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+            "paired_round_net_above_idle_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 0.0051,
+              "p25": 0.0032,
+              "p75": 0.0071,
+              "iqr": 0.0038,
+              "min": 0.0,
+              "max": 0.0108
+            },
+            "secondary_carrier_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 0.4729,
+              "p25": 0.4714,
+              "p75": 0.4746,
+              "iqr": 0.0031,
+              "min": 0.4673,
+              "max": 0.5089
+            },
+            "shunt_samples_per_trial": {
+              "n": 8,
+              "median": 124.0,
+              "p25": 124.0,
+              "p75": 125.0,
+              "iqr": 1.0,
+              "min": 124.0,
+              "max": 135.0
+            },
+            "pkg_reported_uj_per_correct_operation": null,
+            "core_reported_uj_per_correct_operation": null
+          },
+          "arm5_compiled_solver_rules": {
+            "label": "Arm 5 \u2014 Exact DPLL Unit-Propagation Solver & Compiled Rule Verifier",
+            "category": "classical_automation",
+            "reps_per_trial": 215,
+            "total_instances": 1500,
+            "total_correct": 1287,
+            "overall_accuracy": 0.858,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 1.0,
+              "open_compositional_patch_triage": 0.574
+            },
+            "stratum_correct": {
+              "bounded_api_dispatch": 500,
+              "combinatorial_constraint_3sat": 500,
+              "open_compositional_patch_triage": 287
+            },
+            "prediction_fnv1a64": "18a453531794f160",
+            "wall_ns_per_operation": {
+              "n": 8,
+              "median": 2128.42,
+              "p25": 2128.31,
+              "p75": 2130.58,
+              "iqr": 2.27,
+              "min": 2127.95,
+              "max": 2288.01
+            },
+            "wall_ns_per_correct_operation": {
+              "n": 8,
+              "median": 2480.68,
+              "p25": 2480.55,
+              "p75": 2483.19,
+              "iqr": 2.64,
+              "min": 2480.13,
+              "max": 2666.68
+            },
+            "evidence_class": "measured_j",
+            "gross_rail_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 19.6862,
+              "p25": 19.6121,
+              "p75": 20.0675,
+              "iqr": 0.4555,
+              "min": 19.6117,
+              "max": 21.2596
+            },
+            "net_above_idle_a1_a2_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 2.3765,
+              "p25": 2.3196,
+              "p75": 2.6147,
+              "iqr": 0.2951,
+              "min": 2.3194,
+              "max": 3.3046
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+            "paired_round_net_above_idle_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 0.6495,
+              "p25": 0.4765,
+              "p75": 0.9854,
+              "iqr": 0.5088,
+              "min": 0.0,
+              "max": 1.32
+            },
+            "secondary_carrier_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 54.3044,
+              "p25": 54.1613,
+              "p75": 54.4797,
+              "iqr": 0.3184,
+              "min": 53.9434,
+              "max": 59.4573
+            },
+            "shunt_samples_per_trial": {
+              "n": 8,
+              "median": 142.5,
+              "p25": 142.0,
+              "p75": 143.0,
+              "iqr": 1.0,
+              "min": 142.0,
+              "max": 153.0
+            },
+            "pkg_reported_uj_per_correct_operation": null,
+            "core_reported_uj_per_correct_operation": null
+          },
+          "shape_d_classical_best": {
+            "label": "Shape D \u2014 Lookup-First + Exact Solver/Guard Union (0 Neural FLOPs)",
+            "category": "classical_automation_composite",
+            "reps_per_trial": 342,
+            "total_instances": 1500,
+            "total_correct": 1287,
+            "overall_accuracy": 0.858,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 1.0,
+              "open_compositional_patch_triage": 0.574
+            },
+            "stratum_correct": {
+              "bounded_api_dispatch": 500,
+              "combinatorial_constraint_3sat": 500,
+              "open_compositional_patch_triage": 287
+            },
+            "prediction_fnv1a64": "18a453531794f160",
+            "wall_ns_per_operation": {
+              "n": 8,
+              "median": 1381.59,
+              "p25": 1381.49,
+              "p75": 1381.73,
+              "iqr": 0.24,
+              "min": 1380.97,
+              "max": 1486.53
+            },
+            "wall_ns_per_correct_operation": {
+              "n": 8,
+              "median": 1610.24,
+              "p25": 1610.13,
+              "p75": 1610.41,
+              "iqr": 0.28,
+              "min": 1609.52,
+              "max": 1732.55
+            },
+            "evidence_class": "measured_j",
+            "gross_rail_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 13.3439,
+              "p25": 13.2682,
+              "p75": 13.4872,
+              "iqr": 0.219,
+              "min": 12.7265,
+              "max": 13.5652
+            },
+            "net_above_idle_a1_a2_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 2.088,
+              "p25": 1.8141,
+              "p75": 2.1727,
+              "iqr": 0.3586,
+              "min": 1.4271,
+              "max": 2.3407
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+            "paired_round_net_above_idle_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 0.867,
+              "p25": 0.3587,
+              "p75": 1.0747,
+              "iqr": 0.716,
+              "min": 0.2567,
+              "max": 1.3142
+            },
+            "secondary_carrier_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 35.3631,
+              "p25": 35.0205,
+              "p75": 35.9815,
+              "iqr": 0.961,
+              "min": 34.9519,
+              "max": 37.8616
+            },
+            "shunt_samples_per_trial": {
+              "n": 8,
+              "median": 147.5,
+              "p25": 147.0,
+              "p75": 148.0,
+              "iqr": 1.0,
+              "min": 147.0,
+              "max": 158.0
+            },
+            "pkg_reported_uj_per_correct_operation": null,
+            "core_reported_uj_per_correct_operation": null
+          },
+          "candidate_dense_mlp_int16": {
+            "label": "Candidate \u2014 2-Layer 128-Wide ReLU Neural Comparator (Calibrated)",
+            "category": "neural_candidate",
+            "reps_per_trial": 41,
+            "total_instances": 1500,
+            "total_correct": 939,
+            "overall_accuracy": 0.626,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 0.384,
+              "combinatorial_constraint_3sat": 0.792,
+              "open_compositional_patch_triage": 0.702
+            },
+            "stratum_correct": {
+              "bounded_api_dispatch": 192,
+              "combinatorial_constraint_3sat": 396,
+              "open_compositional_patch_triage": 351
+            },
+            "prediction_fnv1a64": "e109e3f771a1b5fb",
+            "wall_ns_per_operation": {
+              "n": 8,
+              "median": 11697.77,
+              "p25": 11695.49,
+              "p75": 11705.91,
+              "iqr": 10.42,
+              "min": 11694.89,
+              "max": 12547.32
+            },
+            "wall_ns_per_correct_operation": {
+              "n": 8,
+              "median": 18686.54,
+              "p25": 18682.89,
+              "p75": 18699.53,
+              "iqr": 16.64,
+              "min": 18681.93,
+              "max": 20043.64
+            },
+            "evidence_class": "measured_j",
+            "gross_rail_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 148.5732,
+              "p25": 147.9811,
+              "p75": 149.9577,
+              "iqr": 1.9766,
+              "min": 146.7405,
+              "max": 154.2165
+            },
+            "net_above_idle_a1_a2_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 17.8356,
+              "p25": 17.1612,
+              "p75": 18.8251,
+              "iqr": 1.6639,
+              "min": 12.0612,
+              "max": 23.9817
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+            "paired_round_net_above_idle_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 4.4782,
+              "p25": 1.5946,
+              "p75": 6.3339,
+              "iqr": 4.7392,
+              "min": 0.0,
+              "max": 10.0986
+            },
+            "secondary_carrier_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 401.9959,
+              "p25": 400.8365,
+              "p75": 403.7343,
+              "iqr": 2.8978,
+              "min": 397.5749,
+              "max": 431.1123
+            },
+            "shunt_samples_per_trial": {
+              "n": 8,
+              "median": 150.0,
+              "p25": 149.0,
+              "p75": 150.0,
+              "iqr": 1.0,
+              "min": 149.0,
+              "max": 160.0
+            },
+            "pkg_reported_uj_per_correct_operation": null,
+            "core_reported_uj_per_correct_operation": null
+          }
+        },
+        "paired_neural_candidate_vs_classical_null": {
+          "overall_1500": {
+            "n_instances": 1500,
+            "candidate_accuracy": 0.626,
+            "null_accuracy": 0.858,
+            "delta_accuracy_cand_minus_null": -0.232,
+            "delta_accuracy_95ci": [
+              -0.259198,
+              -0.204802
+            ],
+            "mcnemar_contingency": {
+              "both_correct": 856,
+              "candidate_only_correct": 83,
+              "null_only_correct": 431,
+              "both_wrong": 130
+            },
+            "mcnemar_exact_two_sided_p": 0.0
+          },
+          "by_stratum": {
+            "bounded_api_dispatch": {
+              "n_instances": 500,
+              "candidate_accuracy": 0.384,
+              "null_accuracy": 1.0,
+              "delta_accuracy_cand_minus_null": -0.616,
+              "delta_accuracy_95ci": [
+                -0.658631,
+                -0.573369
+              ],
+              "mcnemar_contingency": {
+                "both_correct": 192,
+                "candidate_only_correct": 0,
+                "null_only_correct": 308,
+                "both_wrong": 0
+              },
+              "mcnemar_exact_two_sided_p": 0.0
+            },
+            "combinatorial_constraint_3sat": {
+              "n_instances": 500,
+              "candidate_accuracy": 0.792,
+              "null_accuracy": 1.0,
+              "delta_accuracy_cand_minus_null": -0.208,
+              "delta_accuracy_95ci": [
+                -0.243577,
+                -0.172423
+              ],
+              "mcnemar_contingency": {
+                "both_correct": 396,
+                "candidate_only_correct": 0,
+                "null_only_correct": 104,
+                "both_wrong": 0
+              },
+              "mcnemar_exact_two_sided_p": 0.0
+            },
+            "open_compositional_patch_triage": {
+              "n_instances": 500,
+              "candidate_accuracy": 0.702,
+              "null_accuracy": 0.574,
+              "delta_accuracy_cand_minus_null": 0.128,
+              "delta_accuracy_95ci": [
+                0.090033,
+                0.165967
+              ],
+              "mcnemar_contingency": {
+                "both_correct": 268,
+                "candidate_only_correct": 83,
+                "null_only_correct": 19,
+                "both_wrong": 130
+              },
+              "mcnemar_exact_two_sided_p": 0.0
+            }
+          },
+          "same_meter_energy_and_latency_ratios": {
+            "evidence_class": "measured_j",
+            "wall_speedup_lookup_over_mlp_x": 179.01,
+            "wall_speedup_shape_d_over_mlp_x": 11.6,
+            "measured_j_ratio_mlp_over_lookup_x": 180.05,
+            "measured_j_ratio_mlp_over_shape_d_x": 11.13
+          }
+        },
+        "external_candidate_adapter_result": null
+      },
+      "signed_receipt": {
+        "body": {
+          "schema": "openie.signed_provenance_receipt.v1",
+          "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+          "self_attested_not_third_party_verified": true,
+          "kit_id": "kits/deterministic-null-suite",
+          "domain_context": "openie.kit.deterministic_null_suite.receipt.v1",
+          "issued_utc": "2026-11-26T08:17:28Z",
+          "payload": {
+            "substrate_id": "jetson_agx_thor_ina3221",
+            "canonical_dataset_sha256": "09b000b2cf2650b2cbce4234396ef8300c8c16fb9eb2f0b820adbcaad07efcd6",
+            "canonical_dataset_blake3": "4d30065a9804fd28b0e31b60c4a2b3f71ab8c0b12bda9bb6e38d073715059dcc",
+            "held_out_instances_total": 1500,
+            "divergent_runs": 0,
+            "energy_evidence_class": "measured_j",
+            "results_blake3": "441763d1f94378d16882ba9f781c7d86167222da645afe3354b96ea5c8dc2516"
+          }
+        },
+        "body_blake3": "842c3fc3edeffb4133f5c2286b1f28f55c12c9f72a830804dcc24cbf91ffd20b",
+        "ed25519_public_key_hex": "c451c8956ffcbd49beb14ccd622e6120d6f9683ab1d23a4579550dd2f42609a7",
+        "ed25519_signature_hex": "89280655d444ca4f93fbdd8a3f6d34c581e47e3f66788ef6a53166ddf8c7595890c72f1d759bf13070acc3875f441308502f646929c2e4e7e21779bc1328f008"
+      }
+    },
+    "amd_kria_kv260_ina260": {
+      "results": {
+        "schema": "openie.deterministic_null_suite.v1",
+        "kit_id": "kits/deterministic-null-suite",
+        "shot_on_goal": "Shot #1 \u2014 Standardized Deterministic Null Benchmark Suite (5 Classical Automation Baselines + Pluggable Candidate Adapter)",
+        "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+        "license": "Apache-2.0",
+        "mode": "standard",
+        "trials_per_arm": 8,
+        "host": {
+          "cpu_model": "ZynqMP KV260 revB (Cortex-A53, aarch64)",
+          "logical_cpus": 4,
+          "ram_gib": 3.81,
+          "os_kernel": "Linux 6.8.0-1036-xilinx aarch64",
+          "python_version": "3.12.3",
+          "cc_version": "GCC 13.3.0",
+          "recorded_utc": "2026-11-26T08:17:28Z"
+        },
+        "energy_telemetry": {
+          "evidence_class": "measured_j",
+          "board_metered": true,
+          "substrate_id": "amd_kria_kv260_ina260",
+          "primary_sensor": "TI INA260 (ina260_u14)",
+          "primary_rail": "SOM_5V_DC",
+          "primary_sysfs_paths": [
+            "/sys/class/hwmon/hwmon2/power1_input"
+          ],
+          "secondary_sensor": null,
+          "secondary_rail": null,
+          "secondary_sysfs_path": null,
+          "reported_j_available": false,
+          "est_j_mixed": false,
+          "idle_a1_pre": {
+            "window_s": 1.0,
+            "raw_mean_w": 3.2676,
+            "trimmed_mean_w": 3.2646,
+            "secondary_raw_mean_w": null,
+            "secondary_trimmed_mean_w": null,
+            "shunt_samples": 234,
+            "sample_rate_hz": 232.7,
+            "rail_breakdown_w": {
+              "SOM_5V_DC": 3.29,
+              "bus_mv": 5027,
+              "shunt_ma": 653
+            }
+          },
+          "idle_a2_post": {
+            "window_s": 1.0,
+            "raw_mean_w": 3.2687,
+            "trimmed_mean_w": 3.2655,
+            "secondary_raw_mean_w": null,
+            "secondary_trimmed_mean_w": null,
+            "shunt_samples": 230,
+            "sample_rate_hz": 228.8,
+            "rail_breakdown_w": {
+              "SOM_5V_DC": 3.27,
+              "bus_mv": 5027,
+              "shunt_ma": 650
+            }
+          },
+          "idle_trimmed_mean_w": 3.2651,
+          "idle_drift_pct": 0.03,
+          "falsifier_6_idle_drift_threshold_pct": 5.0,
+          "falsifier_6_idle_drift_flag": false
+        },
+        "dataset_precommitment": {
+          "held_out_instances_total": 1500,
+          "instances_per_stratum": 500,
+          "lut_memory_cap_bytes_per_stratum": 4096,
+          "canonical_dataset_sha256": "6d70b5818237405c37f34b5bc4fbdff8bd210ea2b70f6313d8d1c5235c22e08e",
+          "canonical_dataset_blake3": "9f89b28cdecc2a8c7018c26bb1b548a22043d1a5f0a3dda44912df50a8e06d73",
+          "strata": [
+            {
+              "id": 0,
+              "key": "bounded_api_dispatch",
+              "n": 500,
+              "classes": 8
+            },
+            {
+              "id": 1,
+              "key": "combinatorial_constraint_3sat",
+              "n": 500,
+              "classes": 2
+            },
+            {
+              "id": 2,
+              "key": "open_compositional_patch_triage",
+              "n": 500,
+              "classes": 8
+            }
+          ]
+        },
+        "determinism_gate": {
+          "total_arm_runs": 56,
+          "divergent_runs": 0,
+          "clopper_pearson_95_upper_bound_divergence": 0.05209
+        },
+        "arms": {
+          "arm1_lookup_table": {
+            "label": "Arm 1 \u2014 O(1) Content-Addressed Lookup Table (<= 4 KiB per stratum)",
+            "category": "classical_automation",
+            "reps_per_trial": 1504,
+            "total_instances": 1500,
+            "total_correct": 901,
+            "overall_accuracy": 0.600667,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 0.774,
+              "combinatorial_constraint_3sat": 0.64,
+              "open_compositional_patch_triage": 0.388
+            },
+            "stratum_correct": {
+              "bounded_api_dispatch": 387,
+              "combinatorial_constraint_3sat": 320,
+              "open_compositional_patch_triage": 194
+            },
+            "prediction_fnv1a64": "57631b4f96691328",
+            "wall_ns_per_operation": {
+              "n": 8,
+              "median": 260.27,
+              "p25": 260.26,
+              "p75": 260.28,
+              "iqr": 0.02,
+              "min": 260.26,
+              "max": 260.39
+            },
+            "wall_ns_per_correct_operation": {
+              "n": 8,
+              "median": 433.3,
+              "p25": 433.28,
+              "p75": 433.32,
+              "iqr": 0.03,
+              "min": 433.28,
+              "max": 433.5
+            },
+            "evidence_class": "measured_j",
+            "gross_rail_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 1.4987,
+              "p25": 1.4976,
+              "p75": 1.499,
+              "iqr": 0.0014,
+              "min": 1.4959,
+              "max": 1.5049
+            },
+            "net_above_idle_a1_a2_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 0.0835,
+              "p25": 0.0824,
+              "p75": 0.0839,
+              "iqr": 0.0015,
+              "min": 0.081,
+              "max": 0.0891
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+            "paired_round_net_above_idle_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 0.0826,
+              "p25": 0.0786,
+              "p75": 0.0848,
+              "iqr": 0.0062,
+              "min": 0.071,
+              "max": 0.087
+            },
+            "secondary_carrier_measured_uj_per_correct_operation": null,
+            "shunt_samples_per_trial": {
+              "n": 8,
+              "median": 136.0,
+              "p25": 136.0,
+              "p75": 138.0,
+              "iqr": 2.0,
+              "min": 136.0,
+              "max": 138.0
+            },
+            "pkg_reported_uj_per_correct_operation": null,
+            "core_reported_uj_per_correct_operation": null
+          },
+          "arm2_if_else_guards": {
+            "label": "Arm 2 \u2014 Explicit Deterministic if/else Predicate Guard Chain",
+            "category": "classical_automation",
+            "reps_per_trial": 8472,
+            "total_instances": 1500,
+            "total_correct": 917,
+            "overall_accuracy": 0.611333,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 0.556,
+              "open_compositional_patch_triage": 0.278
+            },
+            "stratum_correct": {
+              "bounded_api_dispatch": 500,
+              "combinatorial_constraint_3sat": 278,
+              "open_compositional_patch_triage": 139
+            },
+            "prediction_fnv1a64": "be36743bf561ee91",
+            "wall_ns_per_operation": {
+              "n": 8,
+              "median": 35.34,
+              "p25": 35.33,
+              "p75": 35.35,
+              "iqr": 0.03,
+              "min": 35.32,
+              "max": 35.45
+            },
+            "wall_ns_per_correct_operation": {
+              "n": 8,
+              "median": 57.81,
+              "p25": 57.79,
+              "p75": 57.83,
+              "iqr": 0.05,
+              "min": 57.77,
+              "max": 57.98
+            },
+            "evidence_class": "measured_j",
+            "gross_rail_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 0.2016,
+              "p25": 0.2016,
+              "p75": 0.2017,
+              "iqr": 0.0002,
+              "min": 0.2015,
+              "max": 0.2037
+            },
+            "net_above_idle_a1_a2_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 0.0129,
+              "p25": 0.0128,
+              "p75": 0.0129,
+              "iqr": 0.0001,
+              "min": 0.0126,
+              "max": 0.0143
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+            "paired_round_net_above_idle_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 0.0125,
+              "p25": 0.0122,
+              "p75": 0.0131,
+              "iqr": 0.0008,
+              "min": 0.0115,
+              "max": 0.0143
+            },
+            "secondary_carrier_measured_uj_per_correct_operation": null,
+            "shunt_samples_per_trial": {
+              "n": 8,
+              "median": 106.0,
+              "p25": 106.0,
+              "p75": 106.0,
+              "iqr": 0.0,
+              "min": 105.0,
+              "max": 106.0
+            },
+            "pkg_reported_uj_per_correct_operation": null,
+            "core_reported_uj_per_correct_operation": null
+          },
+          "arm3_bounded_for_loop": {
+            "label": "Arm 3 \u2014 Bounded for-Loop Scan (Rule Table / WalkSAT / Centroid Scan)",
+            "category": "classical_automation",
+            "reps_per_trial": 55,
+            "total_instances": 1500,
+            "total_correct": 1106,
+            "overall_accuracy": 0.737333,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 0.716,
+              "open_compositional_patch_triage": 0.496
+            },
+            "stratum_correct": {
+              "bounded_api_dispatch": 500,
+              "combinatorial_constraint_3sat": 358,
+              "open_compositional_patch_triage": 248
+            },
+            "prediction_fnv1a64": "9557e9dd921fdeea",
+            "wall_ns_per_operation": {
+              "n": 8,
+              "median": 8744.31,
+              "p25": 8743.77,
+              "p75": 8744.85,
+              "iqr": 1.08,
+              "min": 8742.51,
+              "max": 8746.05
+            },
+            "wall_ns_per_correct_operation": {
+              "n": 8,
+              "median": 11859.38,
+              "p25": 11858.64,
+              "p75": 11860.1,
+              "iqr": 1.46,
+              "min": 11856.93,
+              "max": 11861.74
+            },
+            "evidence_class": "measured_j",
+            "gross_rail_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 40.813,
+              "p25": 40.7696,
+              "p75": 40.871,
+              "iqr": 0.1014,
+              "min": 40.756,
+              "max": 40.9738
+            },
+            "net_above_idle_a1_a2_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 2.0848,
+              "p25": 2.0457,
+              "p75": 2.1422,
+              "iqr": 0.0964,
+              "min": 2.0279,
+              "max": 2.2364
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+            "paired_round_net_above_idle_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 2.0567,
+              "p25": 2.0384,
+              "p75": 2.0706,
+              "iqr": 0.0322,
+              "min": 1.8576,
+              "max": 2.0963
+            },
+            "secondary_carrier_measured_uj_per_correct_operation": null,
+            "shunt_samples_per_trial": {
+              "n": 8,
+              "median": 168.0,
+              "p25": 166.8,
+              "p75": 169.2,
+              "iqr": 2.5,
+              "min": 166.0,
+              "max": 170.0
+            },
+            "pkg_reported_uj_per_correct_operation": null,
+            "core_reported_uj_per_correct_operation": null
+          },
+          "arm4_decision_tree": {
+            "label": "Arm 4 \u2014 Depth-6 Integer CART Decision Tree (Calibrated)",
+            "category": "classical_automation",
+            "reps_per_trial": 5100,
+            "total_instances": 1500,
+            "total_correct": 1088,
+            "overall_accuracy": 0.725333,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 0.918,
+              "combinatorial_constraint_3sat": 0.824,
+              "open_compositional_patch_triage": 0.434
+            },
+            "stratum_correct": {
+              "bounded_api_dispatch": 459,
+              "combinatorial_constraint_3sat": 412,
+              "open_compositional_patch_triage": 217
+            },
+            "prediction_fnv1a64": "8ab29741cb4c3b08",
+            "wall_ns_per_operation": {
+              "n": 8,
+              "median": 76.84,
+              "p25": 76.82,
+              "p75": 76.86,
+              "iqr": 0.04,
+              "min": 76.81,
+              "max": 77.01
+            },
+            "wall_ns_per_correct_operation": {
+              "n": 8,
+              "median": 105.93,
+              "p25": 105.9,
+              "p75": 105.96,
+              "iqr": 0.05,
+              "min": 105.89,
+              "max": 106.17
+            },
+            "evidence_class": "measured_j",
+            "gross_rail_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 0.3663,
+              "p25": 0.3662,
+              "p75": 0.3664,
+              "iqr": 0.0003,
+              "min": 0.3659,
+              "max": 0.3679
+            },
+            "net_above_idle_a1_a2_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 0.0203,
+              "p25": 0.0201,
+              "p75": 0.0204,
+              "iqr": 0.0003,
+              "min": 0.0199,
+              "max": 0.0218
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+            "paired_round_net_above_idle_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 0.02,
+              "p25": 0.0192,
+              "p75": 0.0205,
+              "iqr": 0.0012,
+              "min": 0.0175,
+              "max": 0.0216
+            },
+            "secondary_carrier_measured_uj_per_correct_operation": null,
+            "shunt_samples_per_trial": {
+              "n": 8,
+              "median": 137.5,
+              "p25": 136.0,
+              "p75": 138.0,
+              "iqr": 2.0,
+              "min": 136.0,
+              "max": 139.0
+            },
+            "pkg_reported_uj_per_correct_operation": null,
+            "core_reported_uj_per_correct_operation": null
+          },
+          "arm5_compiled_solver_rules": {
+            "label": "Arm 5 \u2014 Exact DPLL Unit-Propagation Solver & Compiled Rule Verifier",
+            "category": "classical_automation",
+            "reps_per_trial": 44,
+            "total_instances": 1500,
+            "total_correct": 1287,
+            "overall_accuracy": 0.858,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 1.0,
+              "open_compositional_patch_triage": 0.574
+            },
+            "stratum_correct": {
+              "bounded_api_dispatch": 500,
+              "combinatorial_constraint_3sat": 500,
+              "open_compositional_patch_triage": 287
+            },
+            "prediction_fnv1a64": "18a453531794f160",
+            "wall_ns_per_operation": {
+              "n": 8,
+              "median": 10956.7,
+              "p25": 10956.39,
+              "p75": 10957.37,
+              "iqr": 0.98,
+              "min": 10956.23,
+              "max": 10961.43
+            },
+            "wall_ns_per_correct_operation": {
+              "n": 8,
+              "median": 12770.05,
+              "p25": 12769.68,
+              "p75": 12770.82,
+              "iqr": 1.14,
+              "min": 12769.5,
+              "max": 12775.56
+            },
+            "evidence_class": "measured_j",
+            "gross_rail_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 43.9344,
+              "p25": 43.8924,
+              "p75": 43.9879,
+              "iqr": 0.0956,
+              "min": 43.8833,
+              "max": 44.0794
+            },
+            "net_above_idle_a1_a2_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 2.2296,
+              "p25": 2.1878,
+              "p75": 2.285,
+              "iqr": 0.0972,
+              "min": 2.1815,
+              "max": 2.3559
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+            "paired_round_net_above_idle_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 2.167,
+              "p25": 2.0764,
+              "p75": 2.2313,
+              "iqr": 0.1549,
+              "min": 2.0162,
+              "max": 2.3955
+            },
+            "secondary_carrier_measured_uj_per_correct_operation": null,
+            "shunt_samples_per_trial": {
+              "n": 8,
+              "median": 167.0,
+              "p25": 167.0,
+              "p75": 168.5,
+              "iqr": 1.5,
+              "min": 167.0,
+              "max": 170.0
+            },
+            "pkg_reported_uj_per_correct_operation": null,
+            "core_reported_uj_per_correct_operation": null
+          },
+          "shape_d_classical_best": {
+            "label": "Shape D \u2014 Lookup-First + Exact Solver/Guard Union (0 Neural FLOPs)",
+            "category": "classical_automation_composite",
+            "reps_per_trial": 68,
+            "total_instances": 1500,
+            "total_correct": 1287,
+            "overall_accuracy": 0.858,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 1.0,
+              "open_compositional_patch_triage": 0.574
+            },
+            "stratum_correct": {
+              "bounded_api_dispatch": 500,
+              "combinatorial_constraint_3sat": 500,
+              "open_compositional_patch_triage": 287
+            },
+            "prediction_fnv1a64": "18a453531794f160",
+            "wall_ns_per_operation": {
+              "n": 8,
+              "median": 7058.8,
+              "p25": 7058.65,
+              "p75": 7059.12,
+              "iqr": 0.47,
+              "min": 7058.17,
+              "max": 7059.81
+            },
+            "wall_ns_per_correct_operation": {
+              "n": 8,
+              "median": 8227.04,
+              "p25": 8226.86,
+              "p75": 8227.41,
+              "iqr": 0.55,
+              "min": 8226.3,
+              "max": 8228.22
+            },
+            "evidence_class": "measured_j",
+            "gross_rail_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 28.2799,
+              "p25": 28.2696,
+              "p75": 28.3046,
+              "iqr": 0.035,
+              "min": 28.2488,
+              "max": 28.3503
+            },
+            "net_above_idle_a1_a2_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 1.4124,
+              "p25": 1.4019,
+              "p75": 1.4379,
+              "iqr": 0.036,
+              "min": 1.382,
+              "max": 1.4786
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+            "paired_round_net_above_idle_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 1.3906,
+              "p25": 1.3445,
+              "p75": 1.4125,
+              "iqr": 0.068,
+              "min": 1.2121,
+              "max": 1.4934
+            },
+            "secondary_carrier_measured_uj_per_correct_operation": null,
+            "shunt_samples_per_trial": {
+              "n": 8,
+              "median": 168.5,
+              "p25": 166.8,
+              "p75": 169.0,
+              "iqr": 2.2,
+              "min": 166.0,
+              "max": 169.0
+            },
+            "pkg_reported_uj_per_correct_operation": null,
+            "core_reported_uj_per_correct_operation": null
+          },
+          "candidate_dense_mlp_int16": {
+            "label": "Candidate \u2014 2-Layer 128-Wide ReLU Neural Comparator (Calibrated)",
+            "category": "neural_candidate",
+            "reps_per_trial": 6,
+            "total_instances": 1500,
+            "total_correct": 939,
+            "overall_accuracy": 0.626,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 0.384,
+              "combinatorial_constraint_3sat": 0.792,
+              "open_compositional_patch_triage": 0.702
+            },
+            "stratum_correct": {
+              "bounded_api_dispatch": 192,
+              "combinatorial_constraint_3sat": 396,
+              "open_compositional_patch_triage": 351
+            },
+            "prediction_fnv1a64": "e109e3f771a1b5fb",
+            "wall_ns_per_operation": {
+              "n": 8,
+              "median": 94074.11,
+              "p25": 94072.81,
+              "p75": 94075.98,
+              "iqr": 3.17,
+              "min": 94051.99,
+              "max": 94082.53
+            },
+            "wall_ns_per_correct_operation": {
+              "n": 8,
+              "median": 150278.14,
+              "p25": 150276.06,
+              "p75": 150281.12,
+              "iqr": 5.06,
+              "min": 150242.8,
+              "max": 150291.59
+            },
+            "evidence_class": "measured_j",
+            "gross_rail_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 518.8062,
+              "p25": 518.3293,
+              "p75": 519.2651,
+              "iqr": 0.9358,
+              "min": 518.1757,
+              "max": 519.7831
+            },
+            "net_above_idle_a1_a2_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 28.082,
+              "p25": 27.569,
+              "p75": 28.5016,
+              "iqr": 0.9326,
+              "min": 27.4348,
+              "max": 29.023
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+            "paired_round_net_above_idle_measured_uj_per_correct_operation": {
+              "n": 8,
+              "median": 27.3175,
+              "p25": 26.4296,
+              "p75": 28.0118,
+              "iqr": 1.5822,
+              "min": 24.9715,
+              "max": 29.2936
+            },
+            "secondary_carrier_measured_uj_per_correct_operation": null,
+            "shunt_samples_per_trial": {
+              "n": 8,
+              "median": 196.5,
+              "p25": 195.8,
+              "p75": 198.0,
+              "iqr": 2.2,
+              "min": 195.0,
+              "max": 199.0
+            },
+            "pkg_reported_uj_per_correct_operation": null,
+            "core_reported_uj_per_correct_operation": null
+          }
+        },
+        "paired_neural_candidate_vs_classical_null": {
+          "overall_1500": {
+            "n_instances": 1500,
+            "candidate_accuracy": 0.626,
+            "null_accuracy": 0.858,
+            "delta_accuracy_cand_minus_null": -0.232,
+            "delta_accuracy_95ci": [
+              -0.259198,
+              -0.204802
+            ],
+            "mcnemar_contingency": {
+              "both_correct": 856,
+              "candidate_only_correct": 83,
+              "null_only_correct": 431,
+              "both_wrong": 130
+            },
+            "mcnemar_exact_two_sided_p": 0.0
+          },
+          "by_stratum": {
+            "bounded_api_dispatch": {
+              "n_instances": 500,
+              "candidate_accuracy": 0.384,
+              "null_accuracy": 1.0,
+              "delta_accuracy_cand_minus_null": -0.616,
+              "delta_accuracy_95ci": [
+                -0.658631,
+                -0.573369
+              ],
+              "mcnemar_contingency": {
+                "both_correct": 192,
+                "candidate_only_correct": 0,
+                "null_only_correct": 308,
+                "both_wrong": 0
+              },
+              "mcnemar_exact_two_sided_p": 0.0
+            },
+            "combinatorial_constraint_3sat": {
+              "n_instances": 500,
+              "candidate_accuracy": 0.792,
+              "null_accuracy": 1.0,
+              "delta_accuracy_cand_minus_null": -0.208,
+              "delta_accuracy_95ci": [
+                -0.243577,
+                -0.172423
+              ],
+              "mcnemar_contingency": {
+                "both_correct": 396,
+                "candidate_only_correct": 0,
+                "null_only_correct": 104,
+                "both_wrong": 0
+              },
+              "mcnemar_exact_two_sided_p": 0.0
+            },
+            "open_compositional_patch_triage": {
+              "n_instances": 500,
+              "candidate_accuracy": 0.702,
+              "null_accuracy": 0.574,
+              "delta_accuracy_cand_minus_null": 0.128,
+              "delta_accuracy_95ci": [
+                0.090033,
+                0.165967
+              ],
+              "mcnemar_contingency": {
+                "both_correct": 268,
+                "candidate_only_correct": 83,
+                "null_only_correct": 19,
+                "both_wrong": 130
+              },
+              "mcnemar_exact_two_sided_p": 0.0
+            }
+          },
+          "same_meter_energy_and_latency_ratios": {
+            "evidence_class": "measured_j",
+            "wall_speedup_lookup_over_mlp_x": 346.82,
+            "wall_speedup_shape_d_over_mlp_x": 18.27,
+            "measured_j_ratio_mlp_over_lookup_x": 346.17,
+            "measured_j_ratio_mlp_over_shape_d_x": 18.35
+          }
+        },
+        "external_candidate_adapter_result": null
+      },
+      "signed_receipt": {
+        "body": {
+          "schema": "openie.signed_provenance_receipt.v1",
+          "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+          "self_attested_not_third_party_verified": true,
+          "kit_id": "kits/deterministic-null-suite",
+          "domain_context": "openie.kit.deterministic_null_suite.receipt.v1",
+          "issued_utc": "2026-11-26T08:18:19Z",
+          "payload": {
+            "substrate_id": "amd_kria_kv260_ina260",
+            "canonical_dataset_sha256": "6d70b5818237405c37f34b5bc4fbdff8bd210ea2b70f6313d8d1c5235c22e08e",
+            "canonical_dataset_blake3": "9f89b28cdecc2a8c7018c26bb1b548a22043d1a5f0a3dda44912df50a8e06d73",
+            "held_out_instances_total": 1500,
+            "divergent_runs": 0,
+            "energy_evidence_class": "measured_j",
+            "results_blake3": "a5d3f412f4ca31b543f92ab4f861a80417a4467583f989ba7e5fb4b231f68501"
+          }
+        },
+        "body_blake3": "bf8b3203dff6e0346be17eddb1f8cb3d39d5a92f9f37c4915760068eb6e4a6df",
+        "ed25519_public_key_hex": "1081015998526463321ffee41b3eb631571c5e6414b4af5bd3959bd54666c708",
+        "ed25519_signature_hex": "c00a05f5df0dd2faa054b4f53d34be48ed1c54c6966736c8c2d0c44f503e10609b191da7957d47e8763df08857ab4d371fa23ba3eeff90f05fafc341ec72b402"
+      }
+    }
+  },
+  "substrates_reported_j_on_chip_rapl": {
+    "amd_ryzen_ai_max_395_rapl": {
+      "results": {
+        "schema": "openie.deterministic_null_suite.v1",
+        "kit_id": "kits/deterministic-null-suite",
+        "shot_on_goal": "Shot #1 \u2014 Standardized Deterministic Null Benchmark Suite (5 Classical Automation Baselines + Pluggable Candidate Adapter)",
+        "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+        "license": "Apache-2.0",
+        "mode": "standard",
+        "trials_per_arm": 20,
+        "host": {
+          "cpu_model": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S",
+          "logical_cpus": 32,
+          "ram_gib": 122.83,
+          "os_kernel": "Linux 7.0.0-43-generic x86_64",
+          "python_version": "3.15.0",
+          "cc_version": "GCC 15.2.0",
+          "recorded_utc": "2026-11-26T08:16:34Z"
+        },
+        "energy_telemetry": {
+          "evidence_class": "reported_j",
+          "board_metered": false,
+          "substrate_id": "x86_rapl",
+          "measured_j": null,
+          "reported_j_available": true,
+          "est_j_mixed": false,
+          "package_counter": "/sys/class/powercap/intel-rapl:0/energy_uj",
+          "package_domain": "package-0",
+          "core_counter": "/sys/class/powercap/intel-rapl:0:0/energy_uj",
+          "core_domain": "core",
+          "idle_pkg_w_pre": 92.6326,
+          "idle_pkg_w_post": 86.5356,
+          "idle_drift_pct": 6.81
+        },
+        "dataset_precommitment": {
+          "held_out_instances_total": 1500,
+          "instances_per_stratum": 500,
+          "lut_memory_cap_bytes_per_stratum": 4096,
+          "canonical_dataset_sha256": "cdfd2668e2b2c422f8e2086c280b0a6118225b8c43f48edf27d5c35e307efb12",
+          "canonical_dataset_blake3": "277dcd968d2c67a8dd10f95586175d3ba167236e8f99d75a406833b1f3079bec",
+          "strata": [
+            {
+              "id": 0,
+              "key": "bounded_api_dispatch",
+              "n": 500,
+              "classes": 8
+            },
+            {
+              "id": 1,
+              "key": "combinatorial_constraint_3sat",
+              "n": 500,
+              "classes": 2
+            },
+            {
+              "id": 2,
+              "key": "open_compositional_patch_triage",
+              "n": 500,
+              "classes": 8
+            }
+          ]
+        },
+        "determinism_gate": {
+          "total_arm_runs": 140,
+          "divergent_runs": 0,
+          "clopper_pearson_95_upper_bound_divergence": 0.021171
+        },
+        "arms": {
+          "arm1_lookup_table": {
+            "label": "Arm 1 \u2014 O(1) Content-Addressed Lookup Table (<= 4 KiB per stratum)",
+            "category": "classical_automation",
+            "reps_per_trial": 500,
+            "total_instances": 1500,
+            "total_correct": 901,
+            "overall_accuracy": 0.600667,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 0.774,
+              "combinatorial_constraint_3sat": 0.64,
+              "open_compositional_patch_triage": 0.388
+            },
+            "stratum_correct": {
+              "bounded_api_dispatch": 387,
+              "combinatorial_constraint_3sat": 320,
+              "open_compositional_patch_triage": 194
+            },
+            "prediction_fnv1a64": "57631b4f96691328",
+            "wall_ns_per_operation": {
+              "n": 20,
+              "median": 43.7,
+              "p25": 43.37,
+              "p75": 43.9,
+              "iqr": 0.53,
+              "min": 43.06,
+              "max": 45.82
+            },
+            "wall_ns_per_correct_operation": {
+              "n": 20,
+              "median": 72.75,
+              "p25": 72.2,
+              "p75": 73.09,
+              "iqr": 0.89,
+              "min": 71.68,
+              "max": 76.28
+            },
+            "evidence_class": "reported_j",
+            "gross_rail_measured_uj_per_correct_operation": null,
+            "net_above_idle_a1_a2_measured_uj_per_correct_operation": null,
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+            "paired_round_net_above_idle_measured_uj_per_correct_operation": null,
+            "secondary_carrier_measured_uj_per_correct_operation": null,
+            "shunt_samples_per_trial": null,
+            "pkg_reported_uj_per_correct_operation": {
+              "n": 20,
+              "median": 6.8188,
+              "p25": 6.4254,
+              "p75": 7.3283,
+              "iqr": 0.9029,
+              "min": 3.6221,
+              "max": 8.2793
+            },
+            "core_reported_uj_per_correct_operation": {
+              "n": 20,
+              "median": 0.4847,
+              "p25": 0.4621,
+              "p75": 0.6549,
+              "iqr": 0.1928,
+              "min": 0.0768,
+              "max": 0.7719
+            }
+          },
+          "arm2_if_else_guards": {
+            "label": "Arm 2 \u2014 Explicit Deterministic if/else Predicate Guard Chain",
+            "category": "classical_automation",
+            "reps_per_trial": 500,
+            "total_instances": 1500,
+            "total_correct": 917,
+            "overall_accuracy": 0.611333,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 0.556,
+              "open_compositional_patch_triage": 0.278
+            },
+            "stratum_correct": {
+              "bounded_api_dispatch": 500,
+              "combinatorial_constraint_3sat": 278,
+              "open_compositional_patch_triage": 139
+            },
+            "prediction_fnv1a64": "be36743bf561ee91",
+            "wall_ns_per_operation": {
+              "n": 20,
+              "median": 1.33,
+              "p25": 1.32,
+              "p75": 1.34,
+              "iqr": 0.02,
+              "min": 1.31,
+              "max": 1.62
+            },
+            "wall_ns_per_correct_operation": {
+              "n": 20,
+              "median": 2.18,
+              "p25": 2.17,
+              "p75": 2.2,
+              "iqr": 0.03,
+              "min": 2.15,
+              "max": 2.64
+            },
+            "evidence_class": "reported_j",
+            "gross_rail_measured_uj_per_correct_operation": null,
+            "net_above_idle_a1_a2_measured_uj_per_correct_operation": null,
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+            "paired_round_net_above_idle_measured_uj_per_correct_operation": null,
+            "secondary_carrier_measured_uj_per_correct_operation": null,
+            "shunt_samples_per_trial": null,
+            "pkg_reported_uj_per_correct_operation": {
+              "n": 20,
+              "median": 0.2044,
+              "p25": 0.1881,
+              "p75": 0.2237,
+              "iqr": 0.0356,
+              "min": 0.1099,
+              "max": 0.4265
+            },
+            "core_reported_uj_per_correct_operation": {
+              "n": 20,
+              "median": 0.0153,
+              "p25": 0.0137,
+              "p75": 0.0201,
+              "iqr": 0.0064,
+              "min": 0.0018,
+              "max": 0.0324
+            }
+          },
+          "arm3_bounded_for_loop": {
+            "label": "Arm 3 \u2014 Bounded for-Loop Scan (Rule Table / WalkSAT / Centroid Scan)",
+            "category": "classical_automation",
+            "reps_per_trial": 140,
+            "total_instances": 1500,
+            "total_correct": 1106,
+            "overall_accuracy": 0.737333,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 0.716,
+              "open_compositional_patch_triage": 0.496
+            },
+            "stratum_correct": {
+              "bounded_api_dispatch": 500,
+              "combinatorial_constraint_3sat": 358,
+              "open_compositional_patch_triage": 248
+            },
+            "prediction_fnv1a64": "9557e9dd921fdeea",
+            "wall_ns_per_operation": {
+              "n": 20,
+              "median": 1051.33,
+              "p25": 1040.68,
+              "p75": 1057.32,
+              "iqr": 16.65,
+              "min": 1024.25,
+              "max": 1102.19
+            },
+            "wall_ns_per_correct_operation": {
+              "n": 20,
+              "median": 1425.85,
+              "p25": 1411.41,
+              "p75": 1433.99,
+              "iqr": 22.58,
+              "min": 1389.13,
+              "max": 1494.84
+            },
+            "evidence_class": "reported_j",
+            "gross_rail_measured_uj_per_correct_operation": null,
+            "net_above_idle_a1_a2_measured_uj_per_correct_operation": null,
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+            "paired_round_net_above_idle_measured_uj_per_correct_operation": null,
+            "secondary_carrier_measured_uj_per_correct_operation": null,
+            "shunt_samples_per_trial": null,
+            "pkg_reported_uj_per_correct_operation": {
+              "n": 20,
+              "median": 140.4637,
+              "p25": 132.5044,
+              "p75": 151.4562,
+              "iqr": 18.9518,
+              "min": 102.9206,
+              "max": 175.2125
+            },
+            "core_reported_uj_per_correct_operation": {
+              "n": 20,
+              "median": 10.3889,
+              "p25": 8.9514,
+              "p75": 12.7811,
+              "iqr": 3.8296,
+              "min": 3.8297,
+              "max": 13.7168
+            }
+          },
+          "arm4_decision_tree": {
+            "label": "Arm 4 \u2014 Depth-6 Integer CART Decision Tree (Calibrated)",
+            "category": "classical_automation",
+            "reps_per_trial": 400,
+            "total_instances": 1500,
+            "total_correct": 1088,
+            "overall_accuracy": 0.725333,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 0.918,
+              "combinatorial_constraint_3sat": 0.824,
+              "open_compositional_patch_triage": 0.434
+            },
+            "stratum_correct": {
+              "bounded_api_dispatch": 459,
+              "combinatorial_constraint_3sat": 412,
+              "open_compositional_patch_triage": 217
+            },
+            "prediction_fnv1a64": "8ab29741cb4c3b08",
+            "wall_ns_per_operation": {
+              "n": 20,
+              "median": 5.86,
+              "p25": 5.83,
+              "p75": 5.89,
+              "iqr": 0.07,
+              "min": 5.75,
+              "max": 6.21
+            },
+            "wall_ns_per_correct_operation": {
+              "n": 20,
+              "median": 8.08,
+              "p25": 8.03,
+              "p75": 8.12,
+              "iqr": 0.09,
+              "min": 7.93,
+              "max": 8.57
+            },
+            "evidence_class": "reported_j",
+            "gross_rail_measured_uj_per_correct_operation": null,
+            "net_above_idle_a1_a2_measured_uj_per_correct_operation": null,
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+            "paired_round_net_above_idle_measured_uj_per_correct_operation": null,
+            "secondary_carrier_measured_uj_per_correct_operation": null,
+            "shunt_samples_per_trial": null,
+            "pkg_reported_uj_per_correct_operation": {
+              "n": 20,
+              "median": 0.723,
+              "p25": 0.6351,
+              "p75": 0.8909,
+              "iqr": 0.2558,
+              "min": 0.5121,
+              "max": 1.0265
+            },
+            "core_reported_uj_per_correct_operation": {
+              "n": 20,
+              "median": 0.0605,
+              "p25": 0.0502,
+              "p75": 0.0659,
+              "iqr": 0.0157,
+              "min": 0.0164,
+              "max": 0.0874
+            }
+          },
+          "arm5_compiled_solver_rules": {
+            "label": "Arm 5 \u2014 Exact DPLL Unit-Propagation Solver & Compiled Rule Verifier",
+            "category": "classical_automation",
+            "reps_per_trial": 140,
+            "total_instances": 1500,
+            "total_correct": 1287,
+            "overall_accuracy": 0.858,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 1.0,
+              "open_compositional_patch_triage": 0.574
+            },
+            "stratum_correct": {
+              "bounded_api_dispatch": 500,
+              "combinatorial_constraint_3sat": 500,
+              "open_compositional_patch_triage": 287
+            },
+            "prediction_fnv1a64": "18a453531794f160",
+            "wall_ns_per_operation": {
+              "n": 20,
+              "median": 1870.95,
+              "p25": 1864.56,
+              "p75": 1878.61,
+              "iqr": 14.06,
+              "min": 1828.9,
+              "max": 1983.88
+            },
+            "wall_ns_per_correct_operation": {
+              "n": 20,
+              "median": 2180.6,
+              "p25": 2173.14,
+              "p75": 2189.53,
+              "iqr": 16.38,
+              "min": 2131.59,
+              "max": 2312.22
+            },
+            "evidence_class": "reported_j",
+            "gross_rail_measured_uj_per_correct_operation": null,
+            "net_above_idle_a1_a2_measured_uj_per_correct_operation": null,
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+            "paired_round_net_above_idle_measured_uj_per_correct_operation": null,
+            "secondary_carrier_measured_uj_per_correct_operation": null,
+            "shunt_samples_per_trial": null,
+            "pkg_reported_uj_per_correct_operation": {
+              "n": 20,
+              "median": 212.7944,
+              "p25": 201.6476,
+              "p75": 223.6961,
+              "iqr": 22.0485,
+              "min": 155.9321,
+              "max": 274.3248
+            },
+            "core_reported_uj_per_correct_operation": {
+              "n": 20,
+              "median": 16.902,
+              "p25": 14.3834,
+              "p75": 19.6093,
+              "iqr": 5.226,
+              "min": 12.1038,
+              "max": 20.8198
+            }
+          },
+          "shape_d_classical_best": {
+            "label": "Shape D \u2014 Lookup-First + Exact Solver/Guard Union (0 Neural FLOPs)",
+            "category": "classical_automation_composite",
+            "reps_per_trial": 160,
+            "total_instances": 1500,
+            "total_correct": 1287,
+            "overall_accuracy": 0.858,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 1.0,
+              "open_compositional_patch_triage": 0.574
+            },
+            "stratum_correct": {
+              "bounded_api_dispatch": 500,
+              "combinatorial_constraint_3sat": 500,
+              "open_compositional_patch_triage": 287
+            },
+            "prediction_fnv1a64": "18a453531794f160",
+            "wall_ns_per_operation": {
+              "n": 20,
+              "median": 1221.98,
+              "p25": 1215.26,
+              "p75": 1230.39,
+              "iqr": 15.13,
+              "min": 1194.28,
+              "max": 1307.96
+            },
+            "wall_ns_per_correct_operation": {
+              "n": 20,
+              "median": 1424.22,
+              "p25": 1416.39,
+              "p75": 1434.02,
+              "iqr": 17.63,
+              "min": 1391.93,
+              "max": 1524.43
+            },
+            "evidence_class": "reported_j",
+            "gross_rail_measured_uj_per_correct_operation": null,
+            "net_above_idle_a1_a2_measured_uj_per_correct_operation": null,
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+            "paired_round_net_above_idle_measured_uj_per_correct_operation": null,
+            "secondary_carrier_measured_uj_per_correct_operation": null,
+            "shunt_samples_per_trial": null,
+            "pkg_reported_uj_per_correct_operation": {
+              "n": 20,
+              "median": 136.8865,
+              "p25": 126.081,
+              "p75": 149.1449,
+              "iqr": 23.0639,
+              "min": 85.3271,
+              "max": 163.7013
+            },
+            "core_reported_uj_per_correct_operation": {
+              "n": 20,
+              "median": 10.4642,
+              "p25": 9.002,
+              "p75": 12.4225,
+              "iqr": 3.4206,
+              "min": 6.096,
+              "max": 13.2627
+            }
+          },
+          "candidate_dense_mlp_int16": {
+            "label": "Candidate \u2014 2-Layer 128-Wide ReLU Neural Comparator (Calibrated)",
+            "category": "neural_candidate",
+            "reps_per_trial": 18,
+            "total_instances": 1500,
+            "total_correct": 938,
+            "overall_accuracy": 0.625333,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 0.384,
+              "combinatorial_constraint_3sat": 0.79,
+              "open_compositional_patch_triage": 0.702
+            },
+            "stratum_correct": {
+              "bounded_api_dispatch": 192,
+              "combinatorial_constraint_3sat": 395,
+              "open_compositional_patch_triage": 351
+            },
+            "prediction_fnv1a64": "490777252035061e",
+            "wall_ns_per_operation": {
+              "n": 20,
+              "median": 4326.11,
+              "p25": 4304.97,
+              "p75": 4344.25,
+              "iqr": 39.28,
+              "min": 4258.69,
+              "max": 4592.03
+            },
+            "wall_ns_per_correct_operation": {
+              "n": 20,
+              "median": 6918.09,
+              "p25": 6884.28,
+              "p75": 6947.09,
+              "iqr": 62.81,
+              "min": 6810.27,
+              "max": 7343.34
+            },
+            "evidence_class": "reported_j",
+            "gross_rail_measured_uj_per_correct_operation": null,
+            "net_above_idle_a1_a2_measured_uj_per_correct_operation": null,
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+            "paired_round_net_above_idle_measured_uj_per_correct_operation": null,
+            "secondary_carrier_measured_uj_per_correct_operation": null,
+            "shunt_samples_per_trial": null,
+            "pkg_reported_uj_per_correct_operation": {
+              "n": 20,
+              "median": 665.0108,
+              "p25": 617.8394,
+              "p75": 720.3827,
+              "iqr": 102.5433,
+              "min": 421.7096,
+              "max": 825.2848
+            },
+            "core_reported_uj_per_correct_operation": {
+              "n": 20,
+              "median": 51.6015,
+              "p25": 44.4078,
+              "p75": 63.8036,
+              "iqr": 19.3958,
+              "min": 38.0158,
+              "max": 71.9242
+            }
+          }
+        },
+        "paired_neural_candidate_vs_classical_null": {
+          "overall_1500": {
+            "n_instances": 1500,
+            "candidate_accuracy": 0.625333,
+            "null_accuracy": 0.858,
+            "delta_accuracy_cand_minus_null": -0.232667,
+            "delta_accuracy_95ci": [
+              -0.259882,
+              -0.205452
+            ],
+            "mcnemar_contingency": {
+              "both_correct": 855,
+              "candidate_only_correct": 83,
+              "null_only_correct": 432,
+              "both_wrong": 130
+            },
+            "mcnemar_exact_two_sided_p": 0.0
+          },
+          "by_stratum": {
+            "bounded_api_dispatch": {
+              "n_instances": 500,
+              "candidate_accuracy": 0.384,
+              "null_accuracy": 1.0,
+              "delta_accuracy_cand_minus_null": -0.616,
+              "delta_accuracy_95ci": [
+                -0.658631,
+                -0.573369
+              ],
+              "mcnemar_contingency": {
+                "both_correct": 192,
+                "candidate_only_correct": 0,
+                "null_only_correct": 308,
+                "both_wrong": 0
+              },
+              "mcnemar_exact_two_sided_p": 0.0
+            },
+            "combinatorial_constraint_3sat": {
+              "n_instances": 500,
+              "candidate_accuracy": 0.79,
+              "null_accuracy": 1.0,
+              "delta_accuracy_cand_minus_null": -0.21,
+              "delta_accuracy_95ci": [
+                -0.245702,
+                -0.174298
+              ],
+              "mcnemar_contingency": {
+                "both_correct": 395,
+                "candidate_only_correct": 0,
+                "null_only_correct": 105,
+                "both_wrong": 0
+              },
+              "mcnemar_exact_two_sided_p": 0.0
+            },
+            "open_compositional_patch_triage": {
+              "n_instances": 500,
+              "candidate_accuracy": 0.702,
+              "null_accuracy": 0.574,
+              "delta_accuracy_cand_minus_null": 0.128,
+              "delta_accuracy_95ci": [
+                0.090033,
+                0.165967
+              ],
+              "mcnemar_contingency": {
+                "both_correct": 268,
+                "candidate_only_correct": 83,
+                "null_only_correct": 19,
+                "both_wrong": 130
+              },
+              "mcnemar_exact_two_sided_p": 0.0
+            }
+          },
+          "same_meter_energy_and_latency_ratios": {
+            "evidence_class": "reported_j",
+            "wall_speedup_lookup_over_mlp_x": 95.09,
+            "wall_speedup_shape_d_over_mlp_x": 4.86,
+            "reported_j_ratio_mlp_over_lookup_x": 97.53,
+            "reported_j_ratio_mlp_over_shape_d_x": 4.86
+          }
+        },
+        "external_candidate_adapter_result": null
+      },
+      "signed_receipt": {
+        "body": {
+          "schema": "openie.signed_provenance_receipt.v1",
+          "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+          "self_attested_not_third_party_verified": true,
+          "kit_id": "kits/deterministic-null-suite",
+          "domain_context": "openie.kit.deterministic_null_suite.receipt.v1",
+          "issued_utc": "2026-11-26T08:16:56Z",
+          "payload": {
+            "substrate_id": "x86_rapl",
+            "canonical_dataset_sha256": "cdfd2668e2b2c422f8e2086c280b0a6118225b8c43f48edf27d5c35e307efb12",
+            "canonical_dataset_blake3": "277dcd968d2c67a8dd10f95586175d3ba167236e8f99d75a406833b1f3079bec",
+            "held_out_instances_total": 1500,
+            "divergent_runs": 0,
+            "energy_evidence_class": "reported_j",
+            "results_blake3": "026e32a597fdf1021ca63b8aaeb6629321df37cce51939f3bee34896087ea8f5"
+          }
+        },
+        "body_blake3": "efc452e3581bcd7850275871b99b4802b3bf3dce6f6bb891b9284f05bea1f0c0",
+        "ed25519_public_key_hex": "f5883f8472f84e39681f726f8fc9d45c0a2c8d6bf0e05895a9417042cfb8a992",
+        "ed25519_signature_hex": "01175e92b8d7b8b7042e75b95641359638b2e91ddab70848b17473d6183ac3a5327d8a7a6d15c71e5f6d68194c72717448296320f73ec238349a505726c5b703"
+      }
+    }
+  },
+  "bundle_signed_receipt": {
+    "body": {
+      "schema": "openie.signed_provenance_receipt.v1",
+      "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+      "self_attested_not_third_party_verified": true,
+      "kit_id": "kits/deterministic-null-suite/multi-substrate",
+      "domain_context": "openie.kit.deterministic_null_suite.multi_substrate.v1",
+      "issued_utc": "2026-11-26T08:27:14Z",
+      "payload": {
+        "thor_receipt_blake3": "842c3fc3edeffb4133f5c2286b1f28f55c12c9f72a830804dcc24cbf91ffd20b",
+        "kv260_receipt_blake3": "bf8b3203dff6e0346be17eddb1f8cb3d39d5a92f9f37c4915760068eb6e4a6df",
+        "ryzen_rapl_receipt_blake3": "efc452e3581bcd7850275871b99b4802b3bf3dce6f6bb891b9284f05bea1f0c0"
+      }
+    },
+    "body_blake3": "c425fa9707f976f1f7621ca04894174ea4160d035630cf561da1e6baad585fa7",
+    "ed25519_public_key_hex": "01651dbe49079fee803afc7d39d8ac6df92219e41fa007d874e4b0aa1d6a288c",
+    "ed25519_signature_hex": "9a68ba96d990033736e4d67a2890b4f146848385064038e1b32c29703c43591175f6b8d25239b61bcd7e8e6222948875d2b15e57ea60cd7da5c41242953b560f"
+  }
+}

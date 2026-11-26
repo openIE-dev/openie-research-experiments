@@ -1,0 +1,22 @@
+{
+  "body": {
+    "schema": "openie.signed_provenance_receipt.v1",
+    "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+    "self_attested_not_third_party_verified": true,
+    "kit_id": "kits/deterministic-null-suite",
+    "domain_context": "openie.kit.deterministic_null_suite.receipt.v1",
+    "issued_utc": "2026-11-26T08:16:56Z",
+    "payload": {
+      "substrate_id": "x86_rapl",
+      "canonical_dataset_sha256": "cdfd2668e2b2c422f8e2086c280b0a6118225b8c43f48edf27d5c35e307efb12",
+      "canonical_dataset_blake3": "277dcd968d2c67a8dd10f95586175d3ba167236e8f99d75a406833b1f3079bec",
+      "held_out_instances_total": 1500,
+      "divergent_runs": 0,
+      "energy_evidence_class": "reported_j",
+      "results_blake3": "026e32a597fdf1021ca63b8aaeb6629321df37cce51939f3bee34896087ea8f5"
+    }
+  },
+  "body_blake3": "efc452e3581bcd7850275871b99b4802b3bf3dce6f6bb891b9284f05bea1f0c0",
+  "ed25519_public_key_hex": "f5883f8472f84e39681f726f8fc9d45c0a2c8d6bf0e05895a9417042cfb8a992",
+  "ed25519_signature_hex": "01175e92b8d7b8b7042e75b95641359638b2e91ddab70848b17473d6183ac3a5327d8a7a6d15c71e5f6d68194c72717448296320f73ec238349a505726c5b703"
+}

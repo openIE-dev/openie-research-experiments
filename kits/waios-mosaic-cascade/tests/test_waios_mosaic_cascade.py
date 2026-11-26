@@ -105,5 +105,21 @@ class TestWaiosMosaicCascadeKit(unittest.TestCase):
         self.assertFalse(warm["isolated_analytical_cloud_est_j"]["mixed_or_summed"])
 
 
+    def test_cross_fabric_optional_lanes_invariance(self) -> None:
+        from waios_mosaic.conformance_and_cascade import digest_of_i32_output
+        from waios_mosaic.cross_fabric import run_cross_fabric_conformance
+
+        w, a = audit_input_python()
+        wt, _ = with_one_weight_changed(w, a)
+        cf = run_cross_fabric_conformance(
+            w, a, wt, digest_of_i32_output, WAIOS_REFERENCE_DIGEST, WAIOS_CHANGED_DIGEST, quick=True
+        )
+        self.assertEqual(cf["disagreed_fabrics"], [])
+        for fname, fmeta in cf["fabrics"].items():
+            if fmeta.get("status") == "verified_equal":
+                self.assertEqual(fmeta["observed_digest"], WAIOS_REFERENCE_DIGEST, fname)
+                self.assertTrue(fmeta["tamper_halt_triggered"], fname)
+
+
 if __name__ == "__main__":
     unittest.main()
