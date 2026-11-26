@@ -1,0 +1,1817 @@
+{
+  "schema": "openie.planetary_media_joule_multi_substrate.v1",
+  "kit_id": "kits/planetary-media-joule",
+  "blueprint_reference": "Planetary Research Media: A Blueprint for OpenIE Research (26 Nov 2026 \u00b7 v1.0, \u00a75, \u00a77 [G6]/[G10], \u00a79.5)",
+  "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+  "license": "Apache-2.0",
+  "energy_orthogonality_note": "measured_j (physical TI INA238 VIN + TI INA3221 VDD_CPU_SOC_MSS on NVIDIA Jetson AGX Thor and TI INA260 SOM_5V_DC on AMD Kria KV260), reported_j (Linux powercap RAPL on AMD Ryzen AI Max+ 395 and cited E2E Networks Mar 2026 L4 GPU ASR benchmarks), and unmetered (ElevenLabs cloud TTS = null) are strictly separated and never summed or mixed.",
+  "summary_j_per_min_by_rail": {
+    "schema": "openie.planetary_media_j_per_min_summary.v1",
+    "blueprint_version": "Planetary Research Media Blueprint v1.0 (26 Nov 2026)",
+    "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+    "orthogonality_rule": "measured_j \u22a5 reported_j \u22a5 est_j \u22a5 unmetered",
+    "iso24495_script_sha256": "e743ebcaec1a3330d76e9cbaa2e90f649945f5f0eb706cf95d3e983593578f64",
+    "thor_ina238_vin_measured_j": {
+      "substrate": "NVIDIA Jetson AGX Thor (14-core ARMv9 CPU-only, -ngl 0)",
+      "sensor_and_rail": "TI INA238 whole-carrier VIN (~203 Hz)",
+      "energy_class": "measured_j",
+      "stages": {
+        "tts_piper_or_kokoro_cpu": {
+          "j_per_min_gross": 405.202,
+          "j_per_min_net": 86.991,
+          "falsifier_6_drift_pct": 1.89,
+          "falsifier_6_drift_flag": false,
+          "media_output_duration_s": 37.4,
+          "realtime_speed_x": 5.322,
+          "output_bytes": 599627,
+          "g6_gate_pass": null,
+          "g6_normalized_wer": null,
+          "energy_class": "measured_j"
+        },
+        "asr_whisper_base_cpu": {
+          "j_per_min_gross": 797.73,
+          "j_per_min_net": null,
+          "falsifier_6_drift_pct": 31.98,
+          "falsifier_6_drift_flag": true,
+          "media_output_duration_s": 37.4,
+          "realtime_speed_x": 3.036,
+          "output_bytes": null,
+          "g6_gate_pass": true,
+          "g6_normalized_wer": 0.0638,
+          "energy_class": "measured_j"
+        },
+        "asr_whisper_large_v3_turbo_cpu": {
+          "j_per_min_gross": 10002.978,
+          "j_per_min_net": null,
+          "falsifier_6_drift_pct": 14.67,
+          "falsifier_6_drift_flag": true,
+          "media_output_duration_s": 37.4,
+          "realtime_speed_x": 0.262,
+          "output_bytes": null,
+          "g6_gate_pass": true,
+          "g6_normalized_wer": 0.0,
+          "energy_class": "measured_j"
+        },
+        "render_1080p60_mp4": {
+          "j_per_min_gross": 1063.53,
+          "j_per_min_net": null,
+          "falsifier_6_drift_pct": 23.43,
+          "falsifier_6_drift_flag": true,
+          "media_output_duration_s": 15.0,
+          "realtime_speed_x": 2.137,
+          "output_bytes": 447288,
+          "g6_gate_pass": null,
+          "g6_normalized_wer": null,
+          "energy_class": "measured_j"
+        },
+        "render_lowbw_mobile_15s_mp4": {
+          "j_per_min_gross": 198.736,
+          "j_per_min_net": 40.658,
+          "falsifier_6_drift_pct": 2.79,
+          "falsifier_6_drift_flag": false,
+          "media_output_duration_s": 15.0,
+          "realtime_speed_x": 13.79,
+          "output_bytes": 111086,
+          "g6_gate_pass": null,
+          "g6_normalized_wer": null,
+          "energy_class": "measured_j"
+        },
+        "render_opus_24k_voicenote": {
+          "j_per_min_gross": 26.198,
+          "j_per_min_net": null,
+          "falsifier_6_drift_pct": 9.15,
+          "falsifier_6_drift_flag": true,
+          "media_output_duration_s": 37.3065,
+          "realtime_speed_x": 70.293,
+          "output_bytes": 116581,
+          "g6_gate_pass": null,
+          "g6_normalized_wer": null,
+          "energy_class": "measured_j"
+        },
+        "render_voiced_ad_mix": {
+          "j_per_min_gross": 136.056,
+          "j_per_min_net": null,
+          "falsifier_6_drift_pct": 5.4,
+          "falsifier_6_drift_flag": true,
+          "media_output_duration_s": 37.3,
+          "realtime_speed_x": 12.598,
+          "output_bytes": 601920,
+          "g6_gate_pass": null,
+          "g6_normalized_wer": null,
+          "energy_class": "measured_j"
+        }
+      }
+    },
+    "thor_ina3221_cpu_measured_j": {
+      "substrate": "NVIDIA Jetson AGX Thor (14-core ARMv9 CPU-only, -ngl 0)",
+      "sensor_and_rail": "TI INA3221 VDD_CPU_SOC_MSS (~203 Hz)",
+      "energy_class": "measured_j",
+      "stages": {
+        "tts_piper_or_kokoro_cpu": {
+          "j_per_min_gross": 217.299,
+          "j_per_min_net": null,
+          "falsifier_6_drift_pct": 16.02,
+          "falsifier_6_drift_flag": true,
+          "media_output_duration_s": 37.4,
+          "realtime_speed_x": 5.322,
+          "output_bytes": 599627,
+          "g6_gate_pass": null,
+          "g6_normalized_wer": null,
+          "energy_class": "measured_j"
+        },
+        "asr_whisper_base_cpu": {
+          "j_per_min_gross": 467.499,
+          "j_per_min_net": null,
+          "falsifier_6_drift_pct": 15.35,
+          "falsifier_6_drift_flag": true,
+          "media_output_duration_s": 37.4,
+          "realtime_speed_x": 3.036,
+          "output_bytes": null,
+          "g6_gate_pass": true,
+          "g6_normalized_wer": 0.0638,
+          "energy_class": "measured_j"
+        },
+        "asr_whisper_large_v3_turbo_cpu": {
+          "j_per_min_gross": 6126.512,
+          "j_per_min_net": null,
+          "falsifier_6_drift_pct": 13.23,
+          "falsifier_6_drift_flag": true,
+          "media_output_duration_s": 37.4,
+          "realtime_speed_x": 0.262,
+          "output_bytes": null,
+          "g6_gate_pass": true,
+          "g6_normalized_wer": 0.0,
+          "energy_class": "measured_j"
+        },
+        "render_1080p60_mp4": {
+          "j_per_min_gross": 537.12,
+          "j_per_min_net": null,
+          "falsifier_6_drift_pct": 48.8,
+          "falsifier_6_drift_flag": true,
+          "media_output_duration_s": 15.0,
+          "realtime_speed_x": 2.137,
+          "output_bytes": 447288,
+          "g6_gate_pass": null,
+          "g6_normalized_wer": null,
+          "energy_class": "measured_j"
+        },
+        "render_lowbw_mobile_15s_mp4": {
+          "j_per_min_gross": 109.409,
+          "j_per_min_net": null,
+          "falsifier_6_drift_pct": 6.4,
+          "falsifier_6_drift_flag": true,
+          "media_output_duration_s": 15.0,
+          "realtime_speed_x": 13.79,
+          "output_bytes": 111086,
+          "g6_gate_pass": null,
+          "g6_normalized_wer": null,
+          "energy_class": "measured_j"
+        },
+        "render_opus_24k_voicenote": {
+          "j_per_min_gross": 12.415,
+          "j_per_min_net": null,
+          "falsifier_6_drift_pct": 21.94,
+          "falsifier_6_drift_flag": true,
+          "media_output_duration_s": 37.3065,
+          "realtime_speed_x": 70.293,
+          "output_bytes": 116581,
+          "g6_gate_pass": null,
+          "g6_normalized_wer": null,
+          "energy_class": "measured_j"
+        },
+        "render_voiced_ad_mix": {
+          "j_per_min_gross": 54.9,
+          "j_per_min_net": 0.0,
+          "falsifier_6_drift_pct": 3.84,
+          "falsifier_6_drift_flag": false,
+          "media_output_duration_s": 37.3,
+          "realtime_speed_x": 12.598,
+          "output_bytes": 601920,
+          "g6_gate_pass": null,
+          "g6_normalized_wer": null,
+          "energy_class": "measured_j"
+        }
+      }
+    },
+    "kv260_ina260_som_measured_j": {
+      "substrate": "AMD Kria KV260 (4-core Cortex-A53 PS CPU)",
+      "sensor_and_rail": "TI INA260 SOM_5V_DC (~233 Hz)",
+      "energy_class": "measured_j",
+      "stages": {
+        "tts_piper_or_kokoro_cpu": {
+          "j_per_min_gross": 263.707,
+          "j_per_min_net": 56.038,
+          "falsifier_6_drift_pct": 0.01,
+          "falsifier_6_drift_flag": false,
+          "media_output_duration_s": 37.4,
+          "realtime_speed_x": 0.945,
+          "output_bytes": 600467,
+          "g6_gate_pass": null,
+          "g6_normalized_wer": null,
+          "energy_class": "measured_j"
+        },
+        "asr_whisper_tiny_cpu": {
+          "j_per_min_gross": 203.49,
+          "j_per_min_net": 44.702,
+          "falsifier_6_drift_pct": 0.08,
+          "falsifier_6_drift_flag": false,
+          "media_output_duration_s": 37.4,
+          "realtime_speed_x": 1.24,
+          "output_bytes": null,
+          "g6_gate_pass": false,
+          "g6_normalized_wer": 0.0851,
+          "energy_class": "measured_j"
+        },
+        "asr_whisper_base_cpu": {
+          "j_per_min_gross": 455.67,
+          "j_per_min_net": 99.096,
+          "falsifier_6_drift_pct": 0.27,
+          "falsifier_6_drift_flag": false,
+          "media_output_duration_s": 37.4,
+          "realtime_speed_x": 0.552,
+          "output_bytes": null,
+          "g6_gate_pass": true,
+          "g6_normalized_wer": 0.0426,
+          "energy_class": "measured_j"
+        },
+        "render_1080p60_mp4": {
+          "j_per_min_gross": 994.898,
+          "j_per_min_net": 165.136,
+          "falsifier_6_drift_pct": 0.1,
+          "falsifier_6_drift_flag": false,
+          "media_output_duration_s": 15.0,
+          "realtime_speed_x": 0.237,
+          "output_bytes": 542013,
+          "g6_gate_pass": null,
+          "g6_normalized_wer": null,
+          "energy_class": "measured_j"
+        },
+        "render_lowbw_mobile_15s_mp4": {
+          "j_per_min_gross": 216.201,
+          "j_per_min_net": 58.539,
+          "falsifier_6_drift_pct": 0.02,
+          "falsifier_6_drift_flag": false,
+          "media_output_duration_s": 15.0,
+          "realtime_speed_x": 1.25,
+          "output_bytes": 110645,
+          "g6_gate_pass": null,
+          "g6_normalized_wer": null,
+          "energy_class": "measured_j"
+        },
+        "render_opus_24k_voicenote": {
+          "j_per_min_gross": 22.758,
+          "j_per_min_net": 1.644,
+          "falsifier_6_drift_pct": 0.02,
+          "falsifier_6_drift_flag": false,
+          "media_output_duration_s": 37.4065,
+          "realtime_speed_x": 9.323,
+          "output_bytes": 116917,
+          "g6_gate_pass": null,
+          "g6_normalized_wer": null,
+          "energy_class": "measured_j"
+        },
+        "render_voiced_ad_mix": {
+          "j_per_min_gross": 91.128,
+          "j_per_min_net": 8.401,
+          "falsifier_6_drift_pct": 0.23,
+          "falsifier_6_drift_flag": false,
+          "media_output_duration_s": 37.4,
+          "realtime_speed_x": 2.381,
+          "output_bytes": 603074,
+          "g6_gate_pass": null,
+          "g6_normalized_wer": null,
+          "energy_class": "measured_j"
+        }
+      }
+    },
+    "zen5_rapl_pkg_reported_j": {
+      "substrate": "AMD Ryzen AI Max+ 395 (16-thread Zen 5 CPU)",
+      "sensor_and_rail": "Linux powercap intel-rapl:0 package-0 + core",
+      "energy_class": "reported_j",
+      "stages": {
+        "tts_piper_or_kokoro_cpu": {
+          "j_per_min_gross": 495.112,
+          "j_per_min_net": null,
+          "j_per_min_core_gross": 32.786,
+          "falsifier_6_drift_pct": 7.32,
+          "falsifier_6_drift_flag": true,
+          "media_output_duration_s": 37.5,
+          "realtime_speed_x": 14.666,
+          "output_bytes": 602162,
+          "g6_gate_pass": null,
+          "g6_normalized_wer": null,
+          "energy_class": "reported_j"
+        },
+        "asr_whisper_base_cpu": {
+          "j_per_min_gross": 235.322,
+          "j_per_min_net": null,
+          "j_per_min_core_gross": 13.756,
+          "falsifier_6_drift_pct": 8.71,
+          "falsifier_6_drift_flag": true,
+          "media_output_duration_s": 37.5,
+          "realtime_speed_x": 34.749,
+          "output_bytes": null,
+          "g6_gate_pass": true,
+          "g6_normalized_wer": 0.0532,
+          "energy_class": "reported_j"
+        },
+        "asr_whisper_large_v3_turbo_cpu": {
+          "j_per_min_gross": 1546.27,
+          "j_per_min_net": null,
+          "j_per_min_core_gross": 95.799,
+          "falsifier_6_drift_pct": 7.18,
+          "falsifier_6_drift_flag": true,
+          "media_output_duration_s": 37.5,
+          "realtime_speed_x": 5.451,
+          "output_bytes": null,
+          "g6_gate_pass": true,
+          "g6_normalized_wer": 0.0213,
+          "energy_class": "reported_j"
+        },
+        "render_1080p60_mp4": {
+          "j_per_min_gross": 3503.165,
+          "j_per_min_net": null,
+          "j_per_min_core_gross": 197.07,
+          "falsifier_6_drift_pct": 13.74,
+          "falsifier_6_drift_flag": true,
+          "media_output_duration_s": 15.0,
+          "realtime_speed_x": 2.203,
+          "output_bytes": 528383,
+          "g6_gate_pass": null,
+          "g6_normalized_wer": null,
+          "energy_class": "reported_j"
+        },
+        "render_lowbw_mobile_15s_mp4": {
+          "j_per_min_gross": 318.082,
+          "j_per_min_net": null,
+          "j_per_min_core_gross": 18.211,
+          "falsifier_6_drift_pct": 7.69,
+          "falsifier_6_drift_flag": true,
+          "media_output_duration_s": 15.0,
+          "realtime_speed_x": 24.147,
+          "output_bytes": 107370,
+          "g6_gate_pass": null,
+          "g6_normalized_wer": null,
+          "energy_class": "reported_j"
+        },
+        "render_opus_24k_voicenote": {
+          "j_per_min_gross": 66.829,
+          "j_per_min_net": null,
+          "j_per_min_core_gross": 3.512,
+          "falsifier_6_drift_pct": 11.48,
+          "falsifier_6_drift_flag": true,
+          "media_output_duration_s": 37.5065,
+          "realtime_speed_x": 113.217,
+          "output_bytes": 117241,
+          "g6_gate_pass": null,
+          "g6_normalized_wer": null,
+          "energy_class": "reported_j"
+        },
+        "render_voiced_ad_mix": {
+          "j_per_min_gross": 279.363,
+          "j_per_min_net": 5.779,
+          "j_per_min_core_gross": 16.327,
+          "falsifier_6_drift_pct": 3.69,
+          "falsifier_6_drift_flag": false,
+          "media_output_duration_s": 37.5,
+          "realtime_speed_x": 30.153,
+          "output_bytes": 605099,
+          "g6_gate_pass": null,
+          "g6_normalized_wer": null,
+          "energy_class": "reported_j"
+        }
+      }
+    },
+    "cloud_tts": {
+      "stage": "elevenlabs_v4_cloud",
+      "provider": "ElevenLabs v4 Cloud TTS API",
+      "j_per_min": null,
+      "j_per_min_gross": null,
+      "j_per_min_net": null,
+      "energy_class": "unmetered",
+      "note": "Provider does not expose hardware joule counters; labeled unmetered per [G10] and never invented."
+    },
+    "third_party_gpu_reported_j_references": {
+      "note": "Third-party GPU reported_j figures cited in Planetary Research Media Blueprint v1.0 (E2E Networks, Mar 2026); strictly separated from OpenIE physical DC shunt measured_j.",
+      "whisper_large_v3_turbo_nvidia_l4_gpu": {
+        "j_per_min_range": [
+          95.0,
+          120.0
+        ],
+        "energy_class": "reported_j",
+        "substrate": "NVIDIA L4 GPU (third-party published benchmark)",
+        "source": "E2E Networks (Mar 2026), cited in Blueprint v1.0 \u00a79.5"
+      },
+      "nvidia_parakeet_l4_gpu": {
+        "j_per_min": 13.0,
+        "energy_class": "reported_j",
+        "substrate": "NVIDIA L4 GPU (third-party published benchmark)",
+        "source": "E2E Networks (Mar 2026), cited in Blueprint v1.0 \u00a79.5"
+      }
+    }
+  },
+  "measured_j_substrates": {
+    "nvidia_jetson_agx_thor_ina238_ina3221": {
+      "results": {
+        "schema": "openie.planetary_media_joule.v1",
+        "kit_id": "kits/planetary-media-joule",
+        "blueprint_reference": "Planetary Research Media: A Blueprint for OpenIE Research (26 Nov 2026 \u00b7 v1.0, \u00a75, \u00a77 [G6]/[G10], \u00a79.5)",
+        "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+        "license": "Apache-2.0",
+        "energy_orthogonality_rule": "measured_j \u22a5 reported_j \u22a5 est_j \u22a5 unmetered (never summed or cross-ratioed)",
+        "host": {
+          "cpu_model": "NVIDIA Jetson AGX Thor Developer Kit (14-core aarch64)",
+          "logical_cpus": 14,
+          "ram_gib": 122.86,
+          "os_kernel": "Linux 6.8.12-1021-tegra aarch64",
+          "python_version": "3.12.3",
+          "cc_version": "GCC 13.3.0",
+          "recorded_utc": "2026-11-26T20:03:09Z"
+        },
+        "cpu_threads": 12,
+        "quick_mode": false,
+        "energy_telemetry": {
+          "evidence_class": "measured_j",
+          "board_metered": true,
+          "substrate_id": "jetson_agx_thor_ina3221",
+          "primary_sensor": "TI INA3221",
+          "primary_rail": "VDD_CPU_SOC_MSS",
+          "primary_sysfs_paths": [
+            "/sys/class/hwmon/hwmon6/in2_input",
+            "/sys/class/hwmon/hwmon6/curr2_input"
+          ],
+          "secondary_sensor": "TI INA238",
+          "secondary_rail": "VIN_CARRIER",
+          "secondary_sysfs_path": "/sys/class/hwmon/hwmon5/power1_input",
+          "reported_j_available": false,
+          "est_j_mixed": false,
+          "idle_a1_pre": {
+            "window_s": 1.0,
+            "raw_mean_w": 12.5525,
+            "trimmed_mean_w": 12.5787,
+            "secondary_raw_mean_w": 28.1487,
+            "secondary_trimmed_mean_w": 28.142,
+            "shunt_samples": 206,
+            "sample_rate_hz": 204.4,
+            "rail_breakdown_w": {
+              "VDD_CPU_SOC_MSS": 12.2363,
+              "VIN_CARRIER": 28.406,
+              "VDD_GPU": 0.0,
+              "VIN_SYS_5V0": 7.112
+            }
+          },
+          "idle_a2_post": {
+            "window_s": 1.0,
+            "raw_mean_w": 10.7066,
+            "trimmed_mean_w": 10.7162,
+            "secondary_raw_mean_w": 30.7616,
+            "secondary_trimmed_mean_w": 30.6934,
+            "shunt_samples": 208,
+            "sample_rate_hz": 206.7,
+            "rail_breakdown_w": {
+              "VDD_CPU_SOC_MSS": 9.868,
+              "VIN_CARRIER": 32.342,
+              "VDD_GPU": 0.0,
+              "VIN_SYS_5V0": 8.2426
+            }
+          },
+          "idle_trimmed_mean_w": 11.6474,
+          "idle_drift_pct": 15.99,
+          "falsifier_6_idle_drift_threshold_pct": 5.0,
+          "falsifier_6_idle_drift_flag": true
+        },
+        "iso24495_script_precommitment": {
+          "standard": "ISO 24495-1 Plain Language (3-point research summary)",
+          "word_count": 103,
+          "script_sha256": "e743ebcaec1a3330d76e9cbaa2e90f649945f5f0eb706cf95d3e983593578f64",
+          "required_g6_exact_numbers": [
+            "24495",
+            "4",
+            "21",
+            "29",
+            "96.7",
+            "0"
+          ]
+        },
+        "stages": {
+          "tts_piper_or_kokoro_cpu": {
+            "evidence_class": "measured_j",
+            "runs": 3,
+            "media_output_duration_s": 37.4,
+            "media_output_minutes": 0.623333,
+            "wall_s_median": 7.0275,
+            "realtime_speed_x": 5.322,
+            "primary_rail_measured_j": {
+              "sensor": "TI INA3221",
+              "rail": "VDD_CPU_SOC_MSS",
+              "energy_class": "measured_j",
+              "idle_a1_w": 15.4562,
+              "idle_a2_w": 13.1634,
+              "idle_trimmed_mean_w": 14.3098,
+              "idle_drift_pct": 16.02,
+              "falsifier_6_drift_flag": true,
+              "shunt_samples_median": 1256,
+              "sample_rate_hz_median": 177.8,
+              "gross_j_median": 135.4495,
+              "j_per_min_gross": 217.299,
+              "j_per_min_gross_iqr": {
+                "n": 3,
+                "median": 217.299,
+                "p25": 212.216,
+                "p75": 225.284,
+                "iqr": 13.068,
+                "min": 207.133,
+                "max": 233.269
+              },
+              "j_per_min_net": null,
+              "j_per_min_net_withheld_per_falsifier_6": true
+            },
+            "secondary_carrier_rail_measured_j": {
+              "sensor": "TI INA238",
+              "rail": "VIN_CARRIER",
+              "energy_class": "measured_j",
+              "idle_a1_w": 27.6539,
+              "idle_a2_w": 28.1827,
+              "idle_trimmed_mean_w": 27.9183,
+              "idle_drift_pct": 1.89,
+              "falsifier_6_drift_flag": false,
+              "gross_j_median": 252.5758,
+              "j_per_min_gross": 405.202,
+              "j_per_min_gross_iqr": {
+                "n": 3,
+                "median": 405.202,
+                "p25": 394.452,
+                "p75": 427.69,
+                "iqr": 33.238,
+                "min": 383.703,
+                "max": 450.178
+              },
+              "j_per_min_net": 86.991,
+              "j_per_min_net_withheld_per_falsifier_6": false
+            },
+            "rapl_reported_j": null,
+            "tool": "piper 1.2.0 (MIT, en_US-lessac-medium.onnx) + ffmpeg -16 LUFS loudnorm AAC",
+            "output_bytes": 599627,
+            "script_sha256": "e743ebcaec1a3330d76e9cbaa2e90f649945f5f0eb706cf95d3e983593578f64"
+          },
+          "asr_whisper_base_cpu": {
+            "evidence_class": "measured_j",
+            "runs": 3,
+            "media_output_duration_s": 37.4,
+            "media_output_minutes": 0.623333,
+            "wall_s_median": 12.3199,
+            "realtime_speed_x": 3.036,
+            "primary_rail_measured_j": {
+              "sensor": "TI INA3221",
+              "rail": "VDD_CPU_SOC_MSS",
+              "energy_class": "measured_j",
+              "idle_a1_w": 14.9847,
+              "idle_a2_w": 12.8486,
+              "idle_trimmed_mean_w": 13.9167,
+              "idle_drift_pct": 15.35,
+              "falsifier_6_drift_flag": true,
+              "shunt_samples_median": 2248,
+              "sample_rate_hz_median": 182.4,
+              "gross_j_median": 291.4079,
+              "j_per_min_gross": 467.499,
+              "j_per_min_gross_iqr": {
+                "n": 3,
+                "median": 467.499,
+                "p25": 425.576,
+                "p75": 532.876,
+                "iqr": 107.3,
+                "min": 383.652,
+                "max": 598.252
+              },
+              "j_per_min_net": null,
+              "j_per_min_net_withheld_per_falsifier_6": true
+            },
+            "secondary_carrier_rail_measured_j": {
+              "sensor": "TI INA238",
+              "rail": "VIN_CARRIER",
+              "energy_class": "measured_j",
+              "idle_a1_w": 27.8072,
+              "idle_a2_w": 20.14,
+              "idle_trimmed_mean_w": 23.9736,
+              "idle_drift_pct": 31.98,
+              "falsifier_6_drift_flag": true,
+              "gross_j_median": 497.2515,
+              "j_per_min_gross": 797.73,
+              "j_per_min_gross_iqr": {
+                "n": 3,
+                "median": 797.73,
+                "p25": 724.139,
+                "p75": 925.468,
+                "iqr": 201.329,
+                "min": 650.548,
+                "max": 1053.207
+              },
+              "j_per_min_net": null,
+              "j_per_min_net_withheld_per_falsifier_6": true
+            },
+            "rapl_reported_j": null,
+            "tool": "whisper.cpp ggml-base.en (MIT, 74M)",
+            "model_bytes": 147964211,
+            "transcript_excerpt": "plain language research summary under standard 24495.1, what we tested, most software tasks follow fixed rules, yet teams often run large neural models on every request. Point two, what we measured on physical current shunts, routing recurr",
+            "g6_verification_gate": {
+              "gate_id": "G6_ASR_NUMBER_AND_WER_VERIFICATION",
+              "exact_numbers_matched": 6,
+              "exact_numbers_total": 6,
+              "number_survival_map": {
+                "24495": true,
+                "4": true,
+                "21": true,
+                "29": true,
+                "96.7": true,
+                "0": true
+              },
+              "normalized_wer": 0.0638,
+              "ref_word_count": 94,
+              "hyp_word_count": 91,
+              "edit_distance": 6,
+              "gate_pass": true
+            }
+          },
+          "asr_whisper_large_v3_turbo_cpu": {
+            "evidence_class": "measured_j",
+            "runs": 1,
+            "media_output_duration_s": 37.4,
+            "media_output_minutes": 0.623333,
+            "wall_s_median": 142.5156,
+            "realtime_speed_x": 0.262,
+            "primary_rail_measured_j": {
+              "sensor": "TI INA3221",
+              "rail": "VDD_CPU_SOC_MSS",
+              "energy_class": "measured_j",
+              "idle_a1_w": 11.8163,
+              "idle_a2_w": 13.4899,
+              "idle_trimmed_mean_w": 12.6531,
+              "idle_drift_pct": 13.23,
+              "falsifier_6_drift_flag": true,
+              "shunt_samples_median": 26048,
+              "sample_rate_hz_median": 182.8,
+              "gross_j_median": 3818.8591,
+              "j_per_min_gross": 6126.512,
+              "j_per_min_gross_iqr": {
+                "n": 1,
+                "median": 6126.512,
+                "p25": 6126.512,
+                "p75": 6126.512,
+                "iqr": 0.0,
+                "min": 6126.512,
+                "max": 6126.512
+              },
+              "j_per_min_net": null,
+              "j_per_min_net_withheld_per_falsifier_6": true
+            },
+            "secondary_carrier_rail_measured_j": {
+              "sensor": "TI INA238",
+              "rail": "VIN_CARRIER",
+              "energy_class": "measured_j",
+              "idle_a1_w": 23.8836,
+              "idle_a2_w": 27.6649,
+              "idle_trimmed_mean_w": 25.7743,
+              "idle_drift_pct": 14.67,
+              "falsifier_6_drift_flag": true,
+              "gross_j_median": 6235.1897,
+              "j_per_min_gross": 10002.978,
+              "j_per_min_gross_iqr": {
+                "n": 1,
+                "median": 10002.978,
+                "p25": 10002.978,
+                "p75": 10002.978,
+                "iqr": 0.0,
+                "min": 10002.978,
+                "max": 10002.978
+              },
+              "j_per_min_net": null,
+              "j_per_min_net_withheld_per_falsifier_6": true
+            },
+            "rapl_reported_j": null,
+            "tool": "whisper.cpp ggml-large-v3-turbo (MIT, 809M)",
+            "model_bytes": 1624555275,
+            "transcript_excerpt": "plain language research summary under standard 24495. Point 1. What we tested. Most software tasks follow fixed rules, yet teams often run large neural models on every request. Point 2. What we measured on physical current shunts. Routing r",
+            "g6_verification_gate": {
+              "gate_id": "G6_ASR_NUMBER_AND_WER_VERIFICATION",
+              "exact_numbers_matched": 6,
+              "exact_numbers_total": 6,
+              "number_survival_map": {
+                "24495": true,
+                "4": true,
+                "21": true,
+                "29": true,
+                "96.7": true,
+                "0": true
+              },
+              "normalized_wer": 0.0,
+              "ref_word_count": 94,
+              "hyp_word_count": 94,
+              "edit_distance": 0,
+              "gate_pass": true
+            }
+          },
+          "render_1080p60_mp4": {
+            "evidence_class": "measured_j",
+            "runs": 3,
+            "media_output_duration_s": 15.0,
+            "media_output_minutes": 0.25,
+            "wall_s_median": 7.0192,
+            "realtime_speed_x": 2.137,
+            "primary_rail_measured_j": {
+              "sensor": "TI INA3221",
+              "rail": "VDD_CPU_SOC_MSS",
+              "energy_class": "measured_j",
+              "idle_a1_w": 11.9756,
+              "idle_a2_w": 19.7065,
+              "idle_trimmed_mean_w": 15.841,
+              "idle_drift_pct": 48.8,
+              "falsifier_6_drift_flag": true,
+              "shunt_samples_median": 1379,
+              "sample_rate_hz_median": 193.3,
+              "gross_j_median": 134.2801,
+              "j_per_min_gross": 537.12,
+              "j_per_min_gross_iqr": {
+                "n": 3,
+                "median": 537.12,
+                "p25": 535.402,
+                "p75": 552.119,
+                "iqr": 16.718,
+                "min": 533.683,
+                "max": 567.119
+              },
+              "j_per_min_net": null,
+              "j_per_min_net_withheld_per_falsifier_6": true
+            },
+            "secondary_carrier_rail_measured_j": {
+              "sensor": "TI INA238",
+              "rail": "VIN_CARRIER",
+              "energy_class": "measured_j",
+              "idle_a1_w": 27.7258,
+              "idle_a2_w": 35.084,
+              "idle_trimmed_mean_w": 31.4049,
+              "idle_drift_pct": 23.43,
+              "falsifier_6_drift_flag": true,
+              "gross_j_median": 265.8826,
+              "j_per_min_gross": 1063.53,
+              "j_per_min_gross_iqr": {
+                "n": 3,
+                "median": 1063.53,
+                "p25": 1058.031,
+                "p75": 1080.452,
+                "iqr": 22.421,
+                "min": 1052.532,
+                "max": 1097.374
+              },
+              "j_per_min_net": null,
+              "j_per_min_net_withheld_per_falsifier_6": true
+            },
+            "rapl_reported_j": null,
+            "tool": "ffmpeg (LGPL, libopenh264 1920x1080@60fps + AAC)",
+            "output_bytes": 447288
+          },
+          "render_lowbw_mobile_15s_mp4": {
+            "evidence_class": "measured_j",
+            "runs": 3,
+            "media_output_duration_s": 15.0,
+            "media_output_minutes": 0.25,
+            "wall_s_median": 1.0877,
+            "realtime_speed_x": 13.79,
+            "primary_rail_measured_j": {
+              "sensor": "TI INA3221",
+              "rail": "VDD_CPU_SOC_MSS",
+              "energy_class": "measured_j",
+              "idle_a1_w": 17.8652,
+              "idle_a2_w": 19.0458,
+              "idle_trimmed_mean_w": 18.4555,
+              "idle_drift_pct": 6.4,
+              "falsifier_6_drift_flag": true,
+              "shunt_samples_median": 209,
+              "sample_rate_hz_median": 191.0,
+              "gross_j_median": 27.3523,
+              "j_per_min_gross": 109.409,
+              "j_per_min_gross_iqr": {
+                "n": 3,
+                "median": 109.409,
+                "p25": 105.51,
+                "p75": 109.467,
+                "iqr": 3.957,
+                "min": 101.611,
+                "max": 109.524
+              },
+              "j_per_min_net": null,
+              "j_per_min_net_withheld_per_falsifier_6": true
+            },
+            "secondary_carrier_rail_measured_j": {
+              "sensor": "TI INA238",
+              "rail": "VIN_CARRIER",
+              "energy_class": "measured_j",
+              "idle_a1_w": 35.1728,
+              "idle_a2_w": 34.2056,
+              "idle_trimmed_mean_w": 34.6892,
+              "idle_drift_pct": 2.79,
+              "falsifier_6_drift_flag": false,
+              "gross_j_median": 49.6839,
+              "j_per_min_gross": 198.736,
+              "j_per_min_gross_iqr": {
+                "n": 3,
+                "median": 198.736,
+                "p25": 194.923,
+                "p75": 199.372,
+                "iqr": 4.449,
+                "min": 191.111,
+                "max": 200.009
+              },
+              "j_per_min_net": 40.658,
+              "j_per_min_net_withheld_per_falsifier_6": false
+            },
+            "rapl_reported_j": null,
+            "tool": "ffmpeg (LGPL, libopenh264 640x360@24fps + 48k mono AAC, <1 MB)",
+            "output_bytes": 111086,
+            "under_1mb_cap_pass": true
+          },
+          "render_opus_24k_voicenote": {
+            "evidence_class": "measured_j",
+            "runs": 3,
+            "media_output_duration_s": 37.3065,
+            "media_output_minutes": 0.621775,
+            "wall_s_median": 0.5307,
+            "realtime_speed_x": 70.293,
+            "primary_rail_measured_j": {
+              "sensor": "TI INA3221",
+              "rail": "VDD_CPU_SOC_MSS",
+              "energy_class": "measured_j",
+              "idle_a1_w": 16.4869,
+              "idle_a2_w": 13.2268,
+              "idle_trimmed_mean_w": 14.8568,
+              "idle_drift_pct": 21.94,
+              "falsifier_6_drift_flag": true,
+              "shunt_samples_median": 111,
+              "sample_rate_hz_median": 206.9,
+              "gross_j_median": 7.7191,
+              "j_per_min_gross": 12.415,
+              "j_per_min_gross_iqr": {
+                "n": 3,
+                "median": 12.415,
+                "p25": 12.211,
+                "p75": 12.838,
+                "iqr": 0.627,
+                "min": 12.006,
+                "max": 13.261
+              },
+              "j_per_min_net": null,
+              "j_per_min_net_withheld_per_falsifier_6": true
+            },
+            "secondary_carrier_rail_measured_j": {
+              "sensor": "TI INA238",
+              "rail": "VIN_CARRIER",
+              "energy_class": "measured_j",
+              "idle_a1_w": 32.4357,
+              "idle_a2_w": 29.5984,
+              "idle_trimmed_mean_w": 31.017,
+              "idle_drift_pct": 9.15,
+              "falsifier_6_drift_flag": true,
+              "gross_j_median": 16.2892,
+              "j_per_min_gross": 26.198,
+              "j_per_min_gross_iqr": {
+                "n": 3,
+                "median": 26.198,
+                "p25": 26.018,
+                "p75": 26.602,
+                "iqr": 0.584,
+                "min": 25.838,
+                "max": 27.006
+              },
+              "j_per_min_net": null,
+              "j_per_min_net_withheld_per_falsifier_6": true
+            },
+            "rapl_reported_j": null,
+            "tool": "ffmpeg libopus 24 kbps VoIP/podcast voice note",
+            "output_bytes": 116581
+          },
+          "render_voiced_ad_mix": {
+            "evidence_class": "measured_j",
+            "runs": 3,
+            "media_output_duration_s": 37.3,
+            "media_output_minutes": 0.621667,
+            "wall_s_median": 2.9607,
+            "realtime_speed_x": 12.598,
+            "primary_rail_measured_j": {
+              "sensor": "TI INA3221",
+              "rail": "VDD_CPU_SOC_MSS",
+              "energy_class": "measured_j",
+              "idle_a1_w": 14.1303,
+              "idle_a2_w": 13.5977,
+              "idle_trimmed_mean_w": 13.864,
+              "idle_drift_pct": 3.84,
+              "falsifier_6_drift_flag": false,
+              "shunt_samples_median": 602,
+              "sample_rate_hz_median": 194.5,
+              "gross_j_median": 34.1296,
+              "j_per_min_gross": 54.9,
+              "j_per_min_gross_iqr": {
+                "n": 3,
+                "median": 54.9,
+                "p25": 50.414,
+                "p75": 60.583,
+                "iqr": 10.169,
+                "min": 45.929,
+                "max": 66.266
+              },
+              "j_per_min_net": 0.0,
+              "j_per_min_net_withheld_per_falsifier_6": false
+            },
+            "secondary_carrier_rail_measured_j": {
+              "sensor": "TI INA238",
+              "rail": "VIN_CARRIER",
+              "energy_class": "measured_j",
+              "idle_a1_w": 32.9469,
+              "idle_a2_w": 31.2152,
+              "idle_trimmed_mean_w": 32.081,
+              "idle_drift_pct": 5.4,
+              "falsifier_6_drift_flag": true,
+              "gross_j_median": 84.5812,
+              "j_per_min_gross": 136.056,
+              "j_per_min_gross_iqr": {
+                "n": 3,
+                "median": 136.056,
+                "p25": 126.354,
+                "p75": 157.426,
+                "iqr": 31.072,
+                "min": 116.652,
+                "max": 178.797
+              },
+              "j_per_min_net": null,
+              "j_per_min_net_withheld_per_falsifier_6": true
+            },
+            "rapl_reported_j": null,
+            "tool": "ffmpeg sidechaincompress (-12 dB ducking) + loudnorm -16 LUFS .ad-mix.m4a",
+            "output_bytes": 601920
+          },
+          "elevenlabs_v4_cloud": {
+            "evidence_class": "unmetered",
+            "energy_class": "unmetered",
+            "provider": "ElevenLabs v4 Cloud TTS API",
+            "j_per_min": null,
+            "j_per_min_gross": null,
+            "j_per_min_net": null,
+            "note": "Cloud TTS provider exposes zero hardware rail or RAPL joule counters; per Blueprint v1.0 [G10], labeled unmetered (null) and never invented or estimated."
+          }
+        },
+        "third_party_published_reported_j_references": {
+          "note": "Third-party GPU reported_j figures cited in Planetary Research Media Blueprint v1.0 (E2E Networks, Mar 2026); strictly separated from OpenIE physical DC shunt measured_j.",
+          "whisper_large_v3_turbo_nvidia_l4_gpu": {
+            "j_per_min_range": [
+              95.0,
+              120.0
+            ],
+            "energy_class": "reported_j",
+            "substrate": "NVIDIA L4 GPU (third-party published benchmark)",
+            "source": "E2E Networks (Mar 2026), cited in Blueprint v1.0 \u00a79.5"
+          },
+          "nvidia_parakeet_l4_gpu": {
+            "j_per_min": 13.0,
+            "energy_class": "reported_j",
+            "substrate": "NVIDIA L4 GPU (third-party published benchmark)",
+            "source": "E2E Networks (Mar 2026), cited in Blueprint v1.0 \u00a79.5"
+          }
+        }
+      },
+      "signed_receipt": {
+        "body": {
+          "schema": "openie.signed_provenance_receipt.v1",
+          "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+          "self_attested_not_third_party_verified": true,
+          "kit_id": "kits/planetary-media-joule",
+          "domain_context": "openie.kit.planetary_media_joule.receipt.v1",
+          "issued_utc": "2026-11-26T20:09:14Z",
+          "payload": {
+            "substrate_id": "jetson_agx_thor_ina3221",
+            "energy_evidence_class": "measured_j",
+            "script_sha256": "e743ebcaec1a3330d76e9cbaa2e90f649945f5f0eb706cf95d3e983593578f64",
+            "stages_metered": [
+              "tts_piper_or_kokoro_cpu",
+              "asr_whisper_base_cpu",
+              "asr_whisper_large_v3_turbo_cpu",
+              "render_1080p60_mp4",
+              "render_lowbw_mobile_15s_mp4",
+              "render_opus_24k_voicenote",
+              "render_voiced_ad_mix",
+              "elevenlabs_v4_cloud"
+            ],
+            "cloud_tts_energy_class": "unmetered",
+            "results_blake3": "65610ac8687466949a64f4f3cf3cfa332f161591c3f1de44b2490d1bffc19a0a"
+          }
+        },
+        "body_blake3": "dd78b208eb1ee0d45a2449cbd3edca7ae087d200e13eaa2bda250c87e5f370cf",
+        "ed25519_public_key_hex": "7581d9ec3bbc0edd820a16f39abda27239d8be8c97311a7ec2daa02c5f53220c",
+        "ed25519_signature_hex": "dd940cf04cfa74c4a166391a2b6596e4315dff3aaf14cca8e01a15ed86bc53b98f63525f3ccb48b55ccd9270de26814f46736be75fc174ac9400855ceacd240b"
+      }
+    },
+    "amd_kria_kv260_ina260": {
+      "results": {
+        "schema": "openie.planetary_media_joule.v1",
+        "kit_id": "kits/planetary-media-joule",
+        "blueprint_reference": "Planetary Research Media: A Blueprint for OpenIE Research (26 Nov 2026 \u00b7 v1.0, \u00a75, \u00a77 [G6]/[G10], \u00a79.5)",
+        "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+        "license": "Apache-2.0",
+        "energy_orthogonality_rule": "measured_j \u22a5 reported_j \u22a5 est_j \u22a5 unmetered (never summed or cross-ratioed)",
+        "host": {
+          "cpu_model": "ZynqMP KV260 revB (Cortex-A53, aarch64)",
+          "logical_cpus": 4,
+          "ram_gib": 3.81,
+          "os_kernel": "Linux 6.8.0-1036-xilinx aarch64",
+          "python_version": "3.12.3",
+          "cc_version": "GCC 13.3.0",
+          "recorded_utc": "2026-11-26T20:03:12Z"
+        },
+        "cpu_threads": 4,
+        "quick_mode": false,
+        "energy_telemetry": {
+          "evidence_class": "measured_j",
+          "board_metered": true,
+          "substrate_id": "amd_kria_kv260_ina260",
+          "primary_sensor": "TI INA260 (ina260_u14)",
+          "primary_rail": "SOM_5V_DC",
+          "primary_sysfs_paths": [
+            "/sys/class/hwmon/hwmon2/power1_input"
+          ],
+          "secondary_sensor": null,
+          "secondary_rail": null,
+          "secondary_sysfs_path": null,
+          "reported_j_available": false,
+          "est_j_mixed": false,
+          "idle_a1_pre": {
+            "window_s": 1.0,
+            "raw_mean_w": 3.2694,
+            "trimmed_mean_w": 3.2655,
+            "secondary_raw_mean_w": null,
+            "secondary_trimmed_mean_w": null,
+            "shunt_samples": 232,
+            "sample_rate_hz": 230.7,
+            "rail_breakdown_w": {
+              "SOM_5V_DC": 3.27,
+              "bus_mv": 5027,
+              "shunt_ma": 650
+            }
+          },
+          "idle_a2_post": {
+            "window_s": 1.0,
+            "raw_mean_w": 3.2894,
+            "trimmed_mean_w": 3.2874,
+            "secondary_raw_mean_w": null,
+            "secondary_trimmed_mean_w": null,
+            "shunt_samples": 230,
+            "sample_rate_hz": 228.8,
+            "rail_breakdown_w": {
+              "SOM_5V_DC": 3.3,
+              "bus_mv": 5026,
+              "shunt_ma": 663
+            }
+          },
+          "idle_trimmed_mean_w": 3.2764,
+          "idle_drift_pct": 0.67,
+          "falsifier_6_idle_drift_threshold_pct": 5.0,
+          "falsifier_6_idle_drift_flag": false
+        },
+        "iso24495_script_precommitment": {
+          "standard": "ISO 24495-1 Plain Language (3-point research summary)",
+          "word_count": 103,
+          "script_sha256": "e743ebcaec1a3330d76e9cbaa2e90f649945f5f0eb706cf95d3e983593578f64",
+          "required_g6_exact_numbers": [
+            "24495",
+            "4",
+            "21",
+            "29",
+            "96.7",
+            "0"
+          ]
+        },
+        "stages": {
+          "tts_piper_or_kokoro_cpu": {
+            "evidence_class": "measured_j",
+            "runs": 1,
+            "media_output_duration_s": 37.4,
+            "media_output_minutes": 0.623333,
+            "wall_s_median": 39.5597,
+            "realtime_speed_x": 0.945,
+            "primary_rail_measured_j": {
+              "sensor": "TI INA260 (ina260_u14)",
+              "rail": "SOM_5V_DC",
+              "energy_class": "measured_j",
+              "idle_a1_w": 3.2723,
+              "idle_a2_w": 3.2721,
+              "idle_trimmed_mean_w": 3.2722,
+              "idle_drift_pct": 0.01,
+              "falsifier_6_drift_flag": false,
+              "shunt_samples_median": 8466,
+              "sample_rate_hz_median": 214.0,
+              "gross_j_median": 164.3774,
+              "j_per_min_gross": 263.707,
+              "j_per_min_gross_iqr": {
+                "n": 1,
+                "median": 263.707,
+                "p25": 263.707,
+                "p75": 263.707,
+                "iqr": 0.0,
+                "min": 263.707,
+                "max": 263.707
+              },
+              "j_per_min_net": 56.038,
+              "j_per_min_net_withheld_per_falsifier_6": false
+            },
+            "secondary_carrier_rail_measured_j": null,
+            "rapl_reported_j": null,
+            "tool": "piper 1.2.0 (MIT, en_US-lessac-medium.onnx) + ffmpeg -16 LUFS loudnorm AAC",
+            "output_bytes": 600467,
+            "script_sha256": "e743ebcaec1a3330d76e9cbaa2e90f649945f5f0eb706cf95d3e983593578f64"
+          },
+          "asr_whisper_tiny_cpu": {
+            "evidence_class": "measured_j",
+            "runs": 1,
+            "media_output_duration_s": 37.4,
+            "media_output_minutes": 0.623333,
+            "wall_s_median": 30.1685,
+            "realtime_speed_x": 1.24,
+            "primary_rail_measured_j": {
+              "sensor": "TI INA260 (ina260_u14)",
+              "rail": "SOM_5V_DC",
+              "energy_class": "measured_j",
+              "idle_a1_w": 3.2822,
+              "idle_a2_w": 3.2795,
+              "idle_trimmed_mean_w": 3.2809,
+              "idle_drift_pct": 0.08,
+              "falsifier_6_drift_flag": false,
+              "shunt_samples_median": 6385,
+              "sample_rate_hz_median": 211.6,
+              "gross_j_median": 126.8422,
+              "j_per_min_gross": 203.49,
+              "j_per_min_gross_iqr": {
+                "n": 1,
+                "median": 203.49,
+                "p25": 203.49,
+                "p75": 203.49,
+                "iqr": 0.0,
+                "min": 203.49,
+                "max": 203.49
+              },
+              "j_per_min_net": 44.702,
+              "j_per_min_net_withheld_per_falsifier_6": false
+            },
+            "secondary_carrier_rail_measured_j": null,
+            "rapl_reported_j": null,
+            "tool": "whisper.cpp ggml-tiny.en (MIT, 39M)",
+            "model_bytes": 77704715,
+            "transcript_excerpt": "Playing language research summary under standard 2-4-4-9-5. Point 1. What we tested, most software tasks follow fixed rules, yet teams often run large neural models on every request. Point 2. What we measured on physical current shunts. Rou",
+            "g6_verification_gate": {
+              "gate_id": "G6_ASR_NUMBER_AND_WER_VERIFICATION",
+              "exact_numbers_matched": 5,
+              "exact_numbers_total": 6,
+              "number_survival_map": {
+                "24495": false,
+                "4": true,
+                "21": true,
+                "29": true,
+                "96.7": true,
+                "0": true
+              },
+              "normalized_wer": 0.0851,
+              "ref_word_count": 94,
+              "hyp_word_count": 97,
+              "edit_distance": 8,
+              "gate_pass": false
+            }
+          },
+          "asr_whisper_base_cpu": {
+            "evidence_class": "measured_j",
+            "runs": 1,
+            "media_output_duration_s": 37.4,
+            "media_output_minutes": 0.623333,
+            "wall_s_median": 67.7399,
+            "realtime_speed_x": 0.552,
+            "primary_rail_measured_j": {
+              "sensor": "TI INA260 (ina260_u14)",
+              "rail": "SOM_5V_DC",
+              "energy_class": "measured_j",
+              "idle_a1_w": 3.2768,
+              "idle_a2_w": 3.2855,
+              "idle_trimmed_mean_w": 3.2812,
+              "idle_drift_pct": 0.27,
+              "falsifier_6_drift_flag": false,
+              "shunt_samples_median": 14279,
+              "sample_rate_hz_median": 210.8,
+              "gross_j_median": 284.0346,
+              "j_per_min_gross": 455.67,
+              "j_per_min_gross_iqr": {
+                "n": 1,
+                "median": 455.67,
+                "p25": 455.67,
+                "p75": 455.67,
+                "iqr": 0.0,
+                "min": 455.67,
+                "max": 455.67
+              },
+              "j_per_min_net": 99.096,
+              "j_per_min_net_withheld_per_falsifier_6": false
+            },
+            "secondary_carrier_rail_measured_j": null,
+            "rapl_reported_j": null,
+            "tool": "whisper.cpp ggml-base.en (MIT, 74M)",
+            "model_bytes": 147964211,
+            "transcript_excerpt": "plain language research summary under standard 24495. Point one, what we tested most software tasks follow fixed rules yet teams often run large neural models on every request. Point two, what we measured on physical current shunts, routing",
+            "g6_verification_gate": {
+              "gate_id": "G6_ASR_NUMBER_AND_WER_VERIFICATION",
+              "exact_numbers_matched": 6,
+              "exact_numbers_total": 6,
+              "number_survival_map": {
+                "24495": true,
+                "4": true,
+                "21": true,
+                "29": true,
+                "96.7": true,
+                "0": true
+              },
+              "normalized_wer": 0.0426,
+              "ref_word_count": 94,
+              "hyp_word_count": 92,
+              "edit_distance": 4,
+              "gate_pass": true
+            }
+          },
+          "render_1080p60_mp4": {
+            "evidence_class": "measured_j",
+            "runs": 1,
+            "media_output_duration_s": 15.0,
+            "media_output_minutes": 0.25,
+            "wall_s_median": 63.271,
+            "realtime_speed_x": 0.237,
+            "primary_rail_measured_j": {
+              "sensor": "TI INA260 (ina260_u14)",
+              "rail": "SOM_5V_DC",
+              "energy_class": "measured_j",
+              "idle_a1_w": 3.2802,
+              "idle_a2_w": 3.277,
+              "idle_trimmed_mean_w": 3.2786,
+              "idle_drift_pct": 0.1,
+              "falsifier_6_drift_flag": false,
+              "shunt_samples_median": 13464,
+              "sample_rate_hz_median": 212.8,
+              "gross_j_median": 248.7244,
+              "j_per_min_gross": 994.898,
+              "j_per_min_gross_iqr": {
+                "n": 1,
+                "median": 994.898,
+                "p25": 994.898,
+                "p75": 994.898,
+                "iqr": 0.0,
+                "min": 994.898,
+                "max": 994.898
+              },
+              "j_per_min_net": 165.136,
+              "j_per_min_net_withheld_per_falsifier_6": false
+            },
+            "secondary_carrier_rail_measured_j": null,
+            "rapl_reported_j": null,
+            "tool": "ffmpeg (LGPL, libopenh264 1920x1080@60fps + AAC)",
+            "output_bytes": 542013
+          },
+          "render_lowbw_mobile_15s_mp4": {
+            "evidence_class": "measured_j",
+            "runs": 3,
+            "media_output_duration_s": 15.0,
+            "media_output_minutes": 0.25,
+            "wall_s_median": 12.0043,
+            "realtime_speed_x": 1.25,
+            "primary_rail_measured_j": {
+              "sensor": "TI INA260 (ina260_u14)",
+              "rail": "SOM_5V_DC",
+              "energy_class": "measured_j",
+              "idle_a1_w": 3.2795,
+              "idle_a2_w": 3.2803,
+              "idle_trimmed_mean_w": 3.2799,
+              "idle_drift_pct": 0.02,
+              "falsifier_6_drift_flag": false,
+              "shunt_samples_median": 2143,
+              "sample_rate_hz_median": 178.4,
+              "gross_j_median": 54.0502,
+              "j_per_min_gross": 216.201,
+              "j_per_min_gross_iqr": {
+                "n": 3,
+                "median": 216.201,
+                "p25": 216.014,
+                "p75": 217.108,
+                "iqr": 1.094,
+                "min": 215.827,
+                "max": 218.016
+              },
+              "j_per_min_net": 58.539,
+              "j_per_min_net_withheld_per_falsifier_6": false
+            },
+            "secondary_carrier_rail_measured_j": null,
+            "rapl_reported_j": null,
+            "tool": "ffmpeg (LGPL, libopenh264 640x360@24fps + 48k mono AAC, <1 MB)",
+            "output_bytes": 110645,
+            "under_1mb_cap_pass": true
+          },
+          "render_opus_24k_voicenote": {
+            "evidence_class": "measured_j",
+            "runs": 3,
+            "media_output_duration_s": 37.4065,
+            "media_output_minutes": 0.623442,
+            "wall_s_median": 4.0121,
+            "realtime_speed_x": 9.323,
+            "primary_rail_measured_j": {
+              "sensor": "TI INA260 (ina260_u14)",
+              "rail": "SOM_5V_DC",
+              "energy_class": "measured_j",
+              "idle_a1_w": 3.2813,
+              "idle_a2_w": 3.2806,
+              "idle_trimmed_mean_w": 3.2809,
+              "idle_drift_pct": 0.02,
+              "falsifier_6_drift_flag": false,
+              "shunt_samples_median": 919,
+              "sample_rate_hz_median": 228.8,
+              "gross_j_median": 14.1886,
+              "j_per_min_gross": 22.758,
+              "j_per_min_gross_iqr": {
+                "n": 3,
+                "median": 22.758,
+                "p25": 22.756,
+                "p75": 22.761,
+                "iqr": 0.005,
+                "min": 22.754,
+                "max": 22.763
+              },
+              "j_per_min_net": 1.644,
+              "j_per_min_net_withheld_per_falsifier_6": false
+            },
+            "secondary_carrier_rail_measured_j": null,
+            "rapl_reported_j": null,
+            "tool": "ffmpeg libopus 24 kbps VoIP/podcast voice note",
+            "output_bytes": 116917
+          },
+          "render_voiced_ad_mix": {
+            "evidence_class": "measured_j",
+            "runs": 3,
+            "media_output_duration_s": 37.4,
+            "media_output_minutes": 0.623333,
+            "wall_s_median": 15.7079,
+            "realtime_speed_x": 2.381,
+            "primary_rail_measured_j": {
+              "sensor": "TI INA260 (ina260_u14)",
+              "rail": "SOM_5V_DC",
+              "energy_class": "measured_j",
+              "idle_a1_w": 3.2765,
+              "idle_a2_w": 3.2842,
+              "idle_trimmed_mean_w": 3.2803,
+              "idle_drift_pct": 0.23,
+              "falsifier_6_drift_flag": false,
+              "shunt_samples_median": 3571,
+              "sample_rate_hz_median": 226.7,
+              "gross_j_median": 56.8032,
+              "j_per_min_gross": 91.128,
+              "j_per_min_gross_iqr": {
+                "n": 3,
+                "median": 91.128,
+                "p25": 91.021,
+                "p75": 91.228,
+                "iqr": 0.207,
+                "min": 90.913,
+                "max": 91.328
+              },
+              "j_per_min_net": 8.401,
+              "j_per_min_net_withheld_per_falsifier_6": false
+            },
+            "secondary_carrier_rail_measured_j": null,
+            "rapl_reported_j": null,
+            "tool": "ffmpeg sidechaincompress (-12 dB ducking) + loudnorm -16 LUFS .ad-mix.m4a",
+            "output_bytes": 603074
+          },
+          "elevenlabs_v4_cloud": {
+            "evidence_class": "unmetered",
+            "energy_class": "unmetered",
+            "provider": "ElevenLabs v4 Cloud TTS API",
+            "j_per_min": null,
+            "j_per_min_gross": null,
+            "j_per_min_net": null,
+            "note": "Cloud TTS provider exposes zero hardware rail or RAPL joule counters; per Blueprint v1.0 [G10], labeled unmetered (null) and never invented or estimated."
+          }
+        },
+        "third_party_published_reported_j_references": {
+          "note": "Third-party GPU reported_j figures cited in Planetary Research Media Blueprint v1.0 (E2E Networks, Mar 2026); strictly separated from OpenIE physical DC shunt measured_j.",
+          "whisper_large_v3_turbo_nvidia_l4_gpu": {
+            "j_per_min_range": [
+              95.0,
+              120.0
+            ],
+            "energy_class": "reported_j",
+            "substrate": "NVIDIA L4 GPU (third-party published benchmark)",
+            "source": "E2E Networks (Mar 2026), cited in Blueprint v1.0 \u00a79.5"
+          },
+          "nvidia_parakeet_l4_gpu": {
+            "j_per_min": 13.0,
+            "energy_class": "reported_j",
+            "substrate": "NVIDIA L4 GPU (third-party published benchmark)",
+            "source": "E2E Networks (Mar 2026), cited in Blueprint v1.0 \u00a79.5"
+          }
+        }
+      },
+      "signed_receipt": {
+        "body": {
+          "schema": "openie.signed_provenance_receipt.v1",
+          "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+          "self_attested_not_third_party_verified": true,
+          "kit_id": "kits/planetary-media-joule",
+          "domain_context": "openie.kit.planetary_media_joule.receipt.v1",
+          "issued_utc": "2026-11-26T20:08:30Z",
+          "payload": {
+            "substrate_id": "amd_kria_kv260_ina260",
+            "energy_evidence_class": "measured_j",
+            "script_sha256": "e743ebcaec1a3330d76e9cbaa2e90f649945f5f0eb706cf95d3e983593578f64",
+            "stages_metered": [
+              "tts_piper_or_kokoro_cpu",
+              "asr_whisper_tiny_cpu",
+              "asr_whisper_base_cpu",
+              "render_1080p60_mp4",
+              "render_lowbw_mobile_15s_mp4",
+              "render_opus_24k_voicenote",
+              "render_voiced_ad_mix",
+              "elevenlabs_v4_cloud"
+            ],
+            "cloud_tts_energy_class": "unmetered",
+            "results_blake3": "ffab4aaff454e998208998f21aa39d6557880991f67cecb33f95e849d661fdcc"
+          }
+        },
+        "body_blake3": "d18b3020def56ec7fa30b21bedcce832df803523460fb3f685a3302d2f580bcf",
+        "ed25519_public_key_hex": "afe075b50fadc7bfc7428c258f569d97a82a282672a1b254b9d3a073f951117b",
+        "ed25519_signature_hex": "a4c101b09252f535828481f2cbca29f3507cbafa4e8884ce1a57b75dcf98cab6358a3bbde4fd585b00ac69023571fa2c450500bfa5264f0ca28590196642b302"
+      }
+    }
+  },
+  "reported_j_substrates": {
+    "amd_ryzen_ai_max_395_rapl": {
+      "results": {
+        "schema": "openie.planetary_media_joule.v1",
+        "kit_id": "kits/planetary-media-joule",
+        "blueprint_reference": "Planetary Research Media: A Blueprint for OpenIE Research (26 Nov 2026 \u00b7 v1.0, \u00a75, \u00a77 [G6]/[G10], \u00a79.5)",
+        "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+        "license": "Apache-2.0",
+        "energy_orthogonality_rule": "measured_j \u22a5 reported_j \u22a5 est_j \u22a5 unmetered (never summed or cross-ratioed)",
+        "host": {
+          "cpu_model": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S",
+          "logical_cpus": 32,
+          "ram_gib": 122.83,
+          "os_kernel": "Linux 7.0.0-43-generic x86_64",
+          "python_version": "3.15.0",
+          "cc_version": "GCC 15.2.0",
+          "recorded_utc": "2026-11-26T20:03:09Z"
+        },
+        "cpu_threads": 16,
+        "quick_mode": false,
+        "energy_telemetry": {
+          "evidence_class": "reported_j",
+          "board_metered": false,
+          "substrate_id": "x86_rapl",
+          "measured_j": null,
+          "reported_j_available": true,
+          "est_j_mixed": false,
+          "package_counter": "/sys/class/powercap/intel-rapl:0/energy_uj",
+          "package_domain": "package-0",
+          "core_counter": "/sys/class/powercap/intel-rapl:0:0/energy_uj",
+          "core_domain": "core",
+          "idle_pkg_w_pre": 117.0429,
+          "idle_pkg_w_post": 138.8023,
+          "idle_drift_pct": 17.01
+        },
+        "iso24495_script_precommitment": {
+          "standard": "ISO 24495-1 Plain Language (3-point research summary)",
+          "word_count": 103,
+          "script_sha256": "e743ebcaec1a3330d76e9cbaa2e90f649945f5f0eb706cf95d3e983593578f64",
+          "required_g6_exact_numbers": [
+            "24495",
+            "4",
+            "21",
+            "29",
+            "96.7",
+            "0"
+          ]
+        },
+        "stages": {
+          "tts_piper_or_kokoro_cpu": {
+            "evidence_class": "reported_j",
+            "runs": 3,
+            "media_output_duration_s": 37.5,
+            "media_output_minutes": 0.625,
+            "wall_s_median": 2.557,
+            "realtime_speed_x": 14.666,
+            "primary_rail_measured_j": null,
+            "secondary_carrier_rail_measured_j": null,
+            "rapl_reported_j": {
+              "energy_class": "reported_j",
+              "idle_pkg_mean_w": 132.4264,
+              "idle_drift_pct": 7.32,
+              "falsifier_6_drift_flag": true,
+              "pkg_j_median": 309.4453,
+              "j_per_min_pkg_gross": 495.112,
+              "j_per_min_pkg_gross_iqr": {
+                "n": 3,
+                "median": 495.112,
+                "p25": 493.316,
+                "p75": 529.119,
+                "iqr": 35.803,
+                "min": 491.519,
+                "max": 563.125
+              },
+              "j_per_min_pkg_net": null,
+              "j_per_min_core_gross": 32.786
+            },
+            "tool": "piper 1.2.0 (MIT, en_US-lessac-medium.onnx) + ffmpeg -16 LUFS loudnorm AAC",
+            "output_bytes": 602162,
+            "script_sha256": "e743ebcaec1a3330d76e9cbaa2e90f649945f5f0eb706cf95d3e983593578f64"
+          },
+          "asr_whisper_base_cpu": {
+            "evidence_class": "reported_j",
+            "runs": 3,
+            "media_output_duration_s": 37.5,
+            "media_output_minutes": 0.625,
+            "wall_s_median": 1.0792,
+            "realtime_speed_x": 34.749,
+            "primary_rail_measured_j": null,
+            "secondary_carrier_rail_measured_j": null,
+            "rapl_reported_j": {
+              "energy_class": "reported_j",
+              "idle_pkg_mean_w": 130.2489,
+              "idle_drift_pct": 8.71,
+              "falsifier_6_drift_flag": true,
+              "pkg_j_median": 147.0764,
+              "j_per_min_pkg_gross": 235.322,
+              "j_per_min_pkg_gross_iqr": {
+                "n": 3,
+                "median": 235.322,
+                "p25": 235.247,
+                "p75": 235.816,
+                "iqr": 0.569,
+                "min": 235.172,
+                "max": 236.309
+              },
+              "j_per_min_pkg_net": null,
+              "j_per_min_core_gross": 13.756
+            },
+            "tool": "whisper.cpp ggml-base.en (MIT, 74M)",
+            "model_bytes": 147964211,
+            "transcript_excerpt": "Plain language research summary under standard 24495.1 What we tested, most software tasks follow fixed rules, yet teams often run large neural models on every request. Point 2 What we measured on physical current shunts, routing recurring ",
+            "g6_verification_gate": {
+              "gate_id": "G6_ASR_NUMBER_AND_WER_VERIFICATION",
+              "exact_numbers_matched": 6,
+              "exact_numbers_total": 6,
+              "number_survival_map": {
+                "24495": true,
+                "4": true,
+                "21": true,
+                "29": true,
+                "96.7": true,
+                "0": true
+              },
+              "normalized_wer": 0.0532,
+              "ref_word_count": 94,
+              "hyp_word_count": 91,
+              "edit_distance": 5,
+              "gate_pass": true
+            }
+          },
+          "asr_whisper_large_v3_turbo_cpu": {
+            "evidence_class": "reported_j",
+            "runs": 1,
+            "media_output_duration_s": 37.5,
+            "media_output_minutes": 0.625,
+            "wall_s_median": 6.8792,
+            "realtime_speed_x": 5.451,
+            "primary_rail_measured_j": null,
+            "secondary_carrier_rail_measured_j": null,
+            "rapl_reported_j": {
+              "energy_class": "reported_j",
+              "idle_pkg_mean_w": 135.6806,
+              "idle_drift_pct": 7.18,
+              "falsifier_6_drift_flag": true,
+              "pkg_j_median": 966.4188,
+              "j_per_min_pkg_gross": 1546.27,
+              "j_per_min_pkg_gross_iqr": {
+                "n": 1,
+                "median": 1546.27,
+                "p25": 1546.27,
+                "p75": 1546.27,
+                "iqr": 0.0,
+                "min": 1546.27,
+                "max": 1546.27
+              },
+              "j_per_min_pkg_net": null,
+              "j_per_min_core_gross": 95.799
+            },
+            "tool": "whisper.cpp ggml-large-v3-turbo (MIT, 809M)",
+            "model_bytes": 1624555275,
+            "transcript_excerpt": "Plain language research summary under standard 24495. Point 1. What we tested. Most software tasks follow fixed rules, yet teams often run large neural models on every request. Point 2. What we measured on physical current shunts. Routing r",
+            "g6_verification_gate": {
+              "gate_id": "G6_ASR_NUMBER_AND_WER_VERIFICATION",
+              "exact_numbers_matched": 6,
+              "exact_numbers_total": 6,
+              "number_survival_map": {
+                "24495": true,
+                "4": true,
+                "21": true,
+                "29": true,
+                "96.7": true,
+                "0": true
+              },
+              "normalized_wer": 0.0213,
+              "ref_word_count": 94,
+              "hyp_word_count": 94,
+              "edit_distance": 2,
+              "gate_pass": true
+            }
+          },
+          "render_1080p60_mp4": {
+            "evidence_class": "reported_j",
+            "runs": 3,
+            "media_output_duration_s": 15.0,
+            "media_output_minutes": 0.25,
+            "wall_s_median": 6.8104,
+            "realtime_speed_x": 2.203,
+            "primary_rail_measured_j": null,
+            "secondary_carrier_rail_measured_j": null,
+            "rapl_reported_j": {
+              "energy_class": "reported_j",
+              "idle_pkg_mean_w": 131.637,
+              "idle_drift_pct": 13.74,
+              "falsifier_6_drift_flag": true,
+              "pkg_j_median": 875.7913,
+              "j_per_min_pkg_gross": 3503.165,
+              "j_per_min_pkg_gross_iqr": {
+                "n": 3,
+                "median": 3503.165,
+                "p25": 3490.712,
+                "p75": 3609.624,
+                "iqr": 118.913,
+                "min": 3478.259,
+                "max": 3716.084
+              },
+              "j_per_min_pkg_net": null,
+              "j_per_min_core_gross": 197.07
+            },
+            "tool": "ffmpeg (LGPL, libopenh264 1920x1080@60fps + AAC)",
+            "output_bytes": 528383
+          },
+          "render_lowbw_mobile_15s_mp4": {
+            "evidence_class": "reported_j",
+            "runs": 3,
+            "media_output_duration_s": 15.0,
+            "media_output_minutes": 0.25,
+            "wall_s_median": 0.6212,
+            "realtime_speed_x": 24.147,
+            "primary_rail_measured_j": null,
+            "secondary_carrier_rail_measured_j": null,
+            "rapl_reported_j": {
+              "energy_class": "reported_j",
+              "idle_pkg_mean_w": 118.7537,
+              "idle_drift_pct": 7.69,
+              "falsifier_6_drift_flag": true,
+              "pkg_j_median": 79.5205,
+              "j_per_min_pkg_gross": 318.082,
+              "j_per_min_pkg_gross_iqr": {
+                "n": 3,
+                "median": 318.082,
+                "p25": 316.916,
+                "p75": 321.447,
+                "iqr": 4.531,
+                "min": 315.75,
+                "max": 324.812
+              },
+              "j_per_min_pkg_net": null,
+              "j_per_min_core_gross": 18.211
+            },
+            "tool": "ffmpeg (LGPL, libopenh264 640x360@24fps + 48k mono AAC, <1 MB)",
+            "output_bytes": 107370,
+            "under_1mb_cap_pass": true
+          },
+          "render_opus_24k_voicenote": {
+            "evidence_class": "reported_j",
+            "runs": 3,
+            "media_output_duration_s": 37.5065,
+            "media_output_minutes": 0.625108,
+            "wall_s_median": 0.3313,
+            "realtime_speed_x": 113.217,
+            "primary_rail_measured_j": null,
+            "secondary_carrier_rail_measured_j": null,
+            "rapl_reported_j": {
+              "energy_class": "reported_j",
+              "idle_pkg_mean_w": 124.3818,
+              "idle_drift_pct": 11.48,
+              "falsifier_6_drift_flag": true,
+              "pkg_j_median": 41.7755,
+              "j_per_min_pkg_gross": 66.829,
+              "j_per_min_pkg_gross_iqr": {
+                "n": 3,
+                "median": 66.829,
+                "p25": 63.749,
+                "p75": 69.004,
+                "iqr": 5.255,
+                "min": 60.669,
+                "max": 71.18
+              },
+              "j_per_min_pkg_net": null,
+              "j_per_min_core_gross": 3.512
+            },
+            "tool": "ffmpeg libopus 24 kbps VoIP/podcast voice note",
+            "output_bytes": 117241
+          },
+          "render_voiced_ad_mix": {
+            "evidence_class": "reported_j",
+            "runs": 3,
+            "media_output_duration_s": 37.5,
+            "media_output_minutes": 0.625,
+            "wall_s_median": 1.2437,
+            "realtime_speed_x": 30.153,
+            "primary_rail_measured_j": null,
+            "secondary_carrier_rail_measured_j": null,
+            "rapl_reported_j": {
+              "energy_class": "reported_j",
+              "idle_pkg_mean_w": 137.488,
+              "idle_drift_pct": 3.69,
+              "falsifier_6_drift_flag": false,
+              "pkg_j_median": 174.6017,
+              "j_per_min_pkg_gross": 279.363,
+              "j_per_min_pkg_gross_iqr": {
+                "n": 3,
+                "median": 279.363,
+                "p25": 263.421,
+                "p75": 285.271,
+                "iqr": 21.849,
+                "min": 247.48,
+                "max": 291.179
+              },
+              "j_per_min_pkg_net": 5.779,
+              "j_per_min_core_gross": 16.327
+            },
+            "tool": "ffmpeg sidechaincompress (-12 dB ducking) + loudnorm -16 LUFS .ad-mix.m4a",
+            "output_bytes": 605099
+          },
+          "elevenlabs_v4_cloud": {
+            "evidence_class": "unmetered",
+            "energy_class": "unmetered",
+            "provider": "ElevenLabs v4 Cloud TTS API",
+            "j_per_min": null,
+            "j_per_min_gross": null,
+            "j_per_min_net": null,
+            "note": "Cloud TTS provider exposes zero hardware rail or RAPL joule counters; per Blueprint v1.0 [G10], labeled unmetered (null) and never invented or estimated."
+          }
+        },
+        "third_party_published_reported_j_references": {
+          "note": "Third-party GPU reported_j figures cited in Planetary Research Media Blueprint v1.0 (E2E Networks, Mar 2026); strictly separated from OpenIE physical DC shunt measured_j.",
+          "whisper_large_v3_turbo_nvidia_l4_gpu": {
+            "j_per_min_range": [
+              95.0,
+              120.0
+            ],
+            "energy_class": "reported_j",
+            "substrate": "NVIDIA L4 GPU (third-party published benchmark)",
+            "source": "E2E Networks (Mar 2026), cited in Blueprint v1.0 \u00a79.5"
+          },
+          "nvidia_parakeet_l4_gpu": {
+            "j_per_min": 13.0,
+            "energy_class": "reported_j",
+            "substrate": "NVIDIA L4 GPU (third-party published benchmark)",
+            "source": "E2E Networks (Mar 2026), cited in Blueprint v1.0 \u00a79.5"
+          }
+        }
+      },
+      "signed_receipt": {
+        "body": {
+          "schema": "openie.signed_provenance_receipt.v1",
+          "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+          "self_attested_not_third_party_verified": true,
+          "kit_id": "kits/planetary-media-joule",
+          "domain_context": "openie.kit.planetary_media_joule.receipt.v1",
+          "issued_utc": "2026-11-26T20:04:14Z",
+          "payload": {
+            "substrate_id": "x86_rapl",
+            "energy_evidence_class": "reported_j",
+            "script_sha256": "e743ebcaec1a3330d76e9cbaa2e90f649945f5f0eb706cf95d3e983593578f64",
+            "stages_metered": [
+              "tts_piper_or_kokoro_cpu",
+              "asr_whisper_base_cpu",
+              "asr_whisper_large_v3_turbo_cpu",
+              "render_1080p60_mp4",
+              "render_lowbw_mobile_15s_mp4",
+              "render_opus_24k_voicenote",
+              "render_voiced_ad_mix",
+              "elevenlabs_v4_cloud"
+            ],
+            "cloud_tts_energy_class": "unmetered",
+            "results_blake3": "6f22ed8f24f7a1e4eb37b5549a140387d27405ea1f852e7550a547f32df7f649"
+          }
+        },
+        "body_blake3": "85e1cdd5de41f8770f18002429f2d41392d2121c6a37d522f672d88641c69661",
+        "ed25519_public_key_hex": "dd0429e4ca4c8401a28f61657993b49c1f3c5587bbf264ce55e3790a2e89a32c",
+        "ed25519_signature_hex": "11ea54e5c00afd2c932a11e9181179ccc34c1aedeb088e61febe57ea06b69e2240393d04387150a8d6f28fa4562b3bd394baa5025bcc7d0f26abe88a98db7e06"
+      }
+    }
+  }
+}

@@ -1,0 +1,333 @@
+{
+  "schema": "openie.planetary_media_joule.v1",
+  "kit_id": "kits/planetary-media-joule",
+  "blueprint_reference": "Planetary Research Media: A Blueprint for OpenIE Research (26 Nov 2026 \u00b7 v1.0, \u00a75, \u00a77 [G6]/[G10], \u00a79.5)",
+  "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+  "license": "Apache-2.0",
+  "energy_orthogonality_rule": "measured_j \u22a5 reported_j \u22a5 est_j \u22a5 unmetered (never summed or cross-ratioed)",
+  "host": {
+    "cpu_model": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S",
+    "logical_cpus": 32,
+    "ram_gib": 122.83,
+    "os_kernel": "Linux 7.0.0-43-generic x86_64",
+    "python_version": "3.15.0",
+    "cc_version": "GCC 15.2.0",
+    "recorded_utc": "2026-11-26T20:03:09Z"
+  },
+  "cpu_threads": 16,
+  "quick_mode": false,
+  "energy_telemetry": {
+    "evidence_class": "reported_j",
+    "board_metered": false,
+    "substrate_id": "x86_rapl",
+    "measured_j": null,
+    "reported_j_available": true,
+    "est_j_mixed": false,
+    "package_counter": "/sys/class/powercap/intel-rapl:0/energy_uj",
+    "package_domain": "package-0",
+    "core_counter": "/sys/class/powercap/intel-rapl:0:0/energy_uj",
+    "core_domain": "core",
+    "idle_pkg_w_pre": 117.0429,
+    "idle_pkg_w_post": 138.8023,
+    "idle_drift_pct": 17.01
+  },
+  "iso24495_script_precommitment": {
+    "standard": "ISO 24495-1 Plain Language (3-point research summary)",
+    "word_count": 103,
+    "script_sha256": "e743ebcaec1a3330d76e9cbaa2e90f649945f5f0eb706cf95d3e983593578f64",
+    "required_g6_exact_numbers": [
+      "24495",
+      "4",
+      "21",
+      "29",
+      "96.7",
+      "0"
+    ]
+  },
+  "stages": {
+    "tts_piper_or_kokoro_cpu": {
+      "evidence_class": "reported_j",
+      "runs": 3,
+      "media_output_duration_s": 37.5,
+      "media_output_minutes": 0.625,
+      "wall_s_median": 2.557,
+      "realtime_speed_x": 14.666,
+      "primary_rail_measured_j": null,
+      "secondary_carrier_rail_measured_j": null,
+      "rapl_reported_j": {
+        "energy_class": "reported_j",
+        "idle_pkg_mean_w": 132.4264,
+        "idle_drift_pct": 7.32,
+        "falsifier_6_drift_flag": true,
+        "pkg_j_median": 309.4453,
+        "j_per_min_pkg_gross": 495.112,
+        "j_per_min_pkg_gross_iqr": {
+          "n": 3,
+          "median": 495.112,
+          "p25": 493.316,
+          "p75": 529.119,
+          "iqr": 35.803,
+          "min": 491.519,
+          "max": 563.125
+        },
+        "j_per_min_pkg_net": null,
+        "j_per_min_core_gross": 32.786
+      },
+      "tool": "piper 1.2.0 (MIT, en_US-lessac-medium.onnx) + ffmpeg -16 LUFS loudnorm AAC",
+      "output_bytes": 602162,
+      "script_sha256": "e743ebcaec1a3330d76e9cbaa2e90f649945f5f0eb706cf95d3e983593578f64"
+    },
+    "asr_whisper_base_cpu": {
+      "evidence_class": "reported_j",
+      "runs": 3,
+      "media_output_duration_s": 37.5,
+      "media_output_minutes": 0.625,
+      "wall_s_median": 1.0792,
+      "realtime_speed_x": 34.749,
+      "primary_rail_measured_j": null,
+      "secondary_carrier_rail_measured_j": null,
+      "rapl_reported_j": {
+        "energy_class": "reported_j",
+        "idle_pkg_mean_w": 130.2489,
+        "idle_drift_pct": 8.71,
+        "falsifier_6_drift_flag": true,
+        "pkg_j_median": 147.0764,
+        "j_per_min_pkg_gross": 235.322,
+        "j_per_min_pkg_gross_iqr": {
+          "n": 3,
+          "median": 235.322,
+          "p25": 235.247,
+          "p75": 235.816,
+          "iqr": 0.569,
+          "min": 235.172,
+          "max": 236.309
+        },
+        "j_per_min_pkg_net": null,
+        "j_per_min_core_gross": 13.756
+      },
+      "tool": "whisper.cpp ggml-base.en (MIT, 74M)",
+      "model_bytes": 147964211,
+      "transcript_excerpt": "Plain language research summary under standard 24495.1 What we tested, most software tasks follow fixed rules, yet teams often run large neural models on every request. Point 2 What we measured on physical current shunts, routing recurring ",
+      "g6_verification_gate": {
+        "gate_id": "G6_ASR_NUMBER_AND_WER_VERIFICATION",
+        "exact_numbers_matched": 6,
+        "exact_numbers_total": 6,
+        "number_survival_map": {
+          "24495": true,
+          "4": true,
+          "21": true,
+          "29": true,
+          "96.7": true,
+          "0": true
+        },
+        "normalized_wer": 0.0532,
+        "ref_word_count": 94,
+        "hyp_word_count": 91,
+        "edit_distance": 5,
+        "gate_pass": true
+      }
+    },
+    "asr_whisper_large_v3_turbo_cpu": {
+      "evidence_class": "reported_j",
+      "runs": 1,
+      "media_output_duration_s": 37.5,
+      "media_output_minutes": 0.625,
+      "wall_s_median": 6.8792,
+      "realtime_speed_x": 5.451,
+      "primary_rail_measured_j": null,
+      "secondary_carrier_rail_measured_j": null,
+      "rapl_reported_j": {
+        "energy_class": "reported_j",
+        "idle_pkg_mean_w": 135.6806,
+        "idle_drift_pct": 7.18,
+        "falsifier_6_drift_flag": true,
+        "pkg_j_median": 966.4188,
+        "j_per_min_pkg_gross": 1546.27,
+        "j_per_min_pkg_gross_iqr": {
+          "n": 1,
+          "median": 1546.27,
+          "p25": 1546.27,
+          "p75": 1546.27,
+          "iqr": 0.0,
+          "min": 1546.27,
+          "max": 1546.27
+        },
+        "j_per_min_pkg_net": null,
+        "j_per_min_core_gross": 95.799
+      },
+      "tool": "whisper.cpp ggml-large-v3-turbo (MIT, 809M)",
+      "model_bytes": 1624555275,
+      "transcript_excerpt": "Plain language research summary under standard 24495. Point 1. What we tested. Most software tasks follow fixed rules, yet teams often run large neural models on every request. Point 2. What we measured on physical current shunts. Routing r",
+      "g6_verification_gate": {
+        "gate_id": "G6_ASR_NUMBER_AND_WER_VERIFICATION",
+        "exact_numbers_matched": 6,
+        "exact_numbers_total": 6,
+        "number_survival_map": {
+          "24495": true,
+          "4": true,
+          "21": true,
+          "29": true,
+          "96.7": true,
+          "0": true
+        },
+        "normalized_wer": 0.0213,
+        "ref_word_count": 94,
+        "hyp_word_count": 94,
+        "edit_distance": 2,
+        "gate_pass": true
+      }
+    },
+    "render_1080p60_mp4": {
+      "evidence_class": "reported_j",
+      "runs": 3,
+      "media_output_duration_s": 15.0,
+      "media_output_minutes": 0.25,
+      "wall_s_median": 6.8104,
+      "realtime_speed_x": 2.203,
+      "primary_rail_measured_j": null,
+      "secondary_carrier_rail_measured_j": null,
+      "rapl_reported_j": {
+        "energy_class": "reported_j",
+        "idle_pkg_mean_w": 131.637,
+        "idle_drift_pct": 13.74,
+        "falsifier_6_drift_flag": true,
+        "pkg_j_median": 875.7913,
+        "j_per_min_pkg_gross": 3503.165,
+        "j_per_min_pkg_gross_iqr": {
+          "n": 3,
+          "median": 3503.165,
+          "p25": 3490.712,
+          "p75": 3609.624,
+          "iqr": 118.913,
+          "min": 3478.259,
+          "max": 3716.084
+        },
+        "j_per_min_pkg_net": null,
+        "j_per_min_core_gross": 197.07
+      },
+      "tool": "ffmpeg (LGPL, libopenh264 1920x1080@60fps + AAC)",
+      "output_bytes": 528383
+    },
+    "render_lowbw_mobile_15s_mp4": {
+      "evidence_class": "reported_j",
+      "runs": 3,
+      "media_output_duration_s": 15.0,
+      "media_output_minutes": 0.25,
+      "wall_s_median": 0.6212,
+      "realtime_speed_x": 24.147,
+      "primary_rail_measured_j": null,
+      "secondary_carrier_rail_measured_j": null,
+      "rapl_reported_j": {
+        "energy_class": "reported_j",
+        "idle_pkg_mean_w": 118.7537,
+        "idle_drift_pct": 7.69,
+        "falsifier_6_drift_flag": true,
+        "pkg_j_median": 79.5205,
+        "j_per_min_pkg_gross": 318.082,
+        "j_per_min_pkg_gross_iqr": {
+          "n": 3,
+          "median": 318.082,
+          "p25": 316.916,
+          "p75": 321.447,
+          "iqr": 4.531,
+          "min": 315.75,
+          "max": 324.812
+        },
+        "j_per_min_pkg_net": null,
+        "j_per_min_core_gross": 18.211
+      },
+      "tool": "ffmpeg (LGPL, libopenh264 640x360@24fps + 48k mono AAC, <1 MB)",
+      "output_bytes": 107370,
+      "under_1mb_cap_pass": true
+    },
+    "render_opus_24k_voicenote": {
+      "evidence_class": "reported_j",
+      "runs": 3,
+      "media_output_duration_s": 37.5065,
+      "media_output_minutes": 0.625108,
+      "wall_s_median": 0.3313,
+      "realtime_speed_x": 113.217,
+      "primary_rail_measured_j": null,
+      "secondary_carrier_rail_measured_j": null,
+      "rapl_reported_j": {
+        "energy_class": "reported_j",
+        "idle_pkg_mean_w": 124.3818,
+        "idle_drift_pct": 11.48,
+        "falsifier_6_drift_flag": true,
+        "pkg_j_median": 41.7755,
+        "j_per_min_pkg_gross": 66.829,
+        "j_per_min_pkg_gross_iqr": {
+          "n": 3,
+          "median": 66.829,
+          "p25": 63.749,
+          "p75": 69.004,
+          "iqr": 5.255,
+          "min": 60.669,
+          "max": 71.18
+        },
+        "j_per_min_pkg_net": null,
+        "j_per_min_core_gross": 3.512
+      },
+      "tool": "ffmpeg libopus 24 kbps VoIP/podcast voice note",
+      "output_bytes": 117241
+    },
+    "render_voiced_ad_mix": {
+      "evidence_class": "reported_j",
+      "runs": 3,
+      "media_output_duration_s": 37.5,
+      "media_output_minutes": 0.625,
+      "wall_s_median": 1.2437,
+      "realtime_speed_x": 30.153,
+      "primary_rail_measured_j": null,
+      "secondary_carrier_rail_measured_j": null,
+      "rapl_reported_j": {
+        "energy_class": "reported_j",
+        "idle_pkg_mean_w": 137.488,
+        "idle_drift_pct": 3.69,
+        "falsifier_6_drift_flag": false,
+        "pkg_j_median": 174.6017,
+        "j_per_min_pkg_gross": 279.363,
+        "j_per_min_pkg_gross_iqr": {
+          "n": 3,
+          "median": 279.363,
+          "p25": 263.421,
+          "p75": 285.271,
+          "iqr": 21.849,
+          "min": 247.48,
+          "max": 291.179
+        },
+        "j_per_min_pkg_net": 5.779,
+        "j_per_min_core_gross": 16.327
+      },
+      "tool": "ffmpeg sidechaincompress (-12 dB ducking) + loudnorm -16 LUFS .ad-mix.m4a",
+      "output_bytes": 605099
+    },
+    "elevenlabs_v4_cloud": {
+      "evidence_class": "unmetered",
+      "energy_class": "unmetered",
+      "provider": "ElevenLabs v4 Cloud TTS API",
+      "j_per_min": null,
+      "j_per_min_gross": null,
+      "j_per_min_net": null,
+      "note": "Cloud TTS provider exposes zero hardware rail or RAPL joule counters; per Blueprint v1.0 [G10], labeled unmetered (null) and never invented or estimated."
+    }
+  },
+  "third_party_published_reported_j_references": {
+    "note": "Third-party GPU reported_j figures cited in Planetary Research Media Blueprint v1.0 (E2E Networks, Mar 2026); strictly separated from OpenIE physical DC shunt measured_j.",
+    "whisper_large_v3_turbo_nvidia_l4_gpu": {
+      "j_per_min_range": [
+        95.0,
+        120.0
+      ],
+      "energy_class": "reported_j",
+      "substrate": "NVIDIA L4 GPU (third-party published benchmark)",
+      "source": "E2E Networks (Mar 2026), cited in Blueprint v1.0 \u00a79.5"
+    },
+    "nvidia_parakeet_l4_gpu": {
+      "j_per_min": 13.0,
+      "energy_class": "reported_j",
+      "substrate": "NVIDIA L4 GPU (third-party published benchmark)",
+      "source": "E2E Networks (Mar 2026), cited in Blueprint v1.0 \u00a79.5"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "body": {
+    "schema": "openie.signed_provenance_receipt.v1",
+    "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+    "self_attested_not_third_party_verified": true,
+    "kit_id": "kits/planetary-media-joule",
+    "domain_context": "openie.kit.planetary_media_joule.receipt.v1",
+    "issued_utc": "2026-11-26T20:04:14Z",
+    "payload": {
+      "substrate_id": "x86_rapl",
+      "energy_evidence_class": "reported_j",
+      "script_sha256": "e743ebcaec1a3330d76e9cbaa2e90f649945f5f0eb706cf95d3e983593578f64",
+      "stages_metered": [
+        "tts_piper_or_kokoro_cpu",
+        "asr_whisper_base_cpu",
+        "asr_whisper_large_v3_turbo_cpu",
+        "render_1080p60_mp4",
+        "render_lowbw_mobile_15s_mp4",
+        "render_opus_24k_voicenote",
+        "render_voiced_ad_mix",
+        "elevenlabs_v4_cloud"
+      ],
+      "cloud_tts_energy_class": "unmetered",
+      "results_blake3": "6f22ed8f24f7a1e4eb37b5549a140387d27405ea1f852e7550a547f32df7f649"
+    }
+  },
+  "body_blake3": "85e1cdd5de41f8770f18002429f2d41392d2121c6a37d522f672d88641c69661",
+  "ed25519_public_key_hex": "dd0429e4ca4c8401a28f61657993b49c1f3c5587bbf264ce55e3790a2e89a32c",
+  "ed25519_signature_hex": "11ea54e5c00afd2c932a11e9181179ccc34c1aedeb088e61febe57ea06b69e2240393d04387150a8d6f28fa4562b3bd394baa5025bcc7d0f26abe88a98db7e06"
+}

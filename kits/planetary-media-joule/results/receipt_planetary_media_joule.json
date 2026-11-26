@@ -1,0 +1,26 @@
+{
+  "body": {
+    "schema": "openie.signed_provenance_receipt.v1",
+    "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+    "self_attested_not_third_party_verified": true,
+    "kit_id": "kits/planetary-media-joule/multi-substrate",
+    "domain_context": "openie.kit.planetary_media_joule.multi_substrate_receipt.v1",
+    "issued_utc": "2026-11-26T20:10:33Z",
+    "payload": {
+      "iso24495_script_sha256": "e743ebcaec1a3330d76e9cbaa2e90f649945f5f0eb706cf95d3e983593578f64",
+      "measured_j_boards": [
+        "nvidia_jetson_agx_thor_ina238_ina3221",
+        "amd_kria_kv260_ina260"
+      ],
+      "reported_j_hosts": [
+        "amd_ryzen_ai_max_395_rapl"
+      ],
+      "cloud_tts_j_per_min": null,
+      "cloud_tts_energy_class": "unmetered",
+      "bundle_blake3": "7805d9f3013a46453d315d4c4635613720a1630a929a08f212ee90546b556f36"
+    }
+  },
+  "body_blake3": "5f2fba088308762648bf3f9dc6ee681bce80df06fb48d5523fee48b89e9b4fa9",
+  "ed25519_public_key_hex": "d0fad47df836a1dc01306357a6b9a1ae61d1079ef7a27a9f31cc6b977fb9252b",
+  "ed25519_signature_hex": "ab57194aa356e8979e074e6678afdfc817c20fa89f1c7466e3487d5d28121e74477acac60a124ced233199d6cf182760b0a4bbda2747538de6081ededb921805"
+}

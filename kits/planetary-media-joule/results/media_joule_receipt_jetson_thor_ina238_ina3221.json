@@ -1,0 +1,30 @@
+{
+  "body": {
+    "schema": "openie.signed_provenance_receipt.v1",
+    "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+    "self_attested_not_third_party_verified": true,
+    "kit_id": "kits/planetary-media-joule",
+    "domain_context": "openie.kit.planetary_media_joule.receipt.v1",
+    "issued_utc": "2026-11-26T20:09:14Z",
+    "payload": {
+      "substrate_id": "jetson_agx_thor_ina3221",
+      "energy_evidence_class": "measured_j",
+      "script_sha256": "e743ebcaec1a3330d76e9cbaa2e90f649945f5f0eb706cf95d3e983593578f64",
+      "stages_metered": [
+        "tts_piper_or_kokoro_cpu",
+        "asr_whisper_base_cpu",
+        "asr_whisper_large_v3_turbo_cpu",
+        "render_1080p60_mp4",
+        "render_lowbw_mobile_15s_mp4",
+        "render_opus_24k_voicenote",
+        "render_voiced_ad_mix",
+        "elevenlabs_v4_cloud"
+      ],
+      "cloud_tts_energy_class": "unmetered",
+      "results_blake3": "65610ac8687466949a64f4f3cf3cfa332f161591c3f1de44b2490d1bffc19a0a"
+    }
+  },
+  "body_blake3": "dd78b208eb1ee0d45a2449cbd3edca7ae087d200e13eaa2bda250c87e5f370cf",
+  "ed25519_public_key_hex": "7581d9ec3bbc0edd820a16f39abda27239d8be8c97311a7ec2daa02c5f53220c",
+  "ed25519_signature_hex": "dd940cf04cfa74c4a166391a2b6596e4315dff3aaf14cca8e01a15ed86bc53b98f63525f3ccb48b55ccd9270de26814f46736be75fc174ac9400855ceacd240b"
+}
