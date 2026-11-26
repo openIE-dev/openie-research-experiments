@@ -1,0 +1,23 @@
+{
+  "body": {
+    "schema": "openie.signed_provenance_receipt.v1",
+    "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+    "self_attested_not_third_party_verified": true,
+    "kit_id": "kits/deterministic-null-suite/real-llm-crystallization",
+    "domain_context": "openie.kit.dnull_real_llm.receipt.v1",
+    "issued_utc": "2026-11-26T13:51:06Z",
+    "payload": {
+      "substrate_id": "x86_rapl",
+      "hf_model": "Qwen/Qwen2.5-0.5B-Instruct-GGUF/qwen2.5-0.5b-instruct-q4_k_m.gguf",
+      "gguf_sha256": "74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db",
+      "subset90_sha256": "e9115baa0110448ce273ef951eeab4b3d927ad526087e75f00fae94092f27844",
+      "cold_llm_accuracy": 0.3667,
+      "zipf085_stream_accuracy": 0.8933,
+      "energy_evidence_class": "reported_j",
+      "results_blake3": "1a6a5361efe6b2d6cf0cc635e435a3f08f163b3f1e8c14034dca58a7eb5a188d"
+    }
+  },
+  "body_blake3": "b44cff65bee5910e401210840974695dfb32645aa17a9f15e65642cc345faf8d",
+  "ed25519_public_key_hex": "b89ae3793cb4d5e42275256b5c24690fd71eabae03b1b7e6a27a2c4755fae170",
+  "ed25519_signature_hex": "07722b44a1c8d692f6c15d887abc438f6d3b86e107c86d2a082ae6b9890ca8ee6a94ca376528e75b576ddf9d6fe4282b664f62fc926dc955ba808181b86f0e0c"
+}

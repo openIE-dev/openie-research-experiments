@@ -1,0 +1,23 @@
+{
+  "body": {
+    "schema": "openie.signed_provenance_receipt.v1",
+    "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+    "self_attested_not_third_party_verified": true,
+    "kit_id": "kits/deterministic-null-suite/real-llm-crystallization",
+    "domain_context": "openie.kit.dnull_real_llm.receipt.v1",
+    "issued_utc": "2026-11-26T13:04:31Z",
+    "payload": {
+      "substrate_id": "jetson_agx_thor_ina3221",
+      "hf_model": "Qwen/Qwen2.5-0.5B-Instruct-GGUF/qwen2.5-0.5b-instruct-q4_k_m.gguf",
+      "gguf_sha256": "74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db",
+      "subset90_sha256": "e9115baa0110448ce273ef951eeab4b3d927ad526087e75f00fae94092f27844",
+      "cold_llm_accuracy": 0.3667,
+      "zipf085_stream_accuracy": 0.8933,
+      "energy_evidence_class": "measured_j",
+      "results_blake3": "2b4c9e804e9e1d979e267bbb681ebf15e95b13162eeed0be050def24abad3fa1"
+    }
+  },
+  "body_blake3": "ffdbfafc79fc6d63e9aade989383c53889742b8d3bf937430547f2aa9c17d738",
+  "ed25519_public_key_hex": "a551ebbd52f6064aec4070b5525b29c524ff7cc03241cf1cb1bb4c96ea2e6792",
+  "ed25519_signature_hex": "9119b7105765b07bebe58f41a1dff353a1db62349215c364506f1fc34c8816ea1a04b88ffb4791e05b6eeb065775a33b6e7af7aa6b49c6b909eaf9042e3a6307"
+}

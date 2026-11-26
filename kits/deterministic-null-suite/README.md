@@ -38,3 +38,18 @@ python3 kits/deterministic-null-suite/dnull_suite/suite_runner.py   --openai-com
 
 - Dynamically meters physical DC current shunts (`TI INA260 SOM_5V_DC` on `AMD Kria KV260`; `TI INA3221 VDD_CPU_SOC_MSS` + `TI INA238 VIN` on `NVIDIA Jetson AGX Thor`) as **`measured_j`**, rootless Linux `powercap` RAPL as **`reported_j`**, and unprivileged hosts as **`unmetered`**.
 - Multi-substrate receipts live in [`results/multi_substrate_receipts.json`](./results/multi_substrate_receipts.json) and [`RESULTS.md`](./RESULTS.md).
+
+---
+
+## 4. Real Pretrained Open-Weight Transformer (`Qwen2.5-0.5B-Instruct`) + Verified Crystallization
+
+To evaluate a real pretrained 24-layer Transformer LLM (`Qwen/Qwen2.5-0.5B-Instruct-GGUF` `Q4_K_M`, `494M` parameters, `SHA-256 = 74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db`, greedy `temperature = 0.0`, `top_k = 1`, `seed = 20261126`, `cache_prompt = false`) head-to-head against all 5 classical control arms AND a 3-stage **Verified Downward Crystallization (`t = 1 -> t = 2` & `300`-query `Zipf(0.85)` live stream)** on the `SHA-256`-pinned confirmatory subset (`N = 90`, `30` per stratum, `SHA-256 = e9115baa0110448ce273ef951eeab4b3d927ad526087e75f00fae94092f27844`):
+
+```bash
+python3 kits/deterministic-null-suite/real_llm_eval.py \
+  --llama-server-bin /path/to/llama-server \
+  --auto-download-gguf
+```
+
+- **Scope Note (per 25 Nov 2026 Review):** Stage-1 `<= 4 KiB` crystallized LUT hits measure exact content-addressed recall on recurring verified inputs (`C(x, z) == 1`), **not** unseen cold generalization; unseen structured/constraint arrivals route to Stage-2 classical rules/DPLL and unseen open compositional arrivals escalate to the live Transformer.
+- **Committed Multi-Substrate Hardware Receipts (`measured_j` & `reported_j`):** [`results/real_llm_multi_substrate_receipts.json`](./results/real_llm_multi_substrate_receipts.json) and [`results/receipt_real_llm_crystallization.json`](./results/receipt_real_llm_crystallization.json) (see [`RESULTS.md`](./RESULTS.md) §4).

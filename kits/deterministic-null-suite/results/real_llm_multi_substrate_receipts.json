@@ -1,0 +1,1708 @@
+{
+  "schema": "openie.deterministic_null_real_llm_multi_substrate.v1",
+  "kit_id": "kits/deterministic-null-suite/real-llm-crystallization",
+  "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+  "license": "Apache-2.0",
+  "energy_orthogonality_note": "measured_j (physical TI INA260 SOM_5V_DC on AMD Kria KV260 and TI INA3221 VDD_CPU_SOC_MSS + TI INA238 VIN on NVIDIA Jetson AGX Thor) and reported_j (Linux powercap RAPL on AMD Ryzen AI Max+ 395) are strictly separated and NEVER summed or cross-ratioed across meter classes.",
+  "crystallization_scope_note": "Per the 25 Nov 2026 outside review, Stage-1 <= 4 KiB LUT hits measure exact content-addressed recall on recurring verified inputs (C(x, z) == 1), NOT unseen cold generalization; unseen structured/constraint arrivals route to Stage-2 classical rules/DPLL and unseen open compositional arrivals escalate to the live Transformer.",
+  "pretrained_model": {
+    "hf_repo_and_file": "Qwen/Qwen2.5-0.5B-Instruct-GGUF/qwen2.5-0.5b-instruct-q4_k_m.gguf",
+    "architecture": "Qwen2.5-0.5B-Instruct (24-layer Transformer, 494M params, GGUF Q4_K_M)",
+    "gguf_sha256": "74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db",
+    "gguf_size_bytes": 491400032,
+    "temperature": 0.0,
+    "top_k": 1,
+    "seed": 20261126,
+    "cache_prompt": false,
+    "pooled_spot_check_runs": 30,
+    "pooled_spot_check_divergences": 0,
+    "pooled_clopper_pearson_95_upper_bound": 0.095034,
+    "cross_arch_exact_metric_agreement": true
+  },
+  "confirmatory_subset90": {
+    "n_instances_total": 90,
+    "instances_per_stratum": 30,
+    "prompts_and_labels_sha256": "e9115baa0110448ce273ef951eeab4b3d927ad526087e75f00fae94092f27844",
+    "prompts_and_labels_blake3": "e4c459518ef21e58da31fc09f91f13bd0d52e914125ba8e9f6a4a530e7aaeb5d"
+  },
+  "measured_j_substrates": {
+    "amd_kria_kv260_ina260": {
+      "results": {
+        "schema": "openie.deterministic_null_real_llm_crystallization.v1",
+        "kit_id": "kits/deterministic-null-suite/real-llm-crystallization",
+        "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+        "license": "Apache-2.0",
+        "host": {
+          "cpu_model": "ZynqMP KV260 revB (Cortex-A53, aarch64)",
+          "logical_cpus": 4,
+          "ram_gib": 3.81,
+          "os_kernel": "Linux 6.8.0-1036-xilinx aarch64",
+          "python_version": "3.12.3",
+          "cc_version": "GCC 13.3.0",
+          "recorded_utc": "2026-11-26T13:00:36Z"
+        },
+        "energy_telemetry": {
+          "evidence_class": "measured_j",
+          "board_metered": true,
+          "substrate_id": "amd_kria_kv260_ina260",
+          "primary_sensor": "TI INA260 (ina260_u14)",
+          "primary_rail": "SOM_5V_DC",
+          "primary_sysfs_paths": [
+            "/sys/class/hwmon/hwmon2/power1_input"
+          ],
+          "secondary_sensor": null,
+          "secondary_rail": null,
+          "secondary_sysfs_path": null,
+          "reported_j_available": false,
+          "est_j_mixed": false,
+          "idle_a1_pre": {
+            "window_s": 1.0,
+            "raw_mean_w": 3.2668,
+            "trimmed_mean_w": 3.263,
+            "secondary_raw_mean_w": null,
+            "secondary_trimmed_mean_w": null,
+            "shunt_samples": 233,
+            "sample_rate_hz": 231.7,
+            "rail_breakdown_w": {
+              "SOM_5V_DC": 3.25,
+              "bus_mv": 5027,
+              "shunt_ma": 661
+            }
+          },
+          "idle_a2_post": {
+            "window_s": 1.0,
+            "raw_mean_w": 3.2785,
+            "trimmed_mean_w": 3.2771,
+            "secondary_raw_mean_w": null,
+            "secondary_trimmed_mean_w": null,
+            "shunt_samples": 234,
+            "sample_rate_hz": 232.7,
+            "rail_breakdown_w": {
+              "SOM_5V_DC": 3.28,
+              "bus_mv": 5027,
+              "shunt_ma": 652
+            }
+          },
+          "idle_trimmed_mean_w": 3.27,
+          "idle_drift_pct": 0.43,
+          "falsifier_6_idle_drift_threshold_pct": 5.0,
+          "falsifier_6_idle_drift_flag": false
+        },
+        "pretrained_model": {
+          "hf_repo_and_file": "Qwen/Qwen2.5-0.5B-Instruct-GGUF/qwen2.5-0.5b-instruct-q4_k_m.gguf",
+          "architecture": "Qwen2.5-0.5B-Instruct (24-layer Transformer, 494M params, GGUF Q4_K_M)",
+          "gguf_sha256": "74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db",
+          "gguf_size_bytes": 491400032,
+          "inference_engine": "llama.cpp llama-server (CPU-only, -ngl 0, cache_prompt=false)",
+          "cpu_threads": 4,
+          "temperature": 0.0,
+          "top_k": 1,
+          "seed": 20261126,
+          "max_tokens": 12,
+          "spot_check_determinism_runs": 10,
+          "spot_check_divergences": 0,
+          "clopper_pearson_95_upper_bound_divergence": 0.258866
+        },
+        "confirmatory_subset_precommitment": {
+          "n_instances_total": 90,
+          "instances_per_stratum": 30,
+          "prompts_and_labels_sha256": "e9115baa0110448ce273ef951eeab4b3d927ad526087e75f00fae94092f27844",
+          "prompts_and_labels_blake3": "e4c459518ef21e58da31fc09f91f13bd0d52e914125ba8e9f6a4a530e7aaeb5d",
+          "lut_cap_bytes": 4096
+        },
+        "classical_arms_on_identical_subset90": {
+          "arm1_lookup_table": {
+            "category": "classical_automation",
+            "reps_per_trial": 7062,
+            "n_instances": 90,
+            "correct": 71,
+            "overall_accuracy": 0.7889,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 0.9667,
+              "open_compositional_patch_triage": 0.4
+            },
+            "wall_ns_per_correct": {
+              "n": 6,
+              "median": 325.47,
+              "p25": 325.42,
+              "p75": 325.48,
+              "iqr": 0.06,
+              "min": 325.39,
+              "max": 325.64
+            },
+            "gross_rail_measured_uj_per_correct": {
+              "n": 6,
+              "median": 1.1249,
+              "p25": 1.1231,
+              "p75": 1.1255,
+              "iqr": 0.0024,
+              "min": 1.1225,
+              "max": 1.1288
+            },
+            "secondary_carrier_measured_uj_per_correct": null,
+            "pkg_reported_uj_per_correct": null,
+            "shunt_samples_median": 39,
+            "net_above_idle_a1_a2_measured_uj_per_correct": {
+              "n": 6,
+              "median": 0.0602,
+              "p25": 0.0584,
+              "p75": 0.0607,
+              "iqr": 0.0022,
+              "min": 0.0573,
+              "max": 0.0642
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false
+          },
+          "arm2_if_else_guards": {
+            "category": "classical_automation",
+            "reps_per_trial": 13209,
+            "n_instances": 90,
+            "correct": 57,
+            "overall_accuracy": 0.6333,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 0.5667,
+              "open_compositional_patch_triage": 0.3333
+            },
+            "wall_ns_per_correct": {
+              "n": 6,
+              "median": 65.94,
+              "p25": 65.93,
+              "p75": 65.95,
+              "iqr": 0.02,
+              "min": 65.92,
+              "max": 65.99
+            },
+            "gross_rail_measured_uj_per_correct": {
+              "n": 6,
+              "median": 0.2322,
+              "p25": 0.2317,
+              "p75": 0.2324,
+              "iqr": 0.0007,
+              "min": 0.2312,
+              "max": 0.2328
+            },
+            "secondary_carrier_measured_uj_per_correct": null,
+            "pkg_reported_uj_per_correct": null,
+            "shunt_samples_median": 13,
+            "net_above_idle_a1_a2_measured_uj_per_correct": {
+              "n": 6,
+              "median": 0.0163,
+              "p25": 0.0157,
+              "p75": 0.0165,
+              "iqr": 0.0008,
+              "min": 0.0153,
+              "max": 0.0167
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false
+          },
+          "arm3_bounded_for_loop": {
+            "category": "classical_automation",
+            "reps_per_trial": 929,
+            "n_instances": 90,
+            "correct": 63,
+            "overall_accuracy": 0.7,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 0.5,
+              "open_compositional_patch_triage": 0.6
+            },
+            "wall_ns_per_correct": {
+              "n": 6,
+              "median": 10876.53,
+              "p25": 10876.27,
+              "p75": 10878.56,
+              "iqr": 2.29,
+              "min": 10875.35,
+              "max": 10880.63
+            },
+            "gross_rail_measured_uj_per_correct": {
+              "n": 6,
+              "median": 37.3093,
+              "p25": 37.2878,
+              "p75": 37.3254,
+              "iqr": 0.0376,
+              "min": 37.2566,
+              "max": 37.5283
+            },
+            "secondary_carrier_measured_uj_per_correct": null,
+            "pkg_reported_uj_per_correct": null,
+            "shunt_samples_median": 149,
+            "net_above_idle_a1_a2_measured_uj_per_correct": {
+              "n": 6,
+              "median": 1.7334,
+              "p25": 1.7146,
+              "p75": 1.7535,
+              "iqr": 0.0389,
+              "min": 1.6829,
+              "max": 1.9411
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false
+          },
+          "arm4_decision_tree": {
+            "category": "classical_automation",
+            "reps_per_trial": 12220,
+            "n_instances": 90,
+            "correct": 71,
+            "overall_accuracy": 0.7889,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 0.9667,
+              "combinatorial_constraint_3sat": 0.9,
+              "open_compositional_patch_triage": 0.5
+            },
+            "wall_ns_per_correct": {
+              "n": 6,
+              "median": 108.46,
+              "p25": 108.45,
+              "p75": 108.51,
+              "iqr": 0.06,
+              "min": 108.45,
+              "max": 108.59
+            },
+            "gross_rail_measured_uj_per_correct": {
+              "n": 6,
+              "median": 0.3767,
+              "p25": 0.3763,
+              "p75": 0.3769,
+              "iqr": 0.0006,
+              "min": 0.3761,
+              "max": 0.377
+            },
+            "secondary_carrier_measured_uj_per_correct": null,
+            "pkg_reported_uj_per_correct": null,
+            "shunt_samples_median": 23,
+            "net_above_idle_a1_a2_measured_uj_per_correct": {
+              "n": 6,
+              "median": 0.0217,
+              "p25": 0.0213,
+              "p75": 0.0219,
+              "iqr": 0.0006,
+              "min": 0.0209,
+              "max": 0.0221
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false
+          },
+          "arm5_compiled_solver_rules": {
+            "category": "classical_automation",
+            "reps_per_trial": 426,
+            "n_instances": 90,
+            "correct": 79,
+            "overall_accuracy": 0.8778,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 1.0,
+              "open_compositional_patch_triage": 0.6333
+            },
+            "wall_ns_per_correct": {
+              "n": 6,
+              "median": 19511.79,
+              "p25": 19511.27,
+              "p75": 19513.59,
+              "iqr": 2.32,
+              "min": 19510.28,
+              "max": 19515.37
+            },
+            "gross_rail_measured_uj_per_correct": {
+              "n": 6,
+              "median": 67.0355,
+              "p25": 66.963,
+              "p75": 67.0668,
+              "iqr": 0.1037,
+              "min": 66.9405,
+              "max": 67.3131
+            },
+            "secondary_carrier_measured_uj_per_correct": null,
+            "pkg_reported_uj_per_correct": null,
+            "shunt_samples_median": 153,
+            "net_above_idle_a1_a2_measured_uj_per_correct": {
+              "n": 6,
+              "median": 3.2228,
+              "p25": 3.1497,
+              "p75": 3.2455,
+              "iqr": 0.0957,
+              "min": 3.1239,
+              "max": 3.4847
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false
+          },
+          "shape_d_classical_best": {
+            "category": "classical_automation_composite",
+            "reps_per_trial": 2664,
+            "n_instances": 90,
+            "correct": 79,
+            "overall_accuracy": 0.8778,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 1.0,
+              "open_compositional_patch_triage": 0.6333
+            },
+            "wall_ns_per_correct": {
+              "n": 6,
+              "median": 2553.16,
+              "p25": 2553.14,
+              "p75": 2553.44,
+              "iqr": 0.3,
+              "min": 2553.08,
+              "max": 2553.74
+            },
+            "gross_rail_measured_uj_per_correct": {
+              "n": 6,
+              "median": 8.784,
+              "p25": 8.7831,
+              "p75": 8.7967,
+              "iqr": 0.0136,
+              "min": 8.7796,
+              "max": 8.8081
+            },
+            "secondary_carrier_measured_uj_per_correct": null,
+            "pkg_reported_uj_per_correct": null,
+            "shunt_samples_median": 126,
+            "net_above_idle_a1_a2_measured_uj_per_correct": {
+              "n": 6,
+              "median": 0.4333,
+              "p25": 0.4309,
+              "p75": 0.4461,
+              "iqr": 0.0152,
+              "min": 0.4289,
+              "max": 0.4562
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false
+          },
+          "candidate_dense_mlp_int16": {
+            "category": "neural_candidate",
+            "reps_per_trial": 80,
+            "n_instances": 90,
+            "correct": 58,
+            "overall_accuracy": 0.6444,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 0.4,
+              "combinatorial_constraint_3sat": 0.8333,
+              "open_compositional_patch_triage": 0.7
+            },
+            "wall_ns_per_correct": {
+              "n": 6,
+              "median": 146309.95,
+              "p25": 146294.16,
+              "p75": 146322.71,
+              "iqr": 28.55,
+              "min": 146274.87,
+              "max": 146341.15
+            },
+            "gross_rail_measured_uj_per_correct": {
+              "n": 6,
+              "median": 506.1481,
+              "p25": 506.0355,
+              "p75": 506.3846,
+              "iqr": 0.3491,
+              "min": 505.531,
+              "max": 507.4849
+            },
+            "secondary_carrier_measured_uj_per_correct": null,
+            "pkg_reported_uj_per_correct": null,
+            "shunt_samples_median": 158,
+            "net_above_idle_a1_a2_measured_uj_per_correct": {
+              "n": 6,
+              "median": 27.6054,
+              "p25": 27.4264,
+              "p75": 27.8809,
+              "iqr": 0.4544,
+              "min": 27.1047,
+              "max": 28.9021
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false
+          }
+        },
+        "pretrained_transformer_cold_t1": {
+          "n_instances": 90,
+          "correct": 33,
+          "overall_accuracy": 0.3667,
+          "stratum_accuracy": {
+            "bounded_api_dispatch": 0.0333,
+            "combinatorial_constraint_3sat": 0.9667,
+            "open_compositional_patch_triage": 0.1
+          },
+          "prompt_tokens_total": 19786,
+          "completion_tokens_total": 180,
+          "energy_and_latency": {
+            "evidence_class": "measured_j",
+            "wall_ms_total": 1837142.721,
+            "wall_us_per_correct": 55670991.546,
+            "gross_rail_measured_uj_per_correct": 236975509.9091,
+            "net_above_idle_a1_a2_measured_uj_per_correct": 54931367.5555,
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+            "secondary_carrier_measured_uj_per_correct": null,
+            "shunt_samples": 396772,
+            "pkg_reported_uj_per_correct": null,
+            "core_reported_uj_per_correct": null
+          }
+        },
+        "verified_downward_crystallization_t2": {
+          "scope_note": "Stage-1 <= 4 KiB LUT hits measure exact content-addressed recall on recurring verified inputs (C(x, z) == 1), NOT unseen cold generalization; unseen structured/constraint arrivals route to Stage-2 classical rules/DPLL and unseen open triage arrivals escalate to the live Transformer.",
+          "llm_own_verified_admissions_t1": 33,
+          "t2_exact_replay_90_with_shape_d_fallback": {
+            "n_instances": 90,
+            "lut_hits": 33,
+            "correct": 81,
+            "accuracy": 0.9,
+            "reps_measured": 9212,
+            "energy_and_latency": {
+              "evidence_class": "measured_j",
+              "wall_ms_total": 13.16,
+              "wall_us_per_correct": 0.018,
+              "gross_rail_measured_uj_per_correct": 0.0839,
+              "net_above_idle_a1_a2_measured_uj_per_correct": 0.0262,
+              "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+              "secondary_carrier_measured_uj_per_correct": null,
+              "shunt_samples": 5,
+              "pkg_reported_uj_per_correct": null,
+              "core_reported_uj_per_correct": null
+            }
+          },
+          "compiled_agency_zipf085_live_stream": {
+            "stream_queries": 300,
+            "zipf_skew_s": 0.85,
+            "recurring_fraction": 0.85,
+            "unseen_cold_arrival_fraction": 0.15,
+            "stage_routing_counts": {
+              "stage1_crystallized_lut": 236,
+              "stage2_classical_solver": 29,
+              "stage3_live_llm_escalated": 35
+            },
+            "stage_routing_fractions": {
+              "stage1_crystallized_lut": 0.7867,
+              "stage2_classical_solver": 0.0967,
+              "stage3_live_llm_escalated": 0.1167
+            },
+            "correct": 268,
+            "accuracy": 0.8933,
+            "energy_and_latency": {
+              "evidence_class": "measured_j",
+              "wall_ms_total": 721778.1483,
+              "wall_us_per_correct": 2693202.046,
+              "gross_rail_measured_uj_per_correct": 11466963.1455,
+              "net_above_idle_a1_a2_measured_uj_per_correct": 2660192.4591,
+              "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+              "secondary_carrier_measured_uj_per_correct": null,
+              "shunt_samples": 155893,
+              "pkg_reported_uj_per_correct": null,
+              "core_reported_uj_per_correct": null
+            }
+          }
+        },
+        "paired_cold_llm_vs_shape_d_classical": {
+          "overall_90": {
+            "n_instances": 90,
+            "candidate_accuracy": 0.366667,
+            "null_accuracy": 0.877778,
+            "delta_accuracy_cand_minus_null": -0.511111,
+            "delta_accuracy_95ci": [
+              -0.623196,
+              -0.399027
+            ],
+            "mcnemar_contingency": {
+              "both_correct": 31,
+              "candidate_only_correct": 2,
+              "null_only_correct": 48,
+              "both_wrong": 9
+            },
+            "mcnemar_exact_two_sided_p": 0.0
+          },
+          "by_stratum": {
+            "bounded_api_dispatch": {
+              "n_instances": 30,
+              "candidate_accuracy": 0.033333,
+              "null_accuracy": 1.0,
+              "delta_accuracy_cand_minus_null": -0.966667,
+              "delta_accuracy_95ci": [
+                -1.030902,
+                -0.902431
+              ],
+              "mcnemar_contingency": {
+                "both_correct": 1,
+                "candidate_only_correct": 0,
+                "null_only_correct": 29,
+                "both_wrong": 0
+              },
+              "mcnemar_exact_two_sided_p": 0.0
+            },
+            "combinatorial_constraint_3sat": {
+              "n_instances": 30,
+              "candidate_accuracy": 0.966667,
+              "null_accuracy": 1.0,
+              "delta_accuracy_cand_minus_null": -0.033333,
+              "delta_accuracy_95ci": [
+                -0.097569,
+                0.030902
+              ],
+              "mcnemar_contingency": {
+                "both_correct": 29,
+                "candidate_only_correct": 0,
+                "null_only_correct": 1,
+                "both_wrong": 0
+              },
+              "mcnemar_exact_two_sided_p": 1.0
+            },
+            "open_compositional_patch_triage": {
+              "n_instances": 30,
+              "candidate_accuracy": 0.1,
+              "null_accuracy": 0.633333,
+              "delta_accuracy_cand_minus_null": -0.533333,
+              "delta_accuracy_95ci": [
+                -0.754568,
+                -0.312099
+              ],
+              "mcnemar_contingency": {
+                "both_correct": 1,
+                "candidate_only_correct": 2,
+                "null_only_correct": 18,
+                "both_wrong": 9
+              },
+              "mcnemar_exact_two_sided_p": 0.000402
+            }
+          },
+          "same_meter_energy_ratios": {
+            "evidence_class": "measured_j",
+            "cold_llm_over_shape_d_classical_x": 26978086.28,
+            "cold_llm_over_stage1_lut_x": 210663623.35,
+            "cold_llm_over_crystallized_t2_replay_x": 2824499522.16,
+            "cold_llm_over_zipf085_compiled_agency_stream_x": 20.67
+          }
+        }
+      },
+      "signed_receipt": {
+        "body": {
+          "schema": "openie.signed_provenance_receipt.v1",
+          "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+          "self_attested_not_third_party_verified": true,
+          "kit_id": "kits/deterministic-null-suite/real-llm-crystallization",
+          "domain_context": "openie.kit.dnull_real_llm.receipt.v1",
+          "issued_utc": "2026-11-26T13:47:14Z",
+          "payload": {
+            "substrate_id": "amd_kria_kv260_ina260",
+            "hf_model": "Qwen/Qwen2.5-0.5B-Instruct-GGUF/qwen2.5-0.5b-instruct-q4_k_m.gguf",
+            "gguf_sha256": "74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db",
+            "subset90_sha256": "e9115baa0110448ce273ef951eeab4b3d927ad526087e75f00fae94092f27844",
+            "cold_llm_accuracy": 0.3667,
+            "zipf085_stream_accuracy": 0.8933,
+            "energy_evidence_class": "measured_j",
+            "results_blake3": "ae63ac8e02d0ef11f04ad806da69371a10df2afea626c6745c953961b0c9d58c"
+          }
+        },
+        "body_blake3": "c5689f48bacbcc45f0fc327905b5a32d6f320f2ac46f3b6d686797db2a9b7166",
+        "ed25519_public_key_hex": "71535b0c6babb7e81a163ef6ffa537b47f62ecef175b5596f1c0e670c3aae2d8",
+        "ed25519_signature_hex": "2cd679f1c3f82f3bbec7e426bce3335bab6e55fe6b28e891c3e6d20bf3f8f95ac22f95979301eb2d6cf7b5583c1a35631e4a4eda8ab6616e828ab743c7e5280d"
+      }
+    },
+    "nvidia_jetson_agx_thor_ina3221_ina238": {
+      "results": {
+        "schema": "openie.deterministic_null_real_llm_crystallization.v1",
+        "kit_id": "kits/deterministic-null-suite/real-llm-crystallization",
+        "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+        "license": "Apache-2.0",
+        "host": {
+          "cpu_model": "NVIDIA Jetson AGX Thor Developer Kit (14-core aarch64)",
+          "logical_cpus": 14,
+          "ram_gib": 122.86,
+          "os_kernel": "Linux 6.8.12-1021-tegra aarch64",
+          "python_version": "3.12.3",
+          "cc_version": "GCC 13.3.0",
+          "recorded_utc": "2026-11-26T13:00:27Z"
+        },
+        "energy_telemetry": {
+          "evidence_class": "measured_j",
+          "board_metered": true,
+          "substrate_id": "jetson_agx_thor_ina3221",
+          "primary_sensor": "TI INA3221",
+          "primary_rail": "VDD_CPU_SOC_MSS",
+          "primary_sysfs_paths": [
+            "/sys/class/hwmon/hwmon6/in2_input",
+            "/sys/class/hwmon/hwmon6/curr2_input"
+          ],
+          "secondary_sensor": "TI INA238",
+          "secondary_rail": "VIN_CARRIER",
+          "secondary_sysfs_path": "/sys/class/hwmon/hwmon5/power1_input",
+          "reported_j_available": false,
+          "est_j_mixed": false,
+          "idle_a1_pre": {
+            "window_s": 1.0,
+            "raw_mean_w": 6.4948,
+            "trimmed_mean_w": 6.4526,
+            "secondary_raw_mean_w": 21.1658,
+            "secondary_trimmed_mean_w": 20.9496,
+            "shunt_samples": 207,
+            "sample_rate_hz": 205.6,
+            "rail_breakdown_w": {
+              "VDD_CPU_SOC_MSS": 6.3155,
+              "VIN_CARRIER": 20.852,
+              "VDD_GPU": 0.0,
+              "VIN_SYS_5V0": 6.695
+            }
+          },
+          "idle_a2_post": {
+            "window_s": 1.0,
+            "raw_mean_w": 6.8809,
+            "trimmed_mean_w": 6.6698,
+            "secondary_raw_mean_w": 17.7487,
+            "secondary_trimmed_mean_w": 17.7143,
+            "shunt_samples": 206,
+            "sample_rate_hz": 204.5,
+            "rail_breakdown_w": {
+              "VDD_CPU_SOC_MSS": 4.7366,
+              "VIN_CARRIER": 17.51,
+              "VDD_GPU": 0.0,
+              "VIN_SYS_5V0": 5.9755
+            }
+          },
+          "idle_trimmed_mean_w": 6.5612,
+          "idle_drift_pct": 3.31,
+          "falsifier_6_idle_drift_threshold_pct": 5.0,
+          "falsifier_6_idle_drift_flag": false
+        },
+        "pretrained_model": {
+          "hf_repo_and_file": "Qwen/Qwen2.5-0.5B-Instruct-GGUF/qwen2.5-0.5b-instruct-q4_k_m.gguf",
+          "architecture": "Qwen2.5-0.5B-Instruct (24-layer Transformer, 494M params, GGUF Q4_K_M)",
+          "gguf_sha256": "74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db",
+          "gguf_size_bytes": 491400032,
+          "inference_engine": "llama.cpp llama-server (CPU-only, -ngl 0, cache_prompt=false)",
+          "cpu_threads": 8,
+          "temperature": 0.0,
+          "top_k": 1,
+          "seed": 20261126,
+          "max_tokens": 12,
+          "spot_check_determinism_runs": 10,
+          "spot_check_divergences": 0,
+          "clopper_pearson_95_upper_bound_divergence": 0.258866
+        },
+        "confirmatory_subset_precommitment": {
+          "n_instances_total": 90,
+          "instances_per_stratum": 30,
+          "prompts_and_labels_sha256": "e9115baa0110448ce273ef951eeab4b3d927ad526087e75f00fae94092f27844",
+          "prompts_and_labels_blake3": "e4c459518ef21e58da31fc09f91f13bd0d52e914125ba8e9f6a4a530e7aaeb5d",
+          "lut_cap_bytes": 4096
+        },
+        "classical_arms_on_identical_subset90": {
+          "arm1_lookup_table": {
+            "category": "classical_automation",
+            "reps_per_trial": 7908,
+            "n_instances": 90,
+            "correct": 71,
+            "overall_accuracy": 0.7889,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 0.9667,
+              "open_compositional_patch_triage": 0.4
+            },
+            "wall_ns_per_correct": {
+              "n": 6,
+              "median": 74.39,
+              "p25": 74.34,
+              "p75": 74.42,
+              "iqr": 0.08,
+              "min": 74.31,
+              "max": 74.52
+            },
+            "gross_rail_measured_uj_per_correct": {
+              "n": 6,
+              "median": 0.5465,
+              "p25": 0.5457,
+              "p75": 0.5487,
+              "iqr": 0.0029,
+              "min": 0.5439,
+              "max": 0.5826
+            },
+            "secondary_carrier_measured_uj_per_correct": {
+              "n": 6,
+              "median": 1.628,
+              "p25": 1.6152,
+              "p75": 1.6997,
+              "iqr": 0.0845,
+              "min": 1.5967,
+              "max": 1.7748
+            },
+            "pkg_reported_uj_per_correct": null,
+            "shunt_samples_median": 10,
+            "net_above_idle_a1_a2_measured_uj_per_correct": {
+              "n": 6,
+              "median": 0.0584,
+              "p25": 0.0579,
+              "p75": 0.0599,
+              "iqr": 0.0021,
+              "min": 0.0556,
+              "max": 0.0933
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false
+          },
+          "arm2_if_else_guards": {
+            "category": "classical_automation",
+            "reps_per_trial": 25000,
+            "n_instances": 90,
+            "correct": 57,
+            "overall_accuracy": 0.6333,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 0.5667,
+              "open_compositional_patch_triage": 0.3333
+            },
+            "wall_ns_per_correct": {
+              "n": 6,
+              "median": 5.33,
+              "p25": 5.32,
+              "p75": 5.35,
+              "iqr": 0.02,
+              "min": 5.31,
+              "max": 5.36
+            },
+            "gross_rail_measured_uj_per_correct": {
+              "n": 6,
+              "median": 0.0439,
+              "p25": 0.0429,
+              "p75": 0.0445,
+              "iqr": 0.0016,
+              "min": 0.0427,
+              "max": 0.0446
+            },
+            "secondary_carrier_measured_uj_per_correct": {
+              "n": 6,
+              "median": 0.1334,
+              "p25": 0.1318,
+              "p75": 0.1362,
+              "iqr": 0.0044,
+              "min": 0.1311,
+              "max": 0.1396
+            },
+            "pkg_reported_uj_per_correct": null,
+            "shunt_samples_median": 3,
+            "net_above_idle_a1_a2_measured_uj_per_correct": {
+              "n": 6,
+              "median": 0.0088,
+              "p25": 0.0078,
+              "p75": 0.0096,
+              "iqr": 0.0018,
+              "min": 0.0075,
+              "max": 0.0096
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false
+          },
+          "arm3_bounded_for_loop": {
+            "category": "classical_automation",
+            "reps_per_trial": 5004,
+            "n_instances": 90,
+            "correct": 63,
+            "overall_accuracy": 0.7,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 0.5,
+              "open_compositional_patch_triage": 0.6
+            },
+            "wall_ns_per_correct": {
+              "n": 6,
+              "median": 994.47,
+              "p25": 991.76,
+              "p75": 996.41,
+              "iqr": 4.65,
+              "min": 978.74,
+              "max": 1000.68
+            },
+            "gross_rail_measured_uj_per_correct": {
+              "n": 6,
+              "median": 7.1259,
+              "p25": 7.0916,
+              "p75": 7.2619,
+              "iqr": 0.1703,
+              "min": 6.9955,
+              "max": 7.3021
+            },
+            "secondary_carrier_measured_uj_per_correct": {
+              "n": 6,
+              "median": 21.6155,
+              "p25": 21.5705,
+              "p75": 21.7992,
+              "iqr": 0.2287,
+              "min": 21.4969,
+              "max": 22.7696
+            },
+            "pkg_reported_uj_per_correct": null,
+            "shunt_samples_median": 66,
+            "net_above_idle_a1_a2_measured_uj_per_correct": {
+              "n": 6,
+              "median": 0.5777,
+              "p25": 0.5721,
+              "p75": 0.7178,
+              "iqr": 0.1457,
+              "min": 0.5643,
+              "max": 0.796
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false
+          },
+          "arm4_decision_tree": {
+            "category": "classical_automation",
+            "reps_per_trial": 9456,
+            "n_instances": 90,
+            "correct": 71,
+            "overall_accuracy": 0.7889,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 0.9667,
+              "combinatorial_constraint_3sat": 0.9,
+              "open_compositional_patch_triage": 0.5
+            },
+            "wall_ns_per_correct": {
+              "n": 6,
+              "median": 21.66,
+              "p25": 21.65,
+              "p75": 21.67,
+              "iqr": 0.02,
+              "min": 21.65,
+              "max": 21.68
+            },
+            "gross_rail_measured_uj_per_correct": {
+              "n": 6,
+              "median": 0.1683,
+              "p25": 0.1657,
+              "p75": 0.1706,
+              "iqr": 0.005,
+              "min": 0.1641,
+              "max": 0.1841
+            },
+            "secondary_carrier_measured_uj_per_correct": {
+              "n": 6,
+              "median": 0.5119,
+              "p25": 0.5061,
+              "p75": 0.5307,
+              "iqr": 0.0246,
+              "min": 0.4873,
+              "max": 0.561
+            },
+            "pkg_reported_uj_per_correct": null,
+            "shunt_samples_median": 5,
+            "net_above_idle_a1_a2_measured_uj_per_correct": {
+              "n": 6,
+              "median": 0.0261,
+              "p25": 0.0234,
+              "p75": 0.0278,
+              "iqr": 0.0044,
+              "min": 0.022,
+              "max": 0.0417
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false
+          },
+          "arm5_compiled_solver_rules": {
+            "category": "classical_automation",
+            "reps_per_trial": 1741,
+            "n_instances": 90,
+            "correct": 79,
+            "overall_accuracy": 0.8778,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 1.0,
+              "open_compositional_patch_triage": 0.6333
+            },
+            "wall_ns_per_correct": {
+              "n": 6,
+              "median": 1690.21,
+              "p25": 1672.81,
+              "p75": 1715.01,
+              "iqr": 42.2,
+              "min": 1667.74,
+              "max": 1787.5
+            },
+            "gross_rail_measured_uj_per_correct": {
+              "n": 6,
+              "median": 12.4435,
+              "p25": 12.1929,
+              "p75": 12.606,
+              "iqr": 0.413,
+              "min": 12.0713,
+              "max": 12.7533
+            },
+            "secondary_carrier_measured_uj_per_correct": {
+              "n": 6,
+              "median": 37.5815,
+              "p25": 37.3486,
+              "p75": 38.3401,
+              "iqr": 0.9914,
+              "min": 37.1088,
+              "max": 39.3496
+            },
+            "pkg_reported_uj_per_correct": null,
+            "shunt_samples_median": 50,
+            "net_above_idle_a1_a2_measured_uj_per_correct": {
+              "n": 6,
+              "median": 1.0246,
+              "p25": 1.0203,
+              "p75": 1.4777,
+              "iqr": 0.4574,
+              "min": 1.0113,
+              "max": 1.671
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false
+          },
+          "shape_d_classical_best": {
+            "category": "classical_automation_composite",
+            "reps_per_trial": 16113,
+            "n_instances": 90,
+            "correct": 79,
+            "overall_accuracy": 0.8778,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 1.0,
+              "open_compositional_patch_triage": 0.6333
+            },
+            "wall_ns_per_correct": {
+              "n": 6,
+              "median": 233.25,
+              "p25": 231.21,
+              "p75": 234.32,
+              "iqr": 3.12,
+              "min": 230.45,
+              "max": 235.0
+            },
+            "gross_rail_measured_uj_per_correct": {
+              "n": 6,
+              "median": 1.7672,
+              "p25": 1.7296,
+              "p75": 1.8018,
+              "iqr": 0.0722,
+              "min": 1.7122,
+              "max": 1.8159
+            },
+            "secondary_carrier_measured_uj_per_correct": {
+              "n": 6,
+              "median": 5.3093,
+              "p25": 5.26,
+              "p75": 5.3476,
+              "iqr": 0.0876,
+              "min": 5.1952,
+              "max": 5.5287
+            },
+            "pkg_reported_uj_per_correct": null,
+            "shunt_samples_median": 62,
+            "net_above_idle_a1_a2_measured_uj_per_correct": {
+              "n": 6,
+              "median": 0.2284,
+              "p25": 0.2009,
+              "p75": 0.281,
+              "iqr": 0.0801,
+              "min": 0.174,
+              "max": 0.3034
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false
+          },
+          "candidate_dense_mlp_int16": {
+            "category": "neural_candidate",
+            "reps_per_trial": 587,
+            "n_instances": 90,
+            "correct": 58,
+            "overall_accuracy": 0.6444,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 0.4,
+              "combinatorial_constraint_3sat": 0.8333,
+              "open_compositional_patch_triage": 0.7
+            },
+            "wall_ns_per_correct": {
+              "n": 6,
+              "median": 18292.97,
+              "p25": 18292.58,
+              "p75": 18296.41,
+              "iqr": 3.84,
+              "min": 18290.39,
+              "max": 18315.74
+            },
+            "gross_rail_measured_uj_per_correct": {
+              "n": 6,
+              "median": 123.0199,
+              "p25": 121.5407,
+              "p75": 125.5805,
+              "iqr": 4.0398,
+              "min": 116.2865,
+              "max": 133.9956
+            },
+            "secondary_carrier_measured_uj_per_correct": {
+              "n": 6,
+              "median": 395.166,
+              "p25": 392.0661,
+              "p75": 398.2906,
+              "iqr": 6.2245,
+              "min": 391.0332,
+              "max": 401.0877
+            },
+            "pkg_reported_uj_per_correct": null,
+            "shunt_samples_median": 129,
+            "net_above_idle_a1_a2_measured_uj_per_correct": {
+              "n": 6,
+              "median": 2.9931,
+              "p25": 1.5115,
+              "p75": 5.5293,
+              "iqr": 4.0178,
+              "min": 0.0,
+              "max": 13.8138
+            },
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false
+          }
+        },
+        "pretrained_transformer_cold_t1": {
+          "n_instances": 90,
+          "correct": 33,
+          "overall_accuracy": 0.3667,
+          "stratum_accuracy": {
+            "bounded_api_dispatch": 0.0333,
+            "combinatorial_constraint_3sat": 0.9667,
+            "open_compositional_patch_triage": 0.1
+          },
+          "prompt_tokens_total": 19786,
+          "completion_tokens_total": 180,
+          "energy_and_latency": {
+            "evidence_class": "measured_j",
+            "wall_ms_total": 154786.3182,
+            "wall_us_per_correct": 4690494.491,
+            "gross_rail_measured_uj_per_correct": 85309120.6667,
+            "net_above_idle_a1_a2_measured_uj_per_correct": 54533848.2527,
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+            "secondary_carrier_measured_uj_per_correct": 159348166.1818,
+            "shunt_samples": 30989,
+            "pkg_reported_uj_per_correct": null,
+            "core_reported_uj_per_correct": null
+          }
+        },
+        "verified_downward_crystallization_t2": {
+          "scope_note": "Stage-1 <= 4 KiB LUT hits measure exact content-addressed recall on recurring verified inputs (C(x, z) == 1), NOT unseen cold generalization; unseen structured/constraint arrivals route to Stage-2 classical rules/DPLL and unseen open triage arrivals escalate to the live Transformer.",
+          "llm_own_verified_admissions_t1": 33,
+          "t2_exact_replay_90_with_shape_d_fallback": {
+            "n_instances": 90,
+            "lut_hits": 33,
+            "correct": 81,
+            "accuracy": 0.9,
+            "reps_measured": 12381,
+            "energy_and_latency": {
+              "evidence_class": "measured_j",
+              "wall_ms_total": 1.0903,
+              "wall_us_per_correct": 0.001,
+              "gross_rail_measured_uj_per_correct": 0.0466,
+              "net_above_idle_a1_a2_measured_uj_per_correct": 0.0395,
+              "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+              "secondary_carrier_measured_uj_per_correct": 0.0597,
+              "shunt_samples": 2,
+              "pkg_reported_uj_per_correct": null,
+              "core_reported_uj_per_correct": null
+            }
+          },
+          "compiled_agency_zipf085_live_stream": {
+            "stream_queries": 300,
+            "zipf_skew_s": 0.85,
+            "recurring_fraction": 0.85,
+            "unseen_cold_arrival_fraction": 0.15,
+            "stage_routing_counts": {
+              "stage1_crystallized_lut": 236,
+              "stage2_classical_solver": 29,
+              "stage3_live_llm_escalated": 35
+            },
+            "stage_routing_fractions": {
+              "stage1_crystallized_lut": 0.7867,
+              "stage2_classical_solver": 0.0967,
+              "stage3_live_llm_escalated": 0.1167
+            },
+            "correct": 268,
+            "accuracy": 0.8933,
+            "energy_and_latency": {
+              "evidence_class": "measured_j",
+              "wall_ms_total": 58338.8371,
+              "wall_us_per_correct": 217682.228,
+              "gross_rail_measured_uj_per_correct": 3460888.8433,
+              "net_above_idle_a1_a2_measured_uj_per_correct": 2032632.2115,
+              "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+              "secondary_carrier_measured_uj_per_correct": 6718784.0485,
+              "shunt_samples": 11958,
+              "pkg_reported_uj_per_correct": null,
+              "core_reported_uj_per_correct": null
+            }
+          }
+        },
+        "paired_cold_llm_vs_shape_d_classical": {
+          "overall_90": {
+            "n_instances": 90,
+            "candidate_accuracy": 0.366667,
+            "null_accuracy": 0.877778,
+            "delta_accuracy_cand_minus_null": -0.511111,
+            "delta_accuracy_95ci": [
+              -0.623196,
+              -0.399027
+            ],
+            "mcnemar_contingency": {
+              "both_correct": 31,
+              "candidate_only_correct": 2,
+              "null_only_correct": 48,
+              "both_wrong": 9
+            },
+            "mcnemar_exact_two_sided_p": 0.0
+          },
+          "by_stratum": {
+            "bounded_api_dispatch": {
+              "n_instances": 30,
+              "candidate_accuracy": 0.033333,
+              "null_accuracy": 1.0,
+              "delta_accuracy_cand_minus_null": -0.966667,
+              "delta_accuracy_95ci": [
+                -1.030902,
+                -0.902431
+              ],
+              "mcnemar_contingency": {
+                "both_correct": 1,
+                "candidate_only_correct": 0,
+                "null_only_correct": 29,
+                "both_wrong": 0
+              },
+              "mcnemar_exact_two_sided_p": 0.0
+            },
+            "combinatorial_constraint_3sat": {
+              "n_instances": 30,
+              "candidate_accuracy": 0.966667,
+              "null_accuracy": 1.0,
+              "delta_accuracy_cand_minus_null": -0.033333,
+              "delta_accuracy_95ci": [
+                -0.097569,
+                0.030902
+              ],
+              "mcnemar_contingency": {
+                "both_correct": 29,
+                "candidate_only_correct": 0,
+                "null_only_correct": 1,
+                "both_wrong": 0
+              },
+              "mcnemar_exact_two_sided_p": 1.0
+            },
+            "open_compositional_patch_triage": {
+              "n_instances": 30,
+              "candidate_accuracy": 0.1,
+              "null_accuracy": 0.633333,
+              "delta_accuracy_cand_minus_null": -0.533333,
+              "delta_accuracy_95ci": [
+                -0.754568,
+                -0.312099
+              ],
+              "mcnemar_contingency": {
+                "both_correct": 1,
+                "candidate_only_correct": 2,
+                "null_only_correct": 18,
+                "both_wrong": 9
+              },
+              "mcnemar_exact_two_sided_p": 0.000402
+            }
+          },
+          "same_meter_energy_ratios": {
+            "evidence_class": "measured_j",
+            "cold_llm_over_shape_d_classical_x": 48273608.34,
+            "cold_llm_over_stage1_lut_x": 156100861.24,
+            "cold_llm_over_crystallized_t2_replay_x": 1830667825.47,
+            "cold_llm_over_zipf085_compiled_agency_stream_x": 24.65
+          }
+        }
+      },
+      "signed_receipt": {
+        "body": {
+          "schema": "openie.signed_provenance_receipt.v1",
+          "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+          "self_attested_not_third_party_verified": true,
+          "kit_id": "kits/deterministic-null-suite/real-llm-crystallization",
+          "domain_context": "openie.kit.dnull_real_llm.receipt.v1",
+          "issued_utc": "2026-11-26T13:04:31Z",
+          "payload": {
+            "substrate_id": "jetson_agx_thor_ina3221",
+            "hf_model": "Qwen/Qwen2.5-0.5B-Instruct-GGUF/qwen2.5-0.5b-instruct-q4_k_m.gguf",
+            "gguf_sha256": "74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db",
+            "subset90_sha256": "e9115baa0110448ce273ef951eeab4b3d927ad526087e75f00fae94092f27844",
+            "cold_llm_accuracy": 0.3667,
+            "zipf085_stream_accuracy": 0.8933,
+            "energy_evidence_class": "measured_j",
+            "results_blake3": "2b4c9e804e9e1d979e267bbb681ebf15e95b13162eeed0be050def24abad3fa1"
+          }
+        },
+        "body_blake3": "ffdbfafc79fc6d63e9aade989383c53889742b8d3bf937430547f2aa9c17d738",
+        "ed25519_public_key_hex": "a551ebbd52f6064aec4070b5525b29c524ff7cc03241cf1cb1bb4c96ea2e6792",
+        "ed25519_signature_hex": "9119b7105765b07bebe58f41a1dff353a1db62349215c364506f1fc34c8816ea1a04b88ffb4791e05b6eeb065775a33b6e7af7aa6b49c6b909eaf9042e3a6307"
+      }
+    }
+  },
+  "reported_j_substrates": {
+    "amd_ryzen_ai_max_395_rapl": {
+      "results": {
+        "schema": "openie.deterministic_null_real_llm_crystallization.v1",
+        "kit_id": "kits/deterministic-null-suite/real-llm-crystallization",
+        "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+        "license": "Apache-2.0",
+        "host": {
+          "cpu_model": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S",
+          "logical_cpus": 32,
+          "ram_gib": 122.83,
+          "os_kernel": "Linux 7.0.0-43-generic x86_64",
+          "python_version": "3.15.0",
+          "cc_version": "GCC 15.2.0",
+          "recorded_utc": "2026-11-26T13:00:26Z"
+        },
+        "energy_telemetry": {
+          "evidence_class": "reported_j",
+          "board_metered": false,
+          "substrate_id": "x86_rapl",
+          "measured_j": null,
+          "reported_j_available": true,
+          "est_j_mixed": false,
+          "package_counter": "/sys/class/powercap/intel-rapl:0/energy_uj",
+          "package_domain": "package-0",
+          "core_counter": "/sys/class/powercap/intel-rapl:0:0/energy_uj",
+          "core_domain": "core",
+          "idle_pkg_w_pre": 54.2609,
+          "idle_pkg_w_post": 62.9907,
+          "idle_drift_pct": 14.89
+        },
+        "pretrained_model": {
+          "hf_repo_and_file": "Qwen/Qwen2.5-0.5B-Instruct-GGUF/qwen2.5-0.5b-instruct-q4_k_m.gguf",
+          "architecture": "Qwen2.5-0.5B-Instruct (24-layer Transformer, 494M params, GGUF Q4_K_M)",
+          "gguf_sha256": "74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db",
+          "gguf_size_bytes": 491400032,
+          "inference_engine": "llama.cpp llama-server (CPU-only, -ngl 0, cache_prompt=false)",
+          "cpu_threads": 8,
+          "temperature": 0.0,
+          "top_k": 1,
+          "seed": 20261126,
+          "max_tokens": 12,
+          "spot_check_determinism_runs": 10,
+          "spot_check_divergences": 0,
+          "clopper_pearson_95_upper_bound_divergence": 0.258866
+        },
+        "confirmatory_subset_precommitment": {
+          "n_instances_total": 90,
+          "instances_per_stratum": 30,
+          "prompts_and_labels_sha256": "e9115baa0110448ce273ef951eeab4b3d927ad526087e75f00fae94092f27844",
+          "prompts_and_labels_blake3": "e4c459518ef21e58da31fc09f91f13bd0d52e914125ba8e9f6a4a530e7aaeb5d",
+          "lut_cap_bytes": 4096
+        },
+        "classical_arms_on_identical_subset90": {
+          "arm1_lookup_table": {
+            "category": "classical_automation",
+            "reps_per_trial": 4000,
+            "n_instances": 90,
+            "correct": 71,
+            "overall_accuracy": 0.7889,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 0.9667,
+              "open_compositional_patch_triage": 0.4
+            },
+            "wall_ns_per_correct": {
+              "n": 12,
+              "median": 50.95,
+              "p25": 50.94,
+              "p75": 52.73,
+              "iqr": 1.79,
+              "min": 50.72,
+              "max": 53.53
+            },
+            "gross_rail_measured_uj_per_correct": null,
+            "secondary_carrier_measured_uj_per_correct": null,
+            "pkg_reported_uj_per_correct": {
+              "n": 12,
+              "median": 3.211,
+              "p25": 3.1078,
+              "p75": 3.5748,
+              "iqr": 0.4669,
+              "min": 2.8334,
+              "max": 4.132
+            },
+            "shunt_samples_median": 0,
+            "net_above_idle_a1_a2_measured_uj_per_correct": null,
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false
+          },
+          "arm2_if_else_guards": {
+            "category": "classical_automation",
+            "reps_per_trial": 4000,
+            "n_instances": 90,
+            "correct": 57,
+            "overall_accuracy": 0.6333,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 0.5667,
+              "open_compositional_patch_triage": 0.3333
+            },
+            "wall_ns_per_correct": {
+              "n": 12,
+              "median": 3.36,
+              "p25": 3.23,
+              "p75": 3.5,
+              "iqr": 0.26,
+              "min": 3.22,
+              "max": 3.56
+            },
+            "gross_rail_measured_uj_per_correct": null,
+            "secondary_carrier_measured_uj_per_correct": null,
+            "pkg_reported_uj_per_correct": {
+              "n": 12,
+              "median": 0.2692,
+              "p25": 0.0,
+              "p75": 0.2779,
+              "iqr": 0.2779,
+              "min": 0.0,
+              "max": 0.3494
+            },
+            "shunt_samples_median": 0,
+            "net_above_idle_a1_a2_measured_uj_per_correct": null,
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false
+          },
+          "arm3_bounded_for_loop": {
+            "category": "classical_automation",
+            "reps_per_trial": 1120,
+            "n_instances": 90,
+            "correct": 63,
+            "overall_accuracy": 0.7,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 0.5,
+              "open_compositional_patch_triage": 0.6
+            },
+            "wall_ns_per_correct": {
+              "n": 12,
+              "median": 432.9,
+              "p25": 424.63,
+              "p75": 447.02,
+              "iqr": 22.39,
+              "min": 419.03,
+              "max": 473.01
+            },
+            "gross_rail_measured_uj_per_correct": null,
+            "secondary_carrier_measured_uj_per_correct": null,
+            "pkg_reported_uj_per_correct": {
+              "n": 12,
+              "median": 30.559,
+              "p25": 29.3565,
+              "p75": 31.3352,
+              "iqr": 1.9787,
+              "min": 28.1789,
+              "max": 32.9959
+            },
+            "shunt_samples_median": 0,
+            "net_above_idle_a1_a2_measured_uj_per_correct": null,
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false
+          },
+          "arm4_decision_tree": {
+            "category": "classical_automation",
+            "reps_per_trial": 3200,
+            "n_instances": 90,
+            "correct": 71,
+            "overall_accuracy": 0.7889,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 0.9667,
+              "combinatorial_constraint_3sat": 0.9,
+              "open_compositional_patch_triage": 0.5
+            },
+            "wall_ns_per_correct": {
+              "n": 12,
+              "median": 4.81,
+              "p25": 4.8,
+              "p75": 4.82,
+              "iqr": 0.02,
+              "min": 4.79,
+              "max": 4.85
+            },
+            "gross_rail_measured_uj_per_correct": null,
+            "secondary_carrier_measured_uj_per_correct": null,
+            "pkg_reported_uj_per_correct": {
+              "n": 12,
+              "median": 0.2797,
+              "p25": 0.2735,
+              "p75": 0.3393,
+              "iqr": 0.0658,
+              "min": 0.2695,
+              "max": 0.5549
+            },
+            "shunt_samples_median": 0,
+            "net_above_idle_a1_a2_measured_uj_per_correct": null,
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false
+          },
+          "arm5_compiled_solver_rules": {
+            "category": "classical_automation",
+            "reps_per_trial": 1120,
+            "n_instances": 90,
+            "correct": 79,
+            "overall_accuracy": 0.8778,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 1.0,
+              "open_compositional_patch_triage": 0.6333
+            },
+            "wall_ns_per_correct": {
+              "n": 12,
+              "median": 1990.41,
+              "p25": 1819.01,
+              "p75": 2026.45,
+              "iqr": 207.44,
+              "min": 1732.35,
+              "max": 2207.09
+            },
+            "gross_rail_measured_uj_per_correct": null,
+            "secondary_carrier_measured_uj_per_correct": null,
+            "pkg_reported_uj_per_correct": {
+              "n": 12,
+              "median": 134.7349,
+              "p25": 114.6356,
+              "p75": 136.0055,
+              "iqr": 21.37,
+              "min": 109.1325,
+              "max": 196.5004
+            },
+            "shunt_samples_median": 0,
+            "net_above_idle_a1_a2_measured_uj_per_correct": null,
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false
+          },
+          "shape_d_classical_best": {
+            "category": "classical_automation_composite",
+            "reps_per_trial": 1280,
+            "n_instances": 90,
+            "correct": 79,
+            "overall_accuracy": 0.8778,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 1.0,
+              "combinatorial_constraint_3sat": 1.0,
+              "open_compositional_patch_triage": 0.6333
+            },
+            "wall_ns_per_correct": {
+              "n": 12,
+              "median": 131.51,
+              "p25": 131.11,
+              "p75": 131.67,
+              "iqr": 0.56,
+              "min": 129.95,
+              "max": 135.23
+            },
+            "gross_rail_measured_uj_per_correct": null,
+            "secondary_carrier_measured_uj_per_correct": null,
+            "pkg_reported_uj_per_correct": {
+              "n": 12,
+              "median": 8.1931,
+              "p25": 8.0115,
+              "p75": 8.5708,
+              "iqr": 0.5593,
+              "min": 7.7567,
+              "max": 8.6576
+            },
+            "shunt_samples_median": 0,
+            "net_above_idle_a1_a2_measured_uj_per_correct": null,
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false
+          },
+          "candidate_dense_mlp_int16": {
+            "category": "neural_candidate",
+            "reps_per_trial": 144,
+            "n_instances": 90,
+            "correct": 58,
+            "overall_accuracy": 0.6444,
+            "stratum_accuracy": {
+              "bounded_api_dispatch": 0.4,
+              "combinatorial_constraint_3sat": 0.8333,
+              "open_compositional_patch_triage": 0.7
+            },
+            "wall_ns_per_correct": {
+              "n": 12,
+              "median": 6781.07,
+              "p25": 6771.23,
+              "p75": 6790.03,
+              "iqr": 18.79,
+              "min": 6755.16,
+              "max": 6824.52
+            },
+            "gross_rail_measured_uj_per_correct": null,
+            "secondary_carrier_measured_uj_per_correct": null,
+            "pkg_reported_uj_per_correct": {
+              "n": 12,
+              "median": 423.5118,
+              "p25": 415.0264,
+              "p75": 428.1968,
+              "iqr": 13.1704,
+              "min": 412.7004,
+              "max": 431.9447
+            },
+            "shunt_samples_median": 0,
+            "net_above_idle_a1_a2_measured_uj_per_correct": null,
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false
+          }
+        },
+        "pretrained_transformer_cold_t1": {
+          "n_instances": 90,
+          "correct": 33,
+          "overall_accuracy": 0.3667,
+          "stratum_accuracy": {
+            "bounded_api_dispatch": 0.0333,
+            "combinatorial_constraint_3sat": 0.9667,
+            "open_compositional_patch_triage": 0.1
+          },
+          "prompt_tokens_total": 19786,
+          "completion_tokens_total": 181,
+          "energy_and_latency": {
+            "evidence_class": "reported_j",
+            "wall_ms_total": 16115.9325,
+            "wall_us_per_correct": 488361.592,
+            "gross_rail_measured_uj_per_correct": null,
+            "net_above_idle_a1_a2_measured_uj_per_correct": null,
+            "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+            "secondary_carrier_measured_uj_per_correct": null,
+            "shunt_samples": 0,
+            "pkg_reported_uj_per_correct": 62822336.7273,
+            "core_reported_uj_per_correct": 5279840.3939
+          }
+        },
+        "verified_downward_crystallization_t2": {
+          "scope_note": "Stage-1 <= 4 KiB LUT hits measure exact content-addressed recall on recurring verified inputs (C(x, z) == 1), NOT unseen cold generalization; unseen structured/constraint arrivals route to Stage-2 classical rules/DPLL and unseen open triage arrivals escalate to the live Transformer.",
+          "llm_own_verified_admissions_t1": 33,
+          "t2_exact_replay_90_with_shape_d_fallback": {
+            "n_instances": 90,
+            "lut_hits": 33,
+            "correct": 81,
+            "accuracy": 0.9,
+            "reps_measured": 4000,
+            "energy_and_latency": {
+              "evidence_class": "reported_j",
+              "wall_ms_total": 0.5207,
+              "wall_us_per_correct": 0.002,
+              "gross_rail_measured_uj_per_correct": null,
+              "net_above_idle_a1_a2_measured_uj_per_correct": null,
+              "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+              "secondary_carrier_measured_uj_per_correct": null,
+              "shunt_samples": 0,
+              "pkg_reported_uj_per_correct": 0.0,
+              "core_reported_uj_per_correct": 0.0
+            }
+          },
+          "compiled_agency_zipf085_live_stream": {
+            "stream_queries": 300,
+            "zipf_skew_s": 0.85,
+            "recurring_fraction": 0.85,
+            "unseen_cold_arrival_fraction": 0.15,
+            "stage_routing_counts": {
+              "stage1_crystallized_lut": 236,
+              "stage2_classical_solver": 29,
+              "stage3_live_llm_escalated": 35
+            },
+            "stage_routing_fractions": {
+              "stage1_crystallized_lut": 0.7867,
+              "stage2_classical_solver": 0.0967,
+              "stage3_live_llm_escalated": 0.1167
+            },
+            "correct": 268,
+            "accuracy": 0.8933,
+            "energy_and_latency": {
+              "evidence_class": "reported_j",
+              "wall_ms_total": 6334.7694,
+              "wall_us_per_correct": 23637.199,
+              "gross_rail_measured_uj_per_correct": null,
+              "net_above_idle_a1_a2_measured_uj_per_correct": null,
+              "net_above_idle_a1_a2_withheld_per_falsifier_6": false,
+              "secondary_carrier_measured_uj_per_correct": null,
+              "shunt_samples": 0,
+              "pkg_reported_uj_per_correct": 3067419.6455,
+              "core_reported_uj_per_correct": 246641.8134
+            }
+          }
+        },
+        "paired_cold_llm_vs_shape_d_classical": {
+          "overall_90": {
+            "n_instances": 90,
+            "candidate_accuracy": 0.366667,
+            "null_accuracy": 0.877778,
+            "delta_accuracy_cand_minus_null": -0.511111,
+            "delta_accuracy_95ci": [
+              -0.623196,
+              -0.399027
+            ],
+            "mcnemar_contingency": {
+              "both_correct": 31,
+              "candidate_only_correct": 2,
+              "null_only_correct": 48,
+              "both_wrong": 9
+            },
+            "mcnemar_exact_two_sided_p": 0.0
+          },
+          "by_stratum": {
+            "bounded_api_dispatch": {
+              "n_instances": 30,
+              "candidate_accuracy": 0.033333,
+              "null_accuracy": 1.0,
+              "delta_accuracy_cand_minus_null": -0.966667,
+              "delta_accuracy_95ci": [
+                -1.030902,
+                -0.902431
+              ],
+              "mcnemar_contingency": {
+                "both_correct": 1,
+                "candidate_only_correct": 0,
+                "null_only_correct": 29,
+                "both_wrong": 0
+              },
+              "mcnemar_exact_two_sided_p": 0.0
+            },
+            "combinatorial_constraint_3sat": {
+              "n_instances": 30,
+              "candidate_accuracy": 0.966667,
+              "null_accuracy": 1.0,
+              "delta_accuracy_cand_minus_null": -0.033333,
+              "delta_accuracy_95ci": [
+                -0.097569,
+                0.030902
+              ],
+              "mcnemar_contingency": {
+                "both_correct": 29,
+                "candidate_only_correct": 0,
+                "null_only_correct": 1,
+                "both_wrong": 0
+              },
+              "mcnemar_exact_two_sided_p": 1.0
+            },
+            "open_compositional_patch_triage": {
+              "n_instances": 30,
+              "candidate_accuracy": 0.1,
+              "null_accuracy": 0.633333,
+              "delta_accuracy_cand_minus_null": -0.533333,
+              "delta_accuracy_95ci": [
+                -0.754568,
+                -0.312099
+              ],
+              "mcnemar_contingency": {
+                "both_correct": 1,
+                "candidate_only_correct": 2,
+                "null_only_correct": 18,
+                "both_wrong": 9
+              },
+              "mcnemar_exact_two_sided_p": 0.000402
+            }
+          },
+          "same_meter_energy_ratios": {
+            "evidence_class": "reported_j",
+            "cold_llm_over_shape_d_classical_x": 7667712.68,
+            "cold_llm_over_stage1_lut_x": 19564726.48,
+            "cold_llm_over_crystallized_t2_replay_x": null,
+            "cold_llm_over_zipf085_compiled_agency_stream_x": 20.48,
+            "t2_sub_counter_tick_note": "360,000 C LUT + Shape D lookups completed in 0.5207 ms (< 1 ms RAPL update quantum; pkg_reported_j == 0.0), so ratio is withheld as null rather than dividing by zero."
+          }
+        }
+      },
+      "signed_receipt": {
+        "body": {
+          "schema": "openie.signed_provenance_receipt.v1",
+          "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+          "self_attested_not_third_party_verified": true,
+          "kit_id": "kits/deterministic-null-suite/real-llm-crystallization",
+          "domain_context": "openie.kit.dnull_real_llm.receipt.v1",
+          "issued_utc": "2026-11-26T13:51:06Z",
+          "payload": {
+            "substrate_id": "x86_rapl",
+            "hf_model": "Qwen/Qwen2.5-0.5B-Instruct-GGUF/qwen2.5-0.5b-instruct-q4_k_m.gguf",
+            "gguf_sha256": "74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db",
+            "subset90_sha256": "e9115baa0110448ce273ef951eeab4b3d927ad526087e75f00fae94092f27844",
+            "cold_llm_accuracy": 0.3667,
+            "zipf085_stream_accuracy": 0.8933,
+            "energy_evidence_class": "reported_j",
+            "results_blake3": "1a6a5361efe6b2d6cf0cc635e435a3f08f163b3f1e8c14034dca58a7eb5a188d"
+          }
+        },
+        "body_blake3": "b44cff65bee5910e401210840974695dfb32645aa17a9f15e65642cc345faf8d",
+        "ed25519_public_key_hex": "b89ae3793cb4d5e42275256b5c24690fd71eabae03b1b7e6a27a2c4755fae170",
+        "ed25519_signature_hex": "07722b44a1c8d692f6c15d887abc438f6d3b86e107c86d2a082ae6b9890ca8ee6a94ca376528e75b576ddf9d6fe4282b664f62fc926dc955ba808181b86f0e0c"
+      }
+    }
+  }
+}

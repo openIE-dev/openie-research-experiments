@@ -956,3 +956,123 @@ void dnull_get_instance_features(const DnullSuiteCtx *ctx, int global_idx, int16
         *out_len = TRIAGE_DIM;
     }
 }
+
+
+/* ── Confirmatory N = 90 Subset (30 per stratum) & Crystallized Stage-1 LUT Kernel ── */
+
+uint64_t dnull_eval_arm_subset(
+    const DnullSuiteCtx *ctx,
+    int arm_id,
+    int k_per_stratum,
+    int outer_reps,
+    int *out_correct3,
+    uint8_t *out_preds,
+    double *out_elapsed_ns
+) {
+    if (k_per_stratum < 1) k_per_stratum = 1;
+    if (k_per_stratum > N_PER_STRATUM) k_per_stratum = N_PER_STRATUM;
+    struct timespec t0, t1;
+    clock_gettime(CLOCK_MONOTONIC, &t0);
+    uint64_t fnv = 1469598103934665603ULL;
+    int c0 = 0, c1 = 0, c2 = 0;
+
+    for (int rep = 0; rep < outer_reps; rep++) {
+        c0 = c1 = c2 = 0;
+        uint64_t h = 1469598103934665603ULL;
+        for (int i = 0; i < k_per_stratum; i++) {
+            uint8_t p = predict_stratum0(ctx, arm_id, &ctx->test_api[i]);
+            if (p == ctx->test_api[i].label) c0++;
+            if (rep == 0 && out_preds) out_preds[i] = p;
+            h = (h ^ p) * 1099511628211ULL;
+        }
+        for (int i = 0; i < k_per_stratum; i++) {
+            uint8_t p = predict_stratum1(ctx, arm_id, &ctx->test_sat[i]);
+            if (p == ctx->test_sat[i].is_sat) c1++;
+            if (rep == 0 && out_preds) out_preds[k_per_stratum + i] = p;
+            h = (h ^ p) * 1099511628211ULL;
+        }
+        for (int i = 0; i < k_per_stratum; i++) {
+            uint8_t p = predict_stratum2(ctx, arm_id, &ctx->test_tri[i]);
+            if (p == ctx->test_tri[i].label) c2++;
+            if (rep == 0 && out_preds) out_preds[2 * k_per_stratum + i] = p;
+            h = (h ^ p) * 1099511628211ULL;
+        }
+        fnv = h;
+    }
+
+    clock_gettime(CLOCK_MONOTONIC, &t1);
+    out_correct3[0] = c0;
+    out_correct3[1] = c1;
+    out_correct3[2] = c2;
+    *out_elapsed_ns = (double)(t1.tv_sec - t0.tv_sec) * 1e9 + (double)(t1.tv_nsec - t0.tv_nsec);
+    return fnv;
+}
+
+void dnull_export_subset_details(
+    const DnullSuiteCtx *ctx,
+    int k_per_stratum,
+    int16_t *out_api_k8,
+    int8_t *out_sat_k48x3,
+    uint32_t *out_tri_sigs,
+    int8_t *out_tri_kx32,
+    uint8_t *out_labels_3k,
+    float *out_tri_centroids_8x32
+) {
+    for (int i = 0; i < k_per_stratum; i++) {
+        memcpy(out_api_k8 + i * 8, ctx->test_api[i].f, 8 * sizeof(int16_t));
+        memcpy(out_sat_k48x3 + i * SAT_CLAUSES * 3, ctx->test_sat[i].lits, SAT_CLAUSES * 3);
+        out_tri_sigs[i] = ctx->test_tri[i].crash_sig;
+        memcpy(out_tri_kx32 + i * TRIAGE_DIM, ctx->test_tri[i].x, TRIAGE_DIM);
+        out_labels_3k[i] = ctx->test_api[i].label;
+        out_labels_3k[k_per_stratum + i] = ctx->test_sat[i].is_sat;
+        out_labels_3k[2 * k_per_stratum + i] = ctx->test_tri[i].label;
+    }
+    memcpy(out_tri_centroids_8x32, ctx->tri_centroids, sizeof(ctx->tri_centroids));
+}
+
+/* Metered C Stage-1 <= 4 KiB Crystallized LUT lookup kernel over N query hashes */
+int dnull_eval_crystallized_lut_batch(
+    const uint32_t *cryst_keys,
+    const uint8_t *cryst_vals,
+    int n_cryst,
+    const uint32_t *query_hashes,
+    const uint8_t *fallback_preds,
+    const uint8_t *query_labels,
+    int n_queries,
+    int outer_reps,
+    int *out_lut_hits,
+    double *out_elapsed_ns
+) {
+    LutEntry8B table[LUT_SLOTS];
+    memset(table, 0, sizeof(table));
+    for (int i = 0; i < n_cryst; i++) {
+        lut_insert(table, cryst_keys[i] ? cryst_keys[i] : 1U, cryst_vals[i]);
+    }
+
+    struct timespec t0, t1;
+    clock_gettime(CLOCK_MONOTONIC, &t0);
+    int corr = 0;
+    int hits = 0;
+    for (int rep = 0; rep < outer_reps; rep++) {
+        int c_rep = 0;
+        int h_rep = 0;
+        for (int q = 0; q < n_queries; q++) {
+            uint32_t kh = query_hashes[q] ? query_hashes[q] : 1U;
+            int v = lut_query(table, kh);
+            uint8_t pred;
+            if (v >= 0) {
+                pred = (uint8_t)v;
+                h_rep++;
+            } else {
+                pred = fallback_preds[q];
+            }
+            if (pred == query_labels[q]) c_rep++;
+        }
+        corr = c_rep;
+        hits = h_rep;
+    }
+    clock_gettime(CLOCK_MONOTONIC, &t1);
+    *out_lut_hits = hits;
+    *out_elapsed_ns = (double)(t1.tv_sec - t0.tv_sec) * 1e9 + (double)(t1.tv_nsec - t0.tv_nsec);
+    return corr;
+}

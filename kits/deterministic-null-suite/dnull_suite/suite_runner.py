@@ -153,6 +153,40 @@ def compile_and_load_dnull_lib(build_dir: Path | None = None) -> ctypes.CDLL:
         ctypes.POINTER(ctypes.c_int),
     ]
     lib.dnull_get_instance_features.restype = None
+    lib.dnull_eval_arm_subset.argtypes = [
+        ctypes.c_void_p,
+        ctypes.c_int,
+        ctypes.c_int,
+        ctypes.c_int,
+        ctypes.POINTER(ctypes.c_int),
+        ctypes.POINTER(ctypes.c_uint8),
+        ctypes.POINTER(ctypes.c_double),
+    ]
+    lib.dnull_eval_arm_subset.restype = ctypes.c_uint64
+    lib.dnull_export_subset_details.argtypes = [
+        ctypes.c_void_p,
+        ctypes.c_int,
+        ctypes.POINTER(ctypes.c_int16),
+        ctypes.POINTER(ctypes.c_int8),
+        ctypes.POINTER(ctypes.c_uint32),
+        ctypes.POINTER(ctypes.c_int8),
+        ctypes.POINTER(ctypes.c_uint8),
+        ctypes.POINTER(ctypes.c_float),
+    ]
+    lib.dnull_export_subset_details.restype = None
+    lib.dnull_eval_crystallized_lut_batch.argtypes = [
+        ctypes.POINTER(ctypes.c_uint32),
+        ctypes.POINTER(ctypes.c_uint8),
+        ctypes.c_int,
+        ctypes.POINTER(ctypes.c_uint32),
+        ctypes.POINTER(ctypes.c_uint8),
+        ctypes.POINTER(ctypes.c_uint8),
+        ctypes.c_int,
+        ctypes.c_int,
+        ctypes.POINTER(ctypes.c_int),
+        ctypes.POINTER(ctypes.c_double),
+    ]
+    lib.dnull_eval_crystallized_lut_batch.restype = ctypes.c_int
     return lib
 
 

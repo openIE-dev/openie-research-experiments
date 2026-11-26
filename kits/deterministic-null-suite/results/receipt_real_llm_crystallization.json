@@ -1,0 +1,29 @@
+{
+  "body": {
+    "schema": "openie.signed_provenance_receipt.v1",
+    "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+    "self_attested_not_third_party_verified": true,
+    "kit_id": "kits/deterministic-null-suite/real-llm-crystallization-multi-substrate",
+    "domain_context": "openie.kit.dnull_real_llm.multi_substrate_receipt.v1",
+    "issued_utc": "2026-11-26T13:51:06Z",
+    "payload": {
+      "gguf_sha256": "74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db",
+      "confirmatory_subset90_sha256": "e9115baa0110448ce273ef951eeab4b3d927ad526087e75f00fae94092f27844",
+      "confirmatory_subset90_blake3": "e4c459518ef21e58da31fc09f91f13bd0d52e914125ba8e9f6a4a530e7aaeb5d",
+      "substrates_count": 3,
+      "measured_j_boards": [
+        "amd_kria_kv260_ina260",
+        "nvidia_jetson_agx_thor_ina3221_ina238"
+      ],
+      "reported_j_hosts": [
+        "amd_ryzen_ai_max_395_rapl"
+      ],
+      "pooled_spot_check_runs": 30,
+      "pooled_spot_check_divergences": 0,
+      "bundle_blake3": "b78360ddc3f49dbfad3fe649faf5b7d9fb2ac5a68da62ff47f7cd2161f415701"
+    }
+  },
+  "body_blake3": "b8271399c051379477351e3c518ba8891d1d16b4bc97de062d7e1ffa8174ef19",
+  "ed25519_public_key_hex": "05692166d0dc0485b371cf33b2b45b7f54e28f5cd19900bb1de56042da65613a",
+  "ed25519_signature_hex": "7ddd8267021c2b9b0c61e22fd6664ac4e10e828869471f49894ea83ce2c3fe455848ed9b707c2da9ef1b1ed6bfffc615904eda431929d69de0bbd05c5382eb04"
+}

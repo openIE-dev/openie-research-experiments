@@ -59,5 +59,76 @@ class TestDeterministicNullSuite(unittest.TestCase):
         self.assertFalse(verify_signed_receipt(bad))
 
 
+    def test_real_llm_crystallization_pipeline_and_subset90_precommitment(self) -> None:
+        from real_llm_eval import run_real_llm_crystallization_eval
+
+        res, rec, md = run_real_llm_crystallization_eval(mock_dry_run=True)
+        self.assertTrue(verify_signed_receipt(rec))
+        assert_sanitized(md)
+        self.assertEqual(res["confirmatory_subset_precommitment"]["n_instances_total"], 90)
+        self.assertEqual(
+            res["classical_arms_on_identical_subset90"]["shape_d_classical_best"]["stratum_accuracy"]["combinatorial_constraint_3sat"],
+            1.0,
+        )
+        st = res["verified_downward_crystallization_t2"]["compiled_agency_zipf085_live_stream"]
+        self.assertGreater(st["stage_routing_counts"]["stage1_crystallized_lut"], 10)
+
+
+    def test_committed_real_llm_multi_substrate_receipts_and_orthogonality(self) -> None:
+        import json
+        from dnull_suite.crypto_receipt import blake3_derive_key_hex
+        from dnull_suite.suite_runner import compile_and_load_dnull_lib
+        from real_llm_eval import EXPECTED_GGUF_SHA256, _build_subset90_prompts
+
+        bundle_p = KIT_ROOT / "results" / "real_llm_multi_substrate_receipts.json"
+        master_p = KIT_ROOT / "results" / "receipt_real_llm_crystallization.json"
+        self.assertTrue(bundle_p.is_file())
+        self.assertTrue(master_p.is_file())
+
+        bundle_raw = bundle_p.read_text(encoding="utf-8")
+        master_raw = master_p.read_text(encoding="utf-8")
+        assert_sanitized(bundle_raw)
+        assert_sanitized(master_raw)
+        assert_sanitized((KIT_ROOT / "README.md").read_text(encoding="utf-8"))
+        assert_sanitized((KIT_ROOT / "RESULTS.md").read_text(encoding="utf-8"))
+
+        bundle = json.loads(bundle_raw)
+        master = json.loads(master_raw)
+        self.assertTrue(verify_signed_receipt(master))
+
+        expected_b3 = blake3_derive_key_hex(
+            "openie.kit.dnull_real_llm.multi_substrate.v1",
+            json.dumps(bundle, sort_keys=True, separators=(",", ":")).encode("utf-8"),
+        )
+        self.assertEqual(master["body"]["payload"]["bundle_blake3"], expected_b3)
+        self.assertEqual(bundle["pretrained_model"]["gguf_sha256"], EXPECTED_GGUF_SHA256)
+
+        lib = compile_and_load_dnull_lib()
+        ctx = lib.dnull_init()
+        try:
+            _, live_sha256, live_b3, _ = _build_subset90_prompts(lib, ctx)
+        finally:
+            lib.dnull_free(ctx)
+        self.assertEqual(bundle["confirmatory_subset90"]["prompts_and_labels_sha256"], live_sha256)
+        self.assertEqual(bundle["confirmatory_subset90"]["prompts_and_labels_blake3"], live_b3)
+
+        # Verify strict measured_j vs reported_j orthogonality & per-substrate signatures
+        for sub_name, sub in bundle["measured_j_substrates"].items():
+            self.assertTrue(verify_signed_receipt(sub["signed_receipt"]), sub_name)
+            r = sub["results"]
+            self.assertEqual(r["energy_telemetry"]["evidence_class"], "measured_j")
+            e_t1 = r["pretrained_transformer_cold_t1"]["energy_and_latency"]
+            self.assertGreater(e_t1["gross_rail_measured_uj_per_correct"], 0.0)
+            self.assertIsNone(e_t1["pkg_reported_uj_per_correct"])
+
+        for sub_name, sub in bundle["reported_j_substrates"].items():
+            self.assertTrue(verify_signed_receipt(sub["signed_receipt"]), sub_name)
+            r = sub["results"]
+            self.assertEqual(r["energy_telemetry"]["evidence_class"], "reported_j")
+            e_t1 = r["pretrained_transformer_cold_t1"]["energy_and_latency"]
+            self.assertGreater(e_t1["pkg_reported_uj_per_correct"], 0.0)
+            self.assertIsNone(e_t1["gross_rail_measured_uj_per_correct"])
+
+
 if __name__ == "__main__":
     unittest.main()
