@@ -127,5 +127,35 @@ class TestLittleBitJouleKit(unittest.TestCase):
         )
 
 
+    def test_bitwidth_curve_and_shunt_trapezoidal_integrator(self) -> None:
+        from littlebit_joule.crypto_receipt import ShuntWindowSession
+
+        class _MockBackend:
+            def __init__(self) -> None:
+                self.k = 0
+
+            def sample_now(self) -> tuple[int, float, float | None]:
+                # Exact constant 4.0 W primary, 12.0 W secondary over 0.5 s -> 2.0 J, 6.0 J
+                t = self.k * 100_000_000
+                self.k += 1
+                return (t, 4.0, 12.0)
+
+        sess = ShuntWindowSession(_MockBackend(), poll_interval_s=0.05)  # type: ignore[arg-type]
+        sess.samples = [(0, 4.0, 12.0), (250_000_000, 4.0, 12.0), (500_000_000, 4.0, 12.0)]
+        sess._stop.set()
+        # Verify trapezoidal integral directly
+        pts = sess.samples
+        pri_j = sum(0.5 * (pts[i - 1][1] + pts[i][1]) * ((pts[i][0] - pts[i - 1][0]) * 1e-9) for i in range(1, len(pts)))
+        self.assertAlmostEqual(pri_j, 2.0, places=6)
+
+        results, _, _ = run_benchmark(quick=True)
+        curve = results["bitwidth_curve"]
+        self.assertGreaterEqual(len(curve), 8)
+        r8 = next(p for p in curve if p["key"] == "littlebit_packed_int_r8")
+        r22 = next(p for p in curve if p["key"] == "littlebit_packed_int_r22")
+        self.assertLess(r8["bits_per_weight"], r22["bits_per_weight"])
+        self.assertGreaterEqual(r22["accuracy"], r8["accuracy"])
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -91,5 +91,19 @@ class TestWaiosMosaicCascadeKit(unittest.TestCase):
         )
 
 
+    def test_cascade_grid_sweep_monotonic_recurrence(self) -> None:
+        results, _, _ = run_full_kit(quick=True)
+        grid = results["spellcheck_lookup_first_cascade"]["cascade_grid_sweep"]
+        self.assertGreaterEqual(len(grid), 18)
+        cold = next(
+            g for g in grid if g["zipf_skew_s"] == 0.0 and g["stage2_edit_distance_d_max"] == 2 and g["stage3_margin_tau"] == 4500
+        )
+        warm = next(
+            g for g in grid if g["zipf_skew_s"] == 1.40 and g["stage2_edit_distance_d_max"] == 2 and g["stage3_margin_tau"] == 4500
+        )
+        self.assertGreater(warm["stage_fractions"]["stage1_lut"], cold["stage_fractions"]["stage1_lut"])
+        self.assertFalse(warm["isolated_analytical_cloud_est_j"]["mixed_or_summed"])
+
+
 if __name__ == "__main__":
     unittest.main()

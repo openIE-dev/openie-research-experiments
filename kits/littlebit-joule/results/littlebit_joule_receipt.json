@@ -1,36 +1,22 @@
 {
   "body": {
     "schema": "openie.signed_provenance_receipt.v1",
-    "kit_id": "kits/littlebit-joule",
     "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
-    "provenance_note": "Self-checked cryptographic receipt: proves post-hoc integrity of the body under the embedded deterministic audit keypair; does not claim external third-party hardware attestation.",
-    "domain_context": "openie.kit.littlebit_joule.receipt.v1",
+    "self_attested_not_third_party_verified": true,
+    "kit_id": "kits/littlebit-joule",
+    "domain_context": "openie.kit.littlebit_joule.receipt.v2",
+    "issued_utc": "2026-11-26T05:30:13Z",
     "payload": {
-      "held_out_instances": 1200,
+      "results_blake3": "d8ea2063b7060194ceef63070f177f59162d2326cd531cbf9f59fc8cf7f5f892",
+      "substrate_id": "x86_rapl",
       "effective_bits_per_weight": 0.1517,
-      "energy_evidence_class": "reported_j",
-      "prediction_fnv64_by_regime": {
-        "deterministic_null_lut": "22982c2c26f837e2",
-        "dense_int8_baseline": "0318401e9ba2d202",
-        "subbit_naive_float_unpack": "0318401e9ba2d202",
-        "littlebit_joule_packed_int": "0318401e9ba2d202"
-      },
-      "accuracy_by_regime": {
-        "deterministic_null_lut": 0.9633,
-        "dense_int8_baseline": 1.0,
-        "subbit_naive_float_unpack": 1.0,
-        "littlebit_joule_packed_int": 1.0
-      },
-      "pkg_reported_uj_per_correct_median": {
-        "deterministic_null_lut": 1.1175,
-        "dense_int8_baseline": 387.3771,
-        "subbit_naive_float_unpack": 20192.1677,
-        "littlebit_joule_packed_int": 81.1941
-      },
-      "results_blake3": "08a6f4213a91d9439179e44118ecb8d664419abe94a0e2e5e0c3da8c174dad2b"
+      "held_out_instances": 1200,
+      "trials_per_regime": 20,
+      "divergent_runs": 0,
+      "energy_evidence_class": "reported_j"
     }
   },
-  "body_blake3": "8b8f2d5d253b609dc34a669bd2f8e8bcb69a1da779c61f89f63b47c99efd7413",
-  "ed25519_public_key_hex": "ddee74d96f97aa2b861344bd094974a374adc223d6dfe2c493512cfc88becabb",
-  "ed25519_signature_hex": "82e7816c10f5566fdca7bf1312a6adadbc22805c817402511208fbe9bbd70fedc5362e8f112c24cb0d9006a1bb1f25863adef97acebf1c8f2d9bfb9f6692e80b"
+  "body_blake3": "964ddc0847f527f2d2d1b2d3f0c69c6b3d55fa53d725af38fcf4cc12619bd5a1",
+  "ed25519_public_key_hex": "01a040e985d2738416ac2eb5dd2f37cc7b47698ae31aab5bc1a24ecf85113320",
+  "ed25519_signature_hex": "c31f99541e26c57fd270e5bf47d6f45f7d77803e0f75d1aa9a6190a14fadc972bccb3dce05e84c9a2bff06742a4203781de454a1177f1925c947116b5e29950e"
 }

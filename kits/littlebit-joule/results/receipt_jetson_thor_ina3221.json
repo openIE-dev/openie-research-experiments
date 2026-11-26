@@ -1,0 +1,22 @@
+{
+  "body": {
+    "schema": "openie.signed_provenance_receipt.v1",
+    "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+    "self_attested_not_third_party_verified": true,
+    "kit_id": "kits/littlebit-joule",
+    "domain_context": "openie.kit.littlebit_joule.receipt.v2",
+    "issued_utc": "2026-11-26T05:26:04Z",
+    "payload": {
+      "results_blake3": "c88dc2da599fa446b20199c65cf2f42440a9bbb1b4d03ed86e4d5b60ac9eb941",
+      "substrate_id": "jetson_agx_thor_ina3221",
+      "effective_bits_per_weight": 0.1517,
+      "held_out_instances": 1200,
+      "trials_per_regime": 8,
+      "divergent_runs": 0,
+      "energy_evidence_class": "measured_j"
+    }
+  },
+  "body_blake3": "000a74f59877a5e3282c2c739ac0a9872e26987c0e6400e5660fc4bd64687f85",
+  "ed25519_public_key_hex": "f1214cbcfa97a4e11bfd2e75b9471548f4b131741305b3a378fcda3e96f6585a",
+  "ed25519_signature_hex": "90b810c1b2f8fa0f44dbed614074b92f27a1c0b69ef2b768a2aca17e520cf16f69a55440a6506ca5dd2e4766ce1462ac2012f60927a3c91caad4a5b39ac4ed04"
+}

@@ -1,0 +1,22 @@
+{
+  "body": {
+    "schema": "openie.signed_provenance_receipt.v1",
+    "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+    "self_attested_not_third_party_verified": true,
+    "kit_id": "kits/littlebit-joule",
+    "domain_context": "openie.kit.littlebit_joule.receipt.v2",
+    "issued_utc": "2026-11-26T05:51:46Z",
+    "payload": {
+      "results_blake3": "0594cc9df94ff04ccddadfdf990e42a5d6e34885e3d325be1cdaf95607c574dc",
+      "substrate_id": "amd_kria_kv260_ina260",
+      "effective_bits_per_weight": 0.1517,
+      "held_out_instances": 1200,
+      "trials_per_regime": 8,
+      "divergent_runs": 0,
+      "energy_evidence_class": "measured_j"
+    }
+  },
+  "body_blake3": "543cd838cbedee79ae522201d069c240395e5fd43de742b8c05ebfd40ba31603",
+  "ed25519_public_key_hex": "9d71f64e61e3fab8195e340c855cc9f4dc55f024a3ea2fc59990b1d8adaf5f2f",
+  "ed25519_signature_hex": "e234af3cf08842e3936e2b14936926a5c40345f15441c3d0211da423985368f1326c97dbdd5c2516282fc714c9e478324e26f8b216b6446f13ec4c14343eaf05"
+}

@@ -49,3 +49,7 @@ Given a `512 × 512` (`262,144`-weight) structured spectral classification layer
 - When `/sys/class/powercap/intel-rapl*` is readable without root on Linux, package and core energy counters are recorded strictly as **`reported_j`** alongside pre/post quiet-window idle power (`W`). When unreadable (unprivileged container or macOS without root), energy fields report `null` under **`evidence_class: "unmetered"`**.
 - `measured_j`, `reported_j`, `est_j`, and `unmetered` are never summed or mixed.
 - Output artifacts (`results/littlebit_joule_results.json`, `results/littlebit_joule_receipt.json`, and [`RESULTS.md`](./RESULTS.md)) are scrubbed of hostnames, usernames, local paths, and private IPs.
+
+### Shot on Goal #6 — Physical DC Shunt Rail Metering (`measured_j`) & 14-Point `bitwidth_curve`
+- Automatically discovers rootless Linux `hwmon` DC current shunts (`TI INA3221 VDD_CPU_SOC_MSS` + `TI INA238 VIN` on `NVIDIA Jetson AGX Thor`; `TI INA260 SOM_5V_DC` on `AMD Kria KV260`) and integrates instantaneous rail power at `~200–235 Hz` across `>= 0.70 s` auto-calibrated burst windows (`measured_j`), reporting both Gross and Falsifier-6-gated Net-Above-Idle `µJ / correct`.
+- Sweeps SVD ranks `r ∈ {8, 14, 22, 32, 48}` (both `packed_int` and `naive_fp32_unpack`), `ternary_2bpw`, `int4_4bpw`, `dense_int8_8bpw`, and `deterministic_null_lut`. Cross-substrate signed receipts are stored in [`results/multi_substrate_receipts.json`](./results/multi_substrate_receipts.json) and summarized in [`RESULTS.md`](./RESULTS.md).

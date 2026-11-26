@@ -1,0 +1,2509 @@
+{
+  "schema": "openie.waios_mosaic_cascade.v2",
+  "kit_id": "kits/waios-mosaic-cascade",
+  "shots_on_goal": [
+    "Shot #3 \u2014 Cross-Lane HeteroMosaic Integer Runtime Sealed by waiOS Reference Digest a541323b...",
+    "Shot #5 \u2014 4-Stage Spellcheck Lookup-First Cascade",
+    "Shot #6 \u2014 Physical DC Shunt Rail Metering (measured_j) & 75-Cell Cascade Sweep"
+  ],
+  "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+  "license": "Apache-2.0",
+  "mode": "standard",
+  "host": {
+    "cpu_model": "NVIDIA Jetson AGX Thor Developer Kit (14-core aarch64)",
+    "logical_cpus": 14,
+    "ram_gib": 122.86,
+    "os_kernel": "Linux 6.8.12-1021-tegra aarch64",
+    "python_version": "3.12.3",
+    "cc_version": "GCC 13.3.0",
+    "recorded_utc": "2026-11-26T05:26:05Z"
+  },
+  "energy_telemetry": {
+    "evidence_class": "measured_j",
+    "board_metered": true,
+    "substrate_id": "jetson_agx_thor_ina3221",
+    "primary_sensor": "TI INA3221",
+    "primary_rail": "VDD_CPU_SOC_MSS",
+    "primary_sysfs_paths": [
+      "/sys/class/hwmon/hwmon6/in2_input",
+      "/sys/class/hwmon/hwmon6/curr2_input"
+    ],
+    "secondary_sensor": "TI INA238",
+    "secondary_rail": "VIN_CARRIER",
+    "secondary_sysfs_path": "/sys/class/hwmon/hwmon5/power1_input",
+    "reported_j_available": false,
+    "est_j_mixed": false,
+    "idle_a1_pre": {
+      "window_s": 1.0,
+      "raw_mean_w": 17.4223,
+      "trimmed_mean_w": 17.4254,
+      "secondary_raw_mean_w": 34.6596,
+      "secondary_trimmed_mean_w": 34.5871,
+      "shunt_samples": 204,
+      "sample_rate_hz": 202.8,
+      "rail_breakdown_w": {
+        "VDD_CPU_SOC_MSS": 17.3677,
+        "VIN_CARRIER": 33.224,
+        "VDD_GPU": 0.0,
+        "VIN_SYS_5V0": 8.4461
+      }
+    },
+    "idle_a2_post": {
+      "window_s": 1.0,
+      "raw_mean_w": 16.5087,
+      "trimmed_mean_w": 16.4492,
+      "secondary_raw_mean_w": 32.7376,
+      "secondary_trimmed_mean_w": 32.6577,
+      "shunt_samples": 208,
+      "sample_rate_hz": 205.9,
+      "rail_breakdown_w": {
+        "VDD_CPU_SOC_MSS": 16.5715,
+        "VIN_CARRIER": 34.234,
+        "VDD_GPU": 0.0,
+        "VIN_SYS_5V0": 7.9248
+      }
+    },
+    "idle_trimmed_mean_w": 16.9373,
+    "idle_drift_pct": 5.76,
+    "falsifier_6_idle_drift_threshold_pct": 5.0,
+    "falsifier_6_idle_drift_flag": true
+  },
+  "waios_conformance_and_fault_halt": {
+    "canonical_shape": [
+      256,
+      128
+    ],
+    "blake3_domain": "waios.tmac.v1",
+    "reference_digest": "a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0",
+    "lane_digests": {
+      "python_scalar_i32": "a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0",
+      "c_scalar_i32": "a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0",
+      "c_packed_2bit_bitsliced": "a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0",
+      "c_tmac_pair_lut": "a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0",
+      "c_hetero_mosaic_4worker_pthreads": "a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0"
+    },
+    "boot_qualification": {
+      "odd_73x35_ternary_passed": true,
+      "zero_fp_norm_rope_64_blake3": "2537994ab8583a38da2b9770a3493632652a6fce82f90421709ee6258adfcdb4",
+      "all_passed": true
+    },
+    "hetero_mosaic_schedule_sweep": {
+      "runs": 100,
+      "disagreements": 0,
+      "clopper_pearson_95_upper_bound_disagreement": 0.029513
+    },
+    "fault_injection_tamper_test": {
+      "mutation": {
+        "row": 77,
+        "col": 0,
+        "from": 0,
+        "to": 1
+      },
+      "expected_tampered_digest": "4ac7c4fbc2f2a031ac4f3c0e485867fb689d24d4872bdb1b0a6bc80cf88b69dc",
+      "observed_tampered_digest": "4ac7c4fbc2f2a031ac4f3c0e485867fb689d24d4872bdb1b0a6bc80cf88b69dc",
+      "disagreement_halt_triggered": true,
+      "receipt_sealed": false
+    }
+  },
+  "spellcheck_lookup_first_cascade": {
+    "workload_queries": 1000,
+    "stage_routing_counts": {
+      "stage1_lut": 550,
+      "stage2_sparse": 250,
+      "stage3_mosaic": 174,
+      "stage4_escalated": 26
+    },
+    "stage_routing_fractions": {
+      "stage1_lut": 0.55,
+      "stage2_sparse": 0.25,
+      "stage3_mosaic": 0.174,
+      "stage4_escalated": 0.026
+    },
+    "always_mosaic_escalated_queries": 26,
+    "metered_pipelines_local_rapl": {
+      "spellcheck_4stage_cascade": {
+        "queries_per_pass": 1000,
+        "correct_completions": 1000,
+        "accuracy": 1.0,
+        "reps_per_trial": 32,
+        "wall_us_per_correct_completion": {
+          "n": 8,
+          "median": 24.524,
+          "p25": 24.509,
+          "p75": 25.29,
+          "iqr": 0.781,
+          "min": 24.503,
+          "max": 26.021
+        },
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct_completion": {
+          "n": 8,
+          "median": 530.39,
+          "p25": 463.69,
+          "p75": 591.5,
+          "iqr": 127.81,
+          "min": 456.86,
+          "max": 724.58
+        },
+        "net_above_idle_a1_a2_measured_uj_per_correct_completion": null,
+        "net_above_idle_a1_a2_withheld_per_falsifier_6": true,
+        "paired_round_net_above_idle_measured_uj_per_correct_completion": {
+          "n": 8,
+          "median": 4.38,
+          "p25": 0.0,
+          "p75": 19.66,
+          "iqr": 19.66,
+          "min": 0.0,
+          "max": 235.38
+        },
+        "secondary_carrier_measured_uj_per_correct_completion": {
+          "n": 8,
+          "median": 981.55,
+          "p25": 899.82,
+          "p75": 1065.45,
+          "iqr": 165.63,
+          "min": 865.93,
+          "max": 1304.54
+        },
+        "shunt_samples_per_trial": {
+          "n": 8,
+          "median": 164.0,
+          "p25": 161.0,
+          "p75": 164.2,
+          "iqr": 3.2,
+          "min": 155.0,
+          "max": 166.0
+        },
+        "pkg_reported_uj_per_correct_completion": null,
+        "core_reported_uj_per_correct_completion": null
+      },
+      "always_stage3_mosaic_plus_gate": {
+        "queries_per_pass": 1000,
+        "correct_completions": 1000,
+        "accuracy": 1.0,
+        "reps_per_trial": 11,
+        "wall_us_per_correct_completion": {
+          "n": 8,
+          "median": 77.679,
+          "p25": 77.661,
+          "p75": 77.716,
+          "iqr": 0.055,
+          "min": 77.612,
+          "max": 78.116
+        },
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct_completion": {
+          "n": 8,
+          "median": 1579.24,
+          "p25": 1508.16,
+          "p75": 1641.0,
+          "iqr": 132.83,
+          "min": 1425.1,
+          "max": 1823.77
+        },
+        "net_above_idle_a1_a2_measured_uj_per_correct_completion": null,
+        "net_above_idle_a1_a2_withheld_per_falsifier_6": true,
+        "paired_round_net_above_idle_measured_uj_per_correct_completion": {
+          "n": 8,
+          "median": 0.0,
+          "p25": 0.0,
+          "p75": 30.78,
+          "iqr": 30.78,
+          "min": 0.0,
+          "max": 65.28
+        },
+        "secondary_carrier_measured_uj_per_correct_completion": {
+          "n": 8,
+          "median": 3016.01,
+          "p25": 2869.86,
+          "p75": 3172.73,
+          "iqr": 302.87,
+          "min": 2751.23,
+          "max": 3377.86
+        },
+        "shunt_samples_per_trial": {
+          "n": 8,
+          "median": 177.0,
+          "p25": 175.8,
+          "p75": 177.2,
+          "iqr": 1.5,
+          "min": 172.0,
+          "max": 179.0
+        },
+        "pkg_reported_uj_per_correct_completion": null,
+        "core_reported_uj_per_correct_completion": null
+      },
+      "always_dense_teacher_baseline": {
+        "queries_per_pass": 1000,
+        "correct_completions": 1000,
+        "accuracy": 1.0,
+        "reps_per_trial": 2,
+        "wall_us_per_correct_completion": {
+          "n": 8,
+          "median": 409.941,
+          "p25": 409.776,
+          "p75": 410.078,
+          "iqr": 0.302,
+          "min": 409.656,
+          "max": 413.971
+        },
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct_completion": {
+          "n": 8,
+          "median": 8622.51,
+          "p25": 8022.11,
+          "p75": 9295.5,
+          "iqr": 1273.39,
+          "min": 7593.53,
+          "max": 12210.58
+        },
+        "net_above_idle_a1_a2_measured_uj_per_correct_completion": null,
+        "net_above_idle_a1_a2_withheld_per_falsifier_6": true,
+        "paired_round_net_above_idle_measured_uj_per_correct_completion": {
+          "n": 8,
+          "median": 105.83,
+          "p25": 45.33,
+          "p75": 364.75,
+          "iqr": 319.43,
+          "min": 0.0,
+          "max": 2235.8
+        },
+        "secondary_carrier_measured_uj_per_correct_completion": {
+          "n": 8,
+          "median": 16479.77,
+          "p25": 15423.9,
+          "p75": 18320.38,
+          "iqr": 2896.48,
+          "min": 14626.84,
+          "max": 21643.15
+        },
+        "shunt_samples_per_trial": {
+          "n": 8,
+          "median": 168.0,
+          "p25": 166.0,
+          "p75": 171.2,
+          "iqr": 5.2,
+          "min": 164.0,
+          "max": 172.0
+        },
+        "pkg_reported_uj_per_correct_completion": null,
+        "core_reported_uj_per_correct_completion": null
+      }
+    },
+    "metered_pipelines_local_silicon": {
+      "spellcheck_4stage_cascade": {
+        "queries_per_pass": 1000,
+        "correct_completions": 1000,
+        "accuracy": 1.0,
+        "reps_per_trial": 32,
+        "wall_us_per_correct_completion": {
+          "n": 8,
+          "median": 24.524,
+          "p25": 24.509,
+          "p75": 25.29,
+          "iqr": 0.781,
+          "min": 24.503,
+          "max": 26.021
+        },
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct_completion": {
+          "n": 8,
+          "median": 530.39,
+          "p25": 463.69,
+          "p75": 591.5,
+          "iqr": 127.81,
+          "min": 456.86,
+          "max": 724.58
+        },
+        "net_above_idle_a1_a2_measured_uj_per_correct_completion": null,
+        "net_above_idle_a1_a2_withheld_per_falsifier_6": true,
+        "paired_round_net_above_idle_measured_uj_per_correct_completion": {
+          "n": 8,
+          "median": 4.38,
+          "p25": 0.0,
+          "p75": 19.66,
+          "iqr": 19.66,
+          "min": 0.0,
+          "max": 235.38
+        },
+        "secondary_carrier_measured_uj_per_correct_completion": {
+          "n": 8,
+          "median": 981.55,
+          "p25": 899.82,
+          "p75": 1065.45,
+          "iqr": 165.63,
+          "min": 865.93,
+          "max": 1304.54
+        },
+        "shunt_samples_per_trial": {
+          "n": 8,
+          "median": 164.0,
+          "p25": 161.0,
+          "p75": 164.2,
+          "iqr": 3.2,
+          "min": 155.0,
+          "max": 166.0
+        },
+        "pkg_reported_uj_per_correct_completion": null,
+        "core_reported_uj_per_correct_completion": null
+      },
+      "always_stage3_mosaic_plus_gate": {
+        "queries_per_pass": 1000,
+        "correct_completions": 1000,
+        "accuracy": 1.0,
+        "reps_per_trial": 11,
+        "wall_us_per_correct_completion": {
+          "n": 8,
+          "median": 77.679,
+          "p25": 77.661,
+          "p75": 77.716,
+          "iqr": 0.055,
+          "min": 77.612,
+          "max": 78.116
+        },
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct_completion": {
+          "n": 8,
+          "median": 1579.24,
+          "p25": 1508.16,
+          "p75": 1641.0,
+          "iqr": 132.83,
+          "min": 1425.1,
+          "max": 1823.77
+        },
+        "net_above_idle_a1_a2_measured_uj_per_correct_completion": null,
+        "net_above_idle_a1_a2_withheld_per_falsifier_6": true,
+        "paired_round_net_above_idle_measured_uj_per_correct_completion": {
+          "n": 8,
+          "median": 0.0,
+          "p25": 0.0,
+          "p75": 30.78,
+          "iqr": 30.78,
+          "min": 0.0,
+          "max": 65.28
+        },
+        "secondary_carrier_measured_uj_per_correct_completion": {
+          "n": 8,
+          "median": 3016.01,
+          "p25": 2869.86,
+          "p75": 3172.73,
+          "iqr": 302.87,
+          "min": 2751.23,
+          "max": 3377.86
+        },
+        "shunt_samples_per_trial": {
+          "n": 8,
+          "median": 177.0,
+          "p25": 175.8,
+          "p75": 177.2,
+          "iqr": 1.5,
+          "min": 172.0,
+          "max": 179.0
+        },
+        "pkg_reported_uj_per_correct_completion": null,
+        "core_reported_uj_per_correct_completion": null
+      },
+      "always_dense_teacher_baseline": {
+        "queries_per_pass": 1000,
+        "correct_completions": 1000,
+        "accuracy": 1.0,
+        "reps_per_trial": 2,
+        "wall_us_per_correct_completion": {
+          "n": 8,
+          "median": 409.941,
+          "p25": 409.776,
+          "p75": 410.078,
+          "iqr": 0.302,
+          "min": 409.656,
+          "max": 413.971
+        },
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct_completion": {
+          "n": 8,
+          "median": 8622.51,
+          "p25": 8022.11,
+          "p75": 9295.5,
+          "iqr": 1273.39,
+          "min": 7593.53,
+          "max": 12210.58
+        },
+        "net_above_idle_a1_a2_measured_uj_per_correct_completion": null,
+        "net_above_idle_a1_a2_withheld_per_falsifier_6": true,
+        "paired_round_net_above_idle_measured_uj_per_correct_completion": {
+          "n": 8,
+          "median": 105.83,
+          "p25": 45.33,
+          "p75": 364.75,
+          "iqr": 319.43,
+          "min": 0.0,
+          "max": 2235.8
+        },
+        "secondary_carrier_measured_uj_per_correct_completion": {
+          "n": 8,
+          "median": 16479.77,
+          "p25": 15423.9,
+          "p75": 18320.38,
+          "iqr": 2896.48,
+          "min": 14626.84,
+          "max": 21643.15
+        },
+        "shunt_samples_per_trial": {
+          "n": 8,
+          "median": 168.0,
+          "p25": 166.0,
+          "p75": 171.2,
+          "iqr": 5.2,
+          "min": 164.0,
+          "max": 172.0
+        },
+        "pkg_reported_uj_per_correct_completion": null,
+        "core_reported_uj_per_correct_completion": null
+      }
+    },
+    "same_meter_comparisons": {
+      "evidence_class": "measured_j",
+      "wall_speedup_cascade_over_always_dense_x": 16.72,
+      "wall_speedup_cascade_over_always_mosaic_x": 3.17,
+      "measured_j_improvement_cascade_over_always_dense_x": 16.26,
+      "measured_j_improvement_cascade_over_always_mosaic_x": 2.98
+    },
+    "analytical_frontier_est_j_reference_strictly_separate": {
+      "evidence_class": "est_j",
+      "mixed_or_summed_with_reported_j": false,
+      "mixed_or_summed_with_measured_j": false,
+      "assumed_remote_frontier_call_est_j": 1.5,
+      "frontier_only_1000_calls_est_j": 1500.0,
+      "cascade_residual_only_calls": 26,
+      "cascade_remote_escalation_est_j": 39.0,
+      "analytical_frontier_call_avoidance_ratio_x": 38.46,
+      "note": "Analytical cloud call estimate (`est_j`) kept strictly separate from local `measured_j` and `reported_j`."
+    },
+    "cascade_grid_sweep": [
+      {
+        "zipf_skew_s": 0.0,
+        "stage2_edit_distance_d_max": 0,
+        "stage3_margin_tau": 1500,
+        "queries": 1000,
+        "correct": 985,
+        "accuracy": 0.985,
+        "stage_fractions": {
+          "stage1_lut": 0.1,
+          "stage2_sparse": 0.0,
+          "stage3_mosaic": 0.852,
+          "stage4_escalated": 0.048
+        },
+        "local_wall_us_per_correct": 81.208,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1441.605,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 2771.658,
+        "shunt_samples": 150,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 48,
+          "remote_est_j_at_1p5j_per_call": 72.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.0,
+        "stage2_edit_distance_d_max": 0,
+        "stage3_margin_tau": 3000,
+        "queries": 1000,
+        "correct": 985,
+        "accuracy": 0.985,
+        "stage_fractions": {
+          "stage1_lut": 0.1,
+          "stage2_sparse": 0.0,
+          "stage3_mosaic": 0.808,
+          "stage4_escalated": 0.092
+        },
+        "local_wall_us_per_correct": 99.657,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1758.144,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 3724.63,
+        "shunt_samples": 138,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 92,
+          "remote_est_j_at_1p5j_per_call": 138.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.0,
+        "stage2_edit_distance_d_max": 0,
+        "stage3_margin_tau": 4500,
+        "queries": 1000,
+        "correct": 985,
+        "accuracy": 0.985,
+        "stage_fractions": {
+          "stage1_lut": 0.1,
+          "stage2_sparse": 0.0,
+          "stage3_mosaic": 0.77,
+          "stage4_escalated": 0.13
+        },
+        "local_wall_us_per_correct": 115.525,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 2700.451,
+        "paired_net_above_idle_measured_uj_per_correct": 569.51,
+        "secondary_carrier_measured_uj_per_correct": 4664.209,
+        "shunt_samples": 133,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 130,
+          "remote_est_j_at_1p5j_per_call": 195.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.0,
+        "stage2_edit_distance_d_max": 0,
+        "stage3_margin_tau": 6500,
+        "queries": 1000,
+        "correct": 985,
+        "accuracy": 0.985,
+        "stage_fractions": {
+          "stage1_lut": 0.1,
+          "stage2_sparse": 0.0,
+          "stage3_mosaic": 0.76,
+          "stage4_escalated": 0.14
+        },
+        "local_wall_us_per_correct": 119.627,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 2196.282,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 4045.883,
+        "shunt_samples": 148,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 140,
+          "remote_est_j_at_1p5j_per_call": 210.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.0,
+        "stage2_edit_distance_d_max": 0,
+        "stage3_margin_tau": 9000,
+        "queries": 1000,
+        "correct": 985,
+        "accuracy": 0.985,
+        "stage_fractions": {
+          "stage1_lut": 0.1,
+          "stage2_sparse": 0.0,
+          "stage3_mosaic": 0.76,
+          "stage4_escalated": 0.14
+        },
+        "local_wall_us_per_correct": 119.593,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 2075.535,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 4038.077,
+        "shunt_samples": 148,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 140,
+          "remote_est_j_at_1p5j_per_call": 210.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.0,
+        "stage2_edit_distance_d_max": 1,
+        "stage3_margin_tau": 1500,
+        "queries": 1000,
+        "correct": 985,
+        "accuracy": 0.985,
+        "stage_fractions": {
+          "stage1_lut": 0.1,
+          "stage2_sparse": 0.091,
+          "stage3_mosaic": 0.761,
+          "stage4_escalated": 0.048
+        },
+        "local_wall_us_per_correct": 75.36,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1281.209,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 2521.509,
+        "shunt_samples": 139,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 48,
+          "remote_est_j_at_1p5j_per_call": 72.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.0,
+        "stage2_edit_distance_d_max": 1,
+        "stage3_margin_tau": 3000,
+        "queries": 1000,
+        "correct": 985,
+        "accuracy": 0.985,
+        "stage_fractions": {
+          "stage1_lut": 0.1,
+          "stage2_sparse": 0.091,
+          "stage3_mosaic": 0.717,
+          "stage4_escalated": 0.092
+        },
+        "local_wall_us_per_correct": 93.742,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1579.198,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 3107.097,
+        "shunt_samples": 152,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 92,
+          "remote_est_j_at_1p5j_per_call": 138.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.0,
+        "stage2_edit_distance_d_max": 1,
+        "stage3_margin_tau": 4500,
+        "queries": 1000,
+        "correct": 985,
+        "accuracy": 0.985,
+        "stage_fractions": {
+          "stage1_lut": 0.1,
+          "stage2_sparse": 0.091,
+          "stage3_mosaic": 0.679,
+          "stage4_escalated": 0.13
+        },
+        "local_wall_us_per_correct": 109.594,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1753.258,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 3551.903,
+        "shunt_samples": 159,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 130,
+          "remote_est_j_at_1p5j_per_call": 195.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.0,
+        "stage2_edit_distance_d_max": 1,
+        "stage3_margin_tau": 6500,
+        "queries": 1000,
+        "correct": 985,
+        "accuracy": 0.985,
+        "stage_fractions": {
+          "stage1_lut": 0.1,
+          "stage2_sparse": 0.091,
+          "stage3_mosaic": 0.669,
+          "stage4_escalated": 0.14
+        },
+        "local_wall_us_per_correct": 113.728,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1888.595,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 3906.756,
+        "shunt_samples": 139,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 140,
+          "remote_est_j_at_1p5j_per_call": 210.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.0,
+        "stage2_edit_distance_d_max": 1,
+        "stage3_margin_tau": 9000,
+        "queries": 1000,
+        "correct": 985,
+        "accuracy": 0.985,
+        "stage_fractions": {
+          "stage1_lut": 0.1,
+          "stage2_sparse": 0.091,
+          "stage3_mosaic": 0.669,
+          "stage4_escalated": 0.14
+        },
+        "local_wall_us_per_correct": 113.72,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1869.549,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 3784.383,
+        "shunt_samples": 139,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 140,
+          "remote_est_j_at_1p5j_per_call": 210.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.0,
+        "stage2_edit_distance_d_max": 2,
+        "stage3_margin_tau": 1500,
+        "queries": 1000,
+        "correct": 985,
+        "accuracy": 0.985,
+        "stage_fractions": {
+          "stage1_lut": 0.1,
+          "stage2_sparse": 0.181,
+          "stage3_mosaic": 0.671,
+          "stage4_escalated": 0.048
+        },
+        "local_wall_us_per_correct": 69.25,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1202.356,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 2386.782,
+        "shunt_samples": 142,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 48,
+          "remote_est_j_at_1p5j_per_call": 72.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.0,
+        "stage2_edit_distance_d_max": 2,
+        "stage3_margin_tau": 3000,
+        "queries": 1000,
+        "correct": 985,
+        "accuracy": 0.985,
+        "stage_fractions": {
+          "stage1_lut": 0.1,
+          "stage2_sparse": 0.181,
+          "stage3_mosaic": 0.627,
+          "stage4_escalated": 0.092
+        },
+        "local_wall_us_per_correct": 87.611,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1510.743,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 2999.533,
+        "shunt_samples": 145,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 92,
+          "remote_est_j_at_1p5j_per_call": 138.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.0,
+        "stage2_edit_distance_d_max": 2,
+        "stage3_margin_tau": 4500,
+        "queries": 1000,
+        "correct": 985,
+        "accuracy": 0.985,
+        "stage_fractions": {
+          "stage1_lut": 0.1,
+          "stage2_sparse": 0.181,
+          "stage3_mosaic": 0.589,
+          "stage4_escalated": 0.13
+        },
+        "local_wall_us_per_correct": 103.48,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1760.138,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 3500.497,
+        "shunt_samples": 150,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 130,
+          "remote_est_j_at_1p5j_per_call": 195.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.0,
+        "stage2_edit_distance_d_max": 2,
+        "stage3_margin_tau": 6500,
+        "queries": 1000,
+        "correct": 985,
+        "accuracy": 0.985,
+        "stage_fractions": {
+          "stage1_lut": 0.1,
+          "stage2_sparse": 0.181,
+          "stage3_mosaic": 0.579,
+          "stage4_escalated": 0.14
+        },
+        "local_wall_us_per_correct": 107.669,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1817.646,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 3630.984,
+        "shunt_samples": 154,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 140,
+          "remote_est_j_at_1p5j_per_call": 210.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.0,
+        "stage2_edit_distance_d_max": 2,
+        "stage3_margin_tau": 9000,
+        "queries": 1000,
+        "correct": 985,
+        "accuracy": 0.985,
+        "stage_fractions": {
+          "stage1_lut": 0.1,
+          "stage2_sparse": 0.181,
+          "stage3_mosaic": 0.579,
+          "stage4_escalated": 0.14
+        },
+        "local_wall_us_per_correct": 107.661,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1800.608,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 3584.79,
+        "shunt_samples": 154,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 140,
+          "remote_est_j_at_1p5j_per_call": 210.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.5,
+        "stage2_edit_distance_d_max": 0,
+        "stage3_margin_tau": 1500,
+        "queries": 1000,
+        "correct": 991,
+        "accuracy": 0.991,
+        "stage_fractions": {
+          "stage1_lut": 0.28,
+          "stage2_sparse": 0.0,
+          "stage3_mosaic": 0.679,
+          "stage4_escalated": 0.041
+        },
+        "local_wall_us_per_correct": 68.267,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1097.055,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 2268.692,
+        "shunt_samples": 85,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 41,
+          "remote_est_j_at_1p5j_per_call": 61.5
+        }
+      },
+      {
+        "zipf_skew_s": 0.5,
+        "stage2_edit_distance_d_max": 0,
+        "stage3_margin_tau": 3000,
+        "queries": 1000,
+        "correct": 991,
+        "accuracy": 0.991,
+        "stage_fractions": {
+          "stage1_lut": 0.28,
+          "stage2_sparse": 0.0,
+          "stage3_mosaic": 0.63,
+          "stage4_escalated": 0.09
+        },
+        "local_wall_us_per_correct": 86.055,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1453.419,
+        "paired_net_above_idle_measured_uj_per_correct": 51.396,
+        "secondary_carrier_measured_uj_per_correct": 2926.321,
+        "shunt_samples": 142,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 90,
+          "remote_est_j_at_1p5j_per_call": 135.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.5,
+        "stage2_edit_distance_d_max": 0,
+        "stage3_margin_tau": 4500,
+        "queries": 1000,
+        "correct": 991,
+        "accuracy": 0.991,
+        "stage_fractions": {
+          "stage1_lut": 0.28,
+          "stage2_sparse": 0.0,
+          "stage3_mosaic": 0.615,
+          "stage4_escalated": 0.105
+        },
+        "local_wall_us_per_correct": 92.263,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1581.177,
+        "paired_net_above_idle_measured_uj_per_correct": 78.012,
+        "secondary_carrier_measured_uj_per_correct": 3137.109,
+        "shunt_samples": 152,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 105,
+          "remote_est_j_at_1p5j_per_call": 157.5
+        }
+      },
+      {
+        "zipf_skew_s": 0.5,
+        "stage2_edit_distance_d_max": 0,
+        "stage3_margin_tau": 6500,
+        "queries": 1000,
+        "correct": 991,
+        "accuracy": 0.991,
+        "stage_fractions": {
+          "stage1_lut": 0.28,
+          "stage2_sparse": 0.0,
+          "stage3_mosaic": 0.61,
+          "stage4_escalated": 0.11
+        },
+        "local_wall_us_per_correct": 94.317,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1609.056,
+        "paired_net_above_idle_measured_uj_per_correct": 72.427,
+        "secondary_carrier_measured_uj_per_correct": 3184.938,
+        "shunt_samples": 156,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 110,
+          "remote_est_j_at_1p5j_per_call": 165.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.5,
+        "stage2_edit_distance_d_max": 0,
+        "stage3_margin_tau": 9000,
+        "queries": 1000,
+        "correct": 991,
+        "accuracy": 0.991,
+        "stage_fractions": {
+          "stage1_lut": 0.28,
+          "stage2_sparse": 0.0,
+          "stage3_mosaic": 0.61,
+          "stage4_escalated": 0.11
+        },
+        "local_wall_us_per_correct": 94.338,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1604.959,
+        "paired_net_above_idle_measured_uj_per_correct": 67.981,
+        "secondary_carrier_measured_uj_per_correct": 3204.775,
+        "shunt_samples": 156,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 110,
+          "remote_est_j_at_1p5j_per_call": 165.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.5,
+        "stage2_edit_distance_d_max": 1,
+        "stage3_margin_tau": 1500,
+        "queries": 1000,
+        "correct": 991,
+        "accuracy": 0.991,
+        "stage_fractions": {
+          "stage1_lut": 0.28,
+          "stage2_sparse": 0.105,
+          "stage3_mosaic": 0.574,
+          "stage4_escalated": 0.041
+        },
+        "local_wall_us_per_correct": 58.965,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1018.18,
+        "paired_net_above_idle_measured_uj_per_correct": 57.504,
+        "secondary_carrier_measured_uj_per_correct": 2130.302,
+        "shunt_samples": 144,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 41,
+          "remote_est_j_at_1p5j_per_call": 61.5
+        }
+      },
+      {
+        "zipf_skew_s": 0.5,
+        "stage2_edit_distance_d_max": 1,
+        "stage3_margin_tau": 3000,
+        "queries": 1000,
+        "correct": 991,
+        "accuracy": 0.991,
+        "stage_fractions": {
+          "stage1_lut": 0.28,
+          "stage2_sparse": 0.105,
+          "stage3_mosaic": 0.525,
+          "stage4_escalated": 0.09
+        },
+        "local_wall_us_per_correct": 82.039,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1937.674,
+        "paired_net_above_idle_measured_uj_per_correct": 601.078,
+        "secondary_carrier_measured_uj_per_correct": 3528.717,
+        "shunt_samples": 146,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 90,
+          "remote_est_j_at_1p5j_per_call": 135.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.5,
+        "stage2_edit_distance_d_max": 1,
+        "stage3_margin_tau": 4500,
+        "queries": 1000,
+        "correct": 991,
+        "accuracy": 0.991,
+        "stage_fractions": {
+          "stage1_lut": 0.28,
+          "stage2_sparse": 0.105,
+          "stage3_mosaic": 0.51,
+          "stage4_escalated": 0.105
+        },
+        "local_wall_us_per_correct": 85.617,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1631.701,
+        "paired_net_above_idle_measured_uj_per_correct": 236.805,
+        "secondary_carrier_measured_uj_per_correct": 2905.796,
+        "shunt_samples": 142,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 105,
+          "remote_est_j_at_1p5j_per_call": 157.5
+        }
+      },
+      {
+        "zipf_skew_s": 0.5,
+        "stage2_edit_distance_d_max": 1,
+        "stage3_margin_tau": 6500,
+        "queries": 1000,
+        "correct": 991,
+        "accuracy": 0.991,
+        "stage_fractions": {
+          "stage1_lut": 0.28,
+          "stage2_sparse": 0.105,
+          "stage3_mosaic": 0.505,
+          "stage4_escalated": 0.11
+        },
+        "local_wall_us_per_correct": 87.653,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1517.451,
+        "paired_net_above_idle_measured_uj_per_correct": 89.395,
+        "secondary_carrier_measured_uj_per_correct": 2973.052,
+        "shunt_samples": 145,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 110,
+          "remote_est_j_at_1p5j_per_call": 165.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.5,
+        "stage2_edit_distance_d_max": 1,
+        "stage3_margin_tau": 9000,
+        "queries": 1000,
+        "correct": 991,
+        "accuracy": 0.991,
+        "stage_fractions": {
+          "stage1_lut": 0.28,
+          "stage2_sparse": 0.105,
+          "stage3_mosaic": 0.505,
+          "stage4_escalated": 0.11
+        },
+        "local_wall_us_per_correct": 87.653,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1490.083,
+        "paired_net_above_idle_measured_uj_per_correct": 62.025,
+        "secondary_carrier_measured_uj_per_correct": 2985.169,
+        "shunt_samples": 145,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 110,
+          "remote_est_j_at_1p5j_per_call": 165.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.5,
+        "stage2_edit_distance_d_max": 2,
+        "stage3_margin_tau": 1500,
+        "queries": 1000,
+        "correct": 991,
+        "accuracy": 0.991,
+        "stage_fractions": {
+          "stage1_lut": 0.28,
+          "stage2_sparse": 0.21,
+          "stage3_mosaic": 0.469,
+          "stage4_escalated": 0.041
+        },
+        "local_wall_us_per_correct": 51.824,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 881.154,
+        "paired_net_above_idle_measured_uj_per_correct": 36.824,
+        "secondary_carrier_measured_uj_per_correct": 1754.62,
+        "shunt_samples": 140,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 41,
+          "remote_est_j_at_1p5j_per_call": 61.5
+        }
+      },
+      {
+        "zipf_skew_s": 0.5,
+        "stage2_edit_distance_d_max": 2,
+        "stage3_margin_tau": 3000,
+        "queries": 1000,
+        "correct": 991,
+        "accuracy": 0.991,
+        "stage_fractions": {
+          "stage1_lut": 0.28,
+          "stage2_sparse": 0.21,
+          "stage3_mosaic": 0.42,
+          "stage4_escalated": 0.09
+        },
+        "local_wall_us_per_correct": 72.209,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1170.347,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 2339.734,
+        "shunt_samples": 149,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 90,
+          "remote_est_j_at_1p5j_per_call": 135.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.5,
+        "stage2_edit_distance_d_max": 2,
+        "stage3_margin_tau": 4500,
+        "queries": 1000,
+        "correct": 991,
+        "accuracy": 0.991,
+        "stage_fractions": {
+          "stage1_lut": 0.28,
+          "stage2_sparse": 0.21,
+          "stage3_mosaic": 0.405,
+          "stage4_escalated": 0.105
+        },
+        "local_wall_us_per_correct": 78.401,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1239.936,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 2558.72,
+        "shunt_samples": 145,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 105,
+          "remote_est_j_at_1p5j_per_call": 157.5
+        }
+      },
+      {
+        "zipf_skew_s": 0.5,
+        "stage2_edit_distance_d_max": 2,
+        "stage3_margin_tau": 6500,
+        "queries": 1000,
+        "correct": 991,
+        "accuracy": 0.991,
+        "stage_fractions": {
+          "stage1_lut": 0.28,
+          "stage2_sparse": 0.21,
+          "stage3_mosaic": 0.4,
+          "stage4_escalated": 0.11
+        },
+        "local_wall_us_per_correct": 81.091,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1299.525,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 2730.481,
+        "shunt_samples": 149,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 110,
+          "remote_est_j_at_1p5j_per_call": 165.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.5,
+        "stage2_edit_distance_d_max": 2,
+        "stage3_margin_tau": 9000,
+        "queries": 1000,
+        "correct": 991,
+        "accuracy": 0.991,
+        "stage_fractions": {
+          "stage1_lut": 0.28,
+          "stage2_sparse": 0.21,
+          "stage3_mosaic": 0.4,
+          "stage4_escalated": 0.11
+        },
+        "local_wall_us_per_correct": 80.505,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1351.972,
+        "paired_net_above_idle_measured_uj_per_correct": 40.365,
+        "secondary_carrier_measured_uj_per_correct": 2660.106,
+        "shunt_samples": 149,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 110,
+          "remote_est_j_at_1p5j_per_call": 165.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.85,
+        "stage2_edit_distance_d_max": 0,
+        "stage3_margin_tau": 1500,
+        "queries": 1000,
+        "correct": 995,
+        "accuracy": 0.995,
+        "stage_fractions": {
+          "stage1_lut": 0.433,
+          "stage2_sparse": 0.0,
+          "stage3_mosaic": 0.526,
+          "stage4_escalated": 0.041
+        },
+        "local_wall_us_per_correct": 57.126,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 965.961,
+        "paired_net_above_idle_measured_uj_per_correct": 41.468,
+        "secondary_carrier_measured_uj_per_correct": 1985.814,
+        "shunt_samples": 84,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 41,
+          "remote_est_j_at_1p5j_per_call": 61.5
+        }
+      },
+      {
+        "zipf_skew_s": 0.85,
+        "stage2_edit_distance_d_max": 0,
+        "stage3_margin_tau": 3000,
+        "queries": 1000,
+        "correct": 995,
+        "accuracy": 0.995,
+        "stage_fractions": {
+          "stage1_lut": 0.433,
+          "stage2_sparse": 0.0,
+          "stage3_mosaic": 0.492,
+          "stage4_escalated": 0.075
+        },
+        "local_wall_us_per_correct": 69.184,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1203.305,
+        "paired_net_above_idle_measured_uj_per_correct": 83.662,
+        "secondary_carrier_measured_uj_per_correct": 2395.949,
+        "shunt_samples": 144,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 75,
+          "remote_est_j_at_1p5j_per_call": 112.5
+        }
+      },
+      {
+        "zipf_skew_s": 0.85,
+        "stage2_edit_distance_d_max": 0,
+        "stage3_margin_tau": 4500,
+        "queries": 1000,
+        "correct": 995,
+        "accuracy": 0.995,
+        "stage_fractions": {
+          "stage1_lut": 0.433,
+          "stage2_sparse": 0.0,
+          "stage3_mosaic": 0.481,
+          "stage4_escalated": 0.086
+        },
+        "local_wall_us_per_correct": 73.696,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1282.265,
+        "paired_net_above_idle_measured_uj_per_correct": 89.606,
+        "secondary_carrier_measured_uj_per_correct": 2525.699,
+        "shunt_samples": 137,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 86,
+          "remote_est_j_at_1p5j_per_call": 129.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.85,
+        "stage2_edit_distance_d_max": 0,
+        "stage3_margin_tau": 6500,
+        "queries": 1000,
+        "correct": 995,
+        "accuracy": 0.995,
+        "stage_fractions": {
+          "stage1_lut": 0.433,
+          "stage2_sparse": 0.0,
+          "stage3_mosaic": 0.479,
+          "stage4_escalated": 0.088
+        },
+        "local_wall_us_per_correct": 74.586,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1297.405,
+        "paired_net_above_idle_measured_uj_per_correct": 90.345,
+        "secondary_carrier_measured_uj_per_correct": 2541.841,
+        "shunt_samples": 140,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 88,
+          "remote_est_j_at_1p5j_per_call": 132.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.85,
+        "stage2_edit_distance_d_max": 0,
+        "stage3_margin_tau": 9000,
+        "queries": 1000,
+        "correct": 995,
+        "accuracy": 0.995,
+        "stage_fractions": {
+          "stage1_lut": 0.433,
+          "stage2_sparse": 0.0,
+          "stage3_mosaic": 0.479,
+          "stage4_escalated": 0.088
+        },
+        "local_wall_us_per_correct": 74.583,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1289.88,
+        "paired_net_above_idle_measured_uj_per_correct": 82.869,
+        "secondary_carrier_measured_uj_per_correct": 2527.853,
+        "shunt_samples": 139,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 88,
+          "remote_est_j_at_1p5j_per_call": 132.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.85,
+        "stage2_edit_distance_d_max": 1,
+        "stage3_margin_tau": 1500,
+        "queries": 1000,
+        "correct": 995,
+        "accuracy": 0.995,
+        "stage_fractions": {
+          "stage1_lut": 0.433,
+          "stage2_sparse": 0.115,
+          "stage3_mosaic": 0.411,
+          "stage4_escalated": 0.041
+        },
+        "local_wall_us_per_correct": 47.726,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 823.826,
+        "paired_net_above_idle_measured_uj_per_correct": 51.453,
+        "secondary_carrier_measured_uj_per_correct": 1621.957,
+        "shunt_samples": 139,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 41,
+          "remote_est_j_at_1p5j_per_call": 61.5
+        }
+      },
+      {
+        "zipf_skew_s": 0.85,
+        "stage2_edit_distance_d_max": 1,
+        "stage3_margin_tau": 3000,
+        "queries": 1000,
+        "correct": 995,
+        "accuracy": 0.995,
+        "stage_fractions": {
+          "stage1_lut": 0.433,
+          "stage2_sparse": 0.115,
+          "stage3_mosaic": 0.377,
+          "stage4_escalated": 0.075
+        },
+        "local_wall_us_per_correct": 61.755,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1065.83,
+        "paired_net_above_idle_measured_uj_per_correct": 66.416,
+        "secondary_carrier_measured_uj_per_correct": 2108.966,
+        "shunt_samples": 141,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 75,
+          "remote_est_j_at_1p5j_per_call": 112.5
+        }
+      },
+      {
+        "zipf_skew_s": 0.85,
+        "stage2_edit_distance_d_max": 1,
+        "stage3_margin_tau": 4500,
+        "queries": 1000,
+        "correct": 995,
+        "accuracy": 0.995,
+        "stage_fractions": {
+          "stage1_lut": 0.433,
+          "stage2_sparse": 0.115,
+          "stage3_mosaic": 0.366,
+          "stage4_escalated": 0.086
+        },
+        "local_wall_us_per_correct": 66.333,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1141.272,
+        "paired_net_above_idle_measured_uj_per_correct": 67.778,
+        "secondary_carrier_measured_uj_per_correct": 2260.532,
+        "shunt_samples": 138,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 86,
+          "remote_est_j_at_1p5j_per_call": 129.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.85,
+        "stage2_edit_distance_d_max": 1,
+        "stage3_margin_tau": 6500,
+        "queries": 1000,
+        "correct": 995,
+        "accuracy": 0.995,
+        "stage_fractions": {
+          "stage1_lut": 0.433,
+          "stage2_sparse": 0.115,
+          "stage3_mosaic": 0.364,
+          "stage4_escalated": 0.088
+        },
+        "local_wall_us_per_correct": 67.142,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1158.213,
+        "paired_net_above_idle_measured_uj_per_correct": 71.615,
+        "secondary_carrier_measured_uj_per_correct": 2288.974,
+        "shunt_samples": 139,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 88,
+          "remote_est_j_at_1p5j_per_call": 132.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.85,
+        "stage2_edit_distance_d_max": 1,
+        "stage3_margin_tau": 9000,
+        "queries": 1000,
+        "correct": 995,
+        "accuracy": 0.995,
+        "stage_fractions": {
+          "stage1_lut": 0.433,
+          "stage2_sparse": 0.115,
+          "stage3_mosaic": 0.364,
+          "stage4_escalated": 0.088
+        },
+        "local_wall_us_per_correct": 67.149,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1157.839,
+        "paired_net_above_idle_measured_uj_per_correct": 71.134,
+        "secondary_carrier_measured_uj_per_correct": 2285.061,
+        "shunt_samples": 140,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 88,
+          "remote_est_j_at_1p5j_per_call": 132.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.85,
+        "stage2_edit_distance_d_max": 2,
+        "stage3_margin_tau": 1500,
+        "queries": 1000,
+        "correct": 995,
+        "accuracy": 0.995,
+        "stage_fractions": {
+          "stage1_lut": 0.433,
+          "stage2_sparse": 0.23,
+          "stage3_mosaic": 0.296,
+          "stage4_escalated": 0.041
+        },
+        "local_wall_us_per_correct": 40.006,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 696.31,
+        "paired_net_above_idle_measured_uj_per_correct": 48.879,
+        "secondary_carrier_measured_uj_per_correct": 1379.132,
+        "shunt_samples": 140,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 41,
+          "remote_est_j_at_1p5j_per_call": 61.5
+        }
+      },
+      {
+        "zipf_skew_s": 0.85,
+        "stage2_edit_distance_d_max": 2,
+        "stage3_margin_tau": 3000,
+        "queries": 1000,
+        "correct": 995,
+        "accuracy": 0.995,
+        "stage_fractions": {
+          "stage1_lut": 0.433,
+          "stage2_sparse": 0.23,
+          "stage3_mosaic": 0.262,
+          "stage4_escalated": 0.075
+        },
+        "local_wall_us_per_correct": 54.157,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 991.117,
+        "paired_net_above_idle_measured_uj_per_correct": 114.673,
+        "secondary_carrier_measured_uj_per_correct": 2102.381,
+        "shunt_samples": 141,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 75,
+          "remote_est_j_at_1p5j_per_call": 112.5
+        }
+      },
+      {
+        "zipf_skew_s": 0.85,
+        "stage2_edit_distance_d_max": 2,
+        "stage3_margin_tau": 4500,
+        "queries": 1000,
+        "correct": 995,
+        "accuracy": 0.995,
+        "stage_fractions": {
+          "stage1_lut": 0.433,
+          "stage2_sparse": 0.23,
+          "stage3_mosaic": 0.251,
+          "stage4_escalated": 0.086
+        },
+        "local_wall_us_per_correct": 58.664,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1366.639,
+        "paired_net_above_idle_measured_uj_per_correct": 417.254,
+        "secondary_carrier_measured_uj_per_correct": 2368.347,
+        "shunt_samples": 141,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 86,
+          "remote_est_j_at_1p5j_per_call": 129.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.85,
+        "stage2_edit_distance_d_max": 2,
+        "stage3_margin_tau": 6500,
+        "queries": 1000,
+        "correct": 995,
+        "accuracy": 0.995,
+        "stage_fractions": {
+          "stage1_lut": 0.433,
+          "stage2_sparse": 0.23,
+          "stage3_mosaic": 0.249,
+          "stage4_escalated": 0.088
+        },
+        "local_wall_us_per_correct": 59.401,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1112.018,
+        "paired_net_above_idle_measured_uj_per_correct": 150.702,
+        "secondary_carrier_measured_uj_per_correct": 2035.15,
+        "shunt_samples": 148,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 88,
+          "remote_est_j_at_1p5j_per_call": 132.0
+        }
+      },
+      {
+        "zipf_skew_s": 0.85,
+        "stage2_edit_distance_d_max": 2,
+        "stage3_margin_tau": 9000,
+        "queries": 1000,
+        "correct": 995,
+        "accuracy": 0.995,
+        "stage_fractions": {
+          "stage1_lut": 0.433,
+          "stage2_sparse": 0.23,
+          "stage3_mosaic": 0.249,
+          "stage4_escalated": 0.088
+        },
+        "local_wall_us_per_correct": 59.39,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 1040.72,
+        "paired_net_above_idle_measured_uj_per_correct": 79.583,
+        "secondary_carrier_measured_uj_per_correct": 2055.908,
+        "shunt_samples": 147,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 88,
+          "remote_est_j_at_1p5j_per_call": 132.0
+        }
+      },
+      {
+        "zipf_skew_s": 1.15,
+        "stage2_edit_distance_d_max": 0,
+        "stage3_margin_tau": 1500,
+        "queries": 1000,
+        "correct": 997,
+        "accuracy": 0.997,
+        "stage_fractions": {
+          "stage1_lut": 0.583,
+          "stage2_sparse": 0.0,
+          "stage3_mosaic": 0.382,
+          "stage4_escalated": 0.035
+        },
+        "local_wall_us_per_correct": 44.385,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 755.576,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 1520.617,
+        "shunt_samples": 93,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 35,
+          "remote_est_j_at_1p5j_per_call": 52.5
+        }
+      },
+      {
+        "zipf_skew_s": 1.15,
+        "stage2_edit_distance_d_max": 0,
+        "stage3_margin_tau": 3000,
+        "queries": 1000,
+        "correct": 997,
+        "accuracy": 0.997,
+        "stage_fractions": {
+          "stage1_lut": 0.583,
+          "stage2_sparse": 0.0,
+          "stage3_mosaic": 0.356,
+          "stage4_escalated": 0.061
+        },
+        "local_wall_us_per_correct": 53.237,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 931.123,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 1825.084,
+        "shunt_samples": 144,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 61,
+          "remote_est_j_at_1p5j_per_call": 91.5
+        }
+      },
+      {
+        "zipf_skew_s": 1.15,
+        "stage2_edit_distance_d_max": 0,
+        "stage3_margin_tau": 4500,
+        "queries": 1000,
+        "correct": 997,
+        "accuracy": 0.997,
+        "stage_fractions": {
+          "stage1_lut": 0.583,
+          "stage2_sparse": 0.0,
+          "stage3_mosaic": 0.347,
+          "stage4_escalated": 0.07
+        },
+        "local_wall_us_per_correct": 56.93,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 928.969,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 1854.789,
+        "shunt_samples": 142,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 70,
+          "remote_est_j_at_1p5j_per_call": 105.0
+        }
+      },
+      {
+        "zipf_skew_s": 1.15,
+        "stage2_edit_distance_d_max": 0,
+        "stage3_margin_tau": 6500,
+        "queries": 1000,
+        "correct": 997,
+        "accuracy": 0.997,
+        "stage_fractions": {
+          "stage1_lut": 0.583,
+          "stage2_sparse": 0.0,
+          "stage3_mosaic": 0.347,
+          "stage4_escalated": 0.07
+        },
+        "local_wall_us_per_correct": 56.914,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 917.651,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 1925.115,
+        "shunt_samples": 141,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 70,
+          "remote_est_j_at_1p5j_per_call": 105.0
+        }
+      },
+      {
+        "zipf_skew_s": 1.15,
+        "stage2_edit_distance_d_max": 0,
+        "stage3_margin_tau": 9000,
+        "queries": 1000,
+        "correct": 997,
+        "accuracy": 0.997,
+        "stage_fractions": {
+          "stage1_lut": 0.583,
+          "stage2_sparse": 0.0,
+          "stage3_mosaic": 0.347,
+          "stage4_escalated": 0.07
+        },
+        "local_wall_us_per_correct": 56.903,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 971.045,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 1876.09,
+        "shunt_samples": 142,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 70,
+          "remote_est_j_at_1p5j_per_call": 105.0
+        }
+      },
+      {
+        "zipf_skew_s": 1.15,
+        "stage2_edit_distance_d_max": 1,
+        "stage3_margin_tau": 1500,
+        "queries": 1000,
+        "correct": 997,
+        "accuracy": 0.997,
+        "stage_fractions": {
+          "stage1_lut": 0.583,
+          "stage2_sparse": 0.106,
+          "stage3_mosaic": 0.276,
+          "stage4_escalated": 0.035
+        },
+        "local_wall_us_per_correct": 35.624,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 606.908,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 1235.43,
+        "shunt_samples": 137,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 35,
+          "remote_est_j_at_1p5j_per_call": 52.5
+        }
+      },
+      {
+        "zipf_skew_s": 1.15,
+        "stage2_edit_distance_d_max": 1,
+        "stage3_margin_tau": 3000,
+        "queries": 1000,
+        "correct": 997,
+        "accuracy": 0.997,
+        "stage_fractions": {
+          "stage1_lut": 0.583,
+          "stage2_sparse": 0.106,
+          "stage3_mosaic": 0.25,
+          "stage4_escalated": 0.061
+        },
+        "local_wall_us_per_correct": 46.366,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 826.73,
+        "paired_net_above_idle_measured_uj_per_correct": 15.482,
+        "secondary_carrier_measured_uj_per_correct": 1636.046,
+        "shunt_samples": 144,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 61,
+          "remote_est_j_at_1p5j_per_call": 91.5
+        }
+      },
+      {
+        "zipf_skew_s": 1.15,
+        "stage2_edit_distance_d_max": 1,
+        "stage3_margin_tau": 4500,
+        "queries": 1000,
+        "correct": 997,
+        "accuracy": 0.997,
+        "stage_fractions": {
+          "stage1_lut": 0.583,
+          "stage2_sparse": 0.106,
+          "stage3_mosaic": 0.241,
+          "stage4_escalated": 0.07
+        },
+        "local_wall_us_per_correct": 50.065,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 893.626,
+        "paired_net_above_idle_measured_uj_per_correct": 17.649,
+        "secondary_carrier_measured_uj_per_correct": 1757.734,
+        "shunt_samples": 144,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 70,
+          "remote_est_j_at_1p5j_per_call": 105.0
+        }
+      },
+      {
+        "zipf_skew_s": 1.15,
+        "stage2_edit_distance_d_max": 1,
+        "stage3_margin_tau": 6500,
+        "queries": 1000,
+        "correct": 997,
+        "accuracy": 0.997,
+        "stage_fractions": {
+          "stage1_lut": 0.583,
+          "stage2_sparse": 0.106,
+          "stage3_mosaic": 0.241,
+          "stage4_escalated": 0.07
+        },
+        "local_wall_us_per_correct": 50.06,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 891.986,
+        "paired_net_above_idle_measured_uj_per_correct": 16.093,
+        "secondary_carrier_measured_uj_per_correct": 1751.313,
+        "shunt_samples": 145,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 70,
+          "remote_est_j_at_1p5j_per_call": 105.0
+        }
+      },
+      {
+        "zipf_skew_s": 1.15,
+        "stage2_edit_distance_d_max": 1,
+        "stage3_margin_tau": 9000,
+        "queries": 1000,
+        "correct": 997,
+        "accuracy": 0.997,
+        "stage_fractions": {
+          "stage1_lut": 0.583,
+          "stage2_sparse": 0.106,
+          "stage3_mosaic": 0.241,
+          "stage4_escalated": 0.07
+        },
+        "local_wall_us_per_correct": 50.102,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 911.314,
+        "paired_net_above_idle_measured_uj_per_correct": 34.702,
+        "secondary_carrier_measured_uj_per_correct": 1760.727,
+        "shunt_samples": 145,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 70,
+          "remote_est_j_at_1p5j_per_call": 105.0
+        }
+      },
+      {
+        "zipf_skew_s": 1.15,
+        "stage2_edit_distance_d_max": 2,
+        "stage3_margin_tau": 1500,
+        "queries": 1000,
+        "correct": 997,
+        "accuracy": 0.997,
+        "stage_fractions": {
+          "stage1_lut": 0.583,
+          "stage2_sparse": 0.213,
+          "stage3_mosaic": 0.169,
+          "stage4_escalated": 0.035
+        },
+        "local_wall_us_per_correct": 28.479,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 503.366,
+        "paired_net_above_idle_measured_uj_per_correct": 5.075,
+        "secondary_carrier_measured_uj_per_correct": 975.499,
+        "shunt_samples": 143,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 35,
+          "remote_est_j_at_1p5j_per_call": 52.5
+        }
+      },
+      {
+        "zipf_skew_s": 1.15,
+        "stage2_edit_distance_d_max": 2,
+        "stage3_margin_tau": 3000,
+        "queries": 1000,
+        "correct": 997,
+        "accuracy": 0.997,
+        "stage_fractions": {
+          "stage1_lut": 0.583,
+          "stage2_sparse": 0.213,
+          "stage3_mosaic": 0.143,
+          "stage4_escalated": 0.061
+        },
+        "local_wall_us_per_correct": 39.23,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 693.54,
+        "paired_net_above_idle_measured_uj_per_correct": 7.152,
+        "secondary_carrier_measured_uj_per_correct": 1359.975,
+        "shunt_samples": 139,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 61,
+          "remote_est_j_at_1p5j_per_call": 91.5
+        }
+      },
+      {
+        "zipf_skew_s": 1.15,
+        "stage2_edit_distance_d_max": 2,
+        "stage3_margin_tau": 4500,
+        "queries": 1000,
+        "correct": 997,
+        "accuracy": 0.997,
+        "stage_fractions": {
+          "stage1_lut": 0.583,
+          "stage2_sparse": 0.213,
+          "stage3_mosaic": 0.134,
+          "stage4_escalated": 0.07
+        },
+        "local_wall_us_per_correct": 42.933,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 749.216,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 1481.534,
+        "shunt_samples": 143,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 70,
+          "remote_est_j_at_1p5j_per_call": 105.0
+        }
+      },
+      {
+        "zipf_skew_s": 1.15,
+        "stage2_edit_distance_d_max": 2,
+        "stage3_margin_tau": 6500,
+        "queries": 1000,
+        "correct": 997,
+        "accuracy": 0.997,
+        "stage_fractions": {
+          "stage1_lut": 0.583,
+          "stage2_sparse": 0.213,
+          "stage3_mosaic": 0.134,
+          "stage4_escalated": 0.07
+        },
+        "local_wall_us_per_correct": 42.923,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 746.531,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 1485.344,
+        "shunt_samples": 143,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 70,
+          "remote_est_j_at_1p5j_per_call": 105.0
+        }
+      },
+      {
+        "zipf_skew_s": 1.15,
+        "stage2_edit_distance_d_max": 2,
+        "stage3_margin_tau": 9000,
+        "queries": 1000,
+        "correct": 997,
+        "accuracy": 0.997,
+        "stage_fractions": {
+          "stage1_lut": 0.583,
+          "stage2_sparse": 0.213,
+          "stage3_mosaic": 0.134,
+          "stage4_escalated": 0.07
+        },
+        "local_wall_us_per_correct": 42.877,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 762.025,
+        "paired_net_above_idle_measured_uj_per_correct": 11.816,
+        "secondary_carrier_measured_uj_per_correct": 1534.63,
+        "shunt_samples": 143,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 70,
+          "remote_est_j_at_1p5j_per_call": 105.0
+        }
+      },
+      {
+        "zipf_skew_s": 1.4,
+        "stage2_edit_distance_d_max": 0,
+        "stage3_margin_tau": 1500,
+        "queries": 1000,
+        "correct": 999,
+        "accuracy": 0.999,
+        "stage_fractions": {
+          "stage1_lut": 0.72,
+          "stage2_sparse": 0.0,
+          "stage3_mosaic": 0.256,
+          "stage4_escalated": 0.024
+        },
+        "local_wall_us_per_correct": 30.518,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 531.604,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 1048.58,
+        "shunt_samples": 84,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 24,
+          "remote_est_j_at_1p5j_per_call": 36.0
+        }
+      },
+      {
+        "zipf_skew_s": 1.4,
+        "stage2_edit_distance_d_max": 0,
+        "stage3_margin_tau": 3000,
+        "queries": 1000,
+        "correct": 999,
+        "accuracy": 0.999,
+        "stage_fractions": {
+          "stage1_lut": 0.72,
+          "stage2_sparse": 0.0,
+          "stage3_mosaic": 0.229,
+          "stage4_escalated": 0.051
+        },
+        "local_wall_us_per_correct": 39.822,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 693.816,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 1426.065,
+        "shunt_samples": 141,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 51,
+          "remote_est_j_at_1p5j_per_call": 76.5
+        }
+      },
+      {
+        "zipf_skew_s": 1.4,
+        "stage2_edit_distance_d_max": 0,
+        "stage3_margin_tau": 4500,
+        "queries": 1000,
+        "correct": 999,
+        "accuracy": 0.999,
+        "stage_fractions": {
+          "stage1_lut": 0.72,
+          "stage2_sparse": 0.0,
+          "stage3_mosaic": 0.225,
+          "stage4_escalated": 0.055
+        },
+        "local_wall_us_per_correct": 41.489,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 963.754,
+        "paired_net_above_idle_measured_uj_per_correct": 231.448,
+        "secondary_carrier_measured_uj_per_correct": 1870.006,
+        "shunt_samples": 129,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 55,
+          "remote_est_j_at_1p5j_per_call": 82.5
+        }
+      },
+      {
+        "zipf_skew_s": 1.4,
+        "stage2_edit_distance_d_max": 0,
+        "stage3_margin_tau": 6500,
+        "queries": 1000,
+        "correct": 999,
+        "accuracy": 0.999,
+        "stage_fractions": {
+          "stage1_lut": 0.72,
+          "stage2_sparse": 0.0,
+          "stage3_mosaic": 0.225,
+          "stage4_escalated": 0.055
+        },
+        "local_wall_us_per_correct": 41.489,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 830.645,
+        "paired_net_above_idle_measured_uj_per_correct": 98.347,
+        "secondary_carrier_measured_uj_per_correct": 1421.929,
+        "shunt_samples": 139,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 55,
+          "remote_est_j_at_1p5j_per_call": 82.5
+        }
+      },
+      {
+        "zipf_skew_s": 1.4,
+        "stage2_edit_distance_d_max": 0,
+        "stage3_margin_tau": 9000,
+        "queries": 1000,
+        "correct": 999,
+        "accuracy": 0.999,
+        "stage_fractions": {
+          "stage1_lut": 0.72,
+          "stage2_sparse": 0.0,
+          "stage3_mosaic": 0.225,
+          "stage4_escalated": 0.055
+        },
+        "local_wall_us_per_correct": 41.464,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 726.374,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 1410.397,
+        "shunt_samples": 138,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 55,
+          "remote_est_j_at_1p5j_per_call": 82.5
+        }
+      },
+      {
+        "zipf_skew_s": 1.4,
+        "stage2_edit_distance_d_max": 1,
+        "stage3_margin_tau": 1500,
+        "queries": 1000,
+        "correct": 999,
+        "accuracy": 0.999,
+        "stage_fractions": {
+          "stage1_lut": 0.72,
+          "stage2_sparse": 0.1,
+          "stage3_mosaic": 0.156,
+          "stage4_escalated": 0.024
+        },
+        "local_wall_us_per_correct": 22.228,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 385.614,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 759.352,
+        "shunt_samples": 139,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 24,
+          "remote_est_j_at_1p5j_per_call": 36.0
+        }
+      },
+      {
+        "zipf_skew_s": 1.4,
+        "stage2_edit_distance_d_max": 1,
+        "stage3_margin_tau": 3000,
+        "queries": 1000,
+        "correct": 999,
+        "accuracy": 0.999,
+        "stage_fractions": {
+          "stage1_lut": 0.72,
+          "stage2_sparse": 0.1,
+          "stage3_mosaic": 0.129,
+          "stage4_escalated": 0.051
+        },
+        "local_wall_us_per_correct": 33.35,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 578.732,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 1140.14,
+        "shunt_samples": 139,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 51,
+          "remote_est_j_at_1p5j_per_call": 76.5
+        }
+      },
+      {
+        "zipf_skew_s": 1.4,
+        "stage2_edit_distance_d_max": 1,
+        "stage3_margin_tau": 4500,
+        "queries": 1000,
+        "correct": 999,
+        "accuracy": 0.999,
+        "stage_fractions": {
+          "stage1_lut": 0.72,
+          "stage2_sparse": 0.1,
+          "stage3_mosaic": 0.125,
+          "stage4_escalated": 0.055
+        },
+        "local_wall_us_per_correct": 35.0,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 590.699,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 1178.495,
+        "shunt_samples": 139,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 55,
+          "remote_est_j_at_1p5j_per_call": 82.5
+        }
+      },
+      {
+        "zipf_skew_s": 1.4,
+        "stage2_edit_distance_d_max": 1,
+        "stage3_margin_tau": 6500,
+        "queries": 1000,
+        "correct": 999,
+        "accuracy": 0.999,
+        "stage_fractions": {
+          "stage1_lut": 0.72,
+          "stage2_sparse": 0.1,
+          "stage3_mosaic": 0.125,
+          "stage4_escalated": 0.055
+        },
+        "local_wall_us_per_correct": 34.992,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 566.776,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 1143.293,
+        "shunt_samples": 139,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 55,
+          "remote_est_j_at_1p5j_per_call": 82.5
+        }
+      },
+      {
+        "zipf_skew_s": 1.4,
+        "stage2_edit_distance_d_max": 1,
+        "stage3_margin_tau": 9000,
+        "queries": 1000,
+        "correct": 999,
+        "accuracy": 0.999,
+        "stage_fractions": {
+          "stage1_lut": 0.72,
+          "stage2_sparse": 0.1,
+          "stage3_mosaic": 0.125,
+          "stage4_escalated": 0.055
+        },
+        "local_wall_us_per_correct": 34.999,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 562.227,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 1141.41,
+        "shunt_samples": 138,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 55,
+          "remote_est_j_at_1p5j_per_call": 82.5
+        }
+      },
+      {
+        "zipf_skew_s": 1.4,
+        "stage2_edit_distance_d_max": 2,
+        "stage3_margin_tau": 1500,
+        "queries": 1000,
+        "correct": 999,
+        "accuracy": 0.999,
+        "stage_fractions": {
+          "stage1_lut": 0.72,
+          "stage2_sparse": 0.199,
+          "stage3_mosaic": 0.057,
+          "stage4_escalated": 0.024
+        },
+        "local_wall_us_per_correct": 15.587,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 250.732,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 531.926,
+        "shunt_samples": 138,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 24,
+          "remote_est_j_at_1p5j_per_call": 36.0
+        }
+      },
+      {
+        "zipf_skew_s": 1.4,
+        "stage2_edit_distance_d_max": 2,
+        "stage3_margin_tau": 3000,
+        "queries": 1000,
+        "correct": 999,
+        "accuracy": 0.999,
+        "stage_fractions": {
+          "stage1_lut": 0.72,
+          "stage2_sparse": 0.199,
+          "stage3_mosaic": 0.03,
+          "stage4_escalated": 0.051
+        },
+        "local_wall_us_per_correct": 26.728,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 453.573,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 890.025,
+        "shunt_samples": 138,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 51,
+          "remote_est_j_at_1p5j_per_call": 76.5
+        }
+      },
+      {
+        "zipf_skew_s": 1.4,
+        "stage2_edit_distance_d_max": 2,
+        "stage3_margin_tau": 4500,
+        "queries": 1000,
+        "correct": 999,
+        "accuracy": 0.999,
+        "stage_fractions": {
+          "stage1_lut": 0.72,
+          "stage2_sparse": 0.199,
+          "stage3_mosaic": 0.026,
+          "stage4_escalated": 0.055
+        },
+        "local_wall_us_per_correct": 28.348,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 480.321,
+        "paired_net_above_idle_measured_uj_per_correct": 0.0,
+        "secondary_carrier_measured_uj_per_correct": 980.852,
+        "shunt_samples": 142,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 55,
+          "remote_est_j_at_1p5j_per_call": 82.5
+        }
+      },
+      {
+        "zipf_skew_s": 1.4,
+        "stage2_edit_distance_d_max": 2,
+        "stage3_margin_tau": 6500,
+        "queries": 1000,
+        "correct": 999,
+        "accuracy": 0.999,
+        "stage_fractions": {
+          "stage1_lut": 0.72,
+          "stage2_sparse": 0.199,
+          "stage3_mosaic": 0.026,
+          "stage4_escalated": 0.055
+        },
+        "local_wall_us_per_correct": 28.335,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 501.729,
+        "paired_net_above_idle_measured_uj_per_correct": 1.598,
+        "secondary_carrier_measured_uj_per_correct": 984.42,
+        "shunt_samples": 142,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 55,
+          "remote_est_j_at_1p5j_per_call": 82.5
+        }
+      },
+      {
+        "zipf_skew_s": 1.4,
+        "stage2_edit_distance_d_max": 2,
+        "stage3_margin_tau": 9000,
+        "queries": 1000,
+        "correct": 999,
+        "accuracy": 0.999,
+        "stage_fractions": {
+          "stage1_lut": 0.72,
+          "stage2_sparse": 0.199,
+          "stage3_mosaic": 0.026,
+          "stage4_escalated": 0.055
+        },
+        "local_wall_us_per_correct": 28.33,
+        "evidence_class": "measured_j",
+        "gross_rail_measured_uj_per_correct": 503.667,
+        "paired_net_above_idle_measured_uj_per_correct": 3.623,
+        "secondary_carrier_measured_uj_per_correct": 976.281,
+        "shunt_samples": 142,
+        "pkg_reported_uj_per_correct": null,
+        "isolated_analytical_cloud_est_j": {
+          "evidence_class": "est_j",
+          "mixed_or_summed": false,
+          "stage4_calls": 55,
+          "remote_est_j_at_1p5j_per_call": 82.5
+        }
+      }
+    ]
+  }
+}

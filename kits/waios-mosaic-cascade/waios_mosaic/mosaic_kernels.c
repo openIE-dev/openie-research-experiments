@@ -645,3 +645,110 @@ int waios_cascade_eval_batch(
     for (int i = 0; i < 4; i++) out_stage_counts4[i] = counts[i];
     return correct;
 }
+
+static int stage2_sparse_lookup_dmax(const CascadeCtx *ctx, const char *q_str, int d_max) {
+    if (d_max <= 0) return -1;
+    char padded[MAX_QSTR + 4];
+    int len = 0;
+    padded[len++] = '^';
+    for (int i = 0; q_str[i] != 0 && i < MAX_QSTR - 1; i++) {
+        char ch = q_str[i];
+        if (ch >= 'A' && ch <= 'Z') ch = (char)(ch + 32);
+        padded[len++] = ch;
+    }
+    padded[len++] = '$';
+    padded[len] = 0;
+
+    int votes[16] = {0};
+    for (int i = 0; i + 2 < len; i++) {
+        uint16_t m = ctx->trigram_mask[hash_trigram(padded[i], padded[i + 1], padded[i + 2])];
+        while (m) {
+            int cid = __builtin_ctz((unsigned int)m);
+            votes[cid]++;
+            m &= (uint16_t)(m - 1U);
+        }
+    }
+
+    char low[MAX_QSTR];
+    memcpy(low, padded + 1, (size_t)(len - 2));
+    low[len - 2] = 0;
+
+    int checked[16] = {0};
+    int best_d = 99, best_cid = -1;
+    for (int pick = 0; pick < 3; pick++) {
+        int top_v = 0, top_c = -1;
+        for (int c = 0; c < 16; c++) {
+            if (!checked[c] && votes[c] > top_v) {
+                top_v = votes[c];
+                top_c = c;
+            }
+        }
+        if (top_c < 0) break;
+        checked[top_c] = 1;
+        int dist = damerau_levenshtein_le2_c(low, ctx->canonical[top_c]);
+        if (dist < best_d) {
+            best_d = dist;
+            best_cid = top_c;
+        }
+    }
+    return (best_d <= d_max) ? best_cid : -1;
+}
+
+int waios_cascade_eval_grid(
+    const CascadeCtx *ctx,
+    int d_max,
+    int margin_tau,
+    int n_queries,
+    int outer_reps,
+    const char *q_texts_flat64,
+    const int8_t *q_acts_flat128,
+    const int32_t *q_labels,
+    int32_t *out_stage_counts4
+) {
+    int correct = 0;
+    int32_t counts[4] = {0, 0, 0, 0};
+    int32_t scores16[16];
+
+    for (int rep = 0; rep < outer_reps; rep++) {
+        int c_rep = 0;
+        counts[0] = counts[1] = counts[2] = counts[3] = 0;
+        for (int q = 0; q < n_queries; q++) {
+            const char *txt = q_texts_flat64 + (size_t)q * MAX_QSTR;
+            const int8_t *acts = q_acts_flat128 + (size_t)q * WAI_COLS;
+            int pred = lut1_lookup(ctx, txt);
+            if (pred >= 0) {
+                counts[0]++;
+            } else {
+                pred = stage2_sparse_lookup_dmax(ctx, txt, d_max);
+                if (pred >= 0) {
+                    counts[1]++;
+                } else {
+                    stage3_mosaic_stack_classify(ctx, acts, scores16);
+                    int top1_idx = 0;
+                    int32_t top1_val = scores16[0];
+                    for (int c = 1; c < 16; c++) {
+                        if (scores16[c] > top1_val) {
+                            top1_val = scores16[c];
+                            top1_idx = c;
+                        }
+                    }
+                    int32_t top2_val = -2147483647;
+                    for (int c = 0; c < 16; c++) {
+                        if (c != top1_idx && scores16[c] > top2_val) top2_val = scores16[c];
+                    }
+                    if ((top1_val - top2_val) >= margin_tau) {
+                        pred = top1_idx;
+                        counts[2]++;
+                    } else {
+                        pred = waios_heavy_escalation_teacher(ctx->dense_layers, acts);
+                        counts[3]++;
+                    }
+                }
+            }
+            if (pred == q_labels[q]) c_rep++;
+        }
+        correct = c_rep;
+    }
+    for (int i = 0; i < 4; i++) out_stage_counts4[i] = counts[i];
+    return correct;
+}

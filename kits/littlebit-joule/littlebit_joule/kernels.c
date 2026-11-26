@@ -1,12 +1,14 @@
 /* SPDX-License-Identifier: Apache-2.0
  * Hardware-metered C micro-kernels for Kit 4 (`littlebit-joule`):
  *   - Fast Walsh-Hadamard internal rotation (O(D log D) in-place butterfly)
- *   - Deterministic deflated SVD + LittleBit binary latent sign factorization (~0.1517 bpw)
- *   - 4 decision regimes evaluated via ctypes in-process (zero fork/setup noise in RAPL window):
+ *   - Deflated SVD + LittleBit binary latent sign factorization up to rank r <= 48
+ *   - 6 decision regimes evaluated via ctypes in-process (zero fork/setup noise):
  *       0: deterministic_null_lut       (4 KiB compiled threshold/table control, 0 neural FLOPs)
  *       1: dense_int8_baseline          (8.00 bpw, 256 KiB dense INT8 matvec + ReLU + pool)
- *       2: subbit_naive_float_unpack    (0.1517 bpw unpacked to FP32 at runtime: impedance tax)
- *       3: littlebit_joule_packed_int   (0.1517 bpw packed uint64 XNOR+popcount + integer FWHT)
+ *       2: subbit_naive_float_unpack    (rank-r unpacked to FP32 at runtime: impedance tax)
+ *       3: littlebit_joule_packed_int   (rank-r packed uint64 XNOR+popcount + integer FWHT)
+ *       4: ternary_2bpw                 (2.00 bpw T-MAC 2-col pair LUT ternary baseline)
+ *       5: int4_4bpw                    (4.00 bpw packed symmetric nibble INT4 baseline)
  */
 
 #include <math.h>
@@ -20,8 +22,10 @@
 #define M_OUT 512
 #define N_CLASSES 8
 #define GROUP_SZ (M_OUT / N_CLASSES)
-#define RANK_R 22
+#define DEFAULT_RANK_R 22
+#define MAX_RANK_R 48
 #define WORDS_D (D_IN / 64)
+#define PAIRS_D (D_IN / 2)
 #define X_PLANES 5
 #define LUT_BINS 4096
 
@@ -71,15 +75,17 @@ void lb_fwht_i32(int32_t *v, int n) {
 typedef struct {
     int8_t w_int8[M_OUT * D_IN];
     float w_scale_int8;
+    uint8_t w_ternary_tmac[PAIRS_D * M_OUT];
+    uint8_t w_int4_packed[(M_OUT * D_IN) / 2];
 
-    uint32_t u_sign_mask[M_OUT];
-    uint64_t v_sign_words[RANK_R][WORDS_D];
+    uint64_t u_sign_mask[M_OUT];
+    uint64_t v_sign_words[MAX_RANK_R][WORDS_D];
     int16_t row_scale_q12[M_OUT];
     int16_t col_pre_scale_q12[D_IN];
     uint64_t rad_sign_words[WORDS_D];
-    int16_t sigma_q10[RANK_R];
+    int16_t sigma_q10[MAX_RANK_R];
     float row_scale_f32[M_OUT];
-    float sigma_f32[RANK_R];
+    float sigma_f32[MAX_RANK_R];
 
     uint8_t dnull_lut[LUT_BINS];
     int16_t dnull_band_weights[N_CLASSES][4];
@@ -97,6 +103,10 @@ typedef struct {
 
 static inline int get_rad_sign(const uint64_t *rad_words, int j) {
     return ((rad_words[j >> 6] >> (j & 63)) & 1ULL) ? 1 : -1;
+}
+
+static inline uint8_t tern_code(int v) {
+    return (v > 0) ? 1U : ((v < 0) ? 2U : 0U);
 }
 
 static uint32_t compute_dnull_feature_bin(const int8_t *x) {
@@ -179,7 +189,8 @@ LbContext *lb_init(int n_dev, int n_test) {
         if (a > raw_max) raw_max = a;
         raw_sq += a * a;
     }
-    mb->raw_kurtosis_max_over_rms = raw_max / sqrt(raw_sq / (double)(M_OUT * D_IN));
+    double raw_rms = sqrt(raw_sq / (double)(M_OUT * D_IN));
+    mb->raw_kurtosis_max_over_rms = raw_max / raw_rms;
 
     mb->w_scale_int8 = (float)(raw_max / 127.0);
     for (int idx = 0; idx < M_OUT * D_IN; idx++) {
@@ -187,6 +198,50 @@ LbContext *lb_init(int n_dev, int n_test) {
         if (q < -127) q = -127;
         if (q > 127) q = 127;
         mb->w_int8[idx] = (int8_t)q;
+    }
+
+    /* Pack 2-bpw ternary (T-MAC 2-col pair layout) & 4-bpw symmetric INT4 */
+    float tern_thr = (float)(0.68 * raw_rms);
+    for (int g = 0; g < PAIRS_D; g++) {
+        for (int r = 0; r < M_OUT; r++) {
+            float f0 = w_fp32[r * D_IN + 2 * g];
+            float f1 = w_fp32[r * D_IN + 2 * g + 1];
+            int t0 = (f0 > tern_thr) ? 1 : ((f0 < -tern_thr) ? -1 : 0);
+            int t1 = (f1 > tern_thr) ? 1 : ((f1 < -tern_thr) ? -1 : 0);
+            mb->w_ternary_tmac[g * M_OUT + r] = (uint8_t)(tern_code(t0) | (tern_code(t1) << 2));
+        }
+    }
+    float int4_scale = (float)(raw_max / 7.0);
+    for (int idx = 0; idx < (M_OUT * D_IN) / 2; idx++) {
+        int q0 = (int)lrintf(w_fp32[2 * idx] / int4_scale);
+        int q1 = (int)lrintf(w_fp32[2 * idx + 1] / int4_scale);
+        if (q0 < -7) q0 = -7; else if (q0 > 7) q0 = 7;
+        if (q1 < -7) q1 = -7; else if (q1 > 7) q1 = 7;
+        mb->w_int4_packed[idx] = (uint8_t)((uint8_t)(q0 + 8) | ((uint8_t)(q1 + 8) << 4));
+    }
+
+    /* Dataset generation BEFORE SVD loop so dataset RNG state `st` is 100% invariant to MAX_RANK_R! */
+    for (int split = 0; split < 2; split++) {
+        int n = (split == 0) ? n_dev : n_test;
+        int8_t *xs = (split == 0) ? mb->x_dev : mb->x_test;
+        uint8_t *ys = (split == 0) ? mb->y_dev : mb->y_test;
+        for (int idx = 0; idx < n; idx++) {
+            int cls = (int)(splitmix64(&st) % N_CLASSES);
+            ys[idx] = (uint8_t)cls;
+            float xf[D_IN];
+            memset(xf, 0, sizeof(xf));
+            for (int k = 0; k < gt_rank; k++) {
+                float amp = class_loadings[cls][k] * 14.0f + 4.2f * (float)rand_norm_approx(&st);
+                for (int j = 0; j < D_IN; j++) xf[j] += amp * basis[k][j];
+            }
+            for (int j = 0; j < D_IN; j++) {
+                float v = xf[j] * 18.0f + 9.5f * (float)rand_norm_approx(&st);
+                int qi = (int)lrintf(v);
+                if (qi < -127) qi = -127;
+                if (qi > 127) qi = 127;
+                xs[idx * D_IN + j] = (int8_t)qi;
+            }
+        }
     }
 
     float *w_rot = (float *)malloc(M_OUT * D_IN * sizeof(float));
@@ -222,7 +277,7 @@ LbContext *lb_init(int n_dev, int n_test) {
     float *resid = (float *)malloc(M_OUT * D_IN * sizeof(float));
     memcpy(resid, w_rot, M_OUT * D_IN * sizeof(float));
 
-    for (int k = 0; k < RANK_R; k++) {
+    for (int k = 0; k < MAX_RANK_R; k++) {
         float v[D_IN], u[M_OUT];
         uint64_t pst = 0x12345678ULL + (uint64_t)k * 997ULL;
         for (int j = 0; j < D_IN; j++) v[j] = (float)rand_norm_approx(&pst);
@@ -284,7 +339,7 @@ LbContext *lb_init(int n_dev, int n_test) {
         mb->sigma_q10[k] = (int16_t)gq;
 
         for (int i = 0; i < M_OUT; i++) {
-            if (us[i] > 0) mb->u_sign_mask[i] |= (1U << k);
+            if (us[i] > 0) mb->u_sign_mask[i] |= (1ULL << k);
         }
         for (int w = 0; w < WORDS_D; w++) {
             uint64_t word = 0ULL;
@@ -297,29 +352,6 @@ LbContext *lb_init(int n_dev, int n_test) {
             float g_u = gamma * (float)us[i];
             float *rrow = resid + i * D_IN;
             for (int j = 0; j < D_IN; j++) rrow[j] -= g_u * (float)vs[j];
-        }
-    }
-
-    for (int split = 0; split < 2; split++) {
-        int n = (split == 0) ? n_dev : n_test;
-        int8_t *xs = (split == 0) ? mb->x_dev : mb->x_test;
-        uint8_t *ys = (split == 0) ? mb->y_dev : mb->y_test;
-        for (int idx = 0; idx < n; idx++) {
-            int cls = (int)(splitmix64(&st) % N_CLASSES);
-            ys[idx] = (uint8_t)cls;
-            float xf[D_IN];
-            memset(xf, 0, sizeof(xf));
-            for (int k = 0; k < gt_rank; k++) {
-                float amp = class_loadings[cls][k] * 14.0f + 4.2f * (float)rand_norm_approx(&st);
-                for (int j = 0; j < D_IN; j++) xf[j] += amp * basis[k][j];
-            }
-            for (int j = 0; j < D_IN; j++) {
-                float v = xf[j] * 18.0f + 9.5f * (float)rand_norm_approx(&st);
-                int qi = (int)lrintf(v);
-                if (qi < -127) qi = -127;
-                if (qi > 127) qi = 127;
-                xs[idx * D_IN + j] = (int8_t)qi;
-            }
         }
     }
 
@@ -419,10 +451,64 @@ static uint8_t predict_dense_int8(const LbContext *mb, const int8_t *x) {
     return best_c;
 }
 
-static uint8_t predict_subbit_naive_float(const LbContext *mb, const int8_t *x) {
+static uint8_t predict_ternary_2bpw(const LbContext *mb, const int8_t *x) {
+    int32_t lut[PAIRS_D][16];
+    for (int g = 0; g < PAIRS_D; g++) {
+        int32_t a0 = (int32_t)x[2 * g];
+        int32_t a1 = (int32_t)x[2 * g + 1];
+        for (int code = 0; code < 16; code++) {
+            int c0 = code & 3, c1 = (code >> 2) & 3;
+            lut[g][code] = ((c0 == 1) ? a0 : ((c0 == 2) ? -a0 : 0))
+                         + ((c1 == 1) ? a1 : ((c1 == 2) ? -a1 : 0));
+        }
+    }
+    int32_t row_out[M_OUT];
+    memset(row_out, 0, sizeof(row_out));
+    for (int g = 0; g < PAIRS_D; g++) {
+        const uint8_t *col_blk = mb->w_ternary_tmac + g * M_OUT;
+        for (int r = 0; r < M_OUT; r++) {
+            row_out[r] += lut[g][col_blk[r] & 15U];
+        }
+    }
+    int64_t best_score = -((int64_t)1 << 60);
+    uint8_t best_c = 0;
+    for (int c = 0; c < N_CLASSES; c++) {
+        int64_t c_sum = 0;
+        for (int g = 0; g < GROUP_SZ; g++) {
+            int32_t v = row_out[c * GROUP_SZ + g];
+            if (v > 0) c_sum += v;
+        }
+        if (c_sum > best_score) { best_score = c_sum; best_c = (uint8_t)c; }
+    }
+    return best_c;
+}
+
+static uint8_t predict_int4_4bpw(const LbContext *mb, const int8_t *x) {
+    int64_t best_score = -((int64_t)1 << 60);
+    uint8_t best_c = 0;
+    for (int c = 0; c < N_CLASSES; c++) {
+        int64_t c_sum = 0;
+        for (int g = 0; g < GROUP_SZ; g++) {
+            int row = c * GROUP_SZ + g;
+            const uint8_t *w4 = mb->w_int4_packed + row * (D_IN / 2);
+            int32_t acc = 0;
+            for (int j = 0; j < D_IN / 2; j++) {
+                uint8_t pk = w4[j];
+                int32_t q0 = (int32_t)(pk & 15U) - 8;
+                int32_t q1 = (int32_t)(pk >> 4) - 8;
+                acc += q0 * (int32_t)x[2 * j] + q1 * (int32_t)x[2 * j + 1];
+            }
+            if (acc > 0) c_sum += acc;
+        }
+        if (c_sum > best_score) { best_score = c_sum; best_c = (uint8_t)c; }
+    }
+    return best_c;
+}
+
+static uint8_t predict_subbit_naive_float_rank(const LbContext *mb, const int8_t *x, int rank_r) {
     const float inv_sqrt_d = 1.0f / sqrtf((float)D_IN);
-    float v_unpacked[RANK_R][D_IN];
-    for (int k = 0; k < RANK_R; k++) {
+    float v_unpacked[MAX_RANK_R][D_IN];
+    for (int k = 0; k < rank_r; k++) {
         for (int w = 0; w < WORDS_D; w++) {
             uint64_t vw = mb->v_sign_words[k][w];
             for (int b = 0; b < 64; b++) {
@@ -441,11 +527,11 @@ static uint8_t predict_subbit_naive_float(const LbContext *mb, const int8_t *x) 
         float c_sum = 0.0f;
         for (int g = 0; g < GROUP_SZ; g++) {
             int row = c * GROUP_SZ + g;
-            uint32_t um = mb->u_sign_mask[row];
+            uint64_t um = mb->u_sign_mask[row];
             float w_row_fp32[D_IN];
             memset(w_row_fp32, 0, sizeof(w_row_fp32));
-            for (int k = 0; k < RANK_R; k++) {
-                float sgn = ((um >> k) & 1U) ? 1.0f : -1.0f;
+            for (int k = 0; k < rank_r; k++) {
+                float sgn = ((um >> k) & 1ULL) ? 1.0f : -1.0f;
                 for (int j = 0; j < D_IN; j++) {
                     w_row_fp32[j] += sgn * v_unpacked[k][j];
                 }
@@ -465,8 +551,7 @@ static uint8_t predict_subbit_naive_float(const LbContext *mb, const int8_t *x) 
     return best_c;
 }
 
-static uint8_t predict_littlebit_packed_int(const LbContext *mb, const int8_t *x) {
-    /* Step 1: 1-bit Rademacher pre-signs + in-place integer Fast Walsh-Hadamard butterfly */
+static uint8_t predict_littlebit_packed_int_rank(const LbContext *mb, const int8_t *x, int rank_r) {
     int32_t xr[D_IN];
     for (int w = 0; w < WORDS_D; w++) {
         uint64_t rw = mb->rad_sign_words[w];
@@ -479,7 +564,6 @@ static uint8_t predict_littlebit_packed_int(const LbContext *mb, const int8_t *x
     }
     lb_fwht_i32(xr, D_IN);
 
-    /* Step 2: Division-free fixed-point bit-plane slicing via reciprocal multiply into 5 uint64 planes */
     int32_t max_abs = 1;
     for (int j = 0; j < D_IN; j++) {
         int32_t a = xr[j] >= 0 ? xr[j] : -xr[j];
@@ -508,9 +592,9 @@ static uint8_t predict_littlebit_packed_int(const LbContext *mb, const int8_t *x
         x_planes[4][w] = p4;
     }
 
-    /* Step 3: 22 latent modes via uint64 bitwise XNOR + hardware popcount */
-    int32_t z_latent[RANK_R];
-    for (int k = 0; k < RANK_R; k++) {
+    int32_t z_pad[MAX_RANK_R + 4];
+    memset(z_pad, 0, sizeof(z_pad));
+    for (int k = 0; k < rank_r; k++) {
         const uint64_t *vw = mb->v_sign_words[k];
         int32_t dot_bipolar = 0;
         for (int p = 0; p < X_PLANES; p++) {
@@ -525,16 +609,12 @@ static uint8_t predict_littlebit_packed_int(const LbContext *mb, const int8_t *x
                     + __builtin_popcountll(~(vw[7] ^ xp[7]));
             dot_bipolar += ((2 * pop) - D_IN) << p;
         }
-        z_latent[k] = (dot_bipolar * (int32_t)mb->sigma_q10[k]) >> 8;
+        z_pad[k] = (dot_bipolar * (int32_t)mb->sigma_q10[k]) >> 8;
     }
 
-    /* Step 4: Exact 6x 4-bit nibble T-MAC LUT over packed 22-bit u_sign_mask (96 L1 ints) */
-    int32_t z_pad[24];
-    for (int k = 0; k < RANK_R; k++) z_pad[k] = z_latent[k];
-    z_pad[22] = 0;
-    z_pad[23] = 0;
-    int32_t lut[6][16];
-    for (int g = 0; g < 6; g++) {
+    int n_nibbles = (rank_r + 3) / 4;
+    int32_t lut[12][16];
+    for (int g = 0; g < n_nibbles; g++) {
         int32_t z0 = z_pad[4 * g + 0];
         int32_t z1 = z_pad[4 * g + 1];
         int32_t z2 = z_pad[4 * g + 2];
@@ -551,16 +631,14 @@ static uint8_t predict_littlebit_packed_int(const LbContext *mb, const int8_t *x
     uint8_t best_c = 0;
     for (int c = 0; c < N_CLASSES; c++) {
         int64_t c_sum = 0;
-        const uint32_t *um_ptr = mb->u_sign_mask + c * GROUP_SZ;
+        const uint64_t *um_ptr = mb->u_sign_mask + c * GROUP_SZ;
         const int16_t *rs_ptr = mb->row_scale_q12 + c * GROUP_SZ;
         for (int g = 0; g < GROUP_SZ; g++) {
-            uint32_t um = um_ptr[g];
-            int32_t h = lut[0][um & 15U]
-                      + lut[1][(um >> 4) & 15U]
-                      + lut[2][(um >> 8) & 15U]
-                      + lut[3][(um >> 12) & 15U]
-                      + lut[4][(um >> 16) & 15U]
-                      + lut[5][(um >> 20) & 15U];
+            uint64_t um = um_ptr[g];
+            int32_t h = 0;
+            for (int nb = 0; nb < n_nibbles; nb++) {
+                h += lut[nb][(um >> (4 * nb)) & 15ULL];
+            }
             if (h > 0) {
                 c_sum += ((int64_t)h * (int64_t)rs_ptr[g]) >> 8;
             }
@@ -573,13 +651,16 @@ static uint8_t predict_littlebit_packed_int(const LbContext *mb, const int8_t *x
     return best_c;
 }
 
-uint64_t lb_eval_regime(
+uint64_t lb_eval_regime_rank(
     const LbContext *mb,
     int regime_id,
+    int rank_r,
     int outer_reps,
     int *out_correct,
     double *out_elapsed_ns
 ) {
+    if (rank_r < 1) rank_r = 1;
+    if (rank_r > MAX_RANK_R) rank_r = MAX_RANK_R;
     struct timespec t0, t1;
     clock_gettime(CLOCK_MONOTONIC, &t0);
     uint64_t fnv = 1469598103934665603ULL;
@@ -592,8 +673,10 @@ uint64_t lb_eval_regime(
             uint8_t p = 0;
             if (regime_id == 0) p = predict_dnull_lut(mb, x);
             else if (regime_id == 1) p = predict_dense_int8(mb, x);
-            else if (regime_id == 2) p = predict_subbit_naive_float(mb, x);
-            else p = predict_littlebit_packed_int(mb, x);
+            else if (regime_id == 2) p = predict_subbit_naive_float_rank(mb, x, rank_r);
+            else if (regime_id == 3) p = predict_littlebit_packed_int_rank(mb, x, rank_r);
+            else if (regime_id == 4) p = predict_ternary_2bpw(mb, x);
+            else p = predict_int4_4bpw(mb, x);
             if (p == mb->y_test[i]) c_rep++;
             h_rep ^= (uint64_t)p;
             h_rep *= 1099511628211ULL;
@@ -607,7 +690,16 @@ uint64_t lb_eval_regime(
     return fnv;
 }
 
-/* Exact bipolar XNOR+popcount identity check exposed for unit tests */
+uint64_t lb_eval_regime(
+    const LbContext *mb,
+    int regime_id,
+    int outer_reps,
+    int *out_correct,
+    double *out_elapsed_ns
+) {
+    return lb_eval_regime_rank(mb, regime_id, DEFAULT_RANK_R, outer_reps, out_correct, out_elapsed_ns);
+}
+
 int32_t lb_bipolar_dot_xnor512(const uint64_t *a_words, const uint64_t *b_words) {
     int pop = 0;
     for (int w = 0; w < WORDS_D; w++) {

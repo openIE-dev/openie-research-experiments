@@ -1,0 +1,22 @@
+{
+  "body": {
+    "schema": "openie.signed_provenance_receipt.v1",
+    "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+    "self_attested_not_third_party_verified": true,
+    "kit_id": "kits/littlebit-joule",
+    "domain_context": "openie.kit.littlebit_joule.receipt.v2",
+    "issued_utc": "2026-11-26T05:30:13Z",
+    "payload": {
+      "results_blake3": "d8ea2063b7060194ceef63070f177f59162d2326cd531cbf9f59fc8cf7f5f892",
+      "substrate_id": "x86_rapl",
+      "effective_bits_per_weight": 0.1517,
+      "held_out_instances": 1200,
+      "trials_per_regime": 20,
+      "divergent_runs": 0,
+      "energy_evidence_class": "reported_j"
+    }
+  },
+  "body_blake3": "964ddc0847f527f2d2d1b2d3f0c69c6b3d55fa53d725af38fcf4cc12619bd5a1",
+  "ed25519_public_key_hex": "01a040e985d2738416ac2eb5dd2f37cc7b47698ae31aab5bc1a24ecf85113320",
+  "ed25519_signature_hex": "c31f99541e26c57fd270e5bf47d6f45f7d77803e0f75d1aa9a6190a14fadc972bccb3dce05e84c9a2bff06742a4203781de454a1177f1925c947116b5e29950e"
+}

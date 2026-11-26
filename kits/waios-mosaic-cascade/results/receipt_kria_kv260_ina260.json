@@ -1,0 +1,29 @@
+{
+  "body": {
+    "schema": "openie.signed_provenance_receipt.v1",
+    "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+    "self_attested_not_third_party_verified": true,
+    "kit_id": "kits/waios-mosaic-cascade",
+    "domain_context": "openie.kit.waios_mosaic_cascade.receipt.v2",
+    "issued_utc": "2026-11-26T05:54:55Z",
+    "payload": {
+      "substrate_id": "amd_kria_kv260_ina260",
+      "waios_reference_digest": "a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0",
+      "tamper_digest_caught": "4ac7c4fbc2f2a031ac4f3c0e485867fb689d24d4872bdb1b0a6bc80cf88b69dc",
+      "mosaic_sweep_runs": 100,
+      "mosaic_sweep_disagreements": 0,
+      "cascade_stage_counts": {
+        "stage1_lut": 550,
+        "stage2_sparse": 250,
+        "stage3_mosaic": 174,
+        "stage4_escalated": 26
+      },
+      "grid_cells_evaluated": 75,
+      "energy_evidence_class": "measured_j",
+      "results_blake3": "8aff34ab18558abf12ff98eba9ec5d9e204665dd15be8e1d20a44694bac30022"
+    }
+  },
+  "body_blake3": "96f6b286de508d94812ebfca9ff68a89b1614296025136659f0dcf7a8f458b0a",
+  "ed25519_public_key_hex": "9e77f9799cf52595fe7be9aa6c5ae605d9d18a7e0f4c44ca04989651ee32b8f5",
+  "ed25519_signature_hex": "9620e18256edd55e3d9daad77c7345d319ee66d9f4d1b293898b32ec1d3a7ae70b8b724f080d036b522263d46426b2aa0980861c4810e85a799fae0c19ea6700"
+}
