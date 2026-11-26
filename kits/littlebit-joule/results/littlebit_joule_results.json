@@ -1,0 +1,290 @@
+{
+  "schema": "openie.kit.littlebit_joule.v1",
+  "shot_on_goal": "Shot #2: LittleBit-Style Sub-Bit Compression Optimized for Joules-per-Correct-Decision vs. Deterministic Null",
+  "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+  "license": "Apache-2.0",
+  "mode": "standard",
+  "host": {
+    "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900H",
+    "logical_cpus": 20,
+    "ram_gib": 14.75,
+    "os_kernel": "Linux 7.0.0-43-generic x86_64",
+    "python_version": "3.14.4",
+    "cc_version": "cc (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+    "recorded_utc": "2026-11-26T01:27:51Z"
+  },
+  "energy_telemetry": {
+    "evidence_class": "reported_j",
+    "measured_j": null,
+    "reported_j_available": true,
+    "est_j_mixed": false,
+    "package_counter": "/sys/class/powercap/intel-rapl:0/energy_uj",
+    "package_domain": "package-0",
+    "core_counter": "/sys/class/powercap/intel-rapl:0:0/energy_uj",
+    "core_domain": "core",
+    "idle_pkg_w_pre": 18.105,
+    "idle_pkg_w_post": 25.75,
+    "idle_drift_pct": 34.86
+  },
+  "geometry_and_compression": {
+    "matrix_shape": [
+      512,
+      512
+    ],
+    "total_weights": 262144,
+    "latent_binary_rank_r": 22,
+    "subbit_total_bits": 39776,
+    "subbit_total_bytes": 4972,
+    "effective_bits_per_weight": 0.1517,
+    "compression_ratio_vs_int8_x": 52.72,
+    "compression_ratio_vs_fp16_x": 105.45,
+    "walsh_hadamard_outlier_crest_before": 5.8006,
+    "walsh_hadamard_outlier_crest_after": 4.7457
+  },
+  "determinism_gate": {
+    "trials_per_regime": 20,
+    "total_regime_trial_runs": 80,
+    "divergent_runs": 0,
+    "clopper_pearson_95_upper_bound_divergence": 0.036754
+  },
+  "regimes": {
+    "deterministic_null_lut": {
+      "label": "Deterministic Null (4 KiB Compiled Quadrant LUT)",
+      "bits_per_weight": null,
+      "footprint_bytes": 4096,
+      "held_out_instances": 1200,
+      "correct_decisions": 1156,
+      "accuracy": 0.9633,
+      "prediction_stream_fnv64": "22982c2c26f837e2",
+      "deterministic_across_all_trials": true,
+      "wall_ns_per_decision": {
+        "n": 20,
+        "median": 36.62,
+        "p25": 34.31,
+        "p75": 37.54,
+        "iqr": 3.23,
+        "min": 33.18,
+        "max": 41.79
+      },
+      "wall_ns_per_correct_decision": {
+        "n": 20,
+        "median": 38.01,
+        "p25": 35.62,
+        "p75": 38.97,
+        "iqr": 3.35,
+        "min": 34.44,
+        "max": 43.38
+      },
+      "energy_evidence_class": "reported_j",
+      "pkg_reported_uj_per_decision": {
+        "n": 20,
+        "median": 1.0766,
+        "p25": 0.906,
+        "p75": 1.3063,
+        "iqr": 0.4003,
+        "min": 0.7691,
+        "max": 2.9617
+      },
+      "pkg_reported_uj_per_correct_decision": {
+        "n": 20,
+        "median": 1.1175,
+        "p25": 0.9404,
+        "p75": 1.356,
+        "iqr": 0.4155,
+        "min": 0.7984,
+        "max": 3.0745
+      },
+      "core_reported_uj_per_correct_decision": {
+        "n": 20,
+        "median": 0.9092,
+        "p25": 0.7276,
+        "p75": 1.0988,
+        "iqr": 0.3712,
+        "min": 0.6021,
+        "max": 2.7831
+      }
+    },
+    "dense_int8_baseline": {
+      "label": "Dense INT8 Baseline (8.00 bpw MatVec + ReLU)",
+      "bits_per_weight": 8.0,
+      "footprint_bytes": 262144,
+      "held_out_instances": 1200,
+      "correct_decisions": 1200,
+      "accuracy": 1.0,
+      "prediction_stream_fnv64": "0318401e9ba2d202",
+      "deterministic_across_all_trials": true,
+      "wall_ns_per_decision": {
+        "n": 20,
+        "median": 11713.76,
+        "p25": 11342.14,
+        "p75": 12925.32,
+        "iqr": 1583.18,
+        "min": 11083.28,
+        "max": 13582.88
+      },
+      "wall_ns_per_correct_decision": {
+        "n": 20,
+        "median": 11713.76,
+        "p25": 11342.14,
+        "p75": 12925.32,
+        "iqr": 1583.18,
+        "min": 11083.28,
+        "max": 13582.88
+      },
+      "energy_evidence_class": "reported_j",
+      "pkg_reported_uj_per_decision": {
+        "n": 20,
+        "median": 387.3771,
+        "p25": 368.9003,
+        "p75": 483.2077,
+        "iqr": 114.3074,
+        "min": 286.0113,
+        "max": 655.0276
+      },
+      "pkg_reported_uj_per_correct_decision": {
+        "n": 20,
+        "median": 387.3771,
+        "p25": 368.9003,
+        "p75": 483.2077,
+        "iqr": 114.3074,
+        "min": 286.0113,
+        "max": 655.0276
+      },
+      "core_reported_uj_per_correct_decision": {
+        "n": 20,
+        "median": 325.9355,
+        "p25": 308.6898,
+        "p75": 402.399,
+        "iqr": 93.7092,
+        "min": 219.1665,
+        "max": 568.5175
+      }
+    },
+    "subbit_naive_float_unpack": {
+      "label": "Sub-Bit Naive FP32 Unpack (0.1517 bpw -> Runtime FP32 Decompress)",
+      "bits_per_weight": 0.1517,
+      "footprint_bytes": 4972,
+      "held_out_instances": 1200,
+      "correct_decisions": 1200,
+      "accuracy": 1.0,
+      "prediction_stream_fnv64": "0318401e9ba2d202",
+      "deterministic_across_all_trials": true,
+      "wall_ns_per_decision": {
+        "n": 20,
+        "median": 603508.04,
+        "p25": 582265.03,
+        "p75": 612330.83,
+        "iqr": 30065.8,
+        "min": 571447.31,
+        "max": 731089.35
+      },
+      "wall_ns_per_correct_decision": {
+        "n": 20,
+        "median": 603508.04,
+        "p25": 582265.03,
+        "p75": 612330.83,
+        "iqr": 30065.8,
+        "min": 571447.31,
+        "max": 731089.35
+      },
+      "energy_evidence_class": "reported_j",
+      "pkg_reported_uj_per_decision": {
+        "n": 20,
+        "median": 20192.1677,
+        "p25": 18594.4319,
+        "p75": 21136.0501,
+        "iqr": 2541.6182,
+        "min": 15122.0317,
+        "max": 25009.6571
+      },
+      "pkg_reported_uj_per_correct_decision": {
+        "n": 20,
+        "median": 20192.1677,
+        "p25": 18594.4319,
+        "p75": 21136.0501,
+        "iqr": 2541.6182,
+        "min": 15122.0317,
+        "max": 25009.6571
+      },
+      "core_reported_uj_per_correct_decision": {
+        "n": 20,
+        "median": 16715.3026,
+        "p25": 15163.6276,
+        "p75": 17764.6532,
+        "iqr": 2601.0256,
+        "min": 11790.1436,
+        "max": 20021.7052
+      }
+    },
+    "littlebit_joule_packed_int": {
+      "label": "LittleBit-Joule Packed Int (0.1517 bpw XNOR+Popcount + Int FWHT)",
+      "bits_per_weight": 0.1517,
+      "footprint_bytes": 4972,
+      "held_out_instances": 1200,
+      "correct_decisions": 1200,
+      "accuracy": 1.0,
+      "prediction_stream_fnv64": "0318401e9ba2d202",
+      "deterministic_across_all_trials": true,
+      "wall_ns_per_decision": {
+        "n": 20,
+        "median": 2949.02,
+        "p25": 2785.01,
+        "p75": 3085.12,
+        "iqr": 300.12,
+        "min": 2746.81,
+        "max": 3255.26
+      },
+      "wall_ns_per_correct_decision": {
+        "n": 20,
+        "median": 2949.02,
+        "p25": 2785.01,
+        "p75": 3085.12,
+        "iqr": 300.12,
+        "min": 2746.81,
+        "max": 3255.26
+      },
+      "energy_evidence_class": "reported_j",
+      "pkg_reported_uj_per_decision": {
+        "n": 20,
+        "median": 81.1941,
+        "p25": 77.3099,
+        "p75": 87.4953,
+        "iqr": 10.1854,
+        "min": 65.6415,
+        "max": 178.813
+      },
+      "pkg_reported_uj_per_correct_decision": {
+        "n": 20,
+        "median": 81.1941,
+        "p25": 77.3099,
+        "p75": 87.4953,
+        "iqr": 10.1854,
+        "min": 65.6415,
+        "max": 178.813
+      },
+      "core_reported_uj_per_correct_decision": {
+        "n": 20,
+        "median": 65.5361,
+        "p25": 59.488,
+        "p75": 72.0233,
+        "iqr": 12.5354,
+        "min": 48.9956,
+        "max": 156.2225
+      }
+    }
+  },
+  "comparative_findings": {
+    "wall_clock_ratios_per_correct_decision": {
+      "decompression_impedance_tax_naive_over_int8_x": 51.52,
+      "littlebit_packed_speedup_over_int8_x": 3.97,
+      "littlebit_packed_speedup_over_naive_unpack_x": 204.65
+    },
+    "rapl_reported_j_ratios_per_correct_decision": {
+      "evidence_class": "reported_j",
+      "impedance_tax_naive_unpack_over_int8_x": 52.13,
+      "littlebit_packed_improvement_over_int8_x": 4.77,
+      "littlebit_packed_improvement_over_naive_unpack_x": 248.69,
+      "deterministic_null_improvement_over_int8_x": 346.65
+    }
+  }
+}

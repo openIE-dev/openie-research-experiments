@@ -1,0 +1,203 @@
+{
+  "schema": "openie.kit.waios_mosaic_cascade.v1",
+  "shots_on_goal": [
+    "Shot #3: Cross-Lane HeteroMosaic Integer Runtime Sealed by waiOS Reference Digest",
+    "Shot #5: 4-Stage Spellcheck Lookup-First Cascade Metered in Real Linux RAPL reported_j"
+  ],
+  "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+  "license": "Apache-2.0",
+  "mode": "standard",
+  "host": {
+    "cpu_model": "13th Gen Intel(R) Core(TM) i9-13900H",
+    "logical_cpus": 20,
+    "ram_gib": 14.75,
+    "os_kernel": "Linux 7.0.0-43-generic x86_64",
+    "python_version": "3.14.4",
+    "cc_version": "cc (Ubuntu 15.2.0-16ubuntu1) 15.2.0",
+    "recorded_utc": "2026-11-26T01:30:41Z"
+  },
+  "energy_telemetry": {
+    "evidence_class": "reported_j",
+    "measured_j": null,
+    "reported_j_available": true,
+    "est_j_mixed": false,
+    "package_counter": "/sys/class/powercap/intel-rapl:0/energy_uj",
+    "package_domain": "package-0",
+    "core_counter": "/sys/class/powercap/intel-rapl:0:0/energy_uj",
+    "core_domain": "core",
+    "idle_pkg_w_pre": 17.4342,
+    "idle_pkg_w_post": 7.2101,
+    "idle_drift_pct": 82.97
+  },
+  "waios_conformance_and_fault_halt": {
+    "domain": "waios.tmac.v1",
+    "matrix_shape": [
+      256,
+      128
+    ],
+    "reference_digest_expected": "a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0",
+    "lane_digests": {
+      "python_scalar_i32": "a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0",
+      "c_scalar_i32": "a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0",
+      "c_packed_2bit_bitsliced": "a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0",
+      "c_tmac_pair_lut": "a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0",
+      "c_hetero_mosaic_4worker_pthreads": "a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0"
+    },
+    "boot_qualification": {
+      "odd_73x35_ternary_passed": true,
+      "zero_fp_norm_rope_64_blake3": "2537994ab8583a38da2b9770a3493632652a6fce82f90421709ee6258adfcdb4",
+      "all_passed": true
+    },
+    "hetero_mosaic_schedule_sweep": {
+      "runs": 100,
+      "disagreements": 0,
+      "clopper_pearson_95_upper_bound_disagreement": 0.029513
+    },
+    "fault_injection_tamper_test": {
+      "mutation": {
+        "row": 77,
+        "col": 0,
+        "from": 0,
+        "to": 1
+      },
+      "expected_tampered_digest": "4ac7c4fbc2f2a031ac4f3c0e485867fb689d24d4872bdb1b0a6bc80cf88b69dc",
+      "observed_tampered_digest": "4ac7c4fbc2f2a031ac4f3c0e485867fb689d24d4872bdb1b0a6bc80cf88b69dc",
+      "disagreement_halt_triggered": true,
+      "receipt_sealed": false
+    }
+  },
+  "spellcheck_lookup_first_cascade": {
+    "workload_queries": 1000,
+    "stage_routing_counts": {
+      "stage1_lut": 550,
+      "stage2_sparse": 250,
+      "stage3_mosaic": 174,
+      "stage4_escalated": 26
+    },
+    "stage_routing_fractions": {
+      "stage1_lut": 0.55,
+      "stage2_sparse": 0.25,
+      "stage3_mosaic": 0.174,
+      "stage4_escalated": 0.026
+    },
+    "always_mosaic_escalated_queries": 26,
+    "metered_pipelines_local_rapl": {
+      "spellcheck_4stage_cascade": {
+        "queries": 1000,
+        "correct_completions": 1000,
+        "accuracy": 1.0,
+        "wall_us_per_correct_completion": {
+          "n": 20,
+          "median": 10.672,
+          "p25": 10.533,
+          "p75": 10.791,
+          "iqr": 0.258,
+          "min": 9.617,
+          "max": 14.415
+        },
+        "energy_evidence_class": "reported_j",
+        "pkg_reported_uj_per_correct_completion": {
+          "n": 20,
+          "median": 267.45,
+          "p25": 250.03,
+          "p75": 290.7,
+          "iqr": 40.67,
+          "min": 213.84,
+          "max": 689.23
+        },
+        "core_reported_uj_per_correct_completion": {
+          "n": 20,
+          "median": 209.21,
+          "p25": 188.6,
+          "p75": 219.02,
+          "iqr": 30.42,
+          "min": 159.57,
+          "max": 582.01
+        }
+      },
+      "always_stage3_mosaic_plus_gate": {
+        "queries": 1000,
+        "correct_completions": 1000,
+        "accuracy": 1.0,
+        "wall_us_per_correct_completion": {
+          "n": 20,
+          "median": 32.07,
+          "p25": 31.783,
+          "p75": 32.289,
+          "iqr": 0.506,
+          "min": 29.264,
+          "max": 33.62
+        },
+        "energy_evidence_class": "reported_j",
+        "pkg_reported_uj_per_correct_completion": {
+          "n": 20,
+          "median": 759.77,
+          "p25": 686.33,
+          "p75": 891.56,
+          "iqr": 205.24,
+          "min": 633.56,
+          "max": 1878.01
+        },
+        "core_reported_uj_per_correct_completion": {
+          "n": 20,
+          "median": 570.66,
+          "p25": 520.01,
+          "p75": 691.99,
+          "iqr": 171.99,
+          "min": 470.83,
+          "max": 1654.35
+        }
+      },
+      "always_dense_teacher_baseline": {
+        "queries": 1000,
+        "correct_completions": 1000,
+        "accuracy": 1.0,
+        "wall_us_per_correct_completion": {
+          "n": 20,
+          "median": 182.355,
+          "p25": 181.4,
+          "p75": 185.59,
+          "iqr": 4.191,
+          "min": 176.312,
+          "max": 208.335
+        },
+        "energy_evidence_class": "reported_j",
+        "pkg_reported_uj_per_correct_completion": {
+          "n": 20,
+          "median": 4902.29,
+          "p25": 4513.06,
+          "p75": 6584.36,
+          "iqr": 2071.3,
+          "min": 3981.53,
+          "max": 11763.76
+        },
+        "core_reported_uj_per_correct_completion": {
+          "n": 20,
+          "median": 3889.88,
+          "p25": 3561.76,
+          "p75": 5353.9,
+          "iqr": 1792.14,
+          "min": 3057.76,
+          "max": 10349.86
+        }
+      }
+    },
+    "same_meter_comparisons": {
+      "evidence_class": "reported_j",
+      "wall_speedup_cascade_vs_always_dense_x": 17.09,
+      "wall_speedup_cascade_vs_always_mosaic_x": 3.01,
+      "pkg_reported_j_reduction_cascade_vs_always_dense_x": 18.33,
+      "pkg_reported_j_reduction_cascade_vs_always_mosaic_x": 2.84
+    },
+    "analytical_frontier_est_j_reference_strictly_separate": {
+      "evidence_class": "est_j",
+      "mixed_or_summed_with_reported_j": false,
+      "assumed_remote_frontier_call_est_j": 1.5,
+      "frontier_only_1000_calls_est_j": 1500.0,
+      "cascade_residual_only_calls": 26,
+      "cascade_remote_escalation_est_j": 39.0,
+      "analytical_frontier_call_avoidance_ratio_x": 38.46,
+      "note": "Analytical cloud call estimate (`est_j`) kept strictly separate from local silicon `reported_j`."
+    }
+  }
+}

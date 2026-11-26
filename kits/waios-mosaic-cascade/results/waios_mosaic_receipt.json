@@ -1,0 +1,26 @@
+{
+  "body": {
+    "schema": "openie.signed_provenance_receipt.v1",
+    "kit_id": "kits/waios-mosaic-cascade",
+    "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+    "provenance_note": "Self-checked cryptographic receipt: proves post-hoc integrity of the body under the embedded deterministic audit keypair; does not claim external third-party hardware attestation.",
+    "domain_context": "openie.kit.waios_mosaic_cascade.receipt.v1",
+    "payload": {
+      "waios_reference_digest": "a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0",
+      "tamper_digest_caught": "4ac7c4fbc2f2a031ac4f3c0e485867fb689d24d4872bdb1b0a6bc80cf88b69dc",
+      "mosaic_sweep_runs": 100,
+      "mosaic_sweep_disagreements": 0,
+      "cascade_stage_counts": {
+        "stage1_lut": 550,
+        "stage2_sparse": 250,
+        "stage3_mosaic": 174,
+        "stage4_escalated": 26
+      },
+      "energy_evidence_class": "reported_j",
+      "results_blake3": "da97f4e8b1c8fa66efc3b61795447eff7986aed71c4bb995d1e11694ba4397b5"
+    }
+  },
+  "body_blake3": "eb360104252adeee3bc87ac1c92407eacfd1455071394f20d8f7cb843d71d963",
+  "ed25519_public_key_hex": "186027582e637279fa6c471414779dd6fdfe5ce2dddc1102dc91f69ede99a875",
+  "ed25519_signature_hex": "f67ff3a6e283367ff719b42c87baa3ee5ea50988c4eeef62eee10ff599016041964401d64e8f6f17423394d588d027e5e3e29fd5012d4cd7a11700cbe63cc803"
+}
