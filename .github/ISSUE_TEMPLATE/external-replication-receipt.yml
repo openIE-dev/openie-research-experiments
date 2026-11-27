@@ -1,0 +1,59 @@
+name: "External Lab Replication / Falsification Receipt"
+description: "Submit an independent confirmation or falsification run for any of the 7 OpenIE Apache-2.0 replication kits."
+title: "[Replication Receipt] "
+labels: ["external-replication"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for independently testing an Open Interface Engineering kit! Every study is marked **Signed Provenance · Self-Checked** until an unaffiliated lab reproduces or falsifies its results. Both confirmations and negative/falsifier results are indexed verbatim.
+  - type: dropdown
+    id: kit
+    attributes:
+      label: "Which Replication Kit / Study Did You Run?"
+      options:
+        - "Kit #0 · Compiled Agency & 6-Model SOTA Shunt Panel (from-ephemeral-inference-to-compiled-agency)"
+        - "Kit #1 · Deterministic Null 5-Language Zero-Model Suite (deterministic-null)"
+        - "Kit #2 · RCE & De Bruijn Normal-Form Compiler (rce-compile)"
+        - "Kit #3 · Metered Commit Gates (gates)"
+        - "Kit #4 · Sub-Bit Decompression vs. Packed Integer WHT+XNOR (littlebit-joule)"
+        - "Kit #5 · 6-Fabric waiOS Conformance & 4-Stage Cascade (waios-mosaic-cascade)"
+        - "Kit #6 · Planetary Media Joule & Lean 4.36.0 Proofs (planetary-media-joule)"
+        - "Other Era II Study (specify in title)"
+    validations:
+      required: true
+  - type: dropdown
+    id: outcome
+    attributes:
+      label: "Outcome"
+      options:
+        - "Confirmed within stated confidence/drift bounds"
+        - "Partial confirmation (specify discrepancy below)"
+        - "Falsifier triggered / Discrepancy observed"
+    validations:
+      required: true
+  - type: dropdown
+    id: meter_class
+    attributes:
+      label: "Energy Evidence Class (measured_j ⊥ reported_j ⊥ est_j ⊥ unmetered)"
+      options:
+        - "measured_j (Inline DC board/wall current shunt: INA260, INA3221, INA238, external power analyzer)"
+        - "reported_j (On-chip counter: Linux RAPL, Darwin ri_energy_nj, NVML)"
+        - "unmetered (Checksum / accuracy / Lean 4.36.0 formal proof verification only)"
+    validations:
+      required: true
+  - type: input
+    id: hardware
+    attributes:
+      label: "Host Hardware, OS & Commit SHA"
+      placeholder: "e.g., Ubuntu 24.04 · AMD Ryzen 9 9950X · openie-research-experiments @ 6a22dee"
+    validations:
+      required: true
+  - type: textarea
+    id: receipt
+    attributes:
+      label: "Command Output, SHA-256 Digest & Summary Metrics"
+      description: "Paste the terminal summary, receipt JSON, or SHA-256 checksum output."
+      render: shell
+    validations:
+      required: true
