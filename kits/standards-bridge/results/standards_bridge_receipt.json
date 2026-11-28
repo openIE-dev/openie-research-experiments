@@ -1,0 +1,244 @@
+{
+  "body": {
+    "domain_context": "openie.kit.standards_bridge.receipt.v1",
+    "issued_utc": "2026-11-28T09:05:40Z",
+    "kit_id": "kits/standards-bridge",
+    "payload": {
+      "circt_verilog_equivalence_summary": {
+        "composed_10input_mismatches": 0,
+        "composed_10input_vectors": 1024,
+        "iverilog_rtl_sim_64vec_passed": true,
+        "lut6_exhaustive_vectors": 64,
+        "lut6_mismatches": 0,
+        "yosys_lut6_synth_passed": null,
+        "yosys_lut_cell_count": null
+      },
+      "energy_evidence_class": "reported_j",
+      "full_report": {
+        "energy_evidence_class": "reported_j",
+        "host": {
+          "cpu_model": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S",
+          "logical_cpus": 32,
+          "os_kernel": "Linux 7.0.0-43-generic x86_64",
+          "python_version": "3.15.0",
+          "ram_gib": 122.83,
+          "recorded_utc": "2026-11-28T09:05:40Z"
+        },
+        "kit_id": "kits/standards-bridge",
+        "license": "Apache-2.0",
+        "mode": "standard",
+        "modules": {
+          "circt_hw_lowering": {
+            "circt_dialects": [
+              "hw",
+              "comb"
+            ],
+            "circt_mlir_sha256": "ba0aff4c4c0be281c9ce75ae89627036e5fee50bbcf36c2708f0b5f6eeda4a73",
+            "hardware_eda_verification": {
+              "iverilog_rtl_sim_64vec_passed": true,
+              "yosys_lut6_synth_passed": null,
+              "yosys_lut_cell_count": null
+            },
+            "lut6_init_hex_masks": {
+              "commit_allow": "0x8000000000000000",
+              "gate_class_hi": "0x00ffffff00ffffff",
+              "gate_class_lo": "0x6996966996696996",
+              "hazard_trap": "0x2a00aa002a00aa00"
+            },
+            "lut_inputs_n": 6,
+            "lut_outputs_m": 4,
+            "module": "circt/emit_circt_hw.py",
+            "mutation_soundness_counterexample_caught": true,
+            "sample_counterexample_input_vec": 1,
+            "translation_validation": {
+              "bit_exact_proven": true,
+              "composed_10input_cone_vectors": 1024,
+              "composed_10input_mismatches": 0,
+              "first_counterexample": null,
+              "lut6_exhaustive_vectors": 64,
+              "lut6_mismatches": 0
+            },
+            "verilog_sha256": "88073499631198b11c6b1f71459a4b16310203e9f2a0099106c615534b9fc64e",
+            "verilog_standard": "IEEE 1364-2005"
+          },
+          "cose_flatbuf_bench": {
+            "codecs": {
+              "compact_wai1_64b_header_signed": {
+                "decode_verify_us_per_receipt": 56.018,
+                "ed25519_signature_bytes": 64,
+                "encode_us_per_receipt": 20.753,
+                "est_j": null,
+                "evidence_class": "reported_j",
+                "fixed_header_core_bytes": 64,
+                "measured_j": null,
+                "pkg_reported_j_total": 83.638726,
+                "pkg_reported_uj_per_receipt": 8363.873,
+                "receipts_benchmarked": 10000,
+                "roundtrip_mismatches": 0,
+                "roundtrip_us_per_receipt": 76.771,
+                "wire_bytes_per_receipt": 128.0
+              },
+              "cose_sign1_flatbuf_zerocopy": {
+                "decode_verify_us_per_receipt": 59.152,
+                "encode_us_per_receipt": 23.981,
+                "est_j": null,
+                "evidence_class": "reported_j",
+                "measured_j": null,
+                "pkg_reported_j_total": 87.467065,
+                "pkg_reported_uj_per_receipt": 8746.707,
+                "receipts_benchmarked": 10000,
+                "roundtrip_mismatches": 0,
+                "roundtrip_us_per_receipt": 83.134,
+                "wire_bytes_per_receipt": 161.0
+              },
+              "ietf_rfc9052_cose_sign1_cbor": {
+                "decode_verify_us_per_receipt": 60.209,
+                "encode_us_per_receipt": 25.98,
+                "est_j": null,
+                "evidence_class": "reported_j",
+                "measured_j": null,
+                "pkg_reported_j_total": 79.389281,
+                "pkg_reported_uj_per_receipt": 7938.928,
+                "receipts_benchmarked": 10000,
+                "roundtrip_mismatches": 0,
+                "roundtrip_us_per_receipt": 86.189,
+                "wire_bytes_per_receipt": 144.7
+              },
+              "utf8_json_signed": {
+                "decode_verify_us_per_receipt": 59.89,
+                "encode_us_per_receipt": 26.568,
+                "est_j": null,
+                "evidence_class": "reported_j",
+                "measured_j": null,
+                "pkg_reported_j_total": 79.253775,
+                "pkg_reported_uj_per_receipt": 7925.377,
+                "receipts_benchmarked": 10000,
+                "roundtrip_mismatches": 0,
+                "roundtrip_us_per_receipt": 86.458,
+                "wire_bytes_per_receipt": 371.6
+              }
+            },
+            "comparative_summary": {
+              "cose_cbor_size_reduction_vs_json_pct": 61.06,
+              "cose_flatbuf_size_reduction_vs_json_pct": 56.67,
+              "wai1_signed_size_reduction_vs_json_pct": 65.55
+            },
+            "ed25519_backend": "openssl_libcrypto_evp_ed25519",
+            "flatbuf_80b_framing_only_10k": {
+              "encode_plus_zerocopy_read_us_per_receipt": 0.6472,
+              "evidence_class": "reported_j",
+              "pkg_reported_j_total": 0.553469,
+              "receipts": 10000,
+              "table_bytes": 80
+            },
+            "module": "wire/cose_flatbuf_bench.py",
+            "rfc8032_pure_cross_verified": true,
+            "signed_receipts_evaluated": 10000,
+            "target_receipt_count": 10000
+          },
+          "otel_joule_span": {
+            "module": "otel/otel_joule_span.py",
+            "orthogonality_guard_cross_class_rejections_verified": 3,
+            "partitioned_rollup": {
+              "cross_class_sum_prohibited": true,
+              "est_j_span_count": 1,
+              "est_j_total": 0.000362,
+              "measured_j_span_count": 1,
+              "measured_j_total": 0.00391,
+              "reported_j_span_count": 1,
+              "reported_j_total": 0.01428,
+              "unmetered_span_count": 1
+            },
+            "sample_otlp_spans_exported": 4,
+            "semconv_file": "otel/semconv_openie_energy.yaml",
+            "semconv_sha256": "3732052aa2d9eb2a14dfba3a8583e02ccdb8744383db99432e8a9e169301b936",
+            "unit_tests_passed": 2,
+            "unit_tests_run": 2,
+            "validation_wall_us": 6895.76
+          },
+          "wasm_fuel_calibration": {
+            "architectural_finding": "Identical Wasm instruction fuel (1.000000x exact fuel parity) yields multi-x divergence in physical CPU/memory `reported_j` when striding 64 MiB linear memory vs L1 registers \u2014 confirming Wasm fuel is an ideal deterministic termination sandbox, not an energy meter.",
+            "loop_iterations_per_kernel": 10000000,
+            "module": "wasm/wasm_fuel_calibration.py",
+            "steady_state_in_process_wasm": {
+              "arena_mib": 64,
+              "dram_64mib_median_pkg_reported_j": 8.043687,
+              "dram_64mib_median_wall_ms": 84.127,
+              "engine": "node v22.22.1 WebAssembly.Instance",
+              "est_j": null,
+              "evidence_class": "reported_j",
+              "joule_ratio_dram_over_l1_at_equal_fuel": 9.802,
+              "l1_alu_median_pkg_reported_j": 0.820636,
+              "l1_alu_median_wall_ms": 8.239,
+              "measured_j": null,
+              "ops_per_call": 10000000,
+              "pre_touched_4kib_pages": 16384,
+              "reps_per_trial": 3,
+              "trials": 7,
+              "wall_time_ratio_dram_over_l1": 10.211
+            },
+            "wasm_binary_bytes": 350,
+            "wasm_compiler": "wat2wasm",
+            "wasmtime_deterministic_fuel_proof": {
+              "cli_dram_median_pkg_reported_j": 14.002923,
+              "cli_dram_median_wall_ms": 146.578,
+              "cli_joule_ratio_dram_over_l1": 10.36,
+              "cli_l1_median_pkg_reported_j": 1.351675,
+              "cli_l1_median_wall_ms": 12.859,
+              "cli_wall_ratio_dram_over_l1": 11.399,
+              "dram_64mib_exact_fuel": 330000004,
+              "dram_return_i32": -1499736464,
+              "engine": "wasmtime 50.0.1 (c307ec81d 2026-10-29)",
+              "evidence_class": "reported_j",
+              "fuel_ratio_dram_over_l1": 1.0,
+              "l1_alu_exact_fuel": 330000004,
+              "l1_return_i32": 872898825,
+              "trap_verified_at_fuel_minus_1": 330000003
+            },
+            "wat_source": "wasm/fuel_kernels.wat"
+          }
+        },
+        "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+        "schema": "openie.standards_bridge.results.v1",
+        "zero_bsl_dependencies": true
+      },
+      "mode": "standard",
+      "otel_summary": {
+        "orthogonality_guard_cross_class_rejections": 3,
+        "sample_otlp_spans_exported": 4,
+        "semconv_sha256": "3732052aa2d9eb2a14dfba3a8583e02ccdb8744383db99432e8a9e169301b936"
+      },
+      "results_blake3": "53e863de467ba4be3f2887be29690610f0c3a719bd8d3cbc0df616506fffe666",
+      "wasm_fuel_vs_joules_summary": {
+        "ops_per_kernel": 10000000,
+        "steady_state_dram_64mib_pkg_reported_j": 8.043687,
+        "steady_state_joule_ratio_dram_over_l1": 9.802,
+        "steady_state_l1_pkg_reported_j": 0.820636,
+        "steady_state_wall_ratio_dram_over_l1": 10.211,
+        "wasmtime_cli_joule_ratio_dram_over_l1": 10.36,
+        "wasmtime_exact_fuel_dram_64mib": 330000004,
+        "wasmtime_exact_fuel_l1_alu": 330000004,
+        "wasmtime_fuel_ratio": 1.0
+      },
+      "wire_10k_summary": {
+        "cose_sign1_cbor_bytes": 144.7,
+        "cose_sign1_cbor_roundtrip_us": 86.189,
+        "cose_sign1_flatbuf_bytes": 161.0,
+        "cose_sign1_flatbuf_pkg_reported_uj": 8746.707,
+        "cose_sign1_flatbuf_roundtrip_us": 83.134,
+        "receipts_benchmarked": 10000,
+        "utf8_json_bytes": 371.6,
+        "utf8_json_pkg_reported_uj": 7925.377,
+        "utf8_json_roundtrip_us": 86.458,
+        "wai1_64b_header_signed_bytes": 128.0,
+        "wai1_64b_roundtrip_us": 76.771
+      }
+    },
+    "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+    "schema": "openie.signed_provenance_receipt.v1",
+    "self_attested_not_third_party_verified": true
+  },
+  "body_blake3": "6ee27b1de540199d9dce9c46b452f0b60faf7eb1f403319de01e9e97976fa5c0",
+  "ed25519_public_key_hex": "f0ce1c766c9c93fa61b127fa43ff8a6bf5e5a5e220ce83c345d8c7ea8b67ebf3",
+  "ed25519_signature_hex": "ee694edc433421a4c4a27133659ca9891b2324c2854bd41b46c32ee922c848a5c87ee1c8b6a70cd607245efd7d93674e47fc826148bcac60e938bdfc4b08fd0b"
+}

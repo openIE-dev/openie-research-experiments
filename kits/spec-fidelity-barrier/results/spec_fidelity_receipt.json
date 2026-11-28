@@ -1,0 +1,389 @@
+{
+  "body": {
+    "domain_context": "openie.kit.spec_fidelity_barrier.receipt.v1",
+    "issued_utc": "2026-11-28T09:05:04Z",
+    "kit_id": "kits/spec-fidelity-barrier",
+    "payload": {
+      "arm_a_candidate_false_accept": {
+        "ci95_one_sided_hi": 0.999744,
+        "ci95_two_sided_hi": 0.999873,
+        "ci95_two_sided_lo": 0.972458,
+        "k": 199,
+        "n": 200,
+        "point": 0.995
+      },
+      "arm_b_candidate_false_accept": {
+        "ci95_one_sided_hi": 0.781316,
+        "ci95_two_sided_hi": 0.790197,
+        "ci95_two_sided_lo": 0.662847,
+        "k": 146,
+        "n": 200,
+        "point": 0.73
+      },
+      "arm_c_candidate_false_accept": {
+        "ci95_one_sided_hi": 0.014867,
+        "ci95_two_sided_hi": 0.018275,
+        "ci95_two_sided_lo": 0.0,
+        "k": 0,
+        "n": 200,
+        "point": 0.0
+      },
+      "arm_c_vacuous_specs_refused": {
+        "arm_a_refused": "31/40",
+        "arm_b_refused": "40/40",
+        "arm_c_mutant_kill_rate": 1.0,
+        "status_code": "SPEC_VACUOUS_REFUSED"
+      },
+      "arm_d_1000_draws": {
+        "grammar_masked_pkg_reported_uj_per_draw_median": 1223.711,
+        "grammar_masked_syntax_rejects": 0,
+        "grammar_masked_wall_us_per_draw_median": 12.912,
+        "host_rapl_pkg_reported_j_saving_x": 45.221,
+        "host_wall_speedup_x": 44.187,
+        "semantic_false_accept_ci95": {
+          "ci95_one_sided_hi": 0.003738,
+          "ci95_two_sided_hi": 0.0046,
+          "ci95_two_sided_lo": 0.0,
+          "k": 0,
+          "n": 800,
+          "point": 0.0
+        },
+        "total_generated_tokens_reduction_pct": 98.47,
+        "unconstrained_pkg_reported_uj_per_draw_median": 55337.409,
+        "unconstrained_syntax_rejects": 985,
+        "unconstrained_wall_us_per_draw_median": 570.541,
+        "wasted_syntax_tokens_eliminated_pct": 100.0
+      },
+      "energy_evidence_class": "reported_j",
+      "full_report": {
+        "arm_d_grammar_and_energy": {
+          "comparative_gains": {
+            "evidence_class": "reported_j",
+            "host_rapl_pkg_reported_j_saving_x": 45.221,
+            "host_wall_speedup_x": 44.187,
+            "total_generated_tokens_reduction_pct": 98.47,
+            "wasted_syntax_type_tokens_eliminated_pct": 100.0
+          },
+          "grammar_masked_plus_mutant_gate": {
+            "core_reported_uj_per_draw_iqr": {
+              "iqr": 51.311,
+              "max": 128.722,
+              "median": 83.099,
+              "min": 0.948,
+              "n": 15,
+              "p25": 63.465,
+              "p75": 114.775
+            },
+            "draws": 1000,
+            "est_j": null,
+            "evidence_class": "reported_j",
+            "measured_j": null,
+            "pkg_reported_uj_per_draw_iqr": {
+              "iqr": 340.663,
+              "max": 2240.718,
+              "median": 1223.711,
+              "min": 703.718,
+              "n": 15,
+              "p25": 1009.174,
+              "p75": 1349.837
+            },
+            "retry_attempts_for_well_typed": 1000,
+            "semantic_commits": 200,
+            "semantic_false_accept_ci95": {
+              "ci95_one_sided_hi": 0.003738,
+              "ci95_two_sided_hi": 0.0046,
+              "ci95_two_sided_lo": 0.0,
+              "k": 0,
+              "n": 800,
+              "point": 0.0
+            },
+            "semantic_false_accepts": 0,
+            "single_draw_syntax_reject_rate": 0.0,
+            "single_draw_syntax_type_rejects": 0,
+            "single_draw_wasted_tokens": 0,
+            "syntax_reject_ci95": {
+              "ci95_one_sided_hi": 0.002991,
+              "ci95_two_sided_hi": 0.003682,
+              "ci95_two_sided_lo": 0.0,
+              "k": 0,
+              "n": 1000,
+              "point": 0.0
+            },
+            "total_tokens_generated": 4576,
+            "wall_us_per_draw_iqr": {
+              "iqr": 0.35,
+              "max": 14.056,
+              "median": 12.912,
+              "min": 12.403,
+              "n": 15,
+              "p25": 12.714,
+              "p75": 13.064
+            },
+            "wasted_syntax_type_tokens": 0
+          },
+          "label": "Arm D \u2014 In-Loop Earley/Pushdown CFG+Type Token Mask + Arm C Mutant Commit Gate",
+          "reps_per_trial": 8,
+          "seeded_candidate_draws": 1000,
+          "trials": 15,
+          "unconstrained_posthoc_baseline": {
+            "core_reported_uj_per_draw_iqr": {
+              "iqr": 1165.879,
+              "max": 5316.763,
+              "median": 4159.649,
+              "min": 500.441,
+              "n": 15,
+              "p25": 3218.154,
+              "p75": 4384.033
+            },
+            "draws": 1000,
+            "est_j": null,
+            "evidence_class": "reported_j",
+            "measured_j": null,
+            "pkg_reported_uj_per_draw_iqr": {
+              "iqr": 20931.315,
+              "max": 83248.049,
+              "median": 55337.409,
+              "min": 35265.27,
+              "n": 15,
+              "p25": 50646.176,
+              "p75": 71577.491
+            },
+            "retry_attempts_for_well_typed": 20593,
+            "semantic_commits": 72,
+            "semantic_false_accepts": 0,
+            "single_draw_syntax_reject_rate": 0.985,
+            "single_draw_syntax_type_rejects": 985,
+            "single_draw_wasted_tokens": 14711,
+            "total_tokens_generated": 298865,
+            "wall_us_per_draw_iqr": {
+              "iqr": 29.287,
+              "max": 697.536,
+              "median": 570.541,
+              "min": 549.713,
+              "n": 15,
+              "p25": 563.888,
+              "p75": 593.175
+            },
+            "wasted_syntax_type_tokens": 298175
+          },
+          "vocabulary_size": 32
+        },
+        "arms_abc": {
+          "arms": {
+            "arm_a_shared_context_naive": {
+              "candidate_false_accept_ci95": {
+                "ci95_one_sided_hi": 0.999744,
+                "ci95_two_sided_hi": 0.999873,
+                "ci95_two_sided_lo": 0.972458,
+                "k": 199,
+                "n": 200,
+                "point": 0.995
+              },
+              "defective_candidates_falsely_accepted": 199,
+              "defective_candidates_total": 200,
+              "false_accepts_by_defect_class": {
+                "bug1_type_shape_stub": 40,
+                "bug2_shared_echo": 40,
+                "bug3_boundary_obo": 39,
+                "bug4_partial_invariant": 40,
+                "bug5_subtle_corner": 40
+              },
+              "label": "Arm A \u2014 Shared-Context Naive Spec (Goodhart Baseline)",
+              "task_false_accept_ci95": {
+                "ci95_one_sided_hi": 1.0,
+                "ci95_two_sided_hi": 1.0,
+                "ci95_two_sided_lo": 0.911903,
+                "k": 40,
+                "n": 40,
+                "point": 1.0
+              },
+              "tasks_admitting_any_buggy_impl": 40,
+              "tasks_evaluated": 40,
+              "true_accept_rate": 1.0,
+              "valid_candidates_accepted": 40,
+              "valid_candidates_total": 40
+            },
+            "arm_b_isolated_spec_only": {
+              "candidate_false_accept_ci95": {
+                "ci95_one_sided_hi": 0.781316,
+                "ci95_two_sided_hi": 0.790197,
+                "ci95_two_sided_lo": 0.662847,
+                "k": 146,
+                "n": 200,
+                "point": 0.73
+              },
+              "defective_candidates_falsely_accepted": 146,
+              "defective_candidates_total": 200,
+              "false_accepts_by_defect_class": {
+                "bug1_type_shape_stub": 22,
+                "bug2_shared_echo": 22,
+                "bug3_boundary_obo": 39,
+                "bug4_partial_invariant": 34,
+                "bug5_subtle_corner": 29
+              },
+              "label": "Arm B \u2014 Context-Isolated Partial Spec (`Spec \u22a5 Impl`, No Mutant Gate)",
+              "task_false_accept_ci95": {
+                "ci95_one_sided_hi": 1.0,
+                "ci95_two_sided_hi": 1.0,
+                "ci95_two_sided_lo": 0.911903,
+                "k": 40,
+                "n": 40,
+                "point": 1.0
+              },
+              "tasks_admitting_any_buggy_impl": 40,
+              "tasks_evaluated": 40,
+              "true_accept_rate": 1.0,
+              "valid_candidates_accepted": 40,
+              "valid_candidates_total": 40
+            },
+            "arm_c_mutant_vacuity_barrier": {
+              "candidate_false_accept_ci95": {
+                "ci95_one_sided_hi": 0.014867,
+                "ci95_two_sided_hi": 0.018275,
+                "ci95_two_sided_lo": 0.0,
+                "k": 0,
+                "n": 200,
+                "point": 0.0
+              },
+              "defective_candidates_falsely_accepted": 0,
+              "defective_candidates_total": 200,
+              "false_accepts_by_defect_class": {
+                "bug1_type_shape_stub": 0,
+                "bug2_shared_echo": 0,
+                "bug3_boundary_obo": 0,
+                "bug4_partial_invariant": 0,
+                "bug5_subtle_corner": 0
+              },
+              "label": "Arm C \u2014 `Spec \u22a5 Impl` + 100% AST Mutant/Vacuity Kill Gate",
+              "task_false_accept_ci95": {
+                "ci95_one_sided_hi": 0.072158,
+                "ci95_two_sided_hi": 0.088097,
+                "ci95_two_sided_lo": 0.0,
+                "k": 0,
+                "n": 40,
+                "point": 0.0
+              },
+              "tasks_admitting_any_buggy_impl": 0,
+              "tasks_evaluated": 40,
+              "true_accept_rate": 1.0,
+              "valid_candidates_accepted": 40,
+              "valid_candidates_total": 40
+            }
+          },
+          "domain_breakdown": {
+            "capability_acls": {
+              "arm_a_false_accepts": 35,
+              "arm_b_false_accepts": 16,
+              "arm_c_false_accepts": 0,
+              "tasks": 7
+            },
+            "interval_schedules": {
+              "arm_a_false_accepts": 30,
+              "arm_b_false_accepts": 25,
+              "arm_c_false_accepts": 0,
+              "tasks": 6
+            },
+            "parser_state_machines": {
+              "arm_a_false_accepts": 34,
+              "arm_b_false_accepts": 30,
+              "arm_c_false_accepts": 0,
+              "tasks": 7
+            },
+            "ring_buffers": {
+              "arm_a_false_accepts": 35,
+              "arm_b_false_accepts": 27,
+              "arm_c_false_accepts": 0,
+              "tasks": 7
+            },
+            "saturating_ledgers": {
+              "arm_a_false_accepts": 35,
+              "arm_b_false_accepts": 31,
+              "arm_c_false_accepts": 0,
+              "tasks": 7
+            },
+            "sorting_invariants": {
+              "arm_a_false_accepts": 30,
+              "arm_b_false_accepts": 17,
+              "arm_c_false_accepts": 0,
+              "tasks": 6
+            }
+          },
+          "mutant_vacuity_audit": {
+            "arm_a_mutant_kill_rate": 0.725,
+            "arm_a_specs_refused_status": "SPEC_VACUOUS_REFUSED",
+            "arm_a_tautological_specs_refused": 31,
+            "arm_b_mutant_kill_rate": 0.495,
+            "arm_b_partial_specs_refused": 40,
+            "arm_b_specs_refused_status": "SPEC_VACUOUS_REFUSED",
+            "arm_c_hardened_specs_admitted": 40,
+            "arm_c_mutant_kill_rate": 1.0,
+            "ast_mutants_per_task": 5,
+            "mutant_operators": [
+              "M1_zero_constant_stub",
+              "M2_boundary_off_by_one",
+              "M3_sign_or_bitop_flip",
+              "M4_branch_drop",
+              "M5_invariant_bypass"
+            ],
+            "total_ast_mutants_synthesized": 200
+          }
+        },
+        "energy_telemetry": {
+          "classes_mixed_or_summed": false,
+          "core_counter": "/sys/class/powercap/intel-rapl:0:0/energy_uj",
+          "core_domain": "core",
+          "est_j": null,
+          "evidence_class": "reported_j",
+          "idle_drift_pct": 11.41,
+          "idle_pkg_w_post": 79.7576,
+          "idle_pkg_w_pre": 71.1466,
+          "measured_j": null,
+          "package_counter": "/sys/class/powercap/intel-rapl:0/energy_uj",
+          "package_domain": "package-0",
+          "reported_j_available": true,
+          "substrate_id": "x86_rapl"
+        },
+        "host": {
+          "cc_version": "GCC 15.2.0",
+          "cpu_model": "AMD RYZEN AI MAX+ 395 w/ Radeon 8060S",
+          "logical_cpus": 32,
+          "os_kernel": "Linux 7.0.0-43-generic x86_64",
+          "python_version": "3.15.0",
+          "ram_gib": 122.83,
+          "recorded_utc": "2026-11-28T09:05:04Z"
+        },
+        "kit_id": "kits/spec-fidelity-barrier",
+        "license": "Apache-2.0",
+        "mode": "standard",
+        "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+        "schema": "openie.spec_fidelity_barrier.results.v1",
+        "suite_summary": {
+          "domains": [
+            "capability_acls",
+            "interval_schedules",
+            "parser_state_machines",
+            "ring_buffers",
+            "saturating_ledgers",
+            "sorting_invariants"
+          ],
+          "suite_precommitment_blake3": "8358defc4849b61dc90a436c9af835dcf5d16250a2148b931d966da09c565c63",
+          "total_tasks": 40,
+          "total_test_vectors": 1000,
+          "vectors_per_task": 25
+        }
+      },
+      "mode": "standard",
+      "results_blake3": "33334f911e161aa34c10d2316ad3473a9b32da7cdb2796aec5d28c7953c5c543",
+      "substrate_id": "x86_rapl",
+      "suite_precommitment_blake3": "8358defc4849b61dc90a436c9af835dcf5d16250a2148b931d966da09c565c63",
+      "total_ast_mutants": 200,
+      "total_tasks": 40
+    },
+    "provenance_tier": "Signed Provenance \u00b7 Self-Checked",
+    "schema": "openie.signed_provenance_receipt.v1",
+    "self_attested_not_third_party_verified": true
+  },
+  "body_blake3": "41514ee6147d636d6bcb27f4ee392e4c9c3ce4ffd2bce2fd88a1afd48e9d1e0a",
+  "ed25519_public_key_hex": "20a93cd956ca6642f7ea0ee122c593159678c9560d10b34d22bf762c0ed8bd21",
+  "ed25519_signature_hex": "0ae82bcda05e1d6ad0e62fce5af5d5856e7496b4f99ed6e9094471beb16a2621a036cdd98bdcd7c8aff96ec6d3499d0f2d88f9dc087af20ed674ecd3cafc340e"
+}

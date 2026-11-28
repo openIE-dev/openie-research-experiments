@@ -1,0 +1,238 @@
+{
+  "resourceSpans": [
+    {
+      "resource": {
+        "attributes": [
+          {
+            "key": "service.name",
+            "value": {
+              "stringValue": "openie-standards-bridge"
+            }
+          },
+          {
+            "key": "service.version",
+            "value": {
+              "stringValue": "1.0.0"
+            }
+          },
+          {
+            "key": "telemetry.sdk.language",
+            "value": {
+              "stringValue": "python"
+            }
+          },
+          {
+            "key": "openie.semconv.schema",
+            "value": {
+              "stringValue": "semconv_openie_energy.v1"
+            }
+          }
+        ]
+      },
+      "scopeSpans": [
+        {
+          "scope": {
+            "name": "openie.otel.joule_exporter",
+            "version": "1.0.0"
+          },
+          "spans": [
+            {
+              "attributes": [
+                {
+                  "key": "openie.energy.evidence_class",
+                  "value": {
+                    "stringValue": "measured_j"
+                  }
+                },
+                {
+                  "key": "openie.energy.measured_j",
+                  "value": {
+                    "doubleValue": 0.00391
+                  }
+                },
+                {
+                  "key": "openie.energy.sensor_domain",
+                  "value": {
+                    "stringValue": "INA3221:VDD_CPU_SOC_MSS"
+                  }
+                },
+                {
+                  "key": "openie.gate.blake3",
+                  "value": {
+                    "stringValue": "a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0"
+                  }
+                },
+                {
+                  "key": "openie.gate.verdict",
+                  "value": {
+                    "stringValue": "COMMIT"
+                  }
+                },
+                {
+                  "key": "openie.provenance.tier",
+                  "value": {
+                    "stringValue": "Signed Provenance \u00b7 Self-Checked"
+                  }
+                }
+              ],
+              "endTimeUnixNano": "1795852800000250000",
+              "kind": 1,
+              "name": "openie.gate.ina3221_shunt",
+              "parentSpanId": "",
+              "spanId": "1ff36c73f6309a1d",
+              "startTimeUnixNano": "1795852800000000000",
+              "status": {
+                "code": 1
+              },
+              "traceId": "4d7a16b933e55cdab298b21965486aeb"
+            },
+            {
+              "attributes": [
+                {
+                  "key": "openie.energy.evidence_class",
+                  "value": {
+                    "stringValue": "reported_j"
+                  }
+                },
+                {
+                  "key": "openie.energy.reported_j",
+                  "value": {
+                    "doubleValue": 0.01428
+                  }
+                },
+                {
+                  "key": "openie.energy.sensor_domain",
+                  "value": {
+                    "stringValue": "intel-rapl:0:package-0"
+                  }
+                },
+                {
+                  "key": "openie.gate.blake3",
+                  "value": {
+                    "stringValue": "a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0"
+                  }
+                },
+                {
+                  "key": "openie.gate.verdict",
+                  "value": {
+                    "stringValue": "COMMIT"
+                  }
+                },
+                {
+                  "key": "openie.provenance.tier",
+                  "value": {
+                    "stringValue": "Signed Provenance \u00b7 Self-Checked"
+                  }
+                }
+              ],
+              "endTimeUnixNano": "1795852800000250000",
+              "kind": 1,
+              "name": "openie.gate.linux_rapl_pkg",
+              "parentSpanId": "",
+              "spanId": "c8c46d03968fae30",
+              "startTimeUnixNano": "1795852800000000000",
+              "status": {
+                "code": 1
+              },
+              "traceId": "bed8e9d48248402c24536ac66fdd1767"
+            },
+            {
+              "attributes": [
+                {
+                  "key": "openie.energy.est_j",
+                  "value": {
+                    "doubleValue": 0.000362
+                  }
+                },
+                {
+                  "key": "openie.energy.evidence_class",
+                  "value": {
+                    "stringValue": "est_j"
+                  }
+                },
+                {
+                  "key": "openie.energy.sensor_domain",
+                  "value": {
+                    "stringValue": "amd_ds925_analytical"
+                  }
+                },
+                {
+                  "key": "openie.gate.blake3",
+                  "value": {
+                    "stringValue": "a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0"
+                  }
+                },
+                {
+                  "key": "openie.gate.verdict",
+                  "value": {
+                    "stringValue": "COMMIT"
+                  }
+                },
+                {
+                  "key": "openie.provenance.tier",
+                  "value": {
+                    "stringValue": "Signed Provenance \u00b7 Self-Checked"
+                  }
+                }
+              ],
+              "endTimeUnixNano": "1795852800000250000",
+              "kind": 1,
+              "name": "openie.gate.ds925_vcd_toggle",
+              "parentSpanId": "",
+              "spanId": "e05195d3141da69e",
+              "startTimeUnixNano": "1795852800000000000",
+              "status": {
+                "code": 1
+              },
+              "traceId": "e0c52feaf9042b75439970339532f865"
+            },
+            {
+              "attributes": [
+                {
+                  "key": "openie.energy.evidence_class",
+                  "value": {
+                    "stringValue": "unmetered"
+                  }
+                },
+                {
+                  "key": "openie.energy.sensor_domain",
+                  "value": {
+                    "stringValue": "unmetered"
+                  }
+                },
+                {
+                  "key": "openie.gate.blake3",
+                  "value": {
+                    "stringValue": "a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0"
+                  }
+                },
+                {
+                  "key": "openie.gate.verdict",
+                  "value": {
+                    "stringValue": "COMMIT"
+                  }
+                },
+                {
+                  "key": "openie.provenance.tier",
+                  "value": {
+                    "stringValue": "Signed Provenance \u00b7 Self-Checked"
+                  }
+                }
+              ],
+              "endTimeUnixNano": "1795852800000250000",
+              "kind": 1,
+              "name": "openie.gate.unprivileged_container",
+              "parentSpanId": "",
+              "spanId": "cdf2133b58bca057",
+              "startTimeUnixNano": "1795852800000000000",
+              "status": {
+                "code": 1
+              },
+              "traceId": "e1cfd70dc77b50c9d41df4aa0797e6ca"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

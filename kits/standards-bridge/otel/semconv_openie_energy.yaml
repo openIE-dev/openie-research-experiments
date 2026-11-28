@@ -1,0 +1,109 @@
+# SPDX-License-Identifier: Apache-2.0
+# OpenTelemetry Semantic Conventions (Weaver / SemConv v1.28+ schema) for
+# OpenIE Orthogonal Energy Telemetry (`measured_j ⊥ reported_j ⊥ est_j ⊥ unmetered`)
+# and Content-Addressed Commit Gates (`openie.gate.blake3`).
+
+groups:
+  - id: registry.openie.energy
+    type: attribute_group
+    display_name: OpenIE Orthogonal Energy Telemetry Attributes
+    brief: >
+      Strictly orthogonal energy evidence attributes for agentic, compiler, and hardware
+      execution spans. Attributes from distinct evidence classes MUST NEVER be summed,
+      averaged, or divided across classes (`measured_j ⊥ reported_j ⊥ est_j ⊥ unmetered`).
+    attributes:
+      - id: openie.energy.evidence_class
+        type:
+          members:
+            - id: measured_j
+              value: "measured_j"
+              brief: "Physical inline DC current shunt or calibrated external wall power analyzer (e.g. TI INA260, INA3221, INA238)."
+            - id: reported_j
+              value: "reported_j"
+              brief: "Operating-system or on-chip energy counter (e.g. Linux powercap RAPL, NVML, macOS IOReport)."
+            - id: est_j
+              value: "est_j"
+              brief: "Analytical datasheet, toggle-rate, or FLOP/token proxy model estimate."
+            - id: unmetered
+              value: "unmetered"
+              brief: "No readable hardware or OS energy counter; wall-clock time, CPU time, and byte counts only."
+        requirement_level: required
+        stability: development
+        brief: "Mutually exclusive epistemic class of the span's energy telemetry."
+
+      - id: openie.energy.measured_j
+        type: double
+        requirement_level:
+          conditionally_required: "Populated iff `openie.energy.evidence_class == 'measured_j'`; MUST be omitted/null otherwise."
+        stability: development
+        brief: "Physical board/rail shunt or inline meter energy in Joules (`J`)."
+        examples: [0.004812, 1.2941]
+
+      - id: openie.energy.reported_j
+        type: double
+        requirement_level:
+          conditionally_required: "Populated iff `openie.energy.evidence_class == 'reported_j'`; MUST be omitted/null otherwise."
+        stability: development
+        brief: "On-chip / OS telemetry counter energy in Joules (`J`), e.g., Linux `powercap/intel-rapl`."
+        examples: [0.01934, 0.4821]
+
+      - id: openie.energy.est_j
+        type: double
+        requirement_level:
+          conditionally_required: "Populated iff `openie.energy.evidence_class == 'est_j'`; MUST be omitted/null otherwise."
+        stability: development
+        brief: "Analytical / model-estimated energy in Joules (`J`). Never summed with `measured_j` or `reported_j`."
+        examples: [0.000362, 2.45]
+
+      - id: openie.energy.sensor_domain
+        type: string
+        requirement_level: recommended
+        stability: development
+        brief: "Named hardware rail or counter domain (e.g., `INA3221:VDD_CPU_SOC_MSS`, `intel-rapl:0:package-0`, `unmetered`)."
+        examples: ["INA3221:VDD_CPU_SOC_MSS", "INA260:SOM_5V_DC", "intel-rapl:0:package-0"]
+
+  - id: registry.openie.gate
+    type: attribute_group
+    display_name: OpenIE Deterministic Commit Gate & Provenance Attributes
+    brief: "Cryptographic digest and provenance tier for gated execution spans."
+    attributes:
+      - id: openie.gate.blake3
+        type: string
+        requirement_level: required
+        stability: development
+        brief: "64-hex-character lowercase BLAKE3 digest of the canonical gate specification or artifact."
+        examples: ["a541323b13653ed36515ff24ef08deb7dfa771e570a434712708fb72552f46f0"]
+
+      - id: openie.gate.verdict
+        type:
+          members:
+            - id: commit
+              value: "COMMIT"
+              brief: "Candidate satisfied deterministic gate specification."
+            - id: reject
+              value: "REJECT"
+              brief: "Candidate rejected by commit gate."
+            - id: spec_vacuous_refused
+              value: "SPEC_VACUOUS_REFUSED"
+              brief: "Specification itself refused by AST Mutant/Vacuity Barrier."
+        requirement_level: recommended
+        stability: development
+        brief: "Deterministic commit-gate verdict."
+
+      - id: openie.provenance.tier
+        type: string
+        requirement_level: required
+        stability: development
+        brief: "Must be `Signed Provenance · Self-Checked` for self-audited runs; bare `Verified` is prohibited."
+        examples: ["Signed Provenance · Self-Checked"]
+
+  - id: span.openie.gated_execution
+    type: span
+    span_kind: internal
+    stability: development
+    brief: "OpenTelemetry span recording a gated computation with orthogonal energy provenance."
+    extends: registry.openie.energy
+    attributes:
+      - ref: openie.gate.blake3
+      - ref: openie.gate.verdict
+      - ref: openie.provenance.tier
